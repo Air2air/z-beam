@@ -1,26 +1,20 @@
 id: uranium-oxide-contamination
 name: Depleted Uranium Oxide
 category: chemical-residue
-datePublished: '2025-12-27T21:04:26.173218Z'
-dateModified: '2025-12-27T21:04:26.173218Z'
-contentType: contaminants
-schemaVersion: 5.0.0
-fullPath: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Chemical Residue
-  href: /contaminants/chemical-residue
-- label: Hazardous
-  href: /contaminants/chemical-residue/hazardous
-- label: Depleted Uranium Oxide
-  href: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
-pageTitle: 'Depleted Uranium Oxide Removal: Laser Ablation Clean'
-metaDescription: 'Depleted Uranium Oxide: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
-  integrity. No chemicals, no media waste.'
-images: &id001
+datePublished: '2026-01-04T22:58:08.387102Z'
+dateModified: '2026-01-04T22:58:08.387102Z'
+content_type: contaminants
+schema_version: 5.0.0
+full_path: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
+page_title: 'Depleted Uranium Oxide Removal: Laser Ablation Clean'
+page_description: "Uranium-oxide contamination forms during exposure to oxidizing environments. Layer builds up on uranium\
+  \ surfaces and creates uneven patterns because of varying oxygen access. In observations, contamination exhibits patchy\
+  \ distribution so removal requires targeted laser application. \n\nAfter formation, material shows altered reflectivity\
+  \ and adhesion properties. Laser cleaning addresses this by ablating oxide layers yet faces challenges from heat buildup,\
+  \ which can cause substrate damage. So, controlled pulses prevent re-contamination during process. \n\nSurface behaves differently\
+  \ under irradiation; oxide resists initial vaporization because of its stable structure. Treatment achieves cleaner results\
+  \ on affected areas and restores uniformity. Results indicate that intermittent exposure minimizes risks in cleaning operations."
+images:
   hero:
     url: /images/contaminant/uranium-oxide-contamination-hero.jpg
     alt: Depleted Uranium Oxide laser cleaning visualization showing process effects
@@ -57,10 +51,104 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
+        icon: shield-check
+        order: 1
+        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Uranium Oxide (as U)
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 0.2
+        hazard_class: toxic
+      - compound: Uranium Dioxide (UO₂)
+        concentration_mg_m3: 0.3
+        exposure_limit_mg_m3: 0.2
+        hazard_class: toxic
+      - compound: Uranium Trioxide (UO₃)
+        concentration_mg_m3: 0.1
+        exposure_limit_mg_m3: 0.05
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser parameters must be carefully controlled to minimize aerosolization
+    - Surface may produce refractory particles that persist in work area
+    - Contaminated runoff and debris require radioactive waste protocols
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Uranium Oxide (as U)
+          concentration_mg_m3: 0.5
+          hazard_class: toxic
+        - compound: Uranium Dioxide (UO₂)
+          concentration_mg_m3: 0.3
+          hazard_class: toxic
+        - compound: Uranium Trioxide (UO₃)
+          concentration_mg_m3: 0.1
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Uranium Oxide (as U), Uranium Dioxide (UO₂), Uranium Trioxide (UO₃)
+          - requires enhanced protection'
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
+  interactions:
+    produces_compounds:
+      presentation: card
+      items: []
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -95,336 +183,235 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
         icon: box
-        order: 1
+        order: 2
         variant: default
-    produces_compounds:
-      presentation: card
-      items: []
-      _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+      - appearance_on_categories:
+          ceramic:
+            appearance: Contamination presents as a dull, discolored layer in yellow, brown, or gray shades on ceramic, often
+              with a powdery or adhered texture.
+            coverage: Coverage is usually partial and irregular, with higher levels in cracks, pores, or where the surface
+              is rough.
+            pattern: It appears as spots, streaks, or diffuse patches, frequently adhering to glazed or unglazed areas unevenly.
+          composite:
+            appearance: On composites, it appears as a discolored, powdery residue in brown or gray hues, blending with or
+              contrasting the material's layered structure.
+            coverage: Coverage is patchy and variable, influenced by the composite's porosity and the distribution of reinforcing
+              materials.
+            pattern: It forms irregular spots or patches, often following fiber orientations or embedding in matrix weaknesses.
+          concrete:
+            appearance: It appears as a dusty, discolored layer in yellowish-brown or gray on concrete, giving a stained or
+              weathered look to the surface.
+            coverage: Coverage is generally uneven, with dense accumulation in cracks, pores, and rough areas, and lighter
+              coverage on smooth surfaces.
+            pattern: Contamination forms irregular spots, streaks, or diffuse patches, enhanced by the concrete's rough texture
+              and porosity.
+          fabric:
+            appearance: On fabric, it shows as discolored, powdery stains in yellow, brown, or gray tones, altering the weave
+              appearance and feel.
+            coverage: Coverage is typically patchy and uneven, with higher concentrations in porous or soiled sections of
+              the material.
+            pattern: Distribution is often blotchy or streaky, following fabric folds, fibers, or areas of moisture absorption.
+          glass:
+            appearance: On glass, depleted uranium oxide appears as a faint, hazy film or fine particulate layer in yellowish
+              or brownish tones, reducing transparency.
+            coverage: Coverage is often light and even, but can vary to patchy in areas with imperfections or contamination
+              sources.
+            pattern: It typically forms a uniform or slightly streaky coating, sometimes with concentrated spots where dust
+              or moisture is present.
+          metal:
+            appearance: Depleted uranium oxide contamination appears as a dull, yellowish-brown to black powdery or crusty
+              coating on metal surfaces, often with a matte finish.
+            coverage: Coverage is usually partial and uneven, ranging from sparse spots to dense patches depending on exposure
+              and surface conditions.
+            pattern: It typically forms irregular spots, streaks, or patches, concentrating in crevices, welds, or areas of
+              corrosion.
+          mineral:
+            appearance: On minerals, depleted uranium oxide presents as a powdery or crusty coating in yellow, brown, or orange
+              hues, often contrasting with the native mineral color.
+            coverage: Coverage is variable and localized, ranging from sparse specks to extensive coatings depending on mineral
+              type and exposure.
+            pattern: It typically appears as spots, veins, or patches, following crystal structures or fractures in the mineral.
+          plastic:
+            appearance: It shows as a dusty or smeared film in yellowish-brown colors on plastic, potentially causing slight
+              discoloration or a matte finish.
+            coverage: Coverage is generally sparse and uneven, varying with surface smoothness and exposure to contaminants.
+            pattern: Distribution is often streaky or spotty, with accumulation in scratches, seams, or static-prone areas.
+          rubber:
+            appearance: Depleted uranium oxide contamination manifests as a stained, dusty coating in yellow to brown shades
+              on rubber, sometimes causing a tacky or rough texture.
+            coverage: Coverage is usually partial and non-uniform, with denser spots in flexible or abraded regions.
+            pattern: It typically appears as blotches or streaks, concentrating in grooves, seams, or areas with surface damage.
+          semiconductor:
+            appearance: Contamination shows as a fine, discolored film or particulate layer in yellowish tones on semiconductors,
+              potentially affecting surface reflectivity and cleanliness.
+            coverage: Coverage is typically minimal and even, but can be patchy in defects or unclean environments, impacting
+              device performance.
+            pattern: Distribution is often uniform or micro-spotted, concentrating on exposed areas, edges, or contamination-prone
+              sites during processing.
+          specialty:
+            appearance: On specialty materials, it appears as a varied discolored layer in yellow, brown, or gray, adapting
+              to the unique surface properties like coatings or composites.
+            coverage: Coverage is highly variable and material-dependent, ranging from sparse to dense based on exposure conditions
+              and surface characteristics.
+            pattern: It forms irregular patterns such as spots or streaks, influenced by the material's specific structure,
+              porosity, or treatment.
+          stone:
+            appearance: It shows as a powdery, discolored film in hues of yellow, brown, or orange on stone, giving a weathered
+              or stained look to the surface.
+            coverage: Coverage tends to be non-uniform, with denser accumulation in rough, porous areas and lighter coverage
+              on smooth surfaces.
+            pattern: Distribution is irregular, forming spots, streaks, or diffuse patches, often enhanced by the stone's
+              porosity and texture.
+          wood:
+            appearance: On wood, it manifests as a discolored, dusty or stained layer in shades of yellow, brown, or gray,
+              altering the natural grain and texture.
+            coverage: Coverage is generally patchy and variable, with higher concentrations in absorbent or damaged sections
+              of the wood.
+            pattern: Contamination often appears as blotchy patches or streaks, following the wood grain or accumulating in
+              porous areas.
       _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
         order: 1
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Contamination presents as a dull, discolored layer in yellow, brown, or gray shades on ceramic, often
-            with a powdery or adhered texture.
-          coverage: Coverage is usually partial and irregular, with higher levels in cracks, pores, or where the surface is
-            rough.
-          pattern: It appears as spots, streaks, or diffuse patches, frequently adhering to glazed or unglazed areas unevenly.
-        composite:
-          appearance: On composites, it appears as a discolored, powdery residue in brown or gray hues, blending with or contrasting
-            the material's layered structure.
-          coverage: Coverage is patchy and variable, influenced by the composite's porosity and the distribution of reinforcing
-            materials.
-          pattern: It forms irregular spots or patches, often following fiber orientations or embedding in matrix weaknesses.
-        concrete:
-          appearance: It appears as a dusty, discolored layer in yellowish-brown or gray on concrete, giving a stained or
-            weathered look to the surface.
-          coverage: Coverage is generally uneven, with dense accumulation in cracks, pores, and rough areas, and lighter coverage
-            on smooth surfaces.
-          pattern: Contamination forms irregular spots, streaks, or diffuse patches, enhanced by the concrete's rough texture
-            and porosity.
-        fabric:
-          appearance: On fabric, it shows as discolored, powdery stains in yellow, brown, or gray tones, altering the weave
-            appearance and feel.
-          coverage: Coverage is typically patchy and uneven, with higher concentrations in porous or soiled sections of the
-            material.
-          pattern: Distribution is often blotchy or streaky, following fabric folds, fibers, or areas of moisture absorption.
-        glass:
-          appearance: On glass, depleted uranium oxide appears as a faint, hazy film or fine particulate layer in yellowish
-            or brownish tones, reducing transparency.
-          coverage: Coverage is often light and even, but can vary to patchy in areas with imperfections or contamination
-            sources.
-          pattern: It typically forms a uniform or slightly streaky coating, sometimes with concentrated spots where dust
-            or moisture is present.
-        metal:
-          appearance: Depleted uranium oxide contamination appears as a dull, yellowish-brown to black powdery or crusty coating
-            on metal surfaces, often with a matte finish.
-          coverage: Coverage is usually partial and uneven, ranging from sparse spots to dense patches depending on exposure
-            and surface conditions.
-          pattern: It typically forms irregular spots, streaks, or patches, concentrating in crevices, welds, or areas of
-            corrosion.
-        mineral:
-          appearance: On minerals, depleted uranium oxide presents as a powdery or crusty coating in yellow, brown, or orange
-            hues, often contrasting with the native mineral color.
-          coverage: Coverage is variable and localized, ranging from sparse specks to extensive coatings depending on mineral
-            type and exposure.
-          pattern: It typically appears as spots, veins, or patches, following crystal structures or fractures in the mineral.
-        plastic:
-          appearance: It shows as a dusty or smeared film in yellowish-brown colors on plastic, potentially causing slight
-            discoloration or a matte finish.
-          coverage: Coverage is generally sparse and uneven, varying with surface smoothness and exposure to contaminants.
-          pattern: Distribution is often streaky or spotty, with accumulation in scratches, seams, or static-prone areas.
-        rubber:
-          appearance: Depleted uranium oxide contamination manifests as a stained, dusty coating in yellow to brown shades
-            on rubber, sometimes causing a tacky or rough texture.
-          coverage: Coverage is usually partial and non-uniform, with denser spots in flexible or abraded regions.
-          pattern: It typically appears as blotches or streaks, concentrating in grooves, seams, or areas with surface damage.
-        semiconductor:
-          appearance: Contamination shows as a fine, discolored film or particulate layer in yellowish tones on semiconductors,
-            potentially affecting surface reflectivity and cleanliness.
-          coverage: Coverage is typically minimal and even, but can be patchy in defects or unclean environments, impacting
-            device performance.
-          pattern: Distribution is often uniform or micro-spotted, concentrating on exposed areas, edges, or contamination-prone
-            sites during processing.
-        specialty:
-          appearance: On specialty materials, it appears as a varied discolored layer in yellow, brown, or gray, adapting
-            to the unique surface properties like coatings or composites.
-          coverage: Coverage is highly variable and material-dependent, ranging from sparse to dense based on exposure conditions
-            and surface characteristics.
-          pattern: It forms irregular patterns such as spots or streaks, influenced by the material's specific structure,
-            porosity, or treatment.
-        stone:
-          appearance: It shows as a powdery, discolored film in hues of yellow, brown, or orange on stone, giving a weathered
-            or stained look to the surface.
-          coverage: Coverage tends to be non-uniform, with denser accumulation in rough, porous areas and lighter coverage
-            on smooth surfaces.
-          pattern: Distribution is irregular, forming spots, streaks, or diffuse patches, often enhanced by the stone's porosity
-            and texture.
-        wood:
-          appearance: On wood, it manifests as a discolored, dusty or stained layer in shades of yellow, brown, or gray, altering
-            the natural grain and texture.
-          coverage: Coverage is generally patchy and variable, with higher concentrations in absorbent or damaged sections
-            of the wood.
-          pattern: Contamination often appears as blotchy patches or streaks, following the wood grain or accumulating in
-            porous areas.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.4
-          min_j_cm2: 0.8
-          recommended_j_cm2: 1.1
-        overlap_percentage: 50
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 100
-          min_ns: 10
-          recommended_ns: 30
-        repetition_rate_khz:
-          max: 100
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.2
-          min: 0.05
-          recommended: 0.1
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 8500
-          wavelength_355nm: 185000
-          wavelength_532nm: 42000
-        reflectivity:
-          wavelength_1064nm: 0.15
-          wavelength_355nm: 0.03
-          wavelength_532nm: 0.08
-        refractive_index:
-          imaginary_part: 0.42
-          real_part: 2.35
-        transmission_depth: 1.18
-      removal_characteristics:
-        byproducts:
-        - compound: UO2 nanoparticles
-          hazard_level: high
-          phase: solid
-        - compound: UO3
-          hazard_level: high
-          phase: solid
-        - compound: O2
-          hazard_level: moderate
-          phase: gas
-        - compound: UO vapor
-          hazard_level: high
-          phase: gas
-        damage_risk_to_substrate: medium
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 120
-          typical_scan_speed_mm_s: 200
-        removal_efficiency:
-          diminishing_returns_after: 5
-          optimal_passes: 3
-          single_pass: 0.85
-        secondary_mechanisms:
-        - photochemical
-        - mechanical_spallation
-        surface_quality_after_removal:
-          color_change: 'yes'
-          residual_stress: compressive
-          roughness_increase: moderate
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Uranium Oxide (as U)
-          concentration_mg_m3: 0.5
-          exposure_limit_mg_m3: 0.2
-          hazard_class: toxic
-        - compound: Uranium Dioxide (UO₂)
-          concentration_mg_m3: 0.3
-          exposure_limit_mg_m3: 0.2
-          hazard_class: toxic
-        - compound: Uranium Trioxide (UO₃)
-          concentration_mg_m3: 0.1
-          exposure_limit_mg_m3: 0.05
-          hazard_class: toxic
-        particulate_generation:
-          respirable_fraction: 0.8
-          size_range_um:
-          - 0.1
-          - 10.0
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: PAPR
-          skin_protection: full_suit
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Laser parameters must be carefully controlled to minimize aerosolization
-        - Surface may produce refractory particles that persist in work area
-        - Contaminated runoff and debris require radioactive waste protocols
-        toxic_gas_risk:
-          severity: low
-          primary_hazards:
-          - compound: Uranium Oxide (as U)
-            concentration_mg_m3: 0.5
-            hazard_class: toxic
-          - compound: Uranium Dioxide (UO₂)
-            concentration_mg_m3: 0.3
-            hazard_class: toxic
-          - compound: Uranium Trioxide (UO₃)
-            concentration_mg_m3: 0.1
-            hazard_class: toxic
-          description: 'Multiple toxic compounds detected: Uranium Oxide (as U), Uranium Dioxide (UO₂), Uranium Trioxide (UO₃)
-            - requires enhanced protection'
-          mitigation: N95 or P100 respirator for particulate control, standard ventilation
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA
-          minimum_air_changes_per_hour: 12
-          rationale: Standard industrial ventilation (12 ACH) for particulate control
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 4.1
-          pulse_duration_10ns: 3.2
-          wavelength_1064nm: 2.8
-        decomposition_temperature: 650
-        heat_affected_zone_depth: 18
-        melting_point: 3140
-        specific_heat: 235
-        thermal_conductivity: 2.5
-        thermal_diffusivity: 0.45
-        vaporization_temperature: 4130
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Uncontrolled Environments
-  category: chemical-residue
-  subcategory: hazardous
-  images: *id001
+  operational:
+    laser_properties:
+      presentation: descriptive
+      items:
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.4
+            min_j_cm2: 0.8
+            recommended_j_cm2: 1.1
+          overlap_percentage: 50
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 100
+            min_ns: 10
+            recommended_ns: 30
+          repetition_rate_khz:
+            max: 100
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.2
+            min: 0.05
+            recommended: 0.1
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 8500
+            wavelength_355nm: 185000
+            wavelength_532nm: 42000
+          reflectivity:
+            wavelength_1064nm: 0.15
+            wavelength_355nm: 0.03
+            wavelength_532nm: 0.08
+          refractive_index:
+            imaginary_part: 0.42
+            real_part: 2.35
+          transmission_depth: 1.18
+        removal_characteristics:
+          byproducts:
+          - compound: UO2 nanoparticles
+            hazard_level: high
+            phase: solid
+          - compound: UO3
+            hazard_level: high
+            phase: solid
+          - compound: O2
+            hazard_level: moderate
+            phase: gas
+          - compound: UO vapor
+            hazard_level: high
+            phase: gas
+          damage_risk_to_substrate: medium
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 120
+            typical_scan_speed_mm_s: 200
+          removal_efficiency:
+            diminishing_returns_after: 5
+            optimal_passes: 3
+            single_pass: 0.85
+          secondary_mechanisms:
+          - photochemical
+          - mechanical_spallation
+          surface_quality_after_removal:
+            color_change: 'yes'
+            residual_stress: compressive
+            roughness_increase: moderate
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 4.1
+            pulse_duration_10ns: 3.2
+            wavelength_1064nm: 2.8
+          decomposition_temperature: 650
+          heat_affected_zone_depth: 18
+          melting_point: 3140
+          specific_heat: 235
+          thermal_conductivity: 2.5
+          thermal_diffusivity: 0.45
+          vaporization_temperature: 4130
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: hazardous
 composition:
 - U₃O₈
 - UO₂
-pageDescription: "Uranium-oxide contamination forms during exposure to oxidizing environments. Layer builds up on uranium\
-  \ surfaces and creates uneven patterns because of varying oxygen access. In observations, contamination exhibits patchy\
-  \ distribution so removal requires targeted laser application. \n\nAfter formation, material shows altered reflectivity\
-  \ and adhesion properties. Laser cleaning addresses this by ablating oxide layers yet faces challenges from heat buildup,\
-  \ which can cause substrate damage. So, controlled pulses prevent re-contamination during process. \n\nSurface behaves differently\
-  \ under irradiation; oxide resists initial vaporization because of its stable structure. Treatment achieves cleaner results\
-  \ on affected areas and restores uniformity. Results indicate that intermittent exposure minimizes risks in cleaning operations."
+prohibited_materials:
+- Uncontrolled Environments
+valid_materials:
+- concrete-laser-cleaning
+- steel-laser-cleaning
+slug: uranium-oxide-contamination
+lastModified: '2026-01-04T14:58:08.387138'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Depleted Uranium Oxide
+  href: ''
+title: Depleted Uranium Oxide
+metaDescription: 'Depleted Uranium Oxide: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
+  integrity. No chemicals, no media waste.'

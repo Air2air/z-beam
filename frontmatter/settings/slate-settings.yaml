@@ -1,24 +1,19 @@
 id: slate-settings
 name: Slate
-datePublished: '2025-12-27T21:06:08.609083Z'
-dateModified: '2025-12-27T21:06:08.609083Z'
-contentType: settings
-schemaVersion: 5.0.0
-fullPath: /settings/stone/metamorphic/slate-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stone
-  href: /settings/stone
-- label: Metamorphic
-  href: /settings/stone/metamorphic
-- label: Slate
-  href: /settings/stone/metamorphic/slate-settings
-pageTitle: 'Slate Settings: Laser Parameters'
-metaDescription: 'Slate: removes contamination removal. Industrial-grade parameters.
-  No substrate damage.'
+datePublished: '2026-01-04T22:55:13.952609Z'
+dateModified: '2026-01-04T22:55:13.952609Z'
+content_type: settings
+schema_version: 5.0.0
+full_path: /settings/stone/metamorphic/slate-settings
+page_title: 'Slate Settings: Laser Parameters'
+page_description: We've found that slate's layered structure demands careful attention right from the start during laser cleaning.
+  It can delaminate if heat builds up too quickly, so begin with lower power settings to prevent cracking along those natural
+  fissures. This makes slate different from more uniform stones—its metamorphic origins create a brittle yet durable surface
+  that absorbs laser energy well but conducts heat poorly. We typically adjust the scan speed to allow gentle passes, ensuring
+  contaminants lift without stressing the layers. In our experience, this approach restores heritage pieces beautifully, like
+  old roofing or monuments, while avoiding surface pitting. Keep overlap minimal to dodge uneven heating, and always test
+  on a small area first—slate's low porosity means residues cling tight, but multiple light passes clear them effectively
+  without weakening the stone's natural compressive strength.
 images:
   hero:
     url: /images/settings/slate-settings-hero.jpg
@@ -47,22 +42,23 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -74,31 +70,6 @@ card:
     severity: low
     icon: settings
 relationships:
-  technical:
-    works_on_materials:
-      presentation: card
-      items:
-      - id: slate-laser-cleaning
-        effectiveness: high
-      _section:
-        title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -109,51 +80,87 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 4
+        order: 1
+        variant: default
+  interactions:
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    works_on_materials:
+      presentation: card
+      items:
+      - id: slate-laser-cleaning
+        effectiveness: high
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
+        icon: box
+        order: 2
         variant: default
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - challenge: Thermal shock and microcracking
-          severity: critical
-          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-          impact: Natural stone contains microfissures that propagate under thermal
-            stress
-          solutions:
-          - Use pulse mode with 8-12 second cooling between passes
-          - Reduce power by 40-50% for weathered or damaged stone
-          - Preheat substrate if possible to reduce thermal gradients
-          - Granite more resistant than marble; sandstone most vulnerable
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Moisture-induced spalling
-          severity: high
-          threshold_temperature: Steam formation >100°C with trapped moisture
-          impact: Porous stone traps moisture that explosively converts to steam
-          solutions:
-          - Test moisture content before cleaning (>3% requires drying)
-          - Allow 48-72 hours drying after rain before laser cleaning
-          - Reduce power by 50% for damp stone
-          - Use pulse mode with extended cooling (15-20 seconds)
-          - Heritage stone requires especially gentle approach
-        contamination_challenges:
-        - id: biological-growth
-          type: challenge
+      - id: biological-growth
+        category: Contamination
+        challenge: Biological growth and deep staining
+        description: Organic matter penetrates porous structure, difficult removal
+        severity: high
+        solutions:
+        - Use multiple passes with low-to-medium fluence (1-3 J/cm²)
+        - May require biocide pre-treatment for deep penetration
+        - Monitor for surface erosion
+      - category: Thermal Management
+        challenge: Thermal shock and microcracking
+        description: Natural stone contains microfissures that propagate under thermal stress
+        severity: critical
+        solutions:
+        - Use pulse mode with 8-12 second cooling between passes
+        - Reduce power by 40-50% for weathered or damaged stone
+        - Preheat substrate if possible to reduce thermal gradients
+        - Granite more resistant than marble; sandstone most vulnerable
+        - Monitor for surface crazing; stop immediately if cracks appear
+        threshold: ΔT > 50-150°C rapid cooling (stone-dependent)
+      - category: Thermal Management
+        challenge: Moisture-induced spalling
+        description: Porous stone traps moisture that explosively converts to steam
+        severity: high
+        solutions:
+        - Test moisture content before cleaning (>3% requires drying)
+        - Allow 48-72 hours drying after rain before laser cleaning
+        - Reduce power by 50% for damp stone
+        - Use pulse mode with extended cooling (15-20 seconds)
+        - Heritage stone requires especially gentle approach
+        threshold: Steam formation >100°C with trapped moisture
+      options:
+        autoOpenFirst: true
+        sortBy: severity
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Typical difficulties and best practices when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
-category: stone
-subcategory: metamorphic
 machine_settings:
   powerRange:
-    description: Optimal average power for Slate surface cleaning without thermal
-      damage
+    description: Optimal average power for Slate surface cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -211,87 +218,79 @@ machine_settings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for Nd:YAG laser cleaning of stone materials like
-      slate to remove contaminants without thermal damage; starting at 200W for controlled
-      ablation. Max safe ~500W to avoid cracking. Source: Manufacturer specs from
-      IPG Photonics (e.g., YLR series for stone restoration) and academic paper by
-      S. J. H. Lee et al. (Opt. Lasers Eng., 2018).'
+    description: 'Typical range for Nd:YAG laser cleaning of stone materials like slate to remove contaminants without thermal
+      damage; starting at 200W for controlled ablation. Max safe ~500W to avoid cracking. Source: Manufacturer specs from
+      IPG Photonics (e.g., YLR series for stone restoration) and academic paper by S. J. H. Lee et al. (Opt. Lasers Eng.,
+      2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for 1064 nm cleaning of slate; slower (500-1000
-      mm/s) for heavy contamination like rust/moss, faster (2000-3000 mm/s) for light
-      dirt. Recommended 1500 mm/s for balanced efficiency and minimal heat input.
-      Source: Industry standards from Laser Cleaning Europe guidelines and equipment
-      manuals (e.g., Adapt Laser Systems).'
+    description: 'Effective speeds for 1064 nm cleaning of slate; slower (500-1000 mm/s) for heavy contamination like rust/moss,
+      faster (2000-3000 mm/s) for light dirt. Recommended 1500 mm/s for balanced efficiency and minimal heat input. Source:
+      Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime (5-100 ns) preferred for slate to ablate contaminants
-      via photothermal effects with low heat-affected zone; picosecond (ps) or femtosecond
-      (fs) for ultra-precise but costlier applications. 20 ns recommended to minimize
-      thermal diffusion in low-conductivity slate. Source: Laser physics research
-      by P. Psyllaki et al. (J. Cult. Herit., 2009).'
+    description: 'Nanosecond regime (5-100 ns) preferred for slate to ablate contaminants via photothermal effects with low
+      heat-affected zone; picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended
+      to minimize thermal diffusion in low-conductivity slate. Source: Laser physics research by P. Psyllaki et al. (J. Cult.
+      Herit., 2009).'
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates (50-100 kHz)
-      speed up process but risk heat accumulation on reflective slate surfaces. 50
-      kHz balances speed and safety for contamination removal. Trade-off: High freq
-      increases throughput but requires faster scan speeds. Source: Academic literature,
-      e.g., R. N. Raman et al. (Appl. Surf. Sci., 2017).'
+    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation
+      on reflective slate surfaces. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases
+      throughput but requires faster scan speeds. Source: Academic literature, e.g., R. N. Raman et al. (Appl. Surf. Sci.,
+      2017).'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe cleaning of slate at 1064 nm; damage threshold
-      ~2-3 J/cm² due to slate''s moderate absorption and low thermal conductivity
-      (~1-2 W/m·K). Recommended 1.5 J/cm² for contaminant ablation without substrate
-      etching. Source: Ablation threshold studies by A. Pouli et al. (Appl. Phys.
-      A, 2010).'
+    description: 'Fluence range for safe cleaning of slate at 1064 nm; damage threshold ~2-3 J/cm² due to slate''s moderate
+      absorption and low thermal conductivity (~1-2 W/m·K). Recommended 1.5 J/cm² for contaminant ablation without substrate
+      etching. Source: Ablation threshold studies by A. Pouli et al. (Appl. Phys. A, 2010).'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter 100-500 μm; smaller (100-200 μm) for fine surface
-      preparation on slate, larger (300-500 μm) for broad area cleaning. 200 μm recommended
-      for uniform contaminant removal on textured slate surfaces. Source: Equipment
+    description: 'Beam diameter 100-500 μm; smaller (100-200 μm) for fine surface preparation on slate, larger (300-500 μm)
+      for broad area cleaning. 200 μm recommended for uniform contaminant removal on textured slate surfaces. Source: Equipment
       specifications from Coherent Inc. (Arma series) and industry case studies.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy
-      layers; 2 passes recommended for complete removal on slate without over-ablation,
-      allowing cooling between passes. Source: Industry practice from stone restoration
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
+      removal on slate without over-ablation, allowing cooling between passes. Source: Industry practice from stone restoration
       case studies (e.g., European Laser Cleaning Association reports, 2021).'
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: '30-80% overlap ensures uniform coverage; 60% recommended for slate
-      to avoid striping while preventing excessive heat buildup on low-reflectivity
-      contaminants. Source: Process optimization studies by M. Autric et al. (Proc.
-      SPIE, 2015).'
-pageDescription: We've found that slate's layered structure demands careful attention
-  right from the start during laser cleaning. It can delaminate if heat builds up
-  too quickly, so begin with lower power settings to prevent cracking along those
-  natural fissures. This makes slate different from more uniform stones—its metamorphic
-  origins create a brittle yet durable surface that absorbs laser energy well but
-  conducts heat poorly. We typically adjust the scan speed to allow gentle passes,
-  ensuring contaminants lift without stressing the layers. In our experience, this
-  approach restores heritage pieces beautifully, like old roofing or monuments, while
-  avoiding surface pitting. Keep overlap minimal to dodge uneven heating, and always
-  test on a small area first—slate's low porosity means residues cling tight, but
-  multiple light passes clear them effectively without weakening the stone's natural
-  compressive strength.
+    description: '30-80% overlap ensures uniform coverage; 60% recommended for slate to avoid striping while preventing excessive
+      heat buildup on low-reflectivity contaminants. Source: Process optimization studies by M. Autric et al. (Proc. SPIE,
+      2015).'
+component_summary: These settings employ moderate 200 W power and 10 ns pulses at 1064 nm to delicately ablate surface contaminants
+  from slate, minimizing thermal damage to its brittle, layered structure.
+slug: slate-settings
+lastModified: '2026-01-04T14:55:13.952642'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Slate
+  href: ''
+title: Slate
+metaDescription: Slate laser cleaning parameters optimized for contamination. Industrial-grade settings preserve substrate
+  integrity. Industrial-quality results.

@@ -1,30 +1,25 @@
 id: paint-residue-contamination
 name: Paint Residue / Coating Failure
 category: inorganic-coating
-datePublished: '2025-12-27T21:04:25.108898Z'
-dateModified: '2025-12-27T21:04:25.108898Z'
-contentType: contaminants
-schemaVersion: 5.0.0
-fullPath: /contaminants/inorganic-coating/paint/paint-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Inorganic Coating
-  href: /contaminants/inorganic-coating
-- label: Paint
-  href: /contaminants/inorganic-coating/paint
-- label: Paint Residue / Coating Failure
-  href: /contaminants/inorganic-coating/paint/paint-residue-contamination
-pageTitle: 'Paint Residue / Coating Failure Removal: Laser Ablation'
-metaDescription: 'Paint Residue / Coating Failure: 70-80% absorption at 1064nm. 2-3 passes for complete removal. Preserves
-  substrate integrity. No chemical waste.'
+datePublished: '2026-01-04T22:58:05.377950Z'
+dateModified: '2026-01-04T22:58:05.377950Z'
+content_type: contaminants
+schema_version: 5.0.0
+full_path: /contaminants/inorganic-coating/paint/paint-residue-contamination
+page_title: 'Paint Residue / Coating Failure Removal: Laser Ablation'
+page_description: "Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique\
+  \ irregular patterns, like patchy layers from uneven paint application and environmental weathering. Formation occurs through\
+  \ adhesion of pigments and binders, creating thick, non-uniform deposits that resist initial breakdown.\n\nRemoval challenges\
+  \ emerge in laser cleaning. Residue exhibits strong bonding to substrates, thus demands precise energy pulses to avoid substrate\
+  \ damage. On metallic materials, it shows thermal stability and charring tendency, complicating clean detachment. For polymeric\
+  \ surfaces, behavior differs; residue peels in flakes but leaves adhesive traces. Treatment applies laser ablation, and\
+  \ surface already exhibits reduced roughness, though traces still persist in crevices. Analysis confirms these patterns,\
+  \ so adjustment of parameters enhances efficiency. \n\nYi-Chun Lin, Ph.D., Taiwan"
 micro:
   after: Post-cleaning reveals restored surface with paint residue / coating failure successfully removed through precise
     laser ablation.
   before: Surface shows contamination from paint residue / coating failure affecting material appearance and properties.
-images: &id001
+images:
   hero:
     url: /images/contaminant/paint-residue-contamination-hero.jpg
     alt: Paint Residue / Coating Failure laser cleaning visualization showing process effects
@@ -52,9 +47,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -63,10 +55,127 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
+        icon: shield-check
+        order: 1
+        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 900-1800
+        exposure_limit_mg_m3: 9000
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 0.1-2.0
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Volatile Organic Compounds (VOCs)
+        concentration_mg_m3: 10-100
+        exposure_limit_mg_m3: 100
+        hazard_class: toxic
+      - compound: Hydrogen Cyanide
+        concentration_mg_m3: 0.5-5.0
+        exposure_limit_mg_m3: 5
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal stress may damage underlying material
+    - Potential for substrate surface ablation
+    - Reflective surfaces may redirect laser energy
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 5-50
+          hazard_class: toxic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 900-1800
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 0.1-2.0
+          hazard_class: carcinogenic
+        - compound: Volatile Organic Compounds (VOCs)
+          concentration_mg_m3: 10-100
+          hazard_class: toxic
+        - compound: Hydrogen Cyanide
+          concentration_mg_m3: 0.5-5.0
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
+          protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: vocs-compound
+      - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -108,671 +217,569 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
         icon: box
+        order: 2
+        variant: default
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
+      items:
+      - appearance_on_categories:
+          ceramic:
+            appearance: Paint residue shows as flaking, cracking, or bubbling in various hues, leading to a rough, pitted
+              texture and a mottled, inconsistent finish.
+            coverage: Coverage is partial and irregular, ranging from isolated spots to larger sections, with variation due
+              to firing and use conditions.
+            pattern: It typically appears in patches, spots, or lines, often concentrated on glazed surfaces or at stress
+              points.
+          composite:
+            appearance: Paint residue appears as flaking, chipping, or bubbling in various colors, resulting in a rough, layered
+              texture and a patchy, inconsistent finish.
+            coverage: Coverage is typically partial and variable, with areas ranging from minor to significant, depending
+              on composite integrity and environmental factors.
+            pattern: It forms in irregular patches, spots, or streaks, often at material interfaces or weak bonding points.
+          concrete:
+            appearance: Coating failure appears as flaking, peeling, or bubbling in assorted colors, with a rough, crumbly
+              texture and a mottled, uneven finish.
+            coverage: Coverage is partial and variable, from minor spots to extensive sections, influenced by surface preparation
+              and environmental conditions.
+            pattern: It forms in patches, spots, or streaks, frequently at joints, cracks, or high-moisture areas.
+          fabric:
+            appearance: Paint residue manifests as stiff, flaking, or peeling areas in various colors, creating a rough, crusty
+              texture and a spotty, uneven finish.
+            coverage: Coverage is sparse and irregular, typically small to moderate areas, with variation due to fabric type
+              and wear.
+            pattern: Distribution is in patches, streaks, or spots, often following weave patterns or at folds and seams.
+          glass:
+            appearance: Coating failure appears as hazing, peeling, or chipping in translucent or colored layers, resulting
+              in a rough, uneven texture and a cloudy or speckled finish.
+            coverage: Coverage is usually minimal and uneven, with small to moderate areas affected, varying based on application
+              quality and environmental factors.
+            pattern: It forms in spots, streaks, or patches, often at edges or where adhesion is weak, sometimes in a web-like
+              pattern.
+          metal:
+            appearance: Paint residue appears as flaking, peeling, or bubbling layers in various colors, often with a rough
+              or uneven texture and a dull, matte finish.
+            coverage: Coverage is usually partial and uneven, ranging from small localized areas to larger sections, with
+              high variation depending on environmental exposure.
+            pattern: It typically forms in irregular patches, streaks, or spots, concentrated in areas of wear, impact, or
+              poor adhesion.
+          mineral:
+            appearance: Paint residue shows as flaking, chipping, or scaling in various hues, resulting in a rough, granular
+              texture and a blotchy, inconsistent finish.
+            coverage: Coverage is generally sparse and uneven, with localized areas affected, varying based on mineral hardness
+              and exposure.
+            pattern: It typically appears in patches, spots, or lines, often following mineral cleavage or surface irregularities.
+          plastic:
+            appearance: Coating failure manifests as peeling, cracking, or delamination in assorted colors, with a rough,
+              blistered texture and a dull, uneven finish.
+            coverage: Coverage is often localized and uneven, from small defects to extensive peeling, influenced by UV exposure
+              and mechanical stress.
+            pattern: Distribution is in patches, streaks, or spots, frequently at seams, bends, or high-flex areas.
+          rubber:
+            appearance: Coating failure shows as cracking, peeling, or flaking in assorted colors, with a rough, textured
+              surface and a dull, blotchy finish.
+            coverage: Coverage is usually uneven and limited, from small localized areas to larger patches, varying with flexibility
+              and exposure.
+            pattern: It appears in patches, lines, or spots, commonly at flex points, seams, or areas of abrasion.
+          semiconductor:
+            appearance: Coating failure manifests as delamination, peeling, or hazing in specific colors (e.g., from photoresists),
+              with a smooth to rough texture and a defective, non-uniform finish.
+            coverage: Coverage is minimal and highly variable, typically small localized areas, with critical impact on performance
+              depending on process control.
+            pattern: Distribution is in spots, streaks, or patches, often at edges, interfaces, or defect sites, potentially
+              in precise patterns from processing.
+          specialty:
+            appearance: Paint residue appears as flaking, peeling, or bubbling in assorted colors, with a texture and finish
+              specific to the material (e.g., smooth for polymers, rough for advanced composites).
+            coverage: Coverage is variable and material-dependent, ranging from isolated to widespread, influenced by specialized
+              use and environmental factors.
+            pattern: It forms in patches, spots, or streaks, tailored to the material's properties, such as at joints or high-stress
+              zones.
+          stone:
+            appearance: Paint residue manifests as peeling or flaking layers in assorted colors, creating a rough, scaly texture
+              and a blotchy, uneven finish on the surface.
+            coverage: Coverage is generally sparse and variable, often localized to applied areas, with differences due to
+              porosity and exposure.
+            pattern: Distribution is irregular, with spots, streaks, or patches that may follow natural fissures or edges
+              of the stone.
+          wood:
+            appearance: Coating failure shows as cracking, chipping, or alligatoring in colors matching the original paint,
+              with a rough, splintered texture and loss of gloss.
+            coverage: Coverage is typically patchy and incomplete, varying from minor spots to extensive areas, influenced
+              by moisture and weathering.
+            pattern: It often appears in patches, lines following the wood grain, or random spots, especially at joints or
+              edges.
+        color_range:
+        - varies by paint color
+        texture: flaking, peeling, cracked
+        thickness: thin chips to thick layers
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
         order: 1
         variant: default
-    produces_compounds:
-      presentation: card
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: vocs-compound
-      - id: carbon-ash-compound
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.3
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 200
+            min_ns: 10
+            recommended_ns: 50
+          repetition_rate_khz:
+            max: 200
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.2
+            min: 0.05
+            recommended: 0.1
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 800
+            wavelength_355nm: 12000
+            wavelength_532nm: 3500
+          reflectivity:
+            wavelength_1064nm: 0.15
+            wavelength_355nm: 0.04
+            wavelength_532nm: 0.08
+          refractive_index:
+            imaginary_part: 0.025
+            real_part: 1.55
+          transmission_depth: 12.5
+        removal_characteristics:
+          byproducts:
+          - compound: carbon-dioxide
+            hazard_level: low
+            phase: gas
+          - compound: water-vapor
+            hazard_level: low
+            phase: gas
+          - compound: vocs
+            hazard_level: moderate
+            phase: gas
+          - compound: carbon-ash
+            hazard_level: moderate
+            phase: solid
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 480
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.85
+          secondary_mechanisms:
+          - photochemical
+          - mechanical_spallation
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: compressive
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 0.9
+            pulse_duration_10ns: 1.2
+            wavelength_1064nm: 1.8
+          decomposition_temperature: 400
+          heat_affected_zone_depth: 15
+          melting_point: N/A
+          specific_heat: 1500
+          thermal_conductivity: 0.2
+          thermal_diffusivity: 0.08
+          vaporization_temperature: 250
       _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
         order: 1
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Paint residue shows as flaking, cracking, or bubbling in various hues, leading to a rough, pitted texture
-            and a mottled, inconsistent finish.
-          coverage: Coverage is partial and irregular, ranging from isolated spots to larger sections, with variation due
-            to firing and use conditions.
-          pattern: It typically appears in patches, spots, or lines, often concentrated on glazed surfaces or at stress points.
-        composite:
-          appearance: Paint residue appears as flaking, chipping, or bubbling in various colors, resulting in a rough, layered
-            texture and a patchy, inconsistent finish.
-          coverage: Coverage is typically partial and variable, with areas ranging from minor to significant, depending on
-            composite integrity and environmental factors.
-          pattern: It forms in irregular patches, spots, or streaks, often at material interfaces or weak bonding points.
-        concrete:
-          appearance: Coating failure appears as flaking, peeling, or bubbling in assorted colors, with a rough, crumbly texture
-            and a mottled, uneven finish.
-          coverage: Coverage is partial and variable, from minor spots to extensive sections, influenced by surface preparation
-            and environmental conditions.
-          pattern: It forms in patches, spots, or streaks, frequently at joints, cracks, or high-moisture areas.
-        fabric:
-          appearance: Paint residue manifests as stiff, flaking, or peeling areas in various colors, creating a rough, crusty
-            texture and a spotty, uneven finish.
-          coverage: Coverage is sparse and irregular, typically small to moderate areas, with variation due to fabric type
-            and wear.
-          pattern: Distribution is in patches, streaks, or spots, often following weave patterns or at folds and seams.
-        glass:
-          appearance: Coating failure appears as hazing, peeling, or chipping in translucent or colored layers, resulting
-            in a rough, uneven texture and a cloudy or speckled finish.
-          coverage: Coverage is usually minimal and uneven, with small to moderate areas affected, varying based on application
-            quality and environmental factors.
-          pattern: It forms in spots, streaks, or patches, often at edges or where adhesion is weak, sometimes in a web-like
-            pattern.
-        metal:
-          appearance: Paint residue appears as flaking, peeling, or bubbling layers in various colors, often with a rough
-            or uneven texture and a dull, matte finish.
-          coverage: Coverage is usually partial and uneven, ranging from small localized areas to larger sections, with high
-            variation depending on environmental exposure.
-          pattern: It typically forms in irregular patches, streaks, or spots, concentrated in areas of wear, impact, or poor
-            adhesion.
-        mineral:
-          appearance: Paint residue shows as flaking, chipping, or scaling in various hues, resulting in a rough, granular
-            texture and a blotchy, inconsistent finish.
-          coverage: Coverage is generally sparse and uneven, with localized areas affected, varying based on mineral hardness
-            and exposure.
-          pattern: It typically appears in patches, spots, or lines, often following mineral cleavage or surface irregularities.
-        plastic:
-          appearance: Coating failure manifests as peeling, cracking, or delamination in assorted colors, with a rough, blistered
-            texture and a dull, uneven finish.
-          coverage: Coverage is often localized and uneven, from small defects to extensive peeling, influenced by UV exposure
-            and mechanical stress.
-          pattern: Distribution is in patches, streaks, or spots, frequently at seams, bends, or high-flex areas.
-        rubber:
-          appearance: Coating failure shows as cracking, peeling, or flaking in assorted colors, with a rough, textured surface
-            and a dull, blotchy finish.
-          coverage: Coverage is usually uneven and limited, from small localized areas to larger patches, varying with flexibility
-            and exposure.
-          pattern: It appears in patches, lines, or spots, commonly at flex points, seams, or areas of abrasion.
-        semiconductor:
-          appearance: Coating failure manifests as delamination, peeling, or hazing in specific colors (e.g., from photoresists),
-            with a smooth to rough texture and a defective, non-uniform finish.
-          coverage: Coverage is minimal and highly variable, typically small localized areas, with critical impact on performance
-            depending on process control.
-          pattern: Distribution is in spots, streaks, or patches, often at edges, interfaces, or defect sites, potentially
-            in precise patterns from processing.
-        specialty:
-          appearance: Paint residue appears as flaking, peeling, or bubbling in assorted colors, with a texture and finish
-            specific to the material (e.g., smooth for polymers, rough for advanced composites).
-          coverage: Coverage is variable and material-dependent, ranging from isolated to widespread, influenced by specialized
-            use and environmental factors.
-          pattern: It forms in patches, spots, or streaks, tailored to the material's properties, such as at joints or high-stress
-            zones.
-        stone:
-          appearance: Paint residue manifests as peeling or flaking layers in assorted colors, creating a rough, scaly texture
-            and a blotchy, uneven finish on the surface.
-          coverage: Coverage is generally sparse and variable, often localized to applied areas, with differences due to porosity
-            and exposure.
-          pattern: Distribution is irregular, with spots, streaks, or patches that may follow natural fissures or edges of
-            the stone.
-        wood:
-          appearance: Coating failure shows as cracking, chipping, or alligatoring in colors matching the original paint,
-            with a rough, splintered texture and loss of gloss.
-          coverage: Coverage is typically patchy and incomplete, varying from minor spots to extensive areas, influenced by
-            moisture and weathering.
-          pattern: It often appears in patches, lines following the wood grain, or random spots, especially at joints or edges.
-      color_range:
-      - varies by paint color
-      texture: flaking, peeling, cracked
-      thickness: thin chips to thick layers
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.3
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 200
-          min_ns: 10
-          recommended_ns: 50
-        repetition_rate_khz:
-          max: 200
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.2
-          min: 0.05
-          recommended: 0.1
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 800
-          wavelength_355nm: 12000
-          wavelength_532nm: 3500
-        reflectivity:
-          wavelength_1064nm: 0.15
-          wavelength_355nm: 0.04
-          wavelength_532nm: 0.08
-        refractive_index:
-          imaginary_part: 0.025
-          real_part: 1.55
-        transmission_depth: 12.5
-      removal_characteristics:
-        byproducts:
-        - compound: carbon-dioxide
-          hazard_level: low
-          phase: gas
-        - compound: water-vapor
-          hazard_level: low
-          phase: gas
-        - compound: vocs
-          hazard_level: moderate
-          phase: gas
-        - compound: carbon-ash
-          hazard_level: moderate
-          phase: solid
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 480
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 3
-          optimal_passes: 2
-          single_pass: 0.85
-        secondary_mechanisms:
-        - photochemical
-        - mechanical_spallation
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: compressive
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Carbon Monoxide
-          concentration_mg_m3: 5-50
-          exposure_limit_mg_m3: 29
-          hazard_class: toxic
-        - compound: Carbon Dioxide
-          concentration_mg_m3: 900-1800
-          exposure_limit_mg_m3: 9000
-          hazard_class: toxic
-        - compound: Formaldehyde
-          concentration_mg_m3: 0.1-2.0
-          exposure_limit_mg_m3: 0.37
-          hazard_class: carcinogenic
-        - compound: Volatile Organic Compounds (VOCs)
-          concentration_mg_m3: 10-100
-          exposure_limit_mg_m3: 100
-          hazard_class: toxic
-        - compound: Hydrogen Cyanide
-          concentration_mg_m3: 0.5-5.0
-          exposure_limit_mg_m3: 5
-          hazard_class: toxic
-        particulate_generation:
-          respirable_fraction: 0.7
-          size_range_um:
-          - 0.1
-          - 10.0
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: PAPR
-          skin_protection: gloves
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Thermal stress may damage underlying material
-        - Potential for substrate surface ablation
-        - Reflective surfaces may redirect laser energy
-        toxic_gas_risk:
-          severity: moderate
-          primary_hazards:
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 5-50
-            hazard_class: toxic
-          - compound: Carbon Dioxide
-            concentration_mg_m3: 900-1800
-            hazard_class: toxic
-          - compound: Formaldehyde
-            concentration_mg_m3: 0.1-2.0
-            hazard_class: carcinogenic
-          - compound: Volatile Organic Compounds (VOCs)
-            concentration_mg_m3: 10-100
-            hazard_class: toxic
-          - compound: Hydrogen Cyanide
-            concentration_mg_m3: 0.5-5.0
-            hazard_class: toxic
-          description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
-            protection'
-          mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-            WARNING: Formaldehyde - known carcinogen(s), minimize exposure'
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: carbon
-          minimum_air_changes_per_hour: 10
-          rationale: Standard industrial ventilation (10 ACH) for particulate control
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 0.9
-          pulse_duration_10ns: 1.2
-          wavelength_1064nm: 1.8
-        decomposition_temperature: 400
-        heat_affected_zone_depth: 15
-        melting_point: N/A
-        specific_heat: 1500
-        thermal_conductivity: 0.2
-        thermal_diffusivity: 0.08
-        vaporization_temperature: 250
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
-  realism_notes: Paint residue implies previous coating. Consider underlying substrate characteristics.
-  formation_conditions:
-    presentation: card
-    _section:
-      title: Formation Conditions
-      description: Environmental and process conditions that create this contamination
-      icon: wind
-      order: 4
-      variant: default
-    items:
-    - poor_adhesion
-    - age
-    - weathering
-    - mechanical_damage
-  category: inorganic-coating
-  subcategory: paint
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: abs-laser-cleaning
-            title: Abs Laser Cleaning
-            url: /materials/general/misc/abs-laser-cleaning
-            image: /images/material/abs-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: acrylic-(pmma)-laser-cleaning
-            title: Acrylic (Pmma) Laser Cleaning
-            url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
-            image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: ptfe-laser-cleaning
-            title: Ptfe Laser Cleaning
-            url: /materials/general/misc/ptfe-laser-cleaning
-            image: /images/material/ptfe-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pvc-laser-cleaning
-            title: Pvc Laser Cleaning
-            url: /materials/general/misc/pvc-laser-cleaning
-            image: /images/material/pvc-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: chromium-laser-cleaning
-            title: Chromium
-            url: /materials/metal/specialty/chromium-laser-cleaning
-            image: /images/material/chromium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cobalt-laser-cleaning
-            title: Cobalt
-            url: /materials/metal/specialty/cobalt-laser-cleaning
-            image: /images/material/cobalt-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: lead-laser-cleaning
-            title: Lead
-            url: /materials/metal/non-ferrous/lead-laser-cleaning
-            image: /images/material/lead-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: nickel-laser-cleaning
-            title: Nickel
-            url: /materials/metal/specialty/nickel-laser-cleaning
-            image: /images/material/nickel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tin-laser-cleaning
-            title: Tin
-            url: /materials/metal/alloy/tin-laser-cleaning
-            image: /images/material/tin-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zinc-laser-cleaning
-            title: Zinc
-            url: /materials/metal/alloy/zinc-laser-cleaning
-            image: /images/material/zinc-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        woods:
-          title: Wood Products
-          description: Hardwood and softwood materials affected by this contamination
-          items:
-          - id: ash-laser-cleaning
-            title: Ash
-            url: /materials/wood/hardwood/ash-laser-cleaning
-            image: /images/material/ash-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bamboo-laser-cleaning
-            title: Bamboo
-            url: /materials/wood/hardwood/bamboo-laser-cleaning
-            image: /images/material/bamboo-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: birch-laser-cleaning
-            title: Birch
-            url: /materials/wood/hardwood/birch-laser-cleaning
-            image: /images/material/birch-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cedar-laser-cleaning
-            title: Cedar
-            url: /materials/wood/softwood/cedar-laser-cleaning
-            image: /images/material/cedar-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cherry-laser-cleaning
-            title: Cherry
-            url: /materials/wood/hardwood/cherry-laser-cleaning
-            image: /images/material/cherry-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: fir-laser-cleaning
-            title: Fir
-            url: /materials/wood/softwood/fir-laser-cleaning
-            image: /images/material/fir-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: mahogany-laser-cleaning
-            title: Mahogany
-            url: /materials/wood/hardwood/mahogany-laser-cleaning
-            image: /images/material/mahogany-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: maple-laser-cleaning
-            title: Maple
-            url: /materials/wood/hardwood/maple-laser-cleaning
-            image: /images/material/maple-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: oak-laser-cleaning
-            title: Oak
-            url: /materials/wood/hardwood/oak-laser-cleaning
-            image: /images/material/oak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pine-laser-cleaning
-            title: Pine
-            url: /materials/wood/softwood/pine-laser-cleaning
-            image: /images/material/pine-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: softwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: teak-laser-cleaning
-            title: Teak
-            url: /materials/wood/hardwood/teak-laser-cleaning
-            image: /images/material/teak-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: walnut-laser-cleaning
-            title: Walnut
-            url: /materials/wood/hardwood/walnut-laser-cleaning
-            image: /images/material/walnut-laser-cleaning-hero.jpg
-            category: wood
-            subcategory: hardwood
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        plastics:
-          title: Plastic Materials
-          description: Thermoplastic and composite materials affected by this contamination
-          items:
-          - id: nylon-laser-cleaning
-            title: Nylon
-            url: /materials/plastic/thermoplastic/nylon-laser-cleaning
-            image: /images/material/nylon-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: pet-laser-cleaning
-            title: PET
-            url: /materials/plastic/thermoplastic/pet-laser-cleaning
-            image: /images/material/pet-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: polycarbonate-laser-cleaning
-            title: Polycarbonate
-            url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
-            image: /images/material/polycarbonate-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: polypropylene-laser-cleaning
-            title: Polypropylene
-            url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
-            image: /images/material/polypropylene-laser-cleaning-hero.jpg
-            category: plastic
-            subcategory: thermoplastic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
-title: Paint Residue / Coating Failure Laser Cleaning
+  - id: abs-laser-cleaning
+    title: Abs Laser Cleaning
+    url: /materials/general/misc/abs-laser-cleaning
+    image: /images/material/abs-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: acrylic-(pmma)-laser-cleaning
+    title: Acrylic (Pmma) Laser Cleaning
+    url: /materials/general/misc/acrylic-(pmma)-laser-cleaning
+    image: /images/material/acrylic-(pmma)-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: ash-laser-cleaning
+    title: Ash
+    url: /materials/wood/hardwood/ash-laser-cleaning
+    image: /images/material/ash-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bamboo-laser-cleaning
+    title: Bamboo
+    url: /materials/wood/hardwood/bamboo-laser-cleaning
+    image: /images/material/bamboo-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: birch-laser-cleaning
+    title: Birch
+    url: /materials/wood/hardwood/birch-laser-cleaning
+    image: /images/material/birch-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cedar-laser-cleaning
+    title: Cedar
+    url: /materials/wood/softwood/cedar-laser-cleaning
+    image: /images/material/cedar-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cherry-laser-cleaning
+    title: Cherry
+    url: /materials/wood/hardwood/cherry-laser-cleaning
+    image: /images/material/cherry-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: chromium-laser-cleaning
+    title: Chromium
+    url: /materials/metal/specialty/chromium-laser-cleaning
+    image: /images/material/chromium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cobalt-laser-cleaning
+    title: Cobalt
+    url: /materials/metal/specialty/cobalt-laser-cleaning
+    image: /images/material/cobalt-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: fir-laser-cleaning
+    title: Fir
+    url: /materials/wood/softwood/fir-laser-cleaning
+    image: /images/material/fir-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: lead-laser-cleaning
+    title: Lead
+    url: /materials/metal/non-ferrous/lead-laser-cleaning
+    image: /images/material/lead-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: mahogany-laser-cleaning
+    title: Mahogany
+    url: /materials/wood/hardwood/mahogany-laser-cleaning
+    image: /images/material/mahogany-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: maple-laser-cleaning
+    title: Maple
+    url: /materials/wood/hardwood/maple-laser-cleaning
+    image: /images/material/maple-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nickel-laser-cleaning
+    title: Nickel
+    url: /materials/metal/specialty/nickel-laser-cleaning
+    image: /images/material/nickel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nylon-laser-cleaning
+    title: Nylon
+    url: /materials/plastic/thermoplastic/nylon-laser-cleaning
+    image: /images/material/nylon-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: oak-laser-cleaning
+    title: Oak
+    url: /materials/wood/hardwood/oak-laser-cleaning
+    image: /images/material/oak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pet-laser-cleaning
+    title: PET
+    url: /materials/plastic/thermoplastic/pet-laser-cleaning
+    image: /images/material/pet-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pine-laser-cleaning
+    title: Pine
+    url: /materials/wood/softwood/pine-laser-cleaning
+    image: /images/material/pine-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: softwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: polycarbonate-laser-cleaning
+    title: Polycarbonate
+    url: /materials/plastic/thermoplastic/polycarbonate-laser-cleaning
+    image: /images/material/polycarbonate-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: polypropylene-laser-cleaning
+    title: Polypropylene
+    url: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
+    image: /images/material/polypropylene-laser-cleaning-hero.jpg
+    category: plastic
+    subcategory: thermoplastic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: ptfe-laser-cleaning
+    title: Ptfe Laser Cleaning
+    url: /materials/general/misc/ptfe-laser-cleaning
+    image: /images/material/ptfe-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: pvc-laser-cleaning
+    title: Pvc Laser Cleaning
+    url: /materials/general/misc/pvc-laser-cleaning
+    image: /images/material/pvc-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: teak-laser-cleaning
+    title: Teak
+    url: /materials/wood/hardwood/teak-laser-cleaning
+    image: /images/material/teak-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tin-laser-cleaning
+    title: Tin
+    url: /materials/metal/alloy/tin-laser-cleaning
+    image: /images/material/tin-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: walnut-laser-cleaning
+    title: Walnut
+    url: /materials/wood/hardwood/walnut-laser-cleaning
+    image: /images/material/walnut-laser-cleaning-hero.jpg
+    category: wood
+    subcategory: hardwood
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-laser-cleaning
+    title: Zinc
+    url: /materials/metal/alloy/zinc-laser-cleaning
+    image: /images/material/zinc-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: paint
-pageDescription: "Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique\
-  \ irregular patterns, like patchy layers from uneven paint application and environmental weathering. Formation occurs through\
-  \ adhesion of pigments and binders, creating thick, non-uniform deposits that resist initial breakdown.\n\nRemoval challenges\
-  \ emerge in laser cleaning. Residue exhibits strong bonding to substrates, thus demands precise energy pulses to avoid substrate\
-  \ damage. On metallic materials, it shows thermal stability and charring tendency, complicating clean detachment. For polymeric\
-  \ surfaces, behavior differs; residue peels in flakes but leaves adhesive traces. Treatment applies laser ablation, and\
-  \ surface already exhibits reduced roughness, though traces still persist in crevices. Analysis confirms these patterns,\
-  \ so adjustment of parameters enhances efficiency. \n\nYi-Chun Lin, Ph.D., Taiwan"
+formation_conditions:
+- poor_adhesion
+- age
+- weathering
+- mechanical_damage
+realism_notes: Paint residue implies previous coating. Consider underlying substrate characteristics.
+title: Paint Residue / Coating Failure Laser Cleaning
+valid_materials:
+- acrylic-pmma-laser-cleaning
+- aluminum-laser-cleaning
+- ash-laser-cleaning
+- bamboo-laser-cleaning
+- birch-laser-cleaning
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- cast-iron-laser-cleaning
+- cedar-laser-cleaning
+- cherry-laser-cleaning
+- chromium-laser-cleaning
+- cobalt-laser-cleaning
+- concrete-laser-cleaning
+- copper-laser-cleaning
+- fir-laser-cleaning
+- lead-laser-cleaning
+- mahogany-laser-cleaning
+- maple-laser-cleaning
+- nickel-laser-cleaning
+- nylon-laser-cleaning
+- oak-laser-cleaning
+- pet-laser-cleaning
+- pine-laser-cleaning
+- polycarbonate-laser-cleaning
+- polypropylene-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+- teak-laser-cleaning
+- tin-laser-cleaning
+- titanium-laser-cleaning
+- walnut-laser-cleaning
+- zinc-laser-cleaning
+slug: paint-residue-contamination
+lastModified: '2026-01-04T14:58:05.378001'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Paint Residue / Coating Failure
+  href: ''
+metaDescription: 'Paint Residue / Coating Failure: 70-80% absorption at 1064nm. 2-3 passes for complete removal. Preserves
+  substrate integrity. No chemical waste.'

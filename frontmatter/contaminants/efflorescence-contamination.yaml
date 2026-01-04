@@ -1,26 +1,23 @@
 id: efflorescence-contamination
 name: Concrete Efflorescence
 category: inorganic-coating
-datePublished: '2025-12-27T21:04:24.103441Z'
-dateModified: '2025-12-27T21:04:24.103441Z'
-contentType: contaminants
-schemaVersion: 5.0.0
-fullPath: /contaminants/inorganic-coating/mineral/efflorescence-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Inorganic Coating
-  href: /contaminants/inorganic-coating
-- label: Mineral
-  href: /contaminants/inorganic-coating/mineral
-- label: Concrete Efflorescence
-  href: /contaminants/inorganic-coating/mineral/efflorescence-contamination
-pageTitle: 'Concrete Efflorescence Removal: Laser Ablation Clean'
-metaDescription: 'Concrete Efflorescence: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
-  integrity. No chemicals, no media waste.'
-images: &id001
+datePublished: '2026-01-04T22:58:02.835549Z'
+dateModified: '2026-01-04T22:58:02.835549Z'
+content_type: contaminants
+schema_version: 5.0.0
+full_path: /contaminants/inorganic-coating/mineral/efflorescence-contamination
+page_title: 'Concrete Efflorescence Removal: Laser Ablation Clean'
+page_description: 'Efflorescence contamination arises as salts migrate through porous materials like stone or concrete. Water
+  draws these minerals to the surface, where they crystallize into white, powdery deposits. This process lines up uniquely
+  on masonry, creating flaky layers that trap dirt and weaken bonds over time.
+
+
+  Laser cleaning tackles this head-on, but challenges stand out. The deposits often re-form if moisture lingers, demanding
+  dry follow-up steps to hold up results. On limestone, the pattern spreads unevenly, requiring operators to dial in precise
+  pulses to avoid etching the base. In practice, this inorganic coating demands careful setup—too much energy risks cracking
+  the substrate, while weak hits leave residues. Overall, addressing efflorescence clears surfaces effectively, yet material
+  behaviors call for tailored approaches to cut down regrowth.'
+images:
   hero:
     url: /images/contaminant/efflorescence-contamination-hero.jpg
     alt: Concrete Efflorescence laser cleaning visualization showing process effects
@@ -57,10 +54,105 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
+        icon: shield-check
+        order: 1
+        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Crystalline Silica (as respirable dust)
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 0.025
+        hazard_class: carcinogenic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 900-1800
+        exposure_limit_mg_m3: 9000
+        hazard_class: toxic
+      - compound: Calcium Oxide dust
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 2
+        hazard_class: irritant
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.3
+        size_range_um:
+        - 0.1
+        - 100
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser cleaning may alter concrete surface chemistry and increase porosity
+    - Thermal stress may cause micro-cracking in concrete substrate
+    - Efflorescence salts may vaporize and redeposit on adjacent surfaces
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Crystalline Silica (as respirable dust)
+          concentration_mg_m3: 5-50
+          hazard_class: carcinogenic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 900-1800
+          hazard_class: toxic
+        description: Crystalline Silica (as respirable dust) and Carbon Dioxide generation - multiple toxic compounds
+        mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Crystalline Silica (as
+          respirable dust) - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.30 (30% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: calcium-oxide-compound
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: calcium-oxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -75,436 +167,345 @@ relationships:
       - id: slate-laser-cleaning
       - id: terracotta-laser-cleaning
       _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
         icon: box
+        order: 2
+        variant: default
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
+      items:
+      - appearance_on_categories:
+          ceramic:
+            appearance: Efflorescence on ceramic shows as a white, powdery, or crystalline residue that can dull glazed surfaces
+              and create a rough texture.
+            coverage: Coverage is usually localized and uneven, ranging from minor spots to larger affected zones in damp
+              conditions.
+            pattern: It often appears in spots, streaks, or patches, commonly at grout lines, unglazed areas, or where moisture
+              accumulates.
+          composite:
+            appearance: Efflorescence on composites appears as a white, powdery, or crystalline layer that can obscure textures
+              and cause surface degradation.
+            coverage: Coverage is typically partial and variable, from isolated spots to broader patches depending on composition
+              and exposure.
+            pattern: It often forms in blotches or streaks, following material interfaces or moisture ingress points, such
+              as seams or cracks.
+          concrete:
+            appearance: On concrete, efflorescence appears as a white, powdery, or crystalline deposit that can cover surfaces
+              with a chalky, often fluffy layer.
+            coverage: Coverage can range from light, scattered deposits to heavy, extensive layers, often varying with moisture
+              and curing conditions.
+            pattern: It typically forms in uniform films, streaks, or patches, emerging from pores and cracks as salts migrate
+              outward.
+          fabric:
+            appearance: Efflorescence on fabric manifests as white, powdery, or stiff stains that can discolor fibers and
+              create a crusty texture.
+            coverage: Coverage is typically light and localized, varying from small stains to larger affected sections in
+              damp environments.
+            pattern: It often forms in irregular spots or streaks, following moisture wicking or contact with contaminated
+              surfaces.
+          glass:
+            appearance: On glass, efflorescence appears as a hazy, white, or cloudy film that reduces transparency and may
+              feel slightly gritty or smooth.
+            coverage: Coverage is generally light to moderate, with variations from partial haziness to near-complete opacity
+              in severe cases.
+            pattern: It typically forms in uniform films or streaks, often spreading from edges or areas in contact with contaminated
+              materials.
+          metal:
+            appearance: Efflorescence on metal appears as a white, powdery, or crystalline deposit that can feel chalky and
+              may obscure the underlying metallic luster.
+            coverage: Coverage is usually partial and localized, varying from small, scattered areas to larger sections depending
+              on environmental conditions.
+            pattern: It typically forms in irregular spots or patches, often concentrated near edges, joints, or areas exposed
+              to moisture.
+          mineral:
+            appearance: Efflorescence on minerals presents as a white, crystalline, or powdery coating that may alter natural
+              hues and create a frosted effect.
+            coverage: Coverage is often partial and uneven, from minor spots to widespread films depending on mineral porosity
+              and environmental factors.
+            pattern: It usually appears in blotches, uniform layers, or along cleavage planes, driven by salt crystallization
+              from internal or external sources.
+          plastic:
+            appearance: On plastic, efflorescence manifests as a white, chalky, or filmy deposit that can make surfaces appear
+              cloudy and may feel powdery.
+            coverage: Coverage is generally light and patchy, with variations from sparse films to more extensive areas in
+              high-humidity settings.
+            pattern: It typically forms in uniform films or irregular spots, often developing on exposed surfaces or near
+              contaminants.
+          rubber:
+            appearance: On rubber, efflorescence shows as a white, dusty, or crusty coating that may make the surface feel
+              rough and reduce flexibility.
+            coverage: Coverage is generally sparse and uneven, ranging from minor deposits to more significant areas in deteriorating
+              conditions.
+            pattern: It usually appears in spots or patches, often concentrated in crevices or areas exposed to salts and
+              moisture.
+          semiconductor:
+            appearance: On semiconductors, efflorescence manifests as a white, hazy, or crystalline contamination that can
+              interfere with electronic properties and surface smoothness.
+            coverage: Coverage is generally minimal and patchy, with variations from isolated areas to broader contamination
+              in poor storage conditions.
+            pattern: It typically forms in uniform films or localized spots, often at edges or defects where moisture and
+              salts accumulate.
+          specialty:
+            appearance: Efflorescence on specialty materials appears as a white, powdery, or crusty deposit that can degrade
+              unique finishes and functional properties.
+            coverage: Coverage is variable and context-dependent, ranging from light, localized deposits to more extensive
+              areas based on exposure and material composition.
+            pattern: It often forms in irregular patterns such as spots or streaks, influenced by material-specific vulnerabilities
+              to moisture and salts.
+          stone:
+            appearance: Efflorescence on stone presents as a white, powdery, or crystalline coating that can alter the natural
+              color and texture, giving a frosted look.
+            coverage: Coverage can vary from light, scattered deposits to extensive, uniform layers, depending on porosity
+              and moisture exposure.
+            pattern: It usually forms in blotches, streaks, or a uniform film, often emerging from pores, cracks, or joints
+              where salts migrate to the surface.
+          wood:
+            appearance: On wood, efflorescence manifests as a white, fluffy, or crusty layer that can make the surface appear
+              dull and may lift or damage finishes.
+            coverage: Coverage is typically uneven and sparse, ranging from isolated spots to broader areas in high-moisture
+              environments.
+            pattern: It often appears in streaks or patches, following the wood grain or moisture pathways, and is common
+              in damp, unsealed areas.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
         order: 1
         variant: default
-    produces_compounds:
-      presentation: card
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - id: calcium-oxide-compound
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: calcium-oxide-compound
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.3
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 100
+            min_ns: 10
+            recommended_ns: 30
+          repetition_rate_khz:
+            max: 100
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.2
+            min: 0.05
+            recommended: 0.1
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 120
+            wavelength_355nm: 2800
+            wavelength_532nm: 450
+          reflectivity:
+            wavelength_1064nm: 0.65
+            wavelength_355nm: 0.08
+            wavelength_532nm: 0.35
+          refractive_index:
+            imaginary_part: 0.012
+            real_part: 1.48
+          transmission_depth: 83
+        removal_characteristics:
+          byproducts:
+          - compound: calcium-oxide
+            hazard_level: low
+            phase: solid
+          - compound: carbon-dioxide
+            hazard_level: low
+            phase: gas
+          - compound: water-vapor
+            hazard_level: low
+            phase: gas
+          - compound: calcium-oxide
+            hazard_level: moderate
+            phase: solid
+          damage_risk_to_substrate: medium
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 2400
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.7
+          secondary_mechanisms:
+          - mechanical_spallation
+          - photochemical_decomposition
+          surface_quality_after_removal:
+            color_change: 'yes'
+            residual_stress: compressive
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 1.2
+            pulse_duration_10ns: 0.6
+            wavelength_1064nm: 0.8
+          decomposition_temperature: 120
+          heat_affected_zone_depth: 15
+          melting_point: N/A
+          specific_heat: 900
+          thermal_conductivity: 0.8
+          thermal_diffusivity: 0.3
+          vaporization_temperature: 285
       _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
         order: 1
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Efflorescence on ceramic shows as a white, powdery, or crystalline residue that can dull glazed surfaces
-            and create a rough texture.
-          coverage: Coverage is usually localized and uneven, ranging from minor spots to larger affected zones in damp conditions.
-          pattern: It often appears in spots, streaks, or patches, commonly at grout lines, unglazed areas, or where moisture
-            accumulates.
-        composite:
-          appearance: Efflorescence on composites appears as a white, powdery, or crystalline layer that can obscure textures
-            and cause surface degradation.
-          coverage: Coverage is typically partial and variable, from isolated spots to broader patches depending on composition
-            and exposure.
-          pattern: It often forms in blotches or streaks, following material interfaces or moisture ingress points, such as
-            seams or cracks.
-        concrete:
-          appearance: On concrete, efflorescence appears as a white, powdery, or crystalline deposit that can cover surfaces
-            with a chalky, often fluffy layer.
-          coverage: Coverage can range from light, scattered deposits to heavy, extensive layers, often varying with moisture
-            and curing conditions.
-          pattern: It typically forms in uniform films, streaks, or patches, emerging from pores and cracks as salts migrate
-            outward.
-        fabric:
-          appearance: Efflorescence on fabric manifests as white, powdery, or stiff stains that can discolor fibers and create
-            a crusty texture.
-          coverage: Coverage is typically light and localized, varying from small stains to larger affected sections in damp
-            environments.
-          pattern: It often forms in irregular spots or streaks, following moisture wicking or contact with contaminated surfaces.
-        glass:
-          appearance: On glass, efflorescence appears as a hazy, white, or cloudy film that reduces transparency and may feel
-            slightly gritty or smooth.
-          coverage: Coverage is generally light to moderate, with variations from partial haziness to near-complete opacity
-            in severe cases.
-          pattern: It typically forms in uniform films or streaks, often spreading from edges or areas in contact with contaminated
-            materials.
-        metal:
-          appearance: Efflorescence on metal appears as a white, powdery, or crystalline deposit that can feel chalky and
-            may obscure the underlying metallic luster.
-          coverage: Coverage is usually partial and localized, varying from small, scattered areas to larger sections depending
-            on environmental conditions.
-          pattern: It typically forms in irregular spots or patches, often concentrated near edges, joints, or areas exposed
-            to moisture.
-        mineral:
-          appearance: Efflorescence on minerals presents as a white, crystalline, or powdery coating that may alter natural
-            hues and create a frosted effect.
-          coverage: Coverage is often partial and uneven, from minor spots to widespread films depending on mineral porosity
-            and environmental factors.
-          pattern: It usually appears in blotches, uniform layers, or along cleavage planes, driven by salt crystallization
-            from internal or external sources.
-        plastic:
-          appearance: On plastic, efflorescence manifests as a white, chalky, or filmy deposit that can make surfaces appear
-            cloudy and may feel powdery.
-          coverage: Coverage is generally light and patchy, with variations from sparse films to more extensive areas in high-humidity
-            settings.
-          pattern: It typically forms in uniform films or irregular spots, often developing on exposed surfaces or near contaminants.
-        rubber:
-          appearance: On rubber, efflorescence shows as a white, dusty, or crusty coating that may make the surface feel rough
-            and reduce flexibility.
-          coverage: Coverage is generally sparse and uneven, ranging from minor deposits to more significant areas in deteriorating
-            conditions.
-          pattern: It usually appears in spots or patches, often concentrated in crevices or areas exposed to salts and moisture.
-        semiconductor:
-          appearance: On semiconductors, efflorescence manifests as a white, hazy, or crystalline contamination that can interfere
-            with electronic properties and surface smoothness.
-          coverage: Coverage is generally minimal and patchy, with variations from isolated areas to broader contamination
-            in poor storage conditions.
-          pattern: It typically forms in uniform films or localized spots, often at edges or defects where moisture and salts
-            accumulate.
-        specialty:
-          appearance: Efflorescence on specialty materials appears as a white, powdery, or crusty deposit that can degrade
-            unique finishes and functional properties.
-          coverage: Coverage is variable and context-dependent, ranging from light, localized deposits to more extensive areas
-            based on exposure and material composition.
-          pattern: It often forms in irregular patterns such as spots or streaks, influenced by material-specific vulnerabilities
-            to moisture and salts.
-        stone:
-          appearance: Efflorescence on stone presents as a white, powdery, or crystalline coating that can alter the natural
-            color and texture, giving a frosted look.
-          coverage: Coverage can vary from light, scattered deposits to extensive, uniform layers, depending on porosity and
-            moisture exposure.
-          pattern: It usually forms in blotches, streaks, or a uniform film, often emerging from pores, cracks, or joints
-            where salts migrate to the surface.
-        wood:
-          appearance: On wood, efflorescence manifests as a white, fluffy, or crusty layer that can make the surface appear
-            dull and may lift or damage finishes.
-          coverage: Coverage is typically uneven and sparse, ranging from isolated spots to broader areas in high-moisture
-            environments.
-          pattern: It often appears in streaks or patches, following the wood grain or moisture pathways, and is common in
-            damp, unsealed areas.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.3
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 100
-          min_ns: 10
-          recommended_ns: 30
-        repetition_rate_khz:
-          max: 100
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.2
-          min: 0.05
-          recommended: 0.1
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 120
-          wavelength_355nm: 2800
-          wavelength_532nm: 450
-        reflectivity:
-          wavelength_1064nm: 0.65
-          wavelength_355nm: 0.08
-          wavelength_532nm: 0.35
-        refractive_index:
-          imaginary_part: 0.012
-          real_part: 1.48
-        transmission_depth: 83
-      removal_characteristics:
-        byproducts:
-        - compound: calcium-oxide
-          hazard_level: low
-          phase: solid
-        - compound: carbon-dioxide
-          hazard_level: low
-          phase: gas
-        - compound: water-vapor
-          hazard_level: low
-          phase: gas
-        - compound: calcium-oxide
-          hazard_level: moderate
-          phase: solid
-        damage_risk_to_substrate: medium
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 2400
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 3
-          optimal_passes: 2
-          single_pass: 0.7
-        secondary_mechanisms:
-        - mechanical_spallation
-        - photochemical_decomposition
-        surface_quality_after_removal:
-          color_change: 'yes'
-          residual_stress: compressive
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Crystalline Silica (as respirable dust)
-          concentration_mg_m3: 5-50
-          exposure_limit_mg_m3: 0.025
-          hazard_class: carcinogenic
-        - compound: Carbon Dioxide
-          concentration_mg_m3: 900-1800
-          exposure_limit_mg_m3: 9000
-          hazard_class: toxic
-        - compound: Calcium Oxide dust
-          concentration_mg_m3: 2-20
-          exposure_limit_mg_m3: 2
-          hazard_class: irritant
-        particulate_generation:
-          respirable_fraction: 0.3
-          size_range_um:
-          - 0.1
-          - 100
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: PAPR
-          skin_protection: full_suit
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Laser cleaning may alter concrete surface chemistry and increase porosity
-        - Thermal stress may cause micro-cracking in concrete substrate
-        - Efflorescence salts may vaporize and redeposit on adjacent surfaces
-        toxic_gas_risk:
-          severity: low
-          primary_hazards:
-          - compound: Crystalline Silica (as respirable dust)
-            concentration_mg_m3: 5-50
-            hazard_class: carcinogenic
-          - compound: Carbon Dioxide
-            concentration_mg_m3: 900-1800
-            hazard_class: toxic
-          description: Crystalline Silica (as respirable dust) and Carbon Dioxide generation - multiple toxic compounds
-          mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Crystalline Silica (as
-            respirable dust) - known carcinogen(s), minimize exposure'
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA
-          minimum_air_changes_per_hour: 10
-          rationale: Standard industrial ventilation (10 ACH) for particulate control
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.30 (30% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 1.2
-          pulse_duration_10ns: 0.6
-          wavelength_1064nm: 0.8
-        decomposition_temperature: 120
-        heat_affected_zone_depth: 15
-        melting_point: N/A
-        specific_heat: 900
-        thermal_conductivity: 0.8
-        thermal_diffusivity: 0.3
-        vaporization_temperature: 285
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Glass
-    - Metal
-  category: inorganic-coating
-  subcategory: mineral
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        stone:
-          title: Stone Materials
-          description: Natural and processed stone materials affected by this contamination
-          items:
-          - id: basalt-laser-cleaning
-            title: Basalt
-            url: /materials/stone/igneous/basalt-laser-cleaning
-            image: /images/material/basalt-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bluestone-laser-cleaning
-            title: Bluestone
-            url: /materials/stone/sedimentary/bluestone-laser-cleaning
-            image: /images/material/bluestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: granite-laser-cleaning
-            title: Granite
-            url: /materials/stone/igneous/granite-laser-cleaning
-            image: /images/material/granite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: limestone-laser-cleaning
-            title: Limestone
-            url: /materials/stone/sedimentary/limestone-laser-cleaning
-            image: /images/material/limestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: marble-laser-cleaning
-            title: Marble
-            url: /materials/stone/metamorphic/marble-laser-cleaning
-            image: /images/material/marble-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: quartzite-laser-cleaning
-            title: Quartzite
-            url: /materials/stone/sedimentary/quartzite-laser-cleaning
-            image: /images/material/quartzite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: sandstone-laser-cleaning
-            title: Sandstone
-            url: /materials/stone/sedimentary/sandstone-laser-cleaning
-            image: /images/material/sandstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: slate-laser-cleaning
-            title: Slate
-            url: /materials/stone/metamorphic/slate-laser-cleaning
-            image: /images/material/slate-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: soapstone-laser-cleaning
-            title: Soapstone
-            url: /materials/stone/sedimentary/soapstone-laser-cleaning
-            image: /images/material/soapstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: travertine-laser-cleaning
-            title: Travertine
-            url: /materials/stone/natural/travertine-laser-cleaning
-            image: /images/material/travertine-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: natural
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: brick-laser-cleaning
-            title: Brick
-            url: /materials/masonry/general/brick-laser-cleaning
-            image: /images/material/brick-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: basalt-laser-cleaning
+    title: Basalt
+    url: /materials/stone/igneous/basalt-laser-cleaning
+    image: /images/material/basalt-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bluestone-laser-cleaning
+    title: Bluestone
+    url: /materials/stone/sedimentary/bluestone-laser-cleaning
+    image: /images/material/bluestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brick-laser-cleaning
+    title: Brick
+    url: /materials/masonry/general/brick-laser-cleaning
+    image: /images/material/brick-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: granite-laser-cleaning
+    title: Granite
+    url: /materials/stone/igneous/granite-laser-cleaning
+    image: /images/material/granite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: limestone-laser-cleaning
+    title: Limestone
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+    image: /images/material/limestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: marble-laser-cleaning
+    title: Marble
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+    image: /images/material/marble-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: quartzite-laser-cleaning
+    title: Quartzite
+    url: /materials/stone/sedimentary/quartzite-laser-cleaning
+    image: /images/material/quartzite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: sandstone-laser-cleaning
+    title: Sandstone
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+    image: /images/material/sandstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: slate-laser-cleaning
+    title: Slate
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+    image: /images/material/slate-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: soapstone-laser-cleaning
+    title: Soapstone
+    url: /materials/stone/sedimentary/soapstone-laser-cleaning
+    image: /images/material/soapstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: travertine-laser-cleaning
+    title: Travertine
+    url: /materials/stone/natural/travertine-laser-cleaning
+    image: /images/material/travertine-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: natural
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: mineral
 composition:
 - CaCO₃
 - CaSO₄
 - Na₂CO₃
-pageDescription: 'Efflorescence contamination arises as salts migrate through porous materials like stone or concrete. Water
-  draws these minerals to the surface, where they crystallize into white, powdery deposits. This process lines up uniquely
-  on masonry, creating flaky layers that trap dirt and weaken bonds over time.
-
-
-  Laser cleaning tackles this head-on, but challenges stand out. The deposits often re-form if moisture lingers, demanding
-  dry follow-up steps to hold up results. On limestone, the pattern spreads unevenly, requiring operators to dial in precise
-  pulses to avoid etching the base. In practice, this inorganic coating demands careful setup—too much energy risks cracking
-  the substrate, while weak hits leave residues. Overall, addressing efflorescence clears surfaces effectively, yet material
-  behaviors call for tailored approaches to cut down regrowth.'
+prohibited_materials:
+- Glass
+- Metal
+valid_materials:
+- basalt-laser-cleaning
+- bluestone-laser-cleaning
+- brick-laser-cleaning
+- concrete-laser-cleaning
+- granite-laser-cleaning
+- limestone-laser-cleaning
+- marble-laser-cleaning
+- quartzite-laser-cleaning
+- sandstone-laser-cleaning
+- slate-laser-cleaning
+- soapstone-laser-cleaning
+- travertine-laser-cleaning
+slug: efflorescence-contamination
+lastModified: '2026-01-04T14:58:02.835647'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Concrete Efflorescence
+  href: ''
+title: Concrete Efflorescence
+metaDescription: 'Concrete Efflorescence: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
+  integrity. No chemicals, no media waste.'

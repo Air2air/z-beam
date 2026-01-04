@@ -1,24 +1,18 @@
 id: titanium-settings
 name: Titanium
-datePublished: '2025-12-27T21:06:08.807516Z'
-dateModified: '2025-12-27T21:06:08.807516Z'
-contentType: settings
-schemaVersion: 5.0.0
-fullPath: /settings/metal/specialty/titanium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Specialty
-  href: /settings/metal/specialty
-- label: Titanium
-  href: /settings/metal/specialty/titanium-settings
-pageTitle: 'Titanium Settings: Laser Parameters'
-metaDescription: 'Titanium: removes surface preparation. Industrial-grade parameters.
-  No substrate damage.'
+datePublished: '2026-01-04T22:55:15.040857Z'
+dateModified: '2026-01-04T22:55:15.040857Z'
+content_type: settings
+schema_version: 5.0.0
+full_path: /settings/metal/specialty/titanium-settings
+page_title: 'Titanium Settings: Laser Parameters'
+page_description: When laser cleaning titanium, I've seen it stand out from denser metals like steel because of its lighter
+  weight and strong natural oxide layer that fights corrosion so well. This makes it great for aerospace parts, where you
+  can remove tough contaminants without deep damage, but the layer also means the laser tends to skim the surface gently—start
+  with milder power and slower passes to let heat dissipate evenly and avoid uneven heating. Unlike aluminum, which scatters
+  heat quickly, titanium holds it locally, so building up multiple light passes clears buildup effectively while preserving
+  its durability. Just watch out at the end for any signs of discoloration, and dial back if needed to keep that protective
+  shine intact.
 images:
   hero:
     url: /images/settings/titanium-settings-hero.jpg
@@ -47,22 +41,23 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -74,31 +69,6 @@ card:
     severity: low
     icon: settings
 relationships:
-  technical:
-    works_on_materials:
-      presentation: card
-      items:
-      - id: titanium-laser-cleaning
-        effectiveness: high
-      _section:
-        title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -109,32 +79,90 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 4
+        order: 1
+        variant: default
+  interactions:
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    works_on_materials:
+      presentation: card
+      items:
+      - id: titanium-laser-cleaning
+        effectiveness: high
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
+        icon: box
+        order: 2
         variant: default
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contamination_challenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
+      - id: high-thermal-conductivity
+        category: Thermal Management
+        challenge: High thermal conductivity and heat spread
+        description: Heat spreads rapidly causing large heat-affected zones
+        severity: medium
+        solutions:
+        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
+        - Increase scan speed to minimize dwell time
+        - Apply cooling between passes
+        threshold: 4-400 W/(m·K) depending on metal
+      - id: melting-haz
+        category: Thermal Management
+        challenge: Melting and heat-affected zone formation
+        description: Material property changes, aesthetic damage
+        severity: high
+        solutions:
+        - Use shorter pulses (ns or ps regime)
+        - Increase scan speed >500 mm/s
+        - Optimize overlap to minimize accumulated heating
+      - id: rust-oxide-removal
+        category: Contamination
+        challenge: Rust and oxide layer removal
+        description: Requires multiple passes; rust/oxide has different absorption than base metal
+        severity: medium
+        solutions:
+        - First pass at higher power (100-120W) to remove bulk oxide
+        - Second pass at lower power (60-80W) for final cleaning
+        - Monitor for base metal exposure to avoid over-processing
+      - id: oil-grease-removal
+        category: Contamination
+        challenge: Oil and grease removal
+        description: Organic contaminants vaporize easily but can redeposit
+        severity: low
+        solutions:
+        - Use air assist to blow away vaporized contaminants
+        - Clean in multiple light passes to prevent redeposition
+        - Consider pre-cleaning with solvent for heavy contamination
+      options:
+        autoOpenFirst: true
+        sortBy: severity
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Typical difficulties and best practices when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
-category: metal
-subcategory: specialty
 machine_settings:
   powerRange:
     description: Optimal average power for Titanium oxide layer removal
@@ -195,80 +223,76 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning systems; starting
-      at 100W balances efficiency and safety for Ti''s high reflectivity and melting
-      point (~1668°C). Max avoids substrate damage via thermal accumulation. Source:
+    description: 'Typical range for industrial Nd:YAG laser cleaning systems; starting at 100W balances efficiency and safety
+      for Ti''s high reflectivity and melting point (~1668°C). Max avoids substrate damage via thermal accumulation. Source:
       IPG Photonics specs and studies on Ti alloy cleaning (e.g., J. Laser Appl. 2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective for contamination removal; slower for heavy contaminants
-      (e.g., oxides), faster for light. Recommended 1500 mm/s optimizes fluence without
-      overheating Ti''s conductive surface. Source: Industry manuals (CleanLaser)
-      and process optimization in Opt. Lasers Eng. (2020).'
+    description: 'Effective for contamination removal; slower for heavy contaminants (e.g., oxides), faster for light. Recommended
+      1500 mm/s optimizes fluence without overheating Ti''s conductive surface. Source: Industry manuals (CleanLaser) and
+      process optimization in Opt. Lasers Eng. (2020).'
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for Ti cleaning to ablate contaminants
-      while minimizing heat-affected zone (HAZ <10 μm); picosecond/femtosecond for
-      ultra-precision but costlier. 20 ns recommended for low thermal damage. Source:
+    description: 'Nanosecond regime preferred for Ti cleaning to ablate contaminants while minimizing heat-affected zone (HAZ
+      <10 μm); picosecond/femtosecond for ultra-precision but costlier. 20 ns recommended for low thermal damage. Source:
       Laser physics reviews in Appl. Surf. Sci. (2019) on metal ablation thresholds.'
   repetition_rate:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning; higher rates speed up process but risk
-      heat buildup on reflective Ti. 50 kHz balances speed and minimal accumulation.
-      Trade-off: >80 kHz may require cooling. Source: Academic lit. e.g., J. Phys.
+    description: 'Typical for pulsed cleaning; higher rates speed up process but risk heat buildup on reflective Ti. 50 kHz
+      balances speed and minimal accumulation. Trade-off: >80 kHz may require cooling. Source: Academic lit. e.g., J. Phys.
       D: Appl. Phys. (2017) on pulse overlap effects.'
   energy_density:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.0
-    description: 'Fluence below Ti''s ablation threshold (~3 J/cm² at 1064 nm) for
-      safe contaminant removal without substrate etching. Recommended 1.0 J/cm² for
-      industrial prep. Ti''s reflectivity (~40% at 1064 nm) requires higher input.
-      Source: Ablation studies in Surf. Coat. Technol. (2021).'
+    description: 'Fluence below Ti''s ablation threshold (~3 J/cm² at 1064 nm) for safe contaminant removal without substrate
+      etching. Recommended 1.0 J/cm² for industrial prep. Ti''s reflectivity (~40% at 1064 nm) requires higher input. Source:
+      Ablation studies in Surf. Coat. Technol. (2021).'
   spot_size:
     min: 0.1
     max: 500
     unit: μm
     value: 300
-    description: 'Smaller for fine detail (e.g., aerospace Ti parts), larger for broad
-      areas. 300 μm recommended for uniform cleaning on Ti without excessive overlap
-      heating. Source: Equipment specs from Laserax and Coherent, aligned with ISO
+    description: 'Smaller for fine detail (e.g., aerospace Ti parts), larger for broad areas. 300 μm recommended for uniform
+      cleaning on Ti without excessive overlap heating. Source: Equipment specs from Laserax and Coherent, aligned with ISO
       11553 standards.'
   pass_count:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination; multi-pass for heavy (e.g.,
-      rust/scale on Ti). Recommended 2 passes ensures complete removal with low risk
-      to Ti''s integrity. Source: Case studies in industrial laser cleaning (e.g.,
+    description: 'Single pass for light contamination; multi-pass for heavy (e.g., rust/scale on Ti). Recommended 2 passes
+      ensures complete removal with low risk to Ti''s integrity. Source: Case studies in industrial laser cleaning (e.g.,
       Proc. SPIE 2022) for metal surfaces.'
   overlap_ratio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage; 60% recommended for Ti to avoid gaps or
-      over-etching while managing heat from conductivity. Higher for heavy contamination.
-      Source: Process optimization in J. Clean. Prod. (2019) and manufacturer guidelines
-      (e.g., Adapt Laser).'
-pageDescription: When laser cleaning titanium, I've seen it stand out from denser
-  metals like steel because of its lighter weight and strong natural oxide layer that
-  fights corrosion so well. This makes it great for aerospace parts, where you can
-  remove tough contaminants without deep damage, but the layer also means the laser
-  tends to skim the surface gently—start with milder power and slower passes to let
-  heat dissipate evenly and avoid uneven heating. Unlike aluminum, which scatters
-  heat quickly, titanium holds it locally, so building up multiple light passes clears
-  buildup effectively while preserving its durability. Just watch out at the end for
-  any signs of discoloration, and dial back if needed to keep that protective shine
-  intact.
+    description: 'Ensures uniform coverage; 60% recommended for Ti to avoid gaps or over-etching while managing heat from
+      conductivity. Higher for heavy contamination. Source: Process optimization in J. Clean. Prod. (2019) and manufacturer
+      guidelines (e.g., Adapt Laser).'
+component_summary: For Titanium, these settings leverage 1064 nm wavelength for strong absorption, 100 W power for efficient
+  oxide and contaminant ablation, and 10 ns pulses to limit thermal damage and maintain surface integrity.
+slug: titanium-settings
+lastModified: '2026-01-04T14:55:15.040890'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Titanium
+  href: ''
+title: Titanium
+metaDescription: Titanium laser cleaning parameters optimized for surface preparation. Industrial-grade settings preserve
+  substrate integrity. Aerospace-quality results.

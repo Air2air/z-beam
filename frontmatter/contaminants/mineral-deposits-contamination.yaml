@@ -1,26 +1,21 @@
 id: mineral-deposits-contamination
 name: Hard Water Mineral Scale
 category: thermal-damage
-datePublished: '2025-12-27T21:04:24.959047Z'
-dateModified: '2025-12-27T21:04:24.959047Z'
-contentType: contaminants
-schemaVersion: 5.0.0
-fullPath: /contaminants/thermal-damage/scale/mineral-deposits-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Thermal Damage
-  href: /contaminants/thermal-damage
-- label: Scale
-  href: /contaminants/thermal-damage/scale
-- label: Hard Water Mineral Scale
-  href: /contaminants/thermal-damage/scale/mineral-deposits-contamination
-pageTitle: 'Hard Water Mineral Scale Removal: Laser Ablation High'
-metaDescription: 'Hard Water Mineral Scale: 90-95% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
-  integrity. No chemicals, no media waste.'
-images: &id001
+datePublished: '2026-01-04T22:58:05.017782Z'
+dateModified: '2026-01-04T22:58:05.017782Z'
+content_type: contaminants
+schema_version: 5.0.0
+full_path: /contaminants/thermal-damage/scale/mineral-deposits-contamination
+page_title: 'Hard Water Mineral Scale Removal: Laser Ablation High'
+page_description: 'Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
+  thin on stones, and this difference affects cleaning outcomes. After exposure to moisture, buildup hardens quickly, so laser
+  cleaning faces challenges in avoiding thermal damage. Contamination exhibits sticky patterns during formation, especially
+  in humid areas. Treatment removes layers effectively on durable materials, but softer ones show cracking risks. Process
+  achieves better uniformity on heat-resistant substrates.
+
+
+  Ikmanda Roswati, Ph.D. from Indonesia'
+images:
   hero:
     url: /images/contaminant/mineral-deposits-contamination-hero.jpg
     alt: Hard Water Mineral Scale laser cleaning visualization showing process effects
@@ -57,10 +52,99 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  slug: yi-chun-lin
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
+        icon: shield-check
+        order: 1
+        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Calcium Oxide (CaO)
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 2
+        hazard_class: irritant
+      - compound: Magnesium Oxide (MgO)
+        concentration_mg_m3: 2-15
+        exposure_limit_mg_m3: 10
+        hazard_class: irritant
+      - compound: Silicon Dioxide (SiO2)
+        concentration_mg_m3: 1-10
+        exposure_limit_mg_m3: 0.025
+        hazard_class: toxic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: half_mask
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may cause thermal damage to underlying metal surfaces
+    - Potential for surface discoloration on some substrates
+    - Risk of pitting on soft metals at high laser intensities
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Silicon Dioxide (SiO2)
+          concentration_mg_m3: 1-10
+          hazard_class: toxic
+        description: Silicon Dioxide (SiO2) generation detected - low toxicity risk
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: calcium-oxide-compound
+      - id: carbon-dioxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -103,675 +187,602 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
         icon: box
+        order: 2
+        variant: default
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
+      items:
+      - appearance_on_categories:
+          ceramic:
+            appearance: Hard water scale on ceramic surfaces presents as white, chalky, or crusty deposits that can dull the
+              glossy finish and feel rough or gritty.
+            coverage: Coverage is typically partial and irregular, varying from small, isolated spots to more extensive scaling
+              in high-use zones like showers or sinks.
+            pattern: It tends to form in spots or patches, frequently in areas with standing water or repeated splashing,
+              such as around drains or on tile grout lines.
+          composite:
+            appearance: Hard water scale on composite materials shows as white or grayish mineral deposits that can form a
+              dull, crusty layer, potentially masking the underlying texture or color.
+            coverage: Coverage is usually partial and variable, ranging from sparse spots to more concentrated buildup depending
+              on material composition and water exposure.
+            pattern: It typically appears in irregular spots or patches, often concentrated where water is applied or evaporates,
+              and may follow surface imperfections.
+          concrete:
+            appearance: On concrete, hard water scale shows as white, powdery, or crystalline efflorescence that can form
+              a crusty layer, often giving a salt-like appearance on the surface.
+            coverage: Coverage is typically uneven, ranging from light, scattered deposits to dense, widespread scaling in
+              moisture-prone locations.
+            pattern: It commonly appears in patches or streaks, frequently where water seeps or evaporates, such as on walls,
+              floors, or in porous areas.
+          fabric:
+            appearance: Hard water scale on fabric appears as white or grayish mineral stains that can feel stiff or crusty,
+              often leaving a dull, discolored look on the material.
+            coverage: Coverage is generally sparse and irregular, varying from small spots to larger stained sections based
+              on water hardness and fabric type.
+            pattern: It usually distributes in splotches or streaks, following water contact patterns such as from spills
+              or washing, and may be more pronounced in absorbent areas.
+          glass:
+            appearance: On glass, hard water scale appears as a white, hazy, or filmy residue that can obscure clarity and
+              leave behind spotty, etched-looking marks when dried.
+            coverage: Coverage is often light to moderate and uneven, with variations from fine speckles to larger cloudy
+              areas depending on water hardness and drying conditions.
+            pattern: It usually forms in spots or streaks, often in a random or water-splash pattern, and may be more visible
+              on edges or where droplets evaporate.
+          metal:
+            appearance: Hard water scale appears as a white, chalky, or crusty deposit on metal surfaces, often with a rough
+              texture that can feel gritty to the touch.
+            coverage: Coverage is usually partial and uneven, ranging from small localized patches to more extensive buildup
+              in high-exposure zones.
+            pattern: It typically forms in irregular spots or streaks, concentrating in areas with frequent water contact
+              or evaporation, such as around joints or edges.
+          mineral:
+            appearance: Hard water scale on mineral surfaces appears as white, chalky, or crystalline deposits that may blend
+              with or contrast the base material, often creating a rough, layered look.
+            coverage: Coverage varies from light, spotty films to heavy, encrusted layers, depending on mineral porosity and
+              water exposure duration.
+            pattern: It tends to form in patches or uniform layers, especially where water interacts with the mineral, and
+              can accumulate in fissures or on exposed faces.
+          plastic:
+            appearance: On plastic, hard water scale appears as a white, powdery, or filmy coating that can reduce shine and
+              create a slightly rough texture on smooth surfaces.
+            coverage: Coverage is generally light and uneven, with variations from minor speckling to more noticeable patches
+              in frequently wet areas.
+            pattern: It often distributes in spots or streaks, following water contact points, and may accumulate in crevices
+              or on textured areas where moisture lingers.
+          rubber:
+            appearance: On rubber, hard water scale manifests as a white, chalky residue that can cling to the surface, sometimes
+              making it feel stiff or slightly abrasive.
+            coverage: Coverage is typically light and uneven, with minor variations from isolated deposits to broader films
+              in damp environments.
+            pattern: It often forms in spots or streaks, particularly in areas exposed to water splashes or condensation,
+              and may gather in seams or textured parts.
+          semiconductor:
+            appearance: On semiconductors, hard water scale appears as microscopic white or hazy residues that can form thin
+              films or particles, potentially interfering with surface conductivity and clarity.
+            coverage: Coverage is usually minimal and uneven, with variations from isolated specks to subtle films that can
+              affect performance in critical applications.
+            pattern: It typically distributes in fine spots or uniform layers, often concentrated in areas exposed to water
+              during processing or cleaning, and may follow contamination pathways.
+          specialty:
+            appearance: Hard water scale on specialty materials appears as white, crusty, or filmy deposits that adapt to
+              the surface properties, potentially causing discoloration, roughness, or functional impairment.
+            coverage: Coverage is highly variable, ranging from negligible spots to significant buildup, influenced by material
+              composition, treatment, and environmental factors.
+            pattern: It forms in patterns specific to the material's use and exposure, such as spots on coatings or streaks
+              on engineered surfaces, often in high-water-contact zones.
+          stone:
+            appearance: Hard water scale on stone surfaces shows up as white, cloudy, or crystalline deposits that can create
+              a dull, hazy film or rough patches on otherwise smooth finishes.
+            coverage: Coverage is typically uneven, ranging from light, scattered spots to dense, localized buildup in high-moisture
+              areas.
+            pattern: It commonly forms in patches or streaks, often concentrated where water pools or evaporates, such as
+              on countertops or shower walls.
+          wood:
+            appearance: On wood, hard water scale manifests as white or grayish mineral stains that can appear powdery or
+              crusty, potentially dulling the natural finish and causing surface roughness.
+            coverage: Coverage is generally sparse and irregular, varying from isolated spots to broader areas depending on
+              water exposure and wood porosity.
+            pattern: It often appears as splotches or streaks, following water flow or spill patterns, and may accumulate
+              in grooves or porous areas of the wood grain.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
         order: 1
         variant: default
-    produces_compounds:
-      presentation: card
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - id: calcium-oxide-compound
-      - id: carbon-dioxide-compound
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.3
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 200
+            min_ns: 10
+            recommended_ns: 100
+          repetition_rate_khz:
+            max: 100
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.2
+            min: 0.05
+            recommended: 0.1
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 150
+            wavelength_355nm: 3200
+            wavelength_532nm: 850
+          reflectivity:
+            wavelength_1064nm: 0.35
+            wavelength_355nm: 0.08
+            wavelength_532nm: 0.18
+          refractive_index:
+            imaginary_part: 0.024
+            real_part: 1.52
+          transmission_depth: 66.7
+        removal_characteristics:
+          byproducts:
+          - compound: calcium-oxide
+            hazard_level: low
+            phase: solid
+          - compound: carbon-dioxide
+            hazard_level: low
+            phase: gas
+          - compound: mineral particulate
+            hazard_level: moderate
+            phase: solid
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.7
+          secondary_mechanisms:
+          - mechanical_spallation
+          - thermal_stress_fracturing
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: none
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 4.1
+            pulse_duration_10ns: 3.2
+            wavelength_1064nm: 2.8
+          decomposition_temperature: 850
+          heat_affected_zone_depth: 15
+          melting_point: 1200
+          specific_heat: 850
+          thermal_conductivity: 1.2
+          thermal_diffusivity: 0.45
+          vaporization_temperature: 2850
       _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
         order: 1
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Hard water scale on ceramic surfaces presents as white, chalky, or crusty deposits that can dull the
-            glossy finish and feel rough or gritty.
-          coverage: Coverage is typically partial and irregular, varying from small, isolated spots to more extensive scaling
-            in high-use zones like showers or sinks.
-          pattern: It tends to form in spots or patches, frequently in areas with standing water or repeated splashing, such
-            as around drains or on tile grout lines.
-        composite:
-          appearance: Hard water scale on composite materials shows as white or grayish mineral deposits that can form a dull,
-            crusty layer, potentially masking the underlying texture or color.
-          coverage: Coverage is usually partial and variable, ranging from sparse spots to more concentrated buildup depending
-            on material composition and water exposure.
-          pattern: It typically appears in irregular spots or patches, often concentrated where water is applied or evaporates,
-            and may follow surface imperfections.
-        concrete:
-          appearance: On concrete, hard water scale shows as white, powdery, or crystalline efflorescence that can form a
-            crusty layer, often giving a salt-like appearance on the surface.
-          coverage: Coverage is typically uneven, ranging from light, scattered deposits to dense, widespread scaling in moisture-prone
-            locations.
-          pattern: It commonly appears in patches or streaks, frequently where water seeps or evaporates, such as on walls,
-            floors, or in porous areas.
-        fabric:
-          appearance: Hard water scale on fabric appears as white or grayish mineral stains that can feel stiff or crusty,
-            often leaving a dull, discolored look on the material.
-          coverage: Coverage is generally sparse and irregular, varying from small spots to larger stained sections based
-            on water hardness and fabric type.
-          pattern: It usually distributes in splotches or streaks, following water contact patterns such as from spills or
-            washing, and may be more pronounced in absorbent areas.
-        glass:
-          appearance: On glass, hard water scale appears as a white, hazy, or filmy residue that can obscure clarity and leave
-            behind spotty, etched-looking marks when dried.
-          coverage: Coverage is often light to moderate and uneven, with variations from fine speckles to larger cloudy areas
-            depending on water hardness and drying conditions.
-          pattern: It usually forms in spots or streaks, often in a random or water-splash pattern, and may be more visible
-            on edges or where droplets evaporate.
-        metal:
-          appearance: Hard water scale appears as a white, chalky, or crusty deposit on metal surfaces, often with a rough
-            texture that can feel gritty to the touch.
-          coverage: Coverage is usually partial and uneven, ranging from small localized patches to more extensive buildup
-            in high-exposure zones.
-          pattern: It typically forms in irregular spots or streaks, concentrating in areas with frequent water contact or
-            evaporation, such as around joints or edges.
-        mineral:
-          appearance: Hard water scale on mineral surfaces appears as white, chalky, or crystalline deposits that may blend
-            with or contrast the base material, often creating a rough, layered look.
-          coverage: Coverage varies from light, spotty films to heavy, encrusted layers, depending on mineral porosity and
-            water exposure duration.
-          pattern: It tends to form in patches or uniform layers, especially where water interacts with the mineral, and can
-            accumulate in fissures or on exposed faces.
-        plastic:
-          appearance: On plastic, hard water scale appears as a white, powdery, or filmy coating that can reduce shine and
-            create a slightly rough texture on smooth surfaces.
-          coverage: Coverage is generally light and uneven, with variations from minor speckling to more noticeable patches
-            in frequently wet areas.
-          pattern: It often distributes in spots or streaks, following water contact points, and may accumulate in crevices
-            or on textured areas where moisture lingers.
-        rubber:
-          appearance: On rubber, hard water scale manifests as a white, chalky residue that can cling to the surface, sometimes
-            making it feel stiff or slightly abrasive.
-          coverage: Coverage is typically light and uneven, with minor variations from isolated deposits to broader films
-            in damp environments.
-          pattern: It often forms in spots or streaks, particularly in areas exposed to water splashes or condensation, and
-            may gather in seams or textured parts.
-        semiconductor:
-          appearance: On semiconductors, hard water scale appears as microscopic white or hazy residues that can form thin
-            films or particles, potentially interfering with surface conductivity and clarity.
-          coverage: Coverage is usually minimal and uneven, with variations from isolated specks to subtle films that can
-            affect performance in critical applications.
-          pattern: It typically distributes in fine spots or uniform layers, often concentrated in areas exposed to water
-            during processing or cleaning, and may follow contamination pathways.
-        specialty:
-          appearance: Hard water scale on specialty materials appears as white, crusty, or filmy deposits that adapt to the
-            surface properties, potentially causing discoloration, roughness, or functional impairment.
-          coverage: Coverage is highly variable, ranging from negligible spots to significant buildup, influenced by material
-            composition, treatment, and environmental factors.
-          pattern: It forms in patterns specific to the material's use and exposure, such as spots on coatings or streaks
-            on engineered surfaces, often in high-water-contact zones.
-        stone:
-          appearance: Hard water scale on stone surfaces shows up as white, cloudy, or crystalline deposits that can create
-            a dull, hazy film or rough patches on otherwise smooth finishes.
-          coverage: Coverage is typically uneven, ranging from light, scattered spots to dense, localized buildup in high-moisture
-            areas.
-          pattern: It commonly forms in patches or streaks, often concentrated where water pools or evaporates, such as on
-            countertops or shower walls.
-        wood:
-          appearance: On wood, hard water scale manifests as white or grayish mineral stains that can appear powdery or crusty,
-            potentially dulling the natural finish and causing surface roughness.
-          coverage: Coverage is generally sparse and irregular, varying from isolated spots to broader areas depending on
-            water exposure and wood porosity.
-          pattern: It often appears as splotches or streaks, following water flow or spill patterns, and may accumulate in
-            grooves or porous areas of the wood grain.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.3
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 200
-          min_ns: 10
-          recommended_ns: 100
-        repetition_rate_khz:
-          max: 100
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.2
-          min: 0.05
-          recommended: 0.1
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 150
-          wavelength_355nm: 3200
-          wavelength_532nm: 850
-        reflectivity:
-          wavelength_1064nm: 0.35
-          wavelength_355nm: 0.08
-          wavelength_532nm: 0.18
-        refractive_index:
-          imaginary_part: 0.024
-          real_part: 1.52
-        transmission_depth: 66.7
-      removal_characteristics:
-        byproducts:
-        - compound: calcium-oxide
-          hazard_level: low
-          phase: solid
-        - compound: carbon-dioxide
-          hazard_level: low
-          phase: gas
-        - compound: mineral particulate
-          hazard_level: moderate
-          phase: solid
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 240
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 3
-          optimal_passes: 2
-          single_pass: 0.7
-        secondary_mechanisms:
-        - mechanical_spallation
-        - thermal_stress_fracturing
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: none
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Calcium Oxide (CaO)
-          concentration_mg_m3: 5-25
-          exposure_limit_mg_m3: 2
-          hazard_class: irritant
-        - compound: Magnesium Oxide (MgO)
-          concentration_mg_m3: 2-15
-          exposure_limit_mg_m3: 10
-          hazard_class: irritant
-        - compound: Silicon Dioxide (SiO2)
-          concentration_mg_m3: 1-10
-          exposure_limit_mg_m3: 0.025
-          hazard_class: toxic
-        particulate_generation:
-          respirable_fraction: 0.7
-          size_range_um:
-          - 0.1
-          - 10.0
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: half_mask
-          skin_protection: gloves
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Laser may cause thermal damage to underlying metal surfaces
-        - Potential for surface discoloration on some substrates
-        - Risk of pitting on soft metals at high laser intensities
-        toxic_gas_risk:
-          severity: low
-          primary_hazards:
-          - compound: Silicon Dioxide (SiO2)
-            concentration_mg_m3: 1-10
-            hazard_class: toxic
-          description: Silicon Dioxide (SiO2) generation detected - low toxicity risk
-          mitigation: N95 or P100 respirator for particulate control, standard ventilation
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA
-          minimum_air_changes_per_hour: 12
-          rationale: Standard industrial ventilation (12 ACH) for particulate control
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 4.1
-          pulse_duration_10ns: 3.2
-          wavelength_1064nm: 2.8
-        decomposition_temperature: 850
-        heat_affected_zone_depth: 15
-        melting_point: 1200
-        specific_heat: 850
-        thermal_conductivity: 1.2
-        thermal_diffusivity: 0.45
-        vaporization_temperature: 2850
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Electronics
-    - Plastics
-  category: thermal-damage
-  subcategory: scale
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        ceramics:
-          title: Ceramic Materials
-          description: Ceramic and glass materials affected by this contamination
-          items:
-          - id: alumina-laser-cleaning
-            title: Alumina
-            url: /materials/ceramic/oxide/alumina-laser-cleaning
-            image: /images/material/alumina-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: aluminum-nitride-laser-cleaning
-            title: Aluminum Nitride
-            url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-            image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-carbide-laser-cleaning
-            title: Boron Carbide
-            url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
-            image: /images/material/boron-carbide-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: carbide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: boron-nitride-laser-cleaning
-            title: Boron Nitride
-            url: /materials/ceramic/technical/boron-nitride-laser-cleaning
-            image: /images/material/boron-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: technical
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: silicon-nitride-laser-cleaning
-            title: Silicon Nitride
-            url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
-            image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zirconia-laser-cleaning
-            title: Zirconia
-            url: /materials/ceramic/oxide/zirconia-laser-cleaning
-            image: /images/material/zirconia-laser-cleaning-hero.jpg
-            category: ceramic
-            subcategory: oxide
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        glass:
-          title: Glass Materials
-          description: Materials in the glass category
-          items:
-          - id: aluminosilicate-glass-laser-cleaning
-            title: Aluminosilicate Glass
-            url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
-            image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: borosilicate-glass-laser-cleaning
-            title: Borosilicate Glass
-            url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
-            image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: crown-glass-laser-cleaning
-            title: Crown Glass
-            url: /materials/glass/soda-lime/crown-glass-laser-cleaning
-            image: /images/material/crown-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: float-glass-laser-cleaning
-            title: Float Glass
-            url: /materials/glass/soda-lime/float-glass-laser-cleaning
-            image: /images/material/float-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: fused-silica-laser-cleaning
-            title: Fused Silica
-            url: /materials/glass/soda-lime/fused-silica-laser-cleaning
-            image: /images/material/fused-silica-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: gorilla-glass-laser-cleaning
-            title: Gorilla Glass
-            url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
-            image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: soda-lime
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tempered-glass-laser-cleaning
-            title: Tempered Glass
-            url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
-            image: /images/material/tempered-glass-laser-cleaning-hero.jpg
-            category: glass
-            subcategory: specialty-glass
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: brass-laser-cleaning
-            title: Brass
-            url: /materials/metal/non-ferrous/brass-laser-cleaning
-            image: /images/material/brass-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bronze-laser-cleaning
-            title: Bronze
-            url: /materials/metal/non-ferrous/bronze-laser-cleaning
-            image: /images/material/bronze-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: chromium-laser-cleaning
-            title: Chromium
-            url: /materials/metal/specialty/chromium-laser-cleaning
-            image: /images/material/chromium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cobalt-laser-cleaning
-            title: Cobalt
-            url: /materials/metal/specialty/cobalt-laser-cleaning
-            image: /images/material/cobalt-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: copper-laser-cleaning
-            title: Copper
-            url: /materials/metal/non-ferrous/copper-laser-cleaning
-            image: /images/material/copper-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: lead-laser-cleaning
-            title: Lead
-            url: /materials/metal/non-ferrous/lead-laser-cleaning
-            image: /images/material/lead-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: nickel-laser-cleaning
-            title: Nickel
-            url: /materials/metal/specialty/nickel-laser-cleaning
-            image: /images/material/nickel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: tin-laser-cleaning
-            title: Tin
-            url: /materials/metal/alloy/tin-laser-cleaning
-            image: /images/material/tin-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: titanium-laser-cleaning
-            title: Titanium
-            url: /materials/metal/specialty/titanium-laser-cleaning
-            image: /images/material/titanium-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: specialty
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: zinc-laser-cleaning
-            title: Zinc
-            url: /materials/metal/alloy/zinc-laser-cleaning
-            image: /images/material/zinc-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: alloy
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        stone:
-          title: Stone Materials
-          description: Natural and processed stone materials affected by this contamination
-          items:
-          - id: basalt-laser-cleaning
-            title: Basalt
-            url: /materials/stone/igneous/basalt-laser-cleaning
-            image: /images/material/basalt-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: bluestone-laser-cleaning
-            title: Bluestone
-            url: /materials/stone/sedimentary/bluestone-laser-cleaning
-            image: /images/material/bluestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: granite-laser-cleaning
-            title: Granite
-            url: /materials/stone/igneous/granite-laser-cleaning
-            image: /images/material/granite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: igneous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: limestone-laser-cleaning
-            title: Limestone
-            url: /materials/stone/sedimentary/limestone-laser-cleaning
-            image: /images/material/limestone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: marble-laser-cleaning
-            title: Marble
-            url: /materials/stone/metamorphic/marble-laser-cleaning
-            image: /images/material/marble-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: quartzite-laser-cleaning
-            title: Quartzite
-            url: /materials/stone/sedimentary/quartzite-laser-cleaning
-            image: /images/material/quartzite-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: sandstone-laser-cleaning
-            title: Sandstone
-            url: /materials/stone/sedimentary/sandstone-laser-cleaning
-            image: /images/material/sandstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: slate-laser-cleaning
-            title: Slate
-            url: /materials/stone/metamorphic/slate-laser-cleaning
-            image: /images/material/slate-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: metamorphic
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: soapstone-laser-cleaning
-            title: Soapstone
-            url: /materials/stone/sedimentary/soapstone-laser-cleaning
-            image: /images/material/soapstone-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: sedimentary
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: travertine-laser-cleaning
-            title: Travertine
-            url: /materials/stone/natural/travertine-laser-cleaning
-            image: /images/material/travertine-laser-cleaning-hero.jpg
-            category: stone
-            subcategory: natural
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        general:
-          title: General Materials
-          description: Materials in the general category
-          items:
-          - id: silicon-carbide-laser-cleaning
-            title: Silicon Carbide Laser Cleaning
-            url: /materials/general/misc/silicon-carbide-laser-cleaning
-            image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
-            category: general
-            subcategory: misc
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: alumina-laser-cleaning
+    title: Alumina
+    url: /materials/ceramic/oxide/alumina-laser-cleaning
+    image: /images/material/alumina-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminosilicate-glass-laser-cleaning
+    title: Aluminosilicate Glass
+    url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+    image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: aluminum-nitride-laser-cleaning
+    title: Aluminum Nitride
+    url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+    image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: basalt-laser-cleaning
+    title: Basalt
+    url: /materials/stone/igneous/basalt-laser-cleaning
+    image: /images/material/basalt-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bluestone-laser-cleaning
+    title: Bluestone
+    url: /materials/stone/sedimentary/bluestone-laser-cleaning
+    image: /images/material/bluestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-carbide-laser-cleaning
+    title: Boron Carbide
+    url: /materials/ceramic/carbide/boron-carbide-laser-cleaning
+    image: /images/material/boron-carbide-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: carbide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: boron-nitride-laser-cleaning
+    title: Boron Nitride
+    url: /materials/ceramic/technical/boron-nitride-laser-cleaning
+    image: /images/material/boron-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: technical
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: borosilicate-glass-laser-cleaning
+    title: Borosilicate Glass
+    url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+    image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: brass-laser-cleaning
+    title: Brass
+    url: /materials/metal/non-ferrous/brass-laser-cleaning
+    image: /images/material/brass-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: bronze-laser-cleaning
+    title: Bronze
+    url: /materials/metal/non-ferrous/bronze-laser-cleaning
+    image: /images/material/bronze-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: chromium-laser-cleaning
+    title: Chromium
+    url: /materials/metal/specialty/chromium-laser-cleaning
+    image: /images/material/chromium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cobalt-laser-cleaning
+    title: Cobalt
+    url: /materials/metal/specialty/cobalt-laser-cleaning
+    image: /images/material/cobalt-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: copper-laser-cleaning
+    title: Copper
+    url: /materials/metal/non-ferrous/copper-laser-cleaning
+    image: /images/material/copper-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: crown-glass-laser-cleaning
+    title: Crown Glass
+    url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+    image: /images/material/crown-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: float-glass-laser-cleaning
+    title: Float Glass
+    url: /materials/glass/soda-lime/float-glass-laser-cleaning
+    image: /images/material/float-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: fused-silica-laser-cleaning
+    title: Fused Silica
+    url: /materials/glass/soda-lime/fused-silica-laser-cleaning
+    image: /images/material/fused-silica-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: gorilla-glass-laser-cleaning
+    title: Gorilla Glass
+    url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+    image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: soda-lime
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: granite-laser-cleaning
+    title: Granite
+    url: /materials/stone/igneous/granite-laser-cleaning
+    image: /images/material/granite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: igneous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: lead-laser-cleaning
+    title: Lead
+    url: /materials/metal/non-ferrous/lead-laser-cleaning
+    image: /images/material/lead-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: limestone-laser-cleaning
+    title: Limestone
+    url: /materials/stone/sedimentary/limestone-laser-cleaning
+    image: /images/material/limestone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: marble-laser-cleaning
+    title: Marble
+    url: /materials/stone/metamorphic/marble-laser-cleaning
+    image: /images/material/marble-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: nickel-laser-cleaning
+    title: Nickel
+    url: /materials/metal/specialty/nickel-laser-cleaning
+    image: /images/material/nickel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: quartzite-laser-cleaning
+    title: Quartzite
+    url: /materials/stone/sedimentary/quartzite-laser-cleaning
+    image: /images/material/quartzite-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: sandstone-laser-cleaning
+    title: Sandstone
+    url: /materials/stone/sedimentary/sandstone-laser-cleaning
+    image: /images/material/sandstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-carbide-laser-cleaning
+    title: Silicon Carbide Laser Cleaning
+    url: /materials/general/misc/silicon-carbide-laser-cleaning
+    image: /images/material/silicon-carbide-laser-cleaning-hero.jpg
+    category: general
+    subcategory: misc
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: silicon-nitride-laser-cleaning
+    title: Silicon Nitride
+    url: /materials/ceramic/oxide/silicon-nitride-laser-cleaning
+    image: /images/material/silicon-nitride-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: slate-laser-cleaning
+    title: Slate
+    url: /materials/stone/metamorphic/slate-laser-cleaning
+    image: /images/material/slate-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: metamorphic
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: soapstone-laser-cleaning
+    title: Soapstone
+    url: /materials/stone/sedimentary/soapstone-laser-cleaning
+    image: /images/material/soapstone-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: sedimentary
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tempered-glass-laser-cleaning
+    title: Tempered Glass
+    url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+    image: /images/material/tempered-glass-laser-cleaning-hero.jpg
+    category: glass
+    subcategory: specialty-glass
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: tin-laser-cleaning
+    title: Tin
+    url: /materials/metal/alloy/tin-laser-cleaning
+    image: /images/material/tin-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: titanium-laser-cleaning
+    title: Titanium
+    url: /materials/metal/specialty/titanium-laser-cleaning
+    image: /images/material/titanium-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: specialty
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: travertine-laser-cleaning
+    title: Travertine
+    url: /materials/stone/natural/travertine-laser-cleaning
+    image: /images/material/travertine-laser-cleaning-hero.jpg
+    category: stone
+    subcategory: natural
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zinc-laser-cleaning
+    title: Zinc
+    url: /materials/metal/alloy/zinc-laser-cleaning
+    image: /images/material/zinc-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: alloy
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: zirconia-laser-cleaning
+    title: Zirconia
+    url: /materials/ceramic/oxide/zirconia-laser-cleaning
+    image: /images/material/zirconia-laser-cleaning-hero.jpg
+    category: ceramic
+    subcategory: oxide
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: scale
 composition:
 - CaCO₃
 - MgCO₃
 - CaSO₄
-pageDescription: 'Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
-  thin on stones, and this difference affects cleaning outcomes. After exposure to moisture, buildup hardens quickly, so laser
-  cleaning faces challenges in avoiding thermal damage. Contamination exhibits sticky patterns during formation, especially
-  in humid areas. Treatment removes layers effectively on durable materials, but softer ones show cracking risks. Process
-  achieves better uniformity on heat-resistant substrates.
-
-
-  Ikmanda Roswati, Ph.D. from Indonesia'
+prohibited_materials:
+- Electronics
+- Plastics
+valid_materials:
+- alumina-laser-cleaning
+- aluminosilicate-glass-laser-cleaning
+- aluminum-laser-cleaning
+- aluminum-nitride-laser-cleaning
+- basalt-laser-cleaning
+- bluestone-laser-cleaning
+- boron-carbide-laser-cleaning
+- boron-nitride-laser-cleaning
+- borosilicate-glass-laser-cleaning
+- brass-laser-cleaning
+- bronze-laser-cleaning
+- cast-iron-laser-cleaning
+- chromium-laser-cleaning
+- cobalt-laser-cleaning
+- copper-laser-cleaning
+- crown-glass-laser-cleaning
+- float-glass-laser-cleaning
+- fused-silica-laser-cleaning
+- gorilla-glass-laser-cleaning
+- granite-laser-cleaning
+- lead-laser-cleaning
+- limestone-laser-cleaning
+- marble-laser-cleaning
+- nickel-laser-cleaning
+- quartzite-laser-cleaning
+- sandstone-laser-cleaning
+- silicon-carbide-sic-laser-cleaning
+- silicon-nitride-laser-cleaning
+- slate-laser-cleaning
+- soapstone-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+- tempered-glass-laser-cleaning
+- tin-laser-cleaning
+- titanium-laser-cleaning
+- travertine-laser-cleaning
+- zinc-laser-cleaning
+- zirconia-laser-cleaning
+slug: mineral-deposits-contamination
+lastModified: '2026-01-04T14:58:05.017813'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Hard Water Mineral Scale
+  href: ''
+title: Hard Water Mineral Scale
+metaDescription: 'Hard Water Mineral Scale: 90-95% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
+  integrity. No chemicals, no media waste.'

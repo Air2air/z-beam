@@ -1,24 +1,15 @@
 id: hickory-settings
 name: Hickory
-datePublished: '2025-12-27T21:06:07.717895Z'
-dateModified: '2025-12-27T21:06:07.717895Z'
-contentType: settings
-schemaVersion: 5.0.0
-fullPath: /settings/wood/hardwood/hickory-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Wood
-  href: /settings/wood
-- label: Hardwood
-  href: /settings/wood/hardwood
-- label: Hickory
-  href: /settings/wood/hardwood/hickory-settings
-pageTitle: 'Hickory Settings: Laser Parameters'
-metaDescription: 'Hickory: removes contamination removal. Industrial-grade parameters.
-  No substrate damage.'
+datePublished: '2026-01-04T22:55:09.591731Z'
+dateModified: '2026-01-04T22:55:09.591731Z'
+content_type: settings
+schema_version: 5.0.0
+full_path: /settings/wood/hardwood/hickory-settings
+page_title: 'Hickory Settings: Laser Parameters'
+page_description: The key with Hickory lies in its dense hardwood structure. We've found this makes it durable yet prone to
+  heat buildup during laser cleaning. Start with lower power settings to remove surface contaminants steadily. Its moderate
+  porosity absorbs residues unevenly, so watch for uneven cleaning in the middle of passes. Adjust scan speeds slower to avoid
+  charring the grain. This approach restores the wood without damaging its natural toughness.
 images:
   hero:
     url: /images/settings/hickory-settings-hero.jpg
@@ -51,17 +42,16 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
-    with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -73,35 +63,6 @@ card:
     severity: low
     icon: settings
 relationships:
-  technical:
-    works_on_materials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -112,30 +73,84 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 4
+        order: 1
+        variant: default
+  interactions:
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    works_on_materials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
+        icon: box
+        order: 2
         variant: default
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - id: charring-carbonization
-          type: challenge
-        - id: slow-thermal-diffusivity
-          type: challenge
-        contamination_challenges:
-        - id: varnish-coating-removal
-          type: challenge
+      - id: charring-carbonization
+        category: Thermal Management
+        challenge: Charring and carbonization
+        description: Surface degradation, aesthetic damage, structural weakening
+        severity: high
+        solutions:
+        - Use ultrashort pulses (<10 ps) to minimize thermal diffusion
+        - Lower fluence (0.5-2 J/cm²) with multiple passes
+        - Assist gas (nitrogen) to remove pyrolysis products
+      - id: slow-thermal-diffusivity
+        category: Thermal Management
+        challenge: Slow thermal diffusivity
+        description: Heat accumulation and substrate damage
+        severity: medium
+        solutions:
+        - Reduce duty cycle with longer cooling intervals
+        - Lower average power while maintaining peak fluence
+        - Multiple light passes with cooling between
+      - id: varnish-coating-removal
+        category: Contamination
+        challenge: Varnish and coating removal
+        description: Organic coatings vaporize but can char if power too high
+        severity: medium
+        solutions:
+        - Use moderate fluence (2-4 J/cm²)
+        - Air assist to remove vaporized material
+        - Multiple passes if coating is thick
+      options:
+        autoOpenFirst: true
+        sortBy: severity
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Typical difficulties and best practices when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
-category: wood
-subcategory: hardwood
 machine_settings:
   powerRange:
     description: Optimal average power for Hickory surface cleaning without charring
@@ -196,78 +211,75 @@ machine_settings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for 1064 nm pulsed lasers on wood; starting at 50W
-      balances cleaning efficiency and heat input to prevent charring on low-conductivity
-      hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer
-      specs from IPG Photonics YLR series and studies on wood laser ablation (e.g.,
-      Journal of Cultural Heritage, 2018).'
+    description: 'Typical range for 1064 nm pulsed lasers on wood; starting at 50W balances cleaning efficiency and heat input
+      to prevent charring on low-conductivity hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer
+      specs from IPG Photonics YLR series and studies on wood laser ablation (e.g., Journal of Cultural Heritage, 2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective speeds for contamination removal; 1000 mm/s recommended
-      for optimal balance on Hickory to avoid overheating. Slower (100-500 mm/s) for
-      heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards
-      from Laserax equipment manuals and process optimization in Optics and Lasers
-      in Engineering (2020).'
+    description: 'Effective speeds for contamination removal; 1000 mm/s recommended for optimal balance on Hickory to avoid
+      overheating. Slower (100-500 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards
+      from Laserax equipment manuals and process optimization in Optics and Lasers in Engineering (2020).'
   pulse_width:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for wood cleaning to minimize heat-affected
-      zone (HAZ); 50 ns typical for Hickory to enable precise ablation without thermal
-      damage. Picosecond (ps) or femtosecond for ultra-fine work but less common industrially.
-      Source: Laser physics research in Applied Surface Science (2019) on wood substrates.'
+    description: 'Nanosecond regime preferred for wood cleaning to minimize heat-affected zone (HAZ); 50 ns typical for Hickory
+      to enable precise ablation without thermal damage. Picosecond (ps) or femtosecond for ultra-fine work but less common
+      industrially. Source: Laser physics research in Applied Surface Science (2019) on wood substrates.'
   repetition_rate:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: '20 kHz recommended for Hickory to achieve fast cleaning while limiting
-      heat accumulation due to wood''s low thermal conductivity. Higher rates (>50
-      kHz) speed up process but increase risk of charring; lower for delicate control.
-      Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser
-      cleaning of organics.'
+    description: '20 kHz recommended for Hickory to achieve fast cleaning while limiting heat accumulation due to wood''s
+      low thermal conductivity. Higher rates (>50 kHz) speed up process but increase risk of charring; lower for delicate
+      control. Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser cleaning of organics.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence below Hickory''s damage threshold (~3-5 J/cm² at 1064 nm)
-      for safe cleaning; 2 J/cm² recommended for contamination removal without ablation
-      of substrate. Conservative for hardwoods to prevent carbonization. Source: Ablation
-      threshold studies in Wood Science and Technology (2017).'
+    description: 'Fluence below Hickory''s damage threshold (~3-5 J/cm² at 1064 nm) for safe cleaning; 2 J/cm² recommended
+      for contamination removal without ablation of substrate. Conservative for hardwoods to prevent carbonization. Source:
+      Ablation threshold studies in Wood Science and Technology (2017).'
   spot_size:
     min: 0.1
     max: 500
     value: 300
     unit: μm
-    description: '300 μm recommended for Hickory surface preparation, balancing fine
-      detail and large-area coverage. Smaller (100-200 μm) for precision, larger (500-1000
-      μm) for broad cleaning. Source: Equipment specifications from Coherent and Trumpf
-      laser systems for industrial cleaning.'
+    description: '300 μm recommended for Hickory surface preparation, balancing fine detail and large-area coverage. Smaller
+      (100-200 μm) for precision, larger (500-1000 μm) for broad cleaning. Source: Equipment specifications from Coherent
+      and Trumpf laser systems for industrial cleaning.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: '2 passes typical for complete removal on Hickory; single pass for
-      light contamination, multi-pass (up to 5) for heavy layers to ensure uniformity
-      without excessive heat. Source: Industry case studies in restoration of wooden
+    description: '2 passes typical for complete removal on Hickory; single pass for light contamination, multi-pass (up to
+      5) for heavy layers to ensure uniformity without excessive heat. Source: Industry case studies in restoration of wooden
       artifacts (e.g., Studies in Conservation, 2022).'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '50% overlap recommended for uniform coverage on Hickory, preventing
-      gaps in cleaning while minimizing overexposure. Range 30-80% based on contamination
-      density. Source: Process optimization studies in Laser Cleaning Journal (2020).'
-pageDescription: The key with Hickory lies in its dense hardwood structure. We've
-  found this makes it durable yet prone to heat buildup during laser cleaning. Start
-  with lower power settings to remove surface contaminants steadily. Its moderate
-  porosity absorbs residues unevenly, so watch for uneven cleaning in the middle of
-  passes. Adjust scan speeds slower to avoid charring the grain. This approach restores
-  the wood without damaging its natural toughness.
+    description: '50% overlap recommended for uniform coverage on Hickory, preventing gaps in cleaning while minimizing overexposure.
+      Range 30-80% based on contamination density. Source: Process optimization studies in Laser Cleaning Journal (2020).'
+component_summary: These settings employ moderate 50 W power and short 10 ns pulses at 1064 nm to gently ablate surface contaminants
+  from dense Hickory wood, minimizing thermal damage and charring risk.
+slug: hickory-settings
+lastModified: '2026-01-04T14:55:09.591765'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Hickory
+  href: ''
+title: Hickory
+metaDescription: Hickory laser cleaning parameters optimized for contamination. Industrial-grade settings preserve substrate
+  integrity. Industrial-quality results.

@@ -1,26 +1,19 @@
 id: brake-dust-contamination
 name: Brake Pad Dust Deposits
 category: inorganic-coating
-datePublished: '2025-12-27T21:04:23.478666Z'
-dateModified: '2025-12-27T21:04:23.478666Z'
-contentType: contaminants
-schemaVersion: 5.0.0
-fullPath: /contaminants/inorganic-coating/mineral/brake-dust-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Inorganic Coating
-  href: /contaminants/inorganic-coating
-- label: Mineral
-  href: /contaminants/inorganic-coating/mineral
-- label: Brake Pad Dust Deposits
-  href: /contaminants/inorganic-coating/mineral/brake-dust-contamination
-pageTitle: 'Brake Pad Dust Deposits Removal: Laser Ablation Clean'
-metaDescription: 'Brake Pad Dust Deposits: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
-  integrity. No chemicals, no media waste.'
-images: &id001
+datePublished: '2026-01-04T22:58:00.914537Z'
+dateModified: '2026-01-04T22:58:00.914537Z'
+content_type: contaminants
+schema_version: 5.0.0
+full_path: /contaminants/inorganic-coating/mineral/brake-dust-contamination
+page_title: 'Brake Pad Dust Deposits Removal: Laser Ablation Clean'
+page_description: Brake dust contamination, it manifests as an inorganic coating from frictional wear on vehicle components,
+  which leads to layered deposits tenaciously adherent to metal surfaces. These particles, they embed deeply into substrates
+  like steel or aluminum, influenced from environmental humidity and mechanical stress, that demonstrates material-specific
+  behaviors in formation. It seems that removal challenges arise from the contamination's persistence under laser exposure,
+  where oxides resist ablation more than softer residues, dependent from substrate roughness. The process yields effective
+  cleaning, yet it requires precise control to avoid surface alteration.
+images:
   hero:
     url: /images/contaminant/brake-dust-contamination-hero.jpg
     alt: Brake Pad Dust Deposits laser cleaning visualization showing process effects
@@ -44,9 +37,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -58,10 +48,120 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
+        icon: shield-check
+        order: 1
+        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Iron Oxide (Fe2O3)
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
+      - compound: Copper
+        concentration_mg_m3: 0.5-3
+        exposure_limit_mg_m3: 0.1
+        hazard_class: irritant
+      - compound: Zinc Oxide
+        concentration_mg_m3: 1-8
+        exposure_limit_mg_m3: 2.0
+        hazard_class: toxic
+      - compound: Carbon Black
+        concentration_mg_m3: 3-15
+        exposure_limit_mg_m3: 3.5
+        hazard_class: carcinogenic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 0.1-1.5
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - High laser power may damage underlying metal surface
+    - Thermal stress may cause micro-cracking in cast iron components
+    - Avoid prolonged exposure on thin-walled brake components
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards:
+        - compound: Zinc Oxide
+          concentration_mg_m3: 1-8
+          hazard_class: toxic
+        - compound: Carbon Black
+          concentration_mg_m3: 3-15
+          hazard_class: carcinogenic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 0.1-1.5
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Zinc Oxide, Carbon Black, Polycyclic Aromatic Hydrocarbons (PAHs)
+          - requires enhanced protection'
+        mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Carbon Black, Polycyclic
+          Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: iron-oxide-compound
+      - id: carbon-ash-compound
+      - id: copper-oxide-compound
+      - id: organic-residues-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -114,350 +214,245 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
         icon: box
+        order: 2
+        variant: default
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
+      items:
+      - appearance_on_categories:
+          ceramic:
+            appearance: Dark gray dust that adheres to smooth, glazed surfaces, appearing as a dull film over the ceramic's
+              usual luster.
+            coverage: Light to moderate, with even spread on horizontal surfaces but less on vertical ones, and removable
+              with washing.
+            pattern: Distributes as fine spots or a uniform layer, influenced by surface orientation and cleaning frequency.
+          composite:
+            appearance: Dark dust that settles on composite materials, blending with or contrasting the surface depending
+              on color and texture.
+            coverage: Generally light and variable, accumulating more on rough or unfinished surfaces and less on sealed ones.
+            pattern: Appears as irregular spots or a thin film, with distribution affected by composite porosity and environmental
+              conditions.
+          concrete:
+            appearance: Gray to black powdery deposits that settle on rough concrete surfaces, darkening the natural gray
+              color and adding grit.
+            coverage: Varies widely from light to heavy, accumulating in low-lying areas and persisting until washed away
+              by rain.
+            pattern: Forms patches or a thin layer, with patterns influenced by surface texture, cracks, and exposure to weathering.
+          fabric:
+            appearance: Dark, fine dust that clings to fibers, causing staining and a dull, dirty appearance on fabrics.
+            coverage: Light to moderate, with higher accumulation in dense or textured areas, and may require washing for
+              complete removal.
+            pattern: Distributes as scattered spots or smudges, often ingrained into the weave and harder to remove from porous
+              materials.
+          glass:
+            appearance: Fine, dark particles that create a hazy or smeared look on transparent surfaces, reducing clarity
+              and shine.
+            coverage: Typically light and patchy, concentrated on areas facing brake dust sources, and easily cleaned with
+              wiping.
+            pattern: Often forms streaks or smudges, especially when wiped or exposed to moisture, leading to uneven distribution.
+          metal:
+            appearance: Dark gray to black powdery deposits that adhere to the surface, often creating a matte finish on otherwise
+              shiny metal.
+            coverage: Varies from light dusting to heavy accumulation, often concentrated on exposed areas near braking systems.
+            pattern: Typically appears as streaks or patches aligned with the direction of airflow or movement, such as along
+              wheel rims.
+          mineral:
+            appearance: Dark dust that adheres to mineral surfaces, often contrasting with crystalline or natural hues and
+              reducing reflectivity.
+            coverage: Typically light and uneven, more prevalent on exposed, rough surfaces and less on polished ones.
+            pattern: Appears as fine spots or a diffuse coating, with distribution shaped by mineral hardness and environmental
+              exposure.
+          plastic:
+            appearance: Black or gray powdery residue that sticks to plastic surfaces, often causing discoloration and a gritty
+              feel.
+            coverage: Varies from sparse to moderate, depending on exposure; tends to be uneven and can embed in soft plastics.
+            pattern: Forms patches or streaks, with accumulation in textured areas or edges due to static attraction.
+          rubber:
+            appearance: Grayish-black particles that embed into rubber surfaces, making them appear soiled and slightly abrasive
+              to touch.
+            coverage: Moderate to heavy in high-friction zones like tires, but uneven overall and resistant to simple removal.
+            pattern: Tends to form streaks or concentrated patches, especially in grooves or areas with frequent contact.
+          semiconductor:
+            appearance: Fine, dark particles that can contaminate sensitive surfaces, potentially causing defects and appearing
+              as microscopic smudges.
+            coverage: Extremely light and critical to minimize; varies with cleanliness protocols and can lead to performance
+              issues if not controlled.
+            pattern: Forms as minute spots or a thin film, often uniform in controlled environments but irregular in dusty
+              conditions.
+          specialty:
+            appearance: Dark, abrasive dust that settles on unique surfaces like coatings or advanced materials, altering
+              appearance and potentially causing damage.
+            coverage: Ranges from minimal to significant, influenced by exposure levels and material susceptibility, often
+              requiring specialized cleaning.
+            pattern: Distribution varies widely—from uniform films on smooth specialties to embedded spots in porous ones—depending
+              on material properties.
+          stone:
+            appearance: Grayish-black dust that settles on the surface, contrasting with natural stone colors and textures,
+              often making it look dirty.
+            coverage: Light to moderate, varying with proximity to traffic; tends to accumulate in depressions and be removed
+              by rain.
+            pattern: Appears as scattered spots or a thin film, with patterns shaped by surface roughness and exposure to
+              elements.
+          wood:
+            appearance: Dark, gritty particles that cling to porous surfaces, potentially embedding into the grain and darkening
+              the wood's natural color.
+            coverage: Generally light and uneven, with higher accumulation in crevices or sheltered spots, but can be washed
+              away easily.
+            pattern: Forms irregular spots or patches, with distribution influenced by surface texture and environmental factors
+              like wind.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
         order: 1
         variant: default
-    produces_compounds:
-      presentation: card
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - id: iron-oxide-compound
-      - id: carbon-ash-compound
-      - id: copper-oxide-compound
-      - id: organic-residues-compound
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.4
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 200
+            min_ns: 10
+            recommended_ns: 100
+          repetition_rate_khz:
+            max: 300
+            min: 20
+            recommended: 100
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 3000
+            min: 500
+            recommended: 1500
+          spot_size_mm:
+            max: 0.1
+            min: 0.03
+            recommended: 0.05
+          wavelength_preference:
+          - 1064
+          - 532
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 850
+            wavelength_355nm: 18500
+            wavelength_532nm: 4200
+          reflectivity:
+            wavelength_1064nm: 0.35
+            wavelength_355nm: 0.07
+            wavelength_532nm: 0.18
+          refractive_index:
+            imaginary_part: 0.15
+            real_part: 2.1
+          transmission_depth: 11.8
+        removal_characteristics:
+          byproducts:
+          - compound: iron-oxide
+            hazard_level: moderate
+            phase: solid
+          - compound: carbon-ash
+            hazard_level: low
+            phase: solid
+          - compound: copper-oxide
+            hazard_level: moderate
+            phase: solid
+          - compound: organic-residues
+            hazard_level: moderate
+            phase: gas
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.85
+          secondary_mechanisms:
+          - mechanical_spallation
+          - photochemical
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: none
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 0.9
+            pulse_duration_10ns: 1.2
+            wavelength_1064nm: 1.8
+          decomposition_temperature: 450
+          heat_affected_zone_depth: 15
+          melting_point: 1100
+          specific_heat: 850
+          thermal_conductivity: 0.8
+          thermal_diffusivity: 0.5
+          vaporization_temperature: 1200
       _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
         order: 1
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Dark gray dust that adheres to smooth, glazed surfaces, appearing as a dull film over the ceramic's
-            usual luster.
-          coverage: Light to moderate, with even spread on horizontal surfaces but less on vertical ones, and removable with
-            washing.
-          pattern: Distributes as fine spots or a uniform layer, influenced by surface orientation and cleaning frequency.
-        composite:
-          appearance: Dark dust that settles on composite materials, blending with or contrasting the surface depending on
-            color and texture.
-          coverage: Generally light and variable, accumulating more on rough or unfinished surfaces and less on sealed ones.
-          pattern: Appears as irregular spots or a thin film, with distribution affected by composite porosity and environmental
-            conditions.
-        concrete:
-          appearance: Gray to black powdery deposits that settle on rough concrete surfaces, darkening the natural gray color
-            and adding grit.
-          coverage: Varies widely from light to heavy, accumulating in low-lying areas and persisting until washed away by
-            rain.
-          pattern: Forms patches or a thin layer, with patterns influenced by surface texture, cracks, and exposure to weathering.
-        fabric:
-          appearance: Dark, fine dust that clings to fibers, causing staining and a dull, dirty appearance on fabrics.
-          coverage: Light to moderate, with higher accumulation in dense or textured areas, and may require washing for complete
-            removal.
-          pattern: Distributes as scattered spots or smudges, often ingrained into the weave and harder to remove from porous
-            materials.
-        glass:
-          appearance: Fine, dark particles that create a hazy or smeared look on transparent surfaces, reducing clarity and
-            shine.
-          coverage: Typically light and patchy, concentrated on areas facing brake dust sources, and easily cleaned with wiping.
-          pattern: Often forms streaks or smudges, especially when wiped or exposed to moisture, leading to uneven distribution.
-        metal:
-          appearance: Dark gray to black powdery deposits that adhere to the surface, often creating a matte finish on otherwise
-            shiny metal.
-          coverage: Varies from light dusting to heavy accumulation, often concentrated on exposed areas near braking systems.
-          pattern: Typically appears as streaks or patches aligned with the direction of airflow or movement, such as along
-            wheel rims.
-        mineral:
-          appearance: Dark dust that adheres to mineral surfaces, often contrasting with crystalline or natural hues and reducing
-            reflectivity.
-          coverage: Typically light and uneven, more prevalent on exposed, rough surfaces and less on polished ones.
-          pattern: Appears as fine spots or a diffuse coating, with distribution shaped by mineral hardness and environmental
-            exposure.
-        plastic:
-          appearance: Black or gray powdery residue that sticks to plastic surfaces, often causing discoloration and a gritty
-            feel.
-          coverage: Varies from sparse to moderate, depending on exposure; tends to be uneven and can embed in soft plastics.
-          pattern: Forms patches or streaks, with accumulation in textured areas or edges due to static attraction.
-        rubber:
-          appearance: Grayish-black particles that embed into rubber surfaces, making them appear soiled and slightly abrasive
-            to touch.
-          coverage: Moderate to heavy in high-friction zones like tires, but uneven overall and resistant to simple removal.
-          pattern: Tends to form streaks or concentrated patches, especially in grooves or areas with frequent contact.
-        semiconductor:
-          appearance: Fine, dark particles that can contaminate sensitive surfaces, potentially causing defects and appearing
-            as microscopic smudges.
-          coverage: Extremely light and critical to minimize; varies with cleanliness protocols and can lead to performance
-            issues if not controlled.
-          pattern: Forms as minute spots or a thin film, often uniform in controlled environments but irregular in dusty conditions.
-        specialty:
-          appearance: Dark, abrasive dust that settles on unique surfaces like coatings or advanced materials, altering appearance
-            and potentially causing damage.
-          coverage: Ranges from minimal to significant, influenced by exposure levels and material susceptibility, often requiring
-            specialized cleaning.
-          pattern: Distribution varies widely—from uniform films on smooth specialties to embedded spots in porous ones—depending
-            on material properties.
-        stone:
-          appearance: Grayish-black dust that settles on the surface, contrasting with natural stone colors and textures,
-            often making it look dirty.
-          coverage: Light to moderate, varying with proximity to traffic; tends to accumulate in depressions and be removed
-            by rain.
-          pattern: Appears as scattered spots or a thin film, with patterns shaped by surface roughness and exposure to elements.
-        wood:
-          appearance: Dark, gritty particles that cling to porous surfaces, potentially embedding into the grain and darkening
-            the wood's natural color.
-          coverage: Generally light and uneven, with higher accumulation in crevices or sheltered spots, but can be washed
-            away easily.
-          pattern: Forms irregular spots or patches, with distribution influenced by surface texture and environmental factors
-            like wind.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.4
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 200
-          min_ns: 10
-          recommended_ns: 100
-        repetition_rate_khz:
-          max: 300
-          min: 20
-          recommended: 100
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 3000
-          min: 500
-          recommended: 1500
-        spot_size_mm:
-          max: 0.1
-          min: 0.03
-          recommended: 0.05
-        wavelength_preference:
-        - 1064
-        - 532
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 850
-          wavelength_355nm: 18500
-          wavelength_532nm: 4200
-        reflectivity:
-          wavelength_1064nm: 0.35
-          wavelength_355nm: 0.07
-          wavelength_532nm: 0.18
-        refractive_index:
-          imaginary_part: 0.15
-          real_part: 2.1
-        transmission_depth: 11.8
-      removal_characteristics:
-        byproducts:
-        - compound: iron-oxide
-          hazard_level: moderate
-          phase: solid
-        - compound: carbon-ash
-          hazard_level: low
-          phase: solid
-        - compound: copper-oxide
-          hazard_level: moderate
-          phase: solid
-        - compound: organic-residues
-          hazard_level: moderate
-          phase: gas
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 240
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 3
-          optimal_passes: 2
-          single_pass: 0.85
-        secondary_mechanisms:
-        - mechanical_spallation
-        - photochemical
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: none
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Iron Oxide (Fe2O3)
-          concentration_mg_m3: 5-25
-          exposure_limit_mg_m3: 5.0
-          hazard_class: irritant
-        - compound: Copper
-          concentration_mg_m3: 0.5-3
-          exposure_limit_mg_m3: 0.1
-          hazard_class: irritant
-        - compound: Zinc Oxide
-          concentration_mg_m3: 1-8
-          exposure_limit_mg_m3: 2.0
-          hazard_class: toxic
-        - compound: Carbon Black
-          concentration_mg_m3: 3-15
-          exposure_limit_mg_m3: 3.5
-          hazard_class: carcinogenic
-        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-          concentration_mg_m3: 0.1-1.5
-          exposure_limit_mg_m3: 0.2
-          hazard_class: carcinogenic
-        particulate_generation:
-          respirable_fraction: 0.7
-          size_range_um:
-          - 0.1
-          - 10.0
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: PAPR
-          skin_protection: full_suit
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - High laser power may damage underlying metal surface
-        - Thermal stress may cause micro-cracking in cast iron components
-        - Avoid prolonged exposure on thin-walled brake components
-        toxic_gas_risk:
-          severity: low
-          primary_hazards:
-          - compound: Zinc Oxide
-            concentration_mg_m3: 1-8
-            hazard_class: toxic
-          - compound: Carbon Black
-            concentration_mg_m3: 3-15
-            hazard_class: carcinogenic
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentration_mg_m3: 0.1-1.5
-            hazard_class: carcinogenic
-          description: 'Multiple toxic compounds detected: Zinc Oxide, Carbon Black, Polycyclic Aromatic Hydrocarbons (PAHs)
-            - requires enhanced protection'
-          mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Carbon Black, Polycyclic
-            Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA
-          minimum_air_changes_per_hour: 12
-          rationale: Standard industrial ventilation (12 ACH) for particulate control
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 0.9
-          pulse_duration_10ns: 1.2
-          wavelength_1064nm: 1.8
-        decomposition_temperature: 450
-        heat_affected_zone_depth: 15
-        melting_point: 1100
-        specific_heat: 850
-        thermal_conductivity: 0.8
-        thermal_diffusivity: 0.5
-        vaporization_temperature: 1200
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Glass
-    - Plastics
-  category: inorganic-coating
-  subcategory: mineral
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: cast-iron-laser-cleaning
-            title: Cast Iron
-            url: /materials/metal/ferrous/cast-iron-laser-cleaning
-            image: /images/material/cast-iron-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: cast-iron-laser-cleaning
+    title: Cast Iron
+    url: /materials/metal/ferrous/cast-iron-laser-cleaning
+    image: /images/material/cast-iron-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: mineral
 composition:
 - Fe
 - Cu
 - Ceramic Fibers
 - Graphite
-pageDescription: Brake dust contamination, it manifests as an inorganic coating from frictional wear on vehicle components,
-  which leads to layered deposits tenaciously adherent to metal surfaces. These particles, they embed deeply into substrates
-  like steel or aluminum, influenced from environmental humidity and mechanical stress, that demonstrates material-specific
-  behaviors in formation. It seems that removal challenges arise from the contamination's persistence under laser exposure,
-  where oxides resist ablation more than softer residues, dependent from substrate roughness. The process yields effective
-  cleaning, yet it requires precise control to avoid surface alteration.
+prohibited_materials:
+- Glass
+- Plastics
+valid_materials:
+- aluminum-laser-cleaning
+- cast-iron-laser-cleaning
+- steel-laser-cleaning
+slug: brake-dust-contamination
+lastModified: '2026-01-04T14:58:00.914607'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Brake Pad Dust Deposits
+  href: ''
+title: Brake Pad Dust Deposits
+metaDescription: 'Brake Pad Dust Deposits: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
+  integrity. No chemicals, no media waste.'

@@ -1,26 +1,21 @@
 id: hydraulic-fluid-contamination
 name: Hydraulic Fluid Contamination
 category: organic-residue
-datePublished: '2025-12-27T21:04:24.616063Z'
-dateModified: '2025-12-27T21:04:24.616063Z'
-contentType: contaminants
-schemaVersion: 5.0.0
-fullPath: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Petroleum
-  href: /contaminants/organic-residue/petroleum
-- label: Hydraulic Fluid Contamination
-  href: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
-pageTitle: 'Hydraulic Fluid Contamination Removal: Laser Ablation'
-metaDescription: 'Hydraulic Fluid Contamination: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves
-  substrate integrity. No chemicals, no media waste.'
-images: &id001
+datePublished: '2026-01-04T22:58:04.136464Z'
+dateModified: '2026-01-04T22:58:04.136464Z'
+content_type: contaminants
+schema_version: 5.0.0
+full_path: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
+page_title: 'Hydraulic Fluid Contamination Removal: Laser Ablation'
+page_description: Hydraulic fluid contamination, it arises primarily from leaks in machinery, forming tenacious organic films
+  on surfaces. This residue, dependent from exposure to air and moisture, exhibits a viscous layering that penetrates microscopic
+  pores, especially on metallic substrates. On polymers, though, the contamination spreads more diffusely, which leads to
+  irregular patterns resembling smeared veils. Removal challenges persist, as the organic bonds resist laser ablation, demanding
+  precise pulse durations to avoid substrate damage. It appears that on ferrous metals, adhesion strengthens under thermal
+  influence, complicating clean detachment. The process yields cleaner results when contamination thickness remains minimal,
+  yet thicker deposits manifest stubborn remnants post-treatment. These behaviors, they vary distinctly across materials,
+  influencing overall efficacy in industrial settings.
+images:
   hero:
     url: /images/contaminant/hydraulic-fluid-contamination-hero.jpg
     alt: Hydraulic Fluid Contamination laser cleaning visualization showing process effects
@@ -44,9 +39,6 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -58,10 +50,119 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
+        icon: shield-check
+        order: 1
+        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Combustible materials present, risk elevated in confined spaces or high-power settings
+        mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Acrolein
+        concentration_mg_m3: 0.5
+        exposure_limit_mg_m3: 0.23
+        hazard_class: toxic
+      - compound: Formaldehyde
+        concentration_mg_m3: 1.2
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 15
+        exposure_limit_mg_m3: 29
+        hazard_class: toxic
+      - compound: Particulate Polycyclic Aromatic Hydrocarbons
+        concentration_mg_m3: 0.8
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Laser may ignite residual hydraulic fluid causing flash fire
+    - Thermal decomposition creates toxic byproducts even at low laser powers
+    - Surface may become slippery from fluid mobilization
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Acrolein
+          concentration_mg_m3: 0.5
+          hazard_class: toxic
+        - compound: Formaldehyde
+          concentration_mg_m3: 1.2
+          hazard_class: carcinogenic
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 15
+          hazard_class: toxic
+        - compound: Particulate Polycyclic Aromatic Hydrocarbons
+          concentration_mg_m3: 0.8
+          hazard_class: carcinogenic
+        description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection'
+        mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
+          Formaldehyde, Particulate Polycyclic Aromatic Hydrocarbons - known carcinogen(s), minimize exposure'
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: carbon-monoxide-compound
+      - id: carbon-dioxide-compound
+      - id: water-vapor-compound
+      - id: carbon-particulates-compound
+      - id: organic-residues-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -86,360 +187,250 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
         icon: box
+        order: 2
+        variant: default
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
+      items:
+      - appearance_on_categories:
+          ceramic:
+            appearance: Hydraulic fluid on ceramic surfaces appears as dark, wet-looking stains that can bead up or spread,
+              sometimes leaving a glossy residue.
+            coverage: Coverage is usually spotty and uneven, with higher accumulation in textured or unglazed areas.
+            pattern: It typically forms droplets, spots, or irregular patches, often concentrated where fluid lands or is
+              wiped.
+          composite:
+            appearance: Hydraulic fluid on composites appears as dark, greasy stains that can seep into layers, often creating
+              a mottled or blotchy look.
+            coverage: Coverage is often uneven and infiltrative, with variation based on composite porosity and resin type.
+            pattern: It forms irregular patches or streaks, potentially following fiber orientations or defects in the material.
+          concrete:
+            appearance: On concrete, it manifests as dark, oily patches that penetrate the porous surface, often creating
+              a slick, discolored area.
+            coverage: Coverage is often localized and variable, with deeper staining in porous regions and lighter coverage
+              on sealed surfaces.
+            pattern: It forms irregular spots or streaks, typically pooling in low spots or spreading along cracks and joints.
+          fabric:
+            appearance: Hydraulic fluid on fabric appears as dark, greasy stains that soak into fibers, often leaving a wet,
+              shiny patch with possible discoloration.
+            coverage: Coverage is usually patchy and absorbent, with stains varying in size and intensity based on fabric
+              type and fluid amount.
+            pattern: It spreads in blotchy or irregular shapes, following the weave pattern and fluid absorption paths.
+          glass:
+            appearance: On glass, contamination shows as smeared, translucent films or streaks that can distort clarity, often
+              with a greasy, reflective look.
+            coverage: Coverage is often partial and streaky, varying from thin films to thicker accumulations in certain areas.
+            pattern: It appears as streaks or smudges, usually in linear patterns from wiping or dripping, and may form droplets
+              if not spread.
+          metal:
+            appearance: Hydraulic fluid contamination on metal often appears as dark, oily streaks or smears, sometimes with
+              a rainbow-like sheen due to light interference on the surface.
+            coverage: Coverage is usually localized and variable, ranging from small spots to larger areas depending on the
+              leak source and duration.
+            pattern: It typically forms irregular streaks or patches, often concentrated around joints, leaks, or moving parts
+              where fluid escapes.
+          mineral:
+            appearance: Hydraulic fluid on minerals appears as dark, oily coatings that can obscure natural colors and textures,
+              sometimes giving a wet look.
+            coverage: Coverage is generally sparse and uneven, influenced by mineral smoothness and fluid viscosity.
+            pattern: It tends to form droplets or patches, adhering to surface features and potentially filling crevices or
+              crystal faces.
+          plastic:
+            appearance: On plastic, it looks like oily, dark smudges or streaks that may cause slight discoloration or a slick,
+              shiny surface.
+            coverage: Coverage is variable, from small localized spots to broader areas, depending on fluid viscosity and
+              exposure.
+            pattern: Contamination spreads as smears or patches, often following surface contours or accumulating in seams
+              and edges.
+          rubber:
+            appearance: On rubber, contamination shows as dark, oily areas that may cause swelling or a glossy, tacky surface
+              over time.
+            coverage: Coverage can range from localized spots to more extensive areas, varying with rubber composition and
+              fluid exposure.
+            pattern: It typically appears as blotches or uniform coatings, especially on exposed surfaces where fluid contacts
+              and absorbs.
+          semiconductor:
+            appearance: On semiconductors, contamination shows as thin, oily films or spots that can interfere with electrical
+              properties, often appearing as subtle, reflective areas.
+            coverage: Coverage is typically minimal and spotty, as even small amounts can cause significant functional issues.
+            pattern: It appears as small droplets or smears, usually localized to exposed surfaces or contamination points
+              during handling.
+          specialty:
+            appearance: Hydraulic fluid on specialty materials varies widely but generally appears as dark, greasy stains
+              or films that may alter surface properties specific to the material.
+            coverage: Coverage is highly variable, tailored to the material's use, ranging from isolated spots to extensive
+              coatings.
+            pattern: Distribution depends on material characteristics, often forming irregular patches or uniform layers based
+              on application and exposure.
+          stone:
+            appearance: Hydraulic fluid on stone appears as dark, oily spots that may darken the natural color, sometimes
+              leaving a slick, reflective surface.
+            coverage: Coverage is typically sparse and localized, with variation based on stone porosity and fluid exposure
+              time.
+            pattern: It forms isolated spots or irregular patches, often pooling in low-lying areas or following surface cracks
+              and pores.
+          wood:
+            appearance: On wood, it manifests as dark, greasy stains that can penetrate the grain, often making the surface
+              look wet or discolored with a glossy finish.
+            coverage: Coverage is often uneven and patchy, with deeper penetration in porous areas, leading to varied stain
+              intensity.
+            pattern: Contamination spreads in blotchy patches or along the wood grain, following the path of fluid flow or
+              absorption.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
         order: 1
         variant: default
-    produces_compounds:
-      presentation: card
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - id: carbon-monoxide-compound
-      - id: carbon-dioxide-compound
-      - id: water-vapor-compound
-      - id: carbon-particulates-compound
-      - id: organic-residues-compound
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.3
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: any
+          pulse_duration_range:
+            max_ns: 200
+            min_ns: 10
+            recommended_ns: 50
+          repetition_rate_khz:
+            max: 200
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.2
+            min: 0.05
+            recommended: 0.1
+          wavelength_preference:
+          - 1064
+          - 355
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 120
+            wavelength_532nm: 850
+          reflectivity:
+            wavelength_1064nm: 0.05
+            wavelength_355nm: 0.02
+            wavelength_532nm: 0.03
+          refractive_index:
+            imaginary_part: 0.008
+            real_part: 1.46
+          transmission_depth: 83.3
+        removal_characteristics:
+          byproducts:
+          - compound: carbon-monoxide
+            hazard_level: high
+            phase: gas
+          - compound: carbon-dioxide
+            hazard_level: low
+            phase: gas
+          - compound: water-vapor
+            hazard_level: low
+            phase: gas
+          - compound: carbon-particulates
+            hazard_level: moderate
+            phase: solid
+          - compound: organic-residues
+            hazard_level: moderate
+            phase: liquid
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 5
+            optimal_passes: 3
+            single_pass: 0.85
+          secondary_mechanisms:
+          - photochemical
+          - mechanical_spallation
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: compressive
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 1.2
+            pulse_duration_10ns: 0.6
+            wavelength_1064nm: 0.8
+          decomposition_temperature: 350
+          heat_affected_zone_depth: 15
+          melting_point: null
+          specific_heat: 2000
+          thermal_conductivity: 0.15
+          thermal_diffusivity: 0.08
+          vaporization_temperature: 450
       _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
         order: 1
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: Hydraulic fluid on ceramic surfaces appears as dark, wet-looking stains that can bead up or spread,
-            sometimes leaving a glossy residue.
-          coverage: Coverage is usually spotty and uneven, with higher accumulation in textured or unglazed areas.
-          pattern: It typically forms droplets, spots, or irregular patches, often concentrated where fluid lands or is wiped.
-        composite:
-          appearance: Hydraulic fluid on composites appears as dark, greasy stains that can seep into layers, often creating
-            a mottled or blotchy look.
-          coverage: Coverage is often uneven and infiltrative, with variation based on composite porosity and resin type.
-          pattern: It forms irregular patches or streaks, potentially following fiber orientations or defects in the material.
-        concrete:
-          appearance: On concrete, it manifests as dark, oily patches that penetrate the porous surface, often creating a
-            slick, discolored area.
-          coverage: Coverage is often localized and variable, with deeper staining in porous regions and lighter coverage
-            on sealed surfaces.
-          pattern: It forms irregular spots or streaks, typically pooling in low spots or spreading along cracks and joints.
-        fabric:
-          appearance: Hydraulic fluid on fabric appears as dark, greasy stains that soak into fibers, often leaving a wet,
-            shiny patch with possible discoloration.
-          coverage: Coverage is usually patchy and absorbent, with stains varying in size and intensity based on fabric type
-            and fluid amount.
-          pattern: It spreads in blotchy or irregular shapes, following the weave pattern and fluid absorption paths.
-        glass:
-          appearance: On glass, contamination shows as smeared, translucent films or streaks that can distort clarity, often
-            with a greasy, reflective look.
-          coverage: Coverage is often partial and streaky, varying from thin films to thicker accumulations in certain areas.
-          pattern: It appears as streaks or smudges, usually in linear patterns from wiping or dripping, and may form droplets
-            if not spread.
-        metal:
-          appearance: Hydraulic fluid contamination on metal often appears as dark, oily streaks or smears, sometimes with
-            a rainbow-like sheen due to light interference on the surface.
-          coverage: Coverage is usually localized and variable, ranging from small spots to larger areas depending on the
-            leak source and duration.
-          pattern: It typically forms irregular streaks or patches, often concentrated around joints, leaks, or moving parts
-            where fluid escapes.
-        mineral:
-          appearance: Hydraulic fluid on minerals appears as dark, oily coatings that can obscure natural colors and textures,
-            sometimes giving a wet look.
-          coverage: Coverage is generally sparse and uneven, influenced by mineral smoothness and fluid viscosity.
-          pattern: It tends to form droplets or patches, adhering to surface features and potentially filling crevices or
-            crystal faces.
-        plastic:
-          appearance: On plastic, it looks like oily, dark smudges or streaks that may cause slight discoloration or a slick,
-            shiny surface.
-          coverage: Coverage is variable, from small localized spots to broader areas, depending on fluid viscosity and exposure.
-          pattern: Contamination spreads as smears or patches, often following surface contours or accumulating in seams and
-            edges.
-        rubber:
-          appearance: On rubber, contamination shows as dark, oily areas that may cause swelling or a glossy, tacky surface
-            over time.
-          coverage: Coverage can range from localized spots to more extensive areas, varying with rubber composition and fluid
-            exposure.
-          pattern: It typically appears as blotches or uniform coatings, especially on exposed surfaces where fluid contacts
-            and absorbs.
-        semiconductor:
-          appearance: On semiconductors, contamination shows as thin, oily films or spots that can interfere with electrical
-            properties, often appearing as subtle, reflective areas.
-          coverage: Coverage is typically minimal and spotty, as even small amounts can cause significant functional issues.
-          pattern: It appears as small droplets or smears, usually localized to exposed surfaces or contamination points during
-            handling.
-        specialty:
-          appearance: Hydraulic fluid on specialty materials varies widely but generally appears as dark, greasy stains or
-            films that may alter surface properties specific to the material.
-          coverage: Coverage is highly variable, tailored to the material's use, ranging from isolated spots to extensive
-            coatings.
-          pattern: Distribution depends on material characteristics, often forming irregular patches or uniform layers based
-            on application and exposure.
-        stone:
-          appearance: Hydraulic fluid on stone appears as dark, oily spots that may darken the natural color, sometimes leaving
-            a slick, reflective surface.
-          coverage: Coverage is typically sparse and localized, with variation based on stone porosity and fluid exposure
-            time.
-          pattern: It forms isolated spots or irregular patches, often pooling in low-lying areas or following surface cracks
-            and pores.
-        wood:
-          appearance: On wood, it manifests as dark, greasy stains that can penetrate the grain, often making the surface
-            look wet or discolored with a glossy finish.
-          coverage: Coverage is often uneven and patchy, with deeper penetration in porous areas, leading to varied stain
-            intensity.
-          pattern: Contamination spreads in blotchy patches or along the wood grain, following the path of fluid flow or absorption.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.3
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: any
-        pulse_duration_range:
-          max_ns: 200
-          min_ns: 10
-          recommended_ns: 50
-        repetition_rate_khz:
-          max: 200
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.2
-          min: 0.05
-          recommended: 0.1
-        wavelength_preference:
-        - 1064
-        - 355
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 120
-          wavelength_532nm: 850
-        reflectivity:
-          wavelength_1064nm: 0.05
-          wavelength_355nm: 0.02
-          wavelength_532nm: 0.03
-        refractive_index:
-          imaginary_part: 0.008
-          real_part: 1.46
-        transmission_depth: 83.3
-      removal_characteristics:
-        byproducts:
-        - compound: carbon-monoxide
-          hazard_level: high
-          phase: gas
-        - compound: carbon-dioxide
-          hazard_level: low
-          phase: gas
-        - compound: water-vapor
-          hazard_level: low
-          phase: gas
-        - compound: carbon-particulates
-          hazard_level: moderate
-          phase: solid
-        - compound: organic-residues
-          hazard_level: moderate
-          phase: liquid
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 240
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 5
-          optimal_passes: 3
-          single_pass: 0.85
-        secondary_mechanisms:
-        - photochemical
-        - mechanical_spallation
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: compressive
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: moderate
-          description: Combustible materials present, risk elevated in confined spaces or high-power settings
-          mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
-        fumes_generated:
-        - compound: Acrolein
-          concentration_mg_m3: 0.5
-          exposure_limit_mg_m3: 0.23
-          hazard_class: toxic
-        - compound: Formaldehyde
-          concentration_mg_m3: 1.2
-          exposure_limit_mg_m3: 0.37
-          hazard_class: carcinogenic
-        - compound: Carbon Monoxide
-          concentration_mg_m3: 15
-          exposure_limit_mg_m3: 29
-          hazard_class: toxic
-        - compound: Particulate Polycyclic Aromatic Hydrocarbons
-          concentration_mg_m3: 0.8
-          exposure_limit_mg_m3: 0.2
-          hazard_class: carcinogenic
-        particulate_generation:
-          respirable_fraction: 0.7
-          size_range_um:
-          - 0.1
-          - 10
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: PAPR
-          skin_protection: gloves
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Laser may ignite residual hydraulic fluid causing flash fire
-        - Thermal decomposition creates toxic byproducts even at low laser powers
-        - Surface may become slippery from fluid mobilization
-        toxic_gas_risk:
-          severity: high
-          primary_hazards:
-          - compound: Acrolein
-            concentration_mg_m3: 0.5
-            hazard_class: toxic
-          - compound: Formaldehyde
-            concentration_mg_m3: 1.2
-            hazard_class: carcinogenic
-          - compound: Carbon Monoxide
-            concentration_mg_m3: 15
-            hazard_class: toxic
-          - compound: Particulate Polycyclic Aromatic Hydrocarbons
-            concentration_mg_m3: 0.8
-            hazard_class: carcinogenic
-          description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection'
-          mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
-            Formaldehyde, Particulate Polycyclic Aromatic Hydrocarbons - known carcinogen(s), minimize exposure'
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: carbon
-          minimum_air_changes_per_hour: 12
-          rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 1.2
-          pulse_duration_10ns: 0.6
-          wavelength_1064nm: 0.8
-        decomposition_temperature: 350
-        heat_affected_zone_depth: 15
-        melting_point: null
-        specific_heat: 2000
-        thermal_conductivity: 0.15
-        thermal_diffusivity: 0.08
-        vaporization_temperature: 450
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Electronics
-    - Plastics
-    - Rubber
-  category: organic-residue
-  subcategory: petroleum
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-        masonry:
-          title: Masonry Materials
-          description: Materials in the masonry category
-          items:
-          - id: concrete-laser-cleaning
-            title: Concrete
-            url: /materials/masonry/general/concrete-laser-cleaning
-            image: /images/material/concrete-laser-cleaning-hero.jpg
-            category: masonry
-            subcategory: general
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: concrete-laser-cleaning
+    title: Concrete
+    url: /materials/masonry/general/concrete-laser-cleaning
+    image: /images/material/concrete-laser-cleaning-hero.jpg
+    category: masonry
+    subcategory: general
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: petroleum
 composition:
 - Mineral Oil
 - Additives
 - Zinc Compounds
-pageDescription: Hydraulic fluid contamination, it arises primarily from leaks in machinery, forming tenacious organic films
-  on surfaces. This residue, dependent from exposure to air and moisture, exhibits a viscous layering that penetrates microscopic
-  pores, especially on metallic substrates. On polymers, though, the contamination spreads more diffusely, which leads to
-  irregular patterns resembling smeared veils. Removal challenges persist, as the organic bonds resist laser ablation, demanding
-  precise pulse durations to avoid substrate damage. It appears that on ferrous metals, adhesion strengthens under thermal
-  influence, complicating clean detachment. The process yields cleaner results when contamination thickness remains minimal,
-  yet thicker deposits manifest stubborn remnants post-treatment. These behaviors, they vary distinctly across materials,
-  influencing overall efficacy in industrial settings.
+prohibited_materials:
+- Electronics
+- Plastics
+- Rubber
+valid_materials:
+- aluminum-laser-cleaning
+- concrete-laser-cleaning
+- steel-laser-cleaning
+slug: hydraulic-fluid-contamination
+lastModified: '2026-01-04T14:58:04.136515'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Hydraulic Fluid Contamination
+  href: ''
+title: Hydraulic Fluid Contamination
+metaDescription: 'Hydraulic Fluid Contamination: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
+  integrity. No chemicals, no media waste.'

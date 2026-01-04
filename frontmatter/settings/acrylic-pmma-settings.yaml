@@ -1,24 +1,13 @@
 id: acrylic-pmma-settings
 name: Acrylic (PMMA)
-datePublished: '2025-12-27T21:06:09.002428Z'
-dateModified: '2025-12-27T21:06:09.002428Z'
-contentType: settings
-schemaVersion: 5.0.0
-fullPath: /settings/plastic/thermoplastic/acrylic-pmma-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Plastic
-  href: /settings/plastic
-- label: Thermoplastic
-  href: /settings/plastic/thermoplastic
-- label: Acrylic (PMMA)
-  href: /settings/plastic/thermoplastic/acrylic-pmma-settings
-pageTitle: 'Acrylic (PMMA) Settings: Laser Parameters'
-metaDescription: 'Acrylic (PMMA): removes contamination removal. Industrial-grade
-  parameters. No substrate damage.'
+datePublished: '2026-01-04T22:55:15.988243Z'
+dateModified: '2026-01-04T22:55:15.988243Z'
+content_type: settings
+schema_version: 5.0.0
+full_path: /settings/plastic/thermoplastic/acrylic-pmma-settings
+page_title: 'Acrylic (PMMA) Settings: Laser Parameters'
+page_description: Before laser cleaning, Acrylic (PMMA) surfaces require careful parameter selection After cleaning, Acrylic
+  (PMMA) surfaces show restored appearance with controlled parameters
 images:
   hero:
     url: /images/settings/acrylic-pmma-settings-hero.jpg
@@ -51,17 +40,16 @@ author:
   - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc.,
-    with precision optics tools
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  slug: todd-dunning
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -73,20 +61,6 @@ card:
     severity: low
     icon: settings
 relationships:
-  technical:
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -97,25 +71,25 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 4
-        variant: default
-  operational:
-    common_challenges:
-      presentation: descriptive
-      items:
-      - - Requires careful power calibration to prevent material damage
-        - Monitor surface temperature during processing
-        - Verify cleaning effectiveness through inspection
-      _section:
-        title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
-        icon: alert-triangle
         order: 1
-        variant: warning
-category: plastic
-subcategory: thermoplastic
+        variant: default
+  interactions:
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+  operational: {}
 machine_settings:
   powerRange:
     value: 30
@@ -176,73 +150,75 @@ machine_settings:
     max: 100
     value: 30
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in polymer cleaning to avoid
-      thermal damage; starting at 30W for PMMA surface preparation. Max safe ~100W
-      before melting (PMMA melting point ~160°C). Source: Manufacturer specs from
+    description: 'Typical range for pulsed Nd:YAG lasers in polymer cleaning to avoid thermal damage; starting at 30W for
+      PMMA surface preparation. Max safe ~100W before melting (PMMA melting point ~160°C). Source: Manufacturer specs from
       IPG Photonics and Adapt Laser Systems for delicate substrates.'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: 'Effective range for contaminant removal; slower (500-1500 mm/s)
-      for heavy contamination, faster (2000-5000 mm/s) for light. Recommended 2000
-      mm/s balances speed and control for PMMA''s low thermal conductivity. Source:
-      Industry standards from Laserax equipment manuals.'
+    description: 'Effective range for contaminant removal; slower (500-1500 mm/s) for heavy contamination, faster (2000-5000
+      mm/s) for light. Recommended 2000 mm/s balances speed and control for PMMA''s low thermal conductivity. Source: Industry
+      standards from Laserax equipment manuals.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime typical for industrial 1064 nm cleaning; picosecond
-      (ps) or femtosecond preferred for minimal HAZ but less common. 20 ns recommended
-      to reduce heat accumulation in PMMA. Source: Laser physics research in Optics
-      & Laser Technology (e.g., studies on polymer ablation thresholds).'
+    description: 'Nanosecond regime typical for industrial 1064 nm cleaning; picosecond (ps) or femtosecond preferred for
+      minimal HAZ but less common. 20 ns recommended to reduce heat accumulation in PMMA. Source: Laser physics research in
+      Optics & Laser Technology (e.g., studies on polymer ablation thresholds).'
   repetition_rate:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: 'Standard for cleaning applications; 20 kHz recommended for PMMA
-      to enable fast processing while minimizing heat buildup (higher rates increase
-      accumulation risk). Trade-off: higher freq speeds cleaning but risks substrate
-      damage. Source: Academic literature from Journal of Applied Physics on pulsed
-      laser interactions with polymers.'
+    description: 'Standard for cleaning applications; 20 kHz recommended for PMMA to enable fast processing while minimizing
+      heat buildup (higher rates increase accumulation risk). Trade-off: higher freq speeds cleaning but risks substrate damage.
+      Source: Academic literature from Journal of Applied Physics on pulsed laser interactions with polymers.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Fluence below PMMA damage threshold (~1.5-2 J/cm² at 1064 nm for
-      ns pulses) for safe contaminant removal; 0.5 J/cm² optimal to ablate surface
-      layers without substrate melting. Source: Ablation threshold studies in Applied
+    description: 'Fluence below PMMA damage threshold (~1.5-2 J/cm² at 1064 nm for ns pulses) for safe contaminant removal;
+      0.5 J/cm² optimal to ablate surface layers without substrate melting. Source: Ablation threshold studies in Applied
       Surface Science (e.g., PMMA IR laser interactions).'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500
-      μm) for broad areas; 200 μm recommended for uniform PMMA surface prep considering
-      beam reflectivity. Source: Equipment specifications from Coherent and Trumpf
+    description: 'Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for broad areas; 200 μm recommended
+      for uniform PMMA surface prep considering beam reflectivity. Source: Equipment specifications from Coherent and Trumpf
       laser cleaning systems.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy;
-      2 passes recommended for complete PMMA cleaning without excessive exposure.
-      Source: Industry case studies from laser cleaning applications in plastics processing
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PMMA
+      cleaning without excessive exposure. Source: Industry case studies from laser cleaning applications in plastics processing
       (e.g., SPIE proceedings).'
   overlap_ratio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform coverage; 70% recommended for even energy distribution
-      on PMMA to prevent uneven heating or missed spots. Source: Process optimization
-      studies in Laser Cleaning Handbook and academic papers on scan strategies.'
-pageDescription: Before laser cleaning, Acrylic (PMMA) surfaces require careful parameter
-  selection After cleaning, Acrylic (PMMA) surfaces show restored appearance with
-  controlled parameters
+    description: 'Ensures uniform coverage; 70% recommended for even energy distribution on PMMA to prevent uneven heating
+      or missed spots. Source: Process optimization studies in Laser Cleaning Handbook and academic papers on scan strategies.'
+component_summary: These settings employ moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from
+  heat-sensitive Acrylic PMMA without causing melting or surface deformation.
+slug: acrylic-pmma-settings
+lastModified: '2026-01-04T14:55:15.988278'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Acrylic (PMMA)
+  href: ''
+title: Acrylic (PMMA)
+metaDescription: Acrylic (PMMA) laser cleaning parameters optimized for contamination. Industrial-grade settings preserve
+  substrate integrity. Industrial-quality results.

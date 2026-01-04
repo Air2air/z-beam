@@ -1,24 +1,19 @@
 id: silicon-germanium-settings
 name: Silicon Germanium
-datePublished: '2025-12-27T21:06:08.564777Z'
-dateModified: '2025-12-27T21:06:08.564777Z'
-contentType: settings
-schemaVersion: 5.0.0
-fullPath: /settings/semiconductor/elemental/silicon-germanium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Semiconductor
-  href: /settings/semiconductor
-- label: Elemental
-  href: /settings/semiconductor/elemental
-- label: Silicon Germanium
-  href: /settings/semiconductor/elemental/silicon-germanium-settings
-pageTitle: 'Silicon Germanium Settings: Laser Parameters'
-metaDescription: 'Silicon Germanium: removes contamination removal. Industrial-grade
-  parameters. No substrate damage.'
+datePublished: '2026-01-04T22:55:13.747698Z'
+dateModified: '2026-01-04T22:55:13.747698Z'
+content_type: settings
+schema_version: 5.0.0
+full_path: /settings/semiconductor/elemental/silicon-germanium-settings
+page_title: 'Silicon Germanium Settings: Laser Parameters'
+page_description: I've found that laser cleaning Silicon Germanium works smoothly when you ease into it with gentle settings,
+  much like handling pure silicon but with extra caution for its alloy quirks. This material tends to absorb energy more readily
+  than silicon alone, thanks to the germanium mix, which helps contaminants lift off without much force. In my experience,
+  it restores surfaces in electronics manufacturing or telecom parts effectively, clearing residues while preserving the semiconductor
+  integrity that sets it apart from tougher metals. The blend gives it a bit more flexibility under heat compared to rigid
+  ceramics, so you can push scan speeds a touch higher once you gauge the response. But watch how it conducts warmth—it's
+  not as efficient as silicon, leading to quicker buildup if you're not careful. To avoid cracks or altered properties, always
+  test on a scrap piece first and keep passes minimal; rushing it can dull that precise edge SiGe offers in high-tech apps.
 images:
   hero:
     url: /images/settings/silicon-germanium-settings-hero.jpg
@@ -47,22 +42,23 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at
-    Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -74,35 +70,6 @@ card:
     severity: low
     icon: settings
 relationships:
-  technical:
-    works_on_materials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -113,54 +80,86 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 4
+        order: 1
+        variant: default
+  interactions:
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    works_on_materials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
+        icon: box
+        order: 2
         variant: default
   operational:
-    common_challenges:
-      presentation: descriptive
+    prevention:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Challenges & Prevention
+        section_description: Common issues and how to prevent them
+        icon: shield-halved
+        order: 5
       items:
-      - thermal_management:
-        - challenge: Crystal lattice damage and doping redistribution
-          severity: critical
-          threshold_temperature: Above 400-600°C causes dopant migration
-          impact: Heat causes permanent alteration of electronic properties and device
-            failure
-          solutions:
-          - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected
-            zone
-          - Reduce power by 60-70% compared to structural materials
-          - Monitor temperature with IR camera; stop if >150°C surface temperature
-          - Nanosecond pulses acceptable only for non-active areas (scribe lines,
-            edges)
-        - challenge: Thermal stress and wafer cracking
-          severity: high
-          property_value: Low fracture toughness 0.75-3.0 MPa·√m
-          impact: Thermal gradients cause catastrophic wafer fracture
-          solutions:
-          - Use pulse mode with 10-15 second cooling for thick wafers
-          - Thin wafers (<200 μm) require substrate backing for thermal management
-          - Defocused beam reduces peak temperature gradients
-          - Gradual power ramping (start 10W, increase 5W per pass)
-        contamination_challenges:
-        - challenge: Photoresist and polymer residue removal
-          severity: medium
-          impact: Organic residues carbonize and become harder to remove
-          solutions:
-          - First pass 20W fast (1500 mm/s) for bulk removal
-          - Second pass 10W slow (800 mm/s) for residue
-          - UV laser (355nm) more effective for organic materials
-          - Oxygen-rich environment aids in organic ablation
-          - Post-cleaning oxygen plasma for complete residue removal
+      - category: Thermal Management
+        challenge: Crystal lattice damage and doping redistribution
+        description: Heat causes permanent alteration of electronic properties and device failure
+        severity: critical
+        solutions:
+        - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
+        - Reduce power by 60-70% compared to structural materials
+        - Monitor temperature with IR camera; stop if >150°C surface temperature
+        - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
+        threshold: Above 400-600°C causes dopant migration
+      - category: Thermal Management
+        challenge: Thermal stress and wafer cracking
+        description: Thermal gradients cause catastrophic wafer fracture
+        severity: high
+        solutions:
+        - Use pulse mode with 10-15 second cooling for thick wafers
+        - Thin wafers (<200 μm) require substrate backing for thermal management
+        - Defocused beam reduces peak temperature gradients
+        - Gradual power ramping (start 10W, increase 5W per pass)
+      - category: Contamination Challenges
+        challenge: Photoresist and polymer residue removal
+        description: Organic residues carbonize and become harder to remove
+        severity: medium
+        solutions:
+        - First pass 20W fast (1500 mm/s) for bulk removal
+        - Second pass 10W slow (800 mm/s) for residue
+        - UV laser (355nm) more effective for organic materials
+        - Oxygen-rich environment aids in organic ablation
+        - Post-cleaning oxygen plasma for complete residue removal
+      options:
+        autoOpenFirst: true
+        sortBy: severity
       _section:
         title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
+        description: Typical difficulties and best practices when using this setting
         icon: alert-triangle
         order: 1
         variant: warning
-category: semiconductor
-subcategory: elemental
 machine_settings:
   powerRange:
     description: Optimal average power for SiGe surface cleaning without thermal damage
@@ -169,8 +168,7 @@ machine_settings:
     min: 1.0
     max: 120
   wavelength:
-    description: Near-IR wavelength for optimal SiGe absorption and minimal substrate
-      damage
+    description: Near-IR wavelength for optimal SiGe absorption and minimal substrate damage
     unit: nm
     value: 1064
     min: 355
@@ -212,8 +210,7 @@ machine_settings:
     min: 1
     max: 10
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal
-      buildup
+    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
     unit: '%'
     value: 50
     min: 10
@@ -223,83 +220,75 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for semiconductor cleaning to avoid thermal damage;
-      starting at 100W for light contamination on SiGe, max below damage threshold
-      (~500W with short pulses). Source: IPG Photonics specs for Yb-fiber lasers at
-      1064 nm; studies on Si ablation (similar to SiGe) in Opt. Lasers Eng. (2018).'
+    description: 'Typical range for semiconductor cleaning to avoid thermal damage; starting at 100W for light contamination
+      on SiGe, max below damage threshold (~500W with short pulses). Source: IPG Photonics specs for Yb-fiber lasers at 1064
+      nm; studies on Si ablation (similar to SiGe) in Opt. Lasers Eng. (2018).'
   scan_speed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Effective for contamination removal; slower (100-500 mm/s) for heavy
-      contaminants, faster (1000-2000 mm/s) for light; 500 mm/s optimal for SiGe to
-      balance efficiency and heat control. Source: Industry standards from Laser Cleaning
+    description: 'Effective for contamination removal; slower (100-500 mm/s) for heavy contaminants, faster (1000-2000 mm/s)
+      for light; 500 mm/s optimal for SiGe to balance efficiency and heat control. Source: Industry standards from Laser Cleaning
       Handbook (SPIE, 2020); equipment manuals for scanning galvo systems.'
   pulse_width:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal
-      HAZ on SiGe; picosecond (ps) for ultra-precision but less common industrially.
-      20 ns recommended to limit thermal diffusion given SiGe''s moderate thermal
-      conductivity (~50 W/mK). Source: Laser physics research in Appl. Phys. A (2019)
-      on pulsed laser ablation of Ge alloys.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on SiGe; picosecond (ps) for ultra-precision
+      but less common industrially. 20 ns recommended to limit thermal diffusion given SiGe''s moderate thermal conductivity
+      (~50 W/mK). Source: Laser physics research in Appl. Phys. A (2019) on pulsed laser ablation of Ge alloys.'
   repetition_rate:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: 'Typical for industrial cleaning; 20 kHz balances speed and heat
-      accumulation on reflective SiGe surfaces (absorptivity ~0.4 at 1064 nm); higher
-      rates risk buildup, lower for heavy cleaning. Source: Academic literature in
+    description: 'Typical for industrial cleaning; 20 kHz balances speed and heat accumulation on reflective SiGe surfaces
+      (absorptivity ~0.4 at 1064 nm); higher rates risk buildup, lower for heavy cleaning. Source: Academic literature in
       J. Phys. D: Appl. Phys. (2021) on pulse train effects in semiconductor processing.'
   energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence below SiGe damage threshold (~2-4 J/cm² at 1064 nm, similar
-      to Si); 1.5 J/cm² safe for contaminant removal without melting (SiGe mp ~1200-1400°C).
-      Source: Ablation threshold studies in Surf. Coat. Technol. (2017) for Si1-xGex
-      alloys.'
+    description: 'Fluence below SiGe damage threshold (~2-4 J/cm² at 1064 nm, similar to Si); 1.5 J/cm² safe for contaminant
+      removal without melting (SiGe mp ~1200-1400°C). Source: Ablation threshold studies in Surf. Coat. Technol. (2017) for
+      Si1-xGex alloys.'
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller for fine surface prep on SiGe wafers (50-200 μm), larger
-      for broad areas; 200 μm recommended for uniform cleaning without excessive overlap
-      heating. Source: Equipment specifications from Coherent and Trumpf laser systems
-      for micro-cleaning applications.'
+    description: 'Smaller for fine surface prep on SiGe wafers (50-200 μm), larger for broad areas; 200 μm recommended for
+      uniform cleaning without excessive overlap heating. Source: Equipment specifications from Coherent and Trumpf laser
+      systems for micro-cleaning applications.'
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy;
-      2 passes typical for SiGe to ensure complete removal while minimizing cumulative
-      damage. Source: Industry case studies in Proc. SPIE (2022) on laser cleaning
-      of semiconductor substrates.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes typical for SiGe to ensure complete
+      removal while minimizing cumulative damage. Source: Industry case studies in Proc. SPIE (2022) on laser cleaning of
+      semiconductor substrates.'
   overlap_ratio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage; 50% optimal for SiGe to avoid gaps or
-      hot spots given beam divergence at 1064 nm. Source: Process optimization studies
-      in Opt. Express (2020) for scanned laser cleaning of alloys.'
-pageDescription: I've found that laser cleaning Silicon Germanium works smoothly
-  when you ease into it with gentle settings, much like handling pure silicon but
-  with extra caution for its alloy quirks. This material tends to absorb energy more
-  readily than silicon alone, thanks to the germanium mix, which helps contaminants
-  lift off without much force. In my experience, it restores surfaces in electronics
-  manufacturing or telecom parts effectively, clearing residues while preserving the
-  semiconductor integrity that sets it apart from tougher metals. The blend gives
-  it a bit more flexibility under heat compared to rigid ceramics, so you can push
-  scan speeds a touch higher once you gauge the response. But watch how it conducts
-  warmth—it's not as efficient as silicon, leading to quicker buildup if you're not
-  careful. To avoid cracks or altered properties, always test on a scrap piece first
-  and keep passes minimal; rushing it can dull that precise edge SiGe offers in high-tech
-  apps.
+    description: 'Ensures uniform coverage; 50% optimal for SiGe to avoid gaps or hot spots given beam divergence at 1064
+      nm. Source: Process optimization studies in Opt. Express (2020) for scanned laser cleaning of alloys.'
+component_summary: These settings leverage the 1064 nm wavelength for strong SiGe absorption, with 100 W power and 15 ns pulses
+  to ablate contaminants precisely without inducing thermal stress or damage to the delicate semiconductor.
+slug: silicon-germanium-settings
+lastModified: '2026-01-04T14:55:13.747736'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Silicon Germanium
+  href: ''
+title: Silicon Germanium
+metaDescription: Silicon Germanium laser cleaning parameters optimized for contamination. Industrial-grade settings preserve
+  substrate integrity. Industrial-quality results.

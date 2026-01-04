@@ -1,24 +1,13 @@
 id: aluminosilicate-glass-settings
 name: Aluminosilicate Glass
-datePublished: '2025-12-27T21:06:09.014171Z'
-dateModified: '2025-12-27T21:06:09.014171Z'
-contentType: settings
-schemaVersion: 5.0.0
-fullPath: /settings/glass/specialty/aluminosilicate-glass-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Glass
-  href: /settings/glass
-- label: Specialty
-  href: /settings/glass/specialty
-- label: Aluminosilicate Glass
-  href: /settings/glass/specialty/aluminosilicate-glass-settings
-pageTitle: 'Aluminosilicate Glass Settings: Laser Parameters'
-metaDescription: 'Aluminosilicate Glass: removes contamination removal. Industrial-grade
-  parameters. No substrate damage.'
+datePublished: '2026-01-04T22:55:16.051810Z'
+dateModified: '2026-01-04T22:55:16.051810Z'
+content_type: settings
+schema_version: 5.0.0
+full_path: /settings/glass/specialty/aluminosilicate-glass-settings
+page_title: 'Aluminosilicate Glass Settings: Laser Parameters'
+page_description: Before laser cleaning, Aluminosilicate Glass surfaces require careful parameter selection After cleaning,
+  Aluminosilicate Glass surfaces show restored appearance with controlled parameters
 images:
   hero:
     url: /images/settings/aluminosilicate-glass-settings-hero.jpg
@@ -43,26 +32,25 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
   - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's
-    Materials Dept., in research lab
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
+  slug: alessandro-moretti-phd
 card:
   default:
-    heading: ''
+    heading: Laser Cleaning Settings
     subtitle: Machine Settings
     badge:
       text: Optimized
@@ -74,35 +62,6 @@ card:
     severity: low
     icon: settings
 relationships:
-  technical:
-    works_on_materials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        title: Optimized Materials
-        description: Materials that work best with this laser cleaning setting
-        icon: box
-        order: 2
-        variant: default
-    removes_contaminants:
-      presentation: card
-      items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet
-        order: 3
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -113,25 +72,40 @@ relationships:
         id: ansi-z136-1-laser-safety
       _section:
         title: Regulatory Standards
-        description: Safety and compliance standards applicable to this laser setting
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 4
-        variant: default
-  operational:
-    common_challenges:
-      presentation: descriptive
-      items:
-      - - Requires careful power calibration to prevent material damage
-        - Monitor surface temperature during processing
-        - Verify cleaning effectiveness through inspection
-      _section:
-        title: Common Challenges
-        description: Typical difficulties and considerations when using this setting
-        icon: alert-triangle
         order: 1
-        variant: warning
-category: glass
-subcategory: specialty
+        variant: default
+  interactions:
+    removes_contaminants:
+      presentation: card
+      items:
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    works_on_materials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational: {}
 machine_settings:
   powerRange:
     value: 70
@@ -192,70 +166,73 @@ machine_settings:
     max: 500
     value: 100
     unit: W
-    description: Typical range for delicate glass substrates to avoid thermal damage;
-      starting at 100W for initial tests on light contaminants. Max safe below 500W
-      to prevent cracking (based on IPG Photonics specs for fiber lasers and studies
+    description: Typical range for delicate glass substrates to avoid thermal damage; starting at 100W for initial tests on
+      light contaminants. Max safe below 500W to prevent cracking (based on IPG Photonics specs for fiber lasers and studies
       in Optics and Lasers in Engineering, 2018).
   scan_speed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: Effective for contaminant removal without excessive heat buildup;
-      slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for
-      light. Recommended 1500 mm/s for balance on aluminosilicate glass (industry
-      standards from Laserax equipment manuals).
+    description: Effective for contaminant removal without excessive heat buildup; slower (500-1000 mm/s) for heavy contamination,
+      faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for balance on aluminosilicate glass (industry standards from
+      Laserax equipment manuals).
   pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: Nanosecond regime preferred for cost-effective cleaning with minimal
-      HAZ; picosecond (ps) or femtosecond for ultra-precision but higher cost. 20
-      ns recommended to limit thermal diffusion in low-conductivity glass (Laser &
+    description: Nanosecond regime preferred for cost-effective cleaning with minimal HAZ; picosecond (ps) or femtosecond
+      for ultra-precision but higher cost. 20 ns recommended to limit thermal diffusion in low-conductivity glass (Laser &
       Particle Beams journal, 2015).
   repetition_rate:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: Balances cleaning speed and heat accumulation; higher rates (>50
-      kHz) risk substrate heating in reflective glass. 50 kHz optimal for aluminosilicate
-      to avoid cumulative damage (academic literature in Applied Surface Science,
+    description: Balances cleaning speed and heat accumulation; higher rates (>50 kHz) risk substrate heating in reflective
+      glass. 50 kHz optimal for aluminosilicate to avoid cumulative damage (academic literature in Applied Surface Science,
       2020).
   energy_density:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: Fluence below glass damage threshold (~10 J/cm² at 1064 nm for ns
-      pulses); 0.5-2 J/cm² for light contaminants, up to 5 for heavy. Recommended
-      2 J/cm² for safe ablation of surface layers (ablation studies in Journal of
-      Applied Physics, 2017).
+    description: Fluence below glass damage threshold (~10 J/cm² at 1064 nm for ns pulses); 0.5-2 J/cm² for light contaminants,
+      up to 5 for heavy. Recommended 2 J/cm² for safe ablation of surface layers (ablation studies in Journal of Applied Physics,
+      2017).
   spot_size:
     min: 0.1
     max: 500
     value: 200
     unit: μm
-    description: Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500
-      μm) for area coverage. 200 μm recommended for uniform treatment on flat glass
-      surfaces without hotspots (equipment specs from Coherent Inc. laser systems).
+    description: Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for area coverage. 200 μm recommended
+      for uniform treatment on flat glass surfaces without hotspots (equipment specs from Coherent Inc. laser systems).
   pass_count:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: Single pass for light contamination; multi-pass (2-5) for stubborn
-      residues. 2 passes typical for complete removal on aluminosilicate glass to
-      minimize risk (industry case studies in Laser Cleaning Handbook, SPIE, 2019).
+    description: Single pass for light contamination; multi-pass (2-5) for stubborn residues. 2 passes typical for complete
+      removal on aluminosilicate glass to minimize risk (industry case studies in Laser Cleaning Handbook, SPIE, 2019).
   overlap_ratio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: Ensures uniform coverage without gaps or overexposure; 30-50% for
-      speed, 60-80% for thoroughness. 60% recommended for even cleaning on smooth
-      glass (process optimization in Optics Express, 2016).
-pageDescription: Before laser cleaning, Aluminosilicate Glass surfaces require careful
-  parameter selection After cleaning, Aluminosilicate Glass surfaces show restored
-  appearance with controlled parameters
+    description: Ensures uniform coverage without gaps or overexposure; 30-50% for speed, 60-80% for thoroughness. 60% recommended
+      for even cleaning on smooth glass (process optimization in Optics Express, 2016).
+component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to selectively ablate contaminants
+  from aluminosilicate glass while minimizing thermal stress and preventing surface cracking.
+slug: aluminosilicate-glass-settings
+lastModified: '2026-01-04T14:55:16.051847'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Aluminosilicate Glass
+  href: ''
+title: Aluminosilicate Glass
+metaDescription: Aluminosilicate Glass laser cleaning parameters optimized for contamination. Industrial-grade settings preserve
+  substrate integrity. Industrial-quality results.

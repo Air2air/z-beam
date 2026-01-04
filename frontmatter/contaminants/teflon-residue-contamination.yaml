@@ -1,26 +1,24 @@
 id: teflon-residue-contamination
 name: PTFE Coating Residue
 category: organic-residue
-datePublished: '2025-12-27T21:04:25.985104Z'
-dateModified: '2025-12-27T21:04:25.985104Z'
-contentType: contaminants
-schemaVersion: 5.0.0
-fullPath: /contaminants/organic-residue/other/teflon-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Organic Residue
-  href: /contaminants/organic-residue
-- label: Other
-  href: /contaminants/organic-residue/other
-- label: PTFE Coating Residue
-  href: /contaminants/organic-residue/other/teflon-residue-contamination
-pageTitle: 'PTFE Coating Residue Removal: Laser Ablation No Chemica'
-metaDescription: 'PTFE Coating Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
-  integrity. No chemical waste.'
-images: &id001
+datePublished: '2026-01-04T22:58:07.817758Z'
+dateModified: '2026-01-04T22:58:07.817758Z'
+content_type: contaminants
+schema_version: 5.0.0
+full_path: /contaminants/organic-residue/other/teflon-residue-contamination
+page_title: 'PTFE Coating Residue Removal: Laser Ablation No Chemica'
+page_description: 'Teflon residue contamination, it arises from polymer degradation during high-heat processes and forms irregular,
+  patchy films on metal surfaces. This contamination, it adheres strongly due to low surface energy of Teflon, thus creating
+  unique droplet-like patterns that spread unevenly. In laser cleaning applications, removal challenges emerge because residue
+  exhibits high thermal stability and resists ablation. Laser pulses apply, yet organic bonds in Teflon break incompletely,
+  so fragments scatter and redeposit nearby. Material-specific behaviors show that on stainless steel, residue softens slowly
+  under infrared lasers and leaves behind hazy remnants. After treatment, surface still exhibits stickiness in contaminated
+  zones, thus requiring multiple passes for partial clearance. Efficiency of cleaning, it drops with thicker films, and so
+  hybrid methods often follow to enhance removal.
+
+
+  Yi-Chun Lin, Ph.D., Taiwan'
+images:
   hero:
     url: /images/contaminant/teflon-residue-contamination-hero.jpg
     alt: PTFE Coating Residue laser cleaning visualization showing process effects
@@ -48,9 +46,6 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -59,10 +54,120 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  languages:
+  - English
+  - Bahasa Indonesia
+  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
+    Indonesia.
+  slug: ikmanda-roswati
 relationships:
-  technical:
+  safety:
+    regulatory_standards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
+        icon: shield-check
+        order: 1
+        variant: default
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbonyl Fluoride
+        concentration_mg_m3: 5-50
+        exposure_limit_mg_m3: 2
+        hazard_class: toxic
+      - compound: Tetrafluoroethylene
+        concentration_mg_m3: 2-20
+        exposure_limit_mg_m3: 82
+        hazard_class: toxic
+      - compound: Hexafluoropropylene
+        concentration_mg_m3: 1-15
+        exposure_limit_mg_m3: 68
+        hazard_class: toxic
+      - compound: Perfluoroisobutylene
+        concentration_mg_m3: 0.1-2
+        exposure_limit_mg_m3: 0.01
+        hazard_class: toxic
+      - compound: Hydrogen Fluoride
+        concentration_mg_m3: 3-30
+        exposure_limit_mg_m3: 2.5
+        hazard_class: corrosive
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.1
+        - 10
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: gloves+sleeves
+        rationale: Standard protection against workplace hazards
+    substrate_compatibility_warnings:
+    - Thermal decomposition begins at ~260°C - monitor substrate temperature
+    - Avoid laser parameters that cause excessive heating rather than ablation
+    - Metallic substrates may reach high temperatures and alter decomposition products
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: high
+        primary_hazards:
+        - compound: Carbonyl Fluoride
+          concentration_mg_m3: 5-50
+          hazard_class: toxic
+        - compound: Tetrafluoroethylene
+          concentration_mg_m3: 2-20
+          hazard_class: toxic
+        - compound: Hexafluoropropylene
+          concentration_mg_m3: 1-15
+          hazard_class: toxic
+        - compound: Perfluoroisobutylene
+          concentration_mg_m3: 0.1-2
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Carbonyl Fluoride, Tetrafluoroethylene, Hexafluoropropylene - requires
+          enhanced protection'
+        mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
+    ventilation_requirements:
+      presentation: descriptive
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA+carbon
+        minimum_air_changes_per_hour: 15
+        rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with HEPA+carbon
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
+  interactions:
+    produces_compounds:
+      presentation: card
+      items:
+      - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -104,363 +209,251 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
       _section:
-        title: Affects Materials
-        description: Materials impacted by this contaminant
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
         icon: box
+        order: 2
+        variant: default
+  visual:
+    appearance_on_categories:
+      presentation: descriptive
+      items:
+      - appearance_on_categories:
+          ceramic:
+            appearance: PTFE residue on ceramic surfaces shows up as a faint, white or off-white coating that may create a
+              dull, matte finish over the glossy base.
+            coverage: Coverage is usually partial and spotty, with some sections heavily coated while others are residue-free,
+              depending on usage.
+            pattern: It tends to appear as irregular spots or a fine, web-like pattern, often concentrated in grooves or where
+              heat or friction occurred.
+          composite:
+            appearance: PTFE residue on composites appears as a light, opaque layer that can mask the underlying material's
+              texture and colors, feeling smooth or waxy.
+            coverage: Coverage is variable and often incomplete, with residues clinging more to fibrous or resin-rich areas
+              of the composite.
+            pattern: It typically forms irregular patches or a mottled pattern, influenced by the composite's heterogeneous
+              structure and coating application.
+          concrete:
+            appearance: On concrete, PTFE contamination appears as a light, gray or white film that can reduce surface roughness
+              and give a slightly glossy sheen in patches.
+            coverage: Coverage is usually partial and variable, with dense residues in textured zones and lighter coverage
+              on smooth areas.
+            pattern: It tends to form blotchy areas or streaks, often accumulating in pores, cracks, or on flat surfaces where
+              residue settles.
+          fabric:
+            appearance: PTFE residue on fabric looks like a subtle, whitish coating that can stiffen the fibers and create
+              a dull, matte appearance on the textile.
+            coverage: It is typically sparse and irregular, with some fibers showing residue while adjacent areas remain unaffected,
+              depending on fabric weave.
+            pattern: Distribution is often spotty or streaky, concentrating in areas where the coating was applied or transferred,
+              such as folds or contact points.
+          glass:
+            appearance: On glass, PTFE residue appears as a subtle, translucent haze or smudges that can cause light scattering
+              and reduce clarity, feeling smooth but tacky.
+            coverage: Coverage is typically light and inconsistent, often limited to specific zones with occasional uniform
+              thin layers in affected areas.
+            pattern: It commonly forms streaks or smears, especially along edges or where coating was applied and not fully
+              cleaned off.
+          metal:
+            appearance: PTFE residue on metal appears as a thin, translucent to white film, often with a slightly greasy or
+              waxy texture that can dull the surface finish.
+            coverage: Coverage is usually partial and variable, ranging from small localized patches to broader areas, depending
+              on application and wear.
+            pattern: It typically forms irregular spots or streaks, especially in areas where coating was unevenly applied
+              or has degraded over time.
+          mineral:
+            appearance: PTFE residue on minerals shows as a thin, translucent to white layer that can obscure natural colors
+              and crystal faces, feeling slick or waxy.
+            coverage: Coverage is typically minimal and patchy, with residues more prominent on rough or porous mineral surfaces
+              than on smooth ones.
+            pattern: It often appears as irregular spots or a fine coating, following mineral cleavage planes or surface irregularities.
+          plastic:
+            appearance: On plastic, PTFE contamination looks like a thin, whitish film that can make the surface appear frosted
+              or cloudy, with a slightly oily texture.
+            coverage: It ranges from light, scattered patches to more extensive coverage, varying with plastic type and exposure
+              conditions.
+            pattern: Distribution is often uneven, showing as streaks or blotches, particularly along seams or in areas exposed
+              to coating processes.
+          rubber:
+            appearance: On rubber, PTFE contamination manifests as a faint, grayish or white film that can make the surface
+              look chalky and feel less tacky than untreated rubber.
+            coverage: Coverage is generally light and uneven, with higher concentrations in stressed regions and minimal residue
+              on smooth surfaces.
+            pattern: It usually appears as smudges or diffuse patches, often following the rubber's texture or areas of flexing
+              and wear.
+          semiconductor:
+            appearance: On semiconductors, PTFE contamination appears as a microscopic, faint film that can cause hazing or
+              discoloration, potentially interfering with electronic properties.
+            coverage: Coverage is usually very thin and can range from isolated spots to near-complete layers, critical for
+              performance and often requiring precise control.
+            pattern: Distribution is often uniform or speckled at a fine scale, concentrated in areas exposed to coating processes
+              or contamination sources.
+          specialty:
+            appearance: For specialty materials, PTFE residue varies but generally looks like a light, opaque film that alters
+              the surface's original finish, appearing waxy or cloudy.
+            coverage: Coverage is highly dependent on the material, ranging from minimal and localized to extensive, with
+              variations based on specific use and environment.
+            pattern: It typically forms irregular patterns such as spots or streaks, tailored to the material's unique properties
+              and coating application methods.
+          stone:
+            appearance: PTFE contamination on stone manifests as a light, milky or grayish film that can reduce the stone's
+              natural luster and feel slightly slippery.
+            coverage: It varies from minimal spotting to moderate coverage, with higher amounts in textured or porous areas
+              of the stone.
+            pattern: Distribution is often patchy or streaky, concentrating in crevices or on flat surfaces where coating
+              residue has accumulated.
+          wood:
+            appearance: On wood, PTFE residue looks like a faint, whitish or cloudy film that can obscure the natural grain
+              and give a hazy appearance to the surface.
+            coverage: Coverage is generally uneven and sparse, with some areas showing heavy residue while others remain clean,
+              influenced by wood porosity.
+            pattern: It often appears as blotchy patches or streaks, following the wood's texture or areas where coating was
+              improperly removed.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
         order: 1
         variant: default
-    produces_compounds:
-      presentation: card
+  operational:
+    laser_properties:
+      presentation: descriptive
       items:
-      - id: carbon-particulates-compound
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.4
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
+          polarization: circular
+          pulse_duration_range:
+            max_ns: 20
+            min_ns: 4
+            recommended_ns: 10
+          repetition_rate_khz:
+            max: 100
+            min: 20
+            recommended: 50
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spot_size_mm:
+            max: 0.1
+            min: 0.02
+            recommended: 0.05
+          wavelength_preference:
+          - 355
+          - 266
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 120
+            wavelength_532nm: 2800
+          reflectivity:
+            wavelength_1064nm: 0.65
+            wavelength_355nm: 0.12
+            wavelength_532nm: 0.35
+          refractive_index:
+            imaginary_part: 0.008
+            real_part: 1.35
+          transmission_depth: 83.3
+        removal_characteristics:
+          byproducts:
+          - compound: C2F4
+            hazard_level: moderate
+            phase: gas
+          - compound: CF4
+            hazard_level: moderate
+            phase: gas
+          - compound: carbon-particulates
+            hazard_level: low
+            phase: solid
+          - compound: HF
+            hazard_level: high
+            phase: gas
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 4
+            optimal_passes: 3
+            single_pass: 0.85
+          secondary_mechanisms:
+          - photochemical
+          - mechanical_spallation
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: none
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 3.2
+            pulse_duration_10ns: 2.5
+            wavelength_1064nm: 2.8
+          decomposition_temperature: 400
+          heat_affected_zone_depth: 15
+          melting_point: 327
+          specific_heat: 1050
+          thermal_conductivity: 0.25
+          thermal_diffusivity: 0.11
+          vaporization_temperature: 500
       _section:
-        title: Produces Compounds
-        description: Hazardous compounds generated during laser removal
-        icon: flask
-        order: 3
-        variant: warning
-  safety:
-    regulatory_standards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: OSHA, ANSI, ISO, and industry safety standards
-        icon: shield-check
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
         order: 1
         variant: default
-  visual_characteristics:
-    presentation: descriptive
-    items:
-    - appearance_on_categories:
-        ceramic:
-          appearance: PTFE residue on ceramic surfaces shows up as a faint, white or off-white coating that may create a dull,
-            matte finish over the glossy base.
-          coverage: Coverage is usually partial and spotty, with some sections heavily coated while others are residue-free,
-            depending on usage.
-          pattern: It tends to appear as irregular spots or a fine, web-like pattern, often concentrated in grooves or where
-            heat or friction occurred.
-        composite:
-          appearance: PTFE residue on composites appears as a light, opaque layer that can mask the underlying material's
-            texture and colors, feeling smooth or waxy.
-          coverage: Coverage is variable and often incomplete, with residues clinging more to fibrous or resin-rich areas
-            of the composite.
-          pattern: It typically forms irregular patches or a mottled pattern, influenced by the composite's heterogeneous
-            structure and coating application.
-        concrete:
-          appearance: On concrete, PTFE contamination appears as a light, gray or white film that can reduce surface roughness
-            and give a slightly glossy sheen in patches.
-          coverage: Coverage is usually partial and variable, with dense residues in textured zones and lighter coverage on
-            smooth areas.
-          pattern: It tends to form blotchy areas or streaks, often accumulating in pores, cracks, or on flat surfaces where
-            residue settles.
-        fabric:
-          appearance: PTFE residue on fabric looks like a subtle, whitish coating that can stiffen the fibers and create a
-            dull, matte appearance on the textile.
-          coverage: It is typically sparse and irregular, with some fibers showing residue while adjacent areas remain unaffected,
-            depending on fabric weave.
-          pattern: Distribution is often spotty or streaky, concentrating in areas where the coating was applied or transferred,
-            such as folds or contact points.
-        glass:
-          appearance: On glass, PTFE residue appears as a subtle, translucent haze or smudges that can cause light scattering
-            and reduce clarity, feeling smooth but tacky.
-          coverage: Coverage is typically light and inconsistent, often limited to specific zones with occasional uniform
-            thin layers in affected areas.
-          pattern: It commonly forms streaks or smears, especially along edges or where coating was applied and not fully
-            cleaned off.
-        metal:
-          appearance: PTFE residue on metal appears as a thin, translucent to white film, often with a slightly greasy or
-            waxy texture that can dull the surface finish.
-          coverage: Coverage is usually partial and variable, ranging from small localized patches to broader areas, depending
-            on application and wear.
-          pattern: It typically forms irregular spots or streaks, especially in areas where coating was unevenly applied or
-            has degraded over time.
-        mineral:
-          appearance: PTFE residue on minerals shows as a thin, translucent to white layer that can obscure natural colors
-            and crystal faces, feeling slick or waxy.
-          coverage: Coverage is typically minimal and patchy, with residues more prominent on rough or porous mineral surfaces
-            than on smooth ones.
-          pattern: It often appears as irregular spots or a fine coating, following mineral cleavage planes or surface irregularities.
-        plastic:
-          appearance: On plastic, PTFE contamination looks like a thin, whitish film that can make the surface appear frosted
-            or cloudy, with a slightly oily texture.
-          coverage: It ranges from light, scattered patches to more extensive coverage, varying with plastic type and exposure
-            conditions.
-          pattern: Distribution is often uneven, showing as streaks or blotches, particularly along seams or in areas exposed
-            to coating processes.
-        rubber:
-          appearance: On rubber, PTFE contamination manifests as a faint, grayish or white film that can make the surface
-            look chalky and feel less tacky than untreated rubber.
-          coverage: Coverage is generally light and uneven, with higher concentrations in stressed regions and minimal residue
-            on smooth surfaces.
-          pattern: It usually appears as smudges or diffuse patches, often following the rubber's texture or areas of flexing
-            and wear.
-        semiconductor:
-          appearance: On semiconductors, PTFE contamination appears as a microscopic, faint film that can cause hazing or
-            discoloration, potentially interfering with electronic properties.
-          coverage: Coverage is usually very thin and can range from isolated spots to near-complete layers, critical for
-            performance and often requiring precise control.
-          pattern: Distribution is often uniform or speckled at a fine scale, concentrated in areas exposed to coating processes
-            or contamination sources.
-        specialty:
-          appearance: For specialty materials, PTFE residue varies but generally looks like a light, opaque film that alters
-            the surface's original finish, appearing waxy or cloudy.
-          coverage: Coverage is highly dependent on the material, ranging from minimal and localized to extensive, with variations
-            based on specific use and environment.
-          pattern: It typically forms irregular patterns such as spots or streaks, tailored to the material's unique properties
-            and coating application methods.
-        stone:
-          appearance: PTFE contamination on stone manifests as a light, milky or grayish film that can reduce the stone's
-            natural luster and feel slightly slippery.
-          coverage: It varies from minimal spotting to moderate coverage, with higher amounts in textured or porous areas
-            of the stone.
-          pattern: Distribution is often patchy or streaky, concentrating in crevices or on flat surfaces where coating residue
-            has accumulated.
-        wood:
-          appearance: On wood, PTFE residue looks like a faint, whitish or cloudy film that can obscure the natural grain
-            and give a hazy appearance to the surface.
-          coverage: Coverage is generally uneven and sparse, with some areas showing heavy residue while others remain clean,
-            influenced by wood porosity.
-          pattern: It often appears as blotchy patches or streaks, following the wood's texture or areas where coating was
-            improperly removed.
-    _section:
-      title: Visual Characteristics
-      description: Physical appearance and identification features of this contamination
-      icon: eye
-      order: 10
-      variant: default
-  laser_properties:
-    presentation: descriptive
-    items:
-    - laser_parameters:
-        beam_profile: flat_top
-        fluence_range:
-          max_j_cm2: 1.2
-          min_j_cm2: 0.4
-          recommended_j_cm2: 0.8
-        overlap_percentage: 50
-        polarization: circular
-        pulse_duration_range:
-          max_ns: 20
-          min_ns: 4
-          recommended_ns: 10
-        repetition_rate_khz:
-          max: 100
-          min: 20
-          recommended: 50
-        safety_margin_factor: 0.7
-        scan_speed_mm_s:
-          max: 2000
-          min: 500
-          recommended: 1000
-        spot_size_mm:
-          max: 0.1
-          min: 0.02
-          recommended: 0.05
-        wavelength_preference:
-        - 355
-        - 266
-      optical_properties:
-        absorption_coefficient:
-          wavelength_1064nm: 120
-          wavelength_532nm: 2800
-        reflectivity:
-          wavelength_1064nm: 0.65
-          wavelength_355nm: 0.12
-          wavelength_532nm: 0.35
-        refractive_index:
-          imaginary_part: 0.008
-          real_part: 1.35
-        transmission_depth: 83.3
-      removal_characteristics:
-        byproducts:
-        - compound: C2F4
-          hazard_level: moderate
-          phase: gas
-        - compound: CF4
-          hazard_level: moderate
-          phase: gas
-        - compound: carbon-particulates
-          hazard_level: low
-          phase: solid
-        - compound: HF
-          hazard_level: high
-          phase: gas
-        damage_risk_to_substrate: low
-        primary_mechanism: thermal_ablation
-        process_speed:
-          area_coverage_rate_cm2_min: 240
-          typical_scan_speed_mm_s: 800
-        removal_efficiency:
-          diminishing_returns_after: 4
-          optimal_passes: 3
-          single_pass: 0.85
-        secondary_mechanisms:
-        - photochemical
-        - mechanical_spallation
-        surface_quality_after_removal:
-          color_change: 'no'
-          residual_stress: none
-          roughness_increase: minimal
-      safety_data:
-        fire_explosion_risk:
-          severity: low
-          description: Minimal fire risk with standard precautions and adequate ventilation
-          mitigation: Standard fire safety precautions, extinguisher available within 15m
-        fumes_generated:
-        - compound: Carbonyl Fluoride
-          concentration_mg_m3: 5-50
-          exposure_limit_mg_m3: 2
-          hazard_class: toxic
-        - compound: Tetrafluoroethylene
-          concentration_mg_m3: 2-20
-          exposure_limit_mg_m3: 82
-          hazard_class: toxic
-        - compound: Hexafluoropropylene
-          concentration_mg_m3: 1-15
-          exposure_limit_mg_m3: 68
-          hazard_class: toxic
-        - compound: Perfluoroisobutylene
-          concentration_mg_m3: 0.1-2
-          exposure_limit_mg_m3: 0.01
-          hazard_class: toxic
-        - compound: Hydrogen Fluoride
-          concentration_mg_m3: 3-30
-          exposure_limit_mg_m3: 2.5
-          hazard_class: corrosive
-        particulate_generation:
-          respirable_fraction: 0.8
-          size_range_um:
-          - 0.1
-          - 10
-        ppe_requirements:
-          eye_protection: goggles
-          respiratory: PAPR
-          skin_protection: gloves+sleeves
-          rationale: Standard protection against workplace hazards
-        substrate_compatibility_warnings:
-        - Thermal decomposition begins at ~260°C - monitor substrate temperature
-        - Avoid laser parameters that cause excessive heating rather than ablation
-        - Metallic substrates may reach high temperatures and alter decomposition products
-        toxic_gas_risk:
-          severity: high
-          primary_hazards:
-          - compound: Carbonyl Fluoride
-            concentration_mg_m3: 5-50
-            hazard_class: toxic
-          - compound: Tetrafluoroethylene
-            concentration_mg_m3: 2-20
-            hazard_class: toxic
-          - compound: Hexafluoropropylene
-            concentration_mg_m3: 1-15
-            hazard_class: toxic
-          - compound: Perfluoroisobutylene
-            concentration_mg_m3: 0.1-2
-            hazard_class: toxic
-          description: 'Multiple toxic compounds detected: Carbonyl Fluoride, Tetrafluoroethylene, Hexafluoropropylene - requires
-            enhanced protection'
-          mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
-        ventilation_requirements:
-          exhaust_velocity_m_s: 0.5
-          filtration_type: HEPA+carbon
-          minimum_air_changes_per_hour: 15
-          rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with HEPA+carbon
-        visibility_hazard:
-          severity: moderate
-          description: Moderate visibility reduction (40-60%), significant particulate haze
-          source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-          mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-          related_field: particulate_generation.respirable_fraction
-      thermal_properties:
-        ablation_threshold:
-          pulse_duration_100ns: 3.2
-          pulse_duration_10ns: 2.5
-          wavelength_1064nm: 2.8
-        decomposition_temperature: 400
-        heat_affected_zone_depth: 15
-        melting_point: 327
-        specific_heat: 1050
-        thermal_conductivity: 0.25
-        thermal_diffusivity: 0.11
-        vaporization_temperature: 500
-    _section:
-      title: Laser Parameters
-      description: Optimal laser settings and technical parameters for removal
-      icon: zap
-      order: 9
-      variant: default
-  prohibited_materials:
-    presentation: card
-    _section:
-      title: Prohibited Materials
-      description: Materials where laser removal of this contamination is not recommended
-      icon: alert-triangle
-      order: 7
-      variant: danger
-    items:
-    - Plastics
-  category: organic-residue
-  subcategory: other
-  images: *id001
   materials:
-    presentation: card
-    items:
-    - title: Affected Materials
-      description: Materials where this contaminant commonly occurs and requires laser cleaning removal
-      groups:
-        metals:
-          title: Metal Substrates
-          description: Ferrous and non-ferrous metals affected by this contamination
-          items:
-          - id: aluminum-laser-cleaning
-            title: Aluminum
-            url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-            image: /images/material/aluminum-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: non-ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: stainless-steel-laser-cleaning
-            title: Stainless Steel
-            url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-            image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-          - id: steel-laser-cleaning
-            title: Steel
-            url: /materials/metal/ferrous/steel-laser-cleaning
-            image: /images/material/steel-laser-cleaning-hero.jpg
-            category: metal
-            subcategory: ferrous
-            frequency: common
-            severity: moderate
-            typical_context: ''
-    _section:
-      title: Found On Materials
-      description: Materials where this contaminant is commonly found
-      icon: box
-      order: 10
-      variant: default
+  - id: aluminum-laser-cleaning
+    title: Aluminum
+    url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+    image: /images/material/aluminum-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: non-ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: stainless-steel-laser-cleaning
+    title: Stainless Steel
+    url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+    image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
+  - id: steel-laser-cleaning
+    title: Steel
+    url: /materials/metal/ferrous/steel-laser-cleaning
+    image: /images/material/steel-laser-cleaning-hero.jpg
+    category: metal
+    subcategory: ferrous
+    frequency: common
+    severity: moderate
+    typical_context: ''
 subcategory: other
 composition:
 - PTFE
 - Fluorocarbons
-pageDescription: 'Teflon residue contamination, it arises from polymer degradation during high-heat processes and forms irregular,
-  patchy films on metal surfaces. This contamination, it adheres strongly due to low surface energy of Teflon, thus creating
-  unique droplet-like patterns that spread unevenly. In laser cleaning applications, removal challenges emerge because residue
-  exhibits high thermal stability and resists ablation. Laser pulses apply, yet organic bonds in Teflon break incompletely,
-  so fragments scatter and redeposit nearby. Material-specific behaviors show that on stainless steel, residue softens slowly
-  under infrared lasers and leaves behind hazy remnants. After treatment, surface still exhibits stickiness in contaminated
-  zones, thus requiring multiple passes for partial clearance. Efficiency of cleaning, it drops with thicker films, and so
-  hybrid methods often follow to enhance removal.
-
-
-  Yi-Chun Lin, Ph.D., Taiwan'
+prohibited_materials:
+- Plastics
+valid_materials:
+- aluminum-laser-cleaning
+- stainless-steel-laser-cleaning
+- steel-laser-cleaning
+slug: teflon-residue-contamination
+lastModified: '2026-01-04T14:58:07.817792'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: PTFE Coating Residue
+  href: ''
+title: PTFE Coating Residue
+metaDescription: 'PTFE Coating Residue: 85-90% absorption at 1064nm. 2-3 passes for complete removal. Preserves substrate
+  integrity. No chemical waste.'
