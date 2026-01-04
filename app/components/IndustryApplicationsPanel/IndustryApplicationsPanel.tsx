@@ -80,8 +80,8 @@ export function IndustryApplicationsPanel({
  */
 function getDefaultTitle(variant: string, entityName?: string): string {
   const titles = {
-    materials: entityName ? `${entityName} Industry Applications` : 'Industry Applications',
-    settings: entityName ? `${entityName} Industry Applications` : 'Industry Applications',
+    materials: entityName ? `Industry applications of ${entityName}` : 'Industry Applications',
+    settings: entityName ? `Industry applications of ${entityName}` : 'Industry Applications',
     contaminants: 'Industries Where Found',
     compounds: 'Industries of Concern'
   };

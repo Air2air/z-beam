@@ -87,7 +87,7 @@ describe('IndustryApplicationsPanel', () => {
       );
       
       expect(container).toBeTruthy();
-      // Should use: "Industries Using Aluminum"
+      // Should use: "Industry applications of Aluminum"
     });
 
     it('uses contaminants variant default title', () => {
@@ -141,7 +141,7 @@ describe('IndustryApplicationsPanel', () => {
       );
       
       expect(container).toBeTruthy();
-      // Should use: "Industry Applications for High Power"
+      // Should use: "Industry applications of High Power"
     });
   });
 

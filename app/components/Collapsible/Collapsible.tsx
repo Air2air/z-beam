@@ -293,6 +293,7 @@ function TableData({ data }: { data: any[] }) {
 
 /**
  * Render nested properties as table with key-value pairs
+ * Special case: For FAQ content (single entry with empty key), render as plain text
  */
 function NestedProperties({ data, borderColor = 'border-gray-700', bgColor = 'bg-gray-800' }: { data: Record<string, any>; borderColor?: string; bgColor?: string }) {
   const entries = Object.entries(data).filter(([key, value]) => 
@@ -300,6 +301,36 @@ function NestedProperties({ data, borderColor = 'border-gray-700', bgColor = 'bg
   );
 
   if (entries.length === 0) return null;
+
+  // FAQ special case: Single entry with empty key = direct text rendering (no table)
+  if (entries.length === 1 && entries[0][0] === '') {
+    const value = entries[0][1];
+    return (
+      <span dangerouslySetInnerHTML={{ __html: String(value) }} />
+    );
+  }
+
+  // Applications special case: Single entry with array of objects = render as cards/list
+  if (entries.length === 1 && Array.isArray(entries[0][1]) && entries[0][1].length > 0) {
+    const items = entries[0][1];
+    const firstItem = items[0];
+    
+    // If array contains objects with name/description, render as application cards
+    if (typeof firstItem === 'object' && firstItem !== null && 'name' in firstItem) {
+      return (
+        <div className="space-y-3">
+          {items.map((item: any, idx: number) => (
+            <div key={idx} className="flex flex-col">
+              <span className="font-semibold text-gray-200">{item.name}</span>
+              {item.description && (
+                <span className="text-sm text-gray-400 mt-1">{item.description}</span>
+              )}
+            </div>
+          ))}
+        </div>
+      );
+    }
+  }
 
   return (
     <div className="overflow-x-auto">
@@ -374,6 +405,11 @@ export function Collapsible({
             return null;
           }
 
+          // Detect FAQ content pattern (single nested object with empty key = FAQ answer)
+          const isFAQContent = typeof categoryData === 'object' && 
+                               Object.keys(categoryData).length === 1 && 
+                               Object.keys(categoryData)[0] === '';
+
           // Special handling for appearance_on_categories - render nested categories directly
           if (categoryKey === 'appearance_on_categories' && typeof categoryData === 'object') {
             return Object.entries(categoryData).map(([nestedKey, nestedData]) => {
@@ -434,7 +470,7 @@ export function Collapsible({
           }
 
           const displayTitle = formatKey(categoryKey);
-          const icon = getCategoryIcon(categoryKey);
+          const icon = isFAQContent ? null : getCategoryIcon(categoryKey); // No icons for FAQ content
           const cardStyle = getCardStyling(categoryKey, categoryData);
           const borderColor = getBorderColor(cardStyle);
           const textColor = getTextColor(cardStyle);

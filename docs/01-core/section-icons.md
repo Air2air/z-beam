@@ -99,7 +99,7 @@ import { getSectionIcon } from '@/app/config/sectionIcons';
 export function MaterialFAQ({ materialName, faq }: Props) {
   return (
     <SectionContainer 
-      title={`${materialName} Laser Cleaning FAQs`}
+      title={`FAQs for laser cleaning ${materialName}`}
       icon={getSectionIcon('faq')}
       bgColor="transparent"
       radius={false}
