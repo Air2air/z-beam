@@ -32,7 +32,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
           {/* Symptom Header - Prominent Display */}
           <div className="bg-gradient-to-r from-red-900/30 to-transparent px-4 py-3 border-l-4 border-red-500">
             <div className="flex items-start gap-3">
-              <AlertTriangle className="w-6 h-6 text-red-500 flex-shrink-0" />
+              <AlertTriangle className="w-6 h-6 text-orange-500 flex-shrink-0" />
               <div className="flex-1">
                 <h3 className="text-base text-secondary font-semibold mb-1">
                   {issue.symptom}

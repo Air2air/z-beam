@@ -188,7 +188,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
   return (
     <details className="bg-secondary rounded-lg overflow-hidden group">
       <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
-        <BarChart3 className="w-5 h-5 text-blue-500" />
+        <BarChart3 className="w-5 h-5 text-orange-500" />
         <div className="flex-1">
           <h3 className="text-base text-secondary">Quick Reference</h3>
           <p className="text-sm text-tertiary font-normal">At-a-glance overview with severity matrix and decision support</p>
