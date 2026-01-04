@@ -48,11 +48,12 @@ export function FAQPanel({
   if (!faq || faq.length === 0) return null;
 
   // Transform FAQ data for Collapsible component
+  // Use question as the collapsible title, put answer as direct value with empty key to hide label
   const collapsibleItems = faq.map((item, index) => {
     return {
-      question: parseSimpleMarkdown(item.question),
-      answer: parseSimpleMarkdown(item.answer),
-      severity: item.severity
+      [parseSimpleMarkdown(item.question)]: {
+        '': parseSimpleMarkdown(item.answer)
+      }
     };
   });
 
