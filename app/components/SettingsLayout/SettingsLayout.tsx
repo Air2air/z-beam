@@ -531,21 +531,7 @@ export function SettingsLayout({
             materialLink={materialLink}
           />
 
-        {/* Diagnostic & Prevention Center - Tabbed Interface */}
-        {/* Debug: Always show to see what's happening */}
-        <div className="bg-yellow-900/20 border border-yellow-500 p-4 mb-4">
-          <p className="text-sm text-yellow-300">DEBUG: DiagnosticCenter Check</p>
-          <p className="text-xs">Material: {settings.name}</p>
-          <p className="text-xs">Challenges keys: {Object.keys(challenges).join(', ') || 'none'}</p>
-          <p className="text-xs">Challenges count: {Object.keys(challenges).length}</p>
-          <p className="text-xs">Issues count: {issues.length}</p>
-          <p className="text-xs">Will render: {(Object.keys(challenges).length > 0 || issues.length > 0).toString()}</p>
-          <p className="text-xs mt-2">Sample challenge categories:</p>
-          <pre className="text-[10px] bg-black/40 p-2 mt-1 overflow-auto max-h-40">
-            {JSON.stringify(challenges, null, 2)}
-          </pre>
-        </div>
-        
+        {/* Diagnostic & Prevention Center */}
         {(Object.keys(challenges).length > 0 || issues.length > 0) && (
           <DiagnosticCenter 
             materialName={settings.name}
