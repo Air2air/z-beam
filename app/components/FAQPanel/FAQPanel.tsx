@@ -49,15 +49,10 @@ export function FAQPanel({
 
   // Transform FAQ data for Collapsible component
   const collapsibleItems = faq.map((item, index) => {
-    const questionKey = `question_${index + 1}`;
-    
     return {
-      [questionKey]: {
-        question: parseSimpleMarkdown(item.question),
-        answer: parseSimpleMarkdown(item.answer),
-        severity: item.severity,
-        _label: variant === 'faq' ? 'Q:' : '⚠'
-      }
+      question: parseSimpleMarkdown(item.question),
+      answer: parseSimpleMarkdown(item.answer),
+      severity: item.severity
     };
   });
 

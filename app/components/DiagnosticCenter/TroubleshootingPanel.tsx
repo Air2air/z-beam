@@ -37,7 +37,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
                 <h3 className="text-base text-secondary font-semibold mb-1">
                   {issue.symptom}
                 </h3>
-                <div className="text-sm text-tertiary">Issue #{idx + 1} • Common Problem</div>
+                <div className="text-base text-tertiary">Issue #{idx + 1} • Common Problem</div>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
               </h4>
               <ul className="space-y-1">
                 {issue.causes.map((cause: string, cidx: number) => (
-                  <li key={cidx} className="text-sm flex items-start gap-2">
+                  <li key={cidx} className="text-base flex items-start gap-2">
                     <span className="text-orange-400 font-bold mt-0.5">{cidx + 1}.</span>
                     <span>{cause}</span>
                   </li>
@@ -68,7 +68,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
               </h4>
               <ol className="space-y-1.5">
                 {issue.solutions.map((solution: string, sidx: number) => (
-                  <li key={sidx} className="text-sm flex items-start gap-2">
+                  <li key={sidx} className="text-base flex items-start gap-2">
                     <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-semibold text-xs">
                       {sidx + 1}
                     </span>
@@ -85,7 +85,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
                   <ClipboardCheck className="w-4 h-4" />
                   Verification
                 </h4>
-                <p className="text-sm">{issue.verification}</p>
+                <p className="text-base">{issue.verification}</p>
               </div>
               
               <div className="bg-purple-900/10 rounded-md p-3">
@@ -93,7 +93,7 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
                   <Lock className="w-4 h-4" />
                   Future Prevention
                 </h4>
-                <p className="text-sm">{issue.prevention}</p>
+                <p className="text-base">{issue.prevention}</p>
               </div>
             </div>
           </div>

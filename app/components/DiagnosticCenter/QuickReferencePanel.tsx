@@ -66,7 +66,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
               </h4>
               <ul className="space-y-1">
                 {bySeverity.critical.map((challenge, idx) => (
-                  <li key={idx} className="text-sm">
+                  <li key={idx} className="text-base">
                     • {challenge.challenge}
                     <span className="text-muted ml-1">({challenge.category.replace(/_/g, ' ')})</span>
                   </li>
@@ -84,7 +84,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
               </h4>
               <ul className="space-y-1">
                 {bySeverity.high.map((challenge, idx) => (
-                  <li key={idx} className="text-sm">
+                  <li key={idx} className="text-base">
                     • {challenge.challenge}
                     <span className="text-muted ml-1">({challenge.category.replace(/_/g, ' ')})</span>
                   </li>
@@ -102,12 +102,12 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
               </h4>
               <ul className="space-y-1">
                 {bySeverity.medium.slice(0, 3).map((challenge, idx) => (
-                  <li key={idx} className="text-sm">
+                  <li key={idx} className="text-base">
                     • {challenge.challenge}
                   </li>
                 ))}
                 {bySeverity.medium.length > 3 && (
-                  <li className="text-sm text-muted italic">
+                  <li className="text-base text-muted italic">
                     + {bySeverity.medium.length - 3} more...
                   </li>
                 )}
@@ -122,7 +122,7 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
                 <span className="w-2 h-2 rounded-full bg-green-500 shadow-lg shadow-green-500/50" />
                 Low Priority ({bySeverity.low.length})
               </h4>
-              <p className="text-sm text-tertiary">
+              <p className="text-base text-tertiary">
                 Minor concerns - see Prevention tab for details
               </p>
             </div>
@@ -160,13 +160,13 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
             ))}
           </div>
         ) : (
-          <p className="text-sm text-tertiary">No common issues documented.</p>
+          <p className="text-base text-tertiary">No common issues documented.</p>
         )}
         
         {/* Quick Decision Helper */}
         <div className="mt-4 pt-4 border-t">
           <h4 className="text-sm text-secondary font-semibold text-secondary mb-2">Quick Decision Helper</h4>
-          <div className="space-y-2 text-sm">
+          <div className="space-y-2 text-base">
             <div className="flex items-start gap-2">
               <span className="text-purple-400">→</span>
               <span>Start with <strong>Prevention First</strong> tab before beginning work</span>

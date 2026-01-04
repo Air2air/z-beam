@@ -55,7 +55,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
                   <h3 className="text-base text-secondary font-semibold">
                     {challenge.challenge}
                   </h3>
-                  <div className="text-sm text-tertiary capitalize mt-0.5">{category.replace(/_/g, ' ')} • {challenge.severity} severity</div>
+                  <div className="text-base text-tertiary capitalize mt-0.5">{category.replace(/_/g, ' ')} • {challenge.severity} severity</div>
                 </div>
               </div>
               <ChevronDown className="w-4 h-4 text-tertiary transition-transform group-open:rotate-180 flex-shrink-0" />
@@ -64,14 +64,14 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
             <div className="p-4 space-y-3">
               <div className="bg-orange-900/10 rounded-md p-3">
                 <h4 className="text-base text-secondary font-semibold mb-2">Impact</h4>
-                <p className="text-sm text-tertiary">{challenge.impact}</p>
+                <p className="text-base text-tertiary">{challenge.impact}</p>
               </div>
               
               <div className="bg-green-900/10 rounded-md p-3">
                 <h4 className="text-base text-secondary font-semibold mb-2">Prevention Solutions</h4>
                 <ul className="space-y-1.5">
                   {challenge.solutions.map((solution: string, sidx: number) => (
-                    <li key={sidx} className="text-sm flex items-start gap-2">
+                    <li key={sidx} className="text-base flex items-start gap-2">
                       <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-semibold text-xs">
                         {sidx + 1}
                       </span>
@@ -84,7 +84,7 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
               {challenge.prevention && (
                 <div className="bg-purple-900/10 rounded-md p-3">
                   <h4 className="text-base text-secondary font-semibold mb-2">Threshold</h4>
-                  <p className="text-sm text-tertiary">{challenge.prevention}</p>
+                  <p className="text-base text-tertiary">{challenge.prevention}</p>
                 </div>
               )}
             </div>

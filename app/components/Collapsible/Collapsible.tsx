@@ -263,7 +263,7 @@ function TableData({ data }: { data: any[] }) {
   
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+      <table className="w-full text-base">
         <thead>
           <tr className="bg-gray-800/50">
             {keys.map(key => (
@@ -303,7 +303,7 @@ function NestedProperties({ data, borderColor = 'border-gray-700', bgColor = 'bg
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+      <table className="w-full text-base">
         <tbody>
           {entries.map(([key, value], idx) => (
             <tr key={key} className={idx % 2 === 1 ? 'bg-black/15' : ''}>

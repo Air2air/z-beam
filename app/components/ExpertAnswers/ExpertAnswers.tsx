@@ -184,7 +184,7 @@ export function ExpertAnswers({
       />
       
       {/* Trust signals footer */}
-      <div className="mt-6 p-4 bg-secondary rounded-md text-sm text-muted text-center">
+      <div className="mt-6 p-4 bg-secondary rounded-md text-muted text-center">
         <p>
           All answers provided by verified laser cleaning experts with industry credentials.
           {' '}
