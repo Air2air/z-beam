@@ -2,7 +2,6 @@
 'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import { Collapsible } from '../Collapsible';
 
 interface Issue {
   symptom: string;
@@ -111,24 +110,20 @@ export function TroubleshootingPanel({ issues }: TroubleshootingPanelProps) {
   );
 
   return (
-    <div className="bg-secondary rounded-lg border overflow-hidden">
-      <Collapsible
-        items={[]}
-        sectionMetadata={{
-          title: 'Fix Issues',
-          description: 'Symptom-based diagnosis and solutions for active problems',
-          icon: 'alert',
-          order: 2
-        }}
-        options={{
-          autoOpen: false,
-          isExpandedByDefault: false
-        }}
-      >
-        <div className="p-4">
-          {content}
+    <details className="bg-secondary rounded-lg border overflow-hidden group">
+      <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
+        <span className="text-lg">⚠️</span>
+        <div className="flex-1">
+          <h3 className="text-base text-secondary">Fix Issues</h3>
+          <p className="text-sm text-tertiary font-normal">Symptom-based diagnosis and solutions for active problems</p>
         </div>
-      </Collapsible>
-    </div>
+        <svg className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div className="p-4">
+        {content}
+      </div>
+    </details>
   );
 }

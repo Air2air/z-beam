@@ -2,7 +2,6 @@
 'use client';
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import { Collapsible } from '../Collapsible';
 
 interface Challenge {
   challenge: string;
@@ -186,24 +185,20 @@ export function QuickReferencePanel({ challenges, issues }: QuickReferencePanelP
   );
 
   return (
-    <div className="bg-secondary rounded-lg border overflow-hidden">
-      <Collapsible
-        items={[]}
-        sectionMetadata={{
-          title: 'Quick Reference',
-          description: 'At-a-glance overview with severity matrix and decision support',
-          icon: 'info',
-          order: 3
-        }}
-        options={{
-          autoOpen: false,
-          isExpandedByDefault: false
-        }}
-      >
-        <div className="p-4">
-          {content}
+    <details className="bg-secondary rounded-lg border overflow-hidden group">
+      <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
+        <span className="text-lg">📊</span>
+        <div className="flex-1">
+          <h3 className="text-base text-secondary">Quick Reference</h3>
+          <p className="text-sm text-tertiary font-normal">At-a-glance overview with severity matrix and decision support</p>
         </div>
-      </Collapsible>
-    </div>
+        <svg className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div className="p-4">
+        {content}
+      </div>
+    </details>
   );
 }

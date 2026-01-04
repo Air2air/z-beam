@@ -2,7 +2,6 @@
 'use client';
 
 import { PreventionPanel as PreventionDataPanel } from '../PreventionPanel';
-import { Collapsible } from '../Collapsible';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import type { RelationshipSection } from '@/types/safetyData';
 
@@ -27,25 +26,23 @@ interface PreventionPanelProps {
 export function PreventionPanel({ challenges }: PreventionPanelProps) {
   if (!challenges || Object.keys(challenges).length === 0) {
     return (
-      <div className="bg-secondary rounded-lg border overflow-hidden">
-        <Collapsible
-          items={[]}
-          sectionMetadata={{
-            title: 'Prevention First',
-            description: 'Proactive strategies to avoid problems before they occur',
-            icon: 'check',
-            order: 1
-          }}
-          options={{
-            autoOpen: false,
-            isExpandedByDefault: false
-          }}
-        >
+      <details className="bg-secondary rounded-lg border overflow-hidden">
+        <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors">
+          <span className="text-lg">✅</span>
+          <div className="flex-1">
+            <h3 className="text-base text-secondary">Prevention First</h3>
+            <p className="text-sm text-tertiary font-normal">Proactive strategies to avoid problems before they occur</p>
+          </div>
+          <svg className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div className="p-4">
           <div className="text-center py-8 text-tertiary">
             <p>No prevention strategies available for this material.</p>
           </div>
-        </Collapsible>
-      </div>
+        </div>
+      </details>
     );
   }
 
@@ -92,24 +89,20 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
   );
 
   return (
-    <div className="bg-secondary rounded-lg border overflow-hidden">
-      <Collapsible
-        items={[]}
-        sectionMetadata={{
-          title: 'Prevention First',
-          description: 'Proactive strategies to avoid problems before they occur',
-          icon: 'check',
-          order: 1
-        }}
-        options={{
-          autoOpen: false,
-          isExpandedByDefault: false
-        }}
-      >
-        <div className="p-4">
-          {content}
+    <details className="bg-secondary rounded-lg border overflow-hidden group" open>
+      <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
+        <span className="text-lg">✅</span>
+        <div className="flex-1">
+          <h3 className="text-base text-secondary">Prevention First</h3>
+          <p className="text-sm text-tertiary font-normal">Proactive strategies to avoid problems before they occur</p>
         </div>
-      </Collapsible>
-    </div>
+        <svg className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </summary>
+      <div className="p-4">
+        {content}
+      </div>
+    </details>
   );
 }
