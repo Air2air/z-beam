@@ -1,18 +1,11 @@
 id: mineral-deposits-contamination
 name: Hard Water Mineral Scale
 category: thermal-damage
-datePublished: '2026-01-04T00:26:41.486659Z'
-dateModified: '2026-01-04T00:26:41.486659Z'
+datePublished: '2026-01-04T21:42:50.791340Z'
+dateModified: '2026-01-04T21:42:50.791340Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/scale/mineral-deposits-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Hard Water Mineral Scale
-  href: ''
 page_title: 'Hard Water Mineral Scale Removal: Laser Ablation High'
 page_description: 'Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
   thin on stones, and this difference affects cleaning outcomes. After exposure to moisture, buildup hardens quickly, so laser
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -147,6 +141,12 @@ relationships:
       items:
       - id: calcium-oxide-compound
       - id: carbon-dioxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -188,6 +188,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -284,6 +290,12 @@ relationships:
               water exposure and wood porosity.
             pattern: It often appears as splotches or streaks, following water flow or spill patterns, and may accumulate
               in grooves or porous areas of the wood grain.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -368,6 +380,12 @@ relationships:
           thermal_conductivity: 1.2
           thermal_diffusivity: 0.45
           vaporization_temperature: 2850
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -759,4 +777,12 @@ valid_materials:
 - zinc-laser-cleaning
 - zirconia-laser-cleaning
 slug: mineral-deposits-contamination
-lastModified: '2026-01-03T16:26:41.486695'
+lastModified: '2026-01-04T13:42:50.791394'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Hard Water Mineral Scale
+  href: ''
+title: Hard Water Mineral Scale

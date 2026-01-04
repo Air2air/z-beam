@@ -1,18 +1,11 @@
 id: steel-corrosion-contamination
 name: Steel Surface Corrosion
 category: oxidation
-datePublished: '2026-01-04T00:26:43.909285Z'
-dateModified: '2026-01-04T00:26:43.909285Z'
+datePublished: '2026-01-04T21:42:53.379300Z'
+dateModified: '2026-01-04T21:42:53.379300Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/ferrous/steel-corrosion-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Steel Surface Corrosion
-  href: ''
 page_title: 'Steel Surface Corrosion Removal: Laser Ablation Clean'
 page_description: 'Steel corrosion contamination, it forms through oxidation exposure. Iron in steel reacts with oxygen and
   moisture, thus creates rust layers. These layers exhibit unique patterns, such as pitting on surfaces and flaky buildup
@@ -80,11 +73,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -168,6 +162,12 @@ relationships:
       - id: iron-oxide-compound
       - id: iron-oxide-compound
       - id: carbon-dioxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -191,6 +191,12 @@ relationships:
         frequency: common
       - id: nickel-laser-cleaning
         frequency: common
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -272,6 +278,12 @@ relationships:
             coverage: Generally localized to areas near metal fasteners, with minimal spread across the wood surface.
             pattern: Usually appears as streaks or patches where metal components (like nails or screws) are in contact, often
               following grain lines.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -356,6 +368,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.3
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: carbon-steel-laser-cleaning
     title: Carbon Steel Laser Cleaning
@@ -387,4 +405,12 @@ prohibited_materials:
 valid_materials:
 - steel-laser-cleaning
 slug: steel-corrosion-contamination
-lastModified: '2026-01-03T16:26:43.909317'
+lastModified: '2026-01-04T13:42:53.379331'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Steel Surface Corrosion
+  href: ''
+title: Steel Surface Corrosion

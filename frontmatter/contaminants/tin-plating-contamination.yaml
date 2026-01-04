@@ -1,18 +1,11 @@
 id: tin-plating-contamination
 name: Tin Plating Residue
 category: metallic-coating
-datePublished: '2026-01-04T00:26:44.297933Z'
-dateModified: '2026-01-04T00:26:44.297933Z'
+datePublished: '2026-01-04T21:42:53.789883Z'
+dateModified: '2026-01-04T21:42:53.789883Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/tin-plating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Tin Plating Residue
-  href: ''
 page_title: 'Tin Plating Residue Removal: Laser Ablation Clean Remov'
 page_description: 'Tin-plating contamination, it arises from environmental exposure and handling residues. Formation patterns
   show uneven layering, with spots clustering along edges and thus creating patchy coverage on the metallic coating. This
@@ -78,11 +71,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -146,6 +140,12 @@ relationships:
       - id: tin-oxide-compound
       - id: tin-oxide-compound
       - id: tin-oxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -179,6 +179,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -267,6 +273,12 @@ relationships:
               spread across the wood.
             pattern: Distribution is irregular, appearing as scattered spots or smears, especially where the residue was transferred
               or dripped onto the surface.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -351,6 +363,12 @@ relationships:
           thermal_conductivity: 66.8
           thermal_diffusivity: 40.2
           vaporization_temperature: 2602
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: brass-laser-cleaning
     title: Brass
@@ -390,4 +408,12 @@ valid_materials:
 - copper-laser-cleaning
 - steel-laser-cleaning
 slug: tin-plating-contamination
-lastModified: '2026-01-03T16:26:44.297964'
+lastModified: '2026-01-04T13:42:53.789914'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Tin Plating Residue
+  href: ''
+title: Tin Plating Residue

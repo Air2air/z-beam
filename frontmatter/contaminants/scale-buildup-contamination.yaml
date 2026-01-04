@@ -1,18 +1,11 @@
 id: scale-buildup-contamination
 name: Mineral Scale / Hard Water Deposits
 category: thermal-damage
-datePublished: '2026-01-04T00:26:43.393113Z'
-dateModified: '2026-01-04T00:26:43.393113Z'
+datePublished: '2026-01-04T21:42:52.818335Z'
+dateModified: '2026-01-04T21:42:52.818335Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/scale/scale-buildup-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Mineral Scale / Hard Water Deposits
-  href: ''
 page_title: 'Mineral Scale / Hard Water Deposits Removal: Laser Abla'
 page_description: "Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary.\
   \ On steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that resist laser pulses. Aluminum\
@@ -74,11 +67,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -146,6 +140,12 @@ relationships:
       - id: calcium-oxide-compound
       - id: carbon-dioxide-compound
       - id: calcium-oxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -187,6 +187,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -265,6 +271,12 @@ relationships:
         - orange-brown
         texture: crusty, crystalline, hard
         thickness: thin coating to thick deposits
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -349,6 +361,12 @@ relationships:
           thermal_conductivity: 2.2
           thermal_diffusivity: 1.1
           vaporization_temperature: 2850
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -751,4 +769,11 @@ valid_materials:
 - zinc-laser-cleaning
 - zirconia-laser-cleaning
 slug: scale-buildup-contamination
-lastModified: '2026-01-03T16:26:43.393145'
+lastModified: '2026-01-04T13:42:52.818367'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Mineral Scale / Hard Water Deposits
+  href: ''

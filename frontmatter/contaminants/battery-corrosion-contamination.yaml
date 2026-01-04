@@ -1,18 +1,11 @@
 id: battery-corrosion-contamination
 name: Battery Leakage Corrosion
 category: oxidation
-datePublished: '2026-01-04T00:26:37.276675Z'
-dateModified: '2026-01-04T00:26:37.276675Z'
+datePublished: '2026-01-04T21:42:46.463027Z'
+dateModified: '2026-01-04T21:42:46.463027Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/battery/battery-corrosion-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Battery Leakage Corrosion
-  href: ''
 page_title: 'Battery Leakage Corrosion Removal: Laser Ablation Clean'
 page_description: 'Battery-corrosion-contamination, this type arises from oxidation in battery environments. Formation patterns,
   they follow natural regional paths along electrode surfaces and electrolyte interfaces, where moisture and salts accelerate
@@ -78,11 +71,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -159,6 +153,12 @@ relationships:
       presentation: card
       items:
       - id: zinc-oxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -182,6 +182,12 @@ relationships:
         frequency: common
       - id: nickel-laser-cleaning
         frequency: common
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -244,6 +250,12 @@ relationships:
               surface degradation.
             coverage: Typically limited to the contact area, with variation based on wood porosity and liquid spread.
             pattern: Spots or patches that follow the wood grain, with streaks if the liquid runs.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -330,6 +342,12 @@ relationships:
           thermal_conductivity: 0.35
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: brass-laser-cleaning
     title: Brass
@@ -371,4 +389,12 @@ valid_materials:
 - copper-laser-cleaning
 - steel-laser-cleaning
 slug: battery-corrosion-contamination
-lastModified: '2026-01-03T16:26:37.276712'
+lastModified: '2026-01-04T13:42:46.463058'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Battery Leakage Corrosion
+  href: ''
+title: Battery Leakage Corrosion

@@ -1,18 +1,11 @@
 id: grease-deposits-contamination
 name: Heavy Machinery Grease
 category: organic-residue
-datePublished: '2026-01-04T00:26:40.542038Z'
-dateModified: '2026-01-04T00:26:40.542038Z'
+datePublished: '2026-01-04T21:42:49.761416Z'
+dateModified: '2026-01-04T21:42:49.761416Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/grease-deposits-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Heavy Machinery Grease
-  href: ''
 page_title: 'Heavy Machinery Grease Removal: Laser Ablation Single-P'
 page_description: Grease deposits contamination poses a tough challenge in laser cleaning setups. These organic residues build
   up in uneven, sticky layers on surfaces like metals or machinery parts. They form through repeated exposure to oils and
@@ -71,11 +64,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -173,6 +167,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-ash-compound
       - id: vocs-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -186,6 +186,12 @@ relationships:
         frequency: very_common
       - id: copper-laser-cleaning
         frequency: very_common
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -272,6 +278,12 @@ relationships:
               spread.
             pattern: It usually appears as localized spots or patches, often with smearing from contact, and may follow the
               wood grain in streaks.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -359,6 +371,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -411,4 +429,12 @@ valid_materials:
 - iron-laser-cleaning
 - steel-laser-cleaning
 slug: grease-deposits-contamination
-lastModified: '2026-01-03T16:26:40.542072'
+lastModified: '2026-01-04T13:42:49.761447'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Heavy Machinery Grease
+  href: ''
+title: Heavy Machinery Grease

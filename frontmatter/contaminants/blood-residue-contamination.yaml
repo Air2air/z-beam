@@ -1,18 +1,11 @@
 id: blood-residue-contamination
 name: Biological Blood Residue
 category: biological
-datePublished: '2026-01-04T00:26:37.619765Z'
-dateModified: '2026-01-04T00:26:37.619765Z'
+datePublished: '2026-01-04T21:42:46.804960Z'
+dateModified: '2026-01-04T21:42:46.804960Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/biological/deposit/blood-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Biological Blood Residue
-  href: ''
 page_title: 'Biological Blood Residue Removal: Laser Ablation Clean'
 page_description: "Blood-residue contamination, it forms through biological adhesion on surfaces. Proteins and cells bind\
   \ tightly, creating layered patterns that vary by substrate. On metals, residue spreads unevenly and penetrates pores, thus\
@@ -75,11 +68,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -169,6 +163,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: nitrogen-oxides-compound
       - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -200,6 +200,12 @@ relationships:
       - id: terracotta-laser-cleaning
       - id: urethane-composites-laser-cleaning
       - id: aluminosilicate-glass-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -295,6 +301,12 @@ relationships:
               parts of the wood.
             pattern: It spreads in irregular patches or along the grain, with possible feathering edges due to the porous
               surface absorbing the liquid.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -382,6 +394,12 @@ relationships:
           thermal_conductivity: 0.5
           thermal_diffusivity: 0.14
           vaporization_temperature: 100
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -541,4 +559,12 @@ valid_materials:
 - tempered-glass-laser-cleaning
 - zirconia-laser-cleaning
 slug: blood-residue-contamination
-lastModified: '2026-01-03T16:26:37.619800'
+lastModified: '2026-01-04T13:42:46.804989'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Biological Blood Residue
+  href: ''
+title: Biological Blood Residue

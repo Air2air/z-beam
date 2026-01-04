@@ -1,18 +1,11 @@
 id: surgical-marking-contamination
 name: Surgical Ink Markings
 category: chemical-residue
-datePublished: '2026-01-04T00:26:43.984115Z'
-dateModified: '2026-01-04T00:26:43.984115Z'
+datePublished: '2026-01-04T21:42:53.462683Z'
+dateModified: '2026-01-04T21:42:53.462683Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/surgical-marking-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Surgical Ink Markings
-  href: ''
 page_title: 'Surgical Ink Markings Removal: Laser Ablation Clean'
 page_description: "Surgical marking contamination, it arises from chemical residues of inks and dyes used in medical procedures.\
   \ Formation patterns show irregularity, with spots and lines adhering tightly to surfaces like stainless steel instruments\
@@ -75,11 +68,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -163,6 +157,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: water-vapor-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -196,6 +196,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -291,6 +297,12 @@ relationships:
               pressure.
             pattern: Often appears as diffuse patches or streaks following the wood grain, with potential for bleeding into
               surrounding areas.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -374,6 +386,12 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.15
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: stainless-steel-laser-cleaning
     title: Stainless Steel
@@ -405,4 +423,12 @@ valid_materials:
 - stainless-steel-laser-cleaning
 - titanium-laser-cleaning
 slug: surgical-marking-contamination
-lastModified: '2026-01-03T16:26:43.984151'
+lastModified: '2026-01-04T13:42:53.462714'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Surgical Ink Markings
+  href: ''
+title: Surgical Ink Markings

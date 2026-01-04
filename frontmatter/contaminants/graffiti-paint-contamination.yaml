@@ -1,18 +1,11 @@
 id: graffiti-paint-contamination
 name: Graffiti and Spray Paint
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:40.359463Z'
-dateModified: '2026-01-04T00:26:40.359463Z'
+datePublished: '2026-01-04T21:42:49.579116Z'
+dateModified: '2026-01-04T21:42:49.579116Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Graffiti and Spray Paint
-  href: ''
 page_title: 'Graffiti and Spray Paint Removal: Laser Ablation No'
 page_description: 'Graffiti paint contamination poses a tough challenge in urban settings, where artists spray quick layers
   that build up unevenly on surfaces like concrete walls or metal signs. This inorganic coating forms irregular patterns—thick
@@ -75,11 +68,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -177,6 +171,12 @@ relationships:
       - id: water-vapor-compound
       - id: vocs-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -217,6 +217,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -313,6 +319,12 @@ relationships:
               nature of wood.
             pattern: It often appears as patches or streaks, following the wood grain or forming random spots where the paint
               adheres unevenly.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -400,6 +412,12 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.17
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -672,4 +690,12 @@ valid_materials:
 - travertine-laser-cleaning
 - zinc-laser-cleaning
 slug: graffiti-paint-contamination
-lastModified: '2026-01-03T16:26:40.359498'
+lastModified: '2026-01-04T13:42:49.579144'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Graffiti and Spray Paint
+  href: ''
+title: Graffiti and Spray Paint

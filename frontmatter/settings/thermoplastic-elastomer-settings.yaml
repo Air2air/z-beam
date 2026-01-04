@@ -1,17 +1,10 @@
 id: thermoplastic-elastomer-settings
 name: Thermoplastic Elastomer
-datePublished: '2026-01-04T00:25:20.869746Z'
-dateModified: '2026-01-04T00:25:20.869746Z'
+datePublished: '2026-01-04T21:43:58.317058Z'
+dateModified: '2026-01-04T21:43:58.317058Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/structural/thermoplastic-elastomer-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Thermoplastic Elastomer
-  href: ''
 page_title: 'Thermoplastic Elastomer Settings: Laser Parameters'
 page_description: We've found that laser cleaning Thermoplastic Elastomer works best when we start with conservative power
   levels to leverage its good absorption of laser energy, which removes surface contaminants effectively without immediate
@@ -83,11 +76,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -96,11 +90,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -140,6 +135,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Thermoplastic Elastomer surface cleaning without thermal damage
@@ -266,4 +267,12 @@ machine_settings:
 component_summary: These settings use moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from heat-sensitive
   Thermoplastic Elastomer, minimizing thermal damage and preserving material integrity.
 slug: thermoplastic-elastomer-settings
-lastModified: '2026-01-03T16:25:20.869783'
+lastModified: '2026-01-04T13:43:58.317088'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Thermoplastic Elastomer
+  href: ''
+title: Thermoplastic Elastomer

@@ -1,18 +1,11 @@
 id: pcb-contamination
 name: PCB Oil Contamination
 category: chemical-residue
-datePublished: '2026-01-04T00:26:42.013876Z'
-dateModified: '2026-01-04T00:26:42.013876Z'
+datePublished: '2026-01-04T21:42:51.355047Z'
+dateModified: '2026-01-04T21:42:51.355047Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/pcb-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: PCB Oil Contamination
-  href: ''
 page_title: 'PCB Oil Contamination Removal: Laser Ablation Single-Pa'
 page_description: 'Contamination on PCBs forms during soldering process and handling. Residues like flux and oils stick to
   copper traces and boards. After exposure, layer builds unevenly because board topography traps particles. So, patterns show
@@ -77,11 +70,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -170,6 +164,12 @@ relationships:
       - id: carbon-monoxide-compound
       - id: vocs-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -207,6 +207,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -303,6 +309,12 @@ relationships:
               to inconsistent coverage.
             pattern: It often spreads in blotchy patches or along the wood grain, following the porous structure and absorption
               pathways.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -393,6 +405,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.08
           vaporization_temperature: 500
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: concrete-laser-cleaning
     title: Concrete
@@ -431,4 +449,12 @@ valid_materials:
 - concrete-laser-cleaning
 - steel-laser-cleaning
 slug: pcb-contamination
-lastModified: '2026-01-03T16:26:42.013911'
+lastModified: '2026-01-04T13:42:51.355076'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: PCB Oil Contamination
+  href: ''
+title: PCB Oil Contamination

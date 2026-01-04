@@ -1,17 +1,10 @@
 id: stucco-settings
 name: Stucco
-datePublished: '2026-01-04T00:25:20.518988Z'
-dateModified: '2026-01-04T00:25:20.518988Z'
+datePublished: '2026-01-04T21:43:57.910813Z'
+dateModified: '2026-01-04T21:43:57.910813Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/masonry/concrete/stucco-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stucco
-  href: ''
 page_title: 'Stucco Settings: Laser Parameters'
 page_description: In our experience, the key with Stucco lies in its porous, cement-based structure that absorbs contaminants
   deeply while resisting heat buildup effectively during laser cleaning. We've found this makes it different from smoother
@@ -83,11 +76,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -96,11 +90,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -110,11 +105,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -155,6 +151,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Stucco surface cleaning without substrate damage
@@ -278,4 +280,12 @@ machine_settings:
 component_summary: The moderate 200 W power and 10 ns pulses at 1064 nm wavelength enable gentle ablation of contaminants
   from stucco's porous surface, minimizing heat-induced cracking or discoloration.
 slug: stucco-settings
-lastModified: '2026-01-03T16:25:20.519015'
+lastModified: '2026-01-04T13:43:57.910842'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Stucco
+  href: ''
+title: Stucco

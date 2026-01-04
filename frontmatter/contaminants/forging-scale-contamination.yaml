@@ -1,18 +1,11 @@
 id: forging-scale-contamination
 name: Forging Mill Scale
 category: thermal-damage
-datePublished: '2026-01-04T00:26:39.956885Z'
-dateModified: '2026-01-04T00:26:39.956885Z'
+datePublished: '2026-01-04T21:42:49.140568Z'
+dateModified: '2026-01-04T21:42:49.140568Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/scale/forging-scale-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Forging Mill Scale
-  href: ''
 page_title: 'Forging Mill Scale Removal: Laser Ablation High Efficie'
 page_description: Forging scale contamination, it arises from thermal damage in metal processing. This contamination forms
   unique patterns, like layered oxide buildup on steel surfaces and thus adheres strongly during high-heat forging. Material
@@ -74,11 +67,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -150,6 +144,12 @@ relationships:
       - id: iron-oxide-compound
       - id: iron-oxide-compound
       - id: carbon-dioxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -191,6 +191,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -254,6 +260,12 @@ relationships:
             appearance: Dark reddish-brown stains with a rough, embedded texture that can feel gritty on the wood surface.
             coverage: Usually localized and sparse, with uneven distribution due to wood's porous nature.
             pattern: Typically forms irregular patches or streaks, often concentrated in areas where metal debris has settled.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -338,6 +350,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.15
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: carbon-steel-laser-cleaning
     title: Carbon Steel Laser Cleaning
@@ -378,4 +396,12 @@ valid_materials:
 - iron-laser-cleaning
 - steel-laser-cleaning
 slug: forging-scale-contamination
-lastModified: '2026-01-03T16:26:39.956919'
+lastModified: '2026-01-04T13:42:49.140599'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Forging Mill Scale
+  href: ''
+title: Forging Mill Scale

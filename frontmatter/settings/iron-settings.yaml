@@ -1,17 +1,10 @@
 id: iron-settings
 name: Iron
-datePublished: '2026-01-04T00:25:16.794554Z'
-dateModified: '2026-01-04T00:25:16.794554Z'
+datePublished: '2026-01-04T21:43:51.960090Z'
+dateModified: '2026-01-04T21:43:51.960090Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/ferrous/iron-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Iron
-  href: ''
 page_title: 'Iron Settings: Laser Parameters'
 page_description: When laser cleaning iron, watch out for its strong thermal conductivity right from the start—it spreads
   heat quickly across the surface, so you must use controlled, lower power settings to prevent warping or unintended melting
@@ -86,11 +79,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -99,21 +93,23 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: iron-laser-cleaning
         effectiveness: high
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -163,6 +159,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Iron oxide removal without substrate damage
@@ -287,4 +289,12 @@ machine_settings:
 component_summary: For iron, the 200 W power and 10 ns pulses at 1064 nm wavelength enable efficient contaminant ablation
   with minimal thermal penetration, protecting the metal's structural integrity during cleaning.
 slug: iron-settings
-lastModified: '2026-01-03T16:25:16.794583'
+lastModified: '2026-01-04T13:43:51.960125'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Iron
+  href: ''
+title: Iron

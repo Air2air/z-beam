@@ -1,18 +1,11 @@
 id: coolant-scale-contamination
 name: Engine Coolant Scale
 category: thermal-damage
-datePublished: '2026-01-04T00:26:38.853785Z'
-dateModified: '2026-01-04T00:26:38.853785Z'
+datePublished: '2026-01-04T21:42:47.930645Z'
+dateModified: '2026-01-04T21:42:47.930645Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/scale/coolant-scale-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Engine Coolant Scale
-  href: ''
 page_title: 'Engine Coolant Scale Removal: Laser Ablation High Effic'
 page_description: Coolant-scale-contamination forms through thermal deposition. Scale builds on surfaces during coolant exposure,
   so layers adhere tightly. Before cleaning, contamination exhibits irregular patterns like crystalline buildup. In laser
@@ -69,11 +62,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -161,6 +155,12 @@ relationships:
       - id: water-vapor-compound
       - id: calcium-oxide-compound
       - id: organic-residues-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -202,6 +202,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -280,6 +286,12 @@ relationships:
               or surface damage.
             coverage: Coverage is generally sparse and uneven, limited to exposed areas in contact with the coolant.
             pattern: Distribution is often in random spots or streaks where coolant has splashed or seeped into the wood grain.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -367,6 +379,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.67
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -408,4 +426,12 @@ valid_materials:
 - brass-laser-cleaning
 - cast-iron-laser-cleaning
 slug: coolant-scale-contamination
-lastModified: '2026-01-03T16:26:38.853822'
+lastModified: '2026-01-04T13:42:47.930674'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Engine Coolant Scale
+  href: ''
+title: Engine Coolant Scale

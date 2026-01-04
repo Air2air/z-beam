@@ -1,18 +1,11 @@
 id: corrosion-inhibitor-contamination
 name: Corrosion Inhibitor Coating
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:39.100080Z'
-dateModified: '2026-01-04T00:26:39.100080Z'
+datePublished: '2026-01-04T21:42:48.199126Z'
+dateModified: '2026-01-04T21:42:48.199126Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/corrosion-inhibitor-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Corrosion Inhibitor Coating
-  href: ''
 page_title: 'Corrosion Inhibitor Coating Removal: Laser Ablation No'
 page_description: Corrosion inhibitors create thin, inorganic coatings that cling tightly to metal surfaces, blocking rust
   in harsh environments. These contaminants build up through gradual deposition, often lining up in irregular patterns along
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -175,6 +169,12 @@ relationships:
       - id: water-vapor-compound
       - id: organic-residues-compound
       - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -198,6 +198,12 @@ relationships:
         frequency: common
       - id: nickel-laser-cleaning
         frequency: common
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -274,6 +280,12 @@ relationships:
               a sheen or dull finish.
             coverage: Typically partial to full coverage, with variations due to wood porosity and application method.
             pattern: Tends to be uniform across surfaces, but may pool in grain lines or form patches if not properly absorbed.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -361,6 +373,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.1
           vaporization_temperature: 350
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -403,4 +421,12 @@ valid_materials:
 - copper-laser-cleaning
 - steel-laser-cleaning
 slug: corrosion-inhibitor-contamination
-lastModified: '2026-01-03T16:26:39.100115'
+lastModified: '2026-01-04T13:42:48.199162'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Corrosion Inhibitor Coating
+  href: ''
+title: Corrosion Inhibitor Coating

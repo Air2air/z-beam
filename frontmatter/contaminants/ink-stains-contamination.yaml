@@ -1,18 +1,11 @@
 id: ink-stains-contamination
 name: Printing Ink Residue
 category: organic-residue
-datePublished: '2026-01-04T00:26:40.802813Z'
-dateModified: '2026-01-04T00:26:40.802813Z'
+datePublished: '2026-01-04T21:42:50.046050Z'
+dateModified: '2026-01-04T21:42:50.046050Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/marking/ink-stains-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Printing Ink Residue
-  href: ''
 page_title: 'Printing Ink Residue Removal: Laser Ablation Clean Remo'
 page_description: 'Ink stains contamination, it forms through droplet spreading and penetration on surfaces. Unique patterns
   emerge as blotchy clusters and irregular halos, especially on porous substrates like paper or stone. This contamination,
@@ -79,11 +72,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -175,6 +169,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-particulates-compound
       - id: vocs-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -208,6 +208,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -274,6 +280,12 @@ relationships:
               a rough or absorbed look.
             coverage: Varies from light spotting to extensive patches, often uneven due to porous absorption.
             pattern: Commonly appears as blotches or streaks following the wood grain, with occasional drips or splatters.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -360,6 +372,12 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -538,4 +556,12 @@ valid_materials:
 - titanium-laser-cleaning
 - zinc-laser-cleaning
 slug: ink-stains-contamination
-lastModified: '2026-01-03T16:26:40.802846'
+lastModified: '2026-01-04T13:42:50.046079'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Printing Ink Residue
+  href: ''
+title: Printing Ink Residue

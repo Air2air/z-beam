@@ -1,17 +1,10 @@
 id: neodymium-settings
 name: Neodymium
-datePublished: '2026-01-04T00:25:17.678403Z'
-dateModified: '2026-01-04T00:25:17.678403Z'
+datePublished: '2026-01-04T21:43:53.527032Z'
+dateModified: '2026-01-04T21:43:53.527032Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/rare-earth/lanthanide/neodymium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Neodymium
-  href: ''
 page_title: 'Neodymium Settings: Laser Parameters'
 page_description: When laser cleaning Neodymium, we've found it behaves differently from tougher metals like steel because
   of its soft, reactive nature as a rare-earth lanthanide, which makes it prone to quick surface oxidation if heat builds
@@ -80,11 +73,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -93,11 +87,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -107,11 +102,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -164,6 +160,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Neodymium oxide removal without substrate damage
@@ -291,4 +293,12 @@ machine_settings:
 component_summary: These settings employ 100 W power at 1064 nm with 10 ns pulses to ablate contaminants from Neodymium effectively,
   while short pulses prevent oxidation and thermal damage to its reactive surface.
 slug: neodymium-settings
-lastModified: '2026-01-03T16:25:17.678436'
+lastModified: '2026-01-04T13:43:53.527088'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Neodymium
+  href: ''
+title: Neodymium

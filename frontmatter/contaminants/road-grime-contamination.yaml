@@ -1,18 +1,11 @@
 id: road-grime-contamination
 name: Automotive Road Grime
 category: organic-residue
-datePublished: '2026-01-04T00:26:43.043717Z'
-dateModified: '2026-01-04T00:26:43.043717Z'
+datePublished: '2026-01-04T21:42:52.437790Z'
+dateModified: '2026-01-04T21:42:52.437790Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/road-grime-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Automotive Road Grime
-  href: ''
 page_title: 'Automotive Road Grime Removal: Laser Ablation Clean'
 page_description: Road grime contamination layers up from a mix of dust, oils, and organic residues that vehicles kick up
   on highways. This buildup typically forms uneven patterns, thicker in high-traffic zones where rubber and exhaust mix in,
@@ -70,11 +63,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -166,6 +160,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-ash-compound
       - id: silicon-dioxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -199,6 +199,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -293,6 +299,12 @@ relationships:
               on horizontal surfaces.
             pattern: Often appears in splatters or patches, following the wood grain and accumulating in cracks or low points
               where moisture and grime settle.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -380,6 +392,12 @@ relationships:
           thermal_conductivity: 0.35
           thermal_diffusivity: 0.25
           vaporization_temperature: 600
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -411,4 +429,12 @@ valid_materials:
 - aluminum-laser-cleaning
 - steel-laser-cleaning
 slug: road-grime-contamination
-lastModified: '2026-01-03T16:26:43.043752'
+lastModified: '2026-01-04T13:42:52.437818'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Automotive Road Grime
+  href: ''
+title: Automotive Road Grime

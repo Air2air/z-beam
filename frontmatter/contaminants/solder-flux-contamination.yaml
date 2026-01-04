@@ -1,18 +1,11 @@
 id: solder-flux-contamination
 name: Soldering Flux Residue
 category: organic-residue
-datePublished: '2026-01-04T00:26:43.829234Z'
-dateModified: '2026-01-04T00:26:43.829234Z'
+datePublished: '2026-01-04T21:42:53.295485Z'
+dateModified: '2026-01-04T21:42:53.295485Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/lubricant/solder-flux-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Soldering Flux Residue
-  href: ''
 page_title: 'Soldering Flux Residue Removal: Laser Ablation Clean'
 page_description: Solder-flux contamination, it manifests as an organic residue during soldering processes, where flux vapors
   condense tenaciously on nearby surfaces, forming irregular, patchy layers that adhere strongly to metals. This contamination,
@@ -74,11 +67,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -159,6 +153,12 @@ relationships:
       - id: water-vapor-compound
       - id: vocs-compound
       - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -192,6 +192,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -271,6 +277,12 @@ relationships:
             coverage: Coverage is generally sparse and spotty, limited to contact points, with high variation due to wood
               absorption.
             pattern: It tends to form irregular patches or streaks where flux was accidentally applied, with no uniform distribution.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -358,6 +370,12 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: brass-laser-cleaning
     title: Brass
@@ -398,4 +416,12 @@ valid_materials:
 - brass-laser-cleaning
 - copper-laser-cleaning
 slug: solder-flux-contamination
-lastModified: '2026-01-03T16:26:43.829263'
+lastModified: '2026-01-04T13:42:53.295530'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Soldering Flux Residue
+  href: ''
+title: Soldering Flux Residue

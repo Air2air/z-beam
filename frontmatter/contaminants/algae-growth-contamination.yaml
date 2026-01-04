@@ -1,18 +1,11 @@
 id: algae-growth-contamination
 name: Algae and Lichen Growth
 category: biological
-datePublished: '2026-01-04T00:26:36.560884Z'
-dateModified: '2026-01-04T00:26:36.560884Z'
+datePublished: '2026-01-04T21:42:45.834980Z'
+dateModified: '2026-01-04T21:42:45.834980Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/biological/growth/algae-growth-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Algae and Lichen Growth
-  href: ''
 page_title: 'Algae and Lichen Growth Removal: Laser Ablation Clean'
 page_description: Algae-growth contamination, it manifests uniquely in humid environments, where biological layers adhere
   tenaciously to surfaces exposed to moisture. This contamination, dependent from regional patterns like Mediterranean climates,
@@ -73,11 +66,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -169,6 +163,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: carbon-ash-compound
       - id: nitrogen-oxides-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -194,6 +194,12 @@ relationships:
       - id: tempered-glass-laser-cleaning
       - id: terracotta-laser-cleaning
       - id: aluminosilicate-glass-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -253,6 +259,12 @@ relationships:
             appearance: Green, gray, or orange fuzzy or crusty growth, giving a rough, weathered texture.
             coverage: Variable, from sparse spots to extensive coverage in humid conditions.
             pattern: Scattered patches or streaks, often following grain lines or in moist, unsealed areas.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -340,6 +352,12 @@ relationships:
           thermal_conductivity: 0.6
           thermal_diffusivity: 0.14
           vaporization_temperature: 250
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -729,4 +747,12 @@ valid_materials:
 - walnut-laser-cleaning
 - zinc-laser-cleaning
 slug: algae-growth-contamination
-lastModified: '2026-01-03T16:26:36.560925'
+lastModified: '2026-01-04T13:42:45.835016'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Algae and Lichen Growth
+  href: ''
+title: Algae and Lichen Growth

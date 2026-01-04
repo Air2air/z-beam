@@ -1,18 +1,11 @@
 id: cutting-fluid-contamination
 name: Machining Coolant Residue
 category: organic-residue
-datePublished: '2026-01-04T00:26:39.181941Z'
-dateModified: '2026-01-04T00:26:39.181941Z'
+datePublished: '2026-01-04T21:42:48.292452Z'
+dateModified: '2026-01-04T21:42:48.292452Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Machining Coolant Residue
-  href: ''
 page_title: 'Machining Coolant Residue Removal: Laser Ablation Clean'
 page_description: Cutting fluid contamination builds up during machining operations, creating sticky organic residues that
   cling to metal surfaces. These contaminants form unique patterns, like thin films mixed with metal shavings, which ramp
@@ -70,11 +63,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -159,6 +153,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-ash-compound
       - id: vocs-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -192,6 +192,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -288,6 +294,12 @@ relationships:
               on exposure and wood porosity.
             pattern: It tends to form irregular patches or streaks, spreading along the wood grain and accumulating in porous
               areas, with no uniform distribution.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -375,6 +387,12 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.1
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -426,4 +444,12 @@ valid_materials:
 - steel-laser-cleaning
 - titanium-laser-cleaning
 slug: cutting-fluid-contamination
-lastModified: '2026-01-03T16:26:39.181973'
+lastModified: '2026-01-04T13:42:48.292483'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Machining Coolant Residue
+  href: ''
+title: Machining Coolant Residue

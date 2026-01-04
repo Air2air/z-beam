@@ -1,17 +1,10 @@
 id: soda-lime-glass-settings
 name: Soda-Lime Glass
-datePublished: '2026-01-04T00:25:20.281085Z'
-dateModified: '2026-01-04T00:25:20.281085Z'
+datePublished: '2026-01-04T21:43:57.650486Z'
+dateModified: '2026-01-04T21:43:57.650486Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/glass/specialty-glass/soda-lime-glass-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Soda-Lime Glass
-  href: ''
 page_title: 'Soda-Lime Glass Settings: Laser Parameters'
 page_description: When laser cleaning soda-lime glass, unlike more heat-resistant borosilicates, you must prioritize its quick
   thermal expansion to avoid cracks. Start with low energy pulses for safe contaminant removal. This everyday glass stays
@@ -79,11 +72,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -92,11 +86,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -106,11 +101,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -152,6 +148,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Soda-Lime Glass surface cleaning without thermal damage
@@ -257,4 +259,12 @@ machine_settings:
 component_summary: The 100 W power and 1064 nm wavelength effectively clean Soda Lime Glass by minimizing absorption in its
   transparent matrix, removing surface contaminants without risking thermal cracking or damage.
 slug: soda-lime-glass-settings
-lastModified: '2026-01-03T16:25:20.281119'
+lastModified: '2026-01-04T13:43:57.650529'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Soda-Lime Glass
+  href: ''
+title: Soda-Lime Glass

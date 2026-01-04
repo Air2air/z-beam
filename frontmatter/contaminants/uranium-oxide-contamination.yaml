@@ -1,18 +1,11 @@
 id: uranium-oxide-contamination
 name: Depleted Uranium Oxide
 category: chemical-residue
-datePublished: '2026-01-04T00:26:44.550556Z'
-dateModified: '2026-01-04T00:26:44.550556Z'
+datePublished: '2026-01-04T21:42:54.045621Z'
+dateModified: '2026-01-04T21:42:54.045621Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Depleted Uranium Oxide
-  href: ''
 page_title: 'Depleted Uranium Oxide Removal: Laser Ablation Clean'
 page_description: "Uranium-oxide contamination forms during exposure to oxidizing environments. Layer builds up on uranium\
   \ surfaces and creates uneven patterns because of varying oxygen access. In observations, contamination exhibits patchy\
@@ -71,11 +64,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -151,6 +145,12 @@ relationships:
     produces_compounds:
       presentation: card
       items: []
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -184,6 +184,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -272,6 +278,12 @@ relationships:
               of the wood.
             pattern: Contamination often appears as blotchy patches or streaks, following the wood grain or accumulating in
               porous areas.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -359,6 +371,12 @@ relationships:
           thermal_conductivity: 2.5
           thermal_diffusivity: 0.45
           vaporization_temperature: 4130
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: concrete-laser-cleaning
     title: Concrete
@@ -388,4 +406,12 @@ valid_materials:
 - concrete-laser-cleaning
 - steel-laser-cleaning
 slug: uranium-oxide-contamination
-lastModified: '2026-01-03T16:26:44.550594'
+lastModified: '2026-01-04T13:42:54.045651'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Depleted Uranium Oxide
+  href: ''
+title: Depleted Uranium Oxide

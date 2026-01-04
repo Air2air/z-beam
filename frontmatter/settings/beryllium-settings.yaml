@@ -1,17 +1,10 @@
 id: beryllium-settings
 name: Beryllium
-datePublished: '2026-01-04T00:25:14.315004Z'
-dateModified: '2026-01-04T00:25:14.315004Z'
+datePublished: '2026-01-04T21:43:49.349330Z'
+dateModified: '2026-01-04T21:43:49.349330Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/beryllium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Beryllium
-  href: ''
 page_title: 'Beryllium Settings: Laser Parameters'
 page_description: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because
   Beryllium's exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure
@@ -85,11 +78,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -98,11 +92,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -112,11 +107,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -166,6 +162,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power range for Beryllium oxide layer removal
@@ -288,4 +290,12 @@ machine_settings:
 component_summary: These settings employ moderate 150 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants
   from Beryllium, minimizing thermal stress on its brittle, low-conductivity surface.
 slug: beryllium-settings
-lastModified: '2026-01-03T16:25:14.315035'
+lastModified: '2026-01-04T13:43:49.349359'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Beryllium
+  href: ''
+title: Beryllium

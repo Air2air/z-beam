@@ -1,18 +1,11 @@
 id: gasket-material-contamination
 name: Gasket Material Residue
 category: organic-residue
-datePublished: '2026-01-04T00:26:40.197558Z'
-dateModified: '2026-01-04T00:26:40.197558Z'
+datePublished: '2026-01-04T21:42:49.393041Z'
+dateModified: '2026-01-04T21:42:49.393041Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/adhesive/gasket-material-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Gasket Material Residue
-  href: ''
 page_title: 'Gasket Material Residue Removal: Laser Ablation Clean'
 page_description: "Gasket material contamination hits laser cleaning setups hard in industrial sealing jobs. Engineers run\
   \ through it when rubber or fiber seals break down, leaving organic residues that gum up metal surfaces. These contaminants\
@@ -71,11 +64,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -170,6 +164,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-particulates-compound
       - id: vocs-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -203,6 +203,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -282,6 +288,12 @@ relationships:
             coverage: Coverage is generally sparse and spotty, limited to where the gasket was applied, with variations in
               intensity.
             pattern: It tends to form blotches or patches, following the wood grain or areas of contact, with no uniform spread.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -369,6 +381,12 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.17
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -410,4 +428,12 @@ valid_materials:
 - cast-iron-laser-cleaning
 - steel-laser-cleaning
 slug: gasket-material-contamination
-lastModified: '2026-01-03T16:26:40.197591'
+lastModified: '2026-01-04T13:42:49.393074'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Gasket Material Residue
+  href: ''
+title: Gasket Material Residue

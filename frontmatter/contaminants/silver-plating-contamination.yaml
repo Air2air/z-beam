@@ -1,18 +1,11 @@
 id: silver-plating-contamination
 name: Silver Plating Residue
 category: metallic-coating
-datePublished: '2026-01-04T00:26:43.667578Z'
-dateModified: '2026-01-04T00:26:43.667578Z'
+datePublished: '2026-01-04T21:42:53.111896Z'
+dateModified: '2026-01-04T21:42:53.111896Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/silver-plating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Silver Plating Residue
-  href: ''
 page_title: 'Silver Plating Residue Removal: Laser Ablation Clean'
 page_description: "Silver-plating contamination arises during coating processes and poses challenges for laser cleaning applications.\
   \ After plating, contaminants form uneven layers on surfaces because silver reacts with environmental factors. Buildup occurs\
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -143,6 +137,12 @@ relationships:
     produces_compounds:
       presentation: card
       items: []
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -176,6 +176,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -272,6 +278,12 @@ relationships:
               or unfinished sections of the wood.
             pattern: It often appears in blotchy patches or fine streaks, following the wood's grain or accumulating in porous
               areas where residue adheres more easily.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -356,6 +368,12 @@ relationships:
           thermal_conductivity: 429
           thermal_diffusivity: 174
           vaporization_temperature: 2212
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: brass-laser-cleaning
     title: Brass
@@ -396,4 +414,12 @@ valid_materials:
 - bronze-laser-cleaning
 - copper-laser-cleaning
 slug: silver-plating-contamination
-lastModified: '2026-01-03T16:26:43.667612'
+lastModified: '2026-01-04T13:42:53.111934'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Silver Plating Residue
+  href: ''
+title: Silver Plating Residue

@@ -1,18 +1,11 @@
 id: quench-oil-contamination
 name: Quenching Oil Residue
 category: thermal-damage
-datePublished: '2026-01-04T00:26:42.872576Z'
-dateModified: '2026-01-04T00:26:42.872576Z'
+datePublished: '2026-01-04T21:42:52.264948Z'
+dateModified: '2026-01-04T21:42:52.264948Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/scale/quench-oil-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Quenching Oil Residue
-  href: ''
 page_title: 'Quenching Oil Residue Removal: Laser Ablation Single-Pa'
 page_description: After quenching, oil contamination forms uneven layers on metal surfaces, because rapid cooling traps residues
   in pores and cracks. This buildup exhibits unique patterns, such as patchy films that harden during exposure to heat, and
@@ -71,11 +64,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -163,6 +157,12 @@ relationships:
       - id: carbon-monoxide-compound
       - id: vocs-compound
       - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -176,6 +176,12 @@ relationships:
         frequency: very_common
       - id: copper-laser-cleaning
         frequency: very_common
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -253,6 +259,12 @@ relationships:
             coverage: Usually patchy and uneven, covering small to moderate areas with variation based on absorption and surface
               treatment.
             pattern: Appears as blotchy patches or streaks, following the wood grain or pooling in low areas.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -343,6 +355,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.08
           vaporization_temperature: 300
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: steel-laser-cleaning
     title: Steel
@@ -374,4 +392,12 @@ valid_materials:
 - steel-laser-cleaning
 - tool-steel-laser-cleaning
 slug: quench-oil-contamination
-lastModified: '2026-01-03T16:26:42.872610'
+lastModified: '2026-01-04T13:42:52.264978'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Quenching Oil Residue
+  href: ''
+title: Quenching Oil Residue

@@ -1,18 +1,11 @@
 id: lead-paint-contamination
 name: Lead-Based Paint Removal
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:41.059007Z'
-dateModified: '2026-01-04T00:26:41.059007Z'
+datePublished: '2026-01-04T21:42:50.339948Z'
+dateModified: '2026-01-04T21:42:50.339948Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/paint/lead-paint-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Lead-Based Paint Removal
-  href: ''
 page_title: 'Lead-Based Paint Removal Removal: Laser Ablation No'
 page_description: 'Lead-paint contamination forms as durable inorganic coating on old surfaces. Before cleaning, layer adheres
   tightly to substrates like wood or metal, so removal demands care. Process exhibits unique patterns because paint flakes
@@ -73,11 +66,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -158,6 +152,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: water-vapor-compound
       - id: lead-oxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -198,6 +198,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -294,6 +300,12 @@ relationships:
               through in areas.
             pattern: Distribution is generally uniform initially but becomes patchy or blistered with age, following the wood
               grain or forming irregular flakes.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -384,6 +396,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.6
           vaporization_temperature: 650
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: ash-laser-cleaning
     title: Ash
@@ -534,4 +552,12 @@ valid_materials:
 - teak-laser-cleaning
 - walnut-laser-cleaning
 slug: lead-paint-contamination
-lastModified: '2026-01-03T16:26:41.059045'
+lastModified: '2026-01-04T13:42:50.339983'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Lead-Based Paint Removal
+  href: ''
+title: Lead-Based Paint Removal

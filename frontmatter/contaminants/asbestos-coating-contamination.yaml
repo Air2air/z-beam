@@ -1,18 +1,11 @@
 id: asbestos-coating-contamination
 name: Asbestos-Containing Material
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:37.081227Z'
-dateModified: '2026-01-04T00:26:37.081227Z'
+datePublished: '2026-01-04T21:42:46.287533Z'
+dateModified: '2026-01-04T21:42:46.287533Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/hazardous/asbestos-coating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Asbestos-Containing Material
-  href: ''
 page_title: 'Asbestos-Containing Material Removal: Laser Ablation'
 page_description: 'Asbestos-coating-contamination differs from organic residues because it forms dense, fibrous layers on
   metal surfaces during industrial exposure. Layer builds up tightly and resists initial breakdown, so laser cleaning faces
@@ -76,11 +69,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -159,6 +153,12 @@ relationships:
       items:
       - id: silicon-dioxide-compound
       - id: water-vapor-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -199,6 +199,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -288,6 +294,12 @@ relationships:
               to wear or damage.
             pattern: It often appears in streaks or patches, especially in older wood-based products like siding or insulation
               boards.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -375,6 +387,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: boilers-laser-cleaning
     title: Boilers Laser Cleaning
@@ -411,4 +429,12 @@ prohibited_materials: []
 valid_materials:
 - concrete-laser-cleaning
 slug: asbestos-coating-contamination
-lastModified: '2026-01-03T16:26:37.081263'
+lastModified: '2026-01-04T13:42:46.287567'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Asbestos-Containing Material
+  href: ''
+title: Asbestos-Containing Material

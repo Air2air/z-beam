@@ -1,18 +1,11 @@
 id: fuel-varnish-contamination
 name: Fuel System Varnish
 category: organic-residue
-datePublished: '2026-01-04T00:26:40.037625Z'
-dateModified: '2026-01-04T00:26:40.037625Z'
+datePublished: '2026-01-04T21:42:49.223486Z'
+dateModified: '2026-01-04T21:42:49.223486Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/fuel-varnish-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Fuel System Varnish
-  href: ''
 page_title: 'Fuel System Varnish Removal: Laser Ablation Clean Remov'
 page_description: "Fuel varnish contamination shows sticky adhesion on surfaces. It forms from degraded organic residues in\
   \ fuel systems. After exposure to air and heat, layer builds unevenly and hardens. This creates unique patterns like patchy\
@@ -70,11 +63,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -165,6 +159,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-particulates-compound
       - id: vocs-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -198,6 +198,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -269,6 +275,12 @@ relationships:
             coverage: Coverage can range from light spotting to extensive areas, depending on exposure and wood porosity.
             pattern: Distribution is usually in irregular patches or streaks, following the wood's natural grain and absorption
               patterns.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -356,6 +368,12 @@ relationships:
           thermal_conductivity: 0.18
           thermal_diffusivity: 0.11
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -397,4 +415,12 @@ valid_materials:
 - brass-laser-cleaning
 - steel-laser-cleaning
 slug: fuel-varnish-contamination
-lastModified: '2026-01-03T16:26:40.037658'
+lastModified: '2026-01-04T13:42:49.223523'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Fuel System Varnish
+  href: ''
+title: Fuel System Varnish

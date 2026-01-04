@@ -1,18 +1,11 @@
 id: gold-plating-contamination
 name: Gold Electroplating
 category: metallic-coating
-datePublished: '2026-01-04T00:26:40.279547Z'
-dateModified: '2026-01-04T00:26:40.279547Z'
+datePublished: '2026-01-04T21:42:49.486429Z'
+dateModified: '2026-01-04T21:42:49.486429Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/plating/gold-plating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Gold Electroplating
-  href: ''
 page_title: 'Gold Electroplating Removal: Laser Ablation Clean Remov'
 page_description: Gold plating contamination typically builds up in thin, uneven layers during electroplating processes, often
   trapping oils or particles that cling tightly to the base metal. This setup creates unique formation patterns, like irregular
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -147,6 +141,12 @@ relationships:
     produces_compounds:
       presentation: card
       items: []
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -180,6 +180,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -259,6 +265,12 @@ relationships:
             coverage: Coverage is generally sparse and uneven, with significant variation due to wood's absorbent nature.
             pattern: It tends to form irregular patches or spots, concentrating in grooves or damaged areas where the wood
               is more receptive.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -340,6 +352,12 @@ relationships:
           thermal_conductivity: 318
           thermal_diffusivity: 127
           vaporization_temperature: 2856
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: brass-laser-cleaning
     title: Brass
@@ -380,4 +398,12 @@ valid_materials:
 - copper-laser-cleaning
 - nickel-laser-cleaning
 slug: gold-plating-contamination
-lastModified: '2026-01-03T16:26:40.279583'
+lastModified: '2026-01-04T13:42:49.486482'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Gold Electroplating
+  href: ''
+title: Gold Electroplating

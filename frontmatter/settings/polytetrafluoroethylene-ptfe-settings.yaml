@@ -1,17 +1,10 @@
 id: polytetrafluoroethylene-ptfe-settings
 name: Polytetrafluoroethylene (PTFE)
-datePublished: '2026-01-04T00:25:18.638311Z'
-dateModified: '2026-01-04T00:25:18.638311Z'
+datePublished: '2026-01-04T21:43:55.095932Z'
+dateModified: '2026-01-04T21:43:55.095932Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/plastic/thermoplastic/polytetrafluoroethylene-ptfe-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Polytetrafluoroethylene (PTFE)
-  href: ''
 page_title: 'Polytetrafluoroethylene (PTFE) Settings: Laser Paramete'
 page_description: When laser cleaning Polytetrafluoroethylene, watch its high reflectivity right away. It reflects light much
   more than typical plastics, slowing the process down. Start low on power to build absorption gradually. I've seen multiple
@@ -83,11 +76,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -96,11 +90,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -110,11 +105,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -150,6 +146,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power range for Polytetrafluoroethylene surface cleaning without thermal degradation
@@ -277,4 +279,12 @@ abbreviations:
 component_summary: These settings use moderate 50 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from heat-sensitive
   PTFE without inducing melting or surface degradation.
 slug: polytetrafluoroethylene-ptfe-settings
-lastModified: '2026-01-03T16:25:18.638347'
+lastModified: '2026-01-04T13:43:55.096011'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Polytetrafluoroethylene (PTFE)
+  href: ''
+title: Polytetrafluoroethylene (PTFE)

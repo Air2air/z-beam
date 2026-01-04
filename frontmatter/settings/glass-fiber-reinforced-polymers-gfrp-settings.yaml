@@ -1,17 +1,10 @@
 id: glass-fiber-reinforced-polymers-gfrp-settings
 name: Glass Fiber Reinforced Polymers GFRP
-datePublished: '2026-01-04T00:25:16.199122Z'
-dateModified: '2026-01-04T00:25:16.199122Z'
+datePublished: '2026-01-04T21:43:51.340144Z'
+dateModified: '2026-01-04T21:43:51.340144Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Glass Fiber Reinforced Polymers GFRP
-  href: ''
 page_title: 'Glass Fiber Reinforced Polymers GFRP Settings: Laser'
 page_description: We've found that GFRP's embedded glass fibers in a polymer matrix demand careful laser setup right from
   the start to avoid delamination. Start with lower power levels and slower scan speeds, since the fibers can channel heat
@@ -85,11 +78,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -98,11 +92,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -112,11 +107,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -156,6 +152,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for GFRP surface cleaning without matrix damage
@@ -295,4 +297,12 @@ machine_settings:
 component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to minimize thermal damage
   to the heat-sensitive polymer matrix while effectively ablating contaminants from GFRP composites.
 slug: glass-fiber-reinforced-polymers-gfrp-settings
-lastModified: '2026-01-03T16:25:16.199160'
+lastModified: '2026-01-04T13:43:51.340175'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Glass Fiber Reinforced Polymers GFRP
+  href: ''
+title: Glass Fiber Reinforced Polymers GFRP

@@ -1,17 +1,10 @@
 id: ceramic-matrix-composites-cmcs-settings
 name: Ceramic Matrix Composites CMCs
-datePublished: '2026-01-04T00:25:15.096831Z'
-dateModified: '2026-01-04T00:25:15.096831Z'
+datePublished: '2026-01-04T21:43:50.144495Z'
+dateModified: '2026-01-04T21:43:50.144495Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Ceramic Matrix Composites CMCs
-  href: ''
 page_title: 'Ceramic Matrix Composites CMCs Settings: Laser Paramete'
 page_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded
   fibers, as these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early check
@@ -86,11 +79,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -99,11 +93,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -143,6 +138,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for CMC surface contaminant removal without substrate damage
@@ -264,4 +265,12 @@ machine_settings:
 component_summary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise, low-heat ablation of
   contaminants from CMCs, preventing thermal cracking in their brittle ceramic matrix.
 slug: ceramic-matrix-composites-cmcs-settings
-lastModified: '2026-01-03T16:25:15.096866'
+lastModified: '2026-01-04T13:43:50.144529'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Ceramic Matrix Composites CMCs
+  href: ''
+title: Ceramic Matrix Composites CMCs

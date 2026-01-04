@@ -1,17 +1,10 @@
 id: titanium-settings
 name: Titanium
-datePublished: '2026-01-04T00:25:20.991723Z'
-dateModified: '2026-01-04T00:25:20.991723Z'
+datePublished: '2026-01-04T21:43:58.456774Z'
+dateModified: '2026-01-04T21:43:58.456774Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/specialty/titanium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Titanium
-  href: ''
 page_title: 'Titanium Settings: Laser Parameters'
 page_description: When laser cleaning titanium, I've seen it stand out from denser metals like steel because of its lighter
   weight and strong natural oxide layer that fights corrosion so well. This makes it great for aerospace parts, where you
@@ -85,11 +78,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -98,21 +92,23 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: titanium-laser-cleaning
         effectiveness: high
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -162,6 +158,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Titanium oxide layer removal
@@ -284,4 +286,12 @@ machine_settings:
 component_summary: For Titanium, these settings leverage 1064 nm wavelength for strong absorption, 100 W power for efficient
   oxide and contaminant ablation, and 10 ns pulses to limit thermal damage and maintain surface integrity.
 slug: titanium-settings
-lastModified: '2026-01-03T16:25:20.991757'
+lastModified: '2026-01-04T13:43:58.456803'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Titanium
+  href: ''
+title: Titanium

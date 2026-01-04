@@ -1,18 +1,11 @@
 id: aviation-sealant-contamination
 name: Aerospace Sealant Residue
 category: organic-residue
-datePublished: '2026-01-04T00:26:37.189120Z'
-dateModified: '2026-01-04T00:26:37.189120Z'
+datePublished: '2026-01-04T21:42:46.377503Z'
+dateModified: '2026-01-04T21:42:46.377503Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/adhesive/aviation-sealant-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Aerospace Sealant Residue
-  href: ''
 page_title: 'Aerospace Sealant Residue Removal: Laser Ablation Clean'
 page_description: "Aviation sealants build up as tough, organic residues on aircraft surfaces. They form irregular patterns,\
   \ oozing into joints and crevices during assembly. This creates sticky layers that harden unevenly, often cracking along\
@@ -70,11 +63,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -160,6 +154,12 @@ relationships:
       - id: silicon-dioxide-compound
       - id: organic-residues-compound
       - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -193,6 +193,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -290,6 +296,12 @@ relationships:
               in porous areas that absorb more sealant.
             pattern: Distribution is often patchy or streaky, following the wood's grain or accumulating in crevices and knots
               where sealant seeped or was not fully removed.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -380,6 +392,12 @@ relationships:
           thermal_conductivity: 0.18
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -431,4 +449,12 @@ valid_materials:
 - fiberglass-laser-cleaning
 - titanium-laser-cleaning
 slug: aviation-sealant-contamination
-lastModified: '2026-01-03T16:26:37.189156'
+lastModified: '2026-01-04T13:42:46.377532'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Aerospace Sealant Residue
+  href: ''
+title: Aerospace Sealant Residue

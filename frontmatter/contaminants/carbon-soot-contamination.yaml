@@ -1,18 +1,11 @@
 id: carbon-soot-contamination
 name: Carbon Soot Deposits
 category: organic-residue
-datePublished: '2026-01-04T00:26:38.153674Z'
-dateModified: '2026-01-04T00:26:38.153674Z'
+datePublished: '2026-01-04T21:42:47.323875Z'
+dateModified: '2026-01-04T21:42:47.323875Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/carbon-soot-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Carbon Soot Deposits
-  href: ''
 page_title: 'Carbon Soot Deposits Removal: Laser Ablation Substrate-'
 page_description: 'Carbon-soot contamination, it emerges from incomplete combustion processes and deposits as irregular, porous
   layers on material surfaces. Formation patterns reveal unique regional variations, where soot clusters in dense patches
@@ -78,11 +71,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -169,6 +163,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: carbon-monoxide-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -214,6 +214,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -310,6 +316,12 @@ relationships:
               heat sources, with variations based on wood texture.
             pattern: It tends to settle in patches or along grain lines, with higher accumulation in recessed areas and less
               on exposed surfaces, often showing directional streaks from air currents.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -394,6 +406,12 @@ relationships:
           thermal_conductivity: 1.5
           thermal_diffusivity: 1.2
           vaporization_temperature: 1800
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -725,4 +743,12 @@ valid_materials:
 - zinc-laser-cleaning
 - zirconia-laser-cleaning
 slug: carbon-soot-contamination
-lastModified: '2026-01-03T16:26:38.153710'
+lastModified: '2026-01-04T13:42:47.323905'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Carbon Soot Deposits
+  href: ''
+title: Carbon Soot Deposits

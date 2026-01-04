@@ -1,18 +1,11 @@
 id: mold-mildew-contamination
 name: Mold and Mildew Growth
 category: biological
-datePublished: '2026-01-04T00:26:41.669947Z'
-dateModified: '2026-01-04T00:26:41.669947Z'
+datePublished: '2026-01-04T21:42:50.987725Z'
+dateModified: '2026-01-04T21:42:50.987725Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/biological/growth/mold-mildew-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Mold and Mildew Growth
-  href: ''
 page_title: 'Mold and Mildew Growth Removal: Laser Ablation Clean'
 page_description: Mold contamination forms irregularly on damp surfaces. Spores settle and grow fast in humid conditions,
   creating patchy layers. Before cleaning, buildup clings tightly to porous materials like wood. So, penetration happens deeply,
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -163,6 +157,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: water-vapor-compound
       - id: organic-residues-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -188,6 +188,12 @@ relationships:
       - id: tempered-glass-laser-cleaning
       - id: terracotta-laser-cleaning
       - id: aluminosilicate-glass-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -283,6 +289,12 @@ relationships:
               and humidity levels.
             pattern: It commonly appears in scattered spots or patches, following the grain or moisture-prone areas like knots
               and edges.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -369,6 +381,12 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.13
           vaporization_temperature: 100
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -597,4 +615,12 @@ valid_materials:
 - walnut-laser-cleaning
 - zirconia-laser-cleaning
 slug: mold-mildew-contamination
-lastModified: '2026-01-03T16:26:41.669979'
+lastModified: '2026-01-04T13:42:50.987756'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Mold and Mildew Growth
+  href: ''
+title: Mold and Mildew Growth

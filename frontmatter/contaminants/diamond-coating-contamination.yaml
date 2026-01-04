@@ -1,18 +1,11 @@
 id: diamond-coating-contamination
 name: Diamond-Like Carbon Removal
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:39.270117Z'
-dateModified: '2026-01-04T00:26:39.270117Z'
+datePublished: '2026-01-04T21:42:48.382578Z'
+dateModified: '2026-01-04T21:42:48.382578Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/diamond-coating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Diamond-Like Carbon Removal
-  href: ''
 page_title: 'Diamond-Like Carbon Removal Removal: Laser Ablation'
 page_description: "Diamond-coating contamination poses removal challenges in laser cleaning. Contaminants form unique patterns\
   \ on diamond surfaces because heat resistance causes uneven buildup during exposure. Layer adheres strongly, so laser pulses\
@@ -71,11 +64,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -162,6 +156,12 @@ relationships:
       - id: carbon-monoxide-compound
       - id: carbon-dioxide-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -202,6 +202,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -298,6 +304,12 @@ relationships:
               extent of removal efforts.
             pattern: The contamination often appears in blotchy patches or streaks, aligning with wood grain or tool marks,
               and may be unevenly distributed.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -381,6 +393,12 @@ relationships:
           thermal_conductivity: 1.5
           thermal_diffusivity: 0.8
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: steel-laser-cleaning
     title: Steel
@@ -420,4 +438,12 @@ valid_materials:
 - titanium-laser-cleaning
 - tungsten-carbide-laser-cleaning
 slug: diamond-coating-contamination
-lastModified: '2026-01-03T16:26:39.270153'
+lastModified: '2026-01-04T13:42:48.382626'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Diamond-Like Carbon Removal
+  href: ''
+title: Diamond-Like Carbon Removal

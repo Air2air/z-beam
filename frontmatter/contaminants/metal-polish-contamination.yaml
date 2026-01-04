@@ -1,18 +1,11 @@
 id: metal-polish-contamination
 name: Metal Polish Residue
 category: organic-residue
-datePublished: '2026-01-04T00:26:41.408990Z'
-dateModified: '2026-01-04T00:26:41.408990Z'
+datePublished: '2026-01-04T21:42:50.709276Z'
+dateModified: '2026-01-04T21:42:50.709276Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/wax/metal-polish-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Metal Polish Residue
-  href: ''
 page_title: 'Metal Polish Residue Removal: Laser Ablation Clean Remo'
 page_description: 'Metal polish contamination stands out from typical rust or dust buildup on metals, as it forms thin, oily
   organic residues during polishing processes. These residues cling tightly to surfaces like steel or aluminum, creating uneven
@@ -71,11 +64,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -156,6 +150,12 @@ relationships:
       - id: water-vapor-compound
       - id: organic-residues-compound
       - id: metal-oxides-mixed-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -189,6 +189,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -249,6 +255,12 @@ relationships:
             appearance: Oily or waxy spots that darken the wood, creating a blotchy, uneven finish with reduced clarity.
             coverage: Variable, ranging from small spots to larger areas, depending on application and wood absorption.
             pattern: Forms irregular patches or streaks, often more visible on porous or unfinished surfaces.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -335,6 +347,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -388,4 +406,12 @@ valid_materials:
 - copper-laser-cleaning
 - steel-laser-cleaning
 slug: metal-polish-contamination
-lastModified: '2026-01-03T16:26:41.409025'
+lastModified: '2026-01-04T13:42:50.709308'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Metal Polish Residue
+  href: ''
+title: Metal Polish Residue

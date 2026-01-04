@@ -1,17 +1,10 @@
 id: acrylic-pmma-settings
 name: Acrylic (PMMA)
-datePublished: '2026-01-04T00:25:21.843227Z'
-dateModified: '2026-01-04T00:25:21.843227Z'
+datePublished: '2026-01-04T21:43:59.418669Z'
+dateModified: '2026-01-04T21:43:59.418669Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/plastic/thermoplastic/acrylic-pmma-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Acrylic (PMMA)
-  href: ''
 page_title: 'Acrylic (PMMA) Settings: Laser Parameters'
 page_description: Before laser cleaning, Acrylic (PMMA) surfaces require careful parameter selection After cleaning, Acrylic
   (PMMA) surfaces show restored appearance with controlled parameters
@@ -77,11 +70,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -90,11 +84,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
   operational: {}
 machine_settings:
   powerRange:
@@ -217,4 +212,12 @@ machine_settings:
 component_summary: These settings employ moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from
   heat-sensitive Acrylic PMMA without causing melting or surface deformation.
 slug: acrylic-pmma-settings
-lastModified: '2026-01-03T16:25:21.843256'
+lastModified: '2026-01-04T13:43:59.418704'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Acrylic (PMMA)
+  href: ''
+title: Acrylic (PMMA)

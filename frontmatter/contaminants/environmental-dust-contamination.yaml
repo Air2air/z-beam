@@ -1,18 +1,11 @@
 id: environmental-dust-contamination
 name: Environmental Dust Layer
 category: organic-residue
-datePublished: '2026-01-04T00:26:39.517988Z'
-dateModified: '2026-01-04T00:26:39.517988Z'
+datePublished: '2026-01-04T21:42:48.672151Z'
+dateModified: '2026-01-04T21:42:48.672151Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/environmental-dust-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Environmental Dust Layer
-  href: ''
 page_title: 'Environmental Dust Layer Removal: Laser Ablation Clean'
 page_description: Environmental dust contamination forms when airborne particles settle on surfaces in natural regional patterns,
   especially in humid areas of Taiwan. This contamination, it accumulates unevenly and adheres tightly to materials like metals
@@ -79,11 +72,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -171,6 +165,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: water-vapor-compound
       - id: organic-residues-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -222,6 +222,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -312,6 +318,12 @@ relationships:
         - varies by location
         texture: fine, powdery, can cake with moisture
         thickness: thin film to thick accumulation
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -399,6 +411,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: all-laser-cleaning
     title: All Laser Cleaning
@@ -429,4 +447,11 @@ title: Environmental Dust Layer Laser Cleaning
 valid_materials:
 - redwood-laser-cleaning
 slug: environmental-dust-contamination
-lastModified: '2026-01-03T16:26:39.518018'
+lastModified: '2026-01-04T13:42:48.672184'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Environmental Dust Layer
+  href: ''

@@ -1,17 +1,10 @@
 id: tantalum-settings
 name: Tantalum
-datePublished: '2026-01-04T00:25:20.573980Z'
-dateModified: '2026-01-04T00:25:20.573980Z'
+datePublished: '2026-01-04T21:43:57.972951Z'
+dateModified: '2026-01-04T21:43:57.972951Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/tantalum-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Tantalum
-  href: ''
 page_title: 'Tantalum Settings: Laser Parameters'
 page_description: When laser cleaning Tantalum, start by selecting a stable laser setup that handles its extreme heat resistance.
   This metal withstands intense energy without melting easily, so you must ramp up power gradually to avoid uneven heating
@@ -83,11 +76,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -96,11 +90,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -110,11 +105,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -164,6 +160,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Tantalum oxide removal without substrate damage
@@ -290,4 +292,12 @@ machine_settings:
 component_summary: These settings employ moderate 200 W power with 10 ns pulses at 1064 nm to ablate contaminants from Tantalum's
   refractory surface efficiently, minimizing heat buildup and oxidation risk on its high-melting-point substrate.
 slug: tantalum-settings
-lastModified: '2026-01-03T16:25:20.574010'
+lastModified: '2026-01-04T13:43:57.972978'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Tantalum
+  href: ''
+title: Tantalum

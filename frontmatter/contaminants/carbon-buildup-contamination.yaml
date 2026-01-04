@@ -1,18 +1,11 @@
 id: carbon-buildup-contamination
 name: Carbon Deposit Buildup
 category: organic-residue
-datePublished: '2026-01-04T00:26:38.066783Z'
-dateModified: '2026-01-04T00:26:38.066783Z'
+datePublished: '2026-01-04T21:42:47.231304Z'
+dateModified: '2026-01-04T21:42:47.231304Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/carbon-buildup-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Carbon Deposit Buildup
-  href: ''
 page_title: 'Carbon Deposit Buildup Removal: Laser Ablation Substrat'
 page_description: Carbon buildup contamination, it manifests as tenacious organic residues that accumulate unevenly on surfaces,
   influenced from prolonged exposure to combustion byproducts. This layer, dependent from environmental humidity, exhibits
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -160,6 +154,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: carbon-monoxide-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -193,6 +193,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -289,6 +295,12 @@ relationships:
               in fire-damaged areas.
             pattern: Often appears in streaks or patches, especially in areas affected by smoke or fire, and can follow the
               wood grain for a streaked effect.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -373,6 +385,12 @@ relationships:
           thermal_conductivity: 1.5
           thermal_diffusivity: 0.21
           vaporization_temperature: 4200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -474,4 +492,12 @@ valid_materials:
 - steel-laser-cleaning
 - zirconia-laser-cleaning
 slug: carbon-buildup-contamination
-lastModified: '2026-01-03T16:26:38.066817'
+lastModified: '2026-01-04T13:42:47.231336'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Carbon Deposit Buildup
+  href: ''
+title: Carbon Deposit Buildup

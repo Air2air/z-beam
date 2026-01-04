@@ -1,18 +1,11 @@
 id: plasma-spray-contamination
 name: Thermal Spray Coating
 category: thermal-damage
-datePublished: '2026-01-04T00:26:42.350532Z'
-dateModified: '2026-01-04T00:26:42.350532Z'
+datePublished: '2026-01-04T21:42:51.695999Z'
+dateModified: '2026-01-04T21:42:51.695999Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/coating/plasma-spray-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Thermal Spray Coating
-  href: ''
 page_title: 'Thermal Spray Coating Removal: Laser Ablation No Chemic'
 page_description: 'Plasma-spray contamination arises during the thermal deposition process, where molten particles adhere
   unevenly to substrates. This contamination, it manifests as tenacious oxide layers, which exhibit regional variations influenced
@@ -76,11 +69,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -151,6 +145,12 @@ relationships:
       items:
       - id: metal-oxides-mixed-compound
       - id: metal-vapors-mixed-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -191,6 +191,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -270,6 +276,12 @@ relationships:
               incompatibility.
             pattern: Distribution is patchy or streaky, as the coating may not adhere well, leading to flaking and irregular
               spots.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -353,6 +365,12 @@ relationships:
           thermal_conductivity: 8.5
           thermal_diffusivity: 1.6
           vaporization_temperature: 2800
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: steel-laser-cleaning
     title: Steel
@@ -392,4 +410,12 @@ valid_materials:
 - steel-laser-cleaning
 - titanium-laser-cleaning
 slug: plasma-spray-contamination
-lastModified: '2026-01-03T16:26:42.350568'
+lastModified: '2026-01-04T13:42:51.696029'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Thermal Spray Coating
+  href: ''
+title: Thermal Spray Coating

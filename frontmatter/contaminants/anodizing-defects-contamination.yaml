@@ -1,18 +1,11 @@
 id: anodizing-defects-contamination
 name: Anodizing Layer Irregularities
 category: metallic-coating
-datePublished: '2026-01-04T00:26:36.820951Z'
-dateModified: '2026-01-04T00:26:36.820951Z'
+datePublished: '2026-01-04T21:42:46.105395Z'
+dateModified: '2026-01-04T21:42:46.105395Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/metallic-coating/anodizing/anodizing-defects-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Anodizing Layer Irregularities
-  href: ''
 page_title: 'Anodizing Layer Irregularities Removal: Laser Ablation'
 page_description: 'Anodizing defects contamination, it arises differently on aluminum than steel surfaces. Aluminum oxide
   layers trap impurities unevenly, forming patchy clusters and thus complicating laser cleaning. Steel shows denser buildup,
@@ -80,11 +73,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -158,6 +152,12 @@ relationships:
       items:
       - id: aluminum-oxide-compound
       - id: aluminum-oxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -191,6 +191,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -269,6 +275,12 @@ relationships:
               no such contamination appears.
             coverage: Coverage is non-existent as anodizing is irrelevant to wood surfaces.
             pattern: No pattern is observed since anodizing cannot occur on wood materials.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -353,6 +365,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.25
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -375,4 +393,12 @@ prohibited_materials:
 valid_materials:
 - aluminum-laser-cleaning
 slug: anodizing-defects-contamination
-lastModified: '2026-01-03T16:26:36.820982'
+lastModified: '2026-01-04T13:42:46.105429'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Anodizing Layer Irregularities
+  href: ''
+title: Anodizing Layer Irregularities

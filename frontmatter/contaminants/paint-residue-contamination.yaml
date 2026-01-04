@@ -1,18 +1,11 @@
 id: paint-residue-contamination
 name: Paint Residue / Coating Failure
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:41.840416Z'
-dateModified: '2026-01-04T00:26:41.840416Z'
+datePublished: '2026-01-04T21:42:51.161219Z'
+dateModified: '2026-01-04T21:42:51.161219Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/paint/paint-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Paint Residue / Coating Failure
-  href: ''
 page_title: 'Paint Residue / Coating Failure Removal: Laser Ablation'
 page_description: "Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique\
   \ irregular patterns, like patchy layers from uneven paint application and environmental weathering. Formation occurs through\
@@ -79,11 +72,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -178,6 +172,12 @@ relationships:
       - id: water-vapor-compound
       - id: vocs-compound
       - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -218,6 +218,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -312,6 +318,12 @@ relationships:
         - varies by paint color
         texture: flaking, peeling, cracked
         thickness: thin chips to thick layers
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -399,6 +411,12 @@ relationships:
           thermal_conductivity: 0.2
           thermal_diffusivity: 0.08
           vaporization_temperature: 250
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: abs-laser-cleaning
     title: Abs Laser Cleaning
@@ -757,4 +775,11 @@ valid_materials:
 - walnut-laser-cleaning
 - zinc-laser-cleaning
 slug: paint-residue-contamination
-lastModified: '2026-01-03T16:26:41.840450'
+lastModified: '2026-01-04T13:42:51.161255'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Paint Residue / Coating Failure
+  href: ''

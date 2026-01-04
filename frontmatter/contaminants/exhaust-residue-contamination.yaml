@@ -1,18 +1,11 @@
 id: exhaust-residue-contamination
 name: Exhaust System Deposits
 category: thermal-damage
-datePublished: '2026-01-04T00:26:39.689275Z'
-dateModified: '2026-01-04T00:26:39.689275Z'
+datePublished: '2026-01-04T21:42:48.869188Z'
+dateModified: '2026-01-04T21:42:48.869188Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/fire/exhaust-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Exhaust System Deposits
-  href: ''
 page_title: 'Exhaust System Deposits Removal: Laser Ablation Clean'
 page_description: Exhaust residue contamination, it manifests as a tenacious layer from vehicular emissions, which adheres
   strongly to metallic surfaces. This contamination, dependent from humidity and temperature variations, forms irregular patterns
@@ -74,11 +67,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -163,6 +157,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-particulates-compound
       - id: pahs-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -196,6 +196,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -292,6 +298,12 @@ relationships:
               with wood type and environmental conditions.
             pattern: They often appear as irregular spots or streaks, influenced by wood grain and surface orientation, and
               may spread in patchy formations.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -381,6 +393,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.25
           vaporization_temperature: 650
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: stainless-steel-laser-cleaning
     title: Stainless Steel
@@ -423,4 +441,12 @@ valid_materials:
 - steel-laser-cleaning
 - titanium-laser-cleaning
 slug: exhaust-residue-contamination
-lastModified: '2026-01-03T16:26:39.689309'
+lastModified: '2026-01-04T13:42:48.869223'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Exhaust System Deposits
+  href: ''
+title: Exhaust System Deposits

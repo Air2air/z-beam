@@ -1,17 +1,10 @@
 id: metal-matrix-composites-mmcs-settings
 name: Metal Matrix Composites MMCs
-datePublished: '2026-01-04T00:25:17.500287Z'
-dateModified: '2026-01-04T00:25:17.500287Z'
+datePublished: '2026-01-04T21:43:53.103339Z'
+dateModified: '2026-01-04T21:43:53.103339Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/metal-matrix-composites-mmcs-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal Matrix Composites MMCs
-  href: ''
 page_title: 'Metal Matrix Composites MMCs Settings: Laser Parameters'
 page_description: When laser cleaning metal matrix composites, unlike pure metals that heat evenly, watch out for their embedded
   reinforcements—these can cause uneven heat buildup right from the start, risking cracks if you push power too high. We've
@@ -85,11 +78,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -98,11 +92,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -142,6 +137,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for MMCs cleaning considering thermal conductivity and matrix integrity
@@ -271,4 +272,12 @@ machine_settings:
 component_summary: These settings, featuring 100 W power, 1064 nm wavelength, and 10 ns pulses, enable precise contaminant
   removal from MMCs while minimizing thermal stress to prevent delamination at matrix-reinforcement interfaces.
 slug: metal-matrix-composites-mmcs-settings
-lastModified: '2026-01-03T16:25:17.500320'
+lastModified: '2026-01-04T13:43:53.103396'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal Matrix Composites MMCs
+  href: ''
+title: Metal Matrix Composites MMCs

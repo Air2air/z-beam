@@ -1,18 +1,11 @@
 id: soap-scum-contamination
 name: Soap Scum Buildup
 category: organic-residue
-datePublished: '2026-01-04T00:26:43.748835Z'
-dateModified: '2026-01-04T00:26:43.748835Z'
+datePublished: '2026-01-04T21:42:53.201977Z'
+dateModified: '2026-01-04T21:42:53.201977Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Soap Scum Buildup
-  href: ''
 page_title: 'Soap Scum Buildup Removal: Laser Ablation Clean Removal'
 page_description: Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of soap
   residues with mineral deposits in humid environments. This layer, which adheres tenaciously to surfaces like ceramics and
@@ -73,11 +66,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -158,6 +152,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-particulates-compound
       - id: organic-residues-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -191,6 +191,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -259,6 +265,12 @@ relationships:
             appearance: On wood, soap scum looks like a cloudy, whitish film that can obscure the natural grain and finish.
             coverage: Coverage is usually spotty and light to moderate, depending on exposure to moisture and cleaning frequency.
             pattern: It tends to form in uneven patches or streaks, often following water flow or high-use areas.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -346,6 +358,12 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.17
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -516,4 +534,12 @@ valid_materials:
 - tempered-glass-laser-cleaning
 - zirconia-laser-cleaning
 slug: soap-scum-contamination
-lastModified: '2026-01-03T16:26:43.748870'
+lastModified: '2026-01-04T13:42:53.202017'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Soap Scum Buildup
+  href: ''
+title: Soap Scum Buildup

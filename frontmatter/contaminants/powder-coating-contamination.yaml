@@ -1,18 +1,11 @@
 id: powder-coating-contamination
 name: Powder Coating Buildup
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:42.615575Z'
-dateModified: '2026-01-04T00:26:42.615575Z'
+datePublished: '2026-01-04T21:42:51.997355Z'
+dateModified: '2026-01-04T21:42:51.997355Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/paint/powder-coating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Powder Coating Buildup
-  href: ''
 page_title: 'Powder Coating Buildup Removal: Laser Ablation No Chemi'
 page_description: Powder-coating contamination, it forms through electrostatic adhesion and baking, thus creates dense inorganic
   layers on metal substrates. This contamination, it traps particles during application and exhibits irregular patterns from
@@ -75,11 +68,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -170,6 +164,12 @@ relationships:
       - id: water-vapor-compound
       - id: vocs-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -210,6 +210,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -306,6 +312,12 @@ relationships:
               leading to a mottled effect.
             pattern: Distribution is irregular, forming blotches or drips, especially on porous areas where adhesion is poor
               and overspray collects.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -393,6 +405,12 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.21
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -435,4 +453,12 @@ valid_materials:
 - aluminum-laser-cleaning
 - steel-laser-cleaning
 slug: powder-coating-contamination
-lastModified: '2026-01-03T16:26:42.615608'
+lastModified: '2026-01-04T13:42:51.997384'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Powder Coating Buildup
+  href: ''
+title: Powder Coating Buildup

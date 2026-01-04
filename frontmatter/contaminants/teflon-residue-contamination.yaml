@@ -1,18 +1,11 @@
 id: teflon-residue-contamination
 name: PTFE Coating Residue
 category: organic-residue
-datePublished: '2026-01-04T00:26:44.061500Z'
-dateModified: '2026-01-04T00:26:44.061500Z'
+datePublished: '2026-01-04T21:42:53.542584Z'
+dateModified: '2026-01-04T21:42:53.542584Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/other/teflon-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: PTFE Coating Residue
-  href: ''
 page_title: 'PTFE Coating Residue Removal: Laser Ablation No Chemica'
 page_description: 'Teflon residue contamination, it arises from polymer degradation during high-heat processes and forms irregular,
   patchy films on metal surfaces. This contamination, it adheres strongly due to low surface energy of Teflon, thus creating
@@ -78,11 +71,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -170,6 +164,12 @@ relationships:
       presentation: card
       items:
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -210,6 +210,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -305,6 +311,12 @@ relationships:
               influenced by wood porosity.
             pattern: It often appears as blotchy patches or streaks, following the wood's texture or areas where coating was
               improperly removed.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -391,6 +403,12 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.11
           vaporization_temperature: 500
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -430,4 +448,12 @@ valid_materials:
 - stainless-steel-laser-cleaning
 - steel-laser-cleaning
 slug: teflon-residue-contamination
-lastModified: '2026-01-03T16:26:44.061531'
+lastModified: '2026-01-04T13:42:53.542613'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: PTFE Coating Residue
+  href: ''
+title: PTFE Coating Residue

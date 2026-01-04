@@ -1,18 +1,11 @@
 id: conversion-coating-contamination
 name: Chemical Conversion Coating
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:38.769400Z'
-dateModified: '2026-01-04T00:26:38.769400Z'
+datePublished: '2026-01-04T21:42:47.849348Z'
+dateModified: '2026-01-04T21:42:47.849348Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/conversion-coating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Chemical Conversion Coating
-  href: ''
 page_title: 'Chemical Conversion Coating Removal: Laser Ablation No'
 page_description: Conversion-coating contamination, it manifests as thin inorganic layers on metal surfaces, formed through
   chemical reactions with the substrate. These coatings, they develop uniquely in humid environments, exhibiting patchy patterns
@@ -73,11 +66,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -150,6 +144,12 @@ relationships:
       - id: metal-oxides-mixed-compound
       - id: chromium-vi-compound
       - id: carbon-dioxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -190,6 +190,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -269,6 +275,12 @@ relationships:
             coverage: Typically partial and uneven, with significant variation due to wood's porous and absorbent nature.
             pattern: Forms irregular patches or streaks where the coating adheres poorly, often pooling in grooves or along
               edges.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -356,6 +368,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.5
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -397,4 +415,12 @@ valid_materials:
 - steel-laser-cleaning
 - zinc-laser-cleaning
 slug: conversion-coating-contamination
-lastModified: '2026-01-03T16:26:38.769434'
+lastModified: '2026-01-04T13:42:47.849378'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Chemical Conversion Coating
+  href: ''
+title: Chemical Conversion Coating

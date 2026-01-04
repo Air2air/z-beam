@@ -1,18 +1,11 @@
 id: annealing-scale-contamination
 name: Heat Treatment Scale
 category: thermal-damage
-datePublished: '2026-01-04T00:26:36.735191Z'
-dateModified: '2026-01-04T00:26:36.735191Z'
+datePublished: '2026-01-04T21:42:46.018129Z'
+dateModified: '2026-01-04T21:42:46.018129Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/thermal-damage/scale/annealing-scale-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Heat Treatment Scale
-  href: ''
 page_title: 'Heat Treatment Scale Removal: Laser Ablation High Effic'
 page_description: Annealing scale contamination forms when metals heat up during processing. This thermal damage creates thick
   oxide layers that cling tightly to surfaces. Engineers run into unique patterns here—crystalline structures build up unevenly,
@@ -70,11 +63,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -142,6 +136,12 @@ relationships:
       - id: iron-oxide-compound
       - id: carbon-monoxide-compound
       - id: metal-vapors-mixed-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -183,6 +183,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -279,6 +285,12 @@ relationships:
               distribution based on heat intensity and duration.
             pattern: It appears in irregular patches or streaks, following the wood's grain or areas of direct heat contact,
               and can be spotty or more widespread.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -363,6 +375,12 @@ relationships:
           thermal_conductivity: 0.8
           thermal_diffusivity: 0.15
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: stainless-steel-laser-cleaning
     title: Stainless Steel
@@ -405,4 +423,12 @@ valid_materials:
 - steel-laser-cleaning
 - titanium-laser-cleaning
 slug: annealing-scale-contamination
-lastModified: '2026-01-03T16:26:36.735222'
+lastModified: '2026-01-04T13:42:46.018159'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Heat Treatment Scale
+  href: ''
+title: Heat Treatment Scale

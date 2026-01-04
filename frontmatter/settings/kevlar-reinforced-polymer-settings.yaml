@@ -1,17 +1,10 @@
 id: kevlar-reinforced-polymer-settings
 name: Kevlar-Reinforced Polymer
-datePublished: '2026-01-04T00:25:16.851660Z'
-dateModified: '2026-01-04T00:25:16.851660Z'
+datePublished: '2026-01-04T21:43:52.047382Z'
+dateModified: '2026-01-04T21:43:52.047382Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/composite/fiber-reinforced/kevlar-reinforced-polymer-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Kevlar-Reinforced Polymer
-  href: ''
 page_title: 'Kevlar-Reinforced Polymer Settings: Laser Parameters'
 page_description: When laser cleaning Kevlar-reinforced polymer, watch its low heat conduction first—it traps warmth unevenly
   and risks fiber damage if you push too hard. I've found starting with gentle pulses works best, spreading energy slowly
@@ -80,11 +73,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -93,11 +87,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -107,11 +102,12 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational:
     prevention:
       presentation: collapsible
@@ -151,6 +147,12 @@ relationships:
       options:
         autoOpenFirst: true
         sortBy: severity
+      _section:
+        title: Common Challenges
+        description: Typical difficulties and best practices when using this setting
+        icon: alert-triangle
+        order: 1
+        variant: warning
 machine_settings:
   powerRange:
     description: Optimal average power for Kevlar-Reinforced Polymer surface cleaning without thermal damage
@@ -274,4 +276,12 @@ machine_settings:
 component_summary: These settings, featuring moderate 50 W power and 15 ns pulses at 1064 nm, enable gentle ablation of contaminants
   from Kevlar Reinforced Polymer while minimizing thermal degradation of its fiber-matrix composite.
 slug: kevlar-reinforced-polymer-settings
-lastModified: '2026-01-03T16:25:16.851689'
+lastModified: '2026-01-04T13:43:52.047454'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Kevlar-Reinforced Polymer
+  href: ''
+title: Kevlar-Reinforced Polymer

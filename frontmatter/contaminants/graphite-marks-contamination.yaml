@@ -1,18 +1,11 @@
 id: graphite-marks-contamination
 name: Graphite Deposit Traces
 category: organic-residue
-datePublished: '2026-01-04T00:26:40.451839Z'
-dateModified: '2026-01-04T00:26:40.451839Z'
+datePublished: '2026-01-04T21:42:49.672908Z'
+dateModified: '2026-01-04T21:42:49.672908Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/marking/graphite-marks-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Graphite Deposit Traces
-  href: ''
 page_title: 'Graphite Deposit Traces Removal: Laser Ablation Clean'
 page_description: Graphite marks stand out from typical organic residues because they form through direct pencil-like scoring
   on surfaces, leaving behind fine, layered carbon streaks that cling tightly. These patterns line up along tool paths or
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -152,6 +146,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: carbon-monoxide-compound
       - id: carbon-particulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -185,6 +185,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -264,6 +270,12 @@ relationships:
             coverage: Generally low to moderate, with patchy coverage that depends on exposure and wood porosity, rarely uniform.
             pattern: Often appears as scattered spots or streaks, concentrating in porous areas or along grain lines, with
               uneven distribution.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -348,6 +360,12 @@ relationships:
           thermal_conductivity: 120
           thermal_diffusivity: 8.2
           vaporization_temperature: 4200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -585,4 +603,12 @@ valid_materials:
 - zinc-laser-cleaning
 - zirconia-laser-cleaning
 slug: graphite-marks-contamination
-lastModified: '2026-01-03T16:26:40.451872'
+lastModified: '2026-01-04T13:42:49.672952'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Graphite Deposit Traces
+  href: ''
+title: Graphite Deposit Traces

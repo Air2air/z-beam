@@ -1,18 +1,11 @@
 id: pvd-coating-contamination
 name: PVD Coating Defects
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:42.786759Z'
-dateModified: '2026-01-04T00:26:42.786759Z'
+datePublished: '2026-01-04T21:42:52.175171Z'
+dateModified: '2026-01-04T21:42:52.175171Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/coating/pvd-coating-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: PVD Coating Defects
-  href: ''
 page_title: 'PVD Coating Defects Removal: Laser Ablation No Chemical'
 page_description: PVD coating contamination, it manifests as thin inorganic layers, dependent from deposition environments.
   These contaminants, they exhibit unique formation patterns, like irregular clustering on metallic substrates, which leads
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -152,6 +146,12 @@ relationships:
       - id: metal-oxides-mixed-compound
       - id: metal-vapors-mixed-compound
       - id: nanoparticulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -192,6 +192,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -251,6 +257,12 @@ relationships:
             appearance: Uneven, blotchy areas with color shifts or loss of gloss, making the wood look stained or mottled.
             coverage: Can range from sparse spots to extensive sections, usually irregular and influenced by wood porosity.
             pattern: Often appears as random patches or streaks, following the wood grain or surface imperfections.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -335,6 +347,12 @@ relationships:
           thermal_conductivity: 8.5
           thermal_diffusivity: 1.6
           vaporization_temperature: 1200
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: carbide-laser-cleaning
     title: Carbide Laser Cleaning
@@ -374,4 +392,12 @@ valid_materials:
 - boron-carbide-laser-cleaning
 - tool-steel-laser-cleaning
 slug: pvd-coating-contamination
-lastModified: '2026-01-03T16:26:42.786793'
+lastModified: '2026-01-04T13:42:52.175204'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: PVD Coating Defects
+  href: ''
+title: PVD Coating Defects

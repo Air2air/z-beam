@@ -1,18 +1,11 @@
 id: wax-buildup-contamination
 name: Wax Coating Buildup
 category: organic-residue
-datePublished: '2026-01-04T00:26:44.922906Z'
-dateModified: '2026-01-04T00:26:44.922906Z'
+datePublished: '2026-01-04T21:42:54.335811Z'
+dateModified: '2026-01-04T21:42:54.335811Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/wax/wax-buildup-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Wax Coating Buildup
-  href: ''
 page_title: 'Wax Coating Buildup Removal: Laser Ablation No Chemical'
 page_description: 'Wax-buildup-contamination, it arises from organic residues in laser cleaning. This contamination forms
   unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like metals. Formation follows exposure
@@ -78,11 +71,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -173,6 +167,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: carbon-particulates-compound
       - id: water-vapor-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -213,6 +213,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -308,6 +314,12 @@ relationships:
               usage and maintenance.
             pattern: It often appears in streaks or patches, following the direction of application or accumulating in grooves
               and carvings.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -394,6 +406,12 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.1
           vaporization_temperature: 400
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -675,4 +693,12 @@ valid_materials:
 - walnut-laser-cleaning
 - zinc-laser-cleaning
 slug: wax-buildup-contamination
-lastModified: '2026-01-03T16:26:44.922941'
+lastModified: '2026-01-04T13:42:54.335841'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Wax Coating Buildup
+  href: ''
+title: Wax Coating Buildup

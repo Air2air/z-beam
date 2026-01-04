@@ -1,18 +1,11 @@
 id: semiconductor-residue-contamination
 name: Semiconductor Processing Residue
 category: chemical-residue
-datePublished: '2026-01-04T00:26:43.488533Z'
-dateModified: '2026-01-04T00:26:43.488533Z'
+datePublished: '2026-01-04T21:42:52.914441Z'
+dateModified: '2026-01-04T21:42:52.914441Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Semiconductor Processing Residue
-  href: ''
 page_title: 'Semiconductor Processing Residue Removal: Laser Ablatio'
 page_description: 'Semiconductor residue contamination typically builds up during wafer processing, forming thin, uneven layers
   that cling tightly to silicon surfaces. These residues, often chemical byproducts from etching or deposition steps, create
@@ -71,11 +64,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -163,6 +157,12 @@ relationships:
       - id: water-vapor-compound
       - id: organic-residues-compound
       - id: nanoparticulates-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -196,6 +196,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -293,6 +299,12 @@ relationships:
               and minimal on sealed surfaces.
             pattern: It tends to appear in blotchy patches or streaks, often following the wood grain or accumulating in porous
               areas, and is rarely uniform.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -380,6 +392,12 @@ relationships:
           thermal_conductivity: 0.35
           thermal_diffusivity: 0.25
           vaporization_temperature: 600
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -480,4 +498,12 @@ valid_materials:
 - silicon-nitride-laser-cleaning
 - zirconia-laser-cleaning
 slug: semiconductor-residue-contamination
-lastModified: '2026-01-03T16:26:43.488568'
+lastModified: '2026-01-04T13:42:52.914472'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Semiconductor Processing Residue
+  href: ''
+title: Semiconductor Processing Residue

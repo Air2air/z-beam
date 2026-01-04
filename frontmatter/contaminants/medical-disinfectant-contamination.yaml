@@ -1,18 +1,11 @@
 id: medical-disinfectant-contamination
 name: Medical Disinfectant Residue
 category: chemical-residue
-datePublished: '2026-01-04T00:26:41.237142Z'
-dateModified: '2026-01-04T00:26:41.237142Z'
+datePublished: '2026-01-04T21:42:50.531140Z'
+dateModified: '2026-01-04T21:42:50.531140Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/medical-disinfectant-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Medical Disinfectant Residue
-  href: ''
 page_title: 'Medical Disinfectant Residue Removal: Laser Ablation'
 page_description: 'Medical disinfectant contamination forms stubborn, film-like residues that cling tightly to surfaces in
   healthcare settings. These contaminants arise when cleaning agents like quaternary ammonium compounds or alcohol-based solutions
@@ -76,11 +69,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -156,6 +150,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: water-vapor-compound
       - id: organic-residues-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -189,6 +189,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -279,6 +285,12 @@ relationships:
             coverage: Generally patchy with low to moderate coverage, heavier in absorbent regions and lighter on sealed surfaces.
             pattern: Often appears in patches or spots, concentrated in porous areas or along grain lines, with irregular
               distribution.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -366,6 +378,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.1
           vaporization_temperature: 250
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: alumina-laser-cleaning
     title: Alumina
@@ -526,4 +544,12 @@ valid_materials:
 - tempered-glass-laser-cleaning
 - zirconia-laser-cleaning
 slug: medical-disinfectant-contamination
-lastModified: '2026-01-03T16:26:41.237178'
+lastModified: '2026-01-04T13:42:50.531171'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Medical Disinfectant Residue
+  href: ''
+title: Medical Disinfectant Residue

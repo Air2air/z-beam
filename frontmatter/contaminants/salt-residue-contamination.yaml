@@ -1,18 +1,11 @@
 id: salt-residue-contamination
 name: Salt and Chloride Deposits
 category: inorganic-coating
-datePublished: '2026-01-04T00:26:43.305723Z'
-dateModified: '2026-01-04T00:26:43.305723Z'
+datePublished: '2026-01-04T21:42:52.720194Z'
+dateModified: '2026-01-04T21:42:52.720194Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/inorganic-coating/mineral/salt-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Salt and Chloride Deposits
-  href: ''
 page_title: 'Salt and Chloride Deposits Removal: Laser Ablation Clea'
 page_description: 'Salt residues form tricky patterns on surfaces exposed to harsh environments, like coastal machinery or
   salted roads. They build up in crystalline layers that cling tight to metals and stone, often cracking unevenly under humidity
@@ -74,11 +67,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -143,6 +137,12 @@ relationships:
     produces_compounds:
       presentation: card
       items: []
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -188,6 +188,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -247,6 +253,12 @@ relationships:
             appearance: White, powdery, or crystalline stains that can darken the wood, often causing a rough or raised texture.
             coverage: Limited to surface areas, often sparse but can spread with prolonged exposure to contaminants.
             pattern: Spots or patches, typically following the wood grain or moisture paths, with uneven distribution.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -330,6 +342,12 @@ relationships:
           thermal_conductivity: 0.5
           thermal_diffusivity: 0.15
           vaporization_temperature: 1413
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminum-laser-cleaning
     title: Aluminum
@@ -590,4 +608,12 @@ valid_materials:
 - travertine-laser-cleaning
 - zinc-laser-cleaning
 slug: salt-residue-contamination
-lastModified: '2026-01-03T16:26:43.305758'
+lastModified: '2026-01-04T13:42:52.720226'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Salt and Chloride Deposits
+  href: ''
+title: Salt and Chloride Deposits

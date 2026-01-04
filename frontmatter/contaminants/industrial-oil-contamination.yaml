@@ -1,18 +1,11 @@
 id: industrial-oil-contamination
 name: Industrial Oil / Grease Buildup
 category: organic-residue
-datePublished: '2026-01-04T00:26:40.704794Z'
-dateModified: '2026-01-04T00:26:40.704794Z'
+datePublished: '2026-01-04T21:42:49.938592Z'
+dateModified: '2026-01-04T21:42:49.938592Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Industrial Oil / Grease Buildup
-  href: ''
 page_title: 'Industrial Oil / Grease Buildup Removal: Laser Ablation'
 page_description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
   forming irregular films that cling to metal surfaces, influenced from prolonged exposure to lubricants and coolants. These
@@ -77,11 +70,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -169,6 +163,12 @@ relationships:
       - id: carbon-monoxide-compound
       - id: carbon-particulates-compound
       - id: vocs-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -182,6 +182,12 @@ relationships:
         frequency: very_common
       - id: copper-laser-cleaning
         frequency: very_common
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -491,6 +497,12 @@ relationships:
         - dark gray
         texture: greasy, sticky, slippery
         thickness: thin film to thick deposits
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -581,6 +593,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.075
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: all-laser-cleaning
     title: All Laser Cleaning
@@ -614,4 +632,11 @@ valid_contexts:
 - manufacturing_equipment
 valid_materials: []
 slug: industrial-oil-contamination
-lastModified: '2026-01-03T16:26:40.704830'
+lastModified: '2026-01-04T13:42:49.938625'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Industrial Oil / Grease Buildup
+  href: ''

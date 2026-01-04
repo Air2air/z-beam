@@ -1,18 +1,11 @@
 id: pesticide-residue-contamination
 name: Pesticide Chemical Residue
 category: chemical-residue
-datePublished: '2026-01-04T00:26:42.095052Z'
-dateModified: '2026-01-04T00:26:42.095052Z'
+datePublished: '2026-01-04T21:42:51.437444Z'
+dateModified: '2026-01-04T21:42:51.437444Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Pesticide Chemical Residue
-  href: ''
 page_title: 'Pesticide Chemical Residue Removal: Laser Ablation Clea'
 page_description: Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
   layers form tenaciously on agricultural surfaces. This contamination, it manifests through uneven deposition patterns, influenced
@@ -72,11 +65,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -161,6 +155,12 @@ relationships:
       - id: water-vapor-compound
       - id: nitrogen-oxides-compound
       - id: carbon-ash-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -194,6 +194,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -280,6 +286,12 @@ relationships:
               on sealed surfaces.
             pattern: It often appears as uneven patches or streaks, following the wood grain or pooling in porous areas and
               knots.
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -370,6 +382,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: aluminosilicate-glass-laser-cleaning
     title: Aluminosilicate Glass
@@ -600,4 +618,12 @@ valid_materials:
 - titanium-laser-cleaning
 - zinc-laser-cleaning
 slug: pesticide-residue-contamination
-lastModified: '2026-01-03T16:26:42.095087'
+lastModified: '2026-01-04T13:42:51.437474'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Pesticide Chemical Residue
+  href: ''
+title: Pesticide Chemical Residue

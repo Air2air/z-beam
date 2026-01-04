@@ -1,17 +1,10 @@
 id: stainless-steel-316-settings
 name: Stainless Steel 316
-datePublished: '2026-01-04T00:25:22.821700Z'
-dateModified: '2026-01-04T00:25:22.821700Z'
+datePublished: '2026-01-04T21:44:00.747356Z'
+dateModified: '2026-01-04T21:44:00.747356Z'
 content_type: settings
 schema_version: 5.0.0
 full_path: /settings/metal/alloy/stainless-steel-316-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stainless Steel 316
-  href: ''
 page_title: 'Stainless Steel 316 Settings: Laser Parameters'
 page_description: Before laser cleaning, Stainless Steel 316 surfaces require careful parameter selection After cleaning,
   Stainless Steel 316 surfaces show restored appearance with controlled parameters
@@ -77,11 +70,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards related to this laser setting
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -90,11 +84,12 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      sectionMetadata:
-        section_title: Effective Contaminants
-        section_description: Contamination types successfully removed
-        icon: droplet
-        order: 20
+      _section:
+        title: Removes Contaminants
+        description: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -102,11 +97,12 @@ relationships:
         effectiveness: high
       - id: stainless-steel-316-laser-cleaning
         effectiveness: high
-      sectionMetadata:
-        section_title: Compatible Materials
-        section_description: Materials optimized for these settings
+      _section:
+        title: Works On Materials
+        description: Materials compatible with this laser setting
         icon: box
-        order: 30
+        order: 2
+        variant: default
   operational: {}
 machine_settings:
   powerRange:
@@ -231,4 +227,12 @@ machine_settings:
 component_summary: For Stainless Steel 316, the 100 W power, 1064 nm wavelength, and 10 ns pulses enable precise ablation
   of contaminants while minimizing thermal damage to preserve its corrosion-resistant austenitic structure.
 slug: stainless-steel-316-settings
-lastModified: '2026-01-03T16:25:22.821738'
+lastModified: '2026-01-04T13:44:00.747399'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Stainless Steel 316
+  href: ''
+title: Stainless Steel 316

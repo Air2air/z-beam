@@ -1,18 +1,11 @@
 id: copper-patina-contamination
 name: Copper Patina / Verdigris
 category: oxidation
-datePublished: '2026-01-04T00:26:38.932632Z'
-dateModified: '2026-01-04T00:26:38.932632Z'
+datePublished: '2026-01-04T21:42:48.014201Z'
+dateModified: '2026-01-04T21:42:48.014201Z'
 content_type: contaminants
 schema_version: 5.0.0
 full_path: /contaminants/oxidation/non-ferrous/copper-patina-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Copper Patina / Verdigris
-  href: ''
 page_title: 'Copper Patina / Verdigris Removal: Laser Ablation Clean'
 page_description: Copper patina forms as a green oxidation layer on surfaces exposed to moist air. This contamination builds
   up unevenly, creating flaky patterns that line up along edges and crevices in humid regions. In laser cleaning applications,
@@ -75,11 +68,12 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      sectionMetadata:
-        section_title: Safety Standards & Compliance
-        section_description: OSHA, ANSI, ISO requirements and compliance standards
+      _section:
+        title: Regulatory Standards
+        description: Safety and compliance standards for handling this contaminant
         icon: shield-check
-        order: 10
+        order: 1
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
@@ -144,6 +138,12 @@ relationships:
       - id: carbon-dioxide-compound
       - id: water-vapor-compound
       - id: copper-oxide-compound
+      _section:
+        title: Produces Compounds
+        description: Chemical compounds formed when laser cleaning this contaminant
+        icon: flask
+        order: 1
+        variant: default
     affects_materials:
       presentation: card
       items:
@@ -163,6 +163,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        title: Found On Materials
+        description: Materials commonly contaminated with this substance
+        icon: box
+        order: 2
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -348,6 +354,12 @@ relationships:
         - teal
         texture: smooth to powdery, matte finish
         thickness: thin to medium surface layer
+      _section:
+        title: Visual Appearance
+        description: How this contaminant appears on different material types
+        icon: eye
+        order: 1
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -435,6 +447,12 @@ relationships:
           thermal_conductivity: 0.5
           thermal_diffusivity: 0.7
           vaporization_temperature: 950
+      _section:
+        title: Laser Properties
+        description: Absorption characteristics and laser interaction data
+        icon: zap
+        order: 1
+        variant: default
   materials:
   - id: brass-laser-cleaning
     title: Brass
@@ -497,4 +515,11 @@ caution_materials:
 - Ceramics
 - Wood
 slug: copper-patina-contamination
-lastModified: '2026-01-03T16:26:38.932663'
+lastModified: '2026-01-04T13:42:48.014231'
+breadcrumbs:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Copper Patina / Verdigris
+  href: ''
