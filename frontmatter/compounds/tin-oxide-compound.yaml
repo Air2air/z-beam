@@ -3,8 +3,8 @@ name: Tin Oxide
 display_name: Tin Oxide (SnO₂)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-04T00:24:31.521729Z'
-dateModified: '2026-01-04T00:24:31.521729Z'
+datePublished: '2026-01-04T21:12:02.012279Z'
+dateModified: '2026-01-04T21:12:02.012279Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/tin-oxide-compound
@@ -114,6 +114,12 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Tin Plating Residue
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -123,31 +129,21 @@ relationships:
       - id: serpentine-laser-cleaning
       - id: tin-laser-cleaning
       - id: travertine-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and potential for stannosis (benign pneumoconiosis) with chronic exposure
-      severity: low
-      onset: immediate
-    - route: skin_contact
-      effect: Mild mechanical irritation or dryness
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Mechanical irritation and redness
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Low toxicity, possible gastrointestinal discomfort
-      severity: low
-      onset: short-term
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When handling tin oxide particulates, always prioritize dust control right away. Inhalation risks kick in
           fast during mixing or grinding. Wear a fitted respirator from the start to block fine particles.
@@ -173,11 +169,12 @@ relationships:
           well but rubs raw if ignored.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'When handling tin oxide compounds in particulate form, prioritize awareness of their fine, powdery nature
           that can easily become airborne during processing or mixing. Dust particles linger in the air, posing risks through
@@ -205,11 +202,12 @@ relationships:
           in applications from conductive coatings to catalyst manufacturing, ensuring durability without health trade-offs.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—
           these fine particles linger in the air, raising risks during industrial mixing or laser-based surface prep. Workers
@@ -225,11 +223,12 @@ relationships:
           keeping teams sharp and productive.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'Handling tin oxide particles demands quick action if exposure happens, especially since fine dust can irritate
           sensitive areas. Inhalation poses the biggest risk during industrial mixing or grinding, where airborne specks might
@@ -257,11 +256,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Spotting tin oxide compounds in particulate form starts with simple visual checks under bright light, where
           their fine, powdery texture often stands out against smoother surfaces. These particles tend to scatter light in
@@ -279,11 +279,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: what-protective-measures-should-i-take-to-avoid-in
         question: What protective measures should I take to avoid inhaling tin oxide (SnO₂) particulates during laser cleaning
@@ -305,4 +306,4 @@ relationships:
 subcategory: metal-oxide
 formula: SnO₂
 slug: tin-oxide-compound
-lastModified: '2026-01-03T16:24:31.521759'
+lastModified: '2026-01-04T13:12:02.012321'

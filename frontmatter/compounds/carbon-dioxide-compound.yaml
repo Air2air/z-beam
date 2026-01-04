@@ -3,8 +3,8 @@ name: Carbon Dioxide
 display_name: Carbon Dioxide (CO₂)
 category: asphyxiant
 hazard_class: asphyxiant
-datePublished: '2026-01-04T00:24:30.467041Z'
-dateModified: '2026-01-04T00:24:30.467041Z'
+datePublished: '2026-01-04T21:12:00.796268Z'
+dateModified: '2026-01-04T21:12:00.796268Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/asphyxiant/simple-asphyxiant/carbon-dioxide-compound
@@ -103,6 +103,12 @@ relationships:
       items:
       - type: chemical_properties
         id: carbon-dioxide-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -118,8 +124,11 @@ relationships:
         odor: Odorless
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -136,113 +145,12 @@ relationships:
           pubchem_cid: '280'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Asphyxiation due to oxygen displacement, leading to unconsciousness and potential death at concentrations
-          >10%
-        severity: severe
-        onset: immediate
-      - route: inhalation
-        effect: Headache, dizziness, and increased heart rate at concentrations 3-5%
-        severity: moderate
-        onset: short-term
-      - route: inhalation
-        effect: Respiratory acidosis and hyperventilation at prolonged exposure to elevated levels
-        severity: high
-        onset: long-term
-      - route: eye_contact
-        effect: Mild irritation from direct high-pressure exposure
-        severity: low
-        onset: immediate
-      - route: skin_contact
-        effect: Frostbite or irritation if in liquefied form (dry ice)
-        severity: moderate
-        onset: immediate
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: SCBA for >5% (50,000 ppm) or oxygen-deficient atmospheres. Not required for normal ambient levels.
-        skin: Insulated gloves for liquid/solid CO2 (dry ice) - cryogenic hazard. No protection needed for gas at normal levels.
-        eye: Safety glasses for dry ice handling. No protection needed for gas.
-        minimum_level: Level D for normal operations, Level B for confined spaces or high concentrations
-        special_notes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates in low areas. Dry ice causes frostbite.
-          Physiological effects >1% concentration.
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: Non-flammable. Used as fire suppressant. Cylinders may explode when heated.
-        fire_suppression: Not applicable. CO2 extinguishes fires. If cylinder in fire, cool with water spray from maximum
-          distance or evacuate - explosion hazard.
-        spill_procedures: 'Liquid/dry ice release: Ventilate area immediately. Evacuate low-lying areas - CO2 heavier than
-          air. Monitor oxygen levels. Do not touch dry ice - frostbite.'
-        exposure_immediate_actions: 'Remove to fresh air immediately. If not breathing, give artificial respiration. Administer
-          100% oxygen. Seek medical attention if symptoms persist. For dry ice contact: treat as frostbite - warm affected
-          area gradually.'
-        environmental_hazards: Greenhouse gas. Contributes to ocean acidification. Generally non-toxic to wildlife at normal
-          atmospheric levels.
-        special_hazards: 'SIMPLE ASPHYXIANT - displaces oxygen. Heavier than air - accumulates in pits, tanks, confined spaces.
-          Physiological effects: >1% increased respiration, >5% headache/dizziness, >10% unconsciousness, >20-30% death. ODORLESS
-          - no warning. Dry ice causes severe frostbite.'
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: 5000
-        osha_pel_mg_m3: 9000
-        niosh_rel_ppm: 5000
-        niosh_rel_mg_m3: 9000
-        acgih_tlv_ppm: 5000
-        acgih_tlv_mg_m3: 9000
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 5000 ppm
-            stel_15min: null
-            ceiling: 30000 ppm
-          niosh_rel:
-            twa_8hr: 5000 ppm
-            stel_15min: 30000 ppm
-            ceiling: null
-            idlh: 40,000 ppm (4%)
-          acgih_tlv:
-            twa_8hr: 5000 ppm
-            stel_15min: 30000 ppm
-            ceiling: null
-          biological_exposure_indices: []
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store cylinders <52°C. Dry ice requires insulated storage <-78°C.
-        ventilation: Good ventilation essential. Outdoor storage preferred for large quantities. Monitor oxygen levels in
-          storage areas.
-        incompatibilities:
-        - Reactive metals (cesium, sodium, potassium)
-        - Metal acetylides
-        - Bases (reacts forming carbonates)
-        container_material: Steel cylinders for compressed gas. Insulated containers for dry ice.
-        segregation: None required. Keep away from reactive metals.
-        quantity_limits: Cylinders per fire code. Dry ice quantities limited by storage capacity.
-        special_requirements: Cylinder restraints mandatory. Oxygen monitoring in storage areas. Post "SIMPLE ASPHYXIANT"
-          signs. Adequate ventilation critical. Never store in confined spaces without ventilation and O2 monitoring.
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -262,15 +170,19 @@ relationships:
         rcra_code: null
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: When dealing with carbon dioxide compounds in industrial settings, the standout trait is its role as an asphyxiant,
           meaning it quietly pushes out breathable air without you noticing right away. This makes enclosed spaces tricky,
@@ -280,11 +192,12 @@ relationships:
           property demands respect, ensuring teams stay alert and equipped with escape plans.
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: Stay alert around carbon dioxide compounds. They act as asphyxiants. Oxygen levels drop fast in enclosed
           spots. Fresh air flows matter most. Set up strong ventilation early. Check spaces before entry. Wear breathing gear
@@ -294,11 +207,12 @@ relationships:
           hazy conditions. Recovery happens with open air. Build habits for safe routines.
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: "Handling carbon dioxide in its solid form demands careful gear to counter the biting cold and the risk of\
           \ suffocating vapors building up unnoticed. Workers often reach for insulated gloves first, thick enough to shield\
@@ -313,11 +227,12 @@ relationships:
           \ contaminants—into smoother, safer operations."
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: If you've ever dealt with a confined space mishap where the air turns heavy and folks start gasping, knowing
           quick steps for carbon dioxide exposure can make all the difference—it's that invisible thief that chokes out oxygen
@@ -346,8 +261,11 @@ relationships:
           air: Not reportable (natural atmospheric component)
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -375,8 +293,11 @@ relationships:
         odor_threshold: Not applicable - odorless at all concentrations. No warning property. MUST use instruments.
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -665,6 +586,12 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -685,16 +612,20 @@ relationships:
           embrittlement of some materials.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: Dry ice stands out from everyday solids because it vanishes without a trace, turning straight into gas and
           leaving no mess behind. Spotting it in a workshop demands sharp eyes or simple tools. Workers often rely on frosty
@@ -706,11 +637,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: what-are-the-safe-exposure-limits-for-co₂-during-l
         question: What are the safe exposure limits for CO₂ during laser cleaning operations, and how can I monitor them?
@@ -732,4 +664,4 @@ relationships:
 subcategory: simple_asphyxiant
 formula: CO₂
 slug: carbon-dioxide-compound
-lastModified: '2026-01-03T16:24:30.467071'
+lastModified: '2026-01-04T13:12:00.796298'

@@ -3,8 +3,8 @@ name: Organic Residues
 display_name: Organic Residues
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-04T00:24:31.154383Z'
-dateModified: '2026-01-04T00:24:31.154383Z'
+datePublished: '2026-01-04T21:12:01.519134Z'
+dateModified: '2026-01-04T21:12:01.519134Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/organic/organic-residues-compound
@@ -164,31 +164,21 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Wax Coating Buildup
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Respiratory irritation and potential systemic toxicity (e.g., dizziness, nausea)
-      severity: moderate
-      onset: immediate
-    - route: skin_contact
-      effect: Dermatitis or allergic skin reactions
-      severity: low
-      onset: short-term
-    - route: eye_contact
-      effect: Irritation, redness, and possible corneal damage
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Gastrointestinal distress and potential liver/kidney effects
-      severity: high
-      onset: short-term
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When dealing with organic residue compounds, prioritize airtight respirators right away. These particulates
           linger in the air like fine dust from burnt organics, and inhaling them without protection invites respiratory trouble
@@ -215,11 +205,12 @@ relationships:
           things running without health setbacks.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Handling organic residue compounds demands caution. These particulates cling to surfaces and stir up easily.
           Inhale them sparingly. Wear masks during cleanup. Gloves protect skin from irritation.
@@ -243,11 +234,12 @@ relationships:
           Stick to these habits. They keep things smooth. Skip shortcuts— they backfire.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: 'Handling organic residue compounds in particulate form demands solid protection, especially in dusty workshops
           or cleanup jobs. Gloves made from nitrile or similar tough materials keep your hands safe from sticky buildup or
@@ -268,11 +260,12 @@ relationships:
           risks.'
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: While inorganic particulates often demand aggressive decontamination due to their stubborn cling, organic
           residue compounds behave differently—their softer, more biodegradable nature means quicker breakdown on skin or
@@ -289,11 +282,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Unlike inorganic contaminants that often stand out under basic visual checks due to their stark metallic
           sheen, organic residue compounds in particulate form blend seamlessly into surfaces, demanding more nuanced approaches
@@ -318,11 +312,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-what-personal-protect
         question: As a laser cleaning operator, what personal protective equipment should I use to protect against exposure
@@ -345,4 +340,4 @@ relationships:
 subcategory: organic
 formula: CxHyOz
 slug: organic-residues-compound
-lastModified: '2026-01-03T16:24:31.154416'
+lastModified: '2026-01-04T13:12:01.519162'

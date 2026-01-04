@@ -3,8 +3,8 @@ name: Ammonia
 display_name: Ammonia (NH₃)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2026-01-04T00:24:30.390252Z'
-dateModified: '2026-01-04T00:24:30.390252Z'
+datePublished: '2026-01-04T21:12:00.707935Z'
+dateModified: '2026-01-04T21:12:00.707935Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
@@ -104,6 +104,12 @@ relationships:
       items:
       - type: chemical_properties
         id: ammonia-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -119,8 +125,11 @@ relationships:
         odor: Sharp, pungent, suffocating odor @ 5-50 ppm
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -136,114 +145,12 @@ relationships:
           pubchem_cid: '222'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Respiratory tract irritation, coughing, and potential pulmonary edema at high concentrations
-        severity: severe
-        onset: immediate
-      - route: eye_contact
-        effect: Severe corneal burns and possible permanent vision impairment
-        severity: severe
-        onset: immediate
-      - route: skin_contact
-        effect: Chemical burns and severe irritation of the skin
-        severity: high
-        onset: immediate
-      - route: ingestion
-        effect: Severe burns to the mouth, throat, and gastrointestinal tract, potentially leading to perforation
-        severity: severe
-        onset: immediate
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: SCBA or supplied-air respirator for >25 ppm or unknown concentrations. Air-purifying with ammonia cartridge
-          acceptable for ≤25 ppm.
-        skin: Neoprene, nitrile, or butyl rubber gloves. Chemical-resistant clothing. Liquid ammonia causes severe burns and
-          frostbite.
-        eye: Chemical safety goggles, full face shield. Extremely irritating and corrosive to eyes.
-        minimum_level: Level C for known <25 ppm, Level B for >25 ppm or liquefied ammonia
-        special_notes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
-          frostbite. Emergency eyewash/shower within 10 seconds.
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse.
-          May reignite after flame is extinguished.
-        fire_suppression: Stop flow if safe to do so. Do not extinguish flame unless leak can be stopped. Cool cylinders with
-          water spray from safe distance. Use dry chemical, CO2 from maximum distance.
-        spill_procedures: EVACUATE. Ventilate area. SCBA required for liquid releases or >300 ppm. Contain with water spray
-          or fog. Dilute with water. Neutralize with acid (sulfuric, hydrochloric). Dike large liquid spills.
-        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - CRITICAL. Remove
-          contaminated clothing. Wash skin with water. If inhaled: administer oxygen. Seek immediate medical attention - severe
-          irritation likely.'
-        environmental_hazards: Toxic to aquatic life at high concentrations. Rapid volatilization from water. Report releases
-          >100 lbs.
-        special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
-          Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: 50
-        osha_pel_mg_m3: 35
-        niosh_rel_ppm: 25
-        niosh_rel_mg_m3: 18
-        acgih_tlv_ppm: 25
-        acgih_tlv_mg_m3: 17
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 50 ppm
-            stel_15min: null
-            ceiling: null
-          niosh_rel:
-            twa_8hr: 25 ppm
-            stel_15min: 35 ppm
-            ceiling: null
-            idlh: 300 ppm
-          acgih_tlv:
-            twa_8hr: 25 ppm
-            stel_15min: 35 ppm
-            ceiling: null
-          biological_exposure_indices: []
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store cylinders <52°C. Keep away from heat.
-        ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. Ammonia gas detection
-          mandatory.'
-        incompatibilities:
-        - Acids (violent reaction)
-        - Halogens (chlorine, bromine)
-        - Heavy metals
-        - Oxidizers
-        - Mercury
-        - Silver compounds
-        - Calcium hypochlorite
-        container_material: Steel cylinders for compressed gas. Stainless steel for solutions.
-        segregation: Separate from acids by 20 feet or firewall. Separate from oxidizers and halogens. Flammable gas storage.
-        quantity_limits: Per fire code. Refrigeration systems subject to special regulations.
-        special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "FLAMMABLE GAS" and "CORROSIVE"
-          signs. Emergency eyewash/shower within 25 feet. Avoid contact with copper, brass, zinc in piping.
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -266,15 +173,19 @@ relationships:
         rcra_code: null
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When handling ammonia compounds in industrial settings, prioritize ventilation right away. This gas''s sharp
           corrosiveness can irritate eyes and skin on contact, leading to burns that feel like fire if not addressed quickly.
@@ -294,11 +205,12 @@ relationships:
           keeps operations smooth while safeguarding health, turning potential risks into manageable routines.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Ammonia compounds sting the eyes fast. They irritate skin on contact. Inhaling them burns the throat quick.
           Workers feel nausea rising. Headaches hit hard too.
@@ -320,11 +232,12 @@ relationships:
           beats every cure.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handle ammonia compounds with care. Corrosive vapors demand full-face shields. Eyes sting fast without them.
           Respiratory masks seal tight against fumes. Gloves resist chemical soak-through. Cover skin in impermeable suits.
@@ -332,11 +245,12 @@ relationships:
           away from heat.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'Working with ammonia compounds taught me early on to respect their bite—handle them wrong, and you''re in
           for a rough day. If it hits your eyes, the sharp sting demands immediate action: flush them gently but thoroughly
@@ -370,8 +284,11 @@ relationships:
           air: 100 lbs/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -400,8 +317,11 @@ relationships:
         odor_threshold: 5-50 ppm - provides good warning below toxic levels
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -410,6 +330,12 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Breakdown of proteins
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -419,6 +345,12 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -448,16 +380,20 @@ relationships:
           Attacks copper, brass, zinc, aluminum, and alloys.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Ammonia compounds differ sharply from inert gases like nitrogen. They react fiercely with air and moisture.
           This volatility demands sharp detection tools in factories and labs.
@@ -485,11 +421,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: what-protective-equipment-and-methods-should-i-use
         question: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
@@ -512,4 +449,4 @@ relationships:
 subcategory: alkaline_gas
 formula: NH₃
 slug: ammonia-compound
-lastModified: '2026-01-03T16:24:30.390280'
+lastModified: '2026-01-04T13:12:00.707966'

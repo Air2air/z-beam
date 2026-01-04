@@ -1146,6 +1146,8 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
+      meta_description: data.meta_description, // SEO meta description (short)
+      page_description: data.page_description, // Long-form page content
       slug,
       author: data.author,
       datePublished: data.datePublished,

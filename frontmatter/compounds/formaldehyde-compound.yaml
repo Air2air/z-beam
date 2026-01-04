@@ -3,8 +3,8 @@ name: Formaldehyde
 display_name: Formaldehyde (CH₂O)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2026-01-04T00:24:29.230630Z'
-dateModified: '2026-01-04T00:24:29.230630Z'
+datePublished: '2026-01-04T21:11:59.164384Z'
+dateModified: '2026-01-04T21:11:59.164384Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aldehyde/formaldehyde-compound
@@ -105,6 +105,12 @@ relationships:
       items:
       - type: chemical_properties
         id: formaldehyde-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -120,8 +126,11 @@ relationships:
         odor: Pungent, irritating odor @ 0.05-1 ppm (provides warning)
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -141,119 +150,12 @@ relationships:
           pubchem_cid: '712'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Respiratory tract irritation, including coughing, wheezing, and throat burning; high concentrations can cause
-          pulmonary edema
-        severity: high
-        onset: immediate
-      - route: skin_contact
-        effect: Skin irritation, redness, and allergic contact dermatitis
-        severity: moderate
-        onset: short-term
-      - route: eye_contact
-        effect: Severe eye irritation, tearing, burning, and potential corneal damage
-        severity: severe
-        onset: immediate
-      - route: inhalation
-        effect: Increased risk of nasopharyngeal cancer and sinus cancer with chronic exposure
-        severity: severe
-        onset: long-term
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: Full-face NIOSH-approved respirator with organic vapor and formaldehyde cartridges for concentrations
-          <0.75 ppm. SCBA required for >0.75 ppm or unknown concentrations.
-        skin: Nitrile or butyl rubber gloves (breakthrough time >8 hours). Chemical-resistant suit for high exposure or liquid
-          contact.
-        eye: Chemical safety goggles or full-face respirator. Face shield for splash hazard.
-        minimum_level: Level C for <0.75 ppm with engineering controls, Level B for unknown concentrations or emergency response
-        special_notes: IARC Group 1 known human carcinogen (nasopharyngeal cancer, leukemia). Strong sensitizer. Dermal exposure
-          significant. Formaldehyde-specific cartridges required (standard organic vapor inadequate).
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: Solutions >30% flammable. Pure gas flammable with wide explosive range (7-73%). Vapors heavier than air.
-        fire_suppression: Use water spray, dry chemical, CO2, or foam. Water spray to cool containers and dilute vapors. Approach
-          fire from upwind.
-        spill_procedures: Evacuate area. Ventilate. Neutralize with dilute ammonia or sodium bisulfite solution. Contain with
-          vermiculite or activated carbon. Dispose as hazardous waste.
-        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
-          clothing. Wash skin thoroughly. Seek immediate medical attention - potential carcinogen and respiratory toxin. Monitor
-          for delayed pulmonary edema.'
-        environmental_hazards: Toxic to aquatic life. Biodegrades rapidly. Report spills >100 lbs to CERCLA. Prevent entry
-          to waterways.
-        special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1) - nasopharyngeal cancer and leukemia established. Severe respiratory
-          irritant. Strong sensitizer causing occupational asthma. Lachrymator (causes tearing). Polymerizes on standing,
-          especially with impurities.
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: 0.75
-        osha_pel_mg_m3: 0.92
-        niosh_rel_ppm: 0.016
-        niosh_rel_mg_m3: 0.02
-        acgih_tlv_ppm: null
-        acgih_tlv_mg_m3: 0.3
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 0.75 ppm
-            stel_15min: 2 ppm
-            ceiling: null
-          niosh_rel:
-            twa_8hr: 0.016 ppm
-            stel_15min: null
-            ceiling: 0.1 ppm
-            idlh: 20 ppm
-          acgih_tlv:
-            twa_8hr: 0.1 ppm
-            stel_15min: 0.3 ppm
-            ceiling: null
-          biological_exposure_indices:
-          - metabolite: Formic acid
-            specimen: Urine
-            timing: End of shift
-            bei_value: 80 mg/g creatinine
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store below 25°C (77°F). Refrigeration recommended for solutions to prevent polymerization.
-        ventilation: Local exhaust ventilation mandatory. Fume hood for small quantities. Outdoor storage for large quantities.
-        incompatibilities:
-        - Strong oxidizers
-        - Strong acids
-        - Strong bases
-        - Phenols
-        - Aniline
-        - Perchloric acid
-        - Nitromethane
-        container_material: Stainless steel, glass, or polyethylene. NOT copper or copper alloys (catalyzes oxidation).
-        segregation: Separate from oxidizers, acids, and bases. Flammable storage if concentration >30%.
-        quantity_limits: Minimize quantities. OSHA requires <100 gallons or 1,000 lbs inside buildings.
-        special_requirements: Stabilized with methanol (10-15%) to prevent polymerization. Label as carcinogen with appropriate
-          warnings. Post carcinogen work area signs. Secondary containment required. Emergency eyewash and shower within 25
-          feet.
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -277,15 +179,19 @@ relationships:
         rcra_code: U122
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When handling formaldehyde in industrial settings, prioritize ventilation right away. This compound releases
           vapors easily. Poor airflow leads to quick exposure. Inhale it once, and irritation hits your eyes and throat fast.
@@ -312,11 +218,12 @@ relationships:
           with a rinse and air check. That keeps teams safe.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Formaldehyde stands out from milder preservatives—it''s far more reactive, raising serious health flags
           as a known carcinogen. Workers in factories mixing it with resins or foams face higher risks than those handling
@@ -337,11 +244,12 @@ relationships:
           production.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling formaldehyde compounds demands careful preparation in any workspace, starting with assessing exposure
           risks from its volatile nature and carcinogenic potential before selecting gear that shields skin, eyes, and airways
@@ -358,11 +266,12 @@ relationships:
           absorption or inhalation.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'If someone encounters formaldehyde in a spill or mishap, act swiftly to limit harm—start by moving them
           away from the source if it''s safe, ensuring you''re not putting yourself at risk either. For skin contact, where
@@ -398,8 +307,11 @@ relationships:
           air: 100 lbs/day
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -430,8 +342,11 @@ relationships:
         odor_threshold: 0.05-1 ppm - provides early warning but olfactory fatigue occurs. Do not rely on odor alone.
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -452,6 +367,12 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Thermal degradation of certain epoxy formulations
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -461,6 +382,12 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -491,16 +418,20 @@ relationships:
           Reacts with nitrogen dioxide forming explosive nitro compounds.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: Detecting formaldehyde in materials poses real challenges, especially given its sneaky volatility and potential
           health risks as a known carcinogen lurking in industrial settings or everyday products. One straightforward approach
@@ -519,11 +450,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: how-can-i-detect-and-monitor-formaldehyde-exposure
         question: How can I detect and monitor formaldehyde exposure levels while performing laser cleaning on materials that
@@ -545,4 +477,4 @@ relationships:
 subcategory: aldehyde
 formula: CH₂O
 slug: formaldehyde-compound
-lastModified: '2026-01-03T16:24:29.230670'
+lastModified: '2026-01-04T13:11:59.164427'

@@ -3,8 +3,8 @@ name: Carbon Particulates
 display_name: Carbon Particulates
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-04T00:24:30.834505Z'
-dateModified: '2026-01-04T00:24:30.834505Z'
+datePublished: '2026-01-04T21:12:01.185516Z'
+dateModified: '2026-01-04T21:12:01.185516Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/carbon-based/carbon-particulates-compound
@@ -220,31 +220,21 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Wax Coating Buildup
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and coughing
-      severity: moderate
-      onset: immediate
-    - route: inhalation
-      effect: Chronic exposure leading to pneumoconiosis or increased risk of lung cancer
-      severity: high
-      onset: long-term
-    - route: skin_contact
-      effect: Mechanical irritation or dermatitis from prolonged contact
-      severity: low
-      onset: short-term
-    - route: eye_contact
-      effect: Irritation, redness, and possible corneal abrasion
-      severity: moderate
-      onset: immediate
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When handling carbon particulates in industrial settings, the key is understanding how they differ from
           larger dust particles. Those bigger ones settle quickly and rarely cause deep lung issues. Carbon particulates,
@@ -261,11 +251,12 @@ relationships:
           but still promote scarring in tissues. Prioritize air monitoring to keep levels low.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: When dealing with carbon particulates in compound forms, like those blended into rubbers or coatings, I've
           found that starting with proper ventilation setups makes all the difference in keeping airborne dust levels low,
@@ -283,11 +274,12 @@ relationships:
           promptly, cuts down on accidental exposures that sneak up during routine tasks.
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling carbon particulate compounds in workshops or labs starts with assessing the dusty setup—think fine
           black particles that scatter easily during mixing or loading into machines. Respirators become essential right away,
@@ -301,11 +293,12 @@ relationships:
           ensures workers stay safe without constant worry about the material's pervasive, sooty traits.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: "Eyes sting from dust? Flush with water right away.  \nKeep rinsing for several minutes. No rubbing.  \n\
           Skin contact irritates? Wash off gently with soap.  \nPat dry. Watch for redness.  \nBreathe it in? Move to fresh\
@@ -317,11 +310,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Spotting carbon particulates in compounds can trip up even seasoned lab folks, especially when they''re
           mixed into tricky matrices like industrial coatings or exhaust residues. You start by eyeing the basics: visual
@@ -344,11 +338,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-how-do-i-protect-myse
         question: As a laser cleaning operator, how do I protect myself from inhaling fine carbon particulates generated during
@@ -371,4 +366,4 @@ relationships:
 subcategory: carbon-based
 formula: C
 slug: carbon-particulates-compound
-lastModified: '2026-01-03T16:24:30.834539'
+lastModified: '2026-01-04T13:12:01.185546'

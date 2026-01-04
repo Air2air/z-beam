@@ -3,8 +3,8 @@ name: Carbon Ash
 display_name: Carbon Ash
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-04T00:24:30.911585Z'
-dateModified: '2026-01-04T00:24:30.911585Z'
+datePublished: '2026-01-04T21:12:01.270716Z'
+dateModified: '2026-01-04T21:12:01.270716Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/carbon-based/carbon-ash-compound
@@ -174,31 +174,21 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and potential for pneumoconiosis with prolonged exposure to fine carbon dust
-      severity: moderate
-      onset: short-term
-    - route: skin_contact
-      effect: Mechanical irritation or drying of skin leading to dermatitis
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Mechanical irritation causing redness and discomfort
-      severity: low
-      onset: immediate
-    - route: ingestion
-      effect: Generally inert with minimal absorption; possible gastrointestinal discomfort
-      severity: low
-      onset: immediate
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When handling carbon-ash-compound particulates, always prioritize dust control. I''ve seen teams stay safe
           by using enclosed systems. This keeps fine particles from airborne spread. Why does it matter? These compounds cling
@@ -212,11 +202,12 @@ relationships:
           gear, or chronic irritation sneaks up fast.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Handling carbon-ash-compound particulates demands careful attention during industrial tasks, where fine
           dust clouds can linger in the air and settle on surfaces without much warning. Workers often find that enclosing
@@ -244,11 +235,12 @@ relationships:
           breaks invites unnecessary hazards.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling carbon-ash-compound in industrial settings demands solid personal protective equipment to counter
           its fine particulate nature. Dust masks or respirators top the list, shielding lungs from airborne particles that
@@ -261,11 +253,12 @@ relationships:
           proper ventilation setups to minimize exposure overall.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: Handle carbon-ash-compound spills fast. Scoop up loose particles right away. Avoid stirring dust into air.
           Use damp cloths for wiping surfaces. Seal collected material in bags. Dispose as hazardous waste. Wash skin with
@@ -274,11 +267,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Spotting carbon-ash-compound in particulate form demands a hands-on approach, especially when sifting through
           industrial residues where it clings to surfaces like a stubborn haze. Engineers often kick off by gathering samples
@@ -305,11 +299,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-what-are-the-best-pro
         question: 'As a laser cleaning operator, what are the best protection methods to minimize exposure to carbon ash particulates
@@ -331,4 +326,4 @@ relationships:
 subcategory: carbon-based
 formula: C
 slug: carbon-ash-compound
-lastModified: '2026-01-03T16:24:30.911614'
+lastModified: '2026-01-04T13:12:01.270744'

@@ -111,7 +111,6 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   const safetyRelationships = relationships?.safety || {};
   const safetyData = {
     ppe_requirements: safetyRelationships?.ppe_requirements || relationships?.ppe_requirements || (metadata as any)?.ppe_requirements,
-    storage_requirements: safetyRelationships?.storage_requirements || relationships?.storage_requirements || (metadata as any)?.storage_requirements,
     regulatory_classification: safetyRelationships?.regulatory_classification || relationships?.regulatory_classification || (metadata as any)?.regulatory_classification,
     workplace_exposure: safetyRelationships?.workplace_exposure || relationships?.workplace_exposure || (metadata as any)?.workplace_exposure,
     reactivity: safetyRelationships?.reactivity || relationships?.reactivity || (metadata as any)?.reactivity,
@@ -256,7 +255,6 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
     ...[  
       'safety.exposure_limits',
       'safety.ppe_requirements',
-      'safety.storage_requirements',
       'safety.detection_monitoring',
       'safety.emergency_response',
       'safety.environmental_impact',

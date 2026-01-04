@@ -93,6 +93,16 @@ export async function generateItemMetadata(
     // Settings pages have flat structure, materials/contaminants have metadata wrapper
     const articleMeta = config.type === 'settings' ? article : (article.metadata as any);
     
+    // Debug: Check if meta_description exists
+    console.log(`[METADATA] ${itemSlug}:`, {
+      type: config.type,
+      hasMetaDescription: !!articleMeta.meta_description,
+      hasDescription: !!articleMeta.description,
+      hasPageDescription: !!articleMeta.page_description,
+      meta_description: articleMeta.meta_description,
+      description_preview: articleMeta.description?.substring(0, 50)
+    });
+    
     // Extract category and subcategory from full_path (primary source for all domains)
     let articleCategory: string | undefined;
     let articleSubcategory: string | undefined;
@@ -114,18 +124,23 @@ export async function generateItemMetadata(
       // Wrong URL structure - will redirect in page component
       return {
         title: articleMeta.title || articleMeta.name || SITE_CONFIG.shortName,
-        description: articleMeta.description || ''
+        description: articleMeta.meta_description || articleMeta.page_description || ''
       };
     }
     
     const canonicalUrl = `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`;
     
-    // Ensure title and description fields exist for metadata generation 
-    // (settings use 'name' and 'meta_description' fields)
+    // Ensure title and description fields exist for metadata generation across all domains
+    // Prioritize meta_description (SEO-optimized, concise) over description/page_description (full content)
+    // Applies to: materials, contaminants, compounds, settings
+    // Ensure title and description fields exist for metadata generation across all domains
+    // Use meta_description (SEO-optimized, concise) for meta tags, page_description for full content
+    // Applies to: materials, contaminants, compounds, settings
+    // Note: 'description' field is DEPRECATED - do not use
     const metadataWithTitle = {
       ...articleMeta,
       title: articleMeta.title || articleMeta.name,
-      description: articleMeta.description || articleMeta.meta_description,
+      description: articleMeta.meta_description || articleMeta.page_description || '',
       canonical: canonicalUrl
     };
     

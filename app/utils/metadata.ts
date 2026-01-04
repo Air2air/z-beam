@@ -379,5 +379,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     },
   };
   
+  console.log('[METADATA] Final result:', { title: result.title, description: result.description, slug });
+  
   return result;
 }

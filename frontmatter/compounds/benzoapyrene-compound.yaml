@@ -3,8 +3,8 @@ name: Benzo[a]pyrene
 display_name: Benzo[a]pyrene (C₂₀H₁₂)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2026-01-04T00:24:30.637498Z'
-dateModified: '2026-01-04T00:24:30.637498Z'
+datePublished: '2026-01-04T21:12:00.986498Z'
+dateModified: '2026-01-04T21:12:00.986498Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/polycyclic-aromatic-hydrocarbon/benzoapyrene-compound
@@ -108,6 +108,12 @@ relationships:
       items:
       - type: chemical_properties
         id: benzoapyrene-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -123,8 +129,11 @@ relationships:
         odor: Faint aromatic odor
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -141,115 +150,12 @@ relationships:
           pubchem_cid: '2336'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Respiratory tract irritation and increased risk of lung cancer
-        severity: severe
-        onset: long-term
-      - route: skin_contact
-        effect: Skin irritation and increased risk of skin cancer
-        severity: severe
-        onset: long-term
-      - route: eye_contact
-        effect: Eye irritation and conjunctivitis
-        severity: moderate
-        onset: immediate
-      - route: ingestion
-        effect: Gastrointestinal irritation and systemic carcinogenic effects
-        severity: severe
-        onset: long-term
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters for <0.2 mg/m³. SCBA for unknown
-          concentrations or emergency response.
-        skin: Nitrile or butyl rubber gloves, chemical-resistant clothing. PAHs absorb through skin - double gloving recommended
-          for prolonged exposure.
-        eye: Chemical safety goggles, face shield for dusty operations
-        minimum_level: Level C for known concentrations <0.2 mg/m³, Level B for unknown or >0.2 mg/m³
-        special_notes: PAH is carcinogenic - minimize skin contact. Decontaminate immediately after exposure. Disposable protective
-          clothing recommended for heavy contamination.
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: Combustible solid. May burn in sustained fire. Produces carcinogenic PAH compounds in smoke.
-        fire_suppression: Dry chemical, CO2, water spray, foam. Wear SCBA - toxic combustion products. Contain runoff.
-        spill_procedures: Avoid generating dust. Sweep/vacuum with HEPA filter. Place in sealed containers. DO NOT wash down
-          drains - PAH contamination persists. Dispose as hazardous waste.
-        exposure_immediate_actions: Remove contaminated clothing immediately. Wash skin thoroughly with soap and water. Do
-          not use solvents on skin. If inhaled, move to fresh air. Seek medical attention - inform physician of carcinogen
-          exposure.
-        environmental_hazards: Very toxic to aquatic life. Persists in environment (soil/sediment for years). Bioaccumulates
-          in food chain. Report spills >1 lb.
-        special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, skin cancer, leukemia. Mutagenic and teratogenic.
-          PAH exposure linked to multiple cancers. Contaminated soil requires remediation.
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: null
-        osha_pel_mg_m3: null
-        niosh_rel_ppm: null
-        niosh_rel_mg_m3: null
-        acgih_tlv_ppm: null
-        acgih_tlv_mg_m3: null
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: null
-          niosh_rel:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: null
-            idlh: 80 mg/m³ (as coal tar pitch volatiles)
-          acgih_tlv:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: null
-          biological_exposure_indices:
-          - metabolite: 1-Hydroxypyrene
-            specimen: Urine
-            timing: End of shift
-            bei_value: <0.5 µg/L (non-occupationally exposed), <2.0 µg/L (occupationally exposed)
-          - metabolite: PAH metabolites
-            specimen: Urine
-            timing: End of week
-            bei_value: Establish baseline, monitor trends
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store at room temperature, avoid excessive heat >30°C
-        ventilation: Local exhaust ventilation to control dust. Store in well-ventilated area.
-        incompatibilities:
-        - Strong oxidizers
-        - Strong acids
-        - Halogens
-        container_material: Tightly sealed glass or plastic containers. Store away from light.
-        segregation: Separate from oxidizers and incompatibles. Designated carcinogen storage area.
-        quantity_limits: Minimize quantities. Follow institutional carcinogen storage protocols.
-        special_requirements: Post "CANCER HAZARD" signs. Restrict access to authorized trained personnel only. Secondary
-          containment required. Inspect containers regularly for integrity.
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -272,15 +178,19 @@ relationships:
         rcra_code: U022
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When dealing with benzoapyrene compounds in laser cleaning setups, prioritize full protective gear right
           away. This stuff lingers in the air and on surfaces, posing serious long-term risks to lungs and skin. We''ve learned
@@ -301,11 +211,12 @@ relationships:
           respect for its sticky, hazardous nature versus cleaner pollutants.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Handling benzo[a]pyrene in industrial settings demands careful attention because its carcinogenic nature
           poses serious health risks through skin contact, inhalation, or ingestion, so workers must prioritize protective
@@ -327,11 +238,12 @@ relationships:
           that even minimal contact stays far below hazardous thresholds through layered defenses rather than relying on chance.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling benzo[a]pyrene demands far stricter safeguards than dealing with everyday industrial compounds,
           since its carcinogenic nature turns routine exposure risks into long-term health threats that linger invisibly over
@@ -347,11 +259,12 @@ relationships:
           safer amid the compound's stealthy dangers.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'If someone gets exposed to benzo[a]pyrene, that nasty carcinogen lurking in things like coal tar or grilled
           meats, act fast but stay calm to avoid spreading it around. Start by getting the person away from the source—whether
@@ -391,8 +304,11 @@ relationships:
           air: 1 lb/day - reportable to EPA (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -420,8 +336,11 @@ relationships:
         odor_threshold: Not applicable - no characteristic warning odor at hazardous levels
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -446,6 +365,12 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Formed during high-temperature pyrolysis
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -468,16 +393,20 @@ relationships:
         reactivity_hazard: May react with strong oxidizers. Generally stable but avoid high heat.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Spotting traces of benzo[a]pyrene in materials demands clever tricks. Labs often turn to fluorescence techniques
           first, where the compound lights up under specific wavelengths, revealing its presence like a hidden glow in polluted
@@ -504,11 +433,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: what-personal-protective-equipment-(ppe)-is-essent
         question: What personal protective equipment (PPE) is essential for operators during laser cleaning to minimize Benzo[a]pyrene
@@ -530,4 +460,4 @@ relationships:
 subcategory: polycyclic_aromatic_hydrocarbon
 formula: C₂₀H₁₂
 slug: benzoapyrene-compound
-lastModified: '2026-01-03T16:24:30.637553'
+lastModified: '2026-01-04T13:12:00.986531'

@@ -187,7 +187,8 @@ export interface ArticleMetadata {
   title: string;
   /** @deprecated Use page_description instead */
   description?: string;  // Deprecated - use page_description
-  page_description?: string;  // Preferred field name
+  page_description?: string;  // Preferred field name (long-form content)
+  meta_description?: string;  // SEO meta description (short, concise for <meta> tags)
   contamination_description?: string;  // Added for contaminants
   // Note: All content types (materials, settings, etc.) should use page_description
   slug: string;

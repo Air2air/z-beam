@@ -3,8 +3,8 @@ name: Hydrogen Chloride
 display_name: Hydrogen Chloride (HCl)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2026-01-04T00:24:29.699799Z'
-dateModified: '2026-01-04T00:24:29.699799Z'
+datePublished: '2026-01-04T21:11:59.807871Z'
+dateModified: '2026-01-04T21:11:59.807871Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
@@ -106,6 +106,12 @@ relationships:
       items:
       - type: chemical_properties
         id: hydrogen-chloride-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -121,8 +127,11 @@ relationships:
         odor: Pungent, irritating odor @ 0.8-5 ppm
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -138,111 +147,12 @@ relationships:
           pubchem_cid: '313'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Severe irritation of respiratory tract, coughing, choking, and potential pulmonary edema
-        severity: severe
-        onset: immediate
-      - route: skin_contact
-        effect: Chemical burns and severe irritation leading to tissue damage
-        severity: severe
-        onset: immediate
-      - route: eye_contact
-        effect: Intense pain, lacrimation, and corneal burns with risk of permanent vision impairment
-        severity: severe
-        onset: immediate
-      - route: ingestion
-        effect: Burns to mouth, esophagus, and stomach with risk of perforation and systemic toxicity
-        severity: severe
-        onset: immediate
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations. Air-purifying with acid gas cartridge
-          acceptable for ≤5 ppm with escape provisions.
-        skin: Neoprene or butyl rubber gloves, chemical-resistant suit. HCl is highly corrosive to skin.
-        eye: Chemical safety goggles, full face shield mandatory. Extremely corrosive to eyes.
-        minimum_level: Level C for known <5 ppm, Level B for >5 ppm or liquid HCl
-        special_notes: Extremely corrosive. Causes severe burns on contact. Fumes in moist air. Emergency eyewash/shower within
-          10 seconds mandatory. Liquid causes frostbite (cryogenic).
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: Non-flammable. Cylinders may explode when heated. Corrosive decomposition products.
-        fire_suppression: Do not use water directly on HCl gas - forms corrosive hydrochloric acid mist. Cool cylinders with
-          water spray from safe distance.
-        spill_procedures: EVACUATE. Ventilate area. SCBA required for >5 ppm. Neutralize with soda ash, lime, or sodium bicarbonate.
-          Contain with dry sand or earth. Decontaminate equipment.
-        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - GET MEDICAL
-          HELP IMMEDIATELY. Skin: remove contaminated clothing, flush with water for 15 minutes. If inhaled: administer oxygen.
-          Seek immediate medical attention - corrosive injury.'
-        environmental_hazards: Toxic to aquatic life. Forms hydrochloric acid in water. Report releases >5000 lbs.
-        special_hazards: Extremely corrosive to all tissues. Forms dense white corrosive mist in moist air. Reacts with metals
-          producing flammable hydrogen gas. Causes severe burns, permanent eye damage, respiratory tract damage.
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: null
-        osha_pel_mg_m3: 7
-        niosh_rel_ppm: 5
-        niosh_rel_mg_m3: 7
-        acgih_tlv_ppm: null
-        acgih_tlv_mg_m3: 2
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: 5 ppm
-          niosh_rel:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: 5 ppm
-            idlh: 50 ppm
-          acgih_tlv:
-            twa_8hr: 2 ppm
-            stel_15min: 5 ppm
-            ceiling: null
-          biological_exposure_indices: []
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store cylinders <52°C. Keep away from heat.
-        ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with acid-resistant ductwork. HCl gas detection
-          required.'
-        incompatibilities:
-        - Metals (generates hydrogen)
-        - Bases
-        - Oxidizers
-        - Alcohols
-        - Amines
-        - Aldehydes
-        - Metal carbides
-        container_material: Steel cylinders for compressed gas. Glass, PVC, PVDF, or PTFE for liquid.
-        segregation: Separate from bases, oxidizers, and metals. Corrosive storage area.
-        quantity_limits: Per fire code. Minimize indoor storage of cylinders.
-        special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "CORROSIVE GAS" signs. Emergency
-          eyewash/shower within 25 feet. Store in cool, dry area. Protect from physical damage.
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -264,15 +174,19 @@ relationships:
         rcra_code: null
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: When working with hydrogen chloride compared to milder acids like acetic, the real kicker hits your respiratory
           system fast. It irritates eyes and skin right away, unlike those weaker ones that might just sting a bit. Lungs
@@ -283,11 +197,12 @@ relationships:
           sneaky diffusion means one whiff too many, and you're out for days with inflamed airways.
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Handling hydrogen chloride demands caution unlike milder gases—its sharp reactivity sets it apart, turning
           routine exposure into serious health risks if mishandled. This corrosive substance irritates skin on contact, causing
@@ -312,11 +227,12 @@ relationships:
           Proper training turns potential hazards into manageable routines.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling hydrogen chloride demands serious gear to counter its biting fumes and potential for skin burns.
           Start with a full-face respirator fitted with cartridges that trap acidic vapors, keeping lungs clear during exposure
@@ -330,11 +246,12 @@ relationships:
           on personal barriers that hold up under steady use.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'Flush skin right away. Use plenty of water. Remove soaked clothes fast. Keep rinsing for a good while. Get
           medical help without delay.
@@ -368,8 +285,11 @@ relationships:
           air: 5000 lbs/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -397,8 +317,11 @@ relationships:
         odor_threshold: 0.8-5 ppm - provides adequate warning but close to toxic levels
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -411,6 +334,12 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Chlorinated adhesive breakdown
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -420,6 +349,12 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -445,16 +380,20 @@ relationships:
           Forms corrosive mist in humid air.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: Spotting hydrogen chloride in the air stands out from chasing down inert gases, where subtlety rules; this
           corrosive stuff demands quick, robust alerts because it bites into metals and irritates skin fast, pushing industries
@@ -472,11 +411,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: how-can-i-detect-and-monitor-hcl-gas-exposure-duri
         question: How can I detect and monitor HCl gas exposure during laser cleaning to stay within safe limits?
@@ -499,4 +439,4 @@ relationships:
 subcategory: acid_gas
 formula: HCl
 slug: hydrogen-chloride-compound
-lastModified: '2026-01-03T16:24:29.699827'
+lastModified: '2026-01-04T13:11:59.807901'

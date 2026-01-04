@@ -3,8 +3,8 @@ name: Polycyclic Aromatic Hydrocarbons
 display_name: PAHs
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2026-01-04T00:24:29.393513Z'
-dateModified: '2026-01-04T00:24:29.393513Z'
+datePublished: '2026-01-04T21:11:59.456698Z'
+dateModified: '2026-01-04T21:11:59.456698Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/carcinogen/aromatic-hydrocarbon/pahs-compound
@@ -108,61 +108,21 @@ relationships:
       items:
       - type: chemical_properties
         id: pahs-physical-data
-  safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Respiratory tract irritation and increased risk of lung cancer
-        severity: high
-        onset: long-term
-      - route: skin_contact
-        effect: Skin irritation, dermatitis, and potential for skin cancer
-        severity: moderate
-        onset: short-term
-      - route: eye_contact
-        effect: Eye irritation and conjunctivitis
-        severity: low
-        onset: immediate
-      - route: ingestion
-        effect: Gastrointestinal upset and systemic toxicity leading to cancer risk
-        severity: high
-        onset: long-term
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - type: ppe_requirements
-        id: particulate-carcinogen
-        overrides:
-          specific_compound: Polycyclic Aromatic Hydrocarbons
-          pel_ppm: null
-    emergency_response:
-      presentation: descriptive
-      items:
-      - type: emergency_response
-        id: flammable-gas-extremely
-        overrides:
-          specific_compound: Polycyclic Aromatic Hydrocarbons
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: null
-        osha_pel_mg_m3: 0.2
-        niosh_rel_ppm: null
-        niosh_rel_mg_m3: 0.1
-        acgih_tlv_ppm: null
-        acgih_tlv_mg_m3: 0.2
       _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+  safety:
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When working with PAHs in industrial settings, prioritize ventilation right away to minimize inhalation
           risks. These compounds tend to release vapors during processing, and that exposure can lead to serious long-term
@@ -179,11 +139,12 @@ relationships:
           use.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: While many industrial compounds offer straightforward handling routines, PAHs stand out due to their persistent
           nature in environments and strong links to health risks like cancer, demanding stricter precautions that set them
@@ -201,11 +162,12 @@ relationships:
           into managed elements of production.
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling PAHs demands solid PPE setup, especially since these compounds stick around in materials like coatings
           or residues from industrial processes. Gloves made of nitrile or neoprene keep hands safe from skin contact, as
@@ -219,11 +181,12 @@ relationships:
           gear; it absorbs too readily and turns into a hazard itself.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: "If someone encounters polycyclic aromatic hydrocarbons through skin contact, rinse the affected area thoroughly\
           \ under running water using mild soap right away. Pat dry gently afterward to avoid irritation. \n\nFor eye exposure,\
@@ -241,12 +204,24 @@ relationships:
       items:
       - type: environmental_impact
         id: pahs-environmental-data
+      _section:
+        title: Environmental Impact
+        description: Environmental hazards, ecological effects, and disposal considerations
+        icon: leaf
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
       items:
       - type: detection_monitoring
         id: pahs-monitoring-methods
+      _section:
+        title: Monitoring Systems
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -283,14 +258,21 @@ relationships:
         frequency: unknown
         severity: high
         typical_context: Laser removal of Exhaust System Deposits
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'PAHs stand out for their stubborn grip on surfaces, making detection a puzzle in polluted environments.
           Spotting these compounds often relies on how they glow under certain lights, a trait that fluorescence techniques
@@ -322,11 +304,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-how-can-i-best-protec
         question: As a laser cleaning operator, how can I best protect myself from PAH exposure during the process?
@@ -348,4 +331,4 @@ relationships:
 subcategory: aromatic_hydrocarbon
 formula: Various
 slug: pahs-compound
-lastModified: '2026-01-03T16:24:29.393594'
+lastModified: '2026-01-04T13:11:59.456758'

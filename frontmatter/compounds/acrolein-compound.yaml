@@ -3,8 +3,8 @@ name: Acrolein
 display_name: Acrolein (C₃H₄O)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2026-01-04T00:24:29.621419Z'
-dateModified: '2026-01-04T00:24:29.621419Z'
+datePublished: '2026-01-04T21:11:59.724345Z'
+dateModified: '2026-01-04T21:11:59.724345Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/aldehyde/acrolein-compound
@@ -105,6 +105,12 @@ relationships:
       items:
       - type: chemical_properties
         id: acrolein-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -120,8 +126,11 @@ relationships:
         odor: Pungent, acrid, disagreeable odor - IMMEDIATE WARNING at 0.1 ppm
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -140,117 +149,12 @@ relationships:
           pubchem_cid: '7847'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Severe irritation of the respiratory tract, including coughing, shortness of breath, and potential pulmonary
-          edema at high concentrations
-        severity: severe
-        onset: immediate
-      - route: skin_contact
-        effect: Severe skin irritation, burns, and blistering upon direct contact
-        severity: severe
-        onset: immediate
-      - route: eye_contact
-        effect: Intense eye irritation, lacrimation, pain, and possible corneal damage or permanent vision impairment
-        severity: severe
-        onset: immediate
-      - route: ingestion
-        effect: Gastrointestinal irritation, nausea, vomiting, and abdominal pain
-        severity: high
-        onset: immediate
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: Full-face pressure-demand SCBA or supplied-air respirator for >0.1 ppm. Air-purifying respirator with
-          organic vapor cartridge acceptable for ≤0.1 ppm with escape provisions.
-        skin: Nitrile or butyl rubber gloves, chemical-resistant suit. Acrolein causes severe skin burns - minimize exposure.
-        eye: Chemical safety goggles, full face shield. Extremely irritating to eyes.
-        minimum_level: Level B minimum for any concentration >0.1 ppm or unknown concentrations
-        special_notes: EXTREMELY IRRITATING at sub-ppm levels. Eye and respiratory irritation immediate. Lachrymator (tear
-          gas properties). Self-rescue respirators may be inadequate - use supplied air.
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May
-          polymerize in fire, releasing toxic gases.
-        fire_suppression: EVACUATE - extremely toxic fumes. Use unmanned equipment. Dry chemical, CO2, alcohol-resistant foam.
-          Water spray to cool containers from safe distance. Do not use water directly on liquid.
-        spill_procedures: EVACUATE IMMEDIATELY. Extremely hazardous. SCBA MANDATORY. Eliminate ignition sources. Ventilate
-          area. Contain with sand/earth. Neutralize with sodium bisulfite solution. Absorb with inert material. Dispose as
-          hazardous waste.
-        exposure_immediate_actions: Remove to fresh air immediately. Severe eye/respiratory irritation likely. Flush eyes
-          with water for 15+ minutes. Remove contaminated clothing. Wash skin thoroughly. Seek medical attention immediately
-          - potential for delayed pulmonary edema.
-        environmental_hazards: Toxic to aquatic life. Volatilizes rapidly from water. Report spills >1 lb. Keep out of waterways.
-        special_hazards: EXTREMELY TOXIC AND IRRITATING. Lachrymator - causes immediate tearing. Severe respiratory irritant
-          - can cause pulmonary edema (delayed 24-48 hours). Polymerizes violently when contaminated. Suspected carcinogen.
-          Fire produces deadly acrolein and formaldehyde.
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: 0.1
-        osha_pel_mg_m3: 0.25
-        niosh_rel_ppm: 0.1
-        niosh_rel_mg_m3: 0.25
-        acgih_tlv_ppm: 0.1
-        acgih_tlv_mg_m3: 0.23
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: null
-            stel_15min: null
-            ceiling: 0.1 ppm
-          niosh_rel:
-            twa_8hr: 0.02 ppm
-            stel_15min: null
-            ceiling: 0.1 ppm
-            idlh: 2 ppm
-          acgih_tlv:
-            twa_8hr: 0.025 ppm
-            stel_15min: null
-            ceiling: null
-          biological_exposure_indices: []
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store below 25°C, refrigerate if possible. Keep away from heat.
-        ventilation: 'Outdoor storage preferred. Indoor: explosion-proof ventilation with emergency backup. Gas detection
-          mandatory.'
-        incompatibilities:
-        - Oxidizers
-        - Acids
-        - Bases
-        - Ammonia
-        - Amines
-        - Sulfur dioxide
-        - Metal salts
-        - Light (polymerization catalyst)
-        container_material: Stainless steel or glass with PTFE seals. Stabilized with hydroquinone. Never use copper or brass.
-        segregation: Isolate from all other chemicals. Separate from oxidizers by 20 feet. Flammable storage cabinet.
-        quantity_limits: Minimize on-site quantities. Many facilities limit to <10 gallons.
-        special_requirements: 'CRITICAL: Store with stabilizer (hydroquinone 0.1-0.25%). Check stabilizer regularly. Gas detection
-          system MANDATORY. Keep refrigerated. Store away from light. Emergency eyewash/shower within 10 seconds. Post "EXTREMELY
-          FLAMMABLE" and "POISON" signs.'
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -274,15 +178,19 @@ relationships:
         rcra_code: P003
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When handling acrolein in industrial settings, I''ve found that protecting your respiratory system comes
           first every time. This stuff irritates the eyes, nose, and throat almost immediately upon exposure, leading to burning
@@ -302,11 +210,12 @@ relationships:
           shift with a thorough decontamination routine to stay safe long-term.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Handling acrolein demands caution. This toxic gas irritates eyes, skin, and lungs fast. Inhalation risks
           severe harm.
@@ -330,11 +239,12 @@ relationships:
           Long-term exposure builds up danger. Rotate shifts to reduce contact. Medical checks spot issues soon.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: 'Handle acrolein with extreme caution. It''s a nasty toxic gas that irritates skin, eyes, and lungs fast.
           Always suit up properly before exposure.
@@ -361,11 +271,12 @@ relationships:
           mistakes.'
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'If someone encounters acrolein gas, the immediate priority shifts to getting them away from the source without
           delay. Picture this: you spot signs of irritation or breathing trouble—eyes watering fiercely, throat burning like
@@ -406,8 +317,11 @@ relationships:
           air: 1 lb/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -435,8 +349,11 @@ relationships:
         odor_threshold: 0.16-1.0 ppm - provides warning BUT overlaps toxic range. DO NOT rely on odor alone.
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -457,6 +374,12 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Pyrolysis of certain polymers
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -466,6 +389,12 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -502,16 +431,20 @@ relationships:
           Corrosive. May explode in fire.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: "Detecting acrolein in industrial settings poses real challenges because of its sharp, irritating odor and\
           \ tendency to linger in the air as a colorless, volatile gas. Workers handling materials like polymers or fumigants\
@@ -529,11 +462,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-what-personal-protect
         question: As a laser cleaning operator, what personal protective equipment (PPE) should I use to protect against acrolein
@@ -556,4 +490,4 @@ relationships:
 subcategory: aldehyde
 formula: C₃H₄O
 slug: acrolein-compound
-lastModified: '2026-01-03T16:24:29.621447'
+lastModified: '2026-01-04T13:11:59.724374'

@@ -3,8 +3,8 @@ name: Nanoparticulates
 display_name: Nanoparticulates
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-04T00:24:31.068875Z'
-dateModified: '2026-01-04T00:24:31.068875Z'
+datePublished: '2026-01-04T21:12:01.435851Z'
+dateModified: '2026-01-04T21:12:01.435851Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/nanomaterial/nanoparticulates-compound
@@ -131,35 +131,21 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Thermal Compound Deposits
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Pulmonary inflammation and oxidative stress leading to respiratory distress
-      severity: moderate
-      onset: short-term
-    - route: skin_contact
-      effect: Skin irritation and potential dermal penetration causing localized inflammation
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Ocular irritation and conjunctivitis
-      severity: moderate
-      onset: immediate
-    - route: inhalation
-      effect: Potential for systemic translocation and cardiovascular effects
-      severity: high
-      onset: long-term
-    - route: skin_contact
-      effect: Allergic dermatitis in sensitive individuals
-      severity: moderate
-      onset: short-term
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: When handling nanoparticulates in the lab, I've noticed they can sneak into your system more easily than
           larger particles because of their tiny size. That means they penetrate deep into lungs or even cross into the bloodstream,
@@ -169,11 +155,12 @@ relationships:
           end up with nagging respiratory issues from repeated mishandling.
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Handling nanoparticulates in compound forms demands careful attention because these tiny particles can easily
           become airborne during mixing or processing, potentially leading to unintended inhalation if workspaces lack proper
@@ -199,11 +186,12 @@ relationships:
           the unique dispersal tendencies of nanoparticulates effectively.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: "Dealing with nanoparticulate compounds in industrial settings often brings up tricky safety hurdles because\
           \ these tiny particles can easily drift into the air or cling to surfaces, raising risks of inhalation or skin contact\
@@ -224,11 +212,12 @@ relationships:
           \ to the job's intensity, from routine compounding to precise laser work, so productivity hums along smoothly."
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'Handling nanoparticulates in compounds demands quick action if exposure hits. Dust clouds from these fine
           particles can irritate skin or eyes fast. Why? They cling stubbornly, triggering inflammation deep in tissues. Solution
@@ -255,11 +244,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: "Spotting nanoparticulates in compounds poses a real headache. These tiny bits hide easily within bulk materials.\
           \ Traditional checks often miss them entirely. So, experts turn to clever imaging tricks. High-powered microscopes\
@@ -272,11 +262,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: how-can-i-effectively-protect-myself-from-nanopart
         question: How can I effectively protect myself from nanoparticulate exposure while operating laser cleaning equipment
@@ -299,4 +290,4 @@ relationships:
 subcategory: nanomaterial
 formula: Various
 slug: nanoparticulates-compound
-lastModified: '2026-01-03T16:24:31.068909'
+lastModified: '2026-01-04T13:12:01.435880'

@@ -3,8 +3,8 @@ name: Toluene
 display_name: Toluene (C₇H₈)
 category: solvent
 hazard_class: toxic
-datePublished: '2026-01-04T00:24:29.774304Z'
-dateModified: '2026-01-04T00:24:29.774304Z'
+datePublished: '2026-01-04T21:11:59.892828Z'
+dateModified: '2026-01-04T21:11:59.892828Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/solvent/aromatic-hydrocarbon/toluene-compound
@@ -104,6 +104,12 @@ relationships:
       items:
       - type: chemical_properties
         id: toluene-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -119,8 +125,11 @@ relationships:
         odor: Sweet, pungent, benzene-like odor @ 0.16-40 ppm
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -136,121 +145,12 @@ relationships:
           pubchem_cid: '1140'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Central nervous system depression including dizziness, headache, and confusion
-        severity: high
-        onset: immediate
-      - route: inhalation
-        effect: Neurotoxicity and cognitive impairment
-        severity: severe
-        onset: long-term
-      - route: skin_contact
-        effect: Skin irritation and dermatitis due to defatting
-        severity: moderate
-        onset: short-term
-      - route: eye_contact
-        effect: Irritation, redness, and tearing
-        severity: moderate
-        onset: immediate
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: Organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
-        skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing. Toluene absorbs through skin.
-        eye: Chemical safety goggles, face shield for splash hazard.
-        minimum_level: Level C for <50 ppm, Level B for >50 ppm
-        special_notes: CNS depressant and neurotoxin. Abuse potential (inhalant). Skin absorption significant. Reproductive
-          toxin. Embryo/fetal toxicity concern.
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: Flammable liquid. Vapors heavier than air. May travel to ignition sources. Flash point very low.
-        fire_suppression: Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers.
-          Do not use water jet on liquid.
-        spill_procedures: Eliminate ignition sources. Ventilate area. Contain with sand or vermiculite. Absorb with activated
-          carbon. Dispose as hazardous waste.
-        exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water for 15 minutes. Remove contaminated clothing
-          immediately. Wash skin thoroughly. Seek medical attention - neurotoxin and reproductive toxin exposure. Monitor
-          for CNS depression.'
-        environmental_hazards: Toxic to aquatic life. Bioaccumulates moderately. Contaminates groundwater. Report spills >1000
-          lbs.
-        special_hazards: NEUROTOXIN - causes CNS depression, peripheral neuropathy, cognitive impairment. REPRODUCTIVE TOXIN
-          - embryo/fetal toxicity. Abuse potential (intentional inhalation). Chronic exposure causes hearing loss, vision
-          problems. Metabolized to benzyl alcohol and benzoic acid.
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: 200
-        osha_pel_mg_m3: 754
-        niosh_rel_ppm: 100
-        niosh_rel_mg_m3: 375
-        acgih_tlv_ppm: 20
-        acgih_tlv_mg_m3: 75
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 200 ppm
-            stel_15min: null
-            ceiling: 300 ppm
-          niosh_rel:
-            twa_8hr: 100 ppm
-            stel_15min: 150 ppm
-            ceiling: null
-            idlh: 500 ppm
-          acgih_tlv:
-            twa_8hr: 20 ppm
-            stel_15min: null
-            ceiling: null
-          biological_exposure_indices:
-          - metabolite: o-Cresol
-            specimen: Urine
-            timing: End of shift
-            bei_value: 0.5 mg/L
-          - metabolite: Toluene
-            specimen: Blood
-            timing: Prior to last shift of work week
-            bei_value: 0.02 mg/L
-          - metabolite: Toluene
-            specimen: Blood
-            timing: End of shift
-            bei_value: 0.05 mg/L
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store below 25°C. Keep away from heat.
-        ventilation: Local exhaust ventilation. Mechanical ventilation for large quantities.
-        incompatibilities:
-        - Strong oxidizers
-        - Nitric acid
-        - Sulfuric acid
-        - Chromic acid
-        - Halogens
-        container_material: Stainless steel or aluminum. Attacks some plastics and rubber.
-        segregation: Separate from oxidizers by 20 feet. Flammable liquid storage cabinet.
-        quantity_limits: Follow NFPA 30. Minimize quantities in work areas.
-        special_requirements: Post "FLAMMABLE LIQUID" signs. Secondary containment. Bonding and grounding for transfers. Emergency
-          eyewash/shower within 25 feet.
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -274,15 +174,19 @@ relationships:
         rcra_code: U220
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: When handling toluene in industrial settings, you'll want to keep a close eye on how it differs from milder
           solvents like acetone, which mostly just dries out the skin without much deeper impact. Toluene, being more aggressive
@@ -297,11 +201,12 @@ relationships:
           overexposure can leave lasting coordination issues if not addressed promptly.
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Handling toluene in industrial settings demands careful attention to its volatile nature as a solvent, especially
           when you''re mixing it into paints or adhesives where vapors can build up quickly. What works best is establishing
@@ -330,11 +235,12 @@ relationships:
           these habits pay off by fostering a safer environment across applications.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Handling toluene demands careful protection because its vapors can irritate skin and lungs while the liquid
           itself absorbs through barriers if not shielded properly. Workers often reach for chemical-resistant gloves made
@@ -350,11 +256,12 @@ relationships:
           safe interaction with toluene's versatile yet hazardous nature in everyday industrial applications.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: Fresh air hits the scene fast if someone's breathed in toluene vapors—get them outside or to a well-ventilated
           spot right away, and keep them comfortable while watching for dizziness or confusion. Skin contact demands quick
@@ -381,8 +288,11 @@ relationships:
           air: 1000 lbs/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -410,8 +320,11 @@ relationships:
         odor_threshold: 0.16-40 ppm - provides early warning but wide range. Olfactory adaptation occurs.
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -432,6 +345,12 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Thermal breakdown of aromatic rubber compounds
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -441,6 +360,12 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -469,16 +394,20 @@ relationships:
           some plastics, rubber, and coatings.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Toluene stands out from heavier solvents like xylene—it''s lighter, more volatile, which makes spotting
           it in air a quicker chase during spills. That edge shifts cleanup strategies entirely, demanding fast tools over
@@ -518,11 +447,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-using-toluene-to-degr
         question: As a laser cleaning operator using toluene to degrease surfaces before lasering, what are the key exposure
@@ -546,4 +476,4 @@ relationships:
 subcategory: aromatic_hydrocarbon
 formula: C₇H₈
 slug: toluene-compound
-lastModified: '2026-01-03T16:24:29.774334'
+lastModified: '2026-01-04T13:11:59.892857'

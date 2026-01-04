@@ -3,8 +3,8 @@ name: Metal Vapors (Mixed)
 display_name: Metal Vapors (Mixed)
 category: vapor
 hazard_class: irritant
-datePublished: '2026-01-04T00:24:31.739910Z'
-dateModified: '2026-01-04T00:24:31.739910Z'
+datePublished: '2026-01-04T21:12:02.279999Z'
+dateModified: '2026-01-04T21:12:02.279999Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/vapor/metal/metal-vapors-mixed-compound
@@ -135,35 +135,21 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of PVD Coating Defects
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Respiratory irritation and metal fume fever (flu-like symptoms including fever, chills, and cough)
-      severity: moderate
-      onset: short-term
-    - route: inhalation
-      effect: Chronic pulmonary damage or fibrosis from heavy metal accumulation
-      severity: high
-      onset: long-term
-    - route: skin_contact
-      effect: Dermatitis or chemical burns from direct contact with condensed metal particles
-      severity: moderate
-      onset: immediate
-    - route: eye_contact
-      effect: Conjunctivitis and corneal irritation leading to redness and tearing
-      severity: moderate
-      onset: immediate
-    - route: inhalation
-      effect: Systemic toxicity including neurological effects (e.g., tremors from mercury-like vapors)
-      severity: severe
-      onset: long-term
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: When handling metal-vapors-mixed-compound in industrial settings, you'll want to prioritize ventilation right
           from the start, as these vapors can spread quickly through confined spaces during processes like welding or evaporation
@@ -183,11 +169,12 @@ relationships:
           or eye irritation if overlooked.
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: Metal vapors in mixed compounds differ sharply from stable solids—they drift and blend fast, heightening
           risks in tight spaces. Inhale them sparingly; they irritate lungs quick. Use masks that seal tight for any handling.
@@ -197,11 +184,12 @@ relationships:
           exposure low and safe.
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: 'Handling metal-vapors-mixed-compound in industrial setups demands careful gear choices, especially when
           vapors linger in the air during processing. Workers often start by suiting up with full-body coverings that shield
@@ -226,11 +214,12 @@ relationships:
           stray sparks could turn routine jobs risky if protection falters.'
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'Exposure hits fast in tight spaces. Vapors from metal-mixed compounds irritate lungs and skin right away.
           Workers in laser cleaning ops face this risk during high-heat tasks.
@@ -253,11 +242,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Metal vapors mixed into compounds differ sharply from plain gases. They cling tighter in air. This makes
           spotting them trickier. Yet, simple tools catch their faint glow under light.
@@ -284,11 +274,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: what-are-the-best-protection-methods-against-mixed
         question: What are the best protection methods against mixed metal vapor exposure during laser cleaning operations?
@@ -310,4 +301,4 @@ relationships:
 subcategory: metal
 formula: Various
 slug: metal-vapors-mixed-compound
-lastModified: '2026-01-03T16:24:31.739940'
+lastModified: '2026-01-04T13:12:02.280032'

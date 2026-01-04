@@ -3,8 +3,8 @@ name: Aluminum Oxide
 display_name: Aluminum Oxide (Al₂O₃)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-04T00:24:31.234710Z'
-dateModified: '2026-01-04T00:24:31.234710Z'
+datePublished: '2026-01-04T21:12:01.605887Z'
+dateModified: '2026-01-04T21:12:01.605887Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/aluminum-oxide-compound
@@ -115,6 +115,12 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Anodizing Layer Irregularities
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -123,31 +129,21 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: brass-laser-cleaning
       - id: bronze-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation, coughing, and potential for chronic lung damage (aluminosis) with prolonged exposure
-      severity: moderate
-      onset: short-term
-    - route: skin_contact
-      effect: Mechanical irritation leading to dryness, cracking, or dermatitis
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Irritation, redness, and possible corneal abrasion
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Gastrointestinal irritation with nausea or vomiting in large amounts
-      severity: low
-      onset: short-term
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: When working with aluminum-oxide compounds in particulate form, prioritize respiratory protection right from
           the start, as these fine particles can linger in the air and irritate lung tissues over prolonged exposure. The
@@ -162,11 +158,12 @@ relationships:
           teams stay productive while avoiding the buildup of fibrotic responses in sensitive workers over time.
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: "Handling aluminum oxide particulates demands caution. Dust clouds up fast during grinding or polishing.\
           \ Wear eye protection to shield from irritants. Gloves keep skin irritation at bay—it's abrasive stuff. \n\nVentilate\
@@ -178,11 +175,12 @@ relationships:
           \ up."
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: 'Handling aluminum oxide particulates demands solid protection. Start with your setup—gloves on first to
           shield skin from sharp edges and irritation. These compounds cut like fine grit, so cover hands fully with durable,
@@ -208,11 +206,12 @@ relationships:
           Ventilation matters too, but PPE layers up as your first line. Quick checks before shifts keep everyone steady.'
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: "Dust from aluminum oxide particles clings stubbornly to skin and clothes. Brush it off gently first. Rinse\
           \ affected areas under running water right away. Soap helps loosen the grit without irritation.\n\nEyes sting sharp\
@@ -226,11 +225,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Spotting aluminum oxide particles starts with visual checks under bright light. These compounds often show
           a white, powdery look that stands out against darker surfaces. In industrial setups, workers sweep areas to collect
@@ -247,11 +247,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-what-respiratory-prot
         question: As a laser cleaning operator, what respiratory protection should I use to avoid exposure to aluminum oxide
@@ -274,4 +275,4 @@ relationships:
 subcategory: metal-oxide
 formula: Al₂O₃
 slug: aluminum-oxide-compound
-lastModified: '2026-01-03T16:24:31.234740'
+lastModified: '2026-01-04T13:12:01.605944'

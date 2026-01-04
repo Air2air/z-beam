@@ -3,8 +3,8 @@ name: Sulfur Dioxide
 display_name: Sulfur Dioxide (SO₂)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2026-01-04T00:24:30.238896Z'
-dateModified: '2026-01-04T00:24:30.238896Z'
+datePublished: '2026-01-04T21:12:00.431415Z'
+dateModified: '2026-01-04T21:12:00.431415Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
@@ -105,6 +105,12 @@ relationships:
       items:
       - type: chemical_properties
         id: sulfur-dioxide-physical-data
+      _section:
+        title: Chemical Properties
+        description: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -120,8 +126,11 @@ relationships:
         odor: Pungent, suffocating odor @ 0.3-1 ppm
       _section:
         section_title: Physical Properties
-        description: Chemical and physical characteristics
-        icon: flask
+        description: Physical state, appearance, color, odor, boiling/melting points
+        icon: thermometer
+        title: Physical Properties
+        order: 2
+        variant: default
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -137,109 +146,12 @@ relationships:
           pubchem_cid: '1119'
       _section:
         section_title: Alternative Names
-        description: Synonyms and chemical identifiers
+        description: Alternative names, trade names, and chemical identifiers
         icon: tag
+        title: Synonyms & Identifiers
+        order: 3
+        variant: default
   safety:
-    health_effects:
-      presentation: card
-      items:
-      - route: inhalation
-        effect: Respiratory tract irritation, coughing, shortness of breath, and bronchoconstriction
-        severity: high
-        onset: immediate
-      - route: inhalation
-        effect: Aggravation of asthma and chronic obstructive pulmonary disease (COPD)
-        severity: moderate
-        onset: short-term
-      - route: eye_contact
-        effect: Severe irritation, burning sensation, tearing, and potential corneal damage
-        severity: high
-        onset: immediate
-      - route: skin_contact
-        effect: Irritation and possible chemical burns (especially with liquid SO2)
-        severity: moderate
-        onset: immediate
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations. Air-purifying with acid gas cartridge
-          acceptable for ≤5 ppm with escape provisions.
-        skin: Nitrile gloves for liquid contact (cryogenic hazard). Thermal protection for liquefied SO2.
-        eye: Chemical safety goggles, face shield for liquid contact
-        minimum_level: Level C for known <5 ppm, Level B for >5 ppm or liquefied SO2
-        special_notes: Extremely irritating to eyes and respiratory tract. Cryogenic liquid causes frostbite. Asthma trigger
-          - asthmatics extremely sensitive.
-      _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
-        icon: shield-check
-    emergency_response:
-      presentation: descriptive
-      items:
-      - fire_hazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition products in fire.
-        fire_suppression: If cylinder involved in fire, evacuate immediately - explosion hazard. Cool cylinders with water
-          spray from maximum distance. Let fire burn out if possible.
-        spill_procedures: 'EVACUATE. Ventilate area. SCBA for >100 ppm. Neutralize with soda ash or lime. Contain with dry
-          sand or earth. For liquid: cryogenic hazard - specialized equipment needed.'
-        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. If inhaled: administer
-          oxygen. Seek medical attention - risk of bronchospasm and delayed pulmonary edema. For asthmatics: MEDICAL EMERGENCY.'
-        environmental_hazards: Major contributor to acid rain. Toxic to vegetation. Acidifies water bodies. Report releases
-          >1 lb.
-        special_hazards: Severe respiratory and eye irritant. Triggers asthma attacks. Forms sulfurous acid with moisture.
-          Corrosive to tissues. May cause bronchospasm and pulmonary edema. Cryogenic liquid causes frostbite.
-      _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
-        icon: exclamation-triangle
-    exposure_limits:
-      presentation: descriptive
-      items:
-      - osha_pel_ppm: 5
-        osha_pel_mg_m3: 13
-        niosh_rel_ppm: 2
-        niosh_rel_mg_m3: 5
-        acgih_tlv_ppm: 0.25
-        acgih_tlv_mg_m3: 0.65
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 5 ppm
-            stel_15min: null
-            ceiling: null
-          niosh_rel:
-            twa_8hr: 2 ppm
-            stel_15min: 5 ppm
-            ceiling: null
-            idlh: 100 ppm
-          acgih_tlv:
-            twa_8hr: 2 ppm
-            stel_15min: 5 ppm
-            ceiling: null
-          biological_exposure_indices: []
-      _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
-        icon: gauge
-    storage_requirements:
-      presentation: descriptive
-      items:
-      - temperature_range: Store cylinders <52°C. Liquefied SO2 requires cryogenic storage.
-        ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. SO2 gas detection mandatory.'
-        incompatibilities:
-        - Potassium chlorate
-        - Alkali metals
-        - Sodium hydride
-        - Metal oxides
-        - Aluminum
-        - Halogens
-        container_material: Steel cylinders. Stainless steel for liquid.
-        segregation: Separate from incompatibles. Corrosive gas storage area.
-        quantity_limits: Per fire code. Many facilities limit indoor storage.
-        special_requirements: 'Cylinder restraints mandatory. Leak detection system required. Post "CORROSIVE GAS" signs.
-          Emergency procedures posted. For liquid: cryogenic handling equipment.'
-      _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
-        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -261,15 +173,19 @@ relationships:
         rcra_code: null
       _section:
         section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
-        icon: book-law
+        description: OSHA hazard classification, GHS pictograms, and regulatory status
+        icon: file-badge
+        title: Regulatory Classification
+        order: 6
+        variant: default
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When dealing with sulfur dioxide in industrial setups, prioritize ventilation right away. This gas irritates
           lungs deeply if inhaled. It triggers coughing fits almost immediately.
@@ -288,11 +204,12 @@ relationships:
           Skin contact stings less, but respiratory risks dominate always.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: 'Dealing with sulfur dioxide demands caution right from the start, especially in settings where it might
           leak or build up unexpectedly. This colorless gas carries a sharp, irritating smell that hits the nose quickly,
@@ -312,11 +229,12 @@ relationships:
           stable and safe overall.'
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: Workers handling sulfur dioxide face risks from its irritating fumes and corrosive nature, unlike milder
           gases that pose less threat. Eyes sting fast without shields. Goggles or full-face respirators block exposure. Skin
@@ -326,11 +244,12 @@ relationships:
           on quick donning saves time in emergencies.
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: Exposure to sulfur dioxide demands immediate action to ease the gas's sharp irritant effects on the respiratory
           system. Move the affected person to fresh air without delay, keeping them calm while ensuring your own safety to
@@ -361,8 +280,11 @@ relationships:
           air: 1 lb/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
+        description: Environmental hazards, ecological effects, and disposal considerations
         icon: leaf
+        title: Environmental Impact
+        order: 1
+        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -390,8 +312,11 @@ relationships:
         odor_threshold: 0.3-1 ppm - provides adequate warning below toxic levels
       _section:
         section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
-        icon: radar
+        description: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        title: Monitoring Systems
+        order: 2
+        variant: default
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -404,6 +329,12 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Sulfur additives in some lubricants
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -415,6 +346,12 @@ relationships:
       - id: stainless-steel-laser-cleaning
       - id: steel-laser-cleaning
       - id: tool-steel-laser-cleaning
+      _section:
+        title: Source Materials
+        description: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -439,16 +376,20 @@ relationships:
           metals.
       _section:
         section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
-        icon: atom
+        description: Reactivity hazards, incompatible substances, and chemical stability
+        icon: flask-conical
+        title: Chemical Reactivity
+        order: 3
+        variant: warning
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Spotting sulfur dioxide in the air starts with understanding how this pungent gas behaves around industrial
           setups, where it often lingers from processes like smelting or power generation. Workers might first notice its
@@ -476,11 +417,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: as-a-laser-cleaning-operator-how-can-i-protect-mys
         question: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas
@@ -503,4 +445,4 @@ relationships:
 subcategory: acid_gas
 formula: SO₂
 slug: sulfur-dioxide-compound
-lastModified: '2026-01-03T16:24:30.238926'
+lastModified: '2026-01-04T13:12:00.431451'

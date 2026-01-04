@@ -158,17 +158,7 @@ export function SafetyDataPanel({
       }
     }
     
-    // Extract compound-specific safety data
-    const storageData = extractSafetyItem(safetyData.storage_requirements);
-    if (storageData) {
-      if (typeof storageData === 'string') {
-        safetyDataObj.storage_requirements = {
-          description: storageData
-        };
-      } else {
-        safetyDataObj.storage_requirements = storageData;
-      }
-    }
+    // Storage requirements removed - no longer displayed for compounds
     
     const regData = extractSafetyItem(safetyData.regulatory_classification);
     if (regData) {
@@ -278,39 +268,6 @@ export function SafetyDataPanel({
                   ppeItem.additional_requirements && {
                     label: 'Additional',
                     value: ppeItem.additional_requirements
-                  }
-                ].filter(Boolean) as Array<{ label: string; value: string | number }>}
-              />
-            );
-          })()}
-
-          {/* Storage Requirements Card - Compound-specific */}
-          {isCompoundData && safetyData.storage_requirements && (() => {
-            const storageItem = safetyData.storage_requirements.items?.[0] || safetyData.storage_requirements;
-            return (
-              <InfoCard
-                icon={Shield}
-                title={safetyData.storage_requirements._section?.title || "Storage Requirements"}
-                data={[
-                  storageItem.temperature_range && {
-                    label: 'Temperature',
-                    value: storageItem.temperature_range
-                  },
-                  storageItem.ventilation && {
-                    label: 'Ventilation',
-                    value: storageItem.ventilation
-                  },
-                  storageItem.container_material && {
-                    label: 'Container Material',
-                    value: storageItem.container_material
-                  },
-                  storageItem.segregation && {
-                    label: 'Segregation',
-                    value: storageItem.segregation
-                  },
-                  storageItem.incompatibilities && storageItem.incompatibilities.length > 0 && {
-                    label: 'Incompatibilities',
-                    value: storageItem.incompatibilities.slice(0, 3).join(', ') + (storageItem.incompatibilities.length > 3 ? '...' : '')
                   }
                 ].filter(Boolean) as Array<{ label: string; value: string | number }>}
               />

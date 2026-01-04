@@ -3,8 +3,8 @@ name: Calcium Oxide
 display_name: Calcium Oxide (CaO)
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-04T00:24:31.447242Z'
-dateModified: '2026-01-04T00:24:31.447242Z'
+datePublished: '2026-01-04T21:12:01.918339Z'
+dateModified: '2026-01-04T21:12:01.918339Z'
 content_type: compounds
 schema_version: 5.0.0
 full_path: /compounds/particulate/metal-oxide/calcium-oxide-compound
@@ -136,31 +136,21 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Mineral Scale / Hard Water Deposits
+      _section:
+        title: Source Contaminants
+        description: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
   safety:
-    health_effects:
-    - route: inhalation
-      effect: Severe irritation and burns to the respiratory tract, potentially leading to pulmonary edema
-      severity: severe
-      onset: immediate
-    - route: skin_contact
-      effect: Chemical burns due to exothermic reaction with moisture, causing tissue damage and pain
-      severity: severe
-      onset: immediate
-    - route: eye_contact
-      effect: Severe corneal burns and potential permanent vision impairment
-      severity: severe
-      onset: immediate
-    - route: ingestion
-      effect: Burns to the mouth, throat, and gastrointestinal tract, with risk of perforation
-      severity: severe
-      onset: immediate
     health_impacts:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Health Impacts
-        section_description: Health effects and risks from exposure to this compound
+      _section:
+        title: Health Impacts
+        description: Health effects from exposure including acute and chronic impacts
         icon: heart-pulse
         order: 1
+        variant: warning
       items:
       - content: 'When working with calcium oxide particulates during laser cleaning setups, you''ll want to prioritize skin
           protection right from the start. I''ve handled plenty of these abrasive powders in industrial stripping jobs, and
@@ -179,11 +169,12 @@ relationships:
           line. Stick to enclosed systems, and monitor for any damp spots mid-job to head off reactions before they build.'
     exposure_guidance:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Exposure Guidelines
-        section_description: Safe exposure limits and handling precautions
-        icon: shield-exclamation
+      _section:
+        title: Exposure Guidelines
+        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
+        icon: shield-alert
         order: 2
+        variant: warning
       items:
       - content: While many compounds handle moisture without much fuss, calcium oxide stands out for its aggressive reaction,
           turning into a caustic slurry that demands careful isolation during storage to prevent unintended skin or eye irritation
@@ -197,11 +188,12 @@ relationships:
           contact.
     personal_protection:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Personal Protection
-        section_description: Required protective equipment for handling this compound
+      _section:
+        title: Personal Protection Equipment
+        description: Required PPE including respirators, gloves, eye protection, and protective clothing
         icon: shield-check
         order: 3
+        variant: warning
       items:
       - content: 'Handling calcium oxide in its particulate form demands careful protection against its reactive and dusty
           nature. Skin contact can lead to severe irritation from its alkaline properties, so impermeable gloves and full-body
@@ -220,11 +212,12 @@ relationships:
           process''s intensity.'
     emergency_procedures:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Emergency Procedures
-        section_description: First aid and emergency response for exposure incidents
-        icon: first-aid
+      _section:
+        title: Emergency Procedures
+        description: First aid measures, emergency response, and incident management
+        icon: siren
         order: 4
+        variant: danger
       items:
       - content: 'Quicklime dust hits skin—flush it right away with running water. Let the cool flow soak in deep, easing
           that stinging burn without delay. Clothes soaked? Peel them off gently first.
@@ -247,11 +240,12 @@ relationships:
   detection:
     methods:
       presentation: descriptive
-      sectionMetadata:
-        section_title: Detection Methods
-        section_description: Techniques and equipment for detecting this compound
+      _section:
+        title: Detection Methods
+        description: Analytical techniques and instruments for detecting this compound
         icon: microscope
         order: 1
+        variant: default
       items:
       - content: 'Quicklime dust clings to surfaces like a stubborn veil, making spot checks straightforward in workshops.
           Workers often start with a simple visual scan—its stark white powder contrasts sharply against metals or stone,
@@ -276,11 +270,12 @@ relationships:
   operational:
     expert_answers:
       presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Common questions about this compound answered by experts
-        icon: user-tie
+      _section:
+        title: Expert Q&A
+        description: Frequently asked questions about this compound answered by laser cleaning experts
+        icon: message-circle-question
         order: 1
+        variant: default
       items:
       - id: what-skin-protection-methods-should-i-use-when-han
         question: What skin protection methods should I use when handling calcium oxide (CaO) particulates during laser cleaning
@@ -303,4 +298,4 @@ relationships:
 subcategory: metal-oxide
 formula: CaO
 slug: calcium-oxide-compound
-lastModified: '2026-01-03T16:24:31.447271'
+lastModified: '2026-01-04T13:12:01.918373'
