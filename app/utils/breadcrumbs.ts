@@ -30,10 +30,12 @@ export function generateBreadcrumbs(
   // Default fallback: Home only
   const defaultBreadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
   
-  // Use explicit breadcrumb array from metadata
-  if (metadata?.breadcrumb && Array.isArray(metadata.breadcrumb)) {
+  // Use explicit breadcrumb array from metadata (check both singular and plural)
+  const breadcrumbArray = metadata?.breadcrumbs || metadata?.breadcrumb;
+  
+  if (breadcrumbArray && Array.isArray(breadcrumbArray)) {
     // Validate that breadcrumb items have required fields
-    const validBreadcrumbs = metadata.breadcrumb.filter(
+    const validBreadcrumbs = breadcrumbArray.filter(
       (item: any) => item && typeof item.label === 'string' && typeof item.href === 'string'
     );
     
