@@ -1,9 +1,7 @@
 // app/components/DiagnosticCenter/PreventionPanel.tsx
 'use client';
 
-import { PreventionPanel as PreventionDataPanel } from '../PreventionPanel';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import type { RelationshipSection } from '@/types/safetyData';
 
 interface Challenge {
   challenge: string;
@@ -47,44 +45,52 @@ export function PreventionPanel({ challenges }: PreventionPanelProps) {
   }
 
   const content = (
-    <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
-      {Object.entries(challenges).map(([category, challengeList]: [string, Challenge[]]) => {
-        // Map category to icon
-        const categoryIcons: Record<string, string> = {
-          surface_characteristics: 'search',
-          thermal_management: 'temperature',
-          contamination_challenges: 'clean',
-          safety_compliance: 'alert',
-          surface_contamination: 'clean',
-          thermal_effects: 'temperature',
-          mechanical_stress: 'gear',
-          optical_issues: 'eye'
-        };
-
-        const sectionMetadata: RelationshipSection = {
-          section_title: category.replace(/_/g, ' '),
-          section_description: undefined,
-          icon: categoryIcons[category] || 'info',
-          order: 0
-        };
-
-        // Transform challenges to items array for PreventionPanel
-        const items = Array.isArray(challengeList) ? challengeList.map(challenge => ({
-          challengeName: challenge.challenge,
-          challengeDesc: challenge.impact,
-          severity: challenge.severity,
-          solutions: challenge.solutions,
-          prevention: challenge.prevention
-        })) : [];
-
-        return (
-          <PreventionDataPanel
-            key={category}
-            sectionMetadata={sectionMetadata}
-            items={items}
-          />
-        );
-      })}
+    <div className="space-y-3">
+      {Object.entries(challenges).flatMap(([category, challengeList]: [string, Challenge[]]) =>
+        challengeList.map((challenge, idx) => (
+          <div key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden border">
+            <div className="bg-gradient-to-r from-green-900/30 to-transparent px-4 py-3 border-l-4 border-green-500">
+              <div className="flex items-start gap-3">
+                <span className="text-2xl">✅</span>
+                <div className="flex-1">
+                  <h3 className="text-base text-secondary font-semibold mb-1">
+                    {challenge.challenge}
+                  </h3>
+                  <div className="text-xs text-tertiary capitalize">{category.replace(/_/g, ' ')} • {challenge.severity} severity</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="p-4 space-y-3">
+              <div className="bg-orange-900/10 rounded-md p-3 border border-orange-900/30">
+                <h4 className="text-sm text-secondary font-semibold mb-2">Impact</h4>
+                <p className="text-xs">{challenge.impact}</p>
+              </div>
+              
+              <div className="bg-green-900/10 rounded-md p-3 border border-green-900/30">
+                <h4 className="text-sm text-secondary font-semibold mb-2">Prevention Solutions</h4>
+                <ul className="space-y-1.5">
+                  {challenge.solutions.map((solution: string, sidx: number) => (
+                    <li key={sidx} className="text-xs flex items-start gap-2">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400 font-semibold text-[10px]">
+                        {sidx + 1}
+                      </span>
+                      <span className="flex-1 pt-0.5">{solution}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              {challenge.prevention && (
+                <div className="bg-purple-900/10 rounded-md p-3 border border-purple-900/30">
+                  <h4 className="text-sm text-secondary font-semibold mb-2">Threshold</h4>
+                  <p className="text-xs">{challenge.prevention}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 
