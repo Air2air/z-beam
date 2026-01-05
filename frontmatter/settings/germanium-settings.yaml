@@ -1,6 +1,14 @@
 id: germanium-settings
-datePublished: '2026-01-04T23:44:25.938305Z'
-dateModified: '2026-01-04T23:44:25.938305Z'
+name: Germanium
+datePublished: '2026-01-05T21:43:05.635134+00:00'
+dateModified: '2026-01-05T21:43:05.635134+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Germanium
+  href: null
 images:
   hero:
     url: /images/settings/germanium-settings-hero.jpg
@@ -29,6 +37,9 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -37,11 +48,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -65,12 +73,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -79,12 +81,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -94,13 +90,17 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational: {}
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 60
@@ -238,13 +238,3 @@ metaDescription: Germanium Settings laser cleaning parameters for contamination 
 fullPath: /settings/semiconductor/elemental/germanium-settings
 pageDescription: Before laser cleaning, Germanium surfaces require careful parameter selection After cleaning, Germanium surfaces
   show restored appearance with controlled parameters
-slug: germanium-settings
-lastModified: '2026-01-04T15:44:25.938334'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Germanium
-  href: ''
-title: Germanium

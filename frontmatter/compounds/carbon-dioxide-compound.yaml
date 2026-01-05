@@ -1,8 +1,48 @@
 id: carbon-dioxide-compound
+name: Carbon Dioxide
 category: asphyxiant
-datePublished: '2026-01-04T23:45:37.081418Z'
-dateModified: '2026-01-04T23:45:37.081418Z'
-page_title: 'Compound: Hazardous Emission'
+hazard_class: asphyxiant
+datePublished: '2026-01-05T21:43:02.313567+00:00'
+dateModified: '2026-01-05T21:43:02.313567+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Asphyxiant
+  href: /compounds/asphyxiant
+- label: Carbon Dioxide
+  href: null
+chemical_formula: CO₂
+cas_number: 124-38-9
+molecular_weight: 44.01
+health_effects: When dealing with carbon dioxide compounds in industrial settings, the standout trait is its role as an asphyxiant,
+  meaning it quietly pushes out breathable air without you noticing right away. This makes enclosed spaces tricky, so we always
+  prioritize ventilation setups before starting any process. You'll feel headaches or dizziness creep in first if levels build
+  up, leading to confusion and worse if not caught early. Keep monitoring tools handy—simple detectors work wonders to avoid
+  that foggy disorientation. In applications like welding or material handling, this property demands respect, ensuring teams
+  stay alert and equipped with escape plans.
+exposure_guidelines: Stay alert around carbon dioxide compounds. They act as asphyxiants. Oxygen levels drop fast in enclosed
+  spots. Fresh air flows matter most. Set up strong ventilation early. Check spaces before entry. Wear breathing gear if needed.
+  Spot dizziness or headaches quick—get out immediately. In industrial setups, like cleaning tasks, limit time inside. Train
+  teams on escape routes. Handle solid forms with gloves to avoid cold burns. Keep areas clear of buildup. Regular air checks
+  prevent trouble. For laser cleaning jobs, seal off zones tightly. Move slowly in hazy conditions. Recovery happens with
+  open air. Build habits for safe routines.
+detection_methods: Dry ice stands out from everyday solids because it vanishes without a trace, turning straight into gas
+  and leaving no mess behind. Spotting it in a workshop demands sharp eyes or simple tools. Workers often rely on frosty buildup
+  or sudden cold spots as first clues, especially in tight spaces where the air grows heavy and hard to breathe. For safer
+  checks, handheld devices pick up the invisible gas release, alerting with beeps or lights when levels climb too high. Chemical
+  strips change color in its presence, offering a quick visual cue without fancy gear. In busy factories handling shipments,
+  these methods blend routine scans with ventilation tweaks to keep things running smooth, preventing silent buildup that
+  could stifle operations.
+first_aid: If you've ever dealt with a confined space mishap where the air turns heavy and folks start gasping, knowing quick
+  steps for carbon dioxide exposure can make all the difference—it's that invisible thief that chokes out oxygen without warning.
+  Get the person away from the source immediately, hauling them into open, fresh air where they can breathe easy again, and
+  loosen any tight clothing around the neck or chest to help airflow. Watch closely for signs like confusion or shallow breaths;
+  if they're unresponsive and not breathing normally, start rescue breaths or chest compressions right away to keep oxygen
+  circulating until help arrives. While waiting for professionals, keep them comfortable and warm, avoiding any stimulants
+  that might rev things up too fast. Once stabilized, medical follow-up is crucial because lingering effects from this sneaky
+  gas can sneak back in, turning a close call into something worse if ignored.
 images:
   hero:
     url: /images/compound/carbon-dioxide-compound-hero.jpg
@@ -22,7 +62,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise: &id001
+  expertise:
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -40,7 +80,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 health_effects_keywords:
 - asphyxiation_at_high_concentration
@@ -85,12 +126,6 @@ relationships:
       items:
       - type: chemical_properties
         id: carbon-dioxide-physical-data
-      _section:
-        title: Chemical Properties
-        description: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -106,11 +141,8 @@ relationships:
         odor: Odorless
       _section:
         section_title: Physical Properties
-        description: Physical state, appearance, color, odor, boiling/melting points
-        icon: thermometer
-        title: Physical Properties
-        order: 2
-        variant: default
+        description: Chemical and physical characteristics
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -127,12 +159,113 @@ relationships:
           pubchem_cid: '280'
       _section:
         section_title: Alternative Names
-        description: Alternative names, trade names, and chemical identifiers
+        description: Synonyms and chemical identifiers
         icon: tag
-        title: Synonyms & Identifiers
-        order: 3
-        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Asphyxiation due to oxygen displacement, leading to unconsciousness and potential death at concentrations
+          >10%
+        severity: severe
+        onset: immediate
+      - route: inhalation
+        effect: Headache, dizziness, and increased heart rate at concentrations 3-5%
+        severity: moderate
+        onset: short-term
+      - route: inhalation
+        effect: Respiratory acidosis and hyperventilation at prolonged exposure to elevated levels
+        severity: high
+        onset: long-term
+      - route: eye_contact
+        effect: Mild irritation from direct high-pressure exposure
+        severity: low
+        onset: immediate
+      - route: skin_contact
+        effect: Frostbite or irritation if in liquefied form (dry ice)
+        severity: moderate
+        onset: immediate
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: SCBA for >5% (50,000 ppm) or oxygen-deficient atmospheres. Not required for normal ambient levels.
+        skin: Insulated gloves for liquid/solid CO2 (dry ice) - cryogenic hazard. No protection needed for gas at normal levels.
+        eye: Safety glasses for dry ice handling. No protection needed for gas.
+        minimum_level: Level D for normal operations, Level B for confined spaces or high concentrations
+        special_notes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates in low areas. Dry ice causes frostbite.
+          Physiological effects >1% concentration.
+      _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
+        icon: shield-check
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Non-flammable. Used as fire suppressant. Cylinders may explode when heated.
+        fire_suppression: Not applicable. CO2 extinguishes fires. If cylinder in fire, cool with water spray from maximum
+          distance or evacuate - explosion hazard.
+        spill_procedures: 'Liquid/dry ice release: Ventilate area immediately. Evacuate low-lying areas - CO2 heavier than
+          air. Monitor oxygen levels. Do not touch dry ice - frostbite.'
+        exposure_immediate_actions: 'Remove to fresh air immediately. If not breathing, give artificial respiration. Administer
+          100% oxygen. Seek medical attention if symptoms persist. For dry ice contact: treat as frostbite - warm affected
+          area gradually.'
+        environmental_hazards: Greenhouse gas. Contributes to ocean acidification. Generally non-toxic to wildlife at normal
+          atmospheric levels.
+        special_hazards: 'SIMPLE ASPHYXIANT - displaces oxygen. Heavier than air - accumulates in pits, tanks, confined spaces.
+          Physiological effects: >1% increased respiration, >5% headache/dizziness, >10% unconsciousness, >20-30% death. ODORLESS
+          - no warning. Dry ice causes severe frostbite.'
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: exclamation-triangle
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 5000
+        osha_pel_mg_m3: 9000
+        niosh_rel_ppm: 5000
+        niosh_rel_mg_m3: 9000
+        acgih_tlv_ppm: 5000
+        acgih_tlv_mg_m3: 9000
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 5000 ppm
+            stel_15min: null
+            ceiling: 30000 ppm
+          niosh_rel:
+            twa_8hr: 5000 ppm
+            stel_15min: 30000 ppm
+            ceiling: null
+            idlh: 40,000 ppm (4%)
+          acgih_tlv:
+            twa_8hr: 5000 ppm
+            stel_15min: 30000 ppm
+            ceiling: null
+          biological_exposure_indices: []
+      _section:
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
+        icon: gauge
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store cylinders <52°C. Dry ice requires insulated storage <-78°C.
+        ventilation: Good ventilation essential. Outdoor storage preferred for large quantities. Monitor oxygen levels in
+          storage areas.
+        incompatibilities:
+        - Reactive metals (cesium, sodium, potassium)
+        - Metal acetylides
+        - Bases (reacts forming carbonates)
+        container_material: Steel cylinders for compressed gas. Insulated containers for dry ice.
+        segregation: None required. Keep away from reactive metals.
+        quantity_limits: Cylinders per fire code. Dry ice quantities limited by storage capacity.
+        special_requirements: Cylinder restraints mandatory. Oxygen monitoring in storage areas. Post "SIMPLE ASPHYXIANT"
+          signs. Adequate ventilation critical. Never store in confined spaces without ventilation and O2 monitoring.
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -152,79 +285,8 @@ relationships:
         rcra_code: null
       _section:
         section_title: Regulatory Classification
-        description: OSHA hazard classification, GHS pictograms, and regulatory status
-        icon: file-badge
-        title: Regulatory Classification
-        order: 6
-        variant: default
-    health_impacts:
-      presentation: descriptive
-      _section:
-        title: Health Impacts
-        description: Health effects from exposure including acute and chronic impacts
-        icon: heart-pulse
-        order: 1
-        variant: warning
-      items:
-      - content: When dealing with carbon dioxide compounds in industrial settings, the standout trait is its role as an asphyxiant,
-          meaning it quietly pushes out breathable air without you noticing right away. This makes enclosed spaces tricky,
-          so we always prioritize ventilation setups before starting any process. You'll feel headaches or dizziness creep
-          in first if levels build up, leading to confusion and worse if not caught early. Keep monitoring tools handy—simple
-          detectors work wonders to avoid that foggy disorientation. In applications like welding or material handling, this
-          property demands respect, ensuring teams stay alert and equipped with escape plans.
-    exposure_guidance:
-      presentation: descriptive
-      _section:
-        title: Exposure Guidelines
-        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
-        icon: shield-alert
-        order: 2
-        variant: warning
-      items:
-      - content: Stay alert around carbon dioxide compounds. They act as asphyxiants. Oxygen levels drop fast in enclosed
-          spots. Fresh air flows matter most. Set up strong ventilation early. Check spaces before entry. Wear breathing gear
-          if needed. Spot dizziness or headaches quick—get out immediately. In industrial setups, like cleaning tasks, limit
-          time inside. Train teams on escape routes. Handle solid forms with gloves to avoid cold burns. Keep areas clear
-          of buildup. Regular air checks prevent trouble. For laser cleaning jobs, seal off zones tightly. Move slowly in
-          hazy conditions. Recovery happens with open air. Build habits for safe routines.
-    personal_protection:
-      presentation: descriptive
-      _section:
-        title: Personal Protection Equipment
-        description: Required PPE including respirators, gloves, eye protection, and protective clothing
-        icon: shield-check
-        order: 3
-        variant: warning
-      items:
-      - content: "Handling carbon dioxide in its solid form demands careful gear to counter the biting cold and the risk of\
-          \ suffocating vapors building up unnoticed. Workers often reach for insulated gloves first, thick enough to shield\
-          \ hands from frostbite during direct contact or packing tasks. Eye shields come next, sealing out any flying particles\
-          \ or sudden cold bursts that could irritate or harm vision. Full-body coverings like aprons or suits help ward off\
-          \ skin chills in prolonged exposure spots, such as storage areas or transport lines. \n\nIn tighter spaces where\
-          \ vapors linger, breathing apparatus steps in, filtering out the heavy, odorless gas that displaces breathable air\
-          \ without warning. Ventilation setups pair with this, keeping the atmosphere fresh and alert levels high. For laser\
-          \ cleaning jobs involving this material, add face shields tuned to block intense light flashes, ensuring operators\
-          \ stay protected amid the precise, high-energy blasts that vaporize residues without scratching surfaces. Regular\
-          \ checks on all gear prevent slips, turning routine industrial uses—from cooling processes to safe stripping of\
-          \ contaminants—into smoother, safer operations."
-    emergency_procedures:
-      presentation: descriptive
-      _section:
-        title: Emergency Procedures
-        description: First aid measures, emergency response, and incident management
-        icon: siren
-        order: 4
-        variant: danger
-      items:
-      - content: If you've ever dealt with a confined space mishap where the air turns heavy and folks start gasping, knowing
-          quick steps for carbon dioxide exposure can make all the difference—it's that invisible thief that chokes out oxygen
-          without warning. Get the person away from the source immediately, hauling them into open, fresh air where they can
-          breathe easy again, and loosen any tight clothing around the neck or chest to help airflow. Watch closely for signs
-          like confusion or shallow breaths; if they're unresponsive and not breathing normally, start rescue breaths or chest
-          compressions right away to keep oxygen circulating until help arrives. While waiting for professionals, keep them
-          comfortable and warm, avoiding any stimulants that might rev things up too fast. Once stabilized, medical follow-up
-          is crucial because lingering effects from this sneaky gas can sneak back in, turning a close call into something
-          worse if ignored.
+        description: DOT, UN, and NFPA hazard classifications
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -243,11 +305,8 @@ relationships:
           air: Not reportable (natural atmospheric component)
       _section:
         section_title: Environmental Impact
-        description: Environmental hazards, ecological effects, and disposal considerations
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-        title: Environmental Impact
-        order: 1
-        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -275,11 +334,8 @@ relationships:
         odor_threshold: Not applicable - odorless at all concentrations. No warning property. MUST use instruments.
       _section:
         section_title: Detection & Monitoring
-        description: Real-time monitoring equipment and workplace air sampling methods
-        icon: activity
-        title: Monitoring Systems
-        order: 2
-        variant: default
+        description: Methods for detecting and measuring this compound
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -568,12 +624,6 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        title: Source Contaminants
-        description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -594,76 +644,34 @@ relationships:
           embrittlement of some materials.
       _section:
         section_title: Reactivity
-        description: Reactivity hazards, incompatible substances, and chemical stability
-        icon: flask-conical
-        title: Chemical Reactivity
-        order: 3
-        variant: warning
-  detection:
-    methods:
-      presentation: descriptive
-      _section:
-        title: Detection Methods
-        description: Analytical techniques and instruments for detecting this compound
-        icon: microscope
-        order: 1
-        variant: default
-      items:
-      - content: Dry ice stands out from everyday solids because it vanishes without a trace, turning straight into gas and
-          leaving no mess behind. Spotting it in a workshop demands sharp eyes or simple tools. Workers often rely on frosty
-          buildup or sudden cold spots as first clues, especially in tight spaces where the air grows heavy and hard to breathe.
-          For safer checks, handheld devices pick up the invisible gas release, alerting with beeps or lights when levels
-          climb too high. Chemical strips change color in its presence, offering a quick visual cue without fancy gear. In
-          busy factories handling shipments, these methods blend routine scans with ventilation tweaks to keep things running
-          smooth, preventing silent buildup that could stifle operations.
-  operational:
-    expert_answers:
-      presentation: collapsible
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions about this compound answered by laser cleaning experts
-        icon: message-circle-question
-        order: 1
-        variant: default
-      items:
-      - id: what-are-the-safe-exposure-limits-for-co₂-during-l
-        question: What are the safe exposure limits for CO₂ during laser cleaning operations, and how can I monitor them?
-        answer: Occupational exposure limits for CO₂ as an asphyxiant are set by OSHA at 5,000 ppm (0.5%) as an 8-hour time-weighted
-          average (TWA), with a short-term exposure limit of 30,000 ppm (3%) for no more than 10 minutes, and levels above
-          4% (40,000 ppm) can cause immediate oxygen displacement and loss of consciousness. To monitor, use portable CO₂
-          gas detectors or multi-gas monitors calibrated for real-time ppm readings in your workspace, especially in enclosed
-          or poorly ventilated areas during laser cleaning. Always ensure oxygen levels remain above 19.5% and integrate alarms
-          that trigger at or below these limits to prevent asphyxiation risks.
-        topic: What are the safe exposure limits for CO₂ during l
-        acceptedAnswer: true
-        expertInfo:
-          name: Yi-Chun Lin
-          title: Ph.D.
-          expertise: *id001
-      options:
-        autoOpenFirst: true
-        sortBy: topic
+        description: Chemical reactivity and incompatibilities
+        icon: atom
+displayName: Carbon Dioxide (CO₂)
 subcategory: simple_asphyxiant
+ppe_requirements: "Handling carbon dioxide in its solid form demands careful gear to counter the biting cold and the risk\
+  \ of suffocating vapors building up unnoticed. Workers often reach for insulated gloves first, thick enough to shield hands\
+  \ from frostbite during direct contact or packing tasks. Eye shields come next, sealing out any flying particles or sudden\
+  \ cold bursts that could irritate or harm vision. Full-body coverings like aprons or suits help ward off skin chills in\
+  \ prolonged exposure spots, such as storage areas or transport lines. \n\nIn tighter spaces where vapors linger, breathing\
+  \ apparatus steps in, filtering out the heavy, odorless gas that displaces breathable air without warning. Ventilation setups\
+  \ pair with this, keeping the atmosphere fresh and alert levels high. For laser cleaning jobs involving this material, add\
+  \ face shields tuned to block intense light flashes, ensuring operators stay protected amid the precise, high-energy blasts\
+  \ that vaporize residues without scratching surfaces. Regular checks on all gear prevent slips, turning routine industrial\
+  \ uses—from cooling processes to safe stripping of contaminants—into smoother, safer operations."
 formula: CO₂
+faq:
+- question: What are the safe exposure limits for CO₂ during laser cleaning operations, and how can I monitor them?
+  answer: Occupational exposure limits for CO₂ as an asphyxiant are set by OSHA at 5,000 ppm (0.5%) as an 8-hour time-weighted
+    average (TWA), with a short-term exposure limit of 30,000 ppm (3%) for no more than 10 minutes, and levels above 4% (40,000
+    ppm) can cause immediate oxygen displacement and loss of consciousness. To monitor, use portable CO₂ gas detectors or
+    multi-gas monitors calibrated for real-time ppm readings in your workspace, especially in enclosed or poorly ventilated
+    areas during laser cleaning. Always ensure oxygen levels remain above 19.5% and integrate alarms that trigger at or below
+    these limits to prevent asphyxiation risks.
 schemaVersion: 5.0.0
 contentType: compound
 pageTitle: Carbon Dioxide
-metaDescription: 'Compound: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
+metaDescription: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+  equipment requirements.
 fullPath: /compounds/asphyxiant/simple-asphyxiant/carbon-dioxide-compound
 pageDescription: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
-slug: carbon-dioxide-compound
-lastModified: '2026-01-04T15:45:37.081451'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Carbon Dioxide
-  href: ''
-title: Carbon Dioxide
-displayName: Carbon Dioxide (CO₂)
-casNumber: 124-38-9
-chemicalFormula: CO₂
-hazardClass: asphyxiant
-molecularWeight: 44.01

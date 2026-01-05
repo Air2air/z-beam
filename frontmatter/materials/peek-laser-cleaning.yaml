@@ -1,7 +1,17 @@
 id: peek-laser-cleaning
+name: PEEK
 category: plastic
-datePublished: '2026-01-04T23:41:35.106046Z'
-dateModified: '2026-01-04T23:41:35.106046Z'
+datePublished: '2026-01-05T21:41:33.334236+00:00'
+dateModified: '2026-01-05T21:41:33.334236+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Plastic
+  href: /materials/plastic
+- label: PEEK
+  href: null
 micro:
   before: The contamination, it manifests as irregular clusters on the PEEK surface, which adhere tenaciously to the thermoplastic
     matrix. At 1000x magnification, before cleaning, these patterns show dense, fibrous residues that obscure the inherent
@@ -44,10 +54,13 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise: &id001
+  expertise:
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
     type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
@@ -60,11 +73,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 subcategory: thermoplastic
 properties:
   material_characteristics:
@@ -257,14 +268,6 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   safety:
     regulatory_standards:
       presentation: card
@@ -279,99 +282,6 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-  operational:
-    industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: aerospace
-          name: Aerospace
-          description: Aircraft components and aerospace systems
-        - id: medical-implants
-          name: Medical Implants
-          description: Medical Implants industry applications and manufacturing
-        - id: oil-and-gas
-          name: Oil and Gas
-          description: Drilling equipment and refinery systems
-        - id: automotive
-          name: Automotive
-          description: Vehicle manufacturing and automotive parts
-        - id: electronics-manufacturing
-          name: Electronics Manufacturing
-          description: Circuit boards and electronic components
-        - id: chemical-processing
-          name: Chemical Processing
-          description: Chemical reactors and processing equipment
-        - id: high-performance-engineering
-          name: High-Performance Engineering
-          description: High-Performance Engineering industry applications and manufacturing
-        - id: semiconductor
-          name: Semiconductor
-          description: Semiconductor manufacturing and wafer processing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: how-do-i-safely-start-laser-cleaning-peek-parts-wi
-        question: How do I safely start laser cleaning PEEK parts without causing damage?
-        answer: You must begin by selecting a low-power laser setting to match PEEK's heat resistance, ensuring the beam gently
-          removes contaminants without overheating the surface. Make sure you scan the area slowly and evenly, allowing the
-          material's strong structure to handle the process without warping or weakening. This approach brings back the smooth
-          finish effectively, keeping the part's durable properties intact for continued use.
-        topic: How do I safely start laser cleaning PEEK parts wi
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Alessandro Moretti
-          title: Ph.D.
-          expertise: *id001
-      - id: what-happens-if-peek-surfaces-discolor-during-lase
-        question: What happens if PEEK surfaces discolor during laser cleaning?
-        answer: Start with checking your laser intensity right away, as PEEK's low absorption can lead to uneven heating if
-          the power is too high. You should adjust the pulse duration to shorter bursts, which helps dissipate heat quickly
-          through its moderate conductivity and prevents any color changes. Keep monitoring the surface closely, and this
-          will restore the original appearance without compromising the material's toughness.
-        topic: What happens if PEEK surfaces discolor during lase
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: can-laser-cleaning-affect-peeks-strength-after-mul
-        question: Can laser cleaning affect PEEK's strength after multiple sessions?
-        answer: You must test a small area
-        topic: Can laser cleaning affect PEEK's strength after mu
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -383,6 +293,15 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
+applications:
+- Aerospace
+- Medical Implants
+- Oil and Gas
+- Automotive
+- Electronics Manufacturing
+- Chemical Processing
+- High-Performance Engineering
+- Semiconductor
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: PEEK
@@ -392,13 +311,3 @@ fullPath: /materials/plastic/thermoplastic/peek-laser-cleaning
 pageDescription: The secret to PEEK's success is its remarkable resistance to intense heat and aggressive chemicals, all without
   losing its structural integrity, making it perfect for rigorous industrial applications where ordinary plastics would quickly
   fail.
-slug: peek-laser-cleaning
-lastModified: '2026-01-04T15:41:35.106075'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: PEEK
-  href: ''
-title: PEEK

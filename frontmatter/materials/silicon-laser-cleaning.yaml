@@ -1,7 +1,17 @@
 id: silicon-laser-cleaning
+name: Silicon
 category: semiconductor
-datePublished: '2026-01-04T23:41:30.841161Z'
-dateModified: '2026-01-04T23:41:30.841161Z'
+datePublished: '2026-01-05T21:41:33.333655+00:00'
+dateModified: '2026-01-05T21:41:33.333655+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Semiconductor
+  href: /materials/semiconductor
+- label: Silicon
+  href: null
 micro:
   before: Laser cleaning ramps up efficiency for silicon wafers in semiconductor work. Contaminated surfaces at 1000x magnification
     reveal jagged crystalline edges clogged with irregular dust particles and organic residues that stick tight to the lattice
@@ -92,7 +102,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise: &id001
+  expertise:
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -110,7 +120,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 subcategory: elemental
 characteristics:
@@ -335,173 +346,18 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: semiconductor-manufacturing
-          name: Semiconductor Manufacturing
-          description: Semiconductor Manufacturing industry applications and manufacturing
-        - id: aerospace
-          name: Aerospace
-          description: Aircraft components and aerospace systems
-        - id: medical-devices
-          name: Medical Devices
-          description: Medical equipment and surgical instruments
-        - id: electronics
-          name: Electronics
-          description: Electronics industry applications and manufacturing
-        - id: solar-energy
-          name: Solar Energy
-          description: Solar Energy industry applications and manufacturing
-        - id: research-and-development
-          name: Research and Development
-          description: Research and Development industry applications and manufacturing
-        - id: automotive
-          name: Automotive
-          description: Vehicle manufacturing and automotive parts
-        - id: cultural-heritage
-          name: Cultural Heritage
-          description: Cultural Heritage industry applications and manufacturing
-        - id: optics-and-photonics
-          name: Optics and Photonics
-          description: Optics and Photonics industry applications and manufacturing
-        - id: nuclear-energy
-          name: Nuclear Energy
-          description: Nuclear Energy industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: thermal-damage
-        question: What laser wavelengths are most effective for cleaning contaminants from silicon wafers without causing
-          thermal damage?
-        answer: For silicon wafers in semiconductor applications, a 1064 nm near-IR wavelength typically performs best, targeting
-          contaminants while the silicon absorbs just enough for ablation without deep heating. Stay under 2.5 J/cm² fluence
-          to avoid the ablation threshold and minimize subsurface defects—UV alternatives like 355 nm can pretty much handle
-          stubborn residues but increase scattering risks.
-        topic: thermal damage
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Todd Dunning
-          title: MA
-          expertise: *id001
-      - id: how-does-laser-cleaning-remove-native-oxide-layers
-        question: How does laser cleaning remove native oxide layers from silicon surfaces, and what are the risks of microcracking?
-        answer: Laser cleaning ablates silicon's native oxide layer through pretty rapid vaporization from 100 ns pulses at
-          1064 nm, as near-IR absorption heats the thin film to plasma thresholds without deep substrate penetration. Going
-          beyond 2.5 J/cm² fluence fairly risks thermal gradients that lead to microcracks, particularly in semiconductors.
-          After cleaning, check via SEM for subsurface integrity to protect microelectronics.
-        topic: How does laser cleaning remove native oxide layers
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: anti-reflective-coating
-        question: In laser cleaning of silicon solar panels, what fluence levels prevent damage to the anti-reflective coating?
-        answer: For silicon solar panels, keep fluence under 2.5 J/cm² in laser cleaning to pretty well protect the anti-reflective
-          coating. This approach typically enables contaminant ablation at 1064 nm without thermal damage, maintaining module
-          efficiency while preventing residue that might drop output by up to 5%.
-        topic: anti-reflective coating
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: silicon-nanoparticle-generation
-        question: What safety precautions are needed when using lasers to clean silicon components due to potential silicon
-          nanoparticle generation?
-        answer: When laser-cleaning silicon at 25 W with 2.5 J/cm² fluence, ablated nanoparticles can typically become airborne,
-          risking lung irritation through inhalation. Basically, set up local exhaust ventilation to capture fine dust, and
-          follow OSHA guidelines for N95 respirators, gloves, and protective eyewear to protect workers.
-        topic: silicon nanoparticle generation
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: silicon-mems-devices
-        question: Can femtosecond lasers clean silicon MEMS devices more effectively than nanosecond lasers, and why?
-        answer: Yes, femtosecond lasers pretty much outperform nanosecond ones for cleaning silicon MEMS, thanks to ultrashort
-          pulses that slash the heat-affected zone below 1 μm—versus 10-50 μm for 100 ns pulses—while preserving delicate
-          microstructures. This basically boosts yield by minimizing thermal damage at fluences around 2.5 J/cm², ideal for
-          silicon's sensitivity.
-        topic: silicon MEMS devices
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: redeposition-of-debris
-        question: What are common issues with redeposition of debris during laser cleaning of silicon substrates in semiconductor
-          fabs?
-        answer: In semiconductor fabs, redeposition of ablated particles onto silicon substrates typically happens because
-          of low ejection velocities, which risks contamination in processing. To address this, apply nitrogen gas assist
-          at fairly moderate pressures with a 2.5 J/cm² fluence threshold, driving debris away without harming the material.
-          Effectiveness shows through surface roughness under 1 nm Ra following cleanup.
-        topic: redeposition of debris
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: thermal-conductivity-of-silicon
-        question: How does the thermal conductivity of silicon influence the choice of laser power for surface treatment in
-          cleaning processes?
-        answer: Silicon's fairly high thermal conductivity of 150 W/mK enables quick heat dissipation, so we can basically
-          boost laser power to around 25 W for effective contaminant removal without harming the substrate. That feature cuts
-          down on localized overheating, allowing us to adjust scan speeds to 500 mm/s and fluence to 2.5 J/cm² for uniform
-          surface treatment.
-        topic: thermal conductivity of silicon
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: cleanroom-environments
-        question: What regulatory standards apply to laser cleaning of silicon in cleanroom environments for electronics manufacturing?
-        answer: In cleanroom setups for electronics manufacturing, laser cleaning of silicon wafers has to comply with ISO
-          14644 standards for air cleanliness—typically Class 5 or better—to prevent particulate contamination. Laser safety
-          adheres to ANSI Z136 guidelines, protecting eyes and skin during operations at 1064 nm wavelength and 25 W power.
-          For silicon-specific control, basically maintain fluence below 2.5 J/cm² to avoid subsurface damage while meeting
-          SEMI F21 particle standards.
-        topic: cleanroom environments
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: avoid-contamination
-        question: In training guides, what handling practices are recommended for silicon parts before and after laser cleaning
-          to avoid contamination?
-        answer: Before laser cleaning, handle silicon wafers fairly carefully in a class 100 cleanroom with anti-static gloves
-          and tools to minimize ESD risks and particulates. After ablation at 2.5 J/cm² fluence, typically store them in nitrogen-purged
-          enclosures to curb oxidation, preserving semiconductor integrity for electronics and solar uses.
-        topic: avoid contamination
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Semiconductor Manufacturing
+    - Aerospace
+    - Medical Devices
+    - Electronics
+    - Solar Energy
+    - Research and Development
+    - Automotive
+    - Cultural Heritage
+    - Optics and Photonics
+    - Nuclear Energy
   safety:
     regulatory_standards:
       presentation: card
@@ -541,12 +397,6 @@ relationships:
         longName: International Organization for Standardization
         name: ISO
         url: https://www.iso.org/standard/60426.html
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   regulatory_standards:
   - SEMI M1 - Specification for Polished Single Crystal Silicon Wafers
@@ -596,6 +446,17 @@ regulatory_standards:
   longName: International Organization for Standardization
   name: ISO
   url: https://www.iso.org/standard/60426.html
+applications:
+- Semiconductor Manufacturing
+- Aerospace
+- Medical Devices
+- Electronics
+- Solar Energy
+- Research and Development
+- Automotive
+- Cultural Heritage
+- Optics and Photonics
+- Nuclear Energy
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Silicon
@@ -605,13 +466,3 @@ fullPath: /materials/semiconductor/elemental/silicon-laser-cleaning
 pageDescription: Silicon works well for laser cleaning in electronics and solar setups, thanks to its durable hardness and
   strong corrosion resistance. In practice, dialing in precise laser energy addresses its sensitivity, ensuring clean finishes
   without damage.
-slug: silicon-laser-cleaning
-lastModified: '2026-01-04T15:41:30.841191'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Silicon
-  href: ''
-title: Silicon

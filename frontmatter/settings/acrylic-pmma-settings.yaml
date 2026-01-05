@@ -1,6 +1,14 @@
 id: acrylic-pmma-settings
-datePublished: '2026-01-04T23:44:25.353859Z'
-dateModified: '2026-01-04T23:44:25.353859Z'
+name: Acrylic (PMMA)
+datePublished: '2026-01-05T21:43:05.635045+00:00'
+dateModified: '2026-01-05T21:43:05.635045+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Acrylic (PMMA)
+  href: null
 images:
   hero:
     url: /images/settings/acrylic-pmma-settings-hero.jpg
@@ -38,7 +46,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -62,12 +71,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -76,13 +79,17 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-  operational: {}
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 30
@@ -211,13 +218,3 @@ metaDescription: Acrylic Pmma Settings laser cleaning parameters for contaminati
 fullPath: /settings/plastic/thermoplastic/acrylic-pmma-settings
 pageDescription: Before laser cleaning, Acrylic (PMMA) surfaces require careful parameter selection After cleaning, Acrylic
   (PMMA) surfaces show restored appearance with controlled parameters
-slug: acrylic-pmma-settings
-lastModified: '2026-01-04T15:44:25.353893'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Acrylic (PMMA)
-  href: ''
-title: Acrylic (PMMA)

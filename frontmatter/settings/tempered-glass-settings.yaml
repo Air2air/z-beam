@@ -1,6 +1,14 @@
 id: tempered-glass-settings
-datePublished: '2026-01-04T23:44:24.014738Z'
-dateModified: '2026-01-04T23:44:24.014738Z'
+name: Tempered Glass
+datePublished: '2026-01-05T21:43:05.634847+00:00'
+dateModified: '2026-01-05T21:43:05.634847+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Tempered Glass
+  href: null
 images:
   hero:
     url: /images/settings/tempered-glass-settings-hero.jpg
@@ -25,6 +33,9 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -36,11 +47,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 card:
   default:
     heading: Laser Cleaning Settings
@@ -63,12 +72,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -77,12 +80,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -92,59 +89,37 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: adhesive-paint-removal
-        category: Contamination
-        challenge: Adhesive and paint removal
-        description: Sticky residues can redeposit, multiple passes needed
-        severity: medium
-        solutions:
-        - Use air assist to remove vaporized material
-        - Multiple light passes better than single high-power
-        - Consider solvent pre-treatment for heavy buildup
-      - category: Thermal Management
-        challenge: Thermal shock and catastrophic failure
-        description: Glass shatters from thermal gradients due to low thermal expansion and brittleness
-        severity: critical
-        solutions:
-        - Use pulse mode with 5-8 second cooling between passes
-        - Preheat substrate to room temperature before cleaning
-        - Avoid cold spots (air vents, cold backing) during processing
-        - Tempered glass more resistant but still susceptible to thermal shock
-        - Monitor for stress fractures; stop immediately if cracks appear
-        threshold: ΔT > 40-100°C rapid cooling (glass-dependent)
-      - category: Thermal Management
-        challenge: Low thermal diffusivity
-        description: Heat accumulates in localized zones creating thermal gradients
-        severity: high
-        solutions:
-        - Reduce power by 30-40% compared to metals
-        - Increase scan speed to distribute heat (1000-2000 mm/s)
-        - Use defocused beam to spread energy over larger area
-        - Optical-grade glass (fused silica) tolerates higher power
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - challenge: Thermal shock and catastrophic failure
+          severity: critical
+          threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+          impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
+          solutions:
+          - Use pulse mode with 5-8 second cooling between passes
+          - Preheat substrate to room temperature before cleaning
+          - Avoid cold spots (air vents, cold backing) during processing
+          - Tempered glass more resistant but still susceptible to thermal shock
+          - Monitor for stress fractures; stop immediately if cracks appear
+        - challenge: Low thermal diffusivity
+          severity: high
+          property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+          impact: Heat accumulates in localized zones creating thermal gradients
+          solutions:
+          - Reduce power by 30-40% compared to metals
+          - Increase scan speed to distribute heat (1000-2000 mm/s)
+          - Use defocused beam to spread energy over larger area
+          - Optical-grade glass (fused silica) tolerates higher power
+        contamination_challenges:
+        - id: adhesive-paint-removal
+          type: challenge
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Tempered Glass cleaning without thermal damage
@@ -287,13 +262,3 @@ pageDescription: When laser cleaning tempered glass, we've found it behaves quit
   you must watch for hot spots that could propagate cracks. In our experience, this targeted method brings back clarity and
   shine reliably across marine or cultural heritage uses, preserving the material's durability. Just remember, always test
   on a small area first to avoid sudden breakage from overlooked thermal buildup.
-slug: tempered-glass-settings
-lastModified: '2026-01-04T15:44:24.014816'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Tempered Glass
-  href: ''
-title: Tempered Glass

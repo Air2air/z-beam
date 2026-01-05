@@ -1,8 +1,89 @@
 id: ammonia-compound
+name: Ammonia
 category: corrosive_gas
-datePublished: '2026-01-04T23:45:36.990505Z'
-dateModified: '2026-01-04T23:45:36.990505Z'
-page_title: 'Compound: Hazardous Emission'
+hazard_class: corrosive
+datePublished: '2026-01-05T21:43:02.313560+00:00'
+dateModified: '2026-01-05T21:43:02.313560+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Corrosive_Gas
+  href: /compounds/corrosive_gas
+- label: Ammonia
+  href: null
+chemical_formula: NH₃
+cas_number: 7664-41-7
+molecular_weight: 17.03
+health_effects: 'When handling ammonia compounds in industrial settings, prioritize ventilation right away. This gas''s sharp
+  corrosiveness can irritate eyes and skin on contact, leading to burns that feel like fire if not addressed quickly. We''ve
+  seen workers overlook gloves only to regret it later, so suit up fully before any exposure.
+
+
+  Its reactivity as a base turns moist surfaces into slippery hazards, but understanding this helps you rinse affected areas
+  immediately with plenty of water to neutralize the sting. Inhaling even faint traces brings on coughing fits and throat
+  tightness, which eases faster if you step into fresh air without delay. For materials processing, where vapors linger in
+  confined spaces, this property demands constant monitoring to prevent deeper respiratory issues that build over time.
+
+
+  Treating it demands quick action—dilute exposures with cool water flows lasting several minutes, then seek medical help
+  for lingering effects like chest discomfort. In laser cleaning applications involving ammonia residues, the gas''s volatility
+  means you must seal the area first, ensuring no plumes escape to affect nearby teams. This approach keeps operations smooth
+  while safeguarding health, turning potential risks into manageable routines.'
+exposure_guidelines: 'Ammonia compounds sting the eyes fast. They irritate skin on contact. Inhaling them burns the throat
+  quick. Workers feel nausea rising. Headaches hit hard too.
+
+
+  Handle with care always. Use gloves thick and tough. Wear goggles that seal tight. Masks filter the sharp fumes. Ventilate
+  spaces wide open.
+
+
+  In factories, they mix chemicals boldly. But leaks demand quick shutdowns. Spills need neutralizers right away. Training
+  keeps teams sharp.
+
+
+  Laser cleaning cuts grime without harm. Still, vapors rise sharp. Enclose the beam path fully. Monitor air flow constantly.
+  Suits protect from stray bursts.
+
+
+  Stay upwind during releases. Wash exposed skin immediately. Seek fresh air fast. Medical help follows close. Prevention
+  beats every cure.'
+detection_methods: 'Ammonia compounds differ sharply from inert gases like nitrogen. They react fiercely with air and moisture.
+  This volatility demands sharp detection tools in factories and labs.
+
+
+  Spot them fast with color-changing strips. These shift hues on contact. Workers grab them for quick checks during leaks.
+
+
+  Electronic sniffers pull ahead here. They buzz or flash at traces. No waiting around in tight spaces.
+
+
+  Infrared beams cut through fog. They sense the gas signature without touching it. Ideal for remote monitoring in pipes.
+
+
+  For big plants, fixed alarms link to vents. They trigger shutdowns before buildup. Safety nets like these save lives.
+
+
+  Portable kits shine in spills. Dip and read for instant alerts. Keep them handy near storage tanks.
+
+
+  Laser probes zap clean surfaces too. They reveal hidden residues without scraping. Perfect for post-cleanup scans on metals.'
+first_aid: 'Working with ammonia compounds taught me early on to respect their bite—handle them wrong, and you''re in for
+  a rough day. If it hits your eyes, the sharp sting demands immediate action: flush them gently but thoroughly with plenty
+  of cool water, keeping lids open to let the flow reach every spot, and do this for as long as it takes to feel relief starting.
+  Skin contact feels like a bad burn right away, so rinse the area under running water without delay, removing any soaked
+  clothes to avoid trapping the irritant.
+
+
+  Breathing it in hits hard and fast, leaving you coughing or worse, so get to fresh air immediately, loosen tight clothing
+  around your neck and chest, and rest in a comfortable position while someone watches for breathing trouble. Never try to
+  induce vomiting if it''s swallowed—that could make things uglier inside; instead, rinse your mouth carefully with water
+  and head straight to medical help, sipping only if a pro advises it later.
+
+
+  In all cases, skip home remedies and call for professional care right away, especially if symptoms linger or worsen, because
+  ammonia''s corrosive nature doesn''t mess around.'
 images:
   hero:
     url: /images/compound/ammonia-compound-hero.jpg
@@ -22,7 +103,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise: &id001
+  expertise:
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -40,7 +121,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 health_effects_keywords:
 - respiratory_irritation
@@ -85,12 +167,6 @@ relationships:
       items:
       - type: chemical_properties
         id: ammonia-physical-data
-      _section:
-        title: Chemical Properties
-        description: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -106,11 +182,8 @@ relationships:
         odor: Sharp, pungent, suffocating odor @ 5-50 ppm
       _section:
         section_title: Physical Properties
-        description: Physical state, appearance, color, odor, boiling/melting points
-        icon: thermometer
-        title: Physical Properties
-        order: 2
-        variant: default
+        description: Chemical and physical characteristics
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -126,12 +199,114 @@ relationships:
           pubchem_cid: '222'
       _section:
         section_title: Alternative Names
-        description: Alternative names, trade names, and chemical identifiers
+        description: Synonyms and chemical identifiers
         icon: tag
-        title: Synonyms & Identifiers
-        order: 3
-        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation, coughing, and potential pulmonary edema at high concentrations
+        severity: severe
+        onset: immediate
+      - route: eye_contact
+        effect: Severe corneal burns and possible permanent vision impairment
+        severity: severe
+        onset: immediate
+      - route: skin_contact
+        effect: Chemical burns and severe irritation of the skin
+        severity: high
+        onset: immediate
+      - route: ingestion
+        effect: Severe burns to the mouth, throat, and gastrointestinal tract, potentially leading to perforation
+        severity: severe
+        onset: immediate
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: SCBA or supplied-air respirator for >25 ppm or unknown concentrations. Air-purifying with ammonia cartridge
+          acceptable for ≤25 ppm.
+        skin: Neoprene, nitrile, or butyl rubber gloves. Chemical-resistant clothing. Liquid ammonia causes severe burns and
+          frostbite.
+        eye: Chemical safety goggles, full face shield. Extremely irritating and corrosive to eyes.
+        minimum_level: Level C for known <25 ppm, Level B for >25 ppm or liquefied ammonia
+        special_notes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
+          frostbite. Emergency eyewash/shower within 10 seconds.
+      _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
+        icon: shield-check
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse.
+          May reignite after flame is extinguished.
+        fire_suppression: Stop flow if safe to do so. Do not extinguish flame unless leak can be stopped. Cool cylinders with
+          water spray from safe distance. Use dry chemical, CO2 from maximum distance.
+        spill_procedures: EVACUATE. Ventilate area. SCBA required for liquid releases or >300 ppm. Contain with water spray
+          or fog. Dilute with water. Neutralize with acid (sulfuric, hydrochloric). Dike large liquid spills.
+        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15+ minutes - CRITICAL. Remove
+          contaminated clothing. Wash skin with water. If inhaled: administer oxygen. Seek immediate medical attention - severe
+          irritation likely.'
+        environmental_hazards: Toxic to aquatic life at high concentrations. Rapid volatilization from water. Report releases
+          >100 lbs.
+        special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
+          Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: exclamation-triangle
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 50
+        osha_pel_mg_m3: 35
+        niosh_rel_ppm: 25
+        niosh_rel_mg_m3: 18
+        acgih_tlv_ppm: 25
+        acgih_tlv_mg_m3: 17
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 50 ppm
+            stel_15min: null
+            ceiling: null
+          niosh_rel:
+            twa_8hr: 25 ppm
+            stel_15min: 35 ppm
+            ceiling: null
+            idlh: 300 ppm
+          acgih_tlv:
+            twa_8hr: 25 ppm
+            stel_15min: 35 ppm
+            ceiling: null
+          biological_exposure_indices: []
+      _section:
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
+        icon: gauge
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store cylinders <52°C. Keep away from heat.
+        ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. Ammonia gas detection
+          mandatory.'
+        incompatibilities:
+        - Acids (violent reaction)
+        - Halogens (chlorine, bromine)
+        - Heavy metals
+        - Oxidizers
+        - Mercury
+        - Silver compounds
+        - Calcium hypochlorite
+        container_material: Steel cylinders for compressed gas. Stainless steel for solutions.
+        segregation: Separate from acids by 20 feet or firewall. Separate from oxidizers and halogens. Flammable gas storage.
+        quantity_limits: Per fire code. Refrigeration systems subject to special regulations.
+        special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "FLAMMABLE GAS" and "CORROSIVE"
+          signs. Emergency eyewash/shower within 25 feet. Avoid contact with copper, brass, zinc in piping.
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -154,100 +329,8 @@ relationships:
         rcra_code: null
       _section:
         section_title: Regulatory Classification
-        description: OSHA hazard classification, GHS pictograms, and regulatory status
-        icon: file-badge
-        title: Regulatory Classification
-        order: 6
-        variant: default
-    health_impacts:
-      presentation: descriptive
-      _section:
-        title: Health Impacts
-        description: Health effects from exposure including acute and chronic impacts
-        icon: heart-pulse
-        order: 1
-        variant: warning
-      items:
-      - content: 'When handling ammonia compounds in industrial settings, prioritize ventilation right away. This gas''s sharp
-          corrosiveness can irritate eyes and skin on contact, leading to burns that feel like fire if not addressed quickly.
-          We''ve seen workers overlook gloves only to regret it later, so suit up fully before any exposure.
-
-
-          Its reactivity as a base turns moist surfaces into slippery hazards, but understanding this helps you rinse affected
-          areas immediately with plenty of water to neutralize the sting. Inhaling even faint traces brings on coughing fits
-          and throat tightness, which eases faster if you step into fresh air without delay. For materials processing, where
-          vapors linger in confined spaces, this property demands constant monitoring to prevent deeper respiratory issues
-          that build over time.
-
-
-          Treating it demands quick action—dilute exposures with cool water flows lasting several minutes, then seek medical
-          help for lingering effects like chest discomfort. In laser cleaning applications involving ammonia residues, the
-          gas''s volatility means you must seal the area first, ensuring no plumes escape to affect nearby teams. This approach
-          keeps operations smooth while safeguarding health, turning potential risks into manageable routines.'
-    exposure_guidance:
-      presentation: descriptive
-      _section:
-        title: Exposure Guidelines
-        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
-        icon: shield-alert
-        order: 2
-        variant: warning
-      items:
-      - content: 'Ammonia compounds sting the eyes fast. They irritate skin on contact. Inhaling them burns the throat quick.
-          Workers feel nausea rising. Headaches hit hard too.
-
-
-          Handle with care always. Use gloves thick and tough. Wear goggles that seal tight. Masks filter the sharp fumes.
-          Ventilate spaces wide open.
-
-
-          In factories, they mix chemicals boldly. But leaks demand quick shutdowns. Spills need neutralizers right away.
-          Training keeps teams sharp.
-
-
-          Laser cleaning cuts grime without harm. Still, vapors rise sharp. Enclose the beam path fully. Monitor air flow
-          constantly. Suits protect from stray bursts.
-
-
-          Stay upwind during releases. Wash exposed skin immediately. Seek fresh air fast. Medical help follows close. Prevention
-          beats every cure.'
-    personal_protection:
-      presentation: descriptive
-      _section:
-        title: Personal Protection Equipment
-        description: Required PPE including respirators, gloves, eye protection, and protective clothing
-        icon: shield-check
-        order: 3
-        variant: warning
-      items:
-      - content: Handle ammonia compounds with care. Corrosive vapors demand full-face shields. Eyes sting fast without them.
-          Respiratory masks seal tight against fumes. Gloves resist chemical soak-through. Cover skin in impermeable suits.
-          Boots prevent splashes on feet. Ventilate areas heavily. Train workers on quick exits. Store in sealed containers
-          away from heat.
-    emergency_procedures:
-      presentation: descriptive
-      _section:
-        title: Emergency Procedures
-        description: First aid measures, emergency response, and incident management
-        icon: siren
-        order: 4
-        variant: danger
-      items:
-      - content: 'Working with ammonia compounds taught me early on to respect their bite—handle them wrong, and you''re in
-          for a rough day. If it hits your eyes, the sharp sting demands immediate action: flush them gently but thoroughly
-          with plenty of cool water, keeping lids open to let the flow reach every spot, and do this for as long as it takes
-          to feel relief starting. Skin contact feels like a bad burn right away, so rinse the area under running water without
-          delay, removing any soaked clothes to avoid trapping the irritant.
-
-
-          Breathing it in hits hard and fast, leaving you coughing or worse, so get to fresh air immediately, loosen tight
-          clothing around your neck and chest, and rest in a comfortable position while someone watches for breathing trouble.
-          Never try to induce vomiting if it''s swallowed—that could make things uglier inside; instead, rinse your mouth
-          carefully with water and head straight to medical help, sipping only if a pro advises it later.
-
-
-          In all cases, skip home remedies and call for professional care right away, especially if symptoms linger or worsen,
-          because ammonia''s corrosive nature doesn''t mess around.'
+        description: DOT, UN, and NFPA hazard classifications
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -265,11 +348,8 @@ relationships:
           air: 100 lbs/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Environmental hazards, ecological effects, and disposal considerations
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-        title: Environmental Impact
-        order: 1
-        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -298,11 +378,8 @@ relationships:
         odor_threshold: 5-50 ppm - provides good warning below toxic levels
       _section:
         section_title: Detection & Monitoring
-        description: Real-time monitoring equipment and workplace air sampling methods
-        icon: activity
-        title: Monitoring Systems
-        order: 2
-        variant: default
+        description: Methods for detecting and measuring this compound
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -311,12 +388,6 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Breakdown of proteins
-      _section:
-        title: Source Contaminants
-        description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -326,12 +397,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        title: Source Materials
-        description: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -361,93 +426,28 @@ relationships:
           Attacks copper, brass, zinc, aluminum, and alloys.
       _section:
         section_title: Reactivity
-        description: Reactivity hazards, incompatible substances, and chemical stability
-        icon: flask-conical
-        title: Chemical Reactivity
-        order: 3
-        variant: warning
-  detection:
-    methods:
-      presentation: descriptive
-      _section:
-        title: Detection Methods
-        description: Analytical techniques and instruments for detecting this compound
-        icon: microscope
-        order: 1
-        variant: default
-      items:
-      - content: 'Ammonia compounds differ sharply from inert gases like nitrogen. They react fiercely with air and moisture.
-          This volatility demands sharp detection tools in factories and labs.
-
-
-          Spot them fast with color-changing strips. These shift hues on contact. Workers grab them for quick checks during
-          leaks.
-
-
-          Electronic sniffers pull ahead here. They buzz or flash at traces. No waiting around in tight spaces.
-
-
-          Infrared beams cut through fog. They sense the gas signature without touching it. Ideal for remote monitoring in
-          pipes.
-
-
-          For big plants, fixed alarms link to vents. They trigger shutdowns before buildup. Safety nets like these save lives.
-
-
-          Portable kits shine in spills. Dip and read for instant alerts. Keep them handy near storage tanks.
-
-
-          Laser probes zap clean surfaces too. They reveal hidden residues without scraping. Perfect for post-cleanup scans
-          on metals.'
-  operational:
-    expert_answers:
-      presentation: collapsible
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions about this compound answered by laser cleaning experts
-        icon: message-circle-question
-        order: 1
-        variant: default
-      items:
-      - id: what-protective-equipment-and-methods-should-i-use
-        question: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
-          in an industrial setting?
-        answer: Always ensure the work area is well-ventilated with local exhaust systems to dilute and remove ammonia gas,
-          aiming to keep concentrations below the OSHA permissible exposure limit of 50 ppm (35 ppm time-weighted average
-          over 8 hours). Wear appropriate personal protective equipment, including a full-face respirator with ammonia-specific
-          cartridges (NIOSH-approved), chemical-resistant gloves, and protective clothing to shield skin and eyes from the
-          gas's corrosive effects. If exposure is suspected, immediately evacuate the area, seek fresh air, and monitor for
-          symptoms like eye irritation or respiratory distress before resuming work.
-        topic: What protective equipment and methods should I use
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise: *id001
-      options:
-        autoOpenFirst: true
-        sortBy: topic
+        description: Chemical reactivity and incompatibilities
+        icon: atom
+displayName: Ammonia (NH₃)
 subcategory: alkaline_gas
+ppe_requirements: Handle ammonia compounds with care. Corrosive vapors demand full-face shields. Eyes sting fast without them.
+  Respiratory masks seal tight against fumes. Gloves resist chemical soak-through. Cover skin in impermeable suits. Boots
+  prevent splashes on feet. Ventilate areas heavily. Train workers on quick exits. Store in sealed containers away from heat.
 formula: NH₃
+faq:
+- question: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
+    in an industrial setting?
+  answer: Always ensure the work area is well-ventilated with local exhaust systems to dilute and remove ammonia gas, aiming
+    to keep concentrations below the OSHA permissible exposure limit of 50 ppm (35 ppm time-weighted average over 8 hours).
+    Wear appropriate personal protective equipment, including a full-face respirator with ammonia-specific cartridges (NIOSH-approved),
+    chemical-resistant gloves, and protective clothing to shield skin and eyes from the gas's corrosive effects. If exposure
+    is suspected, immediately evacuate the area, seek fresh air, and monitor for symptoms like eye irritation or respiratory
+    distress before resuming work.
 schemaVersion: 5.0.0
 contentType: compound
 pageTitle: Ammonia
-metaDescription: 'Compound: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
+metaDescription: Ammonia Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
+  requirements.
 fullPath: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
 pageDescription: Ammonia Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
   requirements.
-slug: ammonia-compound
-lastModified: '2026-01-04T15:45:36.990533'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Ammonia
-  href: ''
-title: Ammonia
-displayName: Ammonia (NH₃)
-casNumber: 7664-41-7
-chemicalFormula: NH₃
-hazardClass: corrosive
-molecularWeight: 17.03

@@ -1,8 +1,49 @@
 id: carbon-monoxide-compound
+name: Carbon Monoxide
 category: toxic_gas
-datePublished: '2026-01-04T23:45:35.516959Z'
-dateModified: '2026-01-04T23:45:35.516959Z'
-page_title: 'Compound: Hazardous Emission'
+hazard_class: toxic
+datePublished: '2026-01-05T21:43:02.312972+00:00'
+dateModified: '2026-01-05T21:43:02.312972+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Toxic_Gas
+  href: /compounds/toxic_gas
+- label: Carbon Monoxide
+  href: null
+chemical_formula: CO
+cas_number: 630-08-0
+molecular_weight: 28.01
+health_effects: "When dealing with carbon monoxide, watch its sneaky toxicity right away. Unlike oxygen, which sustains life,\
+  \ this gas binds tightly to your blood. That starves cells of what they need. \n\nCompare it to nitrogen—mostly harmless\
+  \ in air. Carbon monoxide slips in silently, mimicking oxygen's role. But it fools the body hard. Headaches hit first. Dizziness\
+  \ follows quick. \n\nIn industrial spots, like welding or engines, it builds up fast. Workers feel nausea without warning.\
+  \ Worse, confusion sets in deep. Blackouts can end it all. \n\nSafer gases like argon just displace air. Carbon monoxide\
+  \ poisons from within. Always vent well. Use detectors everywhere. Train teams to spot signs early."
+exposure_guidelines: Carbon monoxide slips in silently, unlike oxygen that sustains life. It binds tighter, starving the body
+  fast. Headaches hit first, then dizziness creeps in. Nausea follows, vision blurs quick. In heavy doses, confusion reigns;
+  blackout looms. Factories vent it during burns, welding sparks it free. Laser cleaning? It lingers in fumes, demanding fresh
+  air pulls. Wear masks tight, detect early with alarms. Ventilate wide, never ignore the threat.
+detection_methods: Spotting carbon monoxide in the air demands quick, reliable tools, especially around heavy machinery or
+  enclosed workspaces where leaks sneak up fast. Handheld detectors that change color on contact work well for spot checks,
+  alerting you without fuss. Electrochemical sensors, tucked into portable units, react swiftly to the gas's presence through
+  subtle electrical shifts, ideal for ongoing monitoring in factories. Infrared devices pick up the gas's unique absorption
+  patterns, scanning large areas remotely like a watchful eye over production lines. For tougher spots, like deep into pipes,
+  colorimetric tubes draw in samples and reveal traces via vivid reactions. In laser cleaning setups, where fumes build up,
+  pairing these with ventilation checks keeps things safe, avoiding buildup that dulls equipment over time. Stick to calibrated
+  gear, though—false alarms from poor maintenance can disrupt workflows just as badly as missing a real threat.
+first_aid: While fresh air revives someone gasping from everyday irritants like smoke, carbon monoxide demands swift, decisive
+  action since its silent grip mimics fatigue or flu, potentially turning deadly without warning. Rush the affected person
+  outdoors or to a well-ventilated space right away, loosening any tight clothing around the neck or chest to ease breathing.
+  If they seem unconscious or unresponsive, check for signs of life by gently shaking and calling their name—never delay summoning
+  professional help, as paramedics carry the tools to counter this insidious threat. Should breathing stop entirely, begin
+  chest compressions paired with rescue breaths if you're trained, keeping the rhythm steady until aid arrives. For milder
+  exposures where the person stays alert but woozy, encourage them to rest quietly in open air, avoiding any exertion that
+  could worsen the bind on their oxygen-starved system. Remember, this gas fools the body by binding tightly to blood carriers,
+  so even brief encounters in enclosed spots like garages or faulty heaters call for vigilance; prevention through detectors
+  beats reaction every time, but knowing these steps can bridge the gap to safety.
 images:
   hero:
     url: /images/compound/carbon-monoxide-compound-hero.jpg
@@ -22,7 +63,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise: &id001
+  expertise:
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -40,7 +81,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 health_effects_keywords:
 - asphyxiation
@@ -86,12 +128,6 @@ relationships:
       items:
       - type: chemical_properties
         id: carbon-monoxide-physical-data
-      _section:
-        title: Chemical Properties
-        description: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -107,11 +143,8 @@ relationships:
         odor: Odorless - Cannot be detected by smell (DANGEROUS!)
       _section:
         section_title: Physical Properties
-        description: Physical state, appearance, color, odor, boiling/melting points
-        icon: thermometer
-        title: Physical Properties
-        order: 2
-        variant: default
+        description: Chemical and physical characteristics
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -128,12 +161,123 @@ relationships:
           pubchem_cid: '281'
       _section:
         section_title: Alternative Names
-        description: Alternative names, trade names, and chemical identifiers
+        description: Synonyms and chemical identifiers
         icon: tag
-        title: Synonyms & Identifiers
-        order: 3
-        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Formation of carboxyhemoglobin leading to tissue hypoxia and impaired oxygen delivery
+        severity: severe
+        onset: immediate
+      - route: inhalation
+        effect: Headache, dizziness, and confusion
+        severity: moderate
+        onset: short-term
+      - route: inhalation
+        effect: Nausea, vomiting, and weakness
+        severity: moderate
+        onset: short-term
+      - route: inhalation
+        effect: Loss of consciousness and potential death at high concentrations
+        severity: severe
+        onset: immediate
+      - route: eye_contact
+        effect: Mild irritation
+        severity: low
+        onset: immediate
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: NIOSH-approved full-face pressure-demand SCBA or supplied-air respirator with escape bottle for IDLH
+          conditions. Continuous flow supplied-air for <1200 ppm.
+        skin: Protective gloves not normally required for gas (required for compressed gas cylinders). Thermal protection
+          if handling cryogenic liquid.
+        eye: Safety glasses. Face shield if handling compressed gas cylinders.
+        minimum_level: Level B for confined spaces/unknown concentrations, Level C with supplied air for known concentrations
+          <1200 ppm
+        special_notes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient atmospheres (<19.5% O2).
+          Detector badges provide no respiratory protection.
+      _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
+        icon: shield-check
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Extremely flammable gas. Wide flammability range. Vapors lighter than air but may accumulate in low areas.
+          Cylinders may rupture in fire.
+        fire_suppression: Do not extinguish burning gas unless flow can be stopped. Use water spray to cool cylinders. Use
+          dry chemical or CO2 for surrounding fires.
+        spill_procedures: Evacuate area immediately. Eliminate ignition sources. Ventilate area or move containers to safe
+          area. Stop leak if safe to do so. Monitor with CO detectors.
+        exposure_immediate_actions: Remove to fresh air IMMEDIATELY. Administer 100% oxygen by tight-fitting mask. If breathing
+          stopped, give artificial respiration. Seek immediate medical attention. Consider hyperbaric oxygen therapy for severe
+          exposures.
+        environmental_hazards: Negligible environmental persistence - rapidly disperses and oxidizes to CO2. Primary hazard
+          is asphyxiation, not environmental contamination.
+        special_hazards: Odorless, colorless - cannot detect without monitors. Binds to hemoglobin 200-250x more strongly
+          than oxygen, causing tissue hypoxia. Delayed neurological effects possible.
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: exclamation-triangle
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 50
+        osha_pel_mg_m3: 55
+        niosh_rel_ppm: 35
+        niosh_rel_mg_m3: 40
+        acgih_tlv_ppm: 25
+        acgih_tlv_mg_m3: 29
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 50 ppm
+            stel_15min: null
+            ceiling: 200 ppm
+          niosh_rel:
+            twa_8hr: 35 ppm
+            stel_15min: null
+            ceiling: 200 ppm
+            idlh: 1200 ppm
+          acgih_tlv:
+            twa_8hr: 25 ppm
+            stel_15min: null
+            ceiling: null
+          biological_exposure_indices:
+          - metabolite: Carboxyhemoglobin (COHb)
+            specimen: Blood
+            timing: End of shift
+            bei_value: <3.5% of hemoglobin for non-smokers, <10% post-shift
+      _section:
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
+        icon: gauge
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store compressed gas cylinders below 52°C (125°F)
+        ventilation: 'Outdoor storage preferred. If indoors: continuous mechanical ventilation, gas detection system with
+          alarms'
+        incompatibilities:
+        - Strong oxidizers
+        - Oxygen
+        - Air (explosive mixtures)
+        - Chlorine
+        - Fluorine
+        - Nitrous oxide
+        container_material: DOT-approved compressed gas cylinders (steel, aluminum). Do not transfer to unauthorized containers.
+        segregation: Separate from oxygen cylinders by 20 feet or 5-foot non-combustible barrier. Store in dedicated gas cylinder
+          storage.
+        quantity_limits: 'Per 29 CFR 1910.253: Maximum 300 cubic feet indoors, unlimited outdoors with proper segregation'
+        special_requirements: Secure cylinders to prevent falling. Store upright. Cap cylinders when not in use. Post "CARBON
+          MONOXIDE - POISON GAS" signs. Implement gas detection systems.
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -157,88 +301,8 @@ relationships:
         rcra_code: Not listed as hazardous waste
       _section:
         section_title: Regulatory Classification
-        description: OSHA hazard classification, GHS pictograms, and regulatory status
-        icon: file-badge
-        title: Regulatory Classification
-        order: 6
-        variant: default
-    health_impacts:
-      presentation: descriptive
-      _section:
-        title: Health Impacts
-        description: Health effects from exposure including acute and chronic impacts
-        icon: heart-pulse
-        order: 1
-        variant: warning
-      items:
-      - content: "When dealing with carbon monoxide, watch its sneaky toxicity right away. Unlike oxygen, which sustains life,\
-          \ this gas binds tightly to your blood. That starves cells of what they need. \n\nCompare it to nitrogen—mostly\
-          \ harmless in air. Carbon monoxide slips in silently, mimicking oxygen's role. But it fools the body hard. Headaches\
-          \ hit first. Dizziness follows quick. \n\nIn industrial spots, like welding or engines, it builds up fast. Workers\
-          \ feel nausea without warning. Worse, confusion sets in deep. Blackouts can end it all. \n\nSafer gases like argon\
-          \ just displace air. Carbon monoxide poisons from within. Always vent well. Use detectors everywhere. Train teams\
-          \ to spot signs early."
-    exposure_guidance:
-      presentation: descriptive
-      _section:
-        title: Exposure Guidelines
-        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
-        icon: shield-alert
-        order: 2
-        variant: warning
-      items:
-      - content: Carbon monoxide slips in silently, unlike oxygen that sustains life. It binds tighter, starving the body
-          fast. Headaches hit first, then dizziness creeps in. Nausea follows, vision blurs quick. In heavy doses, confusion
-          reigns; blackout looms. Factories vent it during burns, welding sparks it free. Laser cleaning? It lingers in fumes,
-          demanding fresh air pulls. Wear masks tight, detect early with alarms. Ventilate wide, never ignore the threat.
-    personal_protection:
-      presentation: descriptive
-      _section:
-        title: Personal Protection Equipment
-        description: Required PPE including respirators, gloves, eye protection, and protective clothing
-        icon: shield-check
-        order: 3
-        variant: warning
-      items:
-      - content: 'Unlike many everyday hazards that announce themselves with visible signs or strong smells, carbon monoxide
-          sneaks in silently, demanding gear that actively shields the lungs from its invisible threat. Workers in industrial
-          settings, where this toxic gas might leak from machinery or combustion processes, rely on full-face respirators
-          fitted with cartridges designed to filter out such colorless fumes. These aren''t just masks; they form a sealed
-          barrier, preventing even the slightest inhalation during tasks like welding or engine repairs.
-
-
-          Gloves made from chemical-resistant materials come next, protecting hands from any condensed residues or related
-          spills that could irritate skin. In hotter environments, like foundries, coveralls or suits that resist flames add
-          another layer, keeping the body safe from sparks that might ignite nearby vapors.
-
-
-          For laser cleaning operations involving metal surfaces—where the process generates heat and potential gas buildup—eye
-          protection becomes crucial. Goggles with side shields block intense beams while also guarding against any airborne
-          particles stirred up. Boots with steel toes ensure stability on slick floors, reducing slip risks amid the equipment.
-
-
-          Overall, this setup emphasizes detection tools integrated into suits, alerting users to rising dangers before they
-          strike, turning a stealthy poison into a manageable workplace foe.'
-    emergency_procedures:
-      presentation: descriptive
-      _section:
-        title: Emergency Procedures
-        description: First aid measures, emergency response, and incident management
-        icon: siren
-        order: 4
-        variant: danger
-      items:
-      - content: While fresh air revives someone gasping from everyday irritants like smoke, carbon monoxide demands swift,
-          decisive action since its silent grip mimics fatigue or flu, potentially turning deadly without warning. Rush the
-          affected person outdoors or to a well-ventilated space right away, loosening any tight clothing around the neck
-          or chest to ease breathing. If they seem unconscious or unresponsive, check for signs of life by gently shaking
-          and calling their name—never delay summoning professional help, as paramedics carry the tools to counter this insidious
-          threat. Should breathing stop entirely, begin chest compressions paired with rescue breaths if you're trained, keeping
-          the rhythm steady until aid arrives. For milder exposures where the person stays alert but woozy, encourage them
-          to rest quietly in open air, avoiding any exertion that could worsen the bind on their oxygen-starved system. Remember,
-          this gas fools the body by binding tightly to blood carriers, so even brief encounters in enclosed spots like garages
-          or faulty heaters call for vigilance; prevention through detectors beats reaction every time, but knowing these
-          steps can bridge the gap to safety.
+        description: DOT, UN, and NFPA hazard classifications
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -257,11 +321,8 @@ relationships:
           air: State-dependent. Many states require reporting large releases (e.g., >100 lbs/hr in some jurisdictions)
       _section:
         section_title: Environmental Impact
-        description: Environmental hazards, ecological effects, and disposal considerations
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-        title: Environmental Impact
-        order: 1
-        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -291,11 +352,8 @@ relationships:
           dangerous.
       _section:
         section_title: Detection & Monitoring
-        description: Real-time monitoring equipment and workplace air sampling methods
-        icon: activity
-        title: Monitoring Systems
-        order: 2
-        variant: default
+        description: Methods for detecting and measuring this compound
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -356,12 +414,6 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Quenching Oil Residue
-      _section:
-        title: Source Contaminants
-        description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -387,81 +439,46 @@ relationships:
           with heated iron to form toxic iron carbonyl.
       _section:
         section_title: Reactivity
-        description: Reactivity hazards, incompatible substances, and chemical stability
-        icon: flask-conical
-        title: Chemical Reactivity
-        order: 3
-        variant: warning
-  detection:
-    methods:
-      presentation: descriptive
-      _section:
-        title: Detection Methods
-        description: Analytical techniques and instruments for detecting this compound
-        icon: microscope
-        order: 1
-        variant: default
-      items:
-      - content: Spotting carbon monoxide in the air demands quick, reliable tools, especially around heavy machinery or enclosed
-          workspaces where leaks sneak up fast. Handheld detectors that change color on contact work well for spot checks,
-          alerting you without fuss. Electrochemical sensors, tucked into portable units, react swiftly to the gas's presence
-          through subtle electrical shifts, ideal for ongoing monitoring in factories. Infrared devices pick up the gas's
-          unique absorption patterns, scanning large areas remotely like a watchful eye over production lines. For tougher
-          spots, like deep into pipes, colorimetric tubes draw in samples and reveal traces via vivid reactions. In laser
-          cleaning setups, where fumes build up, pairing these with ventilation checks keeps things safe, avoiding buildup
-          that dulls equipment over time. Stick to calibrated gear, though—false alarms from poor maintenance can disrupt
-          workflows just as badly as missing a real threat.
-  operational:
-    expert_answers:
-      presentation: collapsible
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions about this compound answered by laser cleaning experts
-        icon: message-circle-question
-        order: 1
-        variant: default
-      items:
-      - id: what-protection-methods-should-laser-cleaning-oper
-        question: What protection methods should laser cleaning operators use to prevent carbon monoxide (CO) exposure?
-        answer: Always work in well-ventilated areas or use local exhaust ventilation systems to dilute and remove CO generated
-          from material vaporization during laser cleaning. Wear a respirator with an appropriate cartridge (e.g., NIOSH-approved
-          for organic vapors and acid gases) if ventilation is inadequate, and ensure personal CO monitors or alarms are worn
-          to provide real-time detection. Regularly maintain equipment to minimize incomplete combustion sources, and follow
-          OSHA's permissible exposure limit of 50 ppm over an 8-hour workday to avoid symptoms like headaches or dizziness.
-        topic: What protection methods should laser cleaning oper
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise: *id001
-      options:
-        autoOpenFirst: true
-        sortBy: topic
+        description: Chemical reactivity and incompatibilities
+        icon: atom
+displayName: Carbon Monoxide (CO)
 subcategory: asphyxiant
+ppe_requirements: 'Unlike many everyday hazards that announce themselves with visible signs or strong smells, carbon monoxide
+  sneaks in silently, demanding gear that actively shields the lungs from its invisible threat. Workers in industrial settings,
+  where this toxic gas might leak from machinery or combustion processes, rely on full-face respirators fitted with cartridges
+  designed to filter out such colorless fumes. These aren''t just masks; they form a sealed barrier, preventing even the slightest
+  inhalation during tasks like welding or engine repairs.
+
+
+  Gloves made from chemical-resistant materials come next, protecting hands from any condensed residues or related spills
+  that could irritate skin. In hotter environments, like foundries, coveralls or suits that resist flames add another layer,
+  keeping the body safe from sparks that might ignite nearby vapors.
+
+
+  For laser cleaning operations involving metal surfaces—where the process generates heat and potential gas buildup—eye protection
+  becomes crucial. Goggles with side shields block intense beams while also guarding against any airborne particles stirred
+  up. Boots with steel toes ensure stability on slick floors, reducing slip risks amid the equipment.
+
+
+  Overall, this setup emphasizes detection tools integrated into suits, alerting users to rising dangers before they strike,
+  turning a stealthy poison into a manageable workplace foe.'
 regulatory_standards: Carbon monoxide stands out from harmless gases like nitrogen. Its invisibility demands tight controls.
   Factories must install detectors everywhere. Workers get mandatory training on leaks. Ventilation systems stay mandatory
   in high-use zones. Storage tanks require robust seals against escape. Spill response plans save lives daily. Industries
   face audits to enforce these rules. Non-compliance brings heavy fines. Safe handling turns risk into routine.
 formula: CO
+faq:
+- question: What protection methods should laser cleaning operators use to prevent carbon monoxide (CO) exposure?
+  answer: Always work in well-ventilated areas or use local exhaust ventilation systems to dilute and remove CO generated
+    from material vaporization during laser cleaning. Wear a respirator with an appropriate cartridge (e.g., NIOSH-approved
+    for organic vapors and acid gases) if ventilation is inadequate, and ensure personal CO monitors or alarms are worn to
+    provide real-time detection. Regularly maintain equipment to minimize incomplete combustion sources, and follow OSHA's
+    permissible exposure limit of 50 ppm over an 8-hour workday to avoid symptoms like headaches or dizziness.
 schemaVersion: 5.0.0
 contentType: compound
 pageTitle: Carbon Monoxide
-metaDescription: 'Compound: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
+metaDescription: Carbon Monoxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+  equipment requirements.
 fullPath: /compounds/toxic-gas/asphyxiant/carbon-monoxide-compound
 pageDescription: Carbon Monoxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
-slug: carbon-monoxide-compound
-lastModified: '2026-01-04T15:45:35.544454'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Carbon Monoxide
-  href: ''
-title: Carbon Monoxide
-displayName: Carbon Monoxide (CO)
-casNumber: 630-08-0
-chemicalFormula: CO
-hazardClass: toxic
-molecularWeight: 28.01

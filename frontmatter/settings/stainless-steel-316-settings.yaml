@@ -1,6 +1,14 @@
 id: stainless-steel-316-settings
-datePublished: '2026-01-04T23:44:26.398620Z'
-dateModified: '2026-01-04T23:44:26.398620Z'
+name: Stainless Steel 316
+datePublished: '2026-01-05T21:43:05.635189+00:00'
+dateModified: '2026-01-05T21:43:05.635189+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Stainless Steel 316
+  href: null
 images:
   hero:
     url: /images/settings/stainless-steel-316-settings-hero.jpg
@@ -38,7 +46,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -62,12 +71,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -76,12 +79,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -89,13 +86,17 @@ relationships:
         effectiveness: high
       - id: stainless-steel-316-laser-cleaning
         effectiveness: high
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational: {}
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 100
@@ -226,13 +227,3 @@ metaDescription: Stainless Steel 316 Settings laser cleaning parameters for cont
 fullPath: /settings/metal/alloy/stainless-steel-316-settings
 pageDescription: Before laser cleaning, Stainless Steel 316 surfaces require careful parameter selection After cleaning, Stainless
   Steel 316 surfaces show restored appearance with controlled parameters
-slug: stainless-steel-316-settings
-lastModified: '2026-01-04T15:44:26.398650'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stainless Steel 316
-  href: ''
-title: Stainless Steel 316

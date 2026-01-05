@@ -1,8 +1,86 @@
 id: styrene-compound
+name: Styrene
 category: irritant
-datePublished: '2026-01-04T23:45:36.349220Z'
-dateModified: '2026-01-04T23:45:36.349220Z'
-page_title: 'Compound: Hazardous Emission'
+hazard_class: irritant
+datePublished: '2026-01-05T21:43:02.313460+00:00'
+dateModified: '2026-01-05T21:43:02.313460+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Irritant
+  href: /compounds/irritant
+- label: Styrene
+  href: null
+chemical_formula: C₈H₈
+cas_number: 100-42-5
+molecular_weight: 104.15
+health_effects: When handling styrene in industrial settings, compare it to milder solvents like acetone—styrene hits harder
+  as an irritant, especially on the skin and eyes, because its volatile vapors linger and penetrate more aggressively without
+  needing direct contact. You'll notice this difference right away if you've dealt with less reactive compounds; styrene demands
+  extra precautions during mixing or molding processes, where exposure builds up faster. Deep down, the primary issue stems
+  from its ability to inflame mucous membranes deeply, leading to that burning sensation in the nose and throat that doesn't
+  fade quickly, unlike quicker-evaporating alternatives. So, always gear up with full ventilation and gloves early on. In
+  laser cleaning applications for styrene-based coatings, this irritant nature means you must isolate the workspace to avoid
+  inhaling fumes kicked up by the beam, which could otherwise cause prolonged respiratory discomfort. We've found that brief
+  exposures still leave a lingering haze in the lungs, but proper airflow keeps things manageable without halting production.
+exposure_guidelines: 'Handling styrene compounds demands caution right from the start, especially in busy workshops where
+  vapors linger unnoticed. These materials, often key in crafting durable plastics, can irritate skin on contact, leading
+  to redness or discomfort if not managed. Workers should always opt for protective gloves and long sleeves to shield against
+  splashes during mixing or pouring tasks.
+
+
+  Breathing in fumes poses another risk, potentially causing throat irritation or headaches over time. Good ventilation keeps
+  air fresh, while masks fitted snugly help in confined spaces like molding areas. Eye protection is non-negotiable—goggles
+  prevent stinging from accidental exposure.
+
+
+  For cleanup, especially with laser methods that heat surfaces, ensure the area cools fully before re-entry to avoid inhaling
+  warmed irritants. Spill response stays simple: absorb with inert materials, then wash hands thoroughly. Regular breaks and
+  monitoring for symptoms like dizziness promote safer routines overall.'
+detection_methods: 'Spotting styrene compounds in materials starts with a real headache. They''re sneaky irritants that linger
+  without obvious signs. Workers in factories often face exposure risks during handling.
+
+
+  Visual checks come first. Look for oily residues or discoloration on surfaces. It builds up fast in industrial settings.
+
+
+  Sniff tests work too, but cautiously. That sharp, sweet odor signals presence, especially in vapors. Useful for quick scans
+  in production lines.
+
+
+  Chemical sensors detect it reliably. These gadgets pick up traces in air or on parts. They alert teams before irritation
+  kicks in.
+
+
+  Spectroscopy tools shine here. They identify molecular fingerprints without contact. Great for quality control in polymer
+  manufacturing.
+
+
+  Gas chromatography spots it in mixtures. Separate and confirm compounds swiftly. Essential for ensuring safe applications
+  like packaging.
+
+
+  In laser cleaning ops, detection ties in tight. Pre-scan for styrene buildup on metals or plastics. Post-clean verifies
+  removal, preventing irritant rebound.
+
+
+  Combine methods for best results. Layer them to cover properties and apps. Keeps industries running smooth and hazard-free.'
+first_aid: 'If styrene compound splashes on skin, rinse right away under running water. Soap helps too—lather gently for a
+  few minutes. Pat dry afterward, no rubbing. Watch for redness or itching; see a doctor if it lingers.
+
+
+  Eyes sting from contact? Flush them open with lukewarm water immediately. Keep at it steadily. Blink often during the rinse.
+  Get medical checkup fast, even if pain fades quick.
+
+
+  Breathe in fumes and feel dizzy or cough? Step outside to fresh air. Loosen tight clothes. Rest in a cool spot. If breathing
+  gets tough, call for help without delay.
+
+
+  Swallowed some by accident? Spit out what''s left. Rinse mouth with water. Don''t force vomit—that could worsen things.
+  Head to poison control or ER pronto. They handle it best. Stay calm, sip water if alert.'
 images:
   hero:
     url: /images/compound/styrene-compound-hero.jpg
@@ -22,7 +100,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise: &id001
+  expertise:
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -40,7 +118,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 health_effects_keywords:
 - respiratory_irritation
@@ -85,12 +164,6 @@ relationships:
       items:
       - type: chemical_properties
         id: styrene-physical-data
-      _section:
-        title: Chemical Properties
-        description: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -106,11 +179,8 @@ relationships:
         odor: Sweet, floral odor @ 0.05-0.5 ppm (odor fatigue occurs)
       _section:
         section_title: Physical Properties
-        description: Physical state, appearance, color, odor, boiling/melting points
-        icon: thermometer
-        title: Physical Properties
-        order: 2
-        variant: default
+        description: Chemical and physical characteristics
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -127,12 +197,120 @@ relationships:
           pubchem_cid: '7501'
       _section:
         section_title: Alternative Names
-        description: Alternative names, trade names, and chemical identifiers
+        description: Synonyms and chemical identifiers
         icon: tag
-        title: Synonyms & Identifiers
-        order: 3
-        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Central nervous system depression (dizziness, headache, fatigue)
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Respiratory tract irritation and potential carcinogenic effects
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation and dermatitis
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Eye irritation, redness, and possible corneal damage
+        severity: moderate
+        onset: immediate
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: NIOSH-approved organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
+        skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing. Styrene absorbs through skin.
+        eye: Chemical safety goggles, face shield for splash hazard.
+        minimum_level: Level C for <50 ppm, Level B for >50 ppm
+        special_notes: Neurotoxin and probable carcinogen (IARC 2B). Skin absorption significant. Extremely irritating. May
+          cause CNS depression.
+      _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
+        icon: shield-check
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Flammable liquid. May polymerize explosively in fire. Vapors heavier than air. May travel to ignition
+          sources.
+        fire_suppression: Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers.
+          Do not use water jet on liquid. Prevent contamination - polymerization hazard.
+        spill_procedures: Eliminate ignition sources. Ventilate area. Contain with sand or earth. Neutralize with sodium bisulfite.
+          Dispose as hazardous waste. Check stabilizer level before handling.
+        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
+          clothing - styrene penetrates. Wash skin thoroughly. Seek medical attention - neurotoxin and carcinogen exposure.
+          Monitor for CNS effects.'
+        environmental_hazards: Toxic to aquatic life. Bioaccumulates. Report spills >1000 lbs.
+        special_hazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). NEUROTOXIN - causes CNS depression, peripheral neuropathy. Irritating
+          to eyes, skin, respiratory tract. May polymerize explosively. Olfactory fatigue - cannot rely on odor. Metabolized
+          to styrene oxide (more toxic).
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: exclamation-triangle
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 100
+        osha_pel_mg_m3: 425
+        niosh_rel_ppm: 50
+        niosh_rel_mg_m3: 215
+        acgih_tlv_ppm: 20
+        acgih_tlv_mg_m3: 85
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 100 ppm
+            stel_15min: null
+            ceiling: 200 ppm
+          niosh_rel:
+            twa_8hr: 50 ppm
+            stel_15min: 100 ppm
+            ceiling: null
+            idlh: 700 ppm
+          acgih_tlv:
+            twa_8hr: 20 ppm
+            stel_15min: 40 ppm
+            ceiling: null
+          biological_exposure_indices:
+          - metabolite: Mandelic acid + Phenylglyoxylic acid
+            specimen: Urine
+            timing: End of shift
+            bei_value: 400 mg/g creatinine
+          - metabolite: Styrene
+            specimen: Blood
+            timing: End of shift
+            bei_value: 0.2 mg/L
+      _section:
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
+        icon: gauge
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store below 32°C. Keep cool. Avoid excessive heat.
+        ventilation: Local exhaust ventilation. Mechanical ventilation with emergency backup.
+        incompatibilities:
+        - Oxidizers
+        - Peroxides
+        - Strong acids
+        - Aluminum chloride
+        - Copper
+        - Brass
+        - Iron
+        container_material: Stainless steel or aluminum. Must contain inhibitor (tert-butylcatechol). Check inhibitor level
+          regularly.
+        segregation: Separate from oxidizers by 20 feet. Flammable liquid storage cabinet.
+        quantity_limits: Minimize quantities. Follow NFPA 30 for flammable liquids.
+        special_requirements: 'CRITICAL: Store with polymerization inhibitor (10-15 ppm tert-butylcatechol). Monitor inhibitor
+          level monthly. Avoid light and heat. Post "FLAMMABLE" and "CANCER HAZARD" signs. Date containers.'
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -156,107 +334,8 @@ relationships:
         rcra_code: null
       _section:
         section_title: Regulatory Classification
-        description: OSHA hazard classification, GHS pictograms, and regulatory status
-        icon: file-badge
-        title: Regulatory Classification
-        order: 6
-        variant: default
-    health_impacts:
-      presentation: descriptive
-      _section:
-        title: Health Impacts
-        description: Health effects from exposure including acute and chronic impacts
-        icon: heart-pulse
-        order: 1
-        variant: warning
-      items:
-      - content: When handling styrene in industrial settings, compare it to milder solvents like acetone—styrene hits harder
-          as an irritant, especially on the skin and eyes, because its volatile vapors linger and penetrate more aggressively
-          without needing direct contact. You'll notice this difference right away if you've dealt with less reactive compounds;
-          styrene demands extra precautions during mixing or molding processes, where exposure builds up faster. Deep down,
-          the primary issue stems from its ability to inflame mucous membranes deeply, leading to that burning sensation in
-          the nose and throat that doesn't fade quickly, unlike quicker-evaporating alternatives. So, always gear up with
-          full ventilation and gloves early on. In laser cleaning applications for styrene-based coatings, this irritant nature
-          means you must isolate the workspace to avoid inhaling fumes kicked up by the beam, which could otherwise cause
-          prolonged respiratory discomfort. We've found that brief exposures still leave a lingering haze in the lungs, but
-          proper airflow keeps things manageable without halting production.
-    exposure_guidance:
-      presentation: descriptive
-      _section:
-        title: Exposure Guidelines
-        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
-        icon: shield-alert
-        order: 2
-        variant: warning
-      items:
-      - content: 'Handling styrene compounds demands caution right from the start, especially in busy workshops where vapors
-          linger unnoticed. These materials, often key in crafting durable plastics, can irritate skin on contact, leading
-          to redness or discomfort if not managed. Workers should always opt for protective gloves and long sleeves to shield
-          against splashes during mixing or pouring tasks.
-
-
-          Breathing in fumes poses another risk, potentially causing throat irritation or headaches over time. Good ventilation
-          keeps air fresh, while masks fitted snugly help in confined spaces like molding areas. Eye protection is non-negotiable—goggles
-          prevent stinging from accidental exposure.
-
-
-          For cleanup, especially with laser methods that heat surfaces, ensure the area cools fully before re-entry to avoid
-          inhaling warmed irritants. Spill response stays simple: absorb with inert materials, then wash hands thoroughly.
-          Regular breaks and monitoring for symptoms like dizziness promote safer routines overall.'
-    personal_protection:
-      presentation: descriptive
-      _section:
-        title: Personal Protection Equipment
-        description: Required PPE including respirators, gloves, eye protection, and protective clothing
-        icon: shield-check
-        order: 3
-        variant: warning
-      items:
-      - content: 'Handling styrene-based compounds demands careful protection against their irritating nature, unlike milder
-          plastics that barely bother the skin—here, exposure can sting eyes, airways, and surfaces quickly, so gear up thoroughly
-          to stay safe during mixing, molding, or cleanup tasks.
-
-
-          Workers in factories shaping these materials into durable sheets or foams should always don sealed goggles, shielding
-          eyes from any misty vapors or accidental splashes that arise in heated environments. Thick, chemical-resistant gloves
-          form the next layer, gripping tools firmly while blocking the sticky residue from seeping through and causing rashes
-          on hands or arms; pair them with full-cover aprons or suits to safeguard clothing and body from drips during pouring
-          or assembly lines.
-
-
-          Breathing becomes tricky around the sharp odors released in high-volume production or when grinding scraps, so a
-          fitted respirator with cartridges tuned for organic irritants keeps lungs clear, especially in enclosed spaces lacking
-          strong airflow. For specialized jobs like laser cleaning these compounds—zapping away contaminants without harsh
-          chemicals—add face shields over goggles to deflect any scattered particles or reflected light, ensuring visibility
-          stays sharp amid the process''s intense focus.
-
-
-          Ventilation hoods or fans prove essential too, whisking away fumes before they build up, and after shifts, thorough
-          washing stations help rinse off any lingering traces. This setup not only eases the irritant risks but supports
-          smooth operations in industries relying on styrene''s versatile strength for packaging or insulation.'
-    emergency_procedures:
-      presentation: descriptive
-      _section:
-        title: Emergency Procedures
-        description: First aid measures, emergency response, and incident management
-        icon: siren
-        order: 4
-        variant: danger
-      items:
-      - content: 'If styrene compound splashes on skin, rinse right away under running water. Soap helps too—lather gently
-          for a few minutes. Pat dry afterward, no rubbing. Watch for redness or itching; see a doctor if it lingers.
-
-
-          Eyes sting from contact? Flush them open with lukewarm water immediately. Keep at it steadily. Blink often during
-          the rinse. Get medical checkup fast, even if pain fades quick.
-
-
-          Breathe in fumes and feel dizzy or cough? Step outside to fresh air. Loosen tight clothes. Rest in a cool spot.
-          If breathing gets tough, call for help without delay.
-
-
-          Swallowed some by accident? Spit out what''s left. Rinse mouth with water. Don''t force vomit—that could worsen
-          things. Head to poison control or ER pronto. They handle it best. Stay calm, sip water if alert.'
+        description: DOT, UN, and NFPA hazard classifications
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -273,11 +352,8 @@ relationships:
           air: 1000 lbs/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Environmental hazards, ecological effects, and disposal considerations
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-        title: Environmental Impact
-        order: 1
-        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -304,11 +380,8 @@ relationships:
         odor_threshold: '0.05-0.5 ppm - WARNING: Olfactory fatigue occurs. Cannot rely on odor for protection.'
       _section:
         section_title: Detection & Monitoring
-        description: Real-time monitoring equipment and workplace air sampling methods
-        icon: activity
-        title: Monitoring Systems
-        order: 2
-        variant: default
+        description: Methods for detecting and measuring this compound
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -321,12 +394,6 @@ relationships:
         frequency: common
         severity: moderate
         typical_context: Pyrolysis of styrene-butadiene rubber
-      _section:
-        title: Source Contaminants
-        description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -337,12 +404,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        title: Source Materials
-        description: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -374,98 +435,46 @@ relationships:
           peroxides on prolonged storage.
       _section:
         section_title: Reactivity
-        description: Reactivity hazards, incompatible substances, and chemical stability
-        icon: flask-conical
-        title: Chemical Reactivity
-        order: 3
-        variant: warning
-  detection:
-    methods:
-      presentation: descriptive
-      _section:
-        title: Detection Methods
-        description: Analytical techniques and instruments for detecting this compound
-        icon: microscope
-        order: 1
-        variant: default
-      items:
-      - content: 'Spotting styrene compounds in materials starts with a real headache. They''re sneaky irritants that linger
-          without obvious signs. Workers in factories often face exposure risks during handling.
-
-
-          Visual checks come first. Look for oily residues or discoloration on surfaces. It builds up fast in industrial settings.
-
-
-          Sniff tests work too, but cautiously. That sharp, sweet odor signals presence, especially in vapors. Useful for
-          quick scans in production lines.
-
-
-          Chemical sensors detect it reliably. These gadgets pick up traces in air or on parts. They alert teams before irritation
-          kicks in.
-
-
-          Spectroscopy tools shine here. They identify molecular fingerprints without contact. Great for quality control in
-          polymer manufacturing.
-
-
-          Gas chromatography spots it in mixtures. Separate and confirm compounds swiftly. Essential for ensuring safe applications
-          like packaging.
-
-
-          In laser cleaning ops, detection ties in tight. Pre-scan for styrene buildup on metals or plastics. Post-clean verifies
-          removal, preventing irritant rebound.
-
-
-          Combine methods for best results. Layer them to cover properties and apps. Keeps industries running smooth and hazard-free.'
-  operational:
-    expert_answers:
-      presentation: collapsible
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions about this compound answered by laser cleaning experts
-        icon: message-circle-question
-        order: 1
-        variant: default
-      items:
-      - id: as-a-laser-cleaning-operator-working-on-surfaces-p
-        question: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective
-          gear should I use to avoid skin irritation from exposure, especially since it's a stronger irritant than something
-          like acetone?
-        answer: Wear chemical-resistant gloves made of nitrile or PVC (at least 0.7 mm thick) and full-body coveralls to prevent
-          direct skin contact, as styrene penetrates skin more readily and causes greater irritation than milder solvents
-          like acetone. Use safety goggles and a respirator with organic vapor cartridges if ventilation is inadequate, ensuring
-          airborne exposure stays below the OSHA PEL of 100 ppm (8-hour TWA). Always perform a skin check after shifts and
-          wash exposed areas immediately with soap and water if contact occurs.
-        topic: As a laser cleaning operator working on surfaces p
-        acceptedAnswer: true
-        expertInfo:
-          name: Yi-Chun Lin
-          title: Ph.D.
-          expertise: *id001
-      options:
-        autoOpenFirst: true
-        sortBy: topic
+        description: Chemical reactivity and incompatibilities
+        icon: atom
+displayName: Styrene (C₈H₈)
 subcategory: aromatic_hydrocarbon
+ppe_requirements: 'Handling styrene-based compounds demands careful protection against their irritating nature, unlike milder
+  plastics that barely bother the skin—here, exposure can sting eyes, airways, and surfaces quickly, so gear up thoroughly
+  to stay safe during mixing, molding, or cleanup tasks.
+
+
+  Workers in factories shaping these materials into durable sheets or foams should always don sealed goggles, shielding eyes
+  from any misty vapors or accidental splashes that arise in heated environments. Thick, chemical-resistant gloves form the
+  next layer, gripping tools firmly while blocking the sticky residue from seeping through and causing rashes on hands or
+  arms; pair them with full-cover aprons or suits to safeguard clothing and body from drips during pouring or assembly lines.
+
+
+  Breathing becomes tricky around the sharp odors released in high-volume production or when grinding scraps, so a fitted
+  respirator with cartridges tuned for organic irritants keeps lungs clear, especially in enclosed spaces lacking strong airflow.
+  For specialized jobs like laser cleaning these compounds—zapping away contaminants without harsh chemicals—add face shields
+  over goggles to deflect any scattered particles or reflected light, ensuring visibility stays sharp amid the process''s
+  intense focus.
+
+
+  Ventilation hoods or fans prove essential too, whisking away fumes before they build up, and after shifts, thorough washing
+  stations help rinse off any lingering traces. This setup not only eases the irritant risks but supports smooth operations
+  in industries relying on styrene''s versatile strength for packaging or insulation.'
 formula: C₈H₈
+faq:
+- question: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective
+    gear should I use to avoid skin irritation from exposure, especially since it's a stronger irritant than something like
+    acetone?
+  answer: Wear chemical-resistant gloves made of nitrile or PVC (at least 0.7 mm thick) and full-body coveralls to prevent
+    direct skin contact, as styrene penetrates skin more readily and causes greater irritation than milder solvents like acetone.
+    Use safety goggles and a respirator with organic vapor cartridges if ventilation is inadequate, ensuring airborne exposure
+    stays below the OSHA PEL of 100 ppm (8-hour TWA). Always perform a skin check after shifts and wash exposed areas immediately
+    with soap and water if contact occurs.
 schemaVersion: 5.0.0
 contentType: compound
 pageTitle: Styrene
-metaDescription: 'Compound: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
+metaDescription: Styrene Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
+  requirements.
 fullPath: /compounds/irritant/aromatic-hydrocarbon/styrene-compound
 pageDescription: Styrene Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
   requirements.
-slug: styrene-compound
-lastModified: '2026-01-04T15:45:36.349248'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Styrene
-  href: ''
-title: Styrene
-displayName: Styrene (C₈H₈)
-casNumber: 100-42-5
-chemicalFormula: C₈H₈
-hazardClass: irritant
-molecularWeight: 104.15

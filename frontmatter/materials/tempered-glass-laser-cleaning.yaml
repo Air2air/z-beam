@@ -1,7 +1,17 @@
 id: tempered-glass-laser-cleaning
+name: Tempered Glass
 category: glass
-datePublished: '2026-01-04T23:41:32.335183Z'
-dateModified: '2026-01-04T23:41:32.335183Z'
+datePublished: '2026-01-05T21:41:33.333857+00:00'
+dateModified: '2026-01-05T21:41:33.333857+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Glass
+  href: /materials/glass
+- label: Tempered Glass
+  href: null
 micro:
   before: The durability of tempered glass, it manifests uniquely under microscopic scrutiny. Contamination patterns, they
     appear as irregular clusters, adhering tenaciously to the surface, which leads to obscured textures. These deposits, influenced
@@ -93,10 +103,13 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise: &id001
+  expertise:
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
     type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
@@ -109,11 +122,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 subcategory: specialty-glass
 properties:
   material_characteristics:
@@ -320,227 +331,34 @@ relationships:
       presentation: card
       items:
       - id: adhesive-residue-contamination
-        frequency: common
-        severity: moderate
       - id: biological-stains-contamination
-        frequency: common
-        severity: moderate
       - id: blood-residue-contamination
-        frequency: common
-        severity: moderate
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
       - id: insect-residue-contamination
-        frequency: common
-        severity: moderate
       - id: lime-scale-contamination
-        frequency: common
-        severity: moderate
       - id: medical-disinfectant-contamination
-        frequency: common
-        severity: moderate
       - id: mineral-deposits-contamination
-        frequency: common
-        severity: moderate
       - id: pesticide-residue-contamination
-        frequency: common
-        severity: moderate
       - id: pharmaceutical-residue-contamination
-        frequency: common
-        severity: moderate
       - id: plastic-residue-contamination
-        frequency: common
-        severity: moderate
       - id: pollen-deposit-contamination
-        frequency: common
-        severity: moderate
       - id: scale-buildup-contamination
-        frequency: common
-        severity: moderate
       - id: silicone-buildup-contamination
-        frequency: common
-        severity: moderate
       - id: soap-scum-contamination
-        frequency: common
-        severity: moderate
       - id: tree-sap-contamination
-        frequency: common
-        severity: moderate
       - id: water-stain-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: aerospace
-          name: Aerospace
-          description: Aircraft components and aerospace systems
-        - id: automotive
-          name: Automotive
-          description: Vehicle manufacturing and automotive parts
-        - id: electronics-manufacturing
-          name: Electronics Manufacturing
-          description: Circuit boards and electronic components
-        - id: medical-devices
-          name: Medical Devices
-          description: Medical equipment and surgical instruments
-        - id: marine
-          name: Marine
-          description: Marine vessels and offshore equipment
-        - id: cultural-heritage
-          name: Cultural Heritage
-          description: Cultural Heritage industry applications and manufacturing
-        - id: solar-energy
-          name: Solar Energy
-          description: Solar Energy industry applications and manufacturing
-        - id: architectural-glass
-          name: Architectural Glass
-          description: Architectural Glass industry applications and manufacturing
-        - id: food-processing
-          name: Food Processing
-          description: Food Processing industry applications and manufacturing
-        - id: laboratory-equipment
-          name: Laboratory Equipment
-          description: Laboratory Equipment industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: can-laser-cleaning-cause-tempered-glass-to-shatter
-        question: Can laser cleaning cause tempered glass to shatter due to thermal stress, and how can this be prevented?
-        answer: Indeed, laser cleaning poses a notable risk of shattering tempered glass via thermal shock, as rapid heating
-          disrupts its essential compressive surface stress. To counter this, use 10 ns pulse widths for limiting heat diffusion,
-          while keeping fluence under 2.5 J/cm² at 1064 nm wavelength and 100 W power. Air-assisted cooling between passes
-          promotes even dissipation, preserving the material's distinct integrity.
-        topic: Can laser cleaning cause tempered glass to shatter
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Alessandro Moretti
-          title: Ph.D.
-          expertise: *id001
-      - id: tempered-structure
-        question: What laser wavelengths are most effective for removing contaminants from tempered glass without damaging
-          its tempered structure?
-        answer: Unlike UV lasers, which notably enhance absorption in soda-lime tempered glass and amplify subsurface heating
-          risks, IR wavelengths like 1064 nm distinctly excel at removing contaminants while safeguarding the compressive
-          stress layer. Aim for 2.5 J/cm² fluence at 100 W power to achieve safe, efficient ablation without structural damage.
-        topic: tempered structure
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: tempered-windshields
-        question: In automotive applications, how safe is laser cleaning for removing paint or adhesives from tempered windshields?
-        answer: In automotive repairs, laser cleaning of tempered windshields remains generally safe, notably with a 1064
-          nm wavelength and 2.5 J/cm² fluence that ablates paint or adhesives without causing cracks. Vibration risks stay
-          minimal at 500 mm/s scan speeds, sidestepping edge stress concentrations—an essential point confirmed by repair
-          forum case studies, where no shattering followed treatment.
-        topic: tempered windshields
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: optical-properties
-        question: Does the tempering process alter the optical properties of glass, affecting laser cleaning efficiency?
-        answer: Indeed, tempering induces notable surface compressive stress, subtly altering the refractive index and potentially
-          improving laser penetration at 1064 nm. This exerts minimal influence on cleaning efficiency for tempered glass,
-          upholding essential optimal fluence around 2.5 J/cm² to prevent residue or damage. In aerospace uses, it delivers
-          distinct precision for contaminant removal.
-        topic: optical properties
-        severity: high
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: tempered-glass
-        question: What are common issues reported when using fiber lasers to clean tempered glass in manufacturing lines?
-        answer: In manufacturing lines, fiber lasers notably induce thermal cracking on tempered glass when fluence surpasses
-          2.5 J/cm², particularly along curves where uneven beam focus yields patchy contaminant removal. It's essential to
-          calibrate for 100 W power and 500 mm/s scan speed, ensuring uniform ablation without undue stress on the brittle
-          structure.
-        topic: tempered glass
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: avoid-micro-cracking
-        question: Are there specific safety data sheets or guidelines for laser cleaning tempered glass to avoid micro-cracking?
-        answer: ISO 11553 and OSHA 1910.1096 notably outline laser safety for brittle materials like tempered glass, emphasizing
-          fluence below 2.5 J/cm² to prevent micro-cracking from thermal stress. Essential monitoring for fragment hazards
-          is required during cleaning at 100 W power. Consult material-specific SDS for aerospace applications.
-        topic: avoid micro-cracking
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: tempered-glass
-        question: How does laser cleaning compare to chemical methods for restoring tempered glass shower doors?
-        answer: Laser cleaning outperforms chemical methods for tempered glass shower doors, notably bypassing etching risks
-          that solvents pose to its stress-tempered structure. At 1064 nm wavelength and 2.5 J/cm² fluence, it removes grime
-          cleanly without surface damage, reducing environmental waste while safeguarding the glass's essential, shatter-resistant
-          integrity for years.
-        topic: tempered glass
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: what-training-is-recommended-for-operators-handlin
-        question: What training is recommended for operators handling laser cleaning of tempered glass panels in construction?
-        answer: Operators handling tempered glass panels in cleaning tasks must engage in practical simulations to control
-          heat adeptly, ensuring fluence stays below 2.5 J/cm² and preventing cracks from thermal stress. Essential training
-          covers spotting distinct tempering defects alongside laser safety certification, particularly at 100 W levels.
-        topic: What training is recommended for operators handlin
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: oleophobic-coating
-        question: Can laser cleaning remove fingerprints or oils from tempered smartphone screens without affecting the oleophobic
-          coating?
-        answer: Yes, employing precise low-power settings such as 100 W average power and 2.5 J/cm² fluence, laser cleaning
-          effectively removes fingerprints and oils from tempered smartphone screens. This essential approach minimizes thermal
-          stress on the thin glass, notably preserving the oleophobic coating's integrity, as confirmed by repair community
-          tests using 1064 nm wavelength.
-        topic: oleophobic coating
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: hardness-and-thermal-expansion
-        question: What physical properties of tempered glass, like hardness and thermal expansion, must be considered in laser
-          surface treatment?
-        answer: When laser cleaning tempered glass, its Mohs hardness of 5-6 notably calls for fluence under 2.5 J/cm² to
-          avoid surface ablation or micro-cracks. That coefficient of thermal expansion at 9×10^{-6}/°C, meanwhile, makes
-          precise heat control essential—target 100 W power and 500 mm/s scan speed—to sidestep thermal stress and shattering.
-        topic: hardness and thermal expansion
-        severity: high
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Aerospace
+    - Automotive
+    - Electronics Manufacturing
+    - Medical Devices
+    - Marine
+    - Cultural Heritage
+    - Solar Energy
+    - Architectural Glass
+    - Food Processing
+    - Laboratory Equipment
   safety:
     regulatory_standards:
       presentation: card
@@ -560,12 +378,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922840Z'
   normalization_applied: true
@@ -595,6 +407,17 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+applications:
+- Aerospace
+- Automotive
+- Electronics Manufacturing
+- Medical Devices
+- Marine
+- Cultural Heritage
+- Solar Energy
+- Architectural Glass
+- Food Processing
+- Laboratory Equipment
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Tempered Glass
@@ -603,13 +426,3 @@ metaDescription: Tempered Glass laser cleaning guide. Remove contamination while
 fullPath: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
 pageDescription: When laser cleaning tempered glass, ensure you utilize its excellent thermal shock resistance to remove contaminants
   safely, without risking fractures.
-slug: tempered-glass-laser-cleaning
-lastModified: '2026-01-04T15:41:32.335228'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Tempered Glass
-  href: ''
-title: Tempered Glass

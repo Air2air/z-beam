@@ -937,11 +937,11 @@ const getArticleByContentType = cache(async (
       // Convert snake_case YAML fields to camelCase TypeScript at data boundary
       const convertedData = {
         ...frontmatterData,
-        // Convert snake_case to camelCase for TypeScript compatibility
-        metaDescription: frontmatterData.meta_description,
-        pageDescription: frontmatterData.page_description,
-        contaminationDescription: frontmatterData.contamination_description,
-        contentType: frontmatterData.content_type,
+        // Convert snake_case to camelCase for TypeScript compatibility (support both formats)
+        metaDescription: frontmatterData.metaDescription || frontmatterData.meta_description,
+        pageDescription: frontmatterData.pageDescription || frontmatterData.page_description,
+        contaminationDescription: frontmatterData.contaminationDescription || frontmatterData.contamination_description,
+        contentType: frontmatterData.contentType || frontmatterData.content_type,
       };
       
       // Use frontmatter data as the primary metadata source

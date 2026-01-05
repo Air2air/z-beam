@@ -1,7 +1,17 @@
 id: mortar-laser-cleaning
+name: Mortar
 category: masonry
-datePublished: '2026-01-04T23:41:26.768503Z'
-dateModified: '2026-01-04T23:41:26.768503Z'
+datePublished: '2026-01-05T21:41:33.333198+00:00'
+dateModified: '2026-01-05T21:41:33.333198+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Masonry
+  href: /materials/masonry
+- label: Mortar
+  href: null
 micro:
   before: The contamination on mortar surfaces, it manifests as irregular clusters, adhering tenaciously to porous grains.
     At high magnification, these deposits exhibit jagged edges, which obscure the underlying matrix, influenced from environmental
@@ -95,10 +105,13 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise: &id001
+  expertise:
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
     type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
@@ -111,11 +124,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 subcategory: general
 characteristics:
   crystallineStructure:
@@ -337,182 +348,18 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: cultural-heritage
-          name: Cultural Heritage
-          description: Cultural Heritage industry applications and manufacturing
-        - id: construction-restoration
-          name: Construction Restoration
-          description: Construction Restoration industry applications and manufacturing
-        - id: marine-infrastructure
-          name: Marine Infrastructure
-          description: Marine Infrastructure industry applications and manufacturing
-        - id: industrial-maintenance
-          name: Industrial Maintenance
-          description: Industrial Maintenance industry applications and manufacturing
-        - id: nuclear-decommissioning
-          name: Nuclear Decommissioning
-          description: Nuclear Decommissioning industry applications and manufacturing
-        - id: museum-conservation
-          name: Museum Conservation
-          description: Museum Conservation industry applications and manufacturing
-        - id: bridge-maintenance
-          name: Bridge Maintenance
-          description: Bridge Maintenance industry applications and manufacturing
-        - id: archaeological-research
-          name: Archaeological Research
-          description: Archaeological Research industry applications and manufacturing
-        - id: water-treatment-facilities
-          name: Water Treatment Facilities
-          description: Water Treatment Facilities industry applications and manufacturing
-        - id: historical-masonry
-          name: Historical Masonry
-          description: Historical Masonry industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: mortar-residue
-        question: Can laser cleaning effectively remove mortar residue from brickwork without damaging the bricks?
-        answer: Yes, laser cleaning stands out for effectively stripping away mortar residue while safeguarding brick integrity.
-          Employing a 1064 nm wavelength at 12.7 J/cm² fluence delivers distinct selective ablation of the mortar. Optimal
-          settings, including 500 mm/s scan speed and 50% overlap, avert thermal harm to the underlying masonry, proving essential
-          for delicate restoration efforts.
-        topic: mortar residue
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Alessandro Moretti
-          title: Ph.D.
-          expertise: *id001
-      - id: historical-mortar
-        question: What laser parameters work best for cleaning historical mortar from delicate stone surfaces?
-        answer: For treating historical mortar on delicate stone, it's essential to apply low fluence of about 12.7 J/cm²
-          using nanosecond pulses at 10 ns. This approach delivers controlled ablation while safeguarding the substrate. Notably,
-          a 1064 nm wavelength paired with 50% beam overlap achieves uniform removal of traditional lime-based compositions,
-          preventing thermal damage.
-        topic: historical mortar
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: mortar-containing-silica
-        question: Does laser cleaning create hazardous dust when removing mortar containing silica?
-        answer: Laser ablation at 12.7 J/cm² provides a distinct reduction in hazardous silica dust relative to mechanical
-          grinding. Yet, the method continues to produce fine particulate, so local exhaust ventilation and respiratory protection
-          remain essential for complying with OSHA's permissible exposure limits for crystalline silica.
-        topic: mortar containing silica
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: chemical-composition
-        question: How does laser cleaning affect the chemical composition of mortar surfaces compared to chemical cleaning?
-        answer: Laser cleaning, delivered at 12.7 J/cm², notably ablates contaminants selectively without inducing chemical
-          reactions, thereby safeguarding the mortar's original composition. This method proves essential for averting damaging
-          salt crystallization and pH alterations, delivering superior long-term stability versus chemical approaches that
-          often deposit reactive residues.
-        topic: chemical composition
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: mortar-and-later-repairs
-        question: Can laser cleaning distinguish between original mortar and later repairs during restoration projects?
-        answer: Yes, laser cleaning can differentiate materials through selective ablation. At 12.7 J/cm², original mortar
-          and modern repairs, with their distinct compositions, ablate at different rates. This allows precise removal of
-          later cementitious additions while preserving the authentic, historical substrate.
-        topic: mortar and later repairs
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: whats-the-maximum-thickness-of-mortar-residue-that
-        question: What's the maximum thickness of mortar residue that laser cleaning can effectively remove?
-        answer: Laser cleaning effectively removes mortar layers up to 2-3 mm thick per pass at 12.7 J/cm². For thicker residues,
-          a multi-pass strategy is essential to avoid substrate damage, often requiring mechanical pre-cleaning for deposits
-          exceeding 5 mm.
-        topic: What's the maximum thickness of mortar residue tha
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: lime-based-vs.-portland-cement
-        question: How does mortar composition (lime-based vs. Portland cement) affect laser cleaning results?
-        answer: The notable higher absorption of lime mortar at 1064 nm enables gentler cleaning around 12.7 J/cm². In contrast,
-          denser Portland cement demands elevated fluence, potentially causing discoloration unless its distinct mineralogy
-          is addressed via tuned power and scan speed.
-        topic: lime-based vs. Portland cement
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: is-laser-cleaning-cost-effective-for-large-scale-m
-        question: Is laser cleaning cost-effective for large-scale mortar removal from masonry facades?
-        answer: For expansive masonry facades, laser cleaning proves cost-effective on a large scale, even with elevated upfront
-          equipment expenses. Our 100W systems deliver notable 500 mm/s scan speeds at 12.7 J/cm² fluence, slashing labor
-          needs and bypassing abrasive waste—essential advantages over conventional techniques.
-        topic: Is laser cleaning cost-effective for large-scale m
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: mortar-from-confined-spaces
-        question: What safety precautions are specific to laser cleaning mortar from confined spaces like chimneys or tunnels?
-        answer: In confined spaces such as chimneys, it's essential to deploy aggressive fume extraction for controlling hazardous
-          mortar dust. The 1064 nm wavelength presents notable reflection risks, so position the beam with precision. Keep
-          monitoring oxygen levels and combustible gases to avoid atmospheric dangers.
-        topic: mortar from confined spaces
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: better-adhesion-profiles
-        question: Can laser cleaning prepare mortar surfaces for repointing by creating better adhesion profiles?
-        answer: Applying laser cleaning at 12.7 J/cm² notably removes contaminants and micro-roughens the mortar surface,
-          forming an essential adhesion profile for repointing. This technique distinctly outperforms mechanical abrasion
-          by safeguarding substrate integrity, yielding superior bond strength in the new mortar without micro-fractures.
-        topic: better adhesion profiles
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: moisture-content
-        question: How does moisture content in mortar affect laser cleaning efficiency and safety?
-        answer: Moisture notably heightens steam generation risks in laser cleaning of mortar. When dealing with damp historical
-          structures, it's essential to lower the fluence below 12.7 J/cm² while raising scan speed over 500 mm/s for better
-          thermal control. Such tweaks distinctly avoid micro-fracturing and sustain ablation efficiency on wet surfaces.
-        topic: moisture content
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Cultural Heritage
+    - Construction Restoration
+    - Marine Infrastructure
+    - Industrial Maintenance
+    - Nuclear Decommissioning
+    - Museum Conservation
+    - Bridge Maintenance
+    - Archaeological Research
+    - Water Treatment Facilities
+    - Historical Masonry
   safety:
     regulatory_standards:
       presentation: card
@@ -537,12 +384,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922234Z'
   normalization_applied: true
@@ -576,6 +417,17 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+applications:
+- Cultural Heritage
+- Construction Restoration
+- Marine Infrastructure
+- Industrial Maintenance
+- Nuclear Decommissioning
+- Museum Conservation
+- Bridge Maintenance
+- Archaeological Research
+- Water Treatment Facilities
+- Historical Masonry
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Mortar
@@ -585,13 +437,3 @@ fullPath: /materials/masonry/general/mortar-laser-cleaning
 pageDescription: In historical restorations, laser cleaning mortar works best by starting with controlled pulses to leverage
   its strong energy absorption and low thermal conductivity, which prevents cracks from localized heat while effectively stripping
   away years of grime
-slug: mortar-laser-cleaning
-lastModified: '2026-01-04T15:41:26.768539'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Mortar
-  href: ''
-title: Mortar

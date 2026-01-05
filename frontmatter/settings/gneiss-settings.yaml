@@ -1,6 +1,14 @@
 id: gneiss-settings
-datePublished: '2026-01-04T23:44:25.993500Z'
-dateModified: '2026-01-04T23:44:25.993500Z'
+name: Gneiss
+datePublished: '2026-01-05T21:43:05.635141+00:00'
+dateModified: '2026-01-05T21:43:05.635141+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Gneiss
+  href: null
 images:
   hero:
     url: /images/settings/gneiss-settings-hero.jpg
@@ -38,7 +46,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -62,12 +71,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -76,12 +79,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -91,13 +88,17 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational: {}
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 90
@@ -229,13 +230,3 @@ metaDescription: Gneiss Settings laser cleaning parameters for contamination rem
 fullPath: /settings/stone/metamorphic/gneiss-settings
 pageDescription: Before laser cleaning, Gneiss surfaces require careful parameter selection After cleaning, Gneiss surfaces
   show restored appearance with controlled parameters
-slug: gneiss-settings
-lastModified: '2026-01-04T15:44:25.993528'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Gneiss
-  href: ''
-title: Gneiss

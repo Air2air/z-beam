@@ -1,6 +1,14 @@
 id: titanium-nitride-settings
-datePublished: '2026-01-04T23:44:26.538522Z'
-dateModified: '2026-01-04T23:44:26.538522Z'
+name: Titanium Nitride
+datePublished: '2026-01-05T21:43:05.635229+00:00'
+dateModified: '2026-01-05T21:43:05.635229+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Titanium Nitride
+  href: null
 images:
   hero:
     url: /images/settings/titanium-nitride-settings-hero.jpg
@@ -25,6 +33,9 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -36,11 +47,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 card:
   default:
     heading: Laser Cleaning Settings
@@ -63,12 +72,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -77,24 +80,22 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: titanium-laser-cleaning
         effectiveness: high
+  operational:
+    common_challenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational: {}
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     value: 80
@@ -228,13 +229,3 @@ metaDescription: Titanium Nitride Settings laser cleaning parameters for contami
 fullPath: /settings/ceramic/coating/titanium-nitride-settings
 pageDescription: Before laser cleaning, Titanium Nitride surfaces require careful parameter selection After cleaning, Titanium
   Nitride surfaces show restored appearance with controlled parameters
-slug: titanium-nitride-settings
-lastModified: '2026-01-04T15:44:26.538568'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Titanium Nitride
-  href: ''
-title: Titanium Nitride

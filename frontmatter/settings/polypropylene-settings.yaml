@@ -1,6 +1,14 @@
 id: polypropylene-settings
-datePublished: '2026-01-04T23:44:21.587930Z'
-dateModified: '2026-01-04T23:44:21.587930Z'
+name: Polypropylene
+datePublished: '2026-01-05T21:43:05.634497+00:00'
+dateModified: '2026-01-05T21:43:05.634497+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Polypropylene
+  href: null
 images:
   hero:
     url: /images/settings/polypropylene-settings-hero.jpg
@@ -29,6 +37,9 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -37,11 +48,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -65,12 +73,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -79,12 +81,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -94,53 +90,37 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - category: Thermal Management
-        challenge: Low melting/degradation temperatures
-        description: Melting, warping, or chemical degradation at low temperatures
-        severity: high
-        solutions:
-        - Use lowest power settings (20-40W)
-        - Fast scan speeds (2000-4000 mm/s)
-        - Pulse mode with extended cooling (5-10 seconds between passes)
-      - category: Thermal Management
-        challenge: Outgassing and fume generation
-        description: Toxic fumes, smoke, and potential fire hazard
-        severity: high
-        solutions:
-        - Mandatory fume extraction system
-        - Work in well-ventilated areas
-        - Monitor for smoke/discoloration
-      - category: Contamination Challenges
-        challenge: Coating and label removal
-        description: Adhesives melt and smear rather than ablate cleanly
-        severity: medium
-        solutions:
-        - Use UV wavelength (355nm) for better photochemical ablation
-        - Multiple gentle passes instead of single high-power pass
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - challenge: Low melting/degradation temperatures
+          severity: high
+          threshold_range: 80-300°C depending on polymer type
+          impact: Melting, warping, or chemical degradation at low temperatures
+          solutions:
+          - Use lowest power settings (20-40W)
+          - Fast scan speeds (2000-4000 mm/s)
+          - Pulse mode with extended cooling (5-10 seconds between passes)
+        - challenge: Outgassing and fume generation
+          severity: high
+          impact: Toxic fumes, smoke, and potential fire hazard
+          solutions:
+          - Mandatory fume extraction system
+          - Work in well-ventilated areas
+          - Monitor for smoke/discoloration
+        contamination_challenges:
+        - challenge: Coating and label removal
+          severity: medium
+          impact: Adhesives melt and smear rather than ablate cleanly
+          solutions:
+          - Use UV wavelength (355nm) for better photochemical ablation
+          - Multiple gentle passes instead of single high-power pass
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power range for Polypropylene surface cleaning without thermal degradation
@@ -280,13 +260,3 @@ pageDescription: When laser cleaning polypropylene, you'll want to start with th
   gradually while keeping overlaps minimal, as its low thermal conductivity traps heat locally and can cause warping if you
   linger too long. This approach restores surfaces cleanly without deformation. Just watch out for overexposure—always test
   on scraps first to avoid softening the material.
-slug: polypropylene-settings
-lastModified: '2026-01-04T15:44:21.587959'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Polypropylene
-  href: ''
-title: Polypropylene

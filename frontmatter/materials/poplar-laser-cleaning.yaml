@@ -1,7 +1,17 @@
 id: poplar-laser-cleaning
+name: Poplar
 category: wood
-datePublished: '2026-01-04T23:41:28.828345Z'
-dateModified: '2026-01-04T23:41:28.828345Z'
+datePublished: '2026-01-05T21:41:33.333450+00:00'
+dateModified: '2026-01-05T21:41:33.333450+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Wood
+  href: /materials/wood
+- label: Poplar
+  href: null
 micro:
   before: Laser cleaning poplar wood stands out in my hands-on projects because it uncovers the material's natural grain without
     damaging its lightweight structure. It works well for restoring antique pieces or prepping surfaces for finishing, but
@@ -88,7 +98,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise: &id001
+  expertise:
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -106,7 +116,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 subcategory: hardwood
 characteristics:
@@ -331,173 +342,18 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: aerospace
-          name: Aerospace
-          description: Aircraft components and aerospace systems
-        - id: automotive
-          name: Automotive
-          description: Vehicle manufacturing and automotive parts
-        - id: cultural-heritage
-          name: Cultural Heritage
-          description: Cultural Heritage industry applications and manufacturing
-        - id: furniture-manufacturing
-          name: Furniture Manufacturing
-          description: Furniture Manufacturing industry applications and manufacturing
-        - id: musical-instruments
-          name: Musical Instruments
-          description: Musical Instruments industry applications and manufacturing
-        - id: marine
-          name: Marine
-          description: Marine vessels and offshore equipment
-        - id: construction
-          name: Construction
-          description: Building materials and construction equipment
-        - id: art-conservation
-          name: Art Conservation
-          description: Art Conservation industry applications and manufacturing
-        - id: packaging-manufacturing
-          name: Packaging Manufacturing
-          description: Packaging Manufacturing industry applications and manufacturing
-        - id: energy-sector
-          name: Energy Sector
-          description: Energy Sector industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: surface-burning
-        question: What are the optimal laser parameters for cleaning rust or contaminants from Poplar wood without causing
-          surface burning?
-        answer: For poplar wood, I'd go with a 1064nm fiber laser at 1.2 J/cm² fluence to pretty effectively strip away rust
-          while keeping the material intact. A 100µm spot size paired with 500 mm/s scan speed offers fairly precise handling,
-          cutting down on thermal effects. Test these settings on a hidden spot first to ensure the surface holds up.
-        topic: surface burning
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Todd Dunning
-          title: MA
-          expertise: *id001
-      - id: low-density-and-softness
-        question: How does Poplar's low density and softness affect laser cleaning compared to harder woods like oak?
-        answer: Poplar's fairly low 540 lbf Janka hardness calls for gentle laser settings to avoid damage. Basically, we
-          apply a 1.2 J/cm² fluence threshold and 500 mm/s scan speed, which removes contaminants effectively without etching
-          or raising the grain—issues you don't typically face with harder woods like oak.
-        topic: low density and softness
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: painting-or-staining
-        question: Can laser cleaning be used to prepare Poplar for painting or staining after removing old finishes?
-        answer: Yeah, laser cleaning effectively strips finishes from Poplar while basically preserving its porous structure.
-          With 1.2 J/cm² fluence and 100W power, it removes contaminants without sealing the wood grain, leaving a pretty
-          ideal surface for uniform stain or paint absorption.
-        topic: painting or staining
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: combustible-nature
-        question: What specific safety concerns exist when laser cleaning Poplar, given its combustible nature?
-        answer: Because poplar is pretty combustible, keep laser power under 100W with a fast scan speed of 500 mm/s to avoid
-          ignition. Always employ air assist and keep a fire extinguisher right at hand, as the 1.2 J/cm² fluence threshold
-          remains basically critical for safety.
-        topic: combustible nature
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: biological-growth-(mold-mildew)
-        question: Is laser cleaning effective for removing biological growth (mold, mildew) from Poplar without damaging the
-          wood structure?
-        answer: Properly tuned near-infrared lasers at 1.2 J/cm² basically ablate biological growth from Poplar pretty effectively.
-          That 10 ns pulse width vaporizes contaminants before much heat reaches the wood's cellulose, delivering a superior,
-          residue-free option over chemical spore treatments.
-        topic: biological growth (mold, mildew)
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: green/brown-mineral-streaks
-        question: How does the presence of Poplar's green/brown mineral streaks affect laser absorption and cleaning results?
-        answer: Poplar's mineral streaks pretty much absorb our 1064 nm wavelength more readily than the surrounding wood,
-          leading to differential cleaning effects. Basically, to offset this, dial your fluence back to 1.0 J/cm² and ramp
-          up scan speed to avoid discoloration in the variable grain.
-        topic: green/brown mineral streaks
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: what-is-the-maximum-depth-of-contamination-removal
-        question: What is the maximum depth of contamination removal possible on Poplar before structural integrity is compromised?
-        answer: Poplar's delicate cellular structure keeps removal depth pretty limited. Aim to stay below 50-100 μm for preserving
-          integrity. In structural applications, typically hold fluence under 1.2 J/cm² to avoid harming those thin cell walls.
-          Cosmetic cleaning offers fairly more latitude.
-        topic: What is the maximum depth of contamination removal
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: can-laser-cleaning-restore-the-original-color-of-a
-        question: Can laser cleaning restore the original color of aged or oxidized Poplar wood surfaces?
-        answer: When laser ablation is tuned right at 1.2 J/cm², it fairly effectively strips the gray oxidized layer from
-          Poplar, exposing the lighter wood below. Unlike sanding, this non-contact technique basically sidesteps heat-induced
-          discoloration, yielding a truer original surface color.
-        topic: Can laser cleaning restore the original color of a
-        severity: high
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: different-poplar-subspecies
-        question: How do different Poplar subspecies (Yellow Poplar, Tulip Poplar) respond to laser cleaning treatments?
-        answer: Both subspecies handle the 1064 nm wavelength pretty well, but Tulip Poplar's fairly higher density calls
-          for precise fluence management around 1.2 J/cm² to avoid subsurface cell wall damage. With its lower resin content,
-          Yellow Poplar provides more flexible parameter ranges, especially using a 100 µm spot size for accurate grain cleaning.
-        topic: different Poplar subspecies
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: stabilize-the-surface
-        question: What post-cleaning treatments are recommended for Poplar after laser cleaning to stabilize the surface?
-        answer: After laser cleaning at 1.2 J/cm², poplar's opened grain structure pretty much benefits from a penetrating
-          oil-based sealer. That stabilizes the surface by rehydrating raised fibers and blocking oxidative discoloration.
-          In porous spots, applying a dilute wood consolidant before final sealing typically ensures long-term dimensional
-          stability.
-        topic: stabilize the surface
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Aerospace
+    - Automotive
+    - Cultural Heritage
+    - Furniture Manufacturing
+    - Musical Instruments
+    - Marine
+    - Construction
+    - Art Conservation
+    - Packaging Manufacturing
+    - Energy Sector
   safety:
     regulatory_standards:
       presentation: card
@@ -527,12 +383,6 @@ relationships:
         longName: Unknown Organization
         name: Unknown
         url: ''
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   regulatory_standards:
   - EPA Clean Air Act Compliance
@@ -569,6 +419,17 @@ regulatory_standards:
   longName: Unknown Organization
   name: Unknown
   url: ''
+applications:
+- Aerospace
+- Automotive
+- Cultural Heritage
+- Furniture Manufacturing
+- Musical Instruments
+- Marine
+- Construction
+- Art Conservation
+- Packaging Manufacturing
+- Energy Sector
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Poplar
@@ -578,13 +439,3 @@ fullPath: /materials/wood/hardwood/poplar-laser-cleaning
 pageDescription: When laser cleaning poplar, its porous structure traps contaminants deep inside and can lead to uneven heat
   distribution. But by slowing the scan speed to around 500 millimeters per second with two passes, you effectively remove
   surface buildup while keeping the wood's natural flexibility intact for furniture and musical instruments.
-slug: poplar-laser-cleaning
-lastModified: '2026-01-04T15:41:28.828375'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Poplar
-  href: ''
-title: Poplar

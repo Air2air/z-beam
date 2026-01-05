@@ -236,7 +236,7 @@ describe('Material Pages Build Validation', () => {
               continue;
             }
             
-            const required = ['page_title', 'name', 'category', 'subcategory', 'pageDescription'];
+            const required = ['pageTitle', 'name', 'category', 'subcategory', 'pageDescription'];
             required.forEach(field => {
               if (!article.metadata[field]) {
                 errors.push(`${material.slug}: missing ${field}`);

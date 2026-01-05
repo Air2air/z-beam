@@ -1,6 +1,14 @@
 id: alabaster-settings
-datePublished: '2026-01-04T23:44:16.451290Z'
-dateModified: '2026-01-04T23:44:16.451290Z'
+name: Alabaster
+datePublished: '2026-01-05T21:43:05.633311+00:00'
+dateModified: '2026-01-05T21:43:05.633311+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Alabaster
+  href: null
 images:
   hero:
     url: /images/settings/alabaster-settings-hero.jpg
@@ -25,6 +33,9 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -36,11 +47,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 card:
   default:
     heading: Laser Cleaning Settings
@@ -63,12 +72,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -77,12 +80,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -92,61 +89,38 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: biological-growth
-        category: Contamination
-        challenge: Biological growth and deep staining
-        description: Organic matter penetrates porous structure, difficult removal
-        severity: high
-        solutions:
-        - Use multiple passes with low-to-medium fluence (1-3 J/cm²)
-        - May require biocide pre-treatment for deep penetration
-        - Monitor for surface erosion
-      - category: Thermal Management
-        challenge: Thermal shock and microcracking
-        description: Natural stone contains microfissures that propagate under thermal stress
-        severity: critical
-        solutions:
-        - Use pulse mode with 8-12 second cooling between passes
-        - Reduce power by 40-50% for weathered or damaged stone
-        - Preheat substrate if possible to reduce thermal gradients
-        - Granite more resistant than marble; sandstone most vulnerable
-        - Monitor for surface crazing; stop immediately if cracks appear
-        threshold: ΔT > 50-150°C rapid cooling (stone-dependent)
-      - category: Thermal Management
-        challenge: Moisture-induced spalling
-        description: Porous stone traps moisture that explosively converts to steam
-        severity: high
-        solutions:
-        - Test moisture content before cleaning (>3% requires drying)
-        - Allow 48-72 hours drying after rain before laser cleaning
-        - Reduce power by 50% for damp stone
-        - Use pulse mode with extended cooling (15-20 seconds)
-        - Heritage stone requires especially gentle approach
-        threshold: Steam formation >100°C with trapped moisture
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - challenge: Thermal shock and microcracking
+          severity: critical
+          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          impact: Natural stone contains microfissures that propagate under thermal stress
+          solutions:
+          - Use pulse mode with 8-12 second cooling between passes
+          - Reduce power by 40-50% for weathered or damaged stone
+          - Preheat substrate if possible to reduce thermal gradients
+          - Granite more resistant than marble; sandstone most vulnerable
+          - Monitor for surface crazing; stop immediately if cracks appear
+        - challenge: Moisture-induced spalling
+          severity: high
+          threshold_temperature: Steam formation >100°C with trapped moisture
+          impact: Porous stone traps moisture that explosively converts to steam
+          solutions:
+          - Test moisture content before cleaning (>3% requires drying)
+          - Allow 48-72 hours drying after rain before laser cleaning
+          - Reduce power by 50% for damp stone
+          - Use pulse mode with extended cooling (15-20 seconds)
+          - Heritage stone requires especially gentle approach
+        contamination_challenges:
+        - id: biological-growth
+          type: challenge
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Alabaster surface cleaning without thermal damage
@@ -283,13 +257,3 @@ pageDescription: 'Alabaster stands out as a soft, sedimentary stone that carves 
   For aerospace and medical applications, alabaster''s lightweight density and subtle durability make it suitable for custom
   prototypes or non-structural components that demand precision. Engineers adjust spindle speeds to a gentle rhythm, allowing
   the stone to yield evenly and avoid stress fractures during machining. In'
-slug: alabaster-settings
-lastModified: '2026-01-04T15:44:16.483604'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Alabaster
-  href: ''
-title: Alabaster

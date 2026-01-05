@@ -1,8 +1,51 @@
 id: acetaldehyde-compound
+name: Acetaldehyde
 category: irritant
-datePublished: '2026-01-04T23:45:35.998006Z'
-dateModified: '2026-01-04T23:45:35.998006Z'
-page_title: 'Compound: Hazardous Emission'
+hazard_class: irritant
+datePublished: '2026-01-05T21:43:02.313430+00:00'
+dateModified: '2026-01-05T21:43:02.313430+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Irritant
+  href: /compounds/irritant
+- label: Acetaldehyde
+  href: null
+chemical_formula: C₂H₄O
+cas_number: 75-07-0
+molecular_weight: 44.05
+health_effects: When handling acetaldehyde in industrial setups, start by ensuring good ventilation right away. This compound
+  acts as a strong irritant, so you must prioritize protective gear to avoid direct skin or eye contact during mixing or application
+  processes. As you proceed with storage or transfer, keep in mind its volatile nature tends to release vapors that can inflame
+  respiratory passages quickly. We've found that even brief exposure leads to headaches or nausea, making enclosed areas risky
+  without airflow controls. Always monitor for prolonged effects like throat irritation midway through operations, and end
+  shifts with thorough decontamination to prevent lingering sensitivities.
+exposure_guidelines: Handle acetaldehyde with care. It's a sharp irritant. Eyes sting on contact. Skin reddens fast. Inhale
+  vapors? Throat burns quick. Set up ventilated workspaces first. Wear goggles always. Use gloves that resist vapors. Limit
+  time near open sources. In factories, it mixes resins. Builds plastics strong. Watch for buildup during shifts. Laser cleaning?
+  Wipes residues clean. Sparks fly if not controlled. Keep exposures brief. Train teams on signs. Flush skin right away. Seek
+  air if vapors hit. Store sealed cool. Spill? Evacuate zone fast.
+detection_methods: "Spotting acetaldehyde in a mix stands out from chasing down heavier industrial solvents, mainly because\
+  \ its sharp, fruity whiff gives early clues during handling, yet that alone won't cut it for precise checks in busy labs.\
+  \ Workers often turn to simple color-changing tests first, where a reagent shifts hue upon contact, making invisible traces\
+  \ pop visually without fancy gear. This approach shines in quick spot-checks on factory floors, dodging the hassle of bulky\
+  \ setups. \n\nFor deeper dives, spectroscopic tools pick up its unique light absorption patterns, revealing presence even\
+  \ in diluted samples—far more reliable than relying on smell, which fades fast in ventilated spaces. These methods suit\
+  \ quality control in plastics production, where acetaldehyde sneaks in as a byproduct, ensuring batches stay pure. \n\n\
+  Electrochemical sensors offer another route, detecting it through subtle electrical shifts in a probe, ideal for ongoing\
+  \ monitoring in chemical plants to flag irritant buildup before it spreads. Unlike broad air samplers that snag everything,\
+  \ these zero in on acetaldehyde's signature, cutting false alarms during laser cleaning ops on contaminated surfaces. Overall,\
+  \ blending these tactics keeps operations smooth, balancing speed with accuracy in material handling."
+first_aid: "If acetaldehyde splashes onto skin, rinse the area immediately under running water for at least fifteen minutes\
+  \ while removing contaminated clothing to prevent further irritation. Seek medical attention if redness or burning persists.\n\
+  \nEyes exposed? Flush them gently with lukewarm water, keeping eyelids open, and continue for several minutes—stop only\
+  \ if it causes more discomfort, then get professional help right away.\n\nBreathing it in feels harsh? Move the person to\
+  \ fresh air quickly, loosen tight clothing, and monitor breathing; if symptoms like coughing worsen, call emergency services\
+  \ without delay.\n\nSwallowed by accident? Never force vomiting, as it could lead to worse harm—instead, rinse the mouth\
+  \ with water and contact poison control or a doctor immediately for guidance. \n\nAlways have safety data sheets handy in\
+  \ work areas handling this compound, and wear protective gear to avoid these issues altogether."
 images:
   hero:
     url: /images/compound/acetaldehyde-compound-hero.jpg
@@ -22,7 +65,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise: &id001
+  expertise:
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -40,7 +83,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 health_effects_keywords:
 - respiratory_irritation
@@ -86,12 +130,6 @@ relationships:
       - type: chemical_properties
         id: acetaldehyde-physical-data
         notes: Standard physical/chemical data from NIST
-      _section:
-        title: Chemical Properties
-        description: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -107,11 +145,8 @@ relationships:
         odor: Pungent, fruity odor @ 0.05-1 ppm
       _section:
         section_title: Physical Properties
-        description: Physical state, appearance, color, odor, boiling/melting points
-        icon: thermometer
-        title: Physical Properties
-        order: 2
-        variant: default
+        description: Chemical and physical characteristics
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -127,12 +162,110 @@ relationships:
           pubchem_cid: '177'
       _section:
         section_title: Alternative Names
-        description: Alternative names, trade names, and chemical identifiers
+        description: Synonyms and chemical identifiers
         icon: tag
-        title: Synonyms & Identifiers
-        order: 3
-        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation, coughing, and potential pulmonary edema at high exposures
+        severity: high
+        onset: immediate
+      - route: skin_contact
+        effect: Skin irritation and dermatitis
+        severity: moderate
+        onset: short-term
+      - route: eye_contact
+        effect: Severe eye irritation, pain, and possible corneal damage
+        severity: severe
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal irritation, nausea, and vomiting
+        severity: moderate
+        onset: immediate
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: NIOSH-approved organic vapor respirator for <25 ppm. SCBA for >25 ppm or unknown concentrations.
+        skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing for liquid contact.
+        eye: Chemical safety goggles, face shield for splash hazard.
+        minimum_level: Level C for <25 ppm, Level B for >25 ppm
+        special_notes: Probable human carcinogen (IARC Group 2B). Extremely flammable. Irritating vapor. May polymerize explosively.
+      _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
+        icon: shield-check
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May
+          polymerize explosively in fire.
+        fire_suppression: EVACUATE - explosion hazard. Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water
+          spray to cool containers. Do not use water jet directly on liquid.
+        spill_procedures: EVACUATE. Eliminate ignition sources. Ventilate area. SCBA for large spills. Contain with dry sand
+          or earth. Neutralize with sodium bisulfite. Absorb with vermiculite.
+        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
+          clothing. Wash skin with soap and water. Seek medical attention - irritation and carcinogen exposure concern.'
+        environmental_hazards: Toxic to aquatic life. Rapidly volatilizes from water. Biodegrades quickly. Report spills.
+        special_hazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). Respiratory tract carcinogen in animals. Extremely flammable.
+          May polymerize violently when contaminated. Narcotic at high concentrations. Irritating to eyes and respiratory
+          tract.
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: exclamation-triangle
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: 200
+        osha_pel_mg_m3: 360
+        niosh_rel_ppm: null
+        niosh_rel_mg_m3: null
+        acgih_tlv_ppm: 25
+        acgih_tlv_mg_m3: 45
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 200 ppm
+            stel_15min: null
+            ceiling: null
+          niosh_rel:
+            twa_8hr: 25 ppm
+            stel_15min: null
+            ceiling: 37 ppm
+            idlh: 2000 ppm
+          acgih_tlv:
+            twa_8hr: 25 ppm
+            stel_15min: 37 ppm
+            ceiling: null
+          biological_exposure_indices: []
+      _section:
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
+        icon: gauge
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Store below 20°C, refrigerate. Keep away from heat.
+        ventilation: 'Outdoor storage strongly preferred. Indoor: explosion-proof ventilation. Gas detection mandatory.'
+        incompatibilities:
+        - Acids
+        - Bases
+        - Alcohols
+        - Ammonia
+        - Halogens
+        - Oxidizers
+        - Phenols
+        - Hydrogen cyanide
+        container_material: Stainless steel or aluminum. Must be stabilized. Never use copper or iron containers.
+        segregation: Separate from oxidizers and incompatibles by 20 feet. Flammable liquid storage cabinet.
+        quantity_limits: Minimize quantities. Many facilities limit to <10 gallons.
+        special_requirements: 'CRITICAL: Store with stabilizer. Check stabilizer regularly. Refrigerated storage required.
+          Inert gas blanketing (nitrogen). Post "EXTREMELY FLAMMABLE" and "CANCER HAZARD" signs.'
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -155,76 +288,8 @@ relationships:
         rcra_code: U001
       _section:
         section_title: Regulatory Classification
-        description: OSHA hazard classification, GHS pictograms, and regulatory status
-        icon: file-badge
-        title: Regulatory Classification
-        order: 6
-        variant: default
-    health_impacts:
-      presentation: descriptive
-      _section:
-        title: Health Impacts
-        description: Health effects from exposure including acute and chronic impacts
-        icon: heart-pulse
-        order: 1
-        variant: warning
-      items:
-      - content: When handling acetaldehyde in industrial setups, start by ensuring good ventilation right away. This compound
-          acts as a strong irritant, so you must prioritize protective gear to avoid direct skin or eye contact during mixing
-          or application processes. As you proceed with storage or transfer, keep in mind its volatile nature tends to release
-          vapors that can inflame respiratory passages quickly. We've found that even brief exposure leads to headaches or
-          nausea, making enclosed areas risky without airflow controls. Always monitor for prolonged effects like throat irritation
-          midway through operations, and end shifts with thorough decontamination to prevent lingering sensitivities.
-    exposure_guidance:
-      presentation: descriptive
-      _section:
-        title: Exposure Guidelines
-        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
-        icon: shield-alert
-        order: 2
-        variant: warning
-      items:
-      - content: Handle acetaldehyde with care. It's a sharp irritant. Eyes sting on contact. Skin reddens fast. Inhale vapors?
-          Throat burns quick. Set up ventilated workspaces first. Wear goggles always. Use gloves that resist vapors. Limit
-          time near open sources. In factories, it mixes resins. Builds plastics strong. Watch for buildup during shifts.
-          Laser cleaning? Wipes residues clean. Sparks fly if not controlled. Keep exposures brief. Train teams on signs.
-          Flush skin right away. Seek air if vapors hit. Store sealed cool. Spill? Evacuate zone fast.
-    personal_protection:
-      presentation: descriptive
-      _section:
-        title: Personal Protection Equipment
-        description: Required PPE including respirators, gloves, eye protection, and protective clothing
-        icon: shield-check
-        order: 3
-        variant: warning
-      items:
-      - content: Handling acetaldehyde demands careful protection against its irritating vapors and potential skin contact,
-          especially in industrial settings where it's used for synthesizing resins or as a precursor in chemical processes.
-          Workers often face exposure during production or storage, so equipping with chemical-resistant gloves shields hands
-          from direct splashes, while full-face shields or goggles guard eyes from fumes that could cause burning sensations.
-          In confined areas, a properly fitted respirator with cartridges designed for organic vapors becomes essential to
-          filter out airborne irritants, preventing respiratory discomfort. For broader safety in laser cleaning operations
-          involving acetaldehyde-based coatings, disposable coveralls and boot covers help contain any residue, keeping contamination
-          minimal and allowing for thorough decontamination afterward. Always pair this gear with well-ventilated environments
-          to reduce overall risks.
-    emergency_procedures:
-      presentation: descriptive
-      _section:
-        title: Emergency Procedures
-        description: First aid measures, emergency response, and incident management
-        icon: siren
-        order: 4
-        variant: danger
-      items:
-      - content: "If acetaldehyde splashes onto skin, rinse the area immediately under running water for at least fifteen\
-          \ minutes while removing contaminated clothing to prevent further irritation. Seek medical attention if redness\
-          \ or burning persists.\n\nEyes exposed? Flush them gently with lukewarm water, keeping eyelids open, and continue\
-          \ for several minutes—stop only if it causes more discomfort, then get professional help right away.\n\nBreathing\
-          \ it in feels harsh? Move the person to fresh air quickly, loosen tight clothing, and monitor breathing; if symptoms\
-          \ like coughing worsen, call emergency services without delay.\n\nSwallowed by accident? Never force vomiting, as\
-          \ it could lead to worse harm—instead, rinse the mouth with water and contact poison control or a doctor immediately\
-          \ for guidance. \n\nAlways have safety data sheets handy in work areas handling this compound, and wear protective\
-          \ gear to avoid these issues altogether."
+        description: DOT, UN, and NFPA hazard classifications
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -241,11 +306,8 @@ relationships:
           air: 1000 lbs/day (CERCLA RQ)
       _section:
         section_title: Environmental Impact
-        description: Environmental hazards, ecological effects, and disposal considerations
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-        title: Environmental Impact
-        order: 1
-        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -273,11 +335,8 @@ relationships:
         odor_threshold: 0.05-1 ppm - provides early warning
       _section:
         section_title: Detection & Monitoring
-        description: Real-time monitoring equipment and workplace air sampling methods
-        icon: activity
-        title: Monitoring Systems
-        order: 2
-        variant: default
+        description: Methods for detecting and measuring this compound
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -294,12 +353,6 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Acrylic paint thermal degradation
-      _section:
-        title: Source Contaminants
-        description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     produced_from_materials:
       presentation: card
       items:
@@ -309,12 +362,6 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        title: Source Materials
-        description: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -348,83 +395,33 @@ relationships:
           with air. May self-heat and ignite.
       _section:
         section_title: Reactivity
-        description: Reactivity hazards, incompatible substances, and chemical stability
-        icon: flask-conical
-        title: Chemical Reactivity
-        order: 3
-        variant: warning
-  detection:
-    methods:
-      presentation: descriptive
-      _section:
-        title: Detection Methods
-        description: Analytical techniques and instruments for detecting this compound
-        icon: microscope
-        order: 1
-        variant: default
-      items:
-      - content: "Spotting acetaldehyde in a mix stands out from chasing down heavier industrial solvents, mainly because\
-          \ its sharp, fruity whiff gives early clues during handling, yet that alone won't cut it for precise checks in busy\
-          \ labs. Workers often turn to simple color-changing tests first, where a reagent shifts hue upon contact, making\
-          \ invisible traces pop visually without fancy gear. This approach shines in quick spot-checks on factory floors,\
-          \ dodging the hassle of bulky setups. \n\nFor deeper dives, spectroscopic tools pick up its unique light absorption\
-          \ patterns, revealing presence even in diluted samples—far more reliable than relying on smell, which fades fast\
-          \ in ventilated spaces. These methods suit quality control in plastics production, where acetaldehyde sneaks in\
-          \ as a byproduct, ensuring batches stay pure. \n\nElectrochemical sensors offer another route, detecting it through\
-          \ subtle electrical shifts in a probe, ideal for ongoing monitoring in chemical plants to flag irritant buildup\
-          \ before it spreads. Unlike broad air samplers that snag everything, these zero in on acetaldehyde's signature,\
-          \ cutting false alarms during laser cleaning ops on contaminated surfaces. Overall, blending these tactics keeps\
-          \ operations smooth, balancing speed with accuracy in material handling."
-  operational:
-    expert_answers:
-      presentation: collapsible
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions about this compound answered by laser cleaning experts
-        icon: message-circle-question
-        order: 1
-        variant: default
-      items:
-      - id: as-a-laser-cleaning-operator-what-are-the-key-prot
-        question: As a laser cleaning operator, what are the key protection methods to prevent acetaldehyde exposure from
-          vapor generation during surface treatment?
-        answer: Always prioritize engineering controls like local exhaust ventilation systems to capture and remove acetaldehyde
-          vapors at the source, maintaining airborne concentrations below the OSHA permissible exposure limit of 200 ppm (as
-          an 8-hour time-weighted average) and the NIOSH recommended limit of 25 ppm. Wear appropriate personal protective
-          equipment, including chemical-resistant gloves, safety goggles, and a full-face respirator with organic vapor cartridges
-          if ventilation is inadequate. Monitor air quality periodically using portable gas detectors specific to acetaldehyde
-          to ensure exposure stays within safe limits and conduct regular training on spill response and emergency eyewash
-          stations.
-        topic: As a laser cleaning operator, what are the key pro
-        acceptedAnswer: true
-        expertInfo:
-          name: Yi-Chun Lin
-          title: Ph.D.
-          expertise: *id001
-      options:
-        autoOpenFirst: true
-        sortBy: topic
+        description: Chemical reactivity and incompatibilities
+        icon: atom
+displayName: Acetaldehyde (C₂H₄O)
 subcategory: aldehyde
+ppe_requirements: Handling acetaldehyde demands careful protection against its irritating vapors and potential skin contact,
+  especially in industrial settings where it's used for synthesizing resins or as a precursor in chemical processes. Workers
+  often face exposure during production or storage, so equipping with chemical-resistant gloves shields hands from direct
+  splashes, while full-face shields or goggles guard eyes from fumes that could cause burning sensations. In confined areas,
+  a properly fitted respirator with cartridges designed for organic vapors becomes essential to filter out airborne irritants,
+  preventing respiratory discomfort. For broader safety in laser cleaning operations involving acetaldehyde-based coatings,
+  disposable coveralls and boot covers help contain any residue, keeping contamination minimal and allowing for thorough decontamination
+  afterward. Always pair this gear with well-ventilated environments to reduce overall risks.
 formula: C₂H₄O
+faq:
+- question: As a laser cleaning operator, what are the key protection methods to prevent acetaldehyde exposure from vapor
+    generation during surface treatment?
+  answer: Always prioritize engineering controls like local exhaust ventilation systems to capture and remove acetaldehyde
+    vapors at the source, maintaining airborne concentrations below the OSHA permissible exposure limit of 200 ppm (as an
+    8-hour time-weighted average) and the NIOSH recommended limit of 25 ppm. Wear appropriate personal protective equipment,
+    including chemical-resistant gloves, safety goggles, and a full-face respirator with organic vapor cartridges if ventilation
+    is inadequate. Monitor air quality periodically using portable gas detectors specific to acetaldehyde to ensure exposure
+    stays within safe limits and conduct regular training on spill response and emergency eyewash stations.
 schemaVersion: 5.0.0
 contentType: compound
 pageTitle: Acetaldehyde
-metaDescription: 'Compound: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
+metaDescription: Acetaldehyde Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+  equipment requirements.
 fullPath: /compounds/irritant/aldehyde/acetaldehyde-compound
 pageDescription: Acetaldehyde Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
-slug: acetaldehyde-compound
-lastModified: '2026-01-04T15:45:35.998034'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Acetaldehyde
-  href: ''
-title: Acetaldehyde
-displayName: Acetaldehyde (C₂H₄O)
-casNumber: 75-07-0
-chemicalFormula: C₂H₄O
-hazardClass: irritant
-molecularWeight: 44.05

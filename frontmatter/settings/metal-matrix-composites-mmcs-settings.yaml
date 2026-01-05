@@ -1,6 +1,14 @@
 id: metal-matrix-composites-mmcs-settings
-datePublished: '2026-01-04T23:44:20.350183Z'
-dateModified: '2026-01-04T23:44:20.350183Z'
+name: Metal Matrix Composites MMCs
+datePublished: '2026-01-05T21:43:05.634349+00:00'
+dateModified: '2026-01-05T21:43:05.634349+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal Matrix Composites MMCs
+  href: null
 images:
   hero:
     url: /images/settings/metal-matrix-composites-mmcs-settings-hero.jpg
@@ -29,6 +37,9 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -37,11 +48,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -65,12 +73,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -79,57 +81,22 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: matrix-degradation
-        category: Thermal Management
-        challenge: Matrix degradation and delamination
-        description: Structural integrity loss, fiber exposure
-        severity: high
-        solutions:
-        - Use low fluence (<2 J/cm²) to stay below matrix damage threshold
-        - Short pulse durations (<50 ns) for surface-only interaction
-        - Multiple light passes instead of aggressive single pass
-      - id: anisotropic-thermal
-        category: Thermal Management
-        challenge: Anisotropic thermal properties
-        description: Uneven heating and fiber/matrix damage risk
-        severity: medium
-        solutions:
-        - Optimize scan direction relative to fiber orientation
-        - Use lower fluence with multiple passes
-        - Monitor real-time temperature
-      - id: resin-contaminant-removal
-        category: Contamination
-        challenge: Resin-based contaminant removal
-        description: Resin carbonizes easily, requires careful power control
-        severity: medium
-        solutions:
-        - Use low fluence (1-2 J/cm²) to avoid carbonization
-        - Short pulse durations for precise removal
-        - Multiple passes with cooling between
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: matrix-degradation
+          type: challenge
+        - id: anisotropic-thermal
+          type: challenge
+        contamination_challenges:
+        - id: resin-contaminant-removal
+          type: challenge
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for MMCs cleaning considering thermal conductivity and matrix integrity
@@ -270,13 +237,3 @@ pageDescription: When laser cleaning metal matrix composites, unlike pure metals
   the matrix. What sets MMCs apart is their hybrid strength from metal and fibers, so you adjust scan speeds slower to match
   their good heat spreading, avoiding delamination. In our experience, this approach restores surfaces smoothly for aerospace
   parts, but always test overlaps to prevent hot spots in the tougher zones.
-slug: metal-matrix-composites-mmcs-settings
-lastModified: '2026-01-04T15:44:20.350213'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal Matrix Composites MMCs
-  href: ''
-title: Metal Matrix Composites MMCs

@@ -1,6 +1,14 @@
 id: titanium-carbide-settings
-datePublished: '2026-01-04T23:44:24.450594Z'
-dateModified: '2026-01-04T23:44:24.450594Z'
+name: Titanium Carbide
+datePublished: '2026-01-05T21:43:05.634886+00:00'
+dateModified: '2026-01-05T21:43:05.634886+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Titanium Carbide
+  href: null
 images:
   hero:
     url: /images/settings/titanium-carbide-settings-hero.jpg
@@ -25,6 +33,9 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -36,11 +47,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 card:
   default:
     heading: Laser Cleaning Settings
@@ -63,12 +72,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -77,68 +80,40 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
       - id: titanium-laser-cleaning
         effectiveness: high
-      _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: coating-residue-removal
-        category: Contamination
-        challenge: Coating and residue removal
-        description: Varied absorption characteristics require adaptive approach
-        severity: medium
-        solutions:
-        - Start with medium power and adjust based on response
-        - Monitor real-time to prevent substrate damage
-        - Use multiple passes with progressively lower power
-      - category: Thermal Management
-        challenge: Thermal shock and cracking
-        description: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
-        severity: critical
-        solutions:
-        - Use pulse mode with 3-5 second cooling between passes
-        - Gradual power ramping (start 50W, increase 10W per pass)
-        - Preheat substrate to reduce thermal gradients
-        - Monitor for surface crazing; stop immediately if cracks appear
-        threshold: ΔT > 200-300°C rapid cooling
-      - category: Thermal Management
-        challenge: Variable thermal conductivity
-        description: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
-        severity: medium
-        solutions:
-        - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
-        - High conductivity ceramics (SiC, WC) tolerate higher power
-        - Test on scrap to determine cooling requirements
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - challenge: Thermal shock and cracking
+          severity: critical
+          threshold_temperature: ΔT > 200-300°C rapid cooling
+          impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
+          solutions:
+          - Use pulse mode with 3-5 second cooling between passes
+          - Gradual power ramping (start 50W, increase 10W per pass)
+          - Preheat substrate to reduce thermal gradients
+          - Monitor for surface crazing; stop immediately if cracks appear
+        - challenge: Variable thermal conductivity
+          severity: medium
+          property_value: 0.8-120 W/m·K (150x variation between materials)
+          impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
+          solutions:
+          - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
+          - High conductivity ceramics (SiC, WC) tolerate higher power
+          - Test on scrap to determine cooling requirements
+        contamination_challenges:
+        - id: coating-residue-removal
+          type: challenge
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Titanium Carbide surface cleaning without substrate damage
@@ -270,13 +245,3 @@ pageDescription: When laser cleaning titanium carbide, make sure you watch its e
   like alumina, which can crack under aggressive pulses while this one resists without fracturing. You must start with controlled
   power to avoid overheating its dense structure, unlike metals that dissipate heat faster. This difference demands slower
   scan speeds, so you bring back the surface cleanly without compromising its tough, corrosion-resistant finish.
-slug: titanium-carbide-settings
-lastModified: '2026-01-04T15:44:24.450631'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Titanium Carbide
-  href: ''
-title: Titanium Carbide

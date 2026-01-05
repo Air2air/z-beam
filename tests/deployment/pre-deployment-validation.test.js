@@ -253,18 +253,15 @@ describe('Pre-Deployment Error Prevention', () => {
 
   describe('Common error scenarios prevention', () => {
     test.skip('API routes handle missing environment variables gracefully', () => {
-      // Note: We use Nodemailer with Gmail SMTP, not Resend
-      // Check contact route for safe Resend initialization
+      // SKIPPED: Contact route no longer uses email service (Nodemailer/Resend removed)
+      // Form submissions are now logged only
       const contactRoutePath = path.join(process.cwd(), 'app/api/contact/route.ts');
       
       if (fs.existsSync(contactRoutePath)) {
         const content = fs.readFileSync(contactRoutePath, 'utf-8');
         
-        // Should use conditional initialization for Resend
-        expect(content).toContain('process.env.RESEND_API_KEY ? new Resend');
-        
-        // Should check for both API key and client before using
-        expect(content).toContain('!resend');
+        // Should log form submissions
+        expect(content).toContain('logger.info');
       }
     });
 

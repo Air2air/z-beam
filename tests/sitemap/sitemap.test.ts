@@ -100,14 +100,12 @@ describe('Sitemap Validation', () => {
     it('should set appropriate priorities for different page types', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      // Material pages should have high priority (0.8)
-      expect(sitemapContent).toContain('priority: 0.8');
-      
-      // Subcategory pages should have priority (0.75)
-      expect(sitemapContent).toContain('priority: 0.75');
-      
-      // Category pages should have priority (0.7)
-      expect(sitemapContent).toContain('priority: 0.7');
+      // Should use SITEMAP_PRIORITIES constants
+      expect(sitemapContent).toContain('SITEMAP_PRIORITIES');
+      expect(sitemapContent).toContain('HOMEPAGE: 1.0');
+      expect(sitemapContent).toContain('ITEM_PAGES:');
+      expect(sitemapContent).toContain('SUBCATEGORY_PAGES:');
+      expect(sitemapContent).toContain('CATEGORY_PAGES:');
     });
 
     it('should use file modification time for lastModified', () => {
@@ -128,21 +126,27 @@ describe('Sitemap Validation', () => {
     it('should have priority values between 0 and 1', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      const priorityMatches = sitemapContent.match(/priority:\s*([\d.]+)/g);
-      expect(priorityMatches).toBeTruthy();
+      // Validate SITEMAP_PRIORITIES constant values are in valid range
+      const prioritiesMatch = sitemapContent.match(/const SITEMAP_PRIORITIES = \{([\s\S]*?)\}/m);
+      expect(prioritiesMatch).toBeTruthy();
       
-      priorityMatches?.forEach(match => {
-        const value = parseFloat(match.split(':')[1].trim());
-        expect(value).toBeGreaterThanOrEqual(0);
-        expect(value).toBeLessThanOrEqual(1);
+      const prioritiesBlock = prioritiesMatch?.[1] || '';
+      const valueMatches = prioritiesBlock.match(/([\d.]+)/g);
+      expect(valueMatches).toBeTruthy();
+      
+      valueMatches?.forEach(value => {
+        const numValue = parseFloat(value);
+        expect(numValue).toBeGreaterThanOrEqual(0);
+        expect(numValue).toBeLessThanOrEqual(1);
       });
     });
 
     it('should have home page with highest priority', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      // Home page should be priority 1.0
-      expect(sitemapContent).toContain('priority: 1.0');
+      // Home page should use HOMEPAGE constant at 1.0
+      expect(sitemapContent).toContain('HOMEPAGE: 1.0');
+      expect(sitemapContent).toContain('SITEMAP_PRIORITIES.HOMEPAGE');
     });
   });
 

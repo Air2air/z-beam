@@ -1,7 +1,17 @@
 id: praseodymium-laser-cleaning
+name: Praseodymium
 category: rare-earth
-datePublished: '2026-01-04T23:41:29.151933Z'
-dateModified: '2026-01-04T23:41:29.151933Z'
+datePublished: '2026-01-05T21:41:33.333478+00:00'
+dateModified: '2026-01-05T21:41:33.333478+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Rare Earth
+  href: /materials/rare-earth
+- label: Praseodymium
+  href: null
 micro:
   before: Laser cleaning tackles stubborn contamination on praseodymium surfaces effectively. At 1000x magnification, the
     contaminated view reveals jagged oxide layers clinging tightly, with irregular patterns of dust and residues disrupting
@@ -92,7 +102,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise: &id001
+  expertise:
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -110,7 +120,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 subcategory: lanthanide
 characteristics:
@@ -276,159 +287,13 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: electronics-manufacturing
-          name: Electronics Manufacturing
-          description: Circuit boards and electronic components
-        - id: aerospace
-          name: Aerospace
-          description: Aircraft components and aerospace systems
-        - id: automotive
-          name: Automotive
-          description: Vehicle manufacturing and automotive parts
-        - id: renewable-energy
-          name: Renewable Energy
-          description: Solar panels and wind turbine components
-        - id: industrial
-          name: Industrial
-          description: Industrial industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: specific-wavelength(s)
-        question: Is praseodymium metal a significant laser safety hazard during laser cleaning, and what specific wavelength(s)
-          does it absorb?
-        answer: Praseodymium metal isn't typically a cleaning target, but it serves as a key dopant in solid-state laser gain
-          media like Pr:YLF. The main hazard comes from the laser beam, not the material. In laser operation, Praseodymium
-          exhibits strong absorption peaks in the blue spectrum, basically around 444 nm, 469 nm, and 479 nm for optical pumping.
-        topic: specific wavelength(s)
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Todd Dunning
-          title: MA
-          expertise: *id001
-      - id: praseodymium-coated-optical-components
-        question: We need to clean praseodymium-coated optical components. What laser parameters (wavelength, pulse duration,
-          fluence) are safe to avoid damaging the coating?
-        answer: For Praseodymium coatings, begin with a fairly low fluence around 2.5 J/cm² to sidestep thermal damage, since
-          its low thermal conductivity of 12.5 W/(m·K) presents a pretty high risk. Typically, select a wavelength the coating
-          transmits, like 1064 nm, and run a preliminary test on a non-critical area first to confirm safety.
-        topic: praseodymium-coated optical components
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: praseodymium-(pr)
-        question: What is the role of praseodymium (Pr) in lasers used for cleaning systems?
-        answer: Praseodymium basically serves as the active ion in crystals like Pr:YLF, producing visible wavelengths around
-          523 nm. This green light proves pretty ideal for specialized applications, demanding a fluence threshold of 2.5
-          J/cm² to ensure precise material interaction with minimal thermal stress.
-        topic: praseodymium (Pr)
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: combustion-or-explosion-risk
-        question: Does praseodymium powder pose a combustion or explosion risk when aerosolized by a laser cleaning process?
-        answer: Yeah, praseodymium powder is highly pyrophoric and poses a pretty severe combustion risk when aerosolized.
-          Laser cleaning at 1064 nm with a 2.5 J/cm² fluence threshold would be fairly hazardous, likely causing ignition.
-          This process must only be conducted in a strictly controlled inert atmosphere.
-        topic: combustion or explosion risk
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: oxidation-of-praseodymium-metal
-        question: How does the oxidation of praseodymium metal affect the laser cleaning process?
-        answer: Praseodymium oxidizes pretty quickly, creating a Pr₆O₁₁ layer that absorbs light differently from the base
-          metal. So, we need a precise fluence threshold, basically around 2.5 J/cm² at 1064 nm, to ablate just the oxide
-          without harming the soft substrate below.
-        topic: oxidation of praseodymium metal
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: objects-containing-praseodymium
-        question: What are the primary health and safety risks for operators when laser cleaning objects containing praseodymium?
-        answer: The main hazards involve toxic fume inhalation from ablated material and the standard 1064 nm laser beam.
-          At a fluence threshold of 2.5 J/cm², proper fume extraction and laser safety glasses are typically mandatory. This
-          process also produces fairly fine, combustible powder that needs fire suppression.
-        topic: objects containing praseodymium
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: can-a-standard-1064-nm-fiber-laser-effectively-cle
-        question: Can a standard 1064 nm fiber laser effectively clean praseodymium residues from a substrate?
-        answer: While a standard 1064 nm laser works fine, Praseodymium's pretty high 72% reflectivity at this wavelength
-          makes it fairly inefficient. Typically, you'll need fluence above 2.5 J/cm² for effective ablation, but the oxide
-          form and substrate play a key role, often demanding alternative wavelengths for optimal cleaning.
-        topic: Can a standard 1064 nm fiber laser effectively cle
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: debris-and-particles
-        question: What is the waste disposal procedure for the debris and particles generated from laser cleaning praseodymium?
-        answer: 'The debris from laser cleaning praseodymium at 3.2 J/cm² turns out pretty hazardous owing to its toxicity.
-          Collect all particles with a HEPA-filtered vacuum system right away. Fairly straightforward: have a licensed hazardous
-          materials service handle and dispose of this waste.'
-        topic: debris and particles
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: not-a-common-contaminant
-        question: Why is praseodymium mentioned in the context of laser cleaning, if it's not a common contaminant?
-        answer: Praseodymium isn't typically a contaminant; it's either the sensitive material we're cleaning or a key component
-          in the laser. As a dopant in solid-state gain media, it basically enables that 1064 nm wavelength for the job. Its
-          fairly low thermal conductivity (12.5 W/(m·K)) also makes pure metal processing tricky without precise fluence control
-          around 3.2 J/cm².
-        topic: not a common contaminant
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: praseodymium-conversion-coating
-        question: In surface treatment, how does a praseodymium conversion coating differ from other types, and does this
-          affect how it's removed by laser?
-        answer: Praseodymium conversion coatings basically create a thin, complex oxide layer that offers corrosion protection,
-          setting them apart quite a bit from chromates. Removal using a 1064 nm laser at ~3.2 J/cm² fairly hinges on the
-          layer's absorption and adhesion properties, so parameters must be adjusted to prevent substrate damage.
-        topic: praseodymium conversion coating
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Electronics Manufacturing
+    - Aerospace
+    - Automotive
+    - Renewable Energy
+    - Industrial
   safety:
     regulatory_standards:
       presentation: card
@@ -453,12 +318,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922499Z'
   normalization_applied: true
@@ -492,6 +351,12 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+applications:
+- Electronics Manufacturing
+- Aerospace
+- Automotive
+- Renewable Energy
+- Industrial
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Praseodymium
@@ -501,13 +366,3 @@ fullPath: /materials/rare-earth/lanthanide/praseodymium-laser-cleaning
 pageDescription: Praseodymium suits laser cleaning through moderate energy absorption and strong heat resistance, which clear
   contaminants effectively without melting. Its softness challenges surface integrity, so teams dial in precise settings to
   maintain quality.
-slug: praseodymium-laser-cleaning
-lastModified: '2026-01-04T15:41:29.151964'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Praseodymium
-  href: ''
-title: Praseodymium

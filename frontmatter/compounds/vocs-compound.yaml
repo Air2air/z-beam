@@ -1,8 +1,78 @@
 id: vocs-compound
+name: Volatile Organic Compounds
 category: irritant
-datePublished: '2026-01-04T23:45:37.188673Z'
-dateModified: '2026-01-04T23:45:37.188673Z'
-page_title: 'Compound: Hazardous Emission'
+hazard_class: irritant
+datePublished: '2026-01-05T21:43:02.313574+00:00'
+dateModified: '2026-01-05T21:43:02.313574+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Irritant
+  href: /compounds/irritant
+- label: Volatile Organic Compounds
+  href: null
+chemical_formula: Various
+cas_number: N/A
+molecular_weight: 16.0
+health_effects: When handling VOCs compounds in industrial settings, the standout trait is their easy evaporation into the
+  air. This volatility turns them into airborne irritants fast. You'll breathe them in without noticing at first. So you must
+  ventilate well right away. They sting eyes and throats mid-exposure, causing quick discomfort during mixing or application
+  tasks. But good masks solve that—keep air flowing and symptoms drop. In laser cleaning ops, this evaporation spikes heat,
+  worsening irritation if you're not suited up. Overall, it pushes us to prioritize sealed spaces for safer material work.
+exposure_guidelines: 'Handling volatile organic compounds in materials work always starts with recognizing the risks—they''re
+  sneaky irritants that can sneak up on you through vapors or skin contact, leading to headaches, eye sting, or worse if you''re
+  not careful. That''s why exposure guidelines emphasize staying alert in any setup.
+
+
+  First off, these compounds often show up in paints, solvents, or adhesives because of their quick-evaporating nature, which
+  makes them handy for industrial tasks like coating metal parts or cleaning machinery. But that same volatility turns them
+  into airborne troublemakers, so the key is limiting direct contact. Wear gloves made from nitrile or similar barriers whenever
+  you''re mixing or applying them; it prevents the stuff from soaking into your skin and causing redness or itching. In bigger
+  operations, like factories using them for surface treatments, ensure good airflow with local exhaust fans to pull those
+  fumes away before they build up.
+
+
+  When it comes to laser cleaning—think stripping rust or grime off tools with precise beams—these compounds shine as post-process
+  rinses or carriers, but watch out for heat-generated vapors. The process can vaporize residues, releasing irritants that
+  irritate lungs if inhaled deeply. Always operate in well-ventilated spaces, maybe under a hood, and use respirators fitted
+  with organic vapor cartridges for anything beyond light duty. Short bursts of exposure beat long sessions; step back often
+  to clear your head.
+
+
+  Overall, these guidelines boil down to prevention: store them in sealed containers away from sparks, since they''re flammable
+  too, and train everyone on spill response—neutralize with absorbents right away. If symptoms hit like dizziness or throat
+  burn, get fresh air and seek medical advice without delay. Sticking to these habits keeps the benefits of these versatile
+  materials without the downsides.'
+detection_methods: "Spotting volatile organic compounds in materials sets them apart from stable solids right away—their tendency\
+  \ to evaporate means you catch whiffs or traces that linger in the air, unlike inert stuff that stays put without a fuss.\
+  \ Simple sniff tests work in a pinch for quick checks during handling, but they fall short for precision in busy workshops.\
+  \ Turning to electronic noses, those mimic human senses with smart sensors picking up faint odors from surfaces freshly\
+  \ cleaned or exposed. \n\nIn industrial setups, photoionization detectors shine by zapping air samples with light to ionize\
+  \ the volatiles, revealing their presence without much hassle. These tools integrate smoothly into production lines, ensuring\
+  \ irritants don't build up unnoticed around machinery. \n\nLaser-based methods stand out for cleaning checks; a focused\
+  \ beam interacts with the compound's signature, vaporizing residues while scanning for leftovers in real time. This approach\
+  \ contrasts sharply with wet wipes or solvents, which might spread contaminants further, offering a cleaner, contact-free\
+  \ way to verify surfaces post-treatment. Operators appreciate how it flags irritant hotspots swiftly, keeping workflows\
+  \ safe and efficient."
+first_aid: 'If you''ve been exposed to a VOCs compound irritant, act fast. Get to fresh air right away. That clears your lungs
+  from the fumes. Breath deeply but steadily—don''t panic.
+
+
+  Skin touched it? Rinse under cool running water. Do this for a good while. Soap helps if it''s mild, but skip harsh stuff.
+  Pat dry gently after.
+
+
+  Eyes stinging? Flush them with clean water. Hold lids open and let water flow over. Keep going until irritation fades. No
+  rubbing—that makes it worse.
+
+
+  Felt sick or dizzy? Sit down and rest. Sip water slowly if swallowing happened. Avoid eating or drinking right away.
+
+
+  Call poison control or a doctor quick. Tell them exactly what compound and how much exposure. Better safe than sorry with
+  these sneaky irritants. In the shop, always glove up and vent well to dodge this hassle.'
 images:
   hero:
     url: /images/compound/vocs-compound-hero.jpg
@@ -22,10 +92,13 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise: &id001
+  expertise:
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
     type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
@@ -38,11 +111,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 health_effects_keywords:
 - respiratory_irritation
 - neurological_effects
@@ -86,12 +157,6 @@ relationships:
       items:
       - type: chemical_properties
         id: vocs-physical-data
-      _section:
-        title: Chemical Properties
-        description: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physical_properties:
       presentation: descriptive
       items:
@@ -107,11 +172,8 @@ relationships:
         odor: Variable - sweet, pungent, solvent-like, or odorless
       _section:
         section_title: Physical Properties
-        description: Physical state, appearance, color, odor, boiling/melting points
-        icon: thermometer
-        title: Physical Properties
-        order: 2
-        variant: default
+        description: Chemical and physical characteristics
+        icon: flask
     synonyms_identifiers:
       presentation: descriptive
       items:
@@ -130,12 +192,114 @@ relationships:
           pubchem_cid: Specific to individual VOC
       _section:
         section_title: Alternative Names
-        description: Alternative names, trade names, and chemical identifiers
+        description: Synonyms and chemical identifiers
         icon: tag
-        title: Synonyms & Identifiers
-        order: 3
-        variant: default
   safety:
+    health_effects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Respiratory irritation, headache, dizziness, and nausea
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Potential neurological effects and increased cancer risk (e.g., from benzene)
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation or dermatitis
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Eye irritation, redness, and tearing
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal upset and systemic toxicity
+        severity: high
+        onset: short-term
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - respiratory: Organic vapor respirator with appropriate cartridge for known VOC concentrations. SCBA for unknown mixtures
+          or high concentrations.
+        skin: Nitrile or butyl rubber gloves depending on specific VOC. Chemical-resistant clothing for liquid contact.
+        eye: Chemical safety goggles, face shield for splash hazard.
+        minimum_level: Level C for known low concentrations, Level B for unknown mixtures or high vapor concentrations
+        special_notes: VOCs vary widely in toxicity. Mixture effects unpredictable. Some VOCs carcinogenic (benzene, formaldehyde).
+          Others neurotoxic (toluene, xylene). Identify specific VOCs when possible.
+      _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
+        icon: shield-check
+    emergency_response:
+      presentation: descriptive
+      items:
+      - fire_hazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel to ignition sources. Explosive
+          mixtures possible.
+        fire_suppression: Use dry chemical, CO2, foam appropriate for specific VOC. Water spray to cool containers. Prevent
+          runoff contamination.
+        spill_procedures: Eliminate ignition sources. Ventilate area. Identify VOCs if possible. Contain with absorbent. Dispose
+          as hazardous waste. Monitor air quality.
+        exposure_immediate_actions: 'Remove to fresh air. Eyes: flush with water. Remove contaminated clothing. Wash skin.
+          Seek medical attention - inform physician of specific VOCs if known. Monitor for delayed effects.'
+        environmental_hazards: Many VOCs toxic to aquatic life. Contribute to ozone formation and smog. Bioaccumulate. Contaminate
+          groundwater.
+        special_hazards: Complex mixtures with unpredictable effects. Some carcinogenic (benzene, formaldehyde, 1,3-butadiene).
+          Others neurotoxic (toluene, xylene, styrene). Respiratory irritants. Contribute to indoor air quality problems.
+          Chronic exposure health effects vary widely.
+      _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
+        icon: exclamation-triangle
+    exposure_limits:
+      presentation: descriptive
+      items:
+      - osha_pel_ppm: null
+        osha_pel_mg_m3: null
+        niosh_rel_ppm: null
+        niosh_rel_mg_m3: null
+        acgih_tlv_ppm: null
+        acgih_tlv_mg_m3: 100
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: Variable by specific VOC. No general limit.
+            stel_15min: Variable
+            ceiling: Variable
+          niosh_rel:
+            twa_8hr: Variable by specific VOC
+            stel_15min: Variable
+            ceiling: Variable
+            idlh: Variable
+          acgih_tlv:
+            twa_8hr: Variable by specific VOC. TLVs exist for individual compounds.
+            stel_15min: Variable
+            ceiling: Variable
+          biological_exposure_indices:
+          - metabolite: Variable metabolites depending on VOC
+            specimen: Urine or blood
+            timing: End of shift
+            bei_value: Specific to individual VOC
+      _section:
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
+        icon: gauge
+    storage_requirements:
+      presentation: descriptive
+      items:
+      - temperature_range: Cool storage below 25°C typical. Refrigerate if highly volatile.
+        ventilation: Local exhaust ventilation. Outdoor storage preferred for large quantities.
+        incompatibilities:
+        - 'Variable - check specific VOC SDS. Generally: oxidizers, strong acids, strong bases'
+        container_material: Depends on specific VOC. Metal or glass typically. Check compatibility.
+        segregation: Separate from oxidizers. Flammable storage if applicable.
+        quantity_limits: Follow NFPA 30 for flammable/combustible liquids. Minimize quantities.
+        special_requirements: Label with specific VOC contents. Post appropriate hazard signs. Secondary containment for liquids.
+          Gas detection for enclosed spaces. Emergency procedures.
+      _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
+        icon: warehouse
     regulatory_classification:
       presentation: descriptive
       items:
@@ -154,98 +318,8 @@ relationships:
         rcra_code: Many VOCs have codes (U-series, F-series)
       _section:
         section_title: Regulatory Classification
-        description: OSHA hazard classification, GHS pictograms, and regulatory status
-        icon: file-badge
-        title: Regulatory Classification
-        order: 6
-        variant: default
-    health_impacts:
-      presentation: descriptive
-      _section:
-        title: Health Impacts
-        description: Health effects from exposure including acute and chronic impacts
-        icon: heart-pulse
-        order: 1
-        variant: warning
-      items:
-      - content: When handling VOCs compounds in industrial settings, the standout trait is their easy evaporation into the
-          air. This volatility turns them into airborne irritants fast. You'll breathe them in without noticing at first.
-          So you must ventilate well right away. They sting eyes and throats mid-exposure, causing quick discomfort during
-          mixing or application tasks. But good masks solve that—keep air flowing and symptoms drop. In laser cleaning ops,
-          this evaporation spikes heat, worsening irritation if you're not suited up. Overall, it pushes us to prioritize
-          sealed spaces for safer material work.
-    exposure_guidance:
-      presentation: descriptive
-      _section:
-        title: Exposure Guidelines
-        description: OSHA PEL, NIOSH REL, ACGIH TLV, and safe exposure limits
-        icon: shield-alert
-        order: 2
-        variant: warning
-      items:
-      - content: 'Handling volatile organic compounds in materials work always starts with recognizing the risks—they''re
-          sneaky irritants that can sneak up on you through vapors or skin contact, leading to headaches, eye sting, or worse
-          if you''re not careful. That''s why exposure guidelines emphasize staying alert in any setup.
-
-
-          First off, these compounds often show up in paints, solvents, or adhesives because of their quick-evaporating nature,
-          which makes them handy for industrial tasks like coating metal parts or cleaning machinery. But that same volatility
-          turns them into airborne troublemakers, so the key is limiting direct contact. Wear gloves made from nitrile or
-          similar barriers whenever you''re mixing or applying them; it prevents the stuff from soaking into your skin and
-          causing redness or itching. In bigger operations, like factories using them for surface treatments, ensure good
-          airflow with local exhaust fans to pull those fumes away before they build up.
-
-
-          When it comes to laser cleaning—think stripping rust or grime off tools with precise beams—these compounds shine
-          as post-process rinses or carriers, but watch out for heat-generated vapors. The process can vaporize residues,
-          releasing irritants that irritate lungs if inhaled deeply. Always operate in well-ventilated spaces, maybe under
-          a hood, and use respirators fitted with organic vapor cartridges for anything beyond light duty. Short bursts of
-          exposure beat long sessions; step back often to clear your head.
-
-
-          Overall, these guidelines boil down to prevention: store them in sealed containers away from sparks, since they''re
-          flammable too, and train everyone on spill response—neutralize with absorbents right away. If symptoms hit like
-          dizziness or throat burn, get fresh air and seek medical advice without delay. Sticking to these habits keeps the
-          benefits of these versatile materials without the downsides.'
-    personal_protection:
-      presentation: descriptive
-      _section:
-        title: Personal Protection Equipment
-        description: Required PPE including respirators, gloves, eye protection, and protective clothing
-        icon: shield-check
-        order: 3
-        variant: warning
-      items:
-      - content: Handling VOCs compounds demands solid PPE choices. Gloves shield your skin from irritation—nitrile works
-          best, keeps things dry. Goggles protect eyes; vapors sting quick. Respirators filter out fumes—full-face ones seal
-          tight for heavy exposure. Suits or aprons block splashes in industrial spots. Avoid cotton gear; it soaks up and
-          worsens contact. In laser cleaning jobs, add ventilation hoods. Stay covered, breathe easy.
-    emergency_procedures:
-      presentation: descriptive
-      _section:
-        title: Emergency Procedures
-        description: First aid measures, emergency response, and incident management
-        icon: siren
-        order: 4
-        variant: danger
-      items:
-      - content: 'If you''ve been exposed to a VOCs compound irritant, act fast. Get to fresh air right away. That clears
-          your lungs from the fumes. Breath deeply but steadily—don''t panic.
-
-
-          Skin touched it? Rinse under cool running water. Do this for a good while. Soap helps if it''s mild, but skip harsh
-          stuff. Pat dry gently after.
-
-
-          Eyes stinging? Flush them with clean water. Hold lids open and let water flow over. Keep going until irritation
-          fades. No rubbing—that makes it worse.
-
-
-          Felt sick or dizzy? Sit down and rest. Sip water slowly if swallowing happened. Avoid eating or drinking right away.
-
-
-          Call poison control or a doctor quick. Tell them exactly what compound and how much exposure. Better safe than sorry
-          with these sneaky irritants. In the shop, always glove up and vent well to dodge this hassle.'
+        description: DOT, UN, and NFPA hazard classifications
+        icon: book-law
   environmental:
     environmental_impact:
       presentation: descriptive
@@ -263,11 +337,8 @@ relationships:
           air: Variable by specific VOC. VOC emissions regulated.
       _section:
         section_title: Environmental Impact
-        description: Environmental hazards, ecological effects, and disposal considerations
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-        title: Environmental Impact
-        order: 1
-        variant: warning
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -300,11 +371,8 @@ relationships:
           rely on odor.
       _section:
         section_title: Detection & Monitoring
-        description: Real-time monitoring equipment and workplace air sampling methods
-        icon: activity
-        title: Monitoring Systems
-        order: 2
-        variant: default
+        description: Methods for detecting and measuring this compound
+        icon: radar
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -401,12 +469,6 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        title: Source Contaminants
-        description: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
       presentation: descriptive
       items:
@@ -427,80 +489,28 @@ relationships:
           formation possible in ethers.
       _section:
         section_title: Reactivity
-        description: Reactivity hazards, incompatible substances, and chemical stability
-        icon: flask-conical
-        title: Chemical Reactivity
-        order: 3
-        variant: warning
-  detection:
-    methods:
-      presentation: descriptive
-      _section:
-        title: Detection Methods
-        description: Analytical techniques and instruments for detecting this compound
-        icon: microscope
-        order: 1
-        variant: default
-      items:
-      - content: "Spotting volatile organic compounds in materials sets them apart from stable solids right away—their tendency\
-          \ to evaporate means you catch whiffs or traces that linger in the air, unlike inert stuff that stays put without\
-          \ a fuss. Simple sniff tests work in a pinch for quick checks during handling, but they fall short for precision\
-          \ in busy workshops. Turning to electronic noses, those mimic human senses with smart sensors picking up faint odors\
-          \ from surfaces freshly cleaned or exposed. \n\nIn industrial setups, photoionization detectors shine by zapping\
-          \ air samples with light to ionize the volatiles, revealing their presence without much hassle. These tools integrate\
-          \ smoothly into production lines, ensuring irritants don't build up unnoticed around machinery. \n\nLaser-based\
-          \ methods stand out for cleaning checks; a focused beam interacts with the compound's signature, vaporizing residues\
-          \ while scanning for leftovers in real time. This approach contrasts sharply with wet wipes or solvents, which might\
-          \ spread contaminants further, offering a cleaner, contact-free way to verify surfaces post-treatment. Operators\
-          \ appreciate how it flags irritant hotspots swiftly, keeping workflows safe and efficient."
-  operational:
-    expert_answers:
-      presentation: collapsible
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions about this compound answered by laser cleaning experts
-        icon: message-circle-question
-        order: 1
-        variant: default
-      items:
-      - id: as-a-laser-cleaning-operator-how-can-i-protect-mys
-        question: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
-        answer: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne
-          VOCs at the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment,
-          such as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face
-          masks), along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC
-          detectors to ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common
-          VOCs, and take breaks in fresh air if concentrations rise.
-        topic: As a laser cleaning operator, how can I protect my
-        acceptedAnswer: true
-        expertInfo:
-          name: Alessandro Moretti
-          title: Ph.D.
-          expertise: *id001
-      options:
-        autoOpenFirst: true
-        sortBy: topic
+        description: Chemical reactivity and incompatibilities
+        icon: atom
+displayName: VOCs
 subcategory: organic_vapor
+ppe_requirements: Handling VOCs compounds demands solid PPE choices. Gloves shield your skin from irritation—nitrile works
+  best, keeps things dry. Goggles protect eyes; vapors sting quick. Respirators filter out fumes—full-face ones seal tight
+  for heavy exposure. Suits or aprons block splashes in industrial spots. Avoid cotton gear; it soaks up and worsens contact.
+  In laser cleaning jobs, add ventilation hoods. Stay covered, breathe easy.
 formula: Various
+faq:
+- question: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
+  answer: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs at
+    the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment, such
+    as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face masks),
+    along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors to
+    ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take breaks
+    in fresh air if concentrations rise.
 schemaVersion: 5.0.0
 contentType: compound
 pageTitle: Volatile Organic Compounds
-metaDescription: 'Compound: Hazardous Emission from metal processing. Requires proper ventilation and PPE.'
+metaDescription: Vocs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
+  requirements.
 fullPath: /compounds/irritant/organic-vapor/vocs-compound
 pageDescription: Vocs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
   requirements.
-slug: vocs-compound
-lastModified: '2026-01-04T15:45:37.188736'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Compounds
-  href: /compounds
-- label: Volatile Organic Compounds
-  href: ''
-title: Volatile Organic Compounds
-displayName: VOCs
-casNumber: N/A
-chemicalFormula: Various
-hazardClass: irritant
-molecularWeight: 16.0

@@ -1,6 +1,14 @@
 id: willow-settings
-datePublished: '2026-01-04T23:44:25.014790Z'
-dateModified: '2026-01-04T23:44:25.014790Z'
+name: Willow
+datePublished: '2026-01-05T21:43:05.634984+00:00'
+dateModified: '2026-01-05T21:43:05.634984+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Willow
+  href: null
 images:
   hero:
     url: /images/settings/willow-settings-hero.jpg
@@ -25,6 +33,9 @@ author:
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
   credentials:
   - Ph.D. Materials Science, TU Milano, 2015
   - 5+ years industrial ceramics experience
@@ -36,11 +47,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  bio: Alessandro Moretti. holds a Ph.D. degree. with expertise in Laser-Based Additive Manufacturing. based in Italy.
-  slug: alessandro-moretti-phd
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  slug: alessandro-moretti
 card:
   default:
     heading: Laser Cleaning Settings
@@ -63,12 +72,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -77,12 +80,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -92,57 +89,22 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: charring-carbonization
-        category: Thermal Management
-        challenge: Charring and carbonization
-        description: Surface degradation, aesthetic damage, structural weakening
-        severity: high
-        solutions:
-        - Use ultrashort pulses (<10 ps) to minimize thermal diffusion
-        - Lower fluence (0.5-2 J/cm²) with multiple passes
-        - Assist gas (nitrogen) to remove pyrolysis products
-      - id: slow-thermal-diffusivity
-        category: Thermal Management
-        challenge: Slow thermal diffusivity
-        description: Heat accumulation and substrate damage
-        severity: medium
-        solutions:
-        - Reduce duty cycle with longer cooling intervals
-        - Lower average power while maintaining peak fluence
-        - Multiple light passes with cooling between
-      - id: varnish-coating-removal
-        category: Contamination
-        challenge: Varnish and coating removal
-        description: Organic coatings vaporize but can char if power too high
-        severity: medium
-        solutions:
-        - Use moderate fluence (2-4 J/cm²)
-        - Air assist to remove vaporized material
-        - Multiple passes if coating is thick
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: charring-carbonization
+          type: challenge
+        - id: slow-thermal-diffusivity
+          type: challenge
+        contamination_challenges:
+        - id: varnish-coating-removal
+          type: challenge
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Willow surface cleaning without thermal damage
@@ -280,13 +242,3 @@ pageDescription: When laser cleaning Willow, start with low power and slow scan 
   and clear buildup effectively, but it also traps heat locally due to poor conductivity, so you must overlap passes carefully
   midway through to prevent uneven charring or cracking. Avoid rushing the process—multiple light treatments bring back that
   natural grain safely.
-slug: willow-settings
-lastModified: '2026-01-04T15:44:25.014825'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Willow
-  href: ''
-title: Willow

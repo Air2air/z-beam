@@ -1,7 +1,17 @@
 id: onyx-laser-cleaning
+name: Onyx
 category: stone
-datePublished: '2026-01-04T23:41:27.322994Z'
-dateModified: '2026-01-04T23:41:27.322994Z'
+datePublished: '2026-01-05T21:41:33.333246+00:00'
+dateModified: '2026-01-05T21:41:33.333246+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Stone
+  href: /materials/stone
+- label: Onyx
+  href: null
 micro:
   before: Contamination on onyx surface, it appears as irregular deposits during initial observation. These deposits form
     thick layers from environmental exposure, so laser cleaning targets them effectively. Before treatment is applied, particles
@@ -75,7 +85,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise: &id001
+  expertise:
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -93,7 +103,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 subcategory: sedimentary
 characteristics:
@@ -317,154 +328,18 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: cultural-heritage
-          name: Cultural Heritage
-          description: Cultural Heritage industry applications and manufacturing
-        - id: architecture-and-construction
-          name: Architecture and Construction
-          description: Architecture and Construction industry applications and manufacturing
-        - id: luxury-goods-manufacturing
-          name: Luxury Goods Manufacturing
-          description: Luxury Goods Manufacturing industry applications and manufacturing
-        - id: art-and-sculpture
-          name: Art and Sculpture
-          description: Art and Sculpture industry applications and manufacturing
-        - id: interior-design
-          name: Interior Design
-          description: Interior Design industry applications and manufacturing
-        - id: museum-conservation
-          name: Museum Conservation
-          description: Museum Conservation industry applications and manufacturing
-        - id: religious-artifacts
-          name: Religious Artifacts
-          description: Religious Artifacts industry applications and manufacturing
-        - id: lapidary-and-gemology
-          name: Lapidary and Gemology
-          description: Lapidary and Gemology industry applications and manufacturing
-        - id: furniture-manufacturing
-          name: Furniture Manufacturing
-          description: Furniture Manufacturing industry applications and manufacturing
-        - id: monument-restoration
-          name: Monument Restoration
-          description: Monument Restoration industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: hazardous-fumes
-        question: Is Onyx safe to laser clean, or does it produce hazardous fumes?
-        answer: Laser cleaning of Onyx, a carbon fiber-reinforced nylon composite, demands precise fluence management around
-          5.1 J/cm². Notably, the process can release hazardous hydrogen cyanide gas from the polymer matrix. Thus, effective
-          fume extraction and certified respiratory protection remain essential for ensuring operator safety.
-        topic: hazardous fumes
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Yi-Chun Lin
-          title: Ph.D.
-          expertise: *id001
-      - id: without-damaging-the-surface
-        question: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning soot or oxidation
-          from Onyx without damaging the surface?
-        answer: Specifically for Onyx, employ a 1064nm wavelength at 100W average power with 10ns pulses. Keep fluence below
-          5.1 J/cm² to ablate soot while preserving the stone's integrity. Notably, a 50μm spot size scanned at 500mm/s removes
-          contaminants effectively without thermal damage.
-        topic: without damaging the surface
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: 3d-printed-onyx-parts
-        question: Can laser cleaning remove support material from 3D printed Onyx parts effectively?
-        answer: Yes, laser cleaning effectively removes support material from Onyx parts, particularly at the polymer interface.
-          Specifically, a 1064 nm wavelength at 5.1 J/cm² ablates it without etching the stone substrate, thus offering a
-          significant advantage over abrasive methods that risk surface scarring.
-        topic: 3D printed Onyx parts
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: how-do-you-clean-a-laser-sintered-onyx-(sls)-part-
-        question: How do you clean a laser-sintered Onyx (SLS) part versus a FFF-printed Onyx part with laser?
-        answer: Particularly for SLS Onyx, apply 5.1 J/cm² to clear trapped powder from its porous surface. In FFF parts,
-          a lower fluence at 500 mm/s effectively removes layer lines without melting the polymer matrix. Thus, tailoring
-          energy to their unique surface topographies proves essential.
-        topic: 'How do you clean a laser-sintered Onyx (SLS) part '
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: does-laser-cleaning-affect-the-dimensional-accurac
-        question: Does laser cleaning affect the dimensional accuracy or mechanical strength of an Onyx part?
-        answer: Properly controlled laser cleaning particularly preserves Onyx's structural integrity. Notably, with a 5.1
-          J/cm² fluence and 50 µm spot size, we ablate contaminants effectively without inducing thermal stress or dimensional
-          changes that could compromise mechanical strength.
-        topic: Does laser cleaning affect the dimensional accurac
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: what-is-the-best-way-to-clean-carbon-fiber-filled-
-        question: What is the best way to clean carbon fiber-filled materials like Onyx compared to unfilled nylons?
-        answer: For Onyx, the carbon fibers particularly absorb laser energy readily, thus requiring conservative settings
-          like 5.1 J/cm² fluence to avoid charring. This proves more critical than for pure nylon, where higher energies can
-          typically be tolerated without such thermal damage.
-        topic: 'What is the best way to clean carbon fiber-filled '
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: different-texture-or-color
-        question: After laser cleaning Onyx, is the surface left with a different texture or color?
-        answer: When laser cleaning is tuned precisely to ~5.1 J/cm² fluence, it particularly preserves Onyx's original polish.
-          Yet, excessive energy may create a localized matte texture through micro-ablation. This cosmetic alteration notably
-          influences later finishing processes, thus necessitating a light repolish for high-gloss results.
-        topic: different texture or color
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: are-there-any-specific-certifications-or-regulator
-        question: Are there any specific certifications or regulatory guidelines for laser cleaning composite materials like
-          Onyx in an industrial setting?
-        answer: For Onyx laser cleaning, consult the MSDS particularly for silica content while adhering to OSHA 29 CFR 1910.134
-          on respiratory protection. Notably, the 1064 nm wavelength at 5.1 J/cm² reduces subsurface damage; however, air
-          monitoring proves essential against crystalline silica fume exposure, thus demanding specific PELs.
-        topic: Are there any specific certifications or regulator
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Cultural Heritage
+    - Architecture and Construction
+    - Luxury Goods Manufacturing
+    - Art and Sculpture
+    - Interior Design
+    - Museum Conservation
+    - Religious Artifacts
+    - Lapidary and Gemology
+    - Furniture Manufacturing
+    - Monument Restoration
   safety:
     regulatory_standards:
       presentation: card
@@ -489,12 +364,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.922296Z'
   normalization_applied: true
@@ -529,6 +398,17 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+applications:
+- Cultural Heritage
+- Architecture and Construction
+- Luxury Goods Manufacturing
+- Art and Sculpture
+- Interior Design
+- Museum Conservation
+- Religious Artifacts
+- Lapidary and Gemology
+- Furniture Manufacturing
+- Monument Restoration
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Onyx
@@ -537,13 +417,3 @@ metaDescription: Onyx laser cleaning guide. Remove contamination while preservin
 fullPath: /materials/stone/sedimentary/onyx-laser-cleaning
 pageDescription: Unlike fragile marbles that splinter easily under laser beams, onyx withstands intense heat without cracking
   due to its solid density, allowing restorers to safely revive cultural artifacts.
-slug: onyx-laser-cleaning
-lastModified: '2026-01-04T15:41:27.323065'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Onyx
-  href: ''
-title: Onyx

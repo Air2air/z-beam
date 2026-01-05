@@ -1,7 +1,17 @@
 id: zirconium-laser-cleaning
+name: Zirconium
 category: metal
-datePublished: '2026-01-04T23:41:34.294438Z'
-dateModified: '2026-01-04T23:41:34.294438Z'
+datePublished: '2026-01-05T21:41:33.334100+00:00'
+dateModified: '2026-01-05T21:41:33.334100+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Metal
+  href: /materials/metal
+- label: Zirconium
+  href: null
 micro:
   before: Zirconium surface before cleaning, it displays thick oxide layers and scattered contaminants. At high magnification,
     contamination patterns reveal irregular clusters, with dark residues clinging to metallic grains, and fine particles embedding
@@ -107,7 +117,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise: &id001
+  expertise:
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -116,6 +126,9 @@ author:
   - Ph.D. Physics, ITB, 2020
   - 2+ years in ultrafast laser research including ASEAN optics workshops
   - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
   imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
@@ -124,11 +137,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  languages:
-  - English
-  - Bahasa Indonesia
-  bio: Ikmanda Roswati. holds a Ph.D. degree. with expertise in Ultrafast Laser Physics and Material Interactions. based in
-    Indonesia.
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
   slug: ikmanda-roswati
 subcategory: alloy
 properties:
@@ -380,187 +390,18 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: nuclear-power
-          name: Nuclear Power
-          description: Nuclear Power industry applications and manufacturing
-        - id: chemical-processing
-          name: Chemical Processing
-          description: Chemical reactors and processing equipment
-        - id: aerospace
-          name: Aerospace
-          description: Aircraft components and aerospace systems
-        - id: medical-devices
-          name: Medical Devices
-          description: Medical equipment and surgical instruments
-        - id: marine-engineering
-          name: Marine Engineering
-          description: Marine Engineering industry applications and manufacturing
-        - id: electronics-manufacturing
-          name: Electronics Manufacturing
-          description: Circuit boards and electronic components
-        - id: automotive
-          name: Automotive
-          description: Vehicle manufacturing and automotive parts
-        - id: cultural-heritage
-          name: Cultural Heritage
-          description: Cultural Heritage industry applications and manufacturing
-        - id: additive-manufacturing
-          name: Additive Manufacturing
-          description: Additive Manufacturing industry applications and manufacturing
-        - id: energy-storage
-          name: Energy Storage
-          description: Energy Storage industry applications and manufacturing
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: thermal-damage-or-oxidation
-        question: What laser wavelengths are most effective for cleaning zirconium alloys without causing thermal damage or
-          oxidation?
-        answer: For zirconium alloys, a 1064 nm near-IR wavelength offers a practical cleaning approach, absorbing just enough
-          to strip oxides without sparking unwanted oxidation or heat buildup—unlike shorter UV options that invite deeper
-          thermal risks. This process works best with 10 ns pulses and 5.1 J/cm² fluence to efficiently remove surface layers
-          while preserving the metal's integrity in nuclear or aerospace applications.
-        topic: thermal damage or oxidation
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Ikmanda Roswati
-          title: Ph.D.
-          expertise: *id001
-      - id: zirconium-ignition
-        question: Is there a risk of zirconium ignition or fire during laser cleaning processes on contaminated surfaces?
-        answer: Zirconium's pyrophoric dust from laser ablation at 5.1 J/cm² fluence ignites spontaneously in air, raising
-          fire risks on contaminated surfaces. In this process, shield with inert gas like argon during 100 W operation to
-          prevent oxidation—a practical step—and follow safety sheets by using Class D extinguishers or dry sand for flare-ups.
-        topic: zirconium ignition
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: high-reflectivity
-        question: How does the high reflectivity of zirconium affect the efficiency of laser cleaning in nuclear fuel cladding
-          applications?
-        answer: Zirconium's high reflectivity, exceeding 90% at 1064 nm wavelengths, complicates laser energy absorption when
-          cleaning nuclear fuel cladding, cutting efficiency and risking incomplete oxide removal. Straightforwardly, we tackle
-          this by raising fluence to 5.1 J/cm² and power to 100 W, plus pre-roughening the surface efficiently for better
-          light trapping.
-        topic: high reflectivity
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: what-are-common-contaminants-on-zirconium-surfaces
-        question: What are common contaminants on zirconium surfaces in chemical processing plants, and how does laser cleaning
-          compare to chemical methods?
-        answer: In chemical processing plants, zirconium surfaces commonly accumulate oxide scales, mineral deposits, and
-          organic residues amid corrosive conditions. This process of laser cleaning outperforms that method of chemicals
-          through straightforward, non-contact ablation at 5.1 J/cm² fluence and 100 W power, preserving the metal's natural
-          corrosion resistance without residues or secondary contamination.
-        topic: What are common contaminants on zirconium surfaces
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: hydrogen-embrittlement
-        question: In laser cleaning equipment for zirconium, what monitoring is needed to prevent hydrogen embrittlement or
-          phase changes?
-        answer: For zirconium laser cleaning, a practical approach involves using real-time IR thermography to keep surface
-          temperatures below 400°C, avoiding alpha-to-beta phase transitions, and gas analyzers to maintain hydrogen under
-          10 ppm, preventing embrittlement. In this process, adhere to manufacturer thresholds like 5.1 J/cm² fluence at 100
-          W power, then verify via post-process metallographic exams.
-        topic: hydrogen embrittlement
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: compliance-with-astm-standards
-        question: Are there regulatory guidelines for laser cleaning zirconium in aerospace components to ensure compliance
-          with ASTM standards?
-        answer: Yes, laser cleaning zirconium for aerospace straightforwardly follows ASTM B353 for alloy specs and ASTM F86
-          for surface prep, delivering oxide-free finishes. Aim for 5.1 J/cm² fluence at 100 W to precisely ablate contaminants,
-          curbing thermal effects on this reactive metal. This process validation relies on profilometry and detailed logs
-          for certification.
-        topic: compliance with ASTM standards
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: what-physical-properties-of-zirconium-like-its-mel
-        question: What physical properties of zirconium, like its melting point and thermal conductivity, influence the choice
-          of laser cleaning techniques?
-        answer: Zirconium's melting point of 1855°C enables robust thermal processing, yet its low thermal conductivity builds
-          heat quickly, making pulsed lasers preferable to continuous wave for substrate protection. In a practical approach
-          to oxide removal, nanosecond pulses at 1064 nm deliver 5.1 J/cm² fluence and 100 W power, ensuring straightforward
-          ablation control.
-        topic: What physical properties of zirconium, like its me
-        severity: high
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: corrosion-resistance
-        question: How can laser cleaning remove oxide layers from zirconium without introducing new surface defects or altering
-          its corrosion resistance?
-        answer: In a practical approach, a 1064 nm nanosecond laser at 5.1 J/cm² fluence enables selective photothermal ablation
-          to vaporize zirconium oxide layers, leaving the substrate intact and preventing thermal stress from causing microcracks.
-          This process maintains the metal's corrosion resistance for nuclear or aerospace applications. SEM and XPS analyses
-          verify defect-free surfaces with stable oxide-free chemistry.
-        topic: corrosion resistance
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: in-training-materials-for-laser-operators-what-han
-        question: In training materials for laser operators, what handling precautions are emphasized for zirconium during
-          cleaning to avoid dust generation?
-        answer: In zirconium laser cleaning at 5.1 J/cm² fluence and 100 W power, operators should practically prioritize
-          enclosed dust collection systems to capture reactive airborne particles, thus preventing ignition risks. Full PPE,
-          including respirators and gloves, remains mandatory, paired with local exhaust ventilation meeting 100 fpm standards
-          to efficiently mitigate toxicity from fine dust inhalation.
-        topic: In training materials for laser operators, what ha
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: what-are-the-environmental-and-safety-benefits-of-
-        question: What are the environmental and safety benefits of using laser cleaning on zirconium over traditional pickling
-          methods in industry?
-        answer: Laser cleaning zirconium at 5.1 J/cm² fluence and 100 W power provides a practical alternative to acid pickling,
-          cutting chemical waste and minimizing pollution in nuclear and aerospace sectors. That method avoids corrosive fumes,
-          boosting worker safety and ensuring OSHA-EPA compliance, while preserving the metal's integrity for sensitive uses.
-        topic: 'What are the environmental and safety benefits of '
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Nuclear Power
+    - Chemical Processing
+    - Aerospace
+    - Medical Devices
+    - Marine Engineering
+    - Electronics Manufacturing
+    - Automotive
+    - Cultural Heritage
+    - Additive Manufacturing
+    - Energy Storage
   safety:
     regulatory_standards:
       presentation: card
@@ -580,12 +421,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.923050Z'
   normalization_applied: true
@@ -616,6 +451,17 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+applications:
+- Nuclear Power
+- Chemical Processing
+- Aerospace
+- Medical Devices
+- Marine Engineering
+- Electronics Manufacturing
+- Automotive
+- Cultural Heritage
+- Additive Manufacturing
+- Energy Storage
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Zirconium
@@ -624,13 +470,3 @@ metaDescription: Zirconium laser cleaning guide. Remove contamination while pres
 fullPath: /materials/metal/alloy/zirconium-laser-cleaning
 pageDescription: When laser cleaning zirconium, begin with lower power to account for its high reflectivity, preventing surface
   damage while removing contaminants from corrosion-resistant layers in chemical applications
-slug: zirconium-laser-cleaning
-lastModified: '2026-01-04T15:41:34.294467'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Zirconium
-  href: ''
-title: Zirconium

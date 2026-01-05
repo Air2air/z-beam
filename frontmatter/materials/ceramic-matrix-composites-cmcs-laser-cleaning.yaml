@@ -1,7 +1,17 @@
 id: ceramic-matrix-composites-cmcs-laser-cleaning
+name: Ceramic Matrix Composites CMCs
 category: composite
-datePublished: '2026-01-04T23:41:22.205264Z'
-dateModified: '2026-01-04T23:41:22.205264Z'
+datePublished: '2026-01-05T21:41:33.332639+00:00'
+dateModified: '2026-01-05T21:41:33.332639+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Materials
+  href: /materials
+- label: Composite
+  href: /materials/composite
+- label: Ceramic Matrix Composites CMCs
+  href: null
 micro:
   before: In observations at 1000x magnification, contamination on ceramic-matrix composites shows thick oxide layers. This
     buildup clings to fiber surfaces, so it darkens the matrix unevenly. Particles scatter across exposed fibers, and they
@@ -91,7 +101,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise: &id001
+  expertise:
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -109,7 +119,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 subcategory: fiber-reinforced
 characteristics:
@@ -342,179 +353,18 @@ relationships:
       presentation: card
       items:
       - id: industrial-oil-contamination
-        frequency: common
-        severity: moderate
-      _section:
-        title: Common Contaminants
-        description: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
     industry_applications:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Industry Applications
-        section_description: Common uses across industries
-        icon: layers
-        order: 50
-      items:
-      - applications:
-        - id: aerospace
-          name: Aerospace
-          description: Aircraft components and aerospace systems
-        - id: automotive
-          name: Automotive
-          description: Vehicle manufacturing and automotive parts
-        - id: energy
-          name: Energy
-          description: Energy industry applications and manufacturing
-        - id: medical
-          name: Medical
-          description: Medical industry applications and manufacturing
-        - id: electronics
-          name: Electronics
-          description: Electronics industry applications and manufacturing
-        - id: marine
-          name: Marine
-          description: Marine vessels and offshore equipment
-        - id: manufacturing
-          name: Manufacturing
-          description: Manufacturing industry applications and manufacturing
-        - id: cultural-heritage
-          name: Cultural Heritage
-          description: Cultural Heritage industry applications and manufacturing
-        - id: defense
-          name: Defense
-          description: Military equipment and defense systems
-        - id: research-and-development
-          name: Research & Development
-          description: Laboratory equipment and research facilities
-      _section:
-        title: Industry Applications
-        description: Industries and sectors where this material is commonly used
-        icon: building-2
-        order: 1
-        variant: default
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: sic-matrix
-        question: What is the maximum safe laser fluence (J/cm²) for cleaning CMCs without damaging the SiC matrix or fiber
-          reinforcement?
-        answer: For typical SiC/SiC composites, I suggest keeping fluence below 2-4 J/cm² using nanosecond pulses at 1064
-          nm. Notably, this range removes oxides and carbon deposits effectively while preserving matrix integrity. Thus,
-          the precise safe threshold depends on your specific fiber type and initial surface contamination level.
-        topic: SiC matrix
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: &id002
-          name: Yi-Chun Lin
-          title: Ph.D.
-          expertise: *id001
-      - id: environmental-barrier-coating
-        question: How do I remove environmental contaminants like carbonaceous soot from CMC turbine blades without altering
-          the underlying protective EBC (Environmental Barrier Coating)?
-        answer: Employing a 1064 nm wavelength at 5 J/cm² fluence particularly ablates carbonaceous soot, while preserving
-          Yb₂SiO₅ EBC integrity. We sustain a 500 mm/s scan speed with 50 μm spot size to guarantee contaminant removal absent
-          thermal alteration. Thus, optical microscopy post-processing verifies surface preservation.
-        topic: Environmental Barrier Coating
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: laser-wavelength
-        question: What laser wavelength (e.g., 1064nm, 532nm, or 10.6μm) is most effective for cleaning CMCs, and why?
-        answer: In CMC laser cleaning, the 1064nm wavelength at 5 J/cm² fluence notably achieves optimal absorption balance.
-          This specifically removes contaminants while preserving the SiC matrix and carbon fibers, thus preventing thermal
-          damage to the composite's critical constituents.
-        topic: laser wavelength
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: brittle-ceramic-matrix
-        question: Can laser cleaning induce micro-cracks or thermal stress damage in the CMC's brittle ceramic matrix?
-        answer: Yes, notably, laser cleaning can induce micro-cracks in CMCs due to thermal shock. Employing nanosecond pulses
-          at 10 ns with a fluence of 5 J/cm² helps minimize this risk by restricting heat diffusion. Thus, process monitoring
-          remains essential for detecting subsurface thermal stress damage.
-        topic: brittle ceramic matrix
-        severity: critical
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: carbon-fibers
-        question: What are the best practices for handling the nanoparticles and vapors generated during laser cleaning of
-          CMCs, especially those with carbon fibers?
-        answer: Applying a 5 J/cm² fluence notably generates SiC nanoparticles and carbon fibers that demand HEPA filtration.
-          Thus, uphold industrial hygiene through adequate ventilation and respiratory safeguards for operators managing these
-          ultrafine byproducts in CMC laser processing.
-        topic: carbon fibers
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: surface-roughness-and-porosity
-        question: How does laser cleaning affect the surface roughness and porosity of a CMC, and what is the impact on subsequent
-          re-coating or re-inspection?
-        answer: Properly tuned 1064 nm laser cleaning at 5 J/cm² minimally alters CMC topography. Specifically, it can slightly
-          increase surface roughness by opening sealed pores, which notably enhances coating adhesion but may require NDE
-          signal compensation for accurate inspection.
-        topic: surface roughness and porosity
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: residual-chemical-contaminants
-        question: Is laser cleaning a viable method for depainting CMC components, and what are the risks of leaving residual
-          chemical contaminants from the paint?
-        answer: Notably, laser depainting at 5 J/cm² removes organic coatings from CMCs effectively, with minimal substrate
-          interaction. Particularly, the key risk involves incomplete paint pyrolysis, potentially leaving carbonaceous residues
-          unseen in mechanical approaches. Thus, strict parameter control proves vital to prevent this contamination.
-        topic: residual chemical contaminants
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: complex-cmc-geometries
-        question: For automated laser cleaning of complex CMC geometries (like airfoils), how critical is beam delivery and
-          scanning control to ensure uniform cleaning without hot spots?
-        answer: For intricate CMC airfoils, accurate 3D beam delivery proves essential. Notably, galvo scanners facilitate
-          swift contour tracking at 500 mm/s, while closed-loop LIBS monitoring specifically maintains uniform 5 J/cm² fluence
-          to avert hot spots and thermal damage.
-        topic: complex CMC geometries
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: what-is-the-fundamental-difference-in-laser-intera
-        question: What is the fundamental difference in laser interaction between a SiC/SiC CMC and a C/C (Carbon-Carbon)
-          composite, and how does that change the cleaning strategy?
-        answer: The core distinction arises from carbon's strong 1064 nm absorption and oxidation susceptibility, compared
-          to SiC's robust ablation threshold around 5 J/cm². Specifically, C/C processing requires inert gas support and milder
-          fluence levels, while SiC/SiC tolerates harsher ns-pulse conditions. Thus, these factors shape unique laser tactics
-          for each composite.
-        topic: What is the fundamental difference in laser intera
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      - id: after-laser-cleaning-what-non-destructive-testing-
-        question: After laser cleaning, what non-destructive testing (NDE) methods are most reliable for verifying surface
-          integrity and the absence of heat-affected zones on CMCs?
-        answer: For verifying CMC surface integrity post-laser cleaning at 5 J/cm², fluorescent penetrant inspection particularly
-          excels at revealing micro-cracks. Notably, pulsed thermography offers high reliability in detecting subsurface thermal
-          alterations by mapping effusivity changes in potential heat-affected zones, all without contact.
-        topic: After laser cleaning, what non-destructive testing
-        severity: medium
-        acceptedAnswer: true
-        expertInfo: *id002
-      options:
-        autoOpenFirst: true
-        sortBy: severity
-      _section:
-        title: Expert Q&A
-        description: Frequently asked questions answered by laser cleaning experts
-        icon: message-circle-question
-        order: 2
-        variant: default
+    - Aerospace
+    - Automotive
+    - Energy
+    - Medical
+    - Electronics
+    - Marine
+    - Manufacturing
+    - Cultural Heritage
+    - Defense
+    - Research & Development
   safety:
     regulatory_standards:
       presentation: card
@@ -539,12 +389,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 metadata:
   last_updated: '2025-10-27T23:48:40.921793Z'
   normalization_applied: true
@@ -579,6 +423,17 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+applications:
+- Aerospace
+- Automotive
+- Energy
+- Medical
+- Electronics
+- Marine
+- Manufacturing
+- Cultural Heritage
+- Defense
+- Research & Development
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Ceramic Matrix Composites CMCs
@@ -588,13 +443,3 @@ fullPath: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-l
 pageDescription: When working with Ceramic Matrix Composites in high-heat environments, prioritize their superior toughness
   that resists cracking under thermal stress, allowing them to surpass brittle traditional ceramics by preserving structural
   integrity in aerospace or energy applications
-slug: ceramic-matrix-composites-cmcs-laser-cleaning
-lastModified: '2026-01-04T15:41:22.205321'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Ceramic Matrix Composites CMCs
-  href: ''
-title: Ceramic Matrix Composites CMCs

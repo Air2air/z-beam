@@ -1,6 +1,14 @@
 id: urethane-composites-settings
-datePublished: '2026-01-04T23:44:24.816150Z'
-dateModified: '2026-01-04T23:44:24.816150Z'
+name: Urethane Composites
+datePublished: '2026-01-05T21:43:05.634947+00:00'
+dateModified: '2026-01-05T21:43:05.634947+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Urethane Composites
+  href: null
 images:
   hero:
     url: /images/settings/urethane-composites-settings-hero.jpg
@@ -38,7 +46,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  bio: Todd Dunning. holds a MA degree. with expertise in Optical Materials for Laser Systems. based in United States.
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -62,12 +71,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -76,57 +79,22 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: matrix-degradation
-        category: Thermal Management
-        challenge: Matrix degradation and delamination
-        description: Structural integrity loss, fiber exposure
-        severity: high
-        solutions:
-        - Use low fluence (<2 J/cm²) to stay below matrix damage threshold
-        - Short pulse durations (<50 ns) for surface-only interaction
-        - Multiple light passes instead of aggressive single pass
-      - id: anisotropic-thermal
-        category: Thermal Management
-        challenge: Anisotropic thermal properties
-        description: Uneven heating and fiber/matrix damage risk
-        severity: medium
-        solutions:
-        - Optimize scan direction relative to fiber orientation
-        - Use lower fluence with multiple passes
-        - Monitor real-time temperature
-      - id: resin-contaminant-removal
-        category: Contamination
-        challenge: Resin-based contaminant removal
-        description: Resin carbonizes easily, requires careful power control
-        severity: medium
-        solutions:
-        - Use low fluence (1-2 J/cm²) to avoid carbonization
-        - Short pulse durations for precise removal
-        - Multiple passes with cooling between
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: matrix-degradation
+          type: challenge
+        - id: anisotropic-thermal
+          type: challenge
+        contamination_challenges:
+        - id: resin-contaminant-removal
+          type: challenge
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Urethane Composites cleaning without thermal damage
@@ -265,13 +233,3 @@ pageDescription: When laser cleaning urethane composites, we typically begin by 
   in these layered structures. We've found that slower scan speeds with multiple overlapping passes restore the surface integrity
   effectively, as the flexibility of urethane prevents cracking under controlled exposure. Always monitor for excessive buildup,
   which can degrade the composite's durability if power exceeds safe thresholds.
-slug: urethane-composites-settings
-lastModified: '2026-01-04T15:44:24.816185'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Urethane Composites
-  href: ''
-title: Urethane Composites

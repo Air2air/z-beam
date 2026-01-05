@@ -1,6 +1,14 @@
 id: tin-settings
-datePublished: '2026-01-04T23:44:24.306112Z'
-dateModified: '2026-01-04T23:44:24.306112Z'
+name: Tin
+datePublished: '2026-01-05T21:43:05.634873+00:00'
+dateModified: '2026-01-05T21:43:05.634873+00:00'
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Tin
+  href: null
 images:
   hero:
     url: /images/settings/tin-settings-hero.jpg
@@ -38,7 +46,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  bio: Yi-Chun Lin. holds a Ph.D. degree. with expertise in Laser Materials Processing. based in Taiwan.
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -62,12 +71,6 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        title: Regulatory Standards
-        description: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removes_contaminants:
       presentation: card
@@ -76,12 +79,6 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        title: Removes Contaminants
-        description: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     works_on_materials:
       presentation: card
       items:
@@ -91,67 +88,24 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        title: Works On Materials
-        description: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
-    prevention:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Challenges & Prevention
-        section_description: Common issues and how to prevent them
-        icon: shield-halved
-        order: 5
+    common_challenges:
+      presentation: descriptive
       items:
-      - id: high-thermal-conductivity
-        category: Thermal Management
-        challenge: High thermal conductivity and heat spread
-        description: Heat spreads rapidly causing large heat-affected zones
-        severity: medium
-        solutions:
-        - Use shorter pulse durations (picosecond/femtosecond) for localized heating
-        - Increase scan speed to minimize dwell time
-        - Apply cooling between passes
-        threshold: 4-400 W/(m·K) depending on metal
-      - id: melting-haz
-        category: Thermal Management
-        challenge: Melting and heat-affected zone formation
-        description: Material property changes, aesthetic damage
-        severity: high
-        solutions:
-        - Use shorter pulses (ns or ps regime)
-        - Increase scan speed >500 mm/s
-        - Optimize overlap to minimize accumulated heating
-      - id: rust-oxide-removal
-        category: Contamination
-        challenge: Rust and oxide layer removal
-        description: Requires multiple passes; rust/oxide has different absorption than base metal
-        severity: medium
-        solutions:
-        - First pass at higher power (100-120W) to remove bulk oxide
-        - Second pass at lower power (60-80W) for final cleaning
-        - Monitor for base metal exposure to avoid over-processing
-      - id: oil-grease-removal
-        category: Contamination
-        challenge: Oil and grease removal
-        description: Organic contaminants vaporize easily but can redeposit
-        severity: low
-        solutions:
-        - Use air assist to blow away vaporized contaminants
-        - Clean in multiple light passes to prevent redeposition
-        - Consider pre-cleaning with solvent for heavy contamination
-      options:
-        autoOpenFirst: true
-        sortBy: severity
+      - thermal_management:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contamination_challenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
-        title: Common Challenges
-        description: Typical difficulties and best practices when using this setting
-        icon: alert-triangle
-        order: 1
-        variant: warning
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
+        icon: triangle-exclamation
 machine_settings:
   powerRange:
     description: Optimal average power for Tin oxide removal without substrate damage
@@ -293,13 +247,3 @@ pageDescription: When laser cleaning Tin, make sure you start with the lowest po
   This approach works well for Tin's high reflectivity too, which scatters the beam and slows absorption—keep passes minimal
   and overlap low to avoid uneven spots. Watch out for overexposure on thin layers, as it might lead to pitting; instead,
   test on a small area first and build up gradually for clean results in electronics or heritage work.
-slug: tin-settings
-lastModified: '2026-01-04T15:44:24.306145'
-breadcrumbs:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Tin
-  href: ''
-title: Tin
