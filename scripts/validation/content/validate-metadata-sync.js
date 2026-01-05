@@ -23,14 +23,14 @@ const PAGES_DIR = path.join(process.cwd(), 'static-pages');
 
 // Required fields for complete metadata
 const REQUIRED_FIELDS = {
-  material: ['name', 'page_title', 'page_description', 'category', 'images', 'author'],
-  page: ['page_title', 'page_description']
+  material: ['name', 'pageTitle', 'pageDescription', 'category', 'images', 'author'],
+  page: ['pageTitle', 'pageDescription']
 };
 
 // Fields that should match between frontmatter and JSON-LD
 const CRITICAL_SYNC_FIELDS = [
-  'page_title',
-  'page_description',
+  'pageTitle',
+  'pageDescription',
   'author.name',
   'images.hero.url',
   'images.micro.url',
@@ -65,13 +65,13 @@ class MetadataValidator {
       // Check required fields
       const requiredFields = REQUIRED_FIELDS[type] || REQUIRED_FIELDS.material;
       const missingFields = requiredFields.filter(field => {
-        // Special handling for title/page_title - allow either one
-        if (field === 'page_title') {
-          return !data.page_title && !data.title;
+        // Special handling for title/pageTitle - allow either one
+        if (field === 'pageTitle') {
+          return !data.pageTitle && !data.title;
         }
-        // Special handling for description field - pages can use either page_description or meta_description
-        if (field === 'page_description' && type === 'page') {
-          return !data.page_description && !data.meta_description;
+        // Special handling for description field - pages can use either pageDescription or metaDescription
+        if (field === 'pageDescription' && type === 'page') {
+          return !data.pageDescription && !data.metaDescription;
         }
         const value = this.getNestedValue(data, field);
         return !value;
