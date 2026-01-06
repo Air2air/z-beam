@@ -51,7 +51,7 @@ export function createMockMaterial(overrides?: Partial<Material>): Material {
     slug: 'test-material',
     content_type: 'materials',
     schema_version: '5.0.0',
-    full_path: '/materials/metal/alloy/test-material',
+    fullPath: '/materials/metal/alloy/test-material',
     breadcrumb: [
       { label: 'Home', href: '/' },
       { label: 'Materials', href: '/materials' },
@@ -108,7 +108,7 @@ export function createMockSettings(overrides?: Partial<Settings>): Settings {
     slug: 'test-material-settings',
     content_type: 'settings',
     schema_version: '5.0.0',
-    full_path: '/settings/metal/alloy/test-material',
+    fullPath: '/settings/metal/alloy/test-material',
     breadcrumb: [
       { label: 'Home', href: '/' },
       { label: 'Settings', href: '/settings' },
@@ -188,7 +188,7 @@ export function createMockContaminant(overrides?: Partial<Contaminant>): Contami
     slug: 'test-contaminant',
     content_type: 'contaminants',
     schema_version: '5.0.0',
-    full_path: '/contaminants/chemical/organic/test-contaminant',
+    fullPath: '/contaminants/chemical/organic/test-contaminant',
     breadcrumb: [
       { label: 'Home', href: '/' },
       { label: 'Contaminants', href: '/contaminants' },

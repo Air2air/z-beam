@@ -1,8 +1,31 @@
 id: solder-flux-contamination
 name: Soldering Flux Residue
 category: organic-residue
-datePublished: '2026-01-06T00:19:25.008055Z'
-dateModified: '2026-01-06T00:19:25.008055Z'
+datePublished: '2026-01-06T01:38:36.549476Z'
+dateModified: '2026-01-06T01:38:36.549505+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/organic-residue/lubricant/solder-flux-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Lubricant
+  href: /contaminants/organic-residue/lubricant
+pageTitle: Soldering Flux Residue
+pageDescription: Solder-flux contamination, it manifests as an organic residue during soldering processes, where flux vapors
+  condense tenaciously on nearby surfaces, forming irregular, patchy layers that adhere strongly to metals. This contamination,
+  dependent from the flux composition and ambient humidity, exhibits unique patterns, such as dendritic growths on copper
+  substrates, which lead to uneven distribution unlike simpler oxide films. In laser cleaning applications, the removal challenges
+  arise from its thermal sensitivity; it appears that organic binders vaporize rapidly, yet residual charring persists under
+  short pulses, complicating complete elimination. On aluminum, these residues show heightened resistance, manifesting as
+  blistering that hinders uniform ablation, while steel surfaces demonstrate smoother detachment, though re-deposition occurs
+  if fluence varies. The process yields effective cleaning, as confirmed by surface inspections, yet demands precise parameter
+  tuning to avoid substrate damage.
+metaDescription: Soldering Flux Residue laser cleaning guide. Technical specifications and applications.
 images:
   hero:
     url: /images/contaminant/solder-flux-contamination-hero.jpg
@@ -26,15 +49,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -315,6 +335,9 @@ relationships:
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
 subcategory: lubricant
+valid_materials:
+- brass-laser-cleaning
+- copper-laser-cleaning
 composition:
 - Abietic Acid
 - Activators
@@ -322,21 +345,3 @@ composition:
 prohibited_materials:
 - Optical Components
 - Plastics
-valid_materials:
-- brass-laser-cleaning
-- copper-laser-cleaning
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Soldering Flux Residue
-metaDescription: Solder Flux Contamination removal guide for laser cleaning. Identification, safety requirements, and effective
-  removal techniques.
-fullPath: /contaminants/organic-residue/lubricant/solder-flux-contamination
-pageDescription: Solder-flux contamination, it manifests as an organic residue during soldering processes, where flux vapors
-  condense tenaciously on nearby surfaces, forming irregular, patchy layers that adhere strongly to metals. This contamination,
-  dependent from the flux composition and ambient humidity, exhibits unique patterns, such as dendritic growths on copper
-  substrates, which lead to uneven distribution unlike simpler oxide films. In laser cleaning applications, the removal challenges
-  arise from its thermal sensitivity; it appears that organic binders vaporize rapidly, yet residual charring persists under
-  short pulses, complicating complete elimination. On aluminum, these residues show heightened resistance, manifesting as
-  blistering that hinders uniform ablation, while steel surfaces demonstrate smoother detachment, though re-deposition occurs
-  if fluence varies. The process yields effective cleaning, as confirmed by surface inspections, yet demands precise parameter
-  tuning to avoid substrate damage.

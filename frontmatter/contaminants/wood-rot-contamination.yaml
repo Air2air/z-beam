@@ -1,8 +1,29 @@
 id: wood-rot-contamination
 name: Wood Rot / Fungal Biodegradation
 category: biological
-datePublished: '2026-01-06T00:19:25.764310Z'
-dateModified: '2026-01-06T00:19:25.764310Z'
+datePublished: '2026-01-06T01:38:37.430889Z'
+dateModified: '2026-01-06T01:38:37.430918+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/biological/growth/wood-rot-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Biological
+  href: /contaminants/biological
+- label: Growth
+  href: /contaminants/biological/growth
+pageTitle: Wood Rot / Fungal Biodegradation Laser Cleaning
+pageDescription: Wood rot contamination differs from surface dust or metal oxides because it penetrates deeply into wood fibers,
+  so laser cleaning faces unique challenges in biological removal. Formation occurs through fungal spores that spread irregularly
+  along grain patterns, creating porous decay zones during humid exposure. In observations, rot exhibits spongy texture and
+  discoloration, which binds tightly to cellulose structure. Because of this embedding, laser ablation removes outer layers
+  effectively, yet inner mycelium resists vaporization without charring the substrate. Treatment applies short pulses so heat
+  targets organics selectively, and surface regains integrity after process. Buildup is detected in moist regions, where contamination
+  weakens material durability over time.
+metaDescription: Surface shows contamination from wood rot / fungal biodegradation affecting material appearance and properties.
 micro:
   after: Post-cleaning reveals restored surface with wood rot / fungal biodegradation successfully removed through precise
     laser ablation.
@@ -30,15 +51,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -330,22 +348,7 @@ relationships:
           thermal_diffusivity: 0.1
           vaporization_temperature: 450
 subcategory: growth
-formation_conditions:
-- moisture
-- fungal_spores
-- warmth
-- poor_ventilation
-realism_notes: Wood rot ONLY occurs in organic wood materials. Metals and plastics cannot rot.
-required_elements:
-- cellulose
-- lignin
-- organic_matter
-scientific_name: Fungal decomposition of cellulose and lignin
 title: Wood Rot / Fungal Biodegradation Laser Cleaning
-valid_material_categories:
-- wood_hardwood
-- wood_softwood
-- wood_engineered
 valid_materials:
 - cedar-laser-cleaning
 - cherry-laser-cleaning
@@ -356,21 +359,23 @@ valid_materials:
 - plywood-laser-cleaning
 - redwood-laser-cleaning
 - walnut-laser-cleaning
+realism_notes: Wood rot ONLY occurs in organic wood materials. Metals and plastics cannot rot.
+formation_conditions:
+- moisture
+- fungal_spores
+- warmth
+- poor_ventilation
+required_elements:
+- cellulose
+- lignin
+- organic_matter
+scientific_name: Fungal decomposition of cellulose and lignin
+valid_material_categories:
+- wood_hardwood
+- wood_softwood
+- wood_engineered
 caution_materials:
 - Metals
 - Plastics
 - Ceramics
 - Glass
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Wood Rot / Fungal Biodegradation
-metaDescription: Wood Rot Contamination removal guide for laser cleaning. Identification, safety requirements, and effective
-  removal techniques.
-fullPath: /contaminants/biological/growth/wood-rot-contamination
-pageDescription: Wood rot contamination differs from surface dust or metal oxides because it penetrates deeply into wood fibers,
-  so laser cleaning faces unique challenges in biological removal. Formation occurs through fungal spores that spread irregularly
-  along grain patterns, creating porous decay zones during humid exposure. In observations, rot exhibits spongy texture and
-  discoloration, which binds tightly to cellulose structure. Because of this embedding, laser ablation removes outer layers
-  effectively, yet inner mycelium resists vaporization without charring the substrate. Treatment applies short pulses so heat
-  targets organics selectively, and surface regains integrity after process. Buildup is detected in moist regions, where contamination
-  weakens material durability over time.

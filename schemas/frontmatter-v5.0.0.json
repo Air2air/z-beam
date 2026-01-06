@@ -74,7 +74,7 @@ definitions:
 
 # Main schema types
 type: object
-required: [id, name, datePublished, dateModified, content_type, schema_version, full_path, breadcrumb, author]
+required: [id, name, datePublished, dateModified, content_type, schema_version, fullPath, breadcrumb, author]
 
 properties:
   id:
@@ -107,7 +107,7 @@ properties:
     pattern: "^\\d+\\.\\d+\\.\\d+$"
     description: "Semantic version number"
 
-  full_path:
+  fullPath:
     type: string
     pattern: "^/"
     description: "Full URL path"

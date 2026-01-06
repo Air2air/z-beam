@@ -1,8 +1,36 @@
 id: uv-chalking-contamination
 name: UV Photodegradation / Polymer Chalking
 category: aging
-datePublished: '2026-01-06T00:19:25.604680Z'
-dateModified: '2026-01-06T00:19:25.604680Z'
+datePublished: '2026-01-06T01:38:37.238630Z'
+dateModified: '2026-01-06T01:38:37.238660+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/aging/photodegradation/uv-chalking-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Aging
+  href: /contaminants/aging
+- label: Photodegradation
+  href: /contaminants/aging/photodegradation
+pageTitle: UV Photodegradation / Polymer Chalking Laser Cleaning
+pageDescription: 'UV-chalking-contamination arises from prolonged ultraviolet exposure on aged surfaces. This contamination,
+  it develops unique powdery patterns, where fine chalk-like residues accumulate unevenly and adhere to substrates. Formation
+  follows natural aging, material degrades gradually and thus forms brittle layers that scatter light.
+
+
+  Removal challenges emerge in laser cleaning applications. Contamination resists ablation due to its fragile yet sticky nature,
+  so precise energy control becomes essential to avoid substrate damage. Material-specific behaviors vary; on polymers, residues
+  detach readily and thus clean with minimal passes, while on metals, they bond strongly and so demand adjusted pulse durations
+  for effective stripping.
+
+
+  Following laser treatment, surface regains uniformity, contamination already diminishes, yet traces still linger in textured
+  zones. This process confirms efficiency through targeted removal, challenges persist from regional patterns.'
+metaDescription: Surface shows contamination from uv photodegradation / polymer chalking affecting material appearance and
+  properties.
 micro:
   after: Post-cleaning reveals restored surface with uv photodegradation / polymer chalking successfully removed through precise
     laser ablation.
@@ -30,15 +58,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -306,21 +331,7 @@ relationships:
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
 subcategory: photodegradation
-formation_conditions:
-- uv_radiation
-- sunlight
-- time
-- outdoor_exposure
-realism_notes: UV chalking is specific to polymers with carbon-based chains. Metals and ceramics do not chalk.
-required_elements:
-- organic_polymer
-- carbon_chains
-scientific_name: Polymer chain scission
 title: UV Photodegradation / Polymer Chalking Laser Cleaning
-valid_material_categories:
-- polymers_thermoplastic
-- polymers_engineering
-- polymers_elastomer
 valid_materials:
 - acrylic-pmma-laser-cleaning
 - nylon-laser-cleaning
@@ -328,27 +339,22 @@ valid_materials:
 - polyethylene-laser-cleaning
 - polypropylene-laser-cleaning
 - redwood-laser-cleaning
+realism_notes: UV chalking is specific to polymers with carbon-based chains. Metals and ceramics do not chalk.
+formation_conditions:
+- uv_radiation
+- sunlight
+- time
+- outdoor_exposure
+required_elements:
+- organic_polymer
+- carbon_chains
+scientific_name: Polymer chain scission
+valid_material_categories:
+- polymers_thermoplastic
+- polymers_engineering
+- polymers_elastomer
 caution_materials:
 - Metals
 - Ceramics
 - Glass
 - Wood
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: UV Photodegradation / Polymer Chalking
-metaDescription: Uv Chalking Contamination removal guide for laser cleaning. Identification, safety requirements, and effective
-  removal techniques.
-fullPath: /contaminants/aging/photodegradation/uv-chalking-contamination
-pageDescription: 'UV-chalking-contamination arises from prolonged ultraviolet exposure on aged surfaces. This contamination,
-  it develops unique powdery patterns, where fine chalk-like residues accumulate unevenly and adhere to substrates. Formation
-  follows natural aging, material degrades gradually and thus forms brittle layers that scatter light.
-
-
-  Removal challenges emerge in laser cleaning applications. Contamination resists ablation due to its fragile yet sticky nature,
-  so precise energy control becomes essential to avoid substrate damage. Material-specific behaviors vary; on polymers, residues
-  detach readily and thus clean with minimal passes, while on metals, they bond strongly and so demand adjusted pulse durations
-  for effective stripping.
-
-
-  Following laser treatment, surface regains uniformity, contamination already diminishes, yet traces still linger in textured
-  zones. This process confirms efficiency through targeted removal, challenges persist from regional patterns.'

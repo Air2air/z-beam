@@ -1,8 +1,30 @@
 id: silicone-buildup-contamination
 name: Silicone Sealant Buildup
 category: organic-residue
-datePublished: '2026-01-06T00:19:24.849349Z'
-dateModified: '2026-01-06T00:19:24.849349Z'
+datePublished: '2026-01-06T01:38:36.344917Z'
+dateModified: '2026-01-06T01:38:36.344947+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Adhesive
+  href: /contaminants/organic-residue/adhesive
+pageTitle: Silicone Sealant Buildup
+pageDescription: Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors and
+  residues. This organic layer, it adheres strongly and creates patchy patterns, especially on metals and polymers. Formation
+  patterns reveal unique clustering around edges and crevices, thus trapping air pockets that hinder uniform coverage. In
+  laser cleaning applications, removal challenges arise from its thermal resistance; pulses scatter energy and leave residues
+  behind. Material-specific behaviors show that on aluminum, buildup softens slowly under irradiation, while on plastics,
+  it vaporizes unevenly and risks substrate damage. After treatment, surface still exhibits faint traces in shadowed areas.
+  Process demands precise beam control, and thus enhances cleaning efficiency without overablation. Evidence from observations
+  confirms these patterns, so adjustments follow for optimal results.
+metaDescription: Silicone Sealant Buildup laser cleaning guide. Technical specifications and applications.
 images:
   hero:
     url: /images/contaminant/silicone-buildup-contamination-hero.jpg
@@ -26,15 +48,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -332,12 +351,6 @@ relationships:
           thermal_diffusivity: 0.13
           vaporization_temperature: 450
 subcategory: adhesive
-composition:
-- (CH₃)₂SiO
-- SiO₂
-prohibited_materials:
-- Plastics
-- Wood
 valid_materials:
 - alumina-laser-cleaning
 - aluminosilicate-glass-laser-cleaning
@@ -368,17 +381,9 @@ valid_materials:
 - titanium-laser-cleaning
 - zinc-laser-cleaning
 - zirconia-laser-cleaning
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Silicone Sealant Buildup
-metaDescription: Silicone Buildup Contamination removal guide for laser cleaning. Identification, safety requirements, and
-  effective removal techniques.
-fullPath: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
-pageDescription: Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors and
-  residues. This organic layer, it adheres strongly and creates patchy patterns, especially on metals and polymers. Formation
-  patterns reveal unique clustering around edges and crevices, thus trapping air pockets that hinder uniform coverage. In
-  laser cleaning applications, removal challenges arise from its thermal resistance; pulses scatter energy and leave residues
-  behind. Material-specific behaviors show that on aluminum, buildup softens slowly under irradiation, while on plastics,
-  it vaporizes unevenly and risks substrate damage. After treatment, surface still exhibits faint traces in shadowed areas.
-  Process demands precise beam control, and thus enhances cleaning efficiency without overablation. Evidence from observations
-  confirms these patterns, so adjustments follow for optimal results.
+composition:
+- (CH₃)₂SiO
+- SiO₂
+prohibited_materials:
+- Plastics
+- Wood

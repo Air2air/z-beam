@@ -1,8 +1,11 @@
 id: tool-steel-laser-cleaning
 name: Tool Steel
 category: metal
-datePublished: '2026-01-05T21:41:33.333957+00:00'
-dateModified: '2026-01-05T21:41:33.333957+00:00'
+datePublished: '2026-01-06T01:36:40.845178Z'
+dateModified: '2026-01-06T01:36:40.845211+00:00'
+contentType: material
+schemaVersion: 5.0.0
+fullPath: /materials/metal/alloy/tool-steel-laser-cleaning
 breadcrumb:
 - label: Home
   href: /
@@ -10,8 +13,13 @@ breadcrumb:
   href: /materials
 - label: Metal
   href: /materials/metal
-- label: Tool Steel
-  href: null
+- label: Alloy
+  href: /materials/metal/alloy
+pageTitle: Tool Steel
+pageDescription: Tool steel excels with its exceptional hardness and heat resistance, allowing tools to keep sharp edges intact
+  during intense machining operations without deforming or weakening.
+metaDescription: The laser cleaning process targets tool steel surfaces, which exhibit durability and resistance to wear.
+  Contamination, it appears as tenacious oxide layers,...
 micro:
   before: The laser cleaning process targets tool steel surfaces, which exhibit durability and resistance to wear. Contamination,
     it appears as tenacious oxide layers, irregularly clustered and obscuring the metal's dense microstructure. These oxides,
@@ -103,7 +111,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise: &id001
+  expertise:
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -451,146 +459,6 @@ relationships:
     - Aerospace
     - Precision Manufacturing
     - Metal Forming
-    expert_answers:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Expert Q&A
-        section_description: Frequently asked questions answered by laser cleaning experts
-        icon: user-tie
-        order: 40
-      items:
-      - id: causing-microcracking
-        title: What laser parameters are best for cleaning oxidized tool steel like D2 without causing microcracking?
-        content: For cleaning oxidized D2 tool steel without microcracking, I favor fiber lasers at 1064 nm wavelength, 10
-          ns pulse duration, and 5.1 J/cm² fluence to ablate oxides while curbing heat-affected zones in its high-chromium
-          makeup—a notable edge. CO2 lasers absorb poorly on metals, risking greater thermal damage, so it's essential to
-          stick with 100 W power and 500 mm/s scans over two passes at 50% overlap.
-        metadata:
-          topic: causing microcracking
-          severity: medium
-          acceptedAnswer: true
-          expertInfo: &id002
-            name: Alessandro Moretti
-            title: Ph.D.
-            expertise: *id001
-        _display:
-          _open: true
-          order: 1
-      - id: surface-hardness
-        title: Does laser cleaning restore the surface hardness of heat-treated tool steel tools, or does it require re-tempering?
-        content: Laser cleaning tool steels such as A2 or O1 at 5.1 J/cm² fluence notably preserves Rockwell hardness, by
-          limiting thermal diffusion within the martensitic structure and preventing unintended tempering. Yet, should local
-          surface temperatures surpass 200°C, essential re-tempering at 180-220°C could be required to regain full properties.
-          Our 100 W setup delivers distinct precise control for most applications.
-        metadata:
-          topic: surface hardness
-          severity: high
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 2
-      - id: carbide-buildup
-        title: How do I safely remove carbide buildup from tool steel cutting inserts using laser cleaning?
-        content: To safely remove tungsten carbide buildup from tool steel inserts, aim for an essential ablation threshold
-          of 5.1 J/cm² using a 1064 nm laser at 100 W power, thus avoiding substrate damage on materials like M2 high-speed
-          steel. Forum case studies notably stress strong ventilation for metal vapors, with two passes at 500 mm/s yielding
-          clean results.
-        metadata:
-          topic: carbide buildup
-          severity: medium
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 3
-      - id: laser-induced-phase-transformations
-        title: What are the risks of laser-induced phase transformations in water-hardening tool steels during cleaning?
-        content: When working with water-hardening W-series tool steels, it's notable how excessive laser heat in cleaning
-          can induce austenite formation above 727°C, which softens the martensitic structure and undermines hardness critical
-          for die and mold uses. It's essential to stay under 5.1 J/cm² fluences with 10 ns pulses at 1064 nm, curbing thermal
-          diffusion and phase changes.
-        metadata:
-          topic: laser-induced phase transformations
-          severity: medium
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 4
-      - id: alloying-elements-like-vanadium
-        title: In laser cleaning of tool steel molds, how do alloying elements like vanadium affect the cleaning efficiency?
-        content: In tool steel molds, the notable vanadium content forms tough carbides that boost laser absorption at 1064
-          nm, accelerating contaminant removal. With shock-resistant alloys like S7, it's essential to set fluence at 5.1
-          J/cm² for efficient oxide stripping without damaging the substrate—molders in injection circles praise this adjustment
-          for cleaner finishes.
-        metadata:
-          topic: alloying elements like vanadium
-          severity: medium
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 5
-      - id: cobalt-or-molybdenum
-        title: What safety precautions are needed when laser cleaning tool steel parts that contain cobalt or molybdenum?
-        content: When cleaning tool steel alloys containing cobalt or molybdenum via a 1064 nm laser at 5.1 J/cm² fluence,
-          it's notable that toxic fumes such as cobalt oxide may arise from vaporization. It's essential to don NIOSH-approved
-          respirators with HEPA filters, eye protection, and gloves, while providing robust ventilation to adhere to OSHA
-          exposure limits.
-        metadata:
-          topic: cobalt or molybdenum
-          severity: critical
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 6
-      - id: warping-the-substrate
-        title: Can pulsed laser cleaning remove rust from hot-work tool steel dies without warping the substrate?
-        content: Yes, pulsed laser cleaning serves as a notable approach to strip rust from H13 hot-work tool steel dies,
-          preventing warping thanks to its modest thermal expansion of 11.5 × 10⁻⁶/K that essentially curbs distortion. Employing
-          5.1 J/cm² fluence, 500 mm/s scan speed, and 50% overlap keeps heat buildup low—die-casting forums affirm consistent
-          results over repeated passes.
-        metadata:
-          topic: warping the substrate
-          severity: medium
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 7
-      - id: high-thermal-conductivity
-        title: How does the high thermal conductivity of oil-hardening tool steel impact laser cleaning process times?
-        content: Oil-hardening tool steels, such as O-series alloys, exhibit a notable thermal conductivity of around 40 W/m·K,
-          leading to swift heat dissipation that requires elevated laser power—up to 100 W—to maintain ablation without substrate
-          damage. This distinct challenge typically prolongs cleaning times by 20-30%, necessitating reduced scan speeds of
-          500 mm/s for even contaminant removal at 5.1 J/cm² fluence.
-        metadata:
-          topic: high thermal conductivity
-          severity: medium
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 8
-      - id: edge-chipping
-        title: What are common issues with laser cleaning tool steel blades, like edge chipping or recast layer formation?
-        content: In tool steel blades, edge chipping during laser cleaning arises from notable localized overheating that
-          cracks sharp edges. Recast layers—molten residue resolidifying—manifest as distinct uneven surfaces under SEM examination.
-          For high-speed tool steels, it's essential to apply 5.1 J/cm² fluence and 500 mm/s scan speed to limit thermal buildup,
-          as knifemakers frequently recommend in forums.
-        metadata:
-          topic: edge chipping
-          severity: medium
-          acceptedAnswer: true
-          expertInfo: *id002
-        _display:
-          _open: false
-          order: 9
-      options:
-        autoOpenFirst: true
-        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -610,42 +478,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-metadata:
-  last_updated: '2025-10-27T23:48:40.922915Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922921Z'
-  structure_version: '2.0'
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  isBasedOn:
-    name: IEC 60825 - Safety of Laser Products
-    url: https://webstore.iec.ch/en/publication/3587
-regulatory_standards:
-- description: ANSI Z136.1 - Safe Use of Lasers
-  image: /images/logo/logo-org-ansi.png
-  longName: American National Standards Institute
-  name: ANSI
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-- description: IEC 60825 - Safety of Laser Products
-  image: /images/logo/logo-org-iec.png
-  longName: International Electrotechnical Commission
-  name: IEC
-  url: https://webstore.iec.ch/en/publication/3587
-- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  image: /images/logo/logo-org-osha.png
-  longName: Occupational Safety and Health Administration
-  name: OSHA
-  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-schemaVersion: 5.0.0
-contentType: material
-pageTitle: Tool Steel
-metaDescription: Tool Steel laser cleaning guide. Remove contamination while preserving substrate integrity. Industrial applications
-  for metal materials.
-fullPath: /materials/metal/alloy/tool-steel-laser-cleaning
-pageDescription: Tool steel excels with its exceptional hardness and heat resistance, allowing tools to keep sharp edges intact
-  during intense machining operations without deforming or weakening.
 operational:
   industry_applications:
     presentation: card
@@ -698,3 +530,31 @@ operational:
         category: Industrial Applications
         commonality: common
       order: 8
+regulatory_standards:
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/en/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+metadata:
+  last_updated: '2025-10-27T23:48:40.922915Z'
+  normalization_applied: true
+  normalization_date: '2025-10-27T23:48:40.922921Z'
+  structure_version: '2.0'
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587

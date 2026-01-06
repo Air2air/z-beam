@@ -1,8 +1,30 @@
 id: surgical-marking-contamination
 name: Surgical Ink Markings
 category: chemical-residue
-datePublished: '2026-01-06T00:19:25.111815Z'
-dateModified: '2026-01-06T00:19:25.111815Z'
+datePublished: '2026-01-06T01:38:36.671803Z'
+dateModified: '2026-01-06T01:38:36.671834+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/chemical-residue/industrial/surgical-marking-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Chemical Residue
+  href: /contaminants/chemical-residue
+- label: Industrial
+  href: /contaminants/chemical-residue/industrial
+pageTitle: Surgical Ink Markings
+pageDescription: "Surgical marking contamination, it arises from chemical residues of inks and dyes used in medical procedures.\
+  \ Formation patterns show irregularity, with spots and lines adhering tightly to surfaces like stainless steel instruments\
+  \ or tissue simulants. This contamination, it creates uneven layers and binds chemically, thus resists standard cleaning.\
+  \ In laser cleaning applications, removal challenges emerge distinctly—pulses scatter residue instead of ablating fully,\
+  \ and heat buildup causes charring on organic-based marks. Material-specific behaviors vary: on metals, contamination disperses\
+  \ slowly and leaves traces; on polymers, it softens yet clings, so multiple passes follow to achieve clarity. After treatment,\
+  \ surface still exhibits faint patterns in some areas. Efficiency of process, it depends on wavelength tuning, and avoids\
+  \ overexposure to prevent damage.\n\nYi-Chun Lin, Ph.D.  \nTaiwan"
+metaDescription: Surgical Ink Markings laser cleaning guide. Technical specifications and applications.
 images:
   hero:
     url: /images/contaminant/surgical-marking-contamination-hero.jpg
@@ -26,15 +48,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -330,6 +349,9 @@ relationships:
           thermal_diffusivity: 0.15
           vaporization_temperature: 450
 subcategory: industrial
+valid_materials:
+- stainless-steel-laser-cleaning
+- titanium-laser-cleaning
 composition:
 - Gentian Violet
 - Dyes
@@ -337,20 +359,3 @@ composition:
 prohibited_materials:
 - Plastics
 - Rubber
-valid_materials:
-- stainless-steel-laser-cleaning
-- titanium-laser-cleaning
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Surgical Ink Markings
-metaDescription: Surgical Marking Contamination removal guide for laser cleaning. Identification, safety requirements, and
-  effective removal techniques.
-fullPath: /contaminants/chemical-residue/industrial/surgical-marking-contamination
-pageDescription: "Surgical marking contamination, it arises from chemical residues of inks and dyes used in medical procedures.\
-  \ Formation patterns show irregularity, with spots and lines adhering tightly to surfaces like stainless steel instruments\
-  \ or tissue simulants. This contamination, it creates uneven layers and binds chemically, thus resists standard cleaning.\
-  \ In laser cleaning applications, removal challenges emerge distinctly—pulses scatter residue instead of ablating fully,\
-  \ and heat buildup causes charring on organic-based marks. Material-specific behaviors vary: on metals, contamination disperses\
-  \ slowly and leaves traces; on polymers, it softens yet clings, so multiple passes follow to achieve clarity. After treatment,\
-  \ surface still exhibits faint patterns in some areas. Efficiency of process, it depends on wavelength tuning, and avoids\
-  \ overexposure to prevent damage.\n\nYi-Chun Lin, Ph.D.  \nTaiwan"

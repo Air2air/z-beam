@@ -1,8 +1,29 @@
 id: semiconductor-residue-contamination
 name: Semiconductor Processing Residue
 category: chemical-residue
-datePublished: '2026-01-06T00:19:24.793720Z'
-dateModified: '2026-01-06T00:19:24.793720Z'
+datePublished: '2026-01-06T01:38:36.278524Z'
+dateModified: '2026-01-06T01:38:36.278556+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Chemical Residue
+  href: /contaminants/chemical-residue
+- label: Industrial
+  href: /contaminants/chemical-residue/industrial
+pageTitle: Semiconductor Processing Residue
+pageDescription: 'Semiconductor residue contamination typically builds up during wafer processing, forming thin, uneven layers
+  that cling tightly to silicon surfaces. These residues, often chemical byproducts from etching or deposition steps, create
+  unique patterns—spotty clusters in high-heat zones or streaky films along processing edges. In practice, they pose distinct
+  removal challenges for laser cleaning, as the residues absorb energy unevenly, risking substrate damage if pulses ramp up
+  too quickly. Material-specific behaviors vary: on doped silicon, residues hold up better due to altered surface chemistry,
+  while on oxides, they clear more readily but leave faint traces. Overall, dialing in laser parameters addresses these issues,
+  achieving a clean finish without compromising device integrity.'
+metaDescription: Semiconductor Processing Residue laser cleaning guide. Technical specifications and applications.
 images:
   hero:
     url: /images/contaminant/semiconductor-residue-contamination-hero.jpg
@@ -26,15 +47,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -340,14 +358,6 @@ relationships:
           thermal_diffusivity: 0.25
           vaporization_temperature: 600
 subcategory: industrial
-composition:
-- SiO₂
-- Si₃N₄
-- Photoresist
-- Metal Films
-prohibited_materials:
-- Flexible Substrates
-- Soft Materials
 valid_materials:
 - alumina-laser-cleaning
 - aluminum-nitride-laser-cleaning
@@ -356,16 +366,11 @@ valid_materials:
 - silicon-carbide-sic-laser-cleaning
 - silicon-nitride-laser-cleaning
 - zirconia-laser-cleaning
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Semiconductor Processing Residue
-metaDescription: Semiconductor Residue Contamination removal guide for laser cleaning. Identification, safety requirements,
-  and effective removal techniques.
-fullPath: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
-pageDescription: 'Semiconductor residue contamination typically builds up during wafer processing, forming thin, uneven layers
-  that cling tightly to silicon surfaces. These residues, often chemical byproducts from etching or deposition steps, create
-  unique patterns—spotty clusters in high-heat zones or streaky films along processing edges. In practice, they pose distinct
-  removal challenges for laser cleaning, as the residues absorb energy unevenly, risking substrate damage if pulses ramp up
-  too quickly. Material-specific behaviors vary: on doped silicon, residues hold up better due to altered surface chemistry,
-  while on oxides, they clear more readily but leave faint traces. Overall, dialing in laser parameters addresses these issues,
-  achieving a clean finish without compromising device integrity.'
+composition:
+- SiO₂
+- Si₃N₄
+- Photoresist
+- Metal Films
+prohibited_materials:
+- Flexible Substrates
+- Soft Materials

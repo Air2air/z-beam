@@ -1,8 +1,30 @@
 id: tree-sap-contamination
 name: Tree Sap and Resin
 category: organic-residue
-datePublished: '2026-01-06T00:19:25.378168Z'
-dateModified: '2026-01-06T00:19:25.378168Z'
+datePublished: '2026-01-06T01:38:36.991391Z'
+dateModified: '2026-01-06T01:38:36.991421+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/organic-residue/natural/tree-sap-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Natural
+  href: /contaminants/organic-residue/natural
+pageTitle: Tree Sap and Resin
+pageDescription: Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
+  elements. This organic residue hardens over time, creating irregular patterns like drips and streaks that cling tightly
+  to substrates. In laser cleaning applications, operators face distinct removal challenges because the sap's polymeric structure
+  absorbs laser energy variably, often leading to incomplete ablation and stubborn charring. On metal surfaces, it penetrates
+  pores and resists vaporization, while on stone or wood, it embeds deeply, demanding precise pulse adjustments to avoid substrate
+  damage. Testing shows that dialing in the right wavelength clears these contaminants effectively, yet the process typically
+  requires multiple passes to achieve a clean finish. Overall, addressing tree sap demands tailored approaches that work out
+  material-specific behaviors for solid results.
+metaDescription: Tree Sap and Resin laser cleaning guide. Technical specifications and applications.
 images:
   hero:
     url: /images/contaminant/tree-sap-contamination-hero.jpg
@@ -26,15 +48,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -339,11 +358,6 @@ relationships:
           thermal_diffusivity: 0.06
           vaporization_temperature: 300
 subcategory: natural
-composition:
-- Terpenes
-- Resin Acids
-- Sugars
-prohibited_materials: []
 valid_materials:
 - aluminosilicate-glass-laser-cleaning
 - aluminum-laser-cleaning
@@ -366,17 +380,8 @@ valid_materials:
 - tin-laser-cleaning
 - titanium-laser-cleaning
 - zinc-laser-cleaning
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Tree Sap and Resin
-metaDescription: Tree Sap Contamination removal guide for laser cleaning. Identification, safety requirements, and effective
-  removal techniques.
-fullPath: /contaminants/organic-residue/natural/tree-sap-contamination
-pageDescription: Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
-  elements. This organic residue hardens over time, creating irregular patterns like drips and streaks that cling tightly
-  to substrates. In laser cleaning applications, operators face distinct removal challenges because the sap's polymeric structure
-  absorbs laser energy variably, often leading to incomplete ablation and stubborn charring. On metal surfaces, it penetrates
-  pores and resists vaporization, while on stone or wood, it embeds deeply, demanding precise pulse adjustments to avoid substrate
-  damage. Testing shows that dialing in the right wavelength clears these contaminants effectively, yet the process typically
-  requires multiple passes to achieve a clean finish. Overall, addressing tree sap demands tailored approaches that work out
-  material-specific behaviors for solid results.
+composition:
+- Terpenes
+- Resin Acids
+- Sugars
+prohibited_materials: []

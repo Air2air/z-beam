@@ -1,8 +1,30 @@
 id: soap-scum-contamination
 name: Soap Scum Buildup
 category: organic-residue
-datePublished: '2026-01-06T00:19:24.956016Z'
-dateModified: '2026-01-06T00:19:24.956016Z'
+datePublished: '2026-01-06T01:38:36.472635Z'
+dateModified: '2026-01-06T01:38:36.472681+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Cleaning Agent
+  href: /contaminants/organic-residue/cleaning-agent
+pageTitle: Soap Scum Buildup
+pageDescription: Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of soap
+  residues with mineral deposits in humid environments. This layer, which adheres tenaciously to surfaces like ceramics and
+  metals, exhibits unique patterns dependent from water hardness and exposure duration. On tiles, the contamination persists
+  as a thin, uneven film, while on metals, it shows a more porous structure that traps further debris. Removal challenges
+  arise from its strong bonding, influenced from the organic-inorganic mix, which resists laser ablation without precise energy
+  tuning. It appears that, for glass substrates, the scum detaches more readily, demonstrating cleaner results post-treatment,
+  whereas metallic surfaces demand multiple passes to achieve smoothness. The process, it yields effective decontamination,
+  yet underscores the need for material-tailored approaches in laser applications.
+metaDescription: Soap Scum Buildup laser cleaning guide. Technical specifications and applications.
 images:
   hero:
     url: /images/contaminant/soap-scum-contamination-hero.jpg
@@ -26,15 +48,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -304,13 +323,6 @@ relationships:
           thermal_diffusivity: 0.17
           vaporization_temperature: 450
 subcategory: cleaning-agent
-composition:
-- Calcium Stearate
-- Mg Stearate
-- Surfactants
-prohibited_materials:
-- Electronics
-- Porous Stone
 valid_materials:
 - alumina-laser-cleaning
 - aluminosilicate-glass-laser-cleaning
@@ -327,17 +339,10 @@ valid_materials:
 - silicon-nitride-laser-cleaning
 - tempered-glass-laser-cleaning
 - zirconia-laser-cleaning
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Soap Scum Buildup
-metaDescription: Soap Scum Contamination removal guide for laser cleaning. Identification, safety requirements, and effective
-  removal techniques.
-fullPath: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
-pageDescription: Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of soap
-  residues with mineral deposits in humid environments. This layer, which adheres tenaciously to surfaces like ceramics and
-  metals, exhibits unique patterns dependent from water hardness and exposure duration. On tiles, the contamination persists
-  as a thin, uneven film, while on metals, it shows a more porous structure that traps further debris. Removal challenges
-  arise from its strong bonding, influenced from the organic-inorganic mix, which resists laser ablation without precise energy
-  tuning. It appears that, for glass substrates, the scum detaches more readily, demonstrating cleaner results post-treatment,
-  whereas metallic surfaces demand multiple passes to achieve smoothness. The process, it yields effective decontamination,
-  yet underscores the need for material-tailored approaches in laser applications.
+composition:
+- Calcium Stearate
+- Mg Stearate
+- Surfactants
+prohibited_materials:
+- Electronics
+- Porous Stone

@@ -1,8 +1,30 @@
 id: thermal-paste-contamination
 name: Thermal Compound Deposits
 category: organic-residue
-datePublished: '2026-01-06T00:19:25.224059Z'
-dateModified: '2026-01-06T00:19:25.224059Z'
+datePublished: '2026-01-06T01:38:36.805455Z'
+dateModified: '2026-01-06T01:38:36.805489+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/organic-residue/other/thermal-paste-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Other
+  href: /contaminants/organic-residue/other
+pageTitle: Thermal Compound Deposits
+pageDescription: "Thermal paste contamination forms during heat transfer applications. Paste spreads thinly on surfaces and\
+  \ adheres strongly because of its viscous nature. After exposure to heat, residue hardens, so unique patterns emerge like\
+  \ uneven layers on metals. On aluminum, contamination shows patchy buildup, while on copper, it creates smooth films. \n\
+  \nRemoval challenges arise from this adhesion. Laser cleaning targets organic residue, but paste resists ablation because\
+  \ it embeds deeply. During treatment, surface is cleaned gradually, and multiple passes achieve better results. Material-specific\
+  \ behaviors differ; steel surfaces exhibit cracking under laser, so careful energy control prevents damage. In observations,\
+  \ process removes contamination effectively without harming substrate. Analysis is performed on samples to confirm uniformity\
+  \ after cleaning."
+metaDescription: Thermal Compound Deposits laser cleaning guide. Technical specifications and applications.
 images:
   hero:
     url: /images/contaminant/thermal-paste-contamination-hero.jpg
@@ -26,15 +48,12 @@ author:
 relationships:
   safety:
     regulatory_standards:
-      presentation: collapsible
-      sectionMetadata:
-        section_title: Regulatory Standards
-        section_description: Safety and compliance standards applicable to laser cleaning
-        icon: shield-check
-        order: 10
-      items: []
-      options:
-        autoOpenFirst: true
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
     fire_explosion_risk:
       presentation: card
       items:
@@ -317,6 +336,9 @@ relationships:
           thermal_diffusivity: 0.15
           vaporization_temperature: 450
 subcategory: other
+valid_materials:
+- aluminum-laser-cleaning
+- copper-laser-cleaning
 composition:
 - ZnO
 - Ag
@@ -325,20 +347,3 @@ composition:
 prohibited_materials:
 - PCB
 - Plastics
-valid_materials:
-- aluminum-laser-cleaning
-- copper-laser-cleaning
-schemaVersion: 5.0.0
-contentType: contaminant
-pageTitle: Thermal Compound Deposits
-metaDescription: Thermal Paste Contamination removal guide for laser cleaning. Identification, safety requirements, and effective
-  removal techniques.
-fullPath: /contaminants/organic-residue/other/thermal-paste-contamination
-pageDescription: "Thermal paste contamination forms during heat transfer applications. Paste spreads thinly on surfaces and\
-  \ adheres strongly because of its viscous nature. After exposure to heat, residue hardens, so unique patterns emerge like\
-  \ uneven layers on metals. On aluminum, contamination shows patchy buildup, while on copper, it creates smooth films. \n\
-  \nRemoval challenges arise from this adhesion. Laser cleaning targets organic residue, but paste resists ablation because\
-  \ it embeds deeply. During treatment, surface is cleaned gradually, and multiple passes achieve better results. Material-specific\
-  \ behaviors differ; steel surfaces exhibit cracking under laser, so careful energy control prevents damage. In observations,\
-  \ process removes contamination effectively without harming substrate. Analysis is performed on samples to confirm uniformity\
-  \ after cleaning."
