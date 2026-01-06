@@ -51,13 +51,15 @@ export function IndustryApplicationsPanel({
 
   if (items.length === 0) return null;
 
-  // Get section metadata or use defaults based on variant
-  const sectionMetadata = applications._section || applications.sectionMetadata || {
-    sectionTitle: getDefaultTitle(variant, entityName),
-    sectionDescription: getDefaultDescription(variant),
-    icon: 'briefcase',
-    order: 1
-  };
+  // Get section metadata (REQUIRED)
+  const sectionMetadata = applications._section || applications.sectionMetadata;
+  
+  if (!sectionMetadata) {
+    throw new Error(
+      `Missing required _section metadata for industry_applications. ` +
+      `All sections MUST have explicit _section metadata with sectionTitle and sectionDescription.`
+    );
+  }
 
   // Check presentation type (default to 'card' for simple list display)
   const presentationType = applications.presentation || 'card';
@@ -109,28 +111,4 @@ export function IndustryApplicationsPanel({
   );
 }
 
-/**
- * Get default title based on variant and entity name
- */
-function getDefaultTitle(variant: string, entityName?: string): string {
-  const titles = {
-    materials: entityName ? `Industry applications of ${entityName}` : 'Industry Applications',
-    settings: entityName ? `Industry applications of ${entityName}` : 'Industry Applications',
-    contaminants: 'Industries Where Found',
-    compounds: 'Industries of Concern'
-  };
-  return titles[variant as keyof typeof titles] || 'Industry Applications';
-}
-
-/**
- * Get default description based on variant
- */
-function getDefaultDescription(variant: string): string {
-  const descriptions = {
-    materials: 'Common industrial uses and sectors for this material',
-    settings: 'Industries using these laser cleaning parameters',
-    contaminants: 'Industries where this contaminant is commonly encountered',
-    compounds: 'Industries where this compound is generated during laser cleaning'
-  };
-  return descriptions[variant as keyof typeof descriptions] || 'Industry applications';
-}
+// No default title/description functions - all sections MUST have explicit metadata

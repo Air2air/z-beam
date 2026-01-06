@@ -163,38 +163,25 @@ export function getRelationshipSection<T = any>(
     return null;
   }
 
-  // Check for _section metadata (optional but recommended)
+  // Check for _section metadata (REQUIRED - fail-fast if missing)
   const metadata = current._section as RelationshipSection | undefined;
+  
+  if (!metadata) {
+    throw new Error(
+      `Missing required _section metadata at path: ${path}. ` +
+      `All relationship sections MUST have a _section block with sectionTitle, sectionDescription, icon, and order fields.`
+    );
+  }
 
   // Return structured data
   return {
     items: current.items as T[],
-    metadata: metadata || getDefaultMetadata(path),
+    metadata: metadata,
     presentation: current.presentation
   };
 }
 
-/**
- * Generate default metadata for sections without _section block
- * Uses path to create reasonable defaults
- */
-function getDefaultMetadata(path: string): RelationshipSection {
-  const lastPart = path.split('.').pop() || path;
-  
-  // Convert snake_case to Title Case
-  const sectionTitle = lastPart
-    .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-
-  return {
-    sectionTitle: sectionTitle,
-    sectionDescription: undefined,
-    order: 999, // Put at end if no order specified
-    variant: 'default',
-    icon: 'box'
-  };
-}
+// No default metadata generation - all sections MUST have explicit _section blocks
 
 /**
  * Check if a relationship section exists and has items
