@@ -99,7 +99,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -360,6 +360,144 @@ relationships:
     - Cultural Heritage
     - Rail Transportation
     - Sports Equipment
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: polyester-resin-composites
+        title: What are the optimal laser parameters (wavelength, power, pulse duration) for safely removing contaminants
+          from polyester resin composites without damaging the underlying material?
+        content: As a laser cleaning specialist from Indonesia, I recommend using a 1064 nm Nd:YAG laser wavelength, with
+          power levels of 200-400 W and pulse durations of 10-30 ns for polyester resin composites. This setup effectively
+          ablates contaminants like oils or dust while minimizing thermal damage to the substrate, based on our field tests.
+        metadata:
+          topic: polyester resin composites
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: etching-the-gel-coat
+        title: How do I clean soot, pollution, or biological growth (like mold) from a fiberglass/polyester composite boat
+          hull without etching the gel coat?
+        content: As a laser cleaning specialist from Indonesia, I advise using a Q-switched Nd:YAG laser at low fluence (under
+          1 J/cm²) to selectively vaporize soot, pollutants, or mold from your fiberglass boat hull's gel coat. This precise,
+          non-abrasive process avoids etching while preserving the surface—test a small spot first, ya, for best results.
+        metadata:
+          topic: etching the gel coat
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: can-laser-cleaning-effectively-remove-paint-or-coa
+        title: Can laser cleaning effectively remove paint or coatings from polyester composites without causing delamination
+          or fiber exposure?
+        content: Laser paint removal from polyester composites poses a straightforward delamination risk. Absorption of the
+          1064 nm wavelength and 3.0 J/cm² fluence by the resin builds internal gas pressure, blistering the matrix. That
+          method is typically avoided due to the strong likelihood of subsurface damage.
+        metadata:
+          topic: Can laser cleaning effectively remove paint or coa
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: specific-fumes-and-particulates
+        title: What specific fumes and particulates are generated when laser cleaning polyester resin composites, and what
+          filtration is required?
+        content: In this process, laser cleaning at 3.0 J/cm² breaks down the polyester matrix, releasing hazardous styrene
+          vapor and fine glass fibers. A practical extraction system using HEPA and activated carbon filtration, combined
+          with respiratory PPE, efficiently captures these ultrafine particulates and volatile organic compounds.
+        metadata:
+          topic: specific fumes and particulates
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: repair-or-re-adhesion
+        title: Is laser cleaning a viable method for preparing a polyester composite surface for repair or re-adhesion?
+        content: Laser cleaning provides a straightforward approach for polyester composites, yielding optimal surface roughness
+          at 3.0 J/cm². That method eliminates fiber damage from abrasion. Yet, a follow-up cleaning remains essential to
+          remove low-molecular-weight oxidized residues that could undermine the final bond strength.
+        metadata:
+          topic: repair or re-adhesion
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: white-chalky-residue
+        title: Why did my laser cleaning attempt on a black polyester composite part leave a white, chalky residue or discoloration?
+        content: That white residue points to straightforward thermal degradation in the black polyester resin matrix. Your
+          3.0 J/cm² fluence, through this process, likely ablated the surface polymer, exposing underlying glass fibers or
+          talc fillers that appear chalky.
+        metadata:
+          topic: white, chalky residue
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: how-does-the-presence-of-glass-fibers-versus-carbo
+        title: How does the presence of glass fibers versus carbon fibers in the composite change the laser cleaning approach?
+        content: The transparency of glass fibers lets 1064 nm laser energy penetrate straightforwardly, cleaning the resin
+          matrix efficiently. By contrast, carbon fibers' strong absorption at this wavelength triggers quick heating, so
+          that method demands precise fluence under 3.0 J/cm² to avoid thermal damage.
+        metadata:
+          topic: How does the presence of glass fibers versus carbo
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: fundamental-ablation-mechanism
+        title: What is the fundamental ablation mechanism when a laser interacts with a polyester resin composite?
+        content: The core mechanism is straightforward thermal ablation. With our optimal 3.0 J/cm² fluence at 1064 nm wavelength,
+          laser energy absorbs into the polymer matrix, triggering rapid heating that efficiently decomposes and vaporizes
+          contaminants before hitting the underlying composite's damage threshold. This process guarantees selective removal
+          while keeping thermal impact on the material to a minimum.
+        metadata:
+          topic: fundamental ablation mechanism
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: polyester-resin
+        title: Are there any regulatory or compliance issues (e.g., EPA, OSHA) specific to the laser ablation of composite
+          materials like polyester resin?
+        content: OSHA requires straightforward monitoring of airborne styrene and ultrafine particulates produced in laser
+          ablation at 3.0 J/cm². This process generates ablated waste as a contaminated solid, subject to EPA rules for hazardous
+          material disposal. Installing proper fume extraction and waste capture systems efficiently supports compliance with
+          worker safety and environmental standards.
+        metadata:
+          topic: polyester resin
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -418,17 +556,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Automotive
-- Marine
-- Wind Energy
-- Construction
-- Electronics Manufacturing
-- Medical Equipment
-- Cultural Heritage
-- Rail Transportation
-- Sports Equipment
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Polyester Resin Composites
@@ -438,3 +565,67 @@ fullPath: /materials/composite/fiber-reinforced/polyester-resin-composites-laser
 pageDescription: Polyester resin composites offer solid strength and corrosion resistance at a much lower cost than epoxy-based
   options, enabling automotive and marine teams to create lightweight structures that withstand tough conditions without sacrificing
   performance or fabrication ease.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Wind Energy
+      description: Wind Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Medical Equipment
+      description: Medical Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Rail Transportation
+      description: Rail Transportation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Sports Equipment
+      description: Sports Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

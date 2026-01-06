@@ -94,7 +94,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -345,6 +345,139 @@ relationships:
     - Energy and Power Generation
     - Automotive Manufacturing
     - Chemical Processing
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-are-the-optimal-laser-parameters-(wavelength-
+        title: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning contaminants from Pyrex
+          without damaging the surface?
+        content: For cleaning Pyrex, opt for a notable 1064 nm wavelength at ~25 W average power with 100 ns pulses. It's
+          essential to limit fluence below 2.5 J/cm², enabling selective removal of organics and particulates while avoiding
+          substrate micro-cracking—given this wavelength's poor absorption in pristine glass. A 50 μm spot scanned at 500
+          mm/s yields distinct, effective, non-damaging results.
+        metadata:
+          topic: What are the optimal laser parameters (wavelength,
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: induce-thermal-stress
+        title: Can laser cleaning create micro-fractures or induce thermal stress in Pyrex, and how can this be prevented?
+        content: Indeed, Pyrex's low thermal expansion notably heightens its vulnerability to microfractures from excessive
+          fluence. We counter this using nanosecond pulses at 2.5 J/cm² with a 50 μm spot size. Essential aids like a defocused
+          beam or thin water film manage thermal stress, preserving your precision components' integrity.
+        metadata:
+          topic: induce thermal stress
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: pyrex-laboratory-glassware
+        title: Is it safe to use a laser to remove labels, adhesives, or paint from Pyrex laboratory glassware?
+        content: A well-configured laser cleaning setup at 1064 nm wavelength and 2.5 J/cm² fluence safely strips labels from
+          Pyrex. Notably, this vaporizes adhesives without chemical residue, while preserving the material's essential optical
+          clarity and structural integrity for lab use.
+        metadata:
+          topic: Pyrex laboratory glassware
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: how-does-laser-cleaning-affect-the-optical-propert
+        title: How does laser cleaning affect the optical properties and surface roughness of Pyrex?
+        content: With laser cleaning calibrated precisely to 2.5 J/cm² fluence, Pyrex preserves its notable optical clarity.
+          This essential method prevents surface hazing, curbs roughness shifts, and delivers high transmission alongside
+          minimal light scattering for rigorous optical uses.
+        metadata:
+          topic: How does laser cleaning affect the optical propert
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: primary-safety-hazards
+        title: What are the primary safety hazards when laser cleaning Pyrex, and what PPE is required?
+        content: Thermal shock, notably from exceeding 2.5 J/cm², can shatter Pyrex. For the 1064 nm wavelength, IR-specific
+          laser safety eyewear is essential. Hazardous glass and coating particulates demand a properly fitted respirator
+          to prevent inhalation.
+        metadata:
+          topic: primary safety hazards
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: thin-film-deposition
+        title: Can laser cleaning be used to prepare a Pyrex surface for high-vacuum or thin-film deposition applications?
+        content: Indeed, laser cleaning is essential for preparing Pyrex effectively in high-vacuum applications. A 1064 nm
+          wavelength at ~2.5 J/cm² notably removes contaminants and activates the surface without subsurface damage, surpassing
+          solvent methods for superior thin-film adhesion.
+        metadata:
+          topic: thin-film deposition
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: pulsed-fiber-laser
+        title: Why is a pulsed fiber laser often recommended for cleaning Pyrex over a continuous-wave (CW) laser?
+        content: Operating typically at a 1064 nm wavelength, pulsed fiber lasers deliver nanosecond pulses for precise thermal
+          control. This method is essential to avoid heat diffusion into the Pyrex bulk, distinct in its vulnerability to
+          thermal shock owing to low thermal conductivity under continuous-wave exposure.
+        metadata:
+          topic: pulsed fiber laser
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: effectiveness-and-safety
+        title: What is the best method to verify the effectiveness and safety of laser cleaning on Pyrex?
+        content: Begin by examining under 50× magnification to spot micro-cracks. For optics' critical flatness, it's essential
+          to apply white-light interferometry, confirming surface roughness stays below 10 nm Ra. Lastly, perform a helium
+          leak test to verify vacuum system integrity, ensuring the 2.5 J/cm² fluence left no notable compromise.
+        metadata:
+          topic: effectiveness and safety
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: diffusion-layers
+        title: How do you clean deeply embedded metallic stains or diffusion layers from Pyrex with a laser?
+        content: To address deeply embedded metallic stains in Pyrex, a multi-step approach proves essential. We begin with
+          a 1064 nm wavelength at 2.5 J/cm² fluence for distinct selective vaporization of the surface contaminant. A gentler
+          follow-up pass then eliminates any residual diffusion layer, staying below the ablation threshold of the Pyrex substrate.
+        metadata:
+          topic: diffusion layers
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -402,17 +535,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Laboratory and Scientific Equipment
-- Pharmaceutical Manufacturing
-- Aerospace and Defense
-- Electronics and Semiconductor
-- Food and Beverage Processing
-- Cultural Heritage and Museums
-- Medical Device Manufacturing
-- Energy and Power Generation
-- Automotive Manufacturing
-- Chemical Processing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Pyrex
@@ -422,3 +544,67 @@ fullPath: /materials/glass/soda-lime/pyrex-laser-cleaning
 pageDescription: When laser cleaning Pyrex, watch out for thermal shock right from the start—its low expansion under heat
   sets it apart from ordinary glass, letting you ramp up the process safely without risking cracks and restoring labware efficiently
   for repeated scientific use
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Laboratory and Scientific Equipment
+      description: Laboratory and Scientific Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Pharmaceutical Manufacturing
+      description: Pharmaceutical Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Aerospace and Defense
+      description: Aerospace and Defense industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics and Semiconductor
+      description: Electronics and Semiconductor industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Food and Beverage Processing
+      description: Food and Beverage Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Cultural Heritage and Museums
+      description: Cultural Heritage and Museums industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Medical Device Manufacturing
+      description: Medical Device Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy and Power Generation
+      description: Energy and Power Generation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Automotive Manufacturing
+      description: Automotive Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

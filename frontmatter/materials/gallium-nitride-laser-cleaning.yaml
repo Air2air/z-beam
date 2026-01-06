@@ -61,7 +61,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -283,6 +283,60 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-prepare-gallium-nitride-for-safe-laser-cl
+        title: How do I prepare Gallium Nitride for safe laser cleaning?
+        content: When laser cleaning Gallium Nitride, we typically start by ensuring the surface is free from loose debris
+          to avoid uneven heating. We've found that a gentle pre-wipe with a soft cloth helps, especially compared to more
+          brittle semiconductors that might crack under initial stress. This step sets up the material's tough, heat-resistant
+          nature for effective contaminant removal without risking subsurface damage.
+        metadata:
+          topic: How do I prepare Gallium Nitride for safe laser cl
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: what-causes-uneven-cleaning-on-gallium-nitride-dur
+        title: What causes uneven cleaning on Gallium Nitride during laser sessions?
+        content: Uneven cleaning often happens if the laser power isn't adjusted for Gallium Nitride's reflective surface,
+          which bounces more energy than on absorbent materials like silicon. We recommend scanning in multiple passes at
+          lower intensity to distribute heat evenly across its dense structure. In our experience, this prevents hot spots
+          that could alter the material's strong mechanical properties.
+        metadata:
+          topic: What causes uneven cleaning on Gallium Nitride dur
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: can-laser-cleaning-change-gallium-nitrides-semicon
+        title: Can laser cleaning change Gallium Nitride's semiconductor performance?
+        content: Laser cleaning Gallium Nitride preserves its electrical conductivity when
+        metadata:
+          topic: Can laser cleaning change Gallium Nitride's semico
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -294,15 +348,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Power Electronics
-- LED Manufacturing
-- RF Devices
-- Telecommunications
-- 5G Infrastructure
-- Automotive Electronics
-- Solar Energy
-- High-Frequency Systems
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Gallium Nitride
@@ -312,3 +357,55 @@ fullPath: /materials/semiconductor/compound/gallium-nitride-laser-cleaning
 pageDescription: Gallium Nitride shows hardness and density. This compound resists oxidation, thus maintains surface integrity
   during laser cleaning. Smoothness aids uniform contaminant removal, yet stiffness challenges precise ablation. Benefits
   include durability and corrosion resistance for semiconductor processing.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Power Electronics
+      description: Power Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: LED Manufacturing
+      description: LED Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: RF Devices
+      description: RF Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Telecommunications
+      description: Telecommunications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: 5G Infrastructure
+      description: 5G Infrastructure industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Automotive Electronics
+      description: Automotive Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Solar Energy
+      description: Solar Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: High-Frequency Systems
+      description: High-Frequency Systems industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

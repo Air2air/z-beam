@@ -59,7 +59,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -279,6 +279,50 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-avoid-damaging-germanium-during-laser-cle
+        title: How do I avoid damaging Germanium during laser cleaning?
+        content: When laser cleaning Germanium, start by using a low-power pulse to gently remove surface contaminants without
+          overheating the material. I've seen that its good thermal conductivity helps spread heat evenly, so you maintain
+          a clean finish easily. But watch out midway—too much energy can cause cracks due to its brittleness, so adjust settings
+          gradually and test on a small area first. This approach keeps the semiconductor intact for reliable use.
+        metadata:
+          topic: How do I avoid damaging Germanium during laser cle
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-laser-setup-for-cleaning-germanium-
+        title: What's the best laser setup for cleaning Germanium optics?
+        content: You'll want to begin with a short wavelength laser since Germanium absorbs light well in that range, pulling
+          off dirt without deep penetration. In my experience, keeping the beam focused on the smooth, non-porous surface
+          prevents any residue buildup during the process. Just be careful not to overexpose it, as the material's moderate
+          corrosion resistance means prolonged sessions could dull the edges over time. End by cooling it slowly to avoid
+          thermal stress.
+        metadata:
+          topic: What's the best laser setup for cleaning Germanium
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -290,15 +334,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Infrared Optics
-- Fiber Optics
-- Solar Cells
-- Electronics Manufacturing
-- Night Vision
-- Thermal Imaging
-- Semiconductor
-- Research
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Germanium
@@ -307,3 +342,55 @@ metaDescription: Germanium laser cleaning guide. Remove contamination while pres
 fullPath: /materials/semiconductor/elemental/germanium-laser-cleaning
 pageDescription: Infrared transparency of Germanium, it excels in laser cleaning applications and thus delivers efficient
   contaminant removal with minimal surface alteration.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Infrared Optics
+      description: Infrared Optics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Fiber Optics
+      description: Fiber Optics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Solar Cells
+      description: Solar Cells industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Night Vision
+      description: Night Vision industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Thermal Imaging
+      description: Thermal Imaging industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Semiconductor
+      description: Semiconductor industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Research
+      description: Research industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

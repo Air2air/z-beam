@@ -48,68 +48,37 @@ export function RegulatoryStandards({
       />
       <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
         {validStandards.map((standard, index) => (
-          <li
-            key={`${standard.name}-${index}`}
-            className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200"
-          >
-            <article className="flex items-start gap-4">
-              {/* Logo */}
-              {standard.image && (
-                <div className="flex-shrink-0 w-16 h-16 relative">
-                  <Image
-                    src={standard.image}
-                    alt={`${standard.name} logo`}
-                    fill
-                    className="object-contain"
-                    sizes="64px"
-                  />
-                </div>
-              )}
-
-              {/* Content */}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-lg text-secondary font-semibold mb-1">
-                  {standard.name}
-                </h3>
-                <p className="text-sm text-secondary  mb-3">
-                  {standard.description}
-                </p>
-                
-                {/* Action Links */}
-                <nav className="flex flex-col gap-2" aria-label={`${standard.name} actions`}>
-                  {/* Search Materials Link */}
-                  <Link
-                    href={`/search?q=${encodeURIComponent(standard.name)}`}
-                    className="inline-flex items-center text-sm text-orange-600400 hover:text-orange-700:text-orange-300 transition-colors"
-                  >
-                    <svg 
-                      className="w-4 h-4 mr-1" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        strokeWidth={2} 
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+          <li key={`${standard.name}-${index}`} className="flex">
+            {standard.url ? (
+              <Link
+                href={standard.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col w-full card-background rounded-md p-4 hover:shadow-lg transition-all duration-200 group"
+              >
+                <article className="flex items-start gap-4 flex-1">
+                  {/* Logo */}
+                  {standard.image && (
+                    <div className="flex-shrink-0 w-16 h-16 relative">
+                      <Image
+                        src={standard.image}
+                        alt={`${standard.name} logo`}
+                        fill
+                        className="object-contain"
+                        sizes="64px"
                       />
-                    </svg>
-                    <span>Search Materials with {standard.name} Standards</span>
-                  </Link>
+                    </div>
+                  )}
 
-                  {/* Official Documentation Link */}
-                  {standard.url && (
-                    <Link
-                      href={standard.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-secondary  hover:text-tertiary:text-secondary transition-colors"
-                    >
-                      <span>View Official Documentation</span>
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-lg text-secondary font-semibold mb-1 group-hover:text-orange-600 transition-colors">
+                        {standard.name}
+                      </h3>
+                      {/* External link icon */}
                       <svg 
-                        className="w-4 h-4 ml-1" 
+                        className="w-5 h-5 flex-shrink-0 text-secondary opacity-60 group-hover:opacity-100 transition-opacity" 
                         fill="none" 
                         stroke="currentColor" 
                         viewBox="0 0 24 24"
@@ -122,12 +91,46 @@ export function RegulatoryStandards({
                           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
                         />
                       </svg>
-                      <span className="sr-only">(opens in new tab)</span>
-                    </Link>
+                    </div>
+                    {standard.description && (
+                      <p className="text-sm text-secondary">
+                        {standard.description}
+                      </p>
+                    )}
+                  </div>
+                </article>
+                <span className="sr-only">View official documentation (opens in new tab)</span>
+              </Link>
+            ) : (
+              <div className="flex flex-col w-full card-background rounded-md p-4">
+                <article className="flex items-start gap-4 flex-1">
+                  {/* Logo */}
+                  {standard.image && (
+                    <div className="flex-shrink-0 w-16 h-16 relative">
+                      <Image
+                        src={standard.image}
+                        alt={`${standard.name} logo`}
+                        fill
+                        className="object-contain"
+                        sizes="64px"
+                      />
+                    </div>
                   )}
-                </nav>
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg text-secondary font-semibold mb-1">
+                      {standard.name}
+                    </h3>
+                    {standard.description && (
+                      <p className="text-sm text-secondary">
+                        {standard.description}
+                      </p>
+                    )}
+                  </div>
+                </article>
               </div>
-            </article>
+            )}
           </li>
         ))}
       </ul>

@@ -109,7 +109,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -439,6 +439,37 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-personal-protective-equipment-(ppe)-is-essent
+        title: What personal protective equipment (PPE) is essential for operators during laser cleaning to minimize Benzo[a]pyrene
+          exposure?
+        content: Always wear a full-body Tyvek suit or equivalent impermeable coverall, nitrile gloves, and safety goggles
+          to prevent skin contact with airborne particles or residues from laser-ablated surfaces. Use a powered air-purifying
+          respirator (PAPR) with organic vapor cartridges rated for PAHs to protect against inhalation, as Benzo[a]pyrene
+          can persist in the air after cleaning. Change PPE after each session and decontaminate equipment to avoid secondary
+          exposure.
+        metadata:
+          topic: What personal protective equipment (PPE) is essent
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Benzo[a]pyrene (C₂₀H₁₂)
 subcategory: polycyclic_aromatic_hydrocarbon
 ppe_requirements: Handling benzo[a]pyrene demands far stricter safeguards than dealing with everyday industrial compounds,

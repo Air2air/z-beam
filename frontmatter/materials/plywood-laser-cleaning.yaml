@@ -103,7 +103,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -362,6 +362,154 @@ relationships:
     - Energy Sector
     - Medical Equipment
     - Transportation
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: damaging-the-wood-veneer
+        title: Can you safely laser clean plywood without burning or damaging the wood veneer?
+        content: Yes, precise parameters enable safe laser cleaning of plywood. Employing a 1064 nm wavelength at 2.0 J/cm²
+          fluence and 100 W power is essential, minimizing heat input to effectively remove contaminants while preventing
+          charring of the delicate wood veneer. The distinct key remains rapid scanning, around 500 mm/s, to avoid thermal
+          damage.
+        metadata:
+          topic: damaging the wood veneer
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: plywood-surfaces
+        title: What laser settings (wavelength, power, pulse duration) work best for removing contaminants from plywood surfaces?
+        content: For plywood surfaces, I suggest a 1064 nm wavelength, paired with 100 W average power and nanosecond pulses.
+          It's essential to hold fluence near 2.0 J/cm², ensuring contaminants lift off cleanly without harming the adhesives
+          binding the plies. Plywood's distinct layered makeup calls for gentler settings than solid wood to avert delamination.
+        metadata:
+          topic: plywood surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: glue-layers
+        title: How does laser cleaning affect the glue layers between plywood laminations?
+        content: It's essential to select proper laser parameters, such as 2.0 J/cm² fluence and 100W power. Thermal input
+          notably degrades UF adhesives, heightening delamination risks, whereas PF resins endure heat more effectively. Precise
+          control limits heat penetration into glue lines.
+        metadata:
+          topic: glue layers
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: biological-growth
+        title: Is laser cleaning effective for removing mold, mildew, or biological growth from plywood surfaces?
+        content: Laser cleaning stands out for effectively removing biological growth from plywood at a fluence of 2.0 J/cm².
+          The 1064 nm wavelength proves essential in targeting surface-level mold ablation, with limited substrate penetration
+          that sidesteps chemical residues from conventional approaches. Ultimately, this method safeguards the wood's structural
+          integrity.
+        metadata:
+          topic: biological growth
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: voc-release-from-adhesives
+        title: What safety precautions are needed when laser cleaning plywood due to potential VOC release from adhesives?
+        content: When your 1064 nm laser heats plywood adhesives, they release hazardous VOCs such as formaldehyde. It's essential
+          to deploy industrial ventilation and respiratory protection, particularly with distinct parameters like 2.0 J/cm²
+          fluence that ablate contaminants effectively.
+        metadata:
+          topic: VOC release from adhesives
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: plywood-surfaces
+        title: Can laser cleaning prepare plywood surfaces for painting or coating applications?
+        content: Laser cleaning provides an effective way to prepare plywood for coating, as it removes contaminants while
+          micro-etching the surface. Notably, at 2.0 J/cm², this process boosts adhesion through increased surface area, avoiding
+          thermal damage and offering a distinct, residue-free alternative to mechanical sanding or chemical treatments.
+        metadata:
+          topic: plywood surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: plywood-restoration
+        title: How does laser cleaning compare to traditional methods (sanding, chemical stripping) for plywood restoration?
+        content: Laser cleaning surpasses traditional methods by safeguarding plywood's delicate veneers in a notable way.
+          Employing our 1064 nm wavelength at 2.0 J/cm², it distinctly targets contaminants without harming the wood substrate,
+          bypassing abrasive and chemical waste. This delivers essential material preservation while proving far more cost-effective
+          for complex restoration tasks.
+        metadata:
+          topic: plywood restoration
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: existing-surface-treatments
+        title: What are the limitations of laser cleaning for plywood with existing surface treatments like varnish or paint?
+        content: A notable challenge stems from the distinct ablation thresholds of varnish layers versus the wood substrate.
+          At our standard 2.0 J/cm² fluence, multi-layer paint removal often proves incomplete, leaving a resinous residue
+          that traps contaminants.
+        metadata:
+          topic: existing surface treatments
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: dimensional-stability
+        title: Does laser cleaning affect the moisture content or dimensional stability of plywood?
+        content: Properly tuned laser settings, like 2.0 J/cm² fluence and 100W average power, yield only superficial drying.
+          This essential strategy minimizes threats to the plywood's dimensional stability, averting notable risks of warping
+          or checking that might impair structural performance in sectors such as aerospace.
+        metadata:
+          topic: dimensional stability
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: different-plywood-grades
+        title: How do different plywood grades (interior vs exterior, hardwood vs softwood) respond to laser cleaning?
+        content: It's notable how exterior plywood's phenolic resins endure 2.0 J/cm² far better than interior urea-formaldehyde
+          glues, prone to degradation. Dense hardwoods like birch demand exact 100W power control to prevent charring, whereas
+          softwoods tolerate marginally higher fluence. This 1064nm wavelength delivers essential minimal thermal penetration
+          into the veneer.
+        metadata:
+          topic: different plywood grades
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -421,17 +569,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Marine
-- Cultural Heritage
-- Electronics Manufacturing
-- Automotive
-- Construction
-- Furniture Manufacturing
-- Energy Sector
-- Medical Equipment
-- Transportation
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Plywood
@@ -440,3 +577,67 @@ metaDescription: Plywood laser cleaning guide. Remove contamination while preser
 fullPath: /materials/wood/hardwood/plywood-laser-cleaning
 pageDescription: When laser cleaning plywood, I've found the best results come from starting with gentle passes to make the
   most of its layered absorbency, restoring surfaces cleanly without scorching the delicate grains
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Furniture Manufacturing
+      description: Furniture Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Medical Equipment
+      description: Medical Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Transportation
+      description: Transportation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

@@ -91,7 +91,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -190,6 +190,37 @@ relationships:
       effect: Gastrointestinal distress, abdominal pain, and chronic lead toxicity (e.g., cognitive deficits, hypertension)
       severity: severe
       onset: short-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-respiratory-protection-should-i-use-when-lase
+        title: What respiratory protection should I use when laser cleaning surfaces that may generate lead oxide (PbO) particulates?
+        content: Use a NIOSH-approved half-face or full-face respirator with P100 filters (or equivalent) rated for particulates
+          to prevent inhalation of lead oxide dust, ensuring a proper fit test and seal check before each use. In high-exposure
+          scenarios during laser cleaning, opt for powered air-purifying respirators (PAPRs) for better comfort and protection,
+          and always perform air monitoring to confirm levels stay below OSHA's permissible exposure limit of 50 µg/m³ for
+          lead over an 8-hour shift. Combine this with engineering controls like local exhaust ventilation at the laser cleaning
+          site to minimize airborne particulates from the start.
+        metadata:
+          topic: What respiratory protection should I use when lase
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Lead Oxide (PbO)
 subcategory: metal-oxide
 ppe_requirements: "Handling lead oxide compounds in particulate form demands careful protection, especially during industrial\

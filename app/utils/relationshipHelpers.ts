@@ -390,10 +390,16 @@ export function getContaminatedBy(metadata: any): any {
  * 3. relationships.regulatory_standards.items (legacy array)
  * 4. relationships.regulatory_standards (legacy direct)
  * 5. relationships.regulatory (legacy direct)
+ * 
+ * Maps frontmatter structure to component format:
+ * - title → name
+ * - metadata.orgFullName → description (cleaner than markdown content)
+ * - metadata.url → url
+ * - metadata.image → image
  */
 export function getRegulatoryStandards(metadata: any): any[] {
   const relationships = metadata?.relationships;
-  return (
+  const rawStandards = (
     relationships?.safety?.regulatory_standards?.items ||
     relationships?.regulatory?.items ||
     relationships?.regulatory_standards?.items ||
@@ -401,6 +407,28 @@ export function getRegulatoryStandards(metadata: any): any[] {
     relationships?.regulatory ||
     []
   );
+  
+  // Map frontmatter structure to component format
+  return rawStandards.map((std: any) => {
+    // If already in correct format, return as-is
+    if (std.name && std.description && !std.metadata) {
+      return std;
+    }
+    
+    // Map new frontmatter structure to component format
+    // Use orgFullName as description (cleaner than markdown content field)
+    // Use organization abbreviation for search (e.g., "FDA" instead of full title)
+    return {
+      name: std.title || std.name || '',
+      description: std.metadata?.orgFullName || std.description || '',
+      url: std.metadata?.url || std.url || '',
+      image: std.metadata?.image || std.image || '',
+      longName: std.metadata?.orgFullName || std.longName || '',
+      searchTerm: std.metadata?.organization || std.id || std.title || '',
+      id: std.id || '',
+      ...std
+    };
+  });
 }
 
 /**

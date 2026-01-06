@@ -84,7 +84,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
         title: metadata.name || metadata.title,
         category: metadata.category,
         description: metadata.description,
-        url: metadata.full_path,
+        url: metadata.fullPath,
         phase: ref.phase,
         hazard_level: ref.hazard_level,
         image: metadata.images?.hero?.url,
@@ -117,7 +117,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
         title: metadata.name || metadata.title,
         category: metadata.category,
         description: metadata.description,
-        url: metadata.full_path,
+        url: metadata.fullPath,
         image: metadata.images?.hero?.url,
       };
     })

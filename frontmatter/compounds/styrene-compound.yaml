@@ -100,7 +100,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -437,6 +437,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-working-on-surfaces-p
+        title: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective
+          gear should I use to avoid skin irritation from exposure, especially since it's a stronger irritant than something
+          like acetone?
+        content: Wear chemical-resistant gloves made of nitrile or PVC (at least 0.7 mm thick) and full-body coveralls to
+          prevent direct skin contact, as styrene penetrates skin more readily and causes greater irritation than milder solvents
+          like acetone. Use safety goggles and a respirator with organic vapor cartridges if ventilation is inadequate, ensuring
+          airborne exposure stays below the OSHA PEL of 100 ppm (8-hour TWA). Always perform a skin check after shifts and
+          wash exposed areas immediately with soap and water if contact occurs.
+        metadata:
+          topic: As a laser cleaning operator working on surfaces p
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Styrene (C₈H₈)
 subcategory: aromatic_hydrocarbon
 ppe_requirements: 'Handling styrene-based compounds demands careful protection against their irritating nature, unlike milder

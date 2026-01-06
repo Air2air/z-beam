@@ -91,7 +91,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -453,6 +453,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-personal-protective-equipment-(ppe)-should-i-
+        title: What personal protective equipment (PPE) should I wear to minimize hydrogen cyanide (HCN) exposure risks during
+          laser cleaning of metal surfaces?
+        content: Use a full-facepiece respirator with cartridges specifically rated for HCN or acid gases, combined with chemical-resistant
+          gloves, boots, and a full-body suit made from materials like butyl rubber to block rapid skin absorption. Ensure
+          the workspace has adequate ventilation or local exhaust systems to reduce inhalation hazards, and always perform
+          air monitoring with HCN-specific detectors to keep exposures below the OSHA ceiling limit of 10 ppm. If HCN levels
+          approach the limit, immediately evacuate and decontaminate any exposed skin with a dilute sodium hypochlorite solution
+          followed by thorough rinsing.
+        metadata:
+          topic: 'What personal protective equipment (PPE) should I '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Hydrogen Cyanide (HCN)
 subcategory: cyanide
 ppe_requirements: "Handling hydrogen cyanide demands serious protection. Start with full-body suits made from impermeable\

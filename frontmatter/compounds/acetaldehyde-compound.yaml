@@ -65,7 +65,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -397,6 +397,39 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-what-are-the-key-prot
+        title: As a laser cleaning operator, what are the key protection methods to prevent acetaldehyde exposure from vapor
+          generation during surface treatment?
+        content: Always prioritize engineering controls like local exhaust ventilation systems to capture and remove acetaldehyde
+          vapors at the source, maintaining airborne concentrations below the OSHA permissible exposure limit of 200 ppm (as
+          an 8-hour time-weighted average) and the NIOSH recommended limit of 25 ppm. Wear appropriate personal protective
+          equipment, including chemical-resistant gloves, safety goggles, and a full-face respirator with organic vapor cartridges
+          if ventilation is inadequate. Monitor air quality periodically using portable gas detectors specific to acetaldehyde
+          to ensure exposure stays within safe limits and conduct regular training on spill response and emergency eyewash
+          stations.
+        metadata:
+          topic: As a laser cleaning operator, what are the key pro
+          severity: critical
+          acceptedAnswer: true
+          expertInfo:
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Acetaldehyde (C₂H₄O)
 subcategory: aldehyde
 ppe_requirements: Handling acetaldehyde demands careful protection against its irritating vapors and potential skin contact,

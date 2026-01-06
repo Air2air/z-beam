@@ -98,7 +98,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -362,6 +362,155 @@ relationships:
     - Cultural Heritage
     - Energy Sector
     - Manufacturing
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: polyvinyl-chloride-(pvc)
+        title: Is it safe to laser clean Polyvinyl Chloride (PVC), and what are the primary hazards?
+        content: Cleaning PVC using lasers proves notably hazardous, as it generates hydrogen chloride gas. This toxic, corrosive
+          byproduct emerges readily at energy densities near 5 J/cm², creating severe health threats and equipment damage.
+          For such a chlorine-based polymer, it's essential to steer clear of laser ablation toward safer cleaning alternatives.
+        metadata:
+          topic: Polyvinyl Chloride (PVC)
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: hazardous-byproducts
+        title: What laser parameters (wavelength, power, pulse duration) should be avoided for PVC to prevent damage and hazardous
+          byproducts?
+        content: Steer clear of typical IR wavelengths like 1064 nm, which provoke excessive heat buildup in Polyvinyl Chloride.
+          This leads to thermal degradation rather than clean ablation, risking the release of hazardous chlorine gas. It's
+          essential to apply a fluence around 5 J/cm² with nanosecond pulses for safe material removal below its decomposition
+          threshold.
+        metadata:
+          topic: hazardous byproducts
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: without-damaging-the-substrate
+        title: Can you use a laser to remove contamination (like paint or mold) from a PVC surface without damaging the substrate?
+        content: Laser cleaning of PVC demands utmost precision, owing to its notably low degradation threshold. It's essential
+          to apply a 1064 nm wavelength at fluences below 5 J/cm², distinctly unlike metal treatments, to prevent thermal
+          damage. This controlled ablation eliminates contaminants while preserving the substrate.
+        metadata:
+          topic: without damaging the substrate
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: inadvertently-involve-pvc
+        title: What is the recommended fume extraction and filtration setup for any laser process that might inadvertently
+          involve PVC?
+        content: In PVC laser processing, acid-gas filtration like chemical scrubbers is essential. The extraction system
+          demands corrosion-resistant construction, particularly at 100W power levels that notably decompose this material
+          into hazardous hydrogen chloride vapors.
+        metadata:
+          topic: inadvertently involve PVC
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: how-does-the-presence-of-plasticizers-in-flexible-
+        title: How does the presence of plasticizers in flexible PVC affect its reaction to laser irradiation?
+        content: It's notable that plasticizers markedly diminish PVC's thermal stability, thereby reducing its decomposition
+          threshold. Consequently, this triggers elevated VOC emissions together with HCl gas in laser processing at typical
+          1064 nm wavelengths. The material grows more volatile, demanding parameter tweaks like fluence below 5 J/cm², which
+          proves essential.
+        metadata:
+          topic: 'How does the presence of plasticizers in flexible '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: universally-contraindicated
+        title: Are there any laser cleaning applications where PVC is successfully treated, or is it universally contraindicated?
+        content: Laser cleaning of PVC remains distinctly contraindicated across most applications. Documented instances are
+          confined to highly specialized, controlled research using parameters like a 1064 nm wavelength and 5 J/cm² fluence.
+          This approach is not an essential industrial standard, given the notable hazardous fume production.
+        metadata:
+          topic: universally contraindicated
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: laser-induced-damage
+        title: What are the visible signs of laser-induced damage on PVC?
+        content: Notably, thermal damage appears as yellowing or blackening from dehydrochlorination exceeding 5 J/cm². Surface
+          pitting and embrittlement serve as essential indicators that the 1064 nm wavelength's energy has chemically degraded
+          the polymer chains.
+        metadata:
+          topic: laser-induced damage
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: accidentally-contacts-pvc
+        title: If a laser accidentally contacts PVC, what is the immediate emergency procedure?
+        content: Immediately halt the process and evacuate the area. The 1064 nm wavelength at 5 J/cm² fluence decomposes
+          PVC, releasing hazardous hydrogen chloride gas. Only re-enter with appropriate respiratory protection after thorough
+          ventilation is confirmed.
+        metadata:
+          topic: accidentally contacts PVC
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: prohibited-for-pvc
+        title: Why is laser cleaning generally acceptable for metals like steel but prohibited for PVC?
+        content: While metals endure high temperatures, PVC notably decomposes at merely 140-300°C, emitting hazardous hydrogen
+          chloride gas. Our 5 J/cm² fluence surpasses this threshold with ease, generating chemical risks rather than safe
+          metallic vapor. This essential thermal instability renders laser ablation unsuitable for Polyvinyl Chloride, unlike
+          robust steel.
+        metadata:
+          topic: prohibited for PVC
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: alternative-surface-cleaning
+        title: What alternative surface cleaning methods are recommended for PVC components?
+        content: For PVC, I suggest ultrasonic cleaning using mild aqueous solutions or gentle mechanical abrasion. It's essential
+          to avoid aggressive solvents, owing to the polymer's distinct vulnerability to chemical stress cracking. With our
+          1064 nm laser process, ensure fluence stays below 5 J/cm² to prevent thermal degradation.
+        metadata:
+          topic: alternative surface cleaning
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -421,17 +570,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Medical Devices
-- Electronics Manufacturing
-- Automotive
-- Construction
-- Marine
-- Food Processing
-- Cultural Heritage
-- Energy Sector
-- Manufacturing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Polyvinyl Chloride
@@ -441,3 +579,67 @@ fullPath: /materials/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning
 pageDescription: We've found that when laser cleaning Polyvinyl Chloride, we always start with reduced power and slower speeds
   to handle its poor heat dissipation from the initial setup, which avoids surface warping while effectively removing contaminants
   in tough applications like marine and construction settings where corrosion resistance remains essential.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

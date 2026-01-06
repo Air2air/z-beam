@@ -51,7 +51,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -409,6 +409,40 @@ relationships:
     - Oil & Gas
     - Rail Transport
     - Shipbuilding
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: steel-in-laser-cleaning:-key-facts
+        title: 'Steel in Laser Cleaning: Key Facts'
+        content: "**What makes steel a go-to material in industry?**  \nSteel stands out as a metal with solid strength and\
+          \ versatility. We use it everywhere—from bridges to machine parts—because it holds up under heavy loads. Its density\
+          \ sits around 7.85 g/cm³, which gives it that hefty feel without being too brittle. Porosity stays low at about\
+          \ 0.1%, so it resists water or gases sneaking in over time. In my projects, this reliability keeps things running\
+          \ smooth.\n\n**How does laser cleaning handle steel surfaces?**  \nLaser cleaning works well on steel by zapping\
+          \ away rust, paint, or grime without damaging the base. The beam heats just the top layer, and buildup vaporizes\
+          \ or flakes off. You get a clean finish that looks almost new. For steel, a power range of 100 W does the job nicely,\
+          \ especially on thinner sheets. It brings back that shiny surface fast, and no chemicals needed. Though thicker\
+          \ pieces might take a pass or two, results stay consistent. I've seen it fix old tools in minutes—practical and\
+          \ effective."
+        metadata:
+          topic: 'Steel in Laser Cleaning: Key Facts'
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -456,13 +490,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-applications:
-- Automotive
-- Construction
-- Manufacturing
-- Oil & Gas
-- Rail Transport
-- Shipbuilding
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Steel
@@ -473,3 +500,43 @@ pageDescription: Steel, for laser cleaning applications, manifests tenacious oxi
   during contaminant removal, which leads to efficient restoration without structural compromise. This durability, it sets
   steel apart from less resilient ferrous alloys, exhibiting practical benefits in demanding sectors such as manufacturing
   and shipbuilding where surface integrity persists under intense exposure.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Oil & Gas
+      description: Oil & Gas industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Rail Transport
+      description: Rail Transport industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Shipbuilding
+      description: Shipbuilding industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6

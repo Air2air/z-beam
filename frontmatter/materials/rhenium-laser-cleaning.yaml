@@ -108,7 +108,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -393,6 +393,151 @@ relationships:
     - Jewelry and Luxury Goods
     - Marine and Offshore
     - Energy Generation
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: high-melting-point
+        title: What laser wavelength is most effective for cleaning rhenium surfaces without causing thermal damage, given
+          its high melting point?
+        content: In rhenium cleaning tasks, the 1064 nm near-IR wavelength stands out notably, balancing the metal's high
+          reflectivity against strong oxide absorption to achieve the 2.5 J/cm² ablation threshold without thermal risks—due
+          to its essential melting point and conductivity. Operating at 150 W with 15 ns pulses, it delivers precise, undamaged
+          outcomes.
+        metadata:
+          topic: high melting point
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-does-rheniums-oxide-layer-affect-the-laser-cle
+        title: How does rhenium's oxide layer affect the laser cleaning process, and what pulse durations are recommended
+          to remove it efficiently?
+        content: Rhenium's oxide layer offers a notable increase in laser absorption at 1064 nm, supporting initial cleaning
+          while raising re-oxidation risks from thermal buildup. For clean ablation without substrate damage, select 15 ns
+          pulses at 2.5 J/cm² fluence—picosecond options succeed too, but prove less efficient on thicker layers.
+        metadata:
+          topic: How does rhenium's oxide layer affect the laser cl
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: rhenium-alloys
+        title: In laser cleaning of rhenium alloys used in aerospace, what are the common contaminants and how well does fiber
+          laser ablation handle them?
+        content: In aerospace applications, rhenium-tungsten alloys often accumulate oils and machining residues—a notable
+          issue. Fiber laser ablation proves essential here, employing 1064 nm wavelength and 2.5 J/cm² fluence to vaporize
+          contaminants efficiently, while three passes at 150 W preserve pristine surface integrity without substrate damage.
+        metadata:
+          topic: rhenium alloys
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: toxic-fumes
+        title: What safety precautions are needed when using lasers to clean rhenium parts, especially regarding toxic fumes
+          or dust generation?
+        content: When performing laser cleaning on rhenium parts at 1064 nm wavelength and 150 W power, rhenium vapors present
+          notable toxicity risks, so implement local exhaust ventilation to capture fumes and dust below 0.1 mg/m³. It's essential
+          to wear NIOSH-approved respirators, laser safety goggles, and gloves; consult MSDS for particulate handling to avoid
+          inhalation or skin contact.
+        metadata:
+          topic: toxic fumes
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: low-specific-heat-capacity
+        title: Can CO2 lasers be used for surface treatment of rhenium, or do they risk excessive heating due to its low specific
+          heat capacity?
+        content: CO2 lasers at 10.6 μm fall short for rhenium surface treatment, since its low specific heat capacity distinctly
+          heightens heating risks and enlarges heat-affected zones. Essential solid-state choices, such as 1064 nm Nd:YAG,
+          apply 150 W power and 2.5 J/cm² fluence to enable precise oxide ablation without substrate harm.
+        metadata:
+          topic: low specific heat capacity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: rhenium-films
+        title: What are the challenges in achieving uniform cleaning on rhenium films in electronics manufacturing with pulsed
+          lasers?
+        content: Achieving uniform cleaning of rhenium films in electronics requires meticulous control, given its notable
+          density and ductility that can trigger uneven ablation and surface warping. Pulsed lasers at 1064 nm wavelength
+          with 2.5 J/cm² fluence demand essential 50% overlap and 500 mm/s scan speed to curb variations, verified via profilometry
+          for consistent oxide removal.
+        metadata:
+          topic: rhenium films
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: high-corrosion-resistance
+        title: How does rhenium's high corrosion resistance impact the choice of laser cleaning methods compared to other
+          refractory metals?
+        content: Rhenium exhibits notable corrosion resistance, forming a resilient oxide layer that binds contaminants more
+          tightly than on tantalum or molybdenum. This essential protection requires precise nanosecond laser ablation at
+          2.5 J/cm² fluence and 1064 nm wavelength. Achieving clean removal demands three passes at 150 W, preventing substrate
+          damage. Afterward, the surface shows superior long-term stability with minimal re-corrosion.
+        metadata:
+          topic: high corrosion resistance
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: substrate-ablation
+        title: In training for laser cleaning operators, what key properties of rhenium should be emphasized to avoid substrate
+          ablation?
+        content: In training laser cleaning operators for rhenium, highlight its notable melting point of 3186°C to avert
+          unintended substrate melting. It's essential to cap fluence at 2.5 J/cm², monitoring thermal expansion that risks
+          cracks from uneven heat buildup—use 150 W power and 500 mm/s scans for harmless oxide removal.
+        metadata:
+          topic: substrate ablation
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: what-regulatory-standards-apply-to-laser-cleaning-
+        title: What regulatory standards apply to laser cleaning of rhenium in medical device production, particularly for
+          biocompatibility?
+        content: For rhenium in medical devices, FDA's Center for Devices and Radiological Health alongside ISO 10993 oversee
+          biocompatibility, requiring meticulous residue checks with XPS or SEM after cleaning. It's essential to validate
+          procedures that yield oxide-free surfaces via 1064 nm wavelength at 2.5 J/cm² fluence, averting cytotoxic residues
+          while upholding the metal's inert nature.
+        metadata:
+          topic: 'What regulatory standards apply to laser cleaning '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -451,17 +596,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Electronics
-- Medical Device Manufacturing
-- Nuclear Technology
-- Research and Laboratory
-- Automotive Racing
-- Chemical Processing
-- Jewelry and Luxury Goods
-- Marine and Offshore
-- Energy Generation
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Rhenium
@@ -470,3 +604,67 @@ metaDescription: Rhenium laser cleaning guide. Remove contamination while preser
 fullPath: /materials/metal/non-ferrous/rhenium-laser-cleaning
 pageDescription: Rhenium's strength shines in its remarkable tolerance for extreme heat, holding onto its exceptional durability
   for the rigors of aerospace work—so always build it into high-temperature alloys to prevent breakdowns in the harshest environments.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Electronics
+      description: Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Device Manufacturing
+      description: Medical Device Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Nuclear Technology
+      description: Nuclear Technology industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Research and Laboratory
+      description: Research and Laboratory industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Automotive Racing
+      description: Automotive Racing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Jewelry and Luxury Goods
+      description: Jewelry and Luxury Goods industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Marine and Offshore
+      description: Marine and Offshore industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Energy Generation
+      description: Energy Generation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

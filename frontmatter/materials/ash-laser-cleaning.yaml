@@ -54,7 +54,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -325,6 +325,46 @@ relationships:
     - Tool and Handle Manufacturing
     - Automotive Interior Restoration
     - Museum Conservation
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: natural-grain
+        title: How does laser cleaning restore the natural grain of aged Ash wood?
+        content: Laser cleaning gently ablates surface contaminants like dirt, varnish, or smoke residue from Ash wood without
+          harming the underlying grain. This non-contact approach typically preserves the wood's light color and prominent
+          patterns, uncovering its original beauty in 10-20 minutes per panel—pretty ideal for antique furniture restoration.
+        metadata:
+          topic: natural grain
+          severity: high
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: prone-to-warping
+        title: What are the risks of using laser cleaning on Ash wood prone to warping?
+        content: Yeah, laser cleaning works pretty safely on Ash wood when handled right. It typically dodges the moisture
+          that worsens warping, unlike old methods. Still, too much heat risks micro-cracks; experts advise low-power pulsed
+          lasers plus close monitoring to avoid that, preserving the wood's flexibility for lasting strength.
+        metadata:
+          topic: prone to warping
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -390,17 +430,6 @@ regulatory_standards:
   longName: Unknown Organization
   name: Unknown
   url: ''
-applications:
-- Cultural Heritage Restoration
-- Aerospace Component Manufacturing
-- Musical Instrument Restoration
-- Marine and Boat Building
-- Furniture Manufacturing and Refinishing
-- Sports Equipment Manufacturing
-- Architectural Woodwork
-- Tool and Handle Manufacturing
-- Automotive Interior Restoration
-- Museum Conservation
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Ash
@@ -409,3 +438,68 @@ metaDescription: Ash laser cleaning guide. Remove contamination while preserving
 fullPath: /materials/wood/hardwood/ash-laser-cleaning
 pageDescription: Ash's real strength is its outstanding shock resistance and thermal stability, which we've seen enables precise
   laser cleaning to revive fine details in heritage woodwork and instruments without surface charring or structural weakening.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage Restoration
+      description: Cultural Heritage Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace Component Manufacturing
+      description: Aerospace Component Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Musical Instrument Restoration
+      description: Musical Instrument Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Marine and Boat Building
+      description: Marine and Boat Building industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Furniture Manufacturing and Refinishing
+      description: Furniture Manufacturing and Refinishing industry applications and manufacturing requirements for laser
+        cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Sports Equipment Manufacturing
+      description: Sports Equipment Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Architectural Woodwork
+      description: Architectural Woodwork industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Tool and Handle Manufacturing
+      description: Tool and Handle Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Automotive Interior Restoration
+      description: Automotive Interior Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Museum Conservation
+      description: Museum Conservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

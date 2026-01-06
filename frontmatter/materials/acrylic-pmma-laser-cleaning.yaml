@@ -54,7 +54,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -286,6 +286,60 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-prevent-warping-when-laser-cleaning-acry
+        title: How can I prevent warping when laser cleaning acrylic sheets?
+        content: When laser cleaning acrylic, you'll want to start with low-power settings to avoid overheating its heat-sensitive
+          surface. I've seen that this material contrasts with metals by deforming easily under brief heat exposure, so short
+          pulses remove dirt without causing warps. This approach restores clarity and shape effectively in practical applications
+          like signage restoration.
+        metadata:
+          topic: How can I prevent warping when laser cleaning acry
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-way-to-remove-stains-from-pmma-with
+        title: What's the best way to remove stains from PMMA without scratching?
+        content: If you're cleaning PMMA, watch for its smooth surface that resists scratches but absorbs laser energy quickly.
+          Unlike rougher plastics, acrylic cleans best with gentle, focused beams that lift stains layer by layer. In my experience,
+          this method exposes a pristine finish and improves durability for repeated use in displays.
+        metadata:
+          topic: What's the best way to remove stains from PMMA wit
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: does-laser-cleaning-affect-the-transparency-of-acr
+        title: Does laser cleaning affect the transparency of acrylic parts?
+        content: Laser cleaning acrylic demands careful control since its clear nature can fog from uneven heating. Compared
+          to opaque thermoplastics, PMMA reveals contaminants easily but risks haze if pulses are too intense.
+        metadata:
+          topic: Does laser cleaning affect the transparency of acr
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -297,15 +351,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Signage Manufacturing
-- Display Cases
-- Optical Components
-- Medical Devices
-- Automotive Lighting
-- Architecture
-- Aquariums
-- Electronics Manufacturing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Acrylic (PMMA)
@@ -314,3 +359,55 @@ metaDescription: Acrylic Pmma laser cleaning guide. Remove contamination while p
 fullPath: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
 pageDescription: Acrylic excels in laser cleaning setups thanks to its non-porous, smooth surface that enables precise contaminant
   removal while preserving optical clarity and structural integrity.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Signage Manufacturing
+      description: Signage Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Display Cases
+      description: Display Cases industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Optical Components
+      description: Optical Components industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Automotive Lighting
+      description: Automotive Lighting industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Architecture
+      description: Architecture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Aquariums
+      description: Aquariums industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

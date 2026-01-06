@@ -55,7 +55,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -287,6 +287,50 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-prevent-polyimide-from-charring-during-l
+        title: How can I prevent Polyimide from charring during laser cleaning?
+        content: You must start with a lower power setting right away to avoid overheating, since Polyimide holds heat poorly
+          and can char easily compared to metals like aluminum that dissipate it faster. Make sure you use short pulses to
+          control the energy input, which helps the material absorb the laser without building up damaging temperatures. This
+          approach keeps the surface clean while preserving Polyimide's tough, flexible structure for ongoing use.
+        metadata:
+          topic: How can I prevent Polyimide from charring during l
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-way-to-remove-contaminants-from-pol
+        title: What's the best way to remove contaminants from Polyimide without scratching it?
+        content: When laser cleaning Polyimide, you'll want to scan the surface slowly at first to lift dirt gently, unlike
+          with harder plastics that need aggressive blasts and risk micro-scratches. Keep the beam focused tightly so it targets
+          only the top layer where contaminants hide, preventing deeper penetration that could weaken the material's inherent
+          strength. You should test on a small area to fine-tune, ensuring a smooth finish that matches Polyimide's naturally
+          low surface
+        metadata:
+          topic: What's the best way to remove contaminants from Po
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -298,15 +342,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Electronics Manufacturing
-- Aerospace
-- Automotive
-- Flexible Circuits
-- Insulation
-- High-Temperature Applications
-- Semiconductor
-- Advanced Materials
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Polyimide
@@ -316,3 +351,55 @@ fullPath: /materials/plastic/thermoplastic/polyimide-laser-cleaning
 pageDescription: When laser cleaning polyimide, consider its exceptional heat resistance, which maintains stability under
   intense thermal stress to prevent warping or breakdown—problems that affect lesser plastics—and lets you achieve a clean
   surface without compromising structural integrity.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Flexible Circuits
+      description: Flexible Circuits industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Insulation
+      description: Insulation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: High-Temperature Applications
+      description: High-Temperature Applications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Semiconductor
+      description: Semiconductor industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Advanced Materials
+      description: Advanced Materials industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

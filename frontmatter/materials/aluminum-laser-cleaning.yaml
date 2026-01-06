@@ -55,7 +55,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -420,6 +420,59 @@ relationships:
     - Packaging
     - Rail Transport
     - Renewable Energy
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-makes-aluminum-**suitable-for-industrial**-la
+        title: What makes aluminum **suitable for industrial** laser cleaning?
+        content: "**Lightweight with low density**. Aluminum weighs around 2.7 grams per cubic centimeter. That low density\
+          \ helps in applications like aerospace parts. Its near-zero porosity means surfaces stay smooth, without hidden\
+          \ contaminants.  \n\nAlessandro Moretti, Ph.D."
+        metadata:
+          topic: What makes aluminum **suitable for industrial** la
+          severity: high
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-do-you-**set-up-laser-cleaning**-for-aluminum
+        title: How do you **set up laser cleaning** for aluminum?
+        content: "**100-watt power range removes oxides**. We use a 100-watt power range to strip away oxides or paints. The\
+          \ laser clears buildup gently, bringing back the original finish without damaging the base metal. It works well\
+          \ on automotive components or heat sinks. Just adjust the pulse to avoid overheating—aluminum conducts heat fast.\
+          \  \n\nAlessandro Moretti, Ph.D."
+        metadata:
+          topic: How do you **set up laser cleaning** for aluminum?
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: any-**tips-from-field-experience**-with-aluminum-l
+        title: Any **tips from field experience** with aluminum laser cleaning?
+        content: "**Start with short bursts**. This fixes surface issues quickly, yet keeps the material intact.  \n\nAlessandro\
+          \ Moretti, Ph.D."
+        metadata:
+          topic: Any **tips from field experience** with aluminum l
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -479,16 +532,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Automotive
-- Construction
-- Electronics Manufacturing
-- Food and Beverage Processing
-- Marine
-- Packaging
-- Rail Transport
-- Renewable Energy
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Aluminum
@@ -496,3 +539,61 @@ metaDescription: Aluminum laser cleaning guide. Remove contamination while prese
   for metal materials.
 fullPath: /materials/metal/non-ferrous/aluminum-laser-cleaning
 pageDescription: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Food and Beverage Processing
+      description: Food and Beverage Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Packaging
+      description: Packaging industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Rail Transport
+      description: Rail Transport industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Renewable Energy
+      description: Renewable Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9

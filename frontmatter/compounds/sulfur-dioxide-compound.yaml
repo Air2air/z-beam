@@ -97,7 +97,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -417,6 +417,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-how-can-i-protect-mys
+        title: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas
+          from sulfur-containing materials?
+        content: Always prioritize engineering controls like local exhaust ventilation to capture and remove SO₂ at the source,
+          maintaining exposure below the OSHA permissible limit of 5 ppm (parts per million) over an 8-hour shift. Wear a
+          full-face respirator with an appropriate cartridge rated for acid gases (e.g., NIOSH-approved P100 with acid gas
+          cartridge) and ensure personal protective equipment like gloves and protective clothing to avoid skin contact. Regularly
+          monitor air quality with SO₂ detectors or badges, and evacuate if levels exceed 5 ppm, seeking fresh air immediately
+          if irritation occurs.
+        metadata:
+          topic: As a laser cleaning operator, how can I protect my
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Sulfur Dioxide (SO₂)
 subcategory: acid_gas
 ppe_requirements: Workers handling sulfur dioxide face risks from its irritating fumes and corrosive nature, unlike milder

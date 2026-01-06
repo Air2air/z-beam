@@ -99,7 +99,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -360,6 +360,152 @@ relationships:
     - Energy Sector
     - Food Processing
     - Construction
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: yellowing-or-clouding
+        title: Can you safely laser clean polycarbonate surfaces without causing yellowing or clouding?
+        content: Yes, polycarbonate can be safely laser cleaned without yellowing, particularly with a 1064 nm wavelength
+          and fluence carefully controlled below 0.8 J/cm². This technique removes contaminants while holding the substrate
+          temperature well under its thermal degradation threshold, thus avoiding photochemical damage and maintaining optical
+          clarity.
+        metadata:
+          topic: yellowing or clouding
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: laser-wavelength
+        title: What laser wavelength is safest for cleaning contaminants from polycarbonate without damaging the substrate?
+        content: Particularly for polycarbonate cleaning, near-IR wavelengths like 1064 nm remain safest, as they experience
+          poor absorption by the substrate and thus minimize thermal damage. Keep fluence below 0.8 J/cm² using nanosecond
+          pulses at 20 kHz. This method removes contaminants effectively while upholding the polymer's integrity.
+        metadata:
+          topic: laser wavelength
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: mold-release-agents
+        title: How do you remove mold release agents from polycarbonate components using laser cleaning?
+        content: For silicone-based mold releases on polycarbonate, we specifically use a 1064 nm laser at ~0.8 J/cm² fluence.
+          Notably, this ablates the thin organic film effectively while keeping the substrate's temperature safely below its
+          damage threshold, thus ensuring complete removal.
+        metadata:
+          topic: mold release agents
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: what-are-the-maximum-safe-fluence-levels-for-laser
+        title: What are the maximum safe fluence levels for laser cleaning polycarbonate surfaces?
+        content: For laser cleaning of polycarbonate, particularly to avoid melting, keep fluence below 1.0 J/cm². Notably,
+          optimal results emerge around 0.8 J/cm² using 1064 nm wavelength, effectively removing contaminants while preserving
+          the polymer's integrity.
+        metadata:
+          topic: What are the maximum safe fluence levels for laser
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: can-laser-cleaning-create-micro-cracks-or-stress-c
+        title: Can laser cleaning create micro-cracks or stress concentrations in polycarbonate components?
+        content: Yes, laser cleaning can induce micro-cracks in polycarbonate, particularly from its notch sensitivity. Thus,
+          to avoid this, keep fluence below 0.8 J/cm² and apply a 50% overlap ratio, preventing excessive thermal stress that
+          weakens mechanical properties.
+        metadata:
+          topic: Can laser cleaning create micro-cracks or stress c
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: optical-clarity
+        title: How does laser cleaning affect the optical clarity and light transmission of polycarbonate lenses or windows?
+        content: By adopting gentle parameters like 0.8 J/cm² fluence and 500 mm/s scan speed, proper laser cleaning particularly
+          safeguards polycarbonate optics. Notably, this technique eliminates contaminants while curbing surface roughness
+          and haze, thus upholding superior light transmission.
+        metadata:
+          topic: optical clarity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: hazardous-fume-generation
+        title: What safety precautions are needed when laser cleaning polycarbonate due to potential hazardous fume generation?
+        content: Decomposition of polycarbonate notably releases bisphenol A along with phenolic compounds. For safety, deploy
+          a high-efficiency fume extractor equipped with HEPA and activated carbon filtration, while limiting laser fluence
+          to below 0.8 J/cm² to curb hazardous fume production. Proper ventilation is thus vital for operator protection.
+        metadata:
+          topic: hazardous fume generation
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: adhesion-or-coating-applications
+        title: Is laser cleaning suitable for preparing polycarbonate surfaces for adhesion or coating applications?
+        content: Laser cleaning excels at readying polycarbonate for adhesion, particularly through elevating surface energy
+          and generating micro-textures. Notably, a 1064 nm wavelength at 0.8 J/cm² fluence eliminates contaminants and adjusts
+          surface chemistry, thus exceeding solvent wiping in bond strength.
+        metadata:
+          topic: adhesion or coating applications
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: uv-degradation
+        title: How do you remove oxidation or UV degradation from aged polycarbonate using laser cleaning?
+        content: For aged polycarbonate, we apply a 1064 nm laser, with fluence specifically maintained below 0.8 J/cm². This
+          method particularly targets the degraded surface layer for ablation, thus safeguarding the intact substrate underneath.
+          It thereby restores optical clarity and surface integrity, avoiding thermal damage.
+        metadata:
+          topic: UV degradation
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: real-time-monitoring-techniques
+        title: What real-time monitoring techniques work best for laser cleaning polycarbonate to prevent damage?
+        content: Laser-induced fluorescence monitoring, particularly effective, detects early polycarbonate degradation by
+          tracking spectral shifts around 450-550 nm. These changes indicate molecular breakdown before visible damage appears.
+          Meanwhile, thermal imaging keeps surface temperature below 150°C, thus ensuring the process stays within the safe
+          fluence threshold of 0.8 J/cm² for this sensitive polymer.
+        metadata:
+          topic: real-time monitoring techniques
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -418,17 +564,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Automotive
-- Medical Devices
-- Electronics Manufacturing
-- Marine
-- Cultural Heritage
-- Optical Manufacturing
-- Energy Sector
-- Food Processing
-- Construction
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Polycarbonate
@@ -439,3 +574,67 @@ pageDescription: When laser cleaning polycarbonate, I've noticed the biggest hur
   softer plastics like acrylic, but this material's superior toughness and heat resistance mean it can take strong pulses
   without any distortion, letting you strip contaminants from aerospace components or medical devices while holding onto its
   clear finish and solid strength
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Optical Manufacturing
+      description: Optical Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

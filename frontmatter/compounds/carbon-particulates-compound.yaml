@@ -85,7 +85,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -283,6 +283,38 @@ relationships:
       effect: Irritation, redness, and possible corneal abrasion
       severity: moderate
       onset: immediate
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-how-do-i-protect-myse
+        title: As a laser cleaning operator, how do I protect myself from inhaling fine carbon particulates generated during
+          the process?
+        content: Use a properly fitted NIOSH-approved respirator with a P100 filter to capture fine carbon particulates, which
+          are smaller than typical dust and can remain airborne longer, increasing inhalation risks. Always work in a well-ventilated
+          area or under local exhaust ventilation to minimize exposure, and perform regular air monitoring to ensure levels
+          stay below the OSHA permissible exposure limit of 3.5 mg/m³ for respirable carbon black dust. Change filters frequently
+          based on usage and conduct post-shift hygiene practices like showering to remove any settled particulates from skin
+          and clothing.
+        metadata:
+          topic: As a laser cleaning operator, how do I protect mys
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Carbon Particulates
 subcategory: carbon-based
 ppe_requirements: Handling carbon particulate compounds in workshops or labs starts with assessing the dusty setup—think fine

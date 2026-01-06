@@ -63,7 +63,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -329,6 +329,60 @@ relationships:
     - Automotive Lighting
     - Food and Beverage Processing
     - Research and Development
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: thermal-damage
+        title: How does laser cleaning restore borosilicate glass without causing thermal damage?
+        content: Laser cleaning employs precise, short-pulse lasers to ablate contaminants from borosilicate glass, particularly
+          leveraging its low thermal expansion to prevent cracks. This non-contact approach thus maintains material integrity,
+          effectively clearing residues in 10-20 seconds per spot.
+        metadata:
+          topic: thermal damage
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: borosilicate-glass-surfaces
+        title: What challenges arise when laser cleaning borosilicate glass surfaces?
+        content: Challenges, particularly micro-cracking when laser intensity surpasses the glass's thermal limits, along
+          with residue re-deposition on porous edges, pose key risks. Thus, operators should precisely calibrate wavelengths
+          (e.g., 1064 nm) to balance cleaning efficiency against the material's inherent brittleness.
+        metadata:
+          topic: borosilicate glass surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: optical-clarity
+        title: Can laser cleaning improve the optical clarity of contaminated borosilicate labware?
+        content: Yes, this approach notably boosts clarity by vaporizing organic and metallic contaminants without abrasives,
+          thus restoring borosilicate's inherent transparency. Particularly effective against haze from chemical exposure,
+          it prolongs lab equipment lifespan while curbing environmental harm through dry methods. Suited for precision optics.
+          (47 words)
+        metadata:
+          topic: optical clarity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -388,17 +442,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Laboratory Equipment
-- Pharmaceutical Manufacturing
-- Electronics and Semiconductor
-- Aerospace and Defense
-- Cultural Heritage and Museums
-- Medical Device Manufacturing
-- Solar Energy
-- Automotive Lighting
-- Food and Beverage Processing
-- Research and Development
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Borosilicate Glass
@@ -408,3 +451,67 @@ fullPath: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
 pageDescription: When laser cleaning borosilicate glass, I've seen how its remarkable resistance to thermal shock allows steady
   energy pulses from the outset to gently remove residues and buildup, all without the risk of cracks or distortions, though
   it's wise to watch for any subtle surface heating to ensure everything stays intact.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Laboratory Equipment
+      description: Laboratory Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Pharmaceutical Manufacturing
+      description: Pharmaceutical Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Electronics and Semiconductor
+      description: Electronics and Semiconductor industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Aerospace and Defense
+      description: Aerospace and Defense industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Cultural Heritage and Museums
+      description: Cultural Heritage and Museums industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Medical Device Manufacturing
+      description: Medical Device Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Solar Energy
+      description: Solar Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Automotive Lighting
+      description: Automotive Lighting industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Food and Beverage Processing
+      description: Food and Beverage Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Research and Development
+      description: Research and Development industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

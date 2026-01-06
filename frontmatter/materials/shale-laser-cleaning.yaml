@@ -115,7 +115,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -373,6 +373,165 @@ relationships:
     - Monument Restoration
     - Research Laboratories
     - Landscape Architecture
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: thermal-cracking
+        title: What laser wavelengths and power settings are most effective for cleaning organic residues from shale rock
+          surfaces without causing thermal cracking?
+        content: For cleaning organic residues on shale surfaces—which are prone to cracking due to low thermal conductivity—a
+          1064 nm Nd:YAG laser proves particularly effective with 12 ns pulses to minimize heat buildup. Thus, target 2.5
+          J/cm² fluence and 100 W average power, scanning at 500 mm/s for precise ablation without harming the stone.
+        metadata:
+          topic: thermal cracking
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: high-porosity
+        title: How does the high porosity of shale affect the efficiency of laser ablation in removing hydrocarbon contaminants
+          during oil shale processing?
+        content: In oil processing, shale's inherent porosity notably hampers laser ablation efficiency for hydrocarbon removal.
+          The 1064 nm beam at 2.5 J/cm² fluence quickly vaporizes surface contaminants yet cannot reach deep pores, thus risking
+          incomplete cleaning. Petroleum industry forums report cases where mechanical agitation raised yields by up to 25%,
+          usually requiring two passes at 50 kHz.
+        metadata:
+          topic: high porosity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: silica-dust-inhalation
+        title: What safety precautions are necessary when using fiber lasers to clean shale in archaeological sites to avoid
+          silica dust inhalation?
+        content: When ablating shale using 1064 nm fiber lasers at 100 W, notably, the quartz content produces hazardous silica
+          dust. Thus, wear NIOSH-approved respirators to remain below OSHA's 50 μg/m³ exposure limit. Implement local exhaust
+          ventilation for particulate capture, and equip ANSI Z136.1-compliant goggles to shield eyes from reflections.
+        metadata:
+          topic: silica dust inhalation
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: surface-re-contamination
+        title: In laser cleaning of shale formations for fracking preparation, what are common issues with surface re-contamination
+          after treatment?
+        content: After laser cleaning shale formations at 2.5 J/cm² fluence with 1064 nm wavelength, re-contamination notably
+          arises from clay minerals' strong adhesion, which traps airborne particles. Employ surface spectroscopy for real-time
+          monitoring to detect residues. Thus, manufacturer insights suggest applying post-scan sealing or adjusting speeds
+          to 500 mm/s for enhanced protection.
+        metadata:
+          topic: surface re-contamination
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: clay-rich-vs.-carbonate-rich
+        title: How do the mineral compositions in different shale types (e.g., clay-rich vs. carbonate-rich) influence the
+          choice of laser cleaning methods?
+        content: Clay-rich shales, dominated by silicates, show notably higher thermal stability. This enables effective contaminant
+          ablation at 2.5 J/cm² fluence and 1064 nm wavelength without harming the substrate. Carbonate-rich variants, particularly
+          prone to rapid decomposition, thus require lower energy densities to avoid unwanted reactions and achieve uniform
+          results in archaeological restorations.
+        metadata:
+          topic: clay-rich vs. carbonate-rich
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: volatile-organic-compound-emissions
+        title: What are the environmental impacts of laser cleaning shale surfaces in mining operations, particularly regarding
+          volatile organic compound emissions?
+        content: In mining applications, laser cleaning of shale can release VOCs from kerogen through ablation, particularly
+          at fluences exceeding 2.5 J/cm², risking EPA limit violations without safeguards. Notably, with 100 W power and
+          50 kHz repetition rates, emissions hold below 50 ppm per industry guides—integrate local exhaust for ongoing compliance.
+        metadata:
+          topic: volatile organic compound emissions
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: propagating-cracks
+        title: Can pulsed lasers effectively clean micro-fractures in shale without propagating cracks, and what parameters
+          prevent this?
+        content: Notably, pulsed lasers excel at cleaning micro-fractures in brittle shale without propagating cracks, owing
+          to their brief 12 ns pulses that limit shock waves and heat diffusion. Thus, maintain fluence below 2.5 J/cm² and
+          scan at 500 mm/s, as engineering forums indicate, for precise ablation without harm.
+        metadata:
+          topic: propagating cracks
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: what-physical-properties-of-shale-like-its-low-ten
+        title: What physical properties of shale, like its low tensile strength, should be considered when selecting laser
+          cleaning equipment for restoration projects?
+        content: Shale's low tensile strength renders it prone to cracking; thus, favor portable laser systems for field restoration
+          to preserve surface integrity. Notably, choose equipment with 1064 nm wavelength and 100 W power, while keeping
+          fluence below 2.5 J/cm² for precise, non-damaging cleaning.
+        metadata:
+          topic: What physical properties of shale, like its low te
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: moisture-content
+        title: How does moisture content in shale samples impact the laser cleaning process for removing surface biofilms
+          in environmental remediation?
+        content: Shale with high moisture content can particularly trigger steam generation during laser cleaning at 2.5 J/cm²
+          fluence, leading to risks of micro-cracks or uneven biofilm removal in remediation work. Thus, pre-drying samples
+          to below 5% humidity boosts efficacy, supporting stable ablation at 100 W power while minimizing thermal damage
+          to hydrated minerals. This delivers safer, more uniform surface treatment.
+        metadata:
+          topic: moisture content
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: petroleum-geochemistry
+        title: What are standard protocols for validating the cleanliness of laser-treated shale surfaces in laboratory testing
+          for petroleum geochemistry?
+        content: In petroleum geochemistry labs, particularly for shale analysis, validate laser-cleaned surfaces via XPS
+          to ensure organic residues stay below 100 ppm, alongside SEM imaging for debris-free morphology. Manufacturer protocols
+          specifically endorse 2.5 J/cm² fluence at 1064 nm wavelength, provided no particulates hinder mineral assessment,
+          thus safeguarding shale integrity for reliable hydrocarbon evaluation.
+        metadata:
+          topic: petroleum geochemistry
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -430,17 +589,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Cultural Heritage
-- Energy
-- Construction
-- Manufacturing
-- Archaeology
-- Museums
-- Geology
-- Monument Restoration
-- Research Laboratories
-- Landscape Architecture
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Shale
@@ -450,3 +598,67 @@ fullPath: /materials/stone/sedimentary/shale-laser-cleaning
 pageDescription: When cleaning shale with lasers, I've seen it respond well to focused pulses that clear surface grime quickly,
   as the stone absorbs energy deeply yet spreads heat slowly, keeping the layers intact—but avoid overexposure to prevent
   subtle cracking.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Energy
+      description: Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Archaeology
+      description: Archaeology industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Museums
+      description: Museums industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Geology
+      description: Geology industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Monument Restoration
+      description: Monument Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Research Laboratories
+      description: Research Laboratories industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Landscape Architecture
+      description: Landscape Architecture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

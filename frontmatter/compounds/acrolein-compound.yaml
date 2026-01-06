@@ -105,7 +105,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -456,6 +456,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-what-personal-protect
+        title: As a laser cleaning operator, what personal protective equipment (PPE) should I use to protect against acrolein
+          exposure from vaporized materials?
+        content: Prioritize respiratory protection with a full-facepiece respirator equipped with an organic vapor cartridge
+          and acid gas cartridge, as acrolein is a highly irritating toxic gas that can cause severe eye, nose, and lung damage
+          even at low levels. Wear chemical-resistant gloves, protective clothing, and safety goggles to prevent skin and
+          eye contact, and ensure the workspace has adequate ventilation or local exhaust systems to minimize exposure. Always
+          follow OSHA guidelines, keeping exposures below the permissible limit of 0.1 ppm over an 8-hour workday, and conduct
+          regular air monitoring to verify safety.
+        metadata:
+          topic: As a laser cleaning operator, what personal protec
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Acrolein (C₃H₄O)
 subcategory: aldehyde
 ppe_requirements: 'Handle acrolein with extreme caution. It''s a nasty toxic gas that irritates skin, eyes, and lungs fast.

@@ -101,7 +101,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -419,6 +419,156 @@ relationships:
     - Superalloys
     - Tooling and Dies
     - Wear-Resistant Coatings
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: cobalt-containing-thermal-barrier-coatings
+        title: Can laser cleaning effectively remove cobalt-containing thermal barrier coatings from turbine blades without
+          damaging the substrate?
+        content: Using optimized 1064nm parameters, laser cleaning particularly excels at removing cobalt-based thermal barrier
+          coatings. Specifically, keeping fluence under 2.5 J/cm² with a 50μm spot size safeguards the nickel superalloy substrate.
+          Notably, this technique surpasses mechanical methods by preventing surface damage and ensuring complete removal
+          in roughly three passes.
+        metadata:
+          topic: cobalt-containing thermal barrier coatings
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: inhalation-of-toxic-fumes
+        title: What safety precautions are needed when laser cleaning cobalt-based alloys to prevent inhalation of toxic fumes?
+        content: For laser cleaning of cobalt alloys at a 1064 nm wavelength, particularly due to the toxic submicron particles
+          generated, high-efficiency fume extraction is essential. Keep exposure under the 0.02 mg/m³ OSHA limit with powered
+          air-purifying respirators featuring P100 filters. Thus, 100W laser settings produce inhalable fumes that demand
+          local exhaust ventilation at the source.
+        metadata:
+          topic: inhalation of toxic fumes
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: cobalt-chromium-alloys
+        title: How do laser parameters need to be adjusted when cleaning cobalt-chromium alloys compared to steel or aluminum?
+        content: For Co-Cr alloys, particularly given their superior thermal resistance, apply a higher fluence threshold
+          around 2.5 J/cm² than for steel or aluminum. Thus, a 1064 nm wavelength with nanosecond pulses works best to counter
+          surface reflectivity and remove oxides without harming the substrate.
+        metadata:
+          topic: cobalt-chromium alloys
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: does-laser-cleaning-create-any-surface-modificatio
+        title: Does laser cleaning create any surface modification or phase changes in cobalt superalloys that could affect
+          material performance?
+        content: Specifically tuned 1064nm nanosecond lasers at ~2.5 J/cm² fluence effectively remove cobalt oxides. Notably,
+          the minimal heat-affected zone prevents significant phase changes, despite possible localized residual stress. Thus,
+          the superalloy's critical microstructural integrity remains preserved.
+        metadata:
+          topic: Does laser cleaning create any surface modificatio
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: cobalt-based-stellite-surfaces
+        title: What is the best laser cleaning approach for removing oxide layers from cobalt-based stellite surfaces without
+          removing base material?
+        content: For cobalt stellite oxide removal, apply 1064nm nanosecond pulses at 2.5 J/cm² fluence. Notably, this threshold
+          ablates oxides effectively while preserving the base alloy, thus maintaining surface integrity for critical applications.
+        metadata:
+          topic: cobalt-based stellite surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: cobalt-60-contaminated-surfaces
+        title: Can laser cleaning be used to decontaminate cobalt-60 contaminated surfaces in nuclear applications?
+        content: Laser cleaning notably removes Co-60 contamination from cobalt surfaces with a 1064 nm wavelength and 2.5
+          J/cm² fluence. Specifically, this approach cuts secondary waste versus traditional chemical methods, thus boosting
+          radionuclide removal efficiency in nuclear decommissioning.
+        metadata:
+          topic: cobalt-60 contaminated surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: how-does-the-high-melting-point-and-thermal-conduc
+        title: How does the high melting point and thermal conductivity of cobalt affect laser cleaning efficiency and parameter
+          selection?
+        content: Cobalt's high melting point (1495°C) and thermal conductivity particularly require precise fluence control
+          near 2.5 J/cm². Thus, we fine-tune nanosecond pulses with 500 mm/s scanning for rapid oxide ablation, while controlling
+          heat diffusion to safeguard the substrate.
+        metadata:
+          topic: How does the high melting point and thermal conduc
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: cobalt-particles
+        title: What are the waste management considerations for cobalt particles generated during laser cleaning operations?
+        content: Notably, cobalt debris demands hazardous waste classification owing to its toxic fine particles. Specifically,
+          use HEPA filtration rated for sub-micron capture, given that our 50μm spot size at 100W produces substantial aerosol.
+          Always check local regulations for disposing of this regulated metal.
+        metadata:
+          topic: cobalt particles
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: thermal-spray-or-welding
+        title: Is laser cleaning suitable for preparing cobalt surfaces for thermal spray or welding applications?
+        content: Specifically, laser cleaning prepares cobalt surfaces for thermal spray by removing oxides at 2.5 J/cm² without
+          substrate damage. This technique outperforms abrasive blasting, notably through enhanced cleanliness and surface
+          activation, thus guaranteeing strong adhesion in aerospace and medical device uses. It delivers a highly active,
+          contaminant-free surface.
+        metadata:
+          topic: thermal spray or welding
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: formation-of-cobalt-oxide
+        title: How do you prevent the formation of cobalt oxide during laser cleaning of cobalt components?
+        content: To prevent cobalt oxide formation, particularly by maintaining an inert argon atmosphere during laser processing.
+          Control thermal input with 100W average power and 2.5 J/cm² fluence, thus remaining below the oxidation threshold.
+          A final low-power pass can also ensure a pristine surface.
+        metadata:
+          topic: formation of cobalt oxide
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -476,15 +626,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Chemical Processing
-- Medical Devices
-- Oil & Gas
-- Power Generation
-- Superalloys
-- Tooling and Dies
-- Wear-Resistant Coatings
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Cobalt
@@ -494,3 +635,55 @@ fullPath: /materials/metal/specialty/cobalt-laser-cleaning
 pageDescription: When laser cleaning cobalt, begin with lower power settings to account for its strong heat resistance—stronger
   than softer metals like nickel—but monitor for surface oxidation that may build up midway through passes to ensure a clean,
   durable finish.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Oil & Gas
+      description: Oil & Gas industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Power Generation
+      description: Power Generation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Superalloys
+      description: Superalloys industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Tooling and Dies
+      description: Tooling and Dies industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Wear-Resistant Coatings
+      description: Wear-Resistant Coatings industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

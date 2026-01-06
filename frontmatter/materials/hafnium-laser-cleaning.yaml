@@ -84,7 +84,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -365,6 +365,127 @@ relationships:
     - Additive Manufacturing
     - Optics and Coatings
     - High-Temperature Manufacturing
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: fire-or-explosion-risk
+        title: Is it safe to laser clean hafnium, or does it pose a fire or explosion risk like other reactive metals?
+        content: Laser cleaning hafnium demands pretty extreme caution because of its pyrophoricity. You'll need to work inside
+          a sealed inert gas chamber with a 1064 nm wavelength laser at a fluence around 2.5 J/cm². This basically avoids
+          creating fine, reactive particulates that create a major combustion risk.
+        metadata:
+          topic: fire or explosion risk
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: what-laser-parameters-(wavelength-pulse-duration-p
+        title: What laser parameters (wavelength, pulse duration, power) are recommended for cleaning hafnium surfaces without
+          causing surface oxidation or metallurgical damage?
+        content: For cleaning hafnium surfaces, I'd suggest a 1064 nm wavelength with nanosecond pulses at about 10 ns. Aim
+          for a fluence fairly close to 2.5 J/cm² to strip away oxides effectively, without melting the substrate or creating
+          a brittle HfO₂ layer. This keeps heat input low and sidesteps micro-cracking.
+        metadata:
+          topic: What laser parameters (wavelength, pulse duration,
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: hazardous-waste
+        title: How do you handle and dispose of the hazardous waste generated from laser cleaning hafnium?
+        content: Given hafnium's pyrophoric nature, we typically rely on wet collection systems to avoid igniting those fine
+          particles. The reactive waste slurry basically demands compliant disposal as hazardous material, particularly at
+          our standard 100W power with 50μm spot size.
+        metadata:
+          topic: hazardous waste
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: can-laser-cleaning-be-used-to-decontaminate-hafniu
+        title: Can laser cleaning be used to decontaminate hafnium components in the nuclear industry?
+        content: Yes, laser cleaning proves pretty effective for nuclear decontamination of hafnium. Employing a 1064 nm wavelength
+          at ~2.5 J/cm² basically ablates contaminants efficiently while cutting secondary waste. Overall, this approach typically
+          lowers personnel exposure far more than traditional abrasive methods.
+        metadata:
+          topic: Can laser cleaning be used to decontaminate hafniu
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: surface-integrity
+        title: What is the best way to verify the surface integrity of hafnium after laser cleaning?
+        content: For hafnium, I'd typically kick off with dye penetrant testing to spot micro-fissures. Next, I'd check surface
+          roughness via white light interferometry, keeping it below 0.8 µm to avoid stress concentrations in aerospace parts.
+          This approach basically ensures integrity after your 1064 nm laser cleaning.
+        metadata:
+          topic: surface integrity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: difficult-to-clean
+        title: Why is hafnium so difficult to clean compared to common metals like steel or aluminum?
+        content: Hafnium's strong oxygen affinity pretty much ensures instant re-oxidation right after cleaning, so controlled
+          atmospheres are essential. That high 2227°C melting point calls for precise laser settings, typically 2.5 J/cm²
+          fluence, to clear the stubborn oxide layer without substrate harm.
+        metadata:
+          topic: difficult to clean
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: is-a-pulsed-or-continuous-wave-(cw)-laser-more-eff
+        title: Is a pulsed or continuous-wave (CW) laser more effective for cleaning hafnium?
+        content: For reactive hafnium, pulsed lasers are pretty superior. Their nanosecond pulses, like 10 ns at 2.5 J/cm²,
+          basically ablate the oxide layer with minimal heat input, preventing thermal oxidation. Continuous-wave systems
+          typically deliver excessive energy, risking substrate damage and undermining the material's integrity in critical
+          aerospace and nuclear uses.
+        metadata:
+          topic: Is a pulsed or continuous-wave (CW) laser more eff
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: what-personal-protective-equipment-(ppe)-is-essent
+        title: What personal protective equipment (PPE) is essential for operators laser cleaning hafnium?
+        content: Because hafnium gets pretty pyrophoric in fine particle form, operators require explosion-proof ventilation
+          along with NIOSH-approved P100 respirators. That powerful 1064 nm laser interaction fairly often creates substantial
+          UV plasma, so full-wavelength safety eyewear and face shields are essential for shielding against reflected beams
+          and secondary radiation.
+        metadata:
+          topic: What personal protective equipment (PPE) is essent
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -422,17 +543,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Nuclear Reactors
-- Chemical Processing
-- Electronics Manufacturing
-- Medical Devices
-- Research Laboratories
-- Marine Engineering
-- Additive Manufacturing
-- Optics and Coatings
-- High-Temperature Manufacturing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Hafnium
@@ -442,3 +552,67 @@ fullPath: /materials/metal/non-ferrous/hafnium-laser-cleaning
 pageDescription: We've found hafnium distinguishes itself from other non-ferrous metals through its exceptional resistance
   to extreme heat, allowing sustained integrity in demanding aerospace and nuclear environments without deformation, so monitor
   exposure to oxidizing conditions to preserve its protective oxide layer
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Nuclear Reactors
+      description: Nuclear Reactors industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Research Laboratories
+      description: Research Laboratories industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Marine Engineering
+      description: Marine Engineering industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Additive Manufacturing
+      description: Additive Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Optics and Coatings
+      description: Optics and Coatings industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: High-Temperature Manufacturing
+      description: High-Temperature Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

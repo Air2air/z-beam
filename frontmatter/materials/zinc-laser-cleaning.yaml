@@ -50,7 +50,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -361,6 +361,47 @@ relationships:
     - Die Casting
     - Galvanizing
     - Hardware Manufacturing
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-makes-zinc-suitable-for-industrial-use
+        title: What makes zinc suitable for industrial use?
+        content: Zinc is a metal we often work with in coatings and alloys. It handles heat well up to around 693 K before
+          it starts to break down. And its specific heat sits at about 389 J/kg·K, so it absorbs energy steadily without big
+          temperature jumps. This helps in applications like galvanizing steel—zinc protects against rust effectively.
+        metadata:
+          topic: What makes zinc suitable for industrial use?
+          severity: high
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-do-we-clean-zinc-surfaces-with-lasers
+        title: How do we clean zinc surfaces with lasers?
+        content: For laser cleaning, we use a power range of 100 W. This removes contaminants like oxides or dirt without
+          damaging the zinc underneath. The process heats the surface just enough to vaporize buildup, and since zinc conducts
+          heat evenly, it clears spots quickly. But watch the settings—too much power melts it, so start low and test. We've
+          seen good results on coated parts this way.
+        metadata:
+          topic: How do we clean zinc surfaces with lasers?
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -410,12 +451,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-applications:
-- Automotive
-- Construction
-- Die Casting
-- Galvanizing
-- Hardware Manufacturing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Zinc
@@ -425,3 +460,37 @@ fullPath: /materials/metal/alloy/zinc-laser-cleaning
 pageDescription: Zinc for laser cleaning, high reflectivity of material protects substrate from thermal damage. Contaminants
   absorb energy and vaporize easily, thus process yields clean surface without affecting underlying alloy, this sets zinc
   apart from absorptive metals that risk melting.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Die Casting
+      description: Die Casting industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Galvanizing
+      description: Galvanizing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Hardware Manufacturing
+      description: Hardware Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5

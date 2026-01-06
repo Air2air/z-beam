@@ -49,7 +49,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -352,6 +352,46 @@ relationships:
     - Marine
     - Memorial and Monument
     - Musical Instruments
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-makes-bronze-a-reliable-metal-for-industrial-
+        title: What makes bronze a reliable metal for industrial use?
+        content: Bronze is a copper-tin alloy we often turn to in manufacturing. It holds up well in tools, fittings, and
+          even marine parts because it resists corrosion. Density sits around 8.8 g/cm³, so pieces stay sturdy without getting
+          too heavy. Porosity hovers at about 0.5%, which means fewer voids that could trap dirt or weaken the structure.
+        metadata:
+          topic: 'What makes bronze a reliable metal for industrial '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-do-we-clean-bronze-with-lasers
+        title: How do we clean bronze with lasers?
+        content: Laser cleaning works great here. You apply roughly 100 W power to remove rust or grime from surfaces. This
+          method clears contaminants fast and leaves the base metal intact. It suits restoration projects, like old statues,
+          without harsh chemicals. Just watch the settings to avoid heating the alloy too much.
+        metadata:
+          topic: How do we clean bronze with lasers?
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -411,13 +451,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Architecture
-- Art and Sculpture
-- Bearings
-- Marine
-- Memorial and Monument
-- Musical Instruments
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Bronze
@@ -428,3 +461,43 @@ pageDescription: Bronze, it demonstrates exceptional oxidation resistance in las
   are removed without disrupting the protective patina that forms naturally. This tenacity, distinct from ferrous metals that
   rust readily, preserves structural integrity in art sculptures and marine monuments, yielding efficient restoration dependent
   from controlled laser parameters.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Architecture
+      description: Architecture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Art and Sculpture
+      description: Art and Sculpture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Bearings
+      description: Bearings industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Memorial and Monument
+      description: Memorial and Monument industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Musical Instruments
+      description: Musical Instruments industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6

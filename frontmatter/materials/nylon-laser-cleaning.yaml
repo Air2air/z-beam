@@ -53,7 +53,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -288,6 +288,59 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-laser-clean-nylon-without-causing-meltin
+        title: How can I laser clean Nylon without causing melting?
+        content: I've seen Nylon respond well to gentle laser passes that target surface grime first. Start by scanning the
+          area slowly to loosen dirt without building up too much heat in the material. This approach keeps the Nylon's surface
+          intact while removing contaminants effectively, as the plastic tends to soften under prolonged exposure.
+        metadata:
+          topic: How can I laser clean Nylon without causing meltin
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: what-are-the-best-practices-for-laser-cleaning-dir
+        title: What are the best practices for laser cleaning dirty Nylon gears?
+        content: When cleaning Nylon gears, begin with a low-intensity sweep to test the material's reaction. Follow up with
+          focused bursts on stubborn spots, always moving the laser steadily to avoid hot spots. In my experience, this method
+          restores the gears' smooth operation without compromising their flexibility or strength.
+        metadata:
+          topic: What are the best practices for laser cleaning dir
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: why-does-nylon-sometimes-discolor-during-laser-cle
+        title: Why does Nylon sometimes discolor during laser cleaning, and how to fix it?
+        content: Nylon can pick up slight discoloration if the laser lingers too long on one area, drawing out underlying
+          pigments. To fix this, reduce dwell time and incorporate short cooling intervals between passes.
+        metadata:
+          topic: Why does Nylon sometimes discolor during laser cle
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -299,15 +352,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Automotive
-- Textiles
-- Manufacturing
-- Food Processing
-- Medical Devices
-- Consumer Goods
-- Packaging
-- Industrial Components
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Nylon
@@ -316,3 +360,55 @@ metaDescription: Nylon laser cleaning guide. Remove contamination while preservi
 fullPath: /materials/plastic/thermoplastic/nylon-laser-cleaning
 pageDescription: Nylon, it manifests a remarkable tenacity and non-porous smoothness, which facilitates efficient laser cleaning
   by preventing contaminant adhesion and preserving structural integrity.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Textiles
+      description: Textiles industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Consumer Goods
+      description: Consumer Goods industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Packaging
+      description: Packaging industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Industrial Components
+      description: Industrial Components industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

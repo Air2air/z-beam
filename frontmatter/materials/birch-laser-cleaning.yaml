@@ -51,7 +51,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -320,6 +320,48 @@ relationships:
     - Energy Sector
     - Musical Instrument Manufacturing
     - Architectural Restoration
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: damaging-the-grain
+        title: How can laser cleaning restore birch wood surfaces without damaging the grain?
+        content: Laser cleaning basically employs precise, non-abrasive pulses to strip dirt, old finishes, or contaminants
+          from birch, while preserving its fine grain and natural color. This technique pretty much skips mechanical abrasion,
+          delivering fairly minimal structural impact for a clean, restored finish.
+        metadata:
+          topic: damaging the grain
+          severity: high
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: challenges-of-cleaning-birch
+        title: What are the challenges of cleaning birch with traditional methods, and why choose laser instead?
+        content: Birch wood is pretty sensitive to moisture and abrasion, so traditional methods like sanding or chemicals
+          typically risk warping or discoloring it. Laser cleaning addresses this effectively by precisely vaporizing surface
+          grime, avoiding any heat damage or residues. This preserves the wood's natural grain, lightweight structure, and
+          aesthetic appeal during delicate restorations. Best of all, it's fairly eco-friendly, minimizing chemical use and
+          waste overall.
+        metadata:
+          topic: challenges of cleaning birch
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -385,17 +427,6 @@ regulatory_standards:
   longName: Unknown Organization
   name: Unknown
   url: ''
-applications:
-- Aerospace
-- Automotive
-- Cultural Heritage
-- Marine
-- Electronics Manufacturing
-- Medical Equipment
-- Furniture Manufacturing
-- Energy Sector
-- Musical Instrument Manufacturing
-- Architectural Restoration
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Birch
@@ -404,3 +435,67 @@ metaDescription: Birch laser cleaning guide. Remove contamination while preservi
 fullPath: /materials/wood/hardwood/birch-laser-cleaning
 pageDescription: Birch wood's balanced porosity and toughness let operators dial in laser cleaning processes that remove contaminants
   cleanly from heritage pieces without compromising structural integrity.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Medical Equipment
+      description: Medical Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Furniture Manufacturing
+      description: Furniture Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Musical Instrument Manufacturing
+      description: Musical Instrument Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Architectural Restoration
+      description: Architectural Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

@@ -90,7 +90,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -243,6 +243,37 @@ relationships:
       effect: Generally inert with minimal absorption; possible gastrointestinal discomfort
       severity: low
       onset: immediate
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-what-are-the-best-pro
+        title: 'As a laser cleaning operator, what are the best protection methods to minimize exposure to carbon ash particulates
+          (CAS: 7440-44-0) generated during the process?'
+        content: Prioritize using enclosed laser cleaning systems or local exhaust ventilation to capture and contain fine
+          carbon ash particles at the source, preventing airborne dispersion. Wear appropriate personal protective equipment
+          (PPE), including a NIOSH-approved respirator with a P100 filter, nitrile gloves, and coveralls to avoid skin contact
+          and inhalation. Regularly monitor the work area with particulate detectors and follow OSHA guidelines to keep exposure
+          below the permissible limit of 3.5 mg/m³ for respirable carbon dust over an 8-hour shift.
+        metadata:
+          topic: As a laser cleaning operator, what are the best pr
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Carbon Ash
 subcategory: carbon-based
 ppe_requirements: Handling carbon-ash-compound in industrial settings demands solid personal protective equipment to counter

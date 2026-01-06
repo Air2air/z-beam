@@ -50,18 +50,24 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     contaminantRefs.map(async (ref: any) => {
       if (!ref || !ref.id) return null;
       
-      // Fetch full article data to get full_path and other metadata
+      // Fetch full article data to get metadata
       const article = await getContaminantArticle(ref.id);
       if (!article) return null;
       
       const metadata = article.metadata as any;
+      const contaminantCategory = metadata.category || '';
+      const contaminantSubcategory = metadata.subcategory || '';
+      
+      // Use fullPath (camelCase) from frontmatter, fallback to constructing from category/subcategory/id
+      const fullPath = metadata.fullPath || `/contaminants/${contaminantCategory}/${contaminantSubcategory}/${ref.id}`;
+      
       return {
         id: ref.id,
         title: metadata.name || metadata.title,
-        category: metadata.category || '',
-        subcategory: metadata.subcategory || '',
+        category: contaminantCategory,
+        subcategory: contaminantSubcategory,
         description: ref.typical_context || metadata.description || '',
-        url: ref.url || metadata.full_path, // Use full_path from frontmatter
+        url: ref.url || fullPath,
         frequency: ref.frequency,
         severity: ref.severity,
         typical_context: ref.typical_context,

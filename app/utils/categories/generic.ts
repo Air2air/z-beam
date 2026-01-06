@@ -72,7 +72,7 @@ export async function getAllCategoriesGeneric<TItem extends GenericItemInfo>(
       title: parsed.title || parsed.name || itemSlug,
       category: categorySlug,
       subcategory: subcategorySlug,
-      href: parsed.full_path || `/${contentType}/${itemSlug}`
+      href: parsed.fullPath || `/${contentType}/${itemSlug}`
     } as TItem;
     
     // Get or create category

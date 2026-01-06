@@ -66,7 +66,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -383,6 +383,37 @@ relationships:
       effect: No significant effects from ambient water vapor (humidity)
       severity: low
       onset: long-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-how-can-i-protect-mys
+        title: As a laser cleaning operator, how can I protect myself from potential water vapor exposure in a humid industrial
+          environment?
+        content: Maintain proper ventilation in the workspace to keep water vapor levels low, as this is essential for preventing
+          respiratory irritation or fogging of safety equipment during laser operations. Use personal protective equipment
+          (PPE) such as respirators rated for vapor (e.g., NIOSH-approved half-face masks with organic vapor cartridges) and
+          ensure the area is monitored with humidity sensors to stay below 80% relative humidity. If exposure is suspected,
+          relocate to fresh air immediately and follow your site's emergency protocols for decontamination.
+        metadata:
+          topic: As a laser cleaning operator, how can I protect my
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Water Vapor (H₂O)
 subcategory: inert
 ppe_requirements: "Handling water vapor in its compound form demands careful gear choices, especially where heat buildup poses\

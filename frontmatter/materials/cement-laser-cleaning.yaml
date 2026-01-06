@@ -113,7 +113,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -359,6 +359,183 @@ relationships:
     - Food Processing
     - Mining and Mineral Processing
     - Power Generation
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: cement-residue
+        title: What laser parameters work best for removing cement residue from steel surfaces without damaging the substrate?
+        content: For effective cement removal from steel, utilize a 1064 nm wavelength laser with approximately 100 W average
+          power and 12 ns pulse duration. It's notable that a fluence of around 3.2 J/cm², combined with 500 mm/s scanning
+          speed, cleanly ablates the residue. These short pulses remain essential to minimize heat accumulation and shield
+          the underlying steel from thermal damage.
+        metadata:
+          topic: cement residue
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: cement-splatter
+        title: How effective is laser cleaning for removing cement splatter from construction equipment and tools?
+        content: Laser cleaning excels at removing cement splatter with minimal substrate damage. Using a 100W laser at 3.2
+          J/cm² fluence effectively ablates contaminants while preserving the underlying metal. This method is significantly
+          faster and more cost-effective than manual chiseling, eliminating tool wear and abrasive waste.
+        metadata:
+          topic: cement splatter
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: hazardous-dust
+        title: Does laser cleaning create hazardous dust when removing cement, and what safety measures are required?
+        content: Laser cleaning at 3.2 J/cm² distinctly reduces hazardous dust levels, yet crystalline silica remains a persistent
+          risk. Essential precautions involve rigorous respiratory protection and local exhaust ventilation to comply with
+          OSHA thresholds, typically below 50 µg/m³.
+        metadata:
+          topic: hazardous dust
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: damage-concrete-surfaces
+        title: Can laser cleaning damage concrete surfaces when trying to remove surface contaminants?
+        content: Precise calibration of laser parameters remains essential to avert any concrete damage. Using a fluence of
+          3.2 J/cm² with 100W average power, we achieve distinct ablation of contaminants, thereby protecting the cementitious
+          matrix without harming aggregates or etching the surface.
+        metadata:
+          topic: damage concrete surfaces
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: whats-the-maximum-thickness-of-cement-buildup-that
+        title: What's the maximum thickness of cement buildup that laser cleaning can effectively remove?
+        content: Our laser cleaning process notably removes cement layers up to 500 µm thick at the standard 3.2 J/cm² fluence.
+          Thicker deposits allow multiple passes, yet buildup over 1 mm demands essential mechanical pre-treatment to guarantee
+          efficient operation and preserve substrate integrity.
+        metadata:
+          topic: What's the maximum thickness of cement buildup tha
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: delicate-surfaces-like-glass
+        title: How does laser cleaning compare to chemical methods for removing cement from delicate surfaces like glass or
+          ceramics?
+        content: Laser ablation at 3.2 J/cm² fluence notably removes cement from glass in a selective manner, without chemicals,
+          thus eliminating residue and substrate etching risks. This essential dry approach proves significantly faster than
+          chemical dissolution while avoiding environmental hazards from waste streams.
+        metadata:
+          topic: delicate surfaces like glass
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: what-type-of-laser-(fiber-pulsed-continuous-wave)-
+        title: What type of laser (fiber, pulsed, continuous wave) works best for cement removal applications?
+        content: For cleaning cement, pulsed fiber lasers at 1064 nm wavelength stand out as optimal. Their brief 12 ns pulses
+          and 3.2 J/cm² fluence ablate contaminants efficiently, while essential heat diffusion control preserves the underlying
+          substrate from thermal stress.
+        metadata:
+          topic: What type of laser (fiber, pulsed, continuous wave
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: surface-profile-or-roughness
+        title: Does laser cleaning affect the surface profile or roughness of concrete when used for surface preparation?
+        content: Properly tuned laser parameters, such as 3.2 J/cm² fluence, are essential for selectively removing contaminants
+          while preserving the original cement matrix. This yields a distinct anchor profile for coatings, often superior
+          to the mechanical damage from abrasive blasting.
+        metadata:
+          topic: surface profile or roughness
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: different-aggregates-and-additives
+        title: How do you handle the varying composition of cement (with different aggregates and additives) during laser
+          cleaning?
+        content: We meticulously fine-tune the fluence, typically at about 3.2 J/cm², to align with the distinct hardness
+          of each aggregate. For tougher mixtures, it's essential to raise the scan speed above 500 mm/s, thereby avoiding
+          micro-fractures while ensuring effective contaminant removal.
+        metadata:
+          topic: different aggregates and additives
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: cement-contaminated-surfaces
+        title: What are the maintenance considerations for laser equipment when regularly cleaning cement-contaminated surfaces?
+        content: Cement exhibits a notable ablation threshold of 3.2 J/cm², so safeguarding optics from alkaline dust becomes
+          essential. In turn, your fume extraction system needs regular filter swaps, with sensitive components sealed off
+          from the fine, abrasive particles it produces.
+        metadata:
+          topic: cement-contaminated surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      - id: porous-surfaces-like-brick
+        title: Can laser cleaning effectively remove cement from porous surfaces like brick or natural stone without causing
+          damage?
+        content: Yes, laser cleaning effectively removes cement from porous masonry. Employing a 1064 nm wavelength at 3.2
+          J/cm² fluence and 12 ns pulse width is essential to minimize heat diffusion, enabling selective ablation of the
+          contaminant. This notably preserves the delicate substrate, preventing subsurface thermal stress in historic brick
+          or natural stone.
+        metadata:
+          topic: porous surfaces like brick
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 11
+      - id: cement-removal
+        title: What is the economic feasibility of using laser cleaning for cement removal compared to traditional methods
+          on large construction projects?
+        content: For large-scale cement projects, laser cleaning delivers notable economic feasibility, even amid higher initial
+          costs. Running at 100W with 500mm/s scan speeds, this approach yields 2-3 times the productivity of conventional
+          techniques while slashing labor by 60%. Essential ROI benefits emerge for areas beyond 500m², driven by lower consumables
+          and scant surface prep.
+        metadata:
+          topic: cement removal
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 12
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -416,17 +593,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Construction and Infrastructure
-- Historical Preservation
-- Nuclear Decommissioning
-- Marine and Offshore
-- Industrial Maintenance
-- Bridge and Tunnel Maintenance
-- Water Treatment Facilities
-- Food Processing
-- Mining and Mineral Processing
-- Power Generation
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Cement
@@ -437,3 +603,67 @@ pageDescription: Cement, this dense masonry material, exhibits strong compressiv
   which influences its laser processing. It seems that surface contaminants detach tenaciously from its porous structure,
   enabling precise cleaning in historical preservation, though thermal stresses manifest challenges dependent from exposure
   intensity.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Construction and Infrastructure
+      description: Construction and Infrastructure industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Historical Preservation
+      description: Historical Preservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Nuclear Decommissioning
+      description: Nuclear Decommissioning industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Marine and Offshore
+      description: Marine and Offshore industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Industrial Maintenance
+      description: Industrial Maintenance industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Bridge and Tunnel Maintenance
+      description: Bridge and Tunnel Maintenance industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Water Treatment Facilities
+      description: Water Treatment Facilities industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Mining and Mineral Processing
+      description: Mining and Mineral Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Power Generation
+      description: Power Generation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

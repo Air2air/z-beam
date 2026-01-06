@@ -57,7 +57,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -338,6 +338,60 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-does-aluminum-nitride-compare-to-alumina-in-la
+        title: How does Aluminum Nitride compare to alumina in laser cleaning?
+        content: Aluminum Nitride cleans more efficiently than alumina due to its superior thermal conductivity. We've found
+          that heat from the laser dissipates quickly across the surface. This reduces the risk of localized overheating during
+          the process. In contrast, alumina tends to retain heat and develop cracks more easily. We typically adjust laser
+          parameters lower for Aluminum Nitrite to preserve its integrity.
+        metadata:
+          topic: How does Aluminum Nitride compare to alumina in la
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: what-challenges-arise-when-laser-cleaning-porous-a
+        title: What challenges arise when laser cleaning porous Aluminum Nitride substrates?
+        content: Aluminum Nitride features low porosity, which simplifies laser cleaning compared to more absorbent ceramics.
+          The laser removes contaminants without deep penetration into the material structure. We've observed that surface
+          residues lift cleanly under controlled pulses. This approach restores the original smoothness effectively. However,
+          excessive power can still cause micro-fractures if not monitored.
+        metadata:
+          topic: What challenges arise when laser cleaning porous A
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: can-laser-cleaning-improve-the-thermal-performance
+        title: Can laser cleaning improve the thermal performance of used Aluminum Nitride components?
+        content: Laser cleaning effectively removes oxidation layers from Aluminum Nitride to restore its heat transfer properties.
+        metadata:
+          topic: Can laser cleaning improve the thermal performance
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -349,15 +403,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Electronics Manufacturing
-- Semiconductor
-- LED Manufacturing
-- High-Power Electronics
-- Thermal Management
-- Microelectronics
-- RF Components
-- Aerospace
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Aluminum Nitride
@@ -366,3 +411,55 @@ metaDescription: Aluminum Nitride laser cleaning guide. Remove contamination whi
 fullPath: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
 pageDescription: When laser cleaning Aluminum Nitride, I've seen it hold up remarkably well under intense heat, thanks to
   its superior thermal stability and insulating qualities—just watch for any potential surface cracking from uneven exposure.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Semiconductor
+      description: Semiconductor industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: LED Manufacturing
+      description: LED Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: High-Power Electronics
+      description: High-Power Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Thermal Management
+      description: Thermal Management industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Microelectronics
+      description: Microelectronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: RF Components
+      description: RF Components industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

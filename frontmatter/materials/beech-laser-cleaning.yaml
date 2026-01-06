@@ -80,7 +80,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -434,6 +434,109 @@ relationships:
     - Energy
     - Food Processing
     - Musical Instruments
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: aged-beech-furniture
+        title: How does laser cleaning restore aged beech furniture?
+        content: The distinct benefit of laser cleaning comes from its precise pulses, which strip away dirt, varnish, and
+          oxidation from beech while sparing the wood grain. This essential non-abrasive approach uncovers the natural beauty,
+          upholding the wood's integrity during restoration.
+        metadata:
+          topic: aged beech furniture
+          severity: high
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: beech-wood-ideal
+        title: What makes beech wood ideal for laser cleaning applications?
+        content: Beech wood features a distinct fine grain and even texture, allowing precise laser targeting of surface contaminants.
+          Its density plays an essential role in minimizing heat absorption, thus curbing charring risks during cleaning.
+        metadata:
+          topic: beech wood ideal
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: why-is-laser-cleaning-better-than-chemical-methods
+        title: Why is laser cleaning better than chemical methods for beech?
+        content: In contrast to chemicals that penetrate and discolor beech's porous structure, laser cleaning delivers a
+          distinct, contactless, and eco-friendly alternative. It evaporates grime instantly, avoiding residue while ensuring
+          an essential, safe restoration of the wood's original luster without swelling risks.
+        metadata:
+          topic: Why is laser cleaning better than chemical methods
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: moisture-damage
+        title: Can laser cleaning fix moisture damage on beech flooring?
+        content: Yes, but laser notably addresses surface effects like mold or moisture stains. It removes contaminants essential
+          to preventing further decay, though underlying warping may require additional structural repairs for full restoration.
+        metadata:
+          topic: moisture damage
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: laser-induced-burning
+        title: Is beech susceptible to laser-induced burning during cleaning?
+        content: With proper settings, risk stays minimal; low-fluence lasers gently ablate just the surface layers of beech,
+          avoiding deep penetration. Experts make it essential to tweak wavelengths for beech's light hue, yielding clean
+          results.
+        metadata:
+          topic: laser-induced burning
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: beech-items
+        title: How to prepare beech items for effective laser cleaning?
+        content: First off, confirm the surface is dry and clear of loose debris—essential precaution. Trial laser settings
+          on a small patch to adjust for beech's notable hardness, then advance methodically to prevent uneven results while
+          preserving the wood's smooth finish.
+        metadata:
+          topic: beech items
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: preserving-beechs-value
+        title: What are the benefits of laser cleaning for preserving beech's value?
+        content: It notably boosts beech's durability by eliminating pollutants that hasten decay, while restoring its appealing
+          grain and inherent strength. This essential, non-invasive method prolongs the life of prized items like antique
+          furniture, elevating aesthetic and market value without altering the wood's natural qualities.
+        metadata:
+          topic: preserving beech's value
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -491,17 +594,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Automotive
-- Cultural Heritage
-- Medical
-- Marine
-- Electronics
-- Manufacturing
-- Energy
-- Food Processing
-- Musical Instruments
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Beech
@@ -511,3 +603,67 @@ fullPath: /materials/wood/hardwood/beech-laser-cleaning
 pageDescription: Beech, this hardwood, exhibits balanced strength and porosity, which suits laser cleaning for cultural heritage
   artifacts. Contaminants, they yield to precise ablation, dependent from the material's moderate resilience, yielding clean
   surfaces without excessive charring.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Medical
+      description: Medical industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Electronics
+      description: Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy
+      description: Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Musical Instruments
+      description: Musical Instruments industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

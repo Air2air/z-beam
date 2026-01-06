@@ -112,7 +112,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -456,6 +456,39 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-using-toluene-to-degr
+        title: As a laser cleaning operator using toluene to degrease surfaces before lasering, what are the key exposure
+          limits I need to monitor to avoid health risks, and how does it compare to milder solvents like acetone?
+        content: The OSHA permissible exposure limit (PEL) for toluene is 200 ppm as an 8-hour time-weighted average (TWA),
+          with a 500 ppm peak limit not exceeding 10 minutes in any 8-hour shift; exceeding these can cause headaches, dizziness,
+          or long-term neurological effects, unlike acetone's higher 1,000 ppm PEL which mainly irritates eyes and skin without
+          such neurotoxicity. Use real-time air monitoring devices like photoionization detectors (PIDs) to measure vapor
+          levels in your workspace, ensuring concentrations stay below 20 ppm (ACGIH TLV) for added safety. Always maintain
+          local exhaust ventilation and wear NIOSH-approved organic vapor respirators if levels approach limits, rotating
+          shifts to minimize cumulative exposure.
+        metadata:
+          topic: As a laser cleaning operator using toluene to degr
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Toluene (C₇H₈)
 subcategory: aromatic_hydrocarbon
 ppe_requirements: Handling toluene demands careful protection because its vapors can irritate skin and lungs while the liquid

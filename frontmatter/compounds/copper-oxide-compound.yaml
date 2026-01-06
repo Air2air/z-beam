@@ -74,7 +74,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -188,6 +188,37 @@ relationships:
       effect: Gastrointestinal distress including nausea and vomiting
       severity: moderate
       onset: short-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-personal-protective-equipment-(ppe)-should-i-
+        title: What personal protective equipment (PPE) should I wear to minimize inhalation risks from CuO particulates generated
+          during laser cleaning of copper surfaces?
+        content: Always use a NIOSH-approved respirator with an N95 or higher rating (e.g., P100 filters for particulates)
+          fitted properly to prevent inhaling CuO dust, which can cause respiratory irritation or metal fume fever. Wear safety
+          goggles and gloves to avoid skin or eye contact, and ensure the workspace has local exhaust ventilation to capture
+          airborne particles. Conduct fit-testing for the respirator annually and replace filters when breathing becomes difficult
+          or after each shift involving heavy dust generation.
+        metadata:
+          topic: 'What personal protective equipment (PPE) should I '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Copper Oxide (CuO)
 subcategory: metal-oxide
 ppe_requirements: When dealing with copper oxide compounds in particulate form, especially during industrial handling or laser

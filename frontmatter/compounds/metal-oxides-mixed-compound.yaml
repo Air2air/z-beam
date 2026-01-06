@@ -98,7 +98,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -228,6 +228,38 @@ relationships:
       effect: Gastrointestinal upset and potential systemic metal toxicity
       severity: high
       onset: short-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-how-can-i-effectively
+        title: As a laser cleaning operator, how can I effectively protect myself from inhaling fine mixed metal oxide particulates
+          generated during the process?
+        content: Always wear a properly fitted NIOSH-approved respirator with a P100 filter or higher to capture fine particulates,
+          and ensure it's used in conjunction with local exhaust ventilation (LEV) systems positioned near the laser beam
+          to capture aerosols at the source. Conduct regular air monitoring in the workspace to verify particulate levels
+          remain below applicable OSHA permissible exposure limits (PELs), which vary by specific metal oxide but generally
+          aim for under 5 mg/m³ for total dust. Additionally, perform operations in enclosed booths or with engineering controls
+          like fume extractors to minimize dispersion, and change filters frequently based on usage intensity.
+        metadata:
+          topic: As a laser cleaning operator, how can I effectivel
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Metal Oxides (Mixed)
 subcategory: metal-oxide
 ppe_requirements: Handling metal oxide mixed compounds in particulate form demands solid protection against dust clouds and

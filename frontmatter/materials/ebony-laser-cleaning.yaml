@@ -53,7 +53,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -279,6 +279,50 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-prevent-burning-ebony-during-laser-cleani
+        title: How do I prevent burning ebony during laser cleaning?
+        content: You must start with lower power settings to gently remove surface dirt without overheating the dense wood.
+          Ebony's hardness helps it withstand the process, but its low heat tolerance means you should use short pulses that
+          clear buildup quickly. Keep the laser moving steadily across the surface to avoid hot spots. In my experience, this
+          approach restores the natural finish beautifully. Watch out for prolonged exposure, as it can char the material
+          and ruin your work.
+        metadata:
+          topic: How do I prevent burning ebony during laser cleani
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-practice-for-cleaning-old-dirt-off-
+        title: What's the best practice for cleaning old dirt off ebony artifacts?
+        content: Make sure you test the laser on a small hidden area first to see how the ebony responds. The wood's tight
+          grain absorbs energy evenly, so a focused beam works well to lift grime without scratching. You'll want to follow
+          up with a soft cloth to polish away any residue left behind. This method preserves the ebony's deep color and smooth
+          texture effectively.
+        metadata:
+          topic: What's the best practice for cleaning old dirt off
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -290,15 +334,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Musical Instruments
-- Fine Furniture
-- Art Conservation
-- Luxury Goods
-- Cultural Heritage
-- Woodworking
-- Restoration
-- Decorative Arts
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Ebony
@@ -307,3 +342,55 @@ metaDescription: Ebony laser cleaning guide. Remove contamination while preservi
 fullPath: /materials/wood/hardwood/ebony-laser-cleaning
 pageDescription: Ebony, this dense hardwood, it exhibits remarkable resilience to laser ablation, which facilitates precise
   contaminant removal in restoration tasks while preserving surface integrity.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Musical Instruments
+      description: Musical Instruments industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Fine Furniture
+      description: Fine Furniture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Art Conservation
+      description: Art Conservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Luxury Goods
+      description: Luxury Goods industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Woodworking
+      description: Woodworking industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Restoration
+      description: Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Decorative Arts
+      description: Decorative Arts industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

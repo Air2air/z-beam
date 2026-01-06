@@ -92,7 +92,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -206,6 +206,38 @@ relationships:
       effect: Allergic dermatitis in sensitive individuals
       severity: moderate
       onset: short-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-effectively-protect-myself-from-nanopart
+        title: How can I effectively protect myself from nanoparticulate exposure while operating laser cleaning equipment
+          in the lab?
+        content: Always wear a properly fitted NIOSH-approved respirator with a P100 filter or higher to capture ultrafine
+          particles, as nanoparticulates can penetrate deep into the lungs due to their small size. Use full-body protective
+          suits made of impermeable materials, gloves, and eye protection to prevent skin and ocular contact, and ensure the
+          workspace has local exhaust ventilation (LEV) systems capturing fumes at the source. Regularly monitor air quality
+          with particle counters and follow decontamination protocols, such as HEPA-filtered vacuums for cleanup, to minimize
+          residual exposure.
+        metadata:
+          topic: How can I effectively protect myself from nanopart
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Nanoparticulates
 subcategory: nanomaterial
 ppe_requirements: "Dealing with nanoparticulate compounds in industrial settings often brings up tricky safety hurdles because\

@@ -75,7 +75,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -357,6 +357,95 @@ relationships:
     - Research and Laboratory
     - Food Processing
     - Marine and Offshore
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: alumina-surfaces
+        title: How does laser cleaning effectively remove contaminants from alumina surfaces?
+        content: In laser cleaning, pulsed lasers notably vaporize dirt, oxides, or residues from alumina, safeguarding the
+          substrate's essential hardness and integrity in mere seconds.
+        metadata:
+          topic: alumina surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: challenging-to-clean
+        title: What makes alumina challenging to clean using traditional methods?
+        content: Alumina's notable hardness and chemical inertness resist chemical cleaners and abrasives, often causing incomplete
+          removal or surface scratching, while lasers enable distinct, precise, non-contact cleaning.
+        metadata:
+          topic: challenging to clean
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: alumina-ceramics
+        title: Why choose laser cleaning for restoring alumina ceramics?
+        content: By avoiding mechanical stress, this method tackles brittleness challenges head-on, preventing cracks from
+          appearing during restoration. It highlights in a notable fashion alumina's essential thermal stability, suited to
+          premium ceramics for electronics or medical applications, using sustainable dry processes that cut down on waste.
+        metadata:
+          topic: alumina ceramics
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: can-laser-cleaning-improve-the-electrical-insulati
+        title: Can laser cleaning improve the electrical insulation properties of alumina?
+        content: Indeed, laser cleaning distinctively removes contaminants that could compromise insulation, thereby enhancing
+          alumina's essential dielectric strength without altering its composition.
+        metadata:
+          topic: Can laser cleaning improve the electrical insulati
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: alumina-dust-hazards
+        title: Is laser cleaning safe for handling alumina dust hazards?
+        content: Absolutely. Abrasive methods generate notable dust levels, whereas laser cleaning distinctly reduces airborne
+          particles via localized vaporization, enhancing worker safety and regulatory compliance for this material.
+        metadata:
+          topic: alumina dust hazards
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: cost-benefits
+        title: What are the cost benefits of using laser cleaning on alumina components?
+        content: Laser cleaning offers a notable edge in cutting long-term expenses by bypassing harsh chemicals and throwaway
+          abrasives, while boosting the durability of pricey alumina components. Upfront costs quickly balance out through
+          processing speeds up to 10 times faster than conventional techniques, with scant waste—making it essential for high-volume
+          industrial settings demanding utmost purity.
+        metadata:
+          topic: cost benefits
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -446,17 +535,6 @@ regulatory_standards:
   longName: International Organization for Standardization
   name: ISO
   url: https://www.iso.org/standard/60426.html
-applications:
-- Aerospace
-- Medical Devices
-- Electronics Manufacturing
-- Automotive
-- Energy Production
-- Semiconductor Manufacturing
-- Chemical Processing
-- Research and Laboratory
-- Food Processing
-- Marine and Offshore
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Alumina
@@ -466,3 +544,67 @@ fullPath: /materials/ceramic/oxide/alumina-laser-cleaning
 pageDescription: In demanding industrial applications, alumina stands out for its superior heat resistance, which maintains
   the material's stability and strength even under extreme thermal stress—unlike softer ceramics that tend to crack or warp—delivering
   reliable performance in precision-dependent uses such as aerospace components and medical instruments.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Energy Production
+      description: Energy Production industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Semiconductor Manufacturing
+      description: Semiconductor Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Research and Laboratory
+      description: Research and Laboratory industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Marine and Offshore
+      description: Marine and Offshore industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

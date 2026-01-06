@@ -96,7 +96,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -420,6 +420,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-are-the-recommended-exposure-limits-and-prote
+        title: What are the recommended exposure limits and protection methods for iron oxide (Fe₂O₃) fumes during laser cleaning
+          operations?
+        content: The OSHA permissible exposure limit (PEL) for iron oxide fume is 10 mg/m³ as iron (Fe) over an 8-hour time-weighted
+          average (TWA), while NIOSH recommends a lower limit of 5 mg/m³ to minimize respiratory irritation and potential
+          siderosis from chronic exposure. To stay below these limits, operators should use local exhaust ventilation systems
+          to capture fumes at the source and wear NIOSH-approved respirators with at least an N95 rating (or higher, like
+          P100, for prolonged work). Regularly monitor air quality with real-time particle counters or personal sampling pumps
+          to ensure compliance and adjust controls as needed.
+        metadata:
+          topic: What are the recommended exposure limits and prote
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Iron Oxide (Fe₂O₃)
 subcategory: metal-oxide
 ppe_requirements: 'Handling iron oxide compounds in industrial settings, unlike milder dusts from everyday rust, demands robust

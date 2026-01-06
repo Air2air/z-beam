@@ -115,7 +115,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -371,6 +371,166 @@ relationships:
     - Energy Sector
     - Electronics Manufacturing
     - Architectural Restoration
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: charring-or-discoloration
+        title: What laser parameters, like wavelength and pulse energy, are recommended to safely clean contaminants from
+          rosewood surfaces without causing charring or discoloration?
+        content: For rosewood's dense, oil-rich structure that chars easily under heat, particularly when processing, apply
+          a 1064 nm wavelength at 4.5 J/cm² fluence to selectively remove contaminants. Combine this with 100 ns pulses of
+          45 W power, scanned at 500 mm/s with 50% overlap over two passes, thus preventing discoloration.
+        metadata:
+          topic: charring or discoloration
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-does-the-natural-oil-in-rosewood-affect-the-ef
+        title: How does the natural oil in rosewood affect the efficiency of laser ablation during surface cleaning, and what
+          adjustments are needed?
+        content: The inherent oils in rosewood particularly shield the underlying lignin and cellulose, reducing laser absorption
+          at 1064 nm and leading to spotty ablation during cleaning. Such inefficiency calls for boosting energy density to
+          4.5 J/cm² with 50% beam overlap and two passes at 45 W, thus enabling even contaminant removal without charring
+          the wood.
+        metadata:
+          topic: How does the natural oil in rosewood affect the ef
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: wood-grain
+        title: Is a CO2 laser suitable for removing old varnish from antique rosewood furniture, and what risks are involved
+          for the wood grain?
+        content: CO2 lasers prove unsuitable for removing old varnish from antique rosewood furniture, particularly due to
+          their 10.6 μm wavelength generating excessive heat, which endangers the wood's delicate grain with charring. Notably,
+          restoration experts highlight how vaporization unevenly erodes the fine structure, risking a loss of luster. Thus,
+          select 1064 nm pulses at 4.5 J/cm² to reduce damage.
+        metadata:
+          topic: wood grain
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: toxic-fume-release
+        title: What safety precautions should be taken when using fiber lasers to clean rosewood musical instruments, such
+          as guitars, to avoid toxic fume release?
+        content: For lasering rosewood guitars with a 1064 nm fiber laser at 45 W, particularly prioritize robust local exhaust
+          ventilation to capture volatile organic compounds from the wood's oils during ablation. Specifically, maintain energy
+          density below 4.5 J/cm² while scanning at 500 mm/s to reduce thermal vaporization. Thus, always don N95 respirators
+          in a well-sealed workspace.
+        metadata:
+          topic: toxic fume release
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: reddish-brown-hue
+        title: In laser cleaning rosewood artifacts, how can operators prevent fading or color shifts in the wood's reddish-brown
+          hue?
+        content: To protect rosewood's reddish-brown pigments in laser cleaning, particularly by setting fluence to 4.5 J/cm²
+          and power near 45 W at 1064 nm wavelength, this curbs heat accumulation that dulls colors. Scan evenly at 500 mm/s
+          for coverage, then seal the surface afterward, thus stabilizing hues against oxidation.
+        metadata:
+          topic: reddish-brown hue
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: humidity-effects
+        title: What are common challenges in using pulsed lasers to remove pollutants from outdoor rosewood sculptures, and
+          how to mitigate humidity effects?
+        content: Rosewood's hygroscopic properties particularly absorb ambient humidity, resulting in swelling and variable
+          laser uptake during pulsed cleaning, which may cause uneven pollutant removal or substrate harm. Thus, to counteract
+          this, sustain energy density at 4.5 J/cm² with a 500 mm/s scan speed for even ablation, while pre-drying surfaces
+          to steady moisture levels.
+        metadata:
+          topic: humidity effects
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: rosewood-veneers
+        title: For small-scale workshops, which affordable laser cleaning systems are best for treating rosewood veneers without
+          substrate damage?
+        content: For small workshops dealing with rosewood veneers, consider portable 1064 nm fiber lasers, particularly IPG
+          or Raycus models under $10,000 that deliver 45 W average power. Adjust energy density to 4.5 J/cm² and scan speed
+          to 500 mm/s, which notably ablates contaminants gently without damaging the delicate lignin structure. Two passes
+          with 50% overlap thus guarantee uniform outcomes.
+        metadata:
+          topic: rosewood veneers
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: rosewoods-high-density
+        title: How does rosewood's high density compare to other woods in terms of laser cleaning thresholds, and what fluence
+          levels should be avoided?
+        content: Notably, rosewood's density—around 950 kg/m³—surpasses that of softer woods like pine by almost double. This
+          elevates its ablation threshold, thus allowing cleaner material removal at fluences up to 4.5 J/cm² without substrate
+          damage. Specifically, steer clear of levels exceeding 6 J/cm² to prevent charring the dense lignin structure.
+        metadata:
+          topic: rosewood's high density
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: endangered-species-protections
+        title: What regulatory standards apply to laser cleaning rosewood in conservation projects, especially regarding endangered
+          species protections?
+        content: In rosewood conservation through laser cleaning, CITES Appendix II listings require permits for sourcing
+          endangered species, particularly, along with detailed treatment records to track provenance. Specifically, apply
+          parameters like 4.5 J/cm² fluence at 1064 nm wavelength to remove contaminants gently without damaging the wood's
+          lignin structure, thus ensuring regulatory compliance in cultural heritage projects.
+        metadata:
+          topic: endangered species protections
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: pre-cleaning-preparation
+        title: In laser surface treatment of rosewood, how can pre-cleaning preparation like degreasing improve outcomes and
+          reduce multiple passes?
+        content: Rosewood's natural oils particularly block contaminants from laser penetration, thus necessitating degreasing
+          with solvents like acetone to reveal the surface for better absorption. Notably, this preparation improves efficacy
+          at 4.5 J/cm² fluence, usually reducing passes from two to one while avoiding uneven charring in 45 W treatments.
+        metadata:
+          topic: pre-cleaning preparation
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -429,17 +589,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Automotive
-- Marine
-- Cultural Heritage
-- Musical Instruments
-- Medical Equipment
-- Luxury Manufacturing
-- Energy Sector
-- Electronics Manufacturing
-- Architectural Restoration
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Rosewood
@@ -449,3 +598,67 @@ fullPath: /materials/wood/hardwood/rosewood-laser-cleaning
 pageDescription: We've found Rosewood excels in laser cleaning, thanks to its dense structure and strong absorption compared
   to softer woods. This lets us strip away grime from cultural artifacts or instruments efficiently while preserving the natural
   oils that resist decay—just ensure controlled passes to avoid surface charring.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Musical Instruments
+      description: Musical Instruments industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Medical Equipment
+      description: Medical Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Luxury Manufacturing
+      description: Luxury Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Architectural Restoration
+      description: Architectural Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

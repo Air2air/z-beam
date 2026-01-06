@@ -7,6 +7,9 @@
  * @aiContext Renders nested object data with category keys as collapsible sections
  *           Uses native HTML disclosure pattern (non-exclusive expansion)
  *           Conditionally displays category-specific icons for visual identification
+ * @updated 2026-01-05: Replaced table layouts with responsive definition lists (dl/dt/dd)
+ *          for better mobile experience and semantic HTML. Uses CSS Grid for responsive
+ *          layouts that stack on mobile and align as columns on desktop.
  */
 "use client";
 
@@ -292,17 +295,26 @@ function TableData({ data }: { data: any[] }) {
 }
 
 /**
- * Render nested properties as table with key-value pairs
+ * Render nested properties using responsive definition list
+ * Mobile-first design with CSS Grid for optimal layout on all devices
  * Special case: For FAQ content (single entry with empty key), render as plain text
  */
-function NestedProperties({ data, borderColor = 'border-gray-700', bgColor = 'bg-gray-800' }: { data: Record<string, any>; borderColor?: string; bgColor?: string }) {
+function ResponsiveDataList({ 
+  data, 
+  variant = 'detailed',
+  level = 0 
+}: { 
+  data: Record<string, any>; 
+  variant?: 'compact' | 'detailed' | 'regulatory';
+  level?: number;
+}) {
   const entries = Object.entries(data).filter(([key, value]) => 
     !key.startsWith('_') && value !== null && value !== undefined
   );
 
   if (entries.length === 0) return null;
 
-  // FAQ special case: Single entry with empty key = direct text rendering (no table)
+  // FAQ special case: Single entry with empty key = direct text rendering (no list)
   if (entries.length === 1 && entries[0][0] === '') {
     const value = entries[0][1];
     return (
@@ -315,57 +327,98 @@ function NestedProperties({ data, borderColor = 'border-gray-700', bgColor = 'bg
     const items = entries[0][1];
     const firstItem = items[0];
     
-    // If array contains objects with name/description, render as application cards
-    if (typeof firstItem === 'object' && firstItem !== null && 'name' in firstItem) {
+    // If array contains objects with title/name/content, render as application cards
+    if (typeof firstItem === 'object' && firstItem !== null && 
+        ('name' in firstItem || 'title' in firstItem)) {
       return (
-        <div className="space-y-3">
-          {items.map((item: any, idx: number) => (
-            <div key={idx} className="flex flex-col">
-              <span className="font-semibold text-gray-200">{item.name}</span>
-              {item.description && (
-                <span className="text-sm text-gray-400 mt-1">{item.description}</span>
-              )}
-            </div>
-          ))}
+        <div className="space-y-4">
+          {items.map((item: any, idx: number) => {
+            const displayTitle = item.title || item.name;
+            const displayContent = item.content || item.description;
+            
+            return (
+              <div key={item.id || idx} className="flex flex-col">
+                <span className="font-semibold text-gray-200 text-base">
+                  {displayTitle}
+                </span>
+                {displayContent && (
+                  <span className="text-sm text-gray-400 mt-1 leading-relaxed">
+                    {displayContent}
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
       );
     }
   }
 
+  // Grid classes for responsive layouts
+  const gridClasses = {
+    compact: 'grid grid-cols-1 md:grid-cols-[minmax(120px,200px)_1fr] gap-x-4 gap-y-2',
+    detailed: 'grid grid-cols-1 md:grid-cols-[minmax(180px,240px)_1fr] gap-x-6 gap-y-4',
+    regulatory: 'grid grid-cols-1 lg:grid-cols-[minmax(200px,280px)_1fr] gap-x-8 gap-y-6'
+  };
+
+  // Nested lists use compact variant
+  const currentVariant = level > 0 ? 'compact' : variant;
+
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-base">
-        <tbody>
-          {entries.map(([key, value], idx) => (
-            <tr key={key} className={idx % 2 === 1 ? 'bg-black/15' : ''}>
-              <td className="px-3 py-2 font-semibold text-gray-300 align-top w-1/3">
-                {formatKey(key)}
-              </td>
-              <td className="px-3 py-2 text-gray-300 align-top">
-                {typeof value === 'object' && value !== null && !Array.isArray(value) ? (
-                  <NestedProperties data={value} borderColor={borderColor} bgColor={bgColor} />
-                ) : Array.isArray(value) ? (
-                  // Check if array contains objects - use table layout
-                  value.length > 0 && typeof value[0] === 'object' && value[0] !== null ? (
-                    <TableData data={value} />
-                  ) : (
-                    // Simple array values
-                    <ul className="list-disc list-inside space-y-1">
-                      {value.map((item, i) => (
-                        <li key={i}>{String(item)}</li>
-                      ))}
-                    </ul>
-                  )
+    <dl className={`${gridClasses[currentVariant]} w-full`}>
+      {entries.map(([key, value], idx) => {
+        const termId = `term-${key.replace(/[^a-zA-Z0-9]/g, '-')}-${idx}`;
+        
+        return (
+          <React.Fragment key={key}>
+            {/* Term (Label) */}
+            <dt 
+              id={termId}
+              className={`font-semibold text-gray-300 md:text-right md:pr-4 
+                         self-start pt-1 text-sm md:text-base
+                         ${idx % 2 === 1 && level === 0 ? 'md:bg-black/5' : ''}`}
+            >
+              {formatKey(key)}
+            </dt>
+            
+            {/* Definition (Value) */}
+            <dd 
+              aria-labelledby={termId}
+              className={`text-gray-300 pl-4 md:pl-0 border-l-2 md:border-l-0 
+                         border-gray-700 md:border-0 pb-3 md:pb-0
+                         ${idx % 2 === 1 && level === 0 ? 'md:bg-black/5' : ''}`}
+            >
+              {typeof value === 'object' && value !== null && !Array.isArray(value) ? (
+                <ResponsiveDataList data={value} variant="compact" level={level + 1} />
+              ) : Array.isArray(value) ? (
+                // Check if array contains objects - use table layout for structured data
+                value.length > 0 && typeof value[0] === 'object' && value[0] !== null ? (
+                  <TableData data={value} />
                 ) : (
-                  <span>{String(value)}</span>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+                  // Simple array values
+                  <ul className="list-disc list-inside space-y-1">
+                    {value.map((item, i) => (
+                      <li key={i}>{String(item)}</li>
+                    ))}
+                  </ul>
+                )
+              ) : (
+                <span>{String(value)}</span>
+              )}
+            </dd>
+          </React.Fragment>
+        );
+      })}
+    </dl>
   );
+}
+
+/**
+ * Legacy NestedProperties wrapper for backward compatibility
+ * Now uses ResponsiveDataList internally
+ */
+function NestedProperties({ data, borderColor = 'border-gray-700', bgColor = 'bg-gray-800' }: { data: Record<string, any>; borderColor?: string; bgColor?: string }) {
+  return <ResponsiveDataList data={data} variant="detailed" level={0} />;
 }
 
 /**

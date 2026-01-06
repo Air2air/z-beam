@@ -94,7 +94,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -376,6 +376,145 @@ relationships:
     - Research and Laboratory
     - Marine and Offshore
     - Nuclear Industry
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: causing-delamination
+        title: What laser wavelengths are most effective for cleaning rhodium-plated surfaces without causing delamination?
+        content: For rhodium-plated surfaces in aerospace or jewelry applications, the 1064 nm near-IR wavelength performs
+          pretty well thanks to the metal's high reflectivity, which curbs absorption and protects thin layers from delamination.
+          Basically, this approach allows contaminant ablation at a precise 2.5 J/cm² fluence with 45 W power, yielding uniform,
+          damage-free cleaning without thermal buildup.
+        metadata:
+          topic: causing delamination
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: catalytic-efficiency
+        title: How can laser cleaning remove contaminants from rhodium catalysts in automotive applications without affecting
+          catalytic efficiency?
+        content: Laser cleaning basically targets contaminants on rhodium catalysts in automotive systems with a 1064 nm near-IR
+          beam at 2.5 J/cm² fluence, vaporizing deposits without exceeding sintering thresholds. Pretty effectively, its 15
+          ns pulses and 45 W power preserve the metal's porous framework and surface area, protecting emissions control efficiency.
+        metadata:
+          topic: catalytic efficiency
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: pulsed-lasers
+        title: What are the safety risks of using pulsed lasers on rhodium jewelry during cleaning, and how to mitigate them?
+        content: Pulsed laser cleaning of rhodium jewelry can cause micro-ablation, aerosolizing fine, toxic particles that
+          are hazardous if inhaled. Basically, counter this by using robust fume extraction ventilation, 1064 nm-rated eye
+          protection, and exposure limits below 0.1 mg/m³. Keep fluence fairly under 2.5 J/cm² to limit particle ejection.
+        metadata:
+          topic: pulsed lasers
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: why-does-rhodiums-high-melting-point-make-it-chall
+        title: Why does rhodium's high melting point make it challenging for laser cleaning, and what parameters adjust for
+          this?
+        content: Rhodium's melting point at 1964°C pretty much complicates laser cleaning, since its thermal conductivity
+          dissipates heat rapidly, potentially causing uneven ablation or substrate damage from energy buildup. We basically
+          mitigate this with a fluence of 2.5 J/cm² for contaminant removal and a scan speed of 500 mm/s to avoid localized
+          overheating.
+        metadata:
+          topic: Why does rhodium's high melting point make it chal
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: rhodium-electrical-contacts
+        title: 'In laser cleaning forums, users ask: Can fiber lasers effectively strip oxides from rhodium electrical contacts?'
+        content: Fiber lasers typically excel at stripping sparse oxides from rhodium electrical contacts, thanks to the metal's
+          exceptional corrosion resistance. Go with a 1064 nm wavelength at 2.5 J/cm² fluence for pretty precise removal—much
+          better than 532 nm, which rhodium largely reflects—while holding power to 45 W to prevent substrate damage.
+        metadata:
+          topic: rhodium electrical contacts
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: laser-induced-thermal-stress
+        title: What concerns do manufacturers raise about laser-induced thermal stress on rhodium coatings during surface
+          preparation?
+        content: Manufacturers get pretty concerned about thermal stress cracking in rhodium coatings, given its low coefficient
+          of thermal expansion—around 8.3 × 10⁻⁶/°C—that mismatches substrates like steel and risks delaminating layers during
+          laser prep. Typically, mitigate this with a 1064 nm wavelength at 45 W power plus rapid air cooling, alongside pre-treatment
+          via uniform heating protocols for stronger adhesion. Keep fluence under 2.
+        metadata:
+          topic: laser-induced thermal stress
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: rhodiums-reflectivity
+        title: How does rhodium's reflectivity impact the choice of laser power for cleaning in vacuum environments?
+        content: Rhodium's specular reflectivity is pretty high, exceeding 80% at visible wavelengths, so it requires more
+          laser power—around 45 W at 1064 nm—to offset energy loss during vacuum cleaning. By focusing the beam to an 80 μm
+          spot, we fairly easily hit the 2.5 J/cm² fluence threshold for contaminant ablation, without risking thermal damage
+          to the metal.
+        metadata:
+          topic: rhodium's reflectivity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: rhodiums-chemical-inertness
+        title: What training materials recommend for handling rhodium's chemical inertness in laser cleaning processes?
+        content: Dealing with rhodium's chemical inertness during laser cleaning pretty much cuts down on reactions, so emphasize
+          precision in mechanical ablation to capitalize on its durability. I recommend operator training guides that typically
+          highlight laser alignment at 1064 nm wavelength and 2.5 J/cm² fluence, with 45 W power for safe contaminant removal.
+        metadata:
+          topic: rhodium's chemical inertness
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: medical-device-manufacturing
+        title: Are there regulatory compliance issues for laser cleaning rhodium in medical device manufacturing?
+        content: Laser cleaning rhodium for medical device production fairly requires strict FDA oversight and ISO 10993 compliance
+          to ensure biocompatibility, especially in controlling residues on implants. Basically, validate efficacy using 2.5
+          J/cm² fluence at 1064 nm, which ablates contaminants without compromising the metal's surface integrity while keeping
+          residues below 10 ppm for safety.
+        metadata:
+          topic: medical device manufacturing
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -434,17 +573,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Electronics
-- Medical Devices
-- Jewelry and Luxury Goods
-- Automotive
-- Chemical Processing
-- Optical and Photonics
-- Research and Laboratory
-- Marine and Offshore
-- Nuclear Industry
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Rhodium
@@ -453,3 +581,67 @@ metaDescription: Rhodium laser cleaning guide. Remove contamination while preser
 fullPath: /materials/metal/non-ferrous/rhodium-laser-cleaning
 pageDescription: Rhodium offers excellent corrosion resistance, preserving surface integrity even during long-term exposure
   to harsh chemicals and high temperatures in aerospace and chemical processing applications
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Electronics
+      description: Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Jewelry and Luxury Goods
+      description: Jewelry and Luxury Goods industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Optical and Photonics
+      description: Optical and Photonics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Research and Laboratory
+      description: Research and Laboratory industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Marine and Offshore
+      description: Marine and Offshore industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Nuclear Industry
+      description: Nuclear Industry industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

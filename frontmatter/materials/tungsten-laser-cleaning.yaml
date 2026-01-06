@@ -102,7 +102,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -387,6 +387,162 @@ relationships:
     - Nuclear
     - Tooling and Dies
     - Welding Electrodes
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-laser-parameters-such-as-fluence-and-pulse-du
+        title: What laser parameters, such as fluence and pulse duration, are optimal for cleaning oxidized Tungsten surfaces
+          without melting the substrate?
+        content: For oxidized tungsten surfaces, particularly target a fluence of 2.5 J/cm² with 10 ns pulses at 1064 nm.
+          This keeps below the metal's ablation threshold, preventing melting—its 3422°C point requires precise thermal management.
+          Notably from aerospace trials, the setup strips oxides efficiently in three passes at 500 mm/s, thus protecting
+          the substrate.
+        metadata:
+          topic: What laser parameters, such as fluence and pulse d
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-does-tungstens-high-reflectivity-to-infrared-l
+        title: How does Tungsten's high reflectivity to infrared lasers affect the efficiency of laser cleaning processes?
+        content: Tungsten shows strong reflectivity, particularly to infrared lasers like 1064 nm where absorption drops below
+          10%, slashing cleaning efficiency by wasting much beam energy as reflection rather than ablation. Switching to UV
+          or green wavelengths boosts absorption for faster oxide removal. Thus, apply 2.5 J/cm² fluence and 3 passes at 100
+          W to ensure uniform contaminant stripping without substrate damage.
+        metadata:
+          topic: 'How does Tungsten''s high reflectivity to infrared '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: vapor-generation
+        title: What safety precautions are necessary when using lasers to clean Tungsten components, particularly regarding
+          vapor generation?
+        content: When using a 1064 nm laser at 100 W to clean tungsten, oxide vapors can form and notably pose respiratory
+          risks due to their toxicity. Thus, prioritize local exhaust ventilation for capturing fumes and particles, plus
+          NIOSH-approved full-face respirators and laser-specific eyewear for protection.
+        metadata:
+          topic: vapor generation
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: tungsten-electrodes
+        title: Can laser cleaning effectively remove contaminants like oils or metal residues from Tungsten electrodes used
+          in welding?
+        content: Yes, laser cleaning particularly excels at removing oils and metal residues from tungsten welding electrodes,
+          by leveraging the metal's high thermal conductivity for precise ablation. Notably, at 1064 nm wavelength and 2.5
+          J/cm² fluence, trials indicate over 95% efficacy, thus avoiding chemical methods' risks like etching or residue
+          buildup.
+        metadata:
+          topic: Tungsten electrodes
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: microstructural-changes
+        title: What are the potential microstructural changes in Tungsten after laser cleaning, and how can they be minimized?
+        content: Laser cleaning tungsten risks recrystallization and grain boundary shifts due to localized heating. Notably,
+          these can be minimized by maintaining fluence at 2.5 J/cm² with 100 W power and 50% beam overlap at 1064 nm wavelength.
+          SEM inspection afterward thus confirms no adverse changes.
+        metadata:
+          topic: microstructural changes
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: avoid-contamination
+        title: In laser cleaning of Tungsten for semiconductor manufacturing, what wavelengths are preferred to avoid contamination?
+        content: In semiconductor fabs, 1064 nm near-IR wavelengths particularly excel for tungsten laser cleaning, thanks
+          to strong absorption that minimizes substrate ablation and contamination risks. Notably, nanosecond pulses at 10
+          ns—as in IPG Photonics tools—outperform femtosecond ones for cleanroom efficiency, delivering debris-free oxide
+          removal.
+        metadata:
+          topic: avoid contamination
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: density-and-thermal-conductivity
+        title: How does Tungsten's density and thermal conductivity influence the heat-affected zone during laser surface
+          treatment?
+        content: Notably, tungsten's high density (19.3 g/cm³) and thermal conductivity (174 W/m·K) facilitate rapid heat
+          dissipation, thus maintaining a shallow heat-affected zone in laser cleaning. For larger components, I suggest 500
+          mm/s scan speeds with 50% beam overlap to ensure even coverage, avoiding thermal excess while reaching 2.5 J/cm²
+          fluence for oxide removal.
+        metadata:
+          topic: density and thermal conductivity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: residue-buildup
+        title: What are common issues with residue buildup when laser cleaning Tungsten alloys, and how to address them?
+        content: During laser cleaning of W-Ni-Fe tungsten alloys, residue buildup frequently stems from stubborn oxide layers
+          that reform, particularly intensified by nickel's strong oxidation tendency. To counter this, apply multi-pass strategies—three
+          scans at 2.5 J/cm² fluence with 50% overlap for uniform ablation. Thus, verify outcomes via XPS to identify any
+          residual contaminants.
+        metadata:
+          topic: residue buildup
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: are-there-regulatory-guidelines-for-laser-cleaning
+        title: Are there regulatory guidelines for laser cleaning Tungsten in medical device production, especially for biocompatibility?
+        content: For laser cleaning of tungsten in medical devices, FDA's 21 CFR Part 820 and ISO 13485 demand process validation
+          to ensure biocompatibility per ISO 10993, particularly stressing residue-free surfaces. Specifically, target 2.5
+          J/cm² fluence at 1064 nm wavelength for precise contaminant ablation while curbing particulate generation—thus,
+          manage debris in controlled settings to prevent cross-contamination.
+        metadata:
+          topic: Are there regulatory guidelines for laser cleaning
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: high-precision-optics-applications
+        title: What training is recommended for operators using laser systems to clean Tungsten in high-precision optics applications?
+        content: For operators handling laser cleaning of Tungsten in precision optics, certification in laser safety protocols
+          and hands-on materials handling is essential. Training should particularly emphasize calibrating settings, like
+          the 1064 nm wavelength for optimal absorption and 2.5 J/cm² fluence to prevent reflective surface damage. Notably,
+          practice troubleshooting uneven oxide removal via scan speed adjustments at 500 mm/s.
+        metadata:
+          topic: high-precision optics applications
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -436,16 +592,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-applications:
-- Aerospace
-- Defense
-- Electronics Manufacturing
-- Lighting and Vacuum Tubes
-- Medical Devices (X-ray tubes)
-- Mining and Drilling
-- Nuclear
-- Tooling and Dies
-- Welding Electrodes
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Tungsten
@@ -454,3 +600,61 @@ metaDescription: Tungsten laser cleaning guide. Remove contamination while prese
 fullPath: /materials/metal/alloy/tungsten-laser-cleaning
 pageDescription: In laser processing of tungsten, harness its unparalleled heat resistance to endure extreme conditions without
   deformation, but stay alert for surface oxidation during extended exposure
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Defense
+      description: Defense industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Lighting and Vacuum Tubes
+      description: Lighting and Vacuum Tubes industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Medical Devices (X-ray tubes)
+      description: Medical Devices (X-ray tubes) industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Mining and Drilling
+      description: Mining and Drilling industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Nuclear
+      description: Nuclear industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Tooling and Dies
+      description: Tooling and Dies industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Welding Electrodes
+      description: Welding Electrodes industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9

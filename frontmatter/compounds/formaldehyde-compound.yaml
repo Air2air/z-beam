@@ -104,7 +104,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -454,6 +454,37 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-detect-and-monitor-formaldehyde-exposure
+        title: How can I detect and monitor formaldehyde exposure levels while performing laser cleaning on materials that
+          may release it?
+        content: Use portable gas detectors or colorimetric badges specifically designed for formaldehyde to provide real-time
+          or integrated exposure readings during operations. Regularly calibrate these devices and place them near the breathing
+          zone to ensure accurate detection, aiming to keep levels below the OSHA permissible exposure limit of 0.75 ppm (8-hour
+          time-weighted average) and 2 ppm short-term exposure limit. If levels approach or exceed these thresholds, immediately
+          stop work, increase ventilation, and evacuate if necessary to prevent carcinogenic risks.
+        metadata:
+          topic: How can I detect and monitor formaldehyde exposure
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Formaldehyde (CH₂O)
 subcategory: aldehyde
 ppe_requirements: Handling formaldehyde compounds demands careful preparation in any workspace, starting with assessing exposure

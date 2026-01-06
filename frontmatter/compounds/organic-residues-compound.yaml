@@ -109,7 +109,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -251,6 +251,38 @@ relationships:
       effect: Gastrointestinal distress and potential liver/kidney effects
       severity: high
       onset: short-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-what-personal-protect
+        title: As a laser cleaning operator, what personal protective equipment should I use to protect against exposure to
+          organic residue particulates (CxHyOz) generated during the process?
+        content: Prioritize an airtight respirator, such as an N95 or P100-rated mask with proper fit-testing, right away
+          when handling organic residues, as these fine particulates can linger in the air like dust from burning materials
+          and pose inhalation risks. Combine this with eye protection like sealed goggles and full-body coveralls to prevent
+          skin contact or secondary inhalation. Always ensure the work area has adequate ventilation or local exhaust systems
+          to reduce airborne concentrations below general particulate exposure limits (e.g., 5 mg/m³ for respirable dust per
+          OSHA guidelines, though specific limits vary by composition).
+        metadata:
+          topic: As a laser cleaning operator, what personal protec
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Organic Residues
 subcategory: organic
 ppe_requirements: 'Handling organic residue compounds in particulate form demands solid protection, especially in dusty workshops

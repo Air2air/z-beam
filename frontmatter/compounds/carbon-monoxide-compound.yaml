@@ -63,7 +63,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -441,6 +441,36 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-protection-methods-should-laser-cleaning-oper
+        title: What protection methods should laser cleaning operators use to prevent carbon monoxide (CO) exposure?
+        content: Always work in well-ventilated areas or use local exhaust ventilation systems to dilute and remove CO generated
+          from material vaporization during laser cleaning. Wear a respirator with an appropriate cartridge (e.g., NIOSH-approved
+          for organic vapors and acid gases) if ventilation is inadequate, and ensure personal CO monitors or alarms are worn
+          to provide real-time detection. Regularly maintain equipment to minimize incomplete combustion sources, and follow
+          OSHA's permissible exposure limit of 50 ppm over an 8-hour workday to avoid symptoms like headaches or dizziness.
+        metadata:
+          topic: What protection methods should laser cleaning oper
+          severity: critical
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Carbon Monoxide (CO)
 subcategory: asphyxiant
 ppe_requirements: 'Unlike many everyday hazards that announce themselves with visible signs or strong smells, carbon monoxide

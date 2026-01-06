@@ -1,11 +1,11 @@
 /**
  * @component IndustryApplicationsPanel
- * @purpose Display industry applications using Collapsible component
- * @extends Collapsible
+ * @purpose Display industry applications using CardListPanel base component
+ * @extends CardListPanel
  * 
  * Supports:
  * - relationships.operational.industry_applications structure
- * - Badge presentation for compact display
+ * - Card presentation for simple list display
  * - Collapsible mode with section metadata
  * - Fallback for legacy flat arrays
  * 
@@ -13,7 +13,9 @@
  */
 
 import { Collapsible } from '../Collapsible';
+import { createCardListPanel } from '../CardListPanel/CardListPanel';
 import type { RelationshipSection } from '@/types/card-schema';
+import type { CardListItem } from '../CardListPanel/CardListPanel';
 
 interface IndustryApplicationsPanelProps {
   applications: {
@@ -50,19 +52,51 @@ export function IndustryApplicationsPanel({
   if (items.length === 0) return null;
 
   // Get section metadata or use defaults based on variant
-  const sectionMetadata = applications._section || {
+  const sectionMetadata = applications._section || applications.sectionMetadata || {
     section_title: getDefaultTitle(variant, entityName),
     section_description: getDefaultDescription(variant),
     icon: 'briefcase',
     order: 1
   };
 
+  // Check presentation type (default to 'card' for simple list display)
+  const presentationType = applications.presentation || 'card';
+
+  // Card presentation: Use CardListPanel base component
+  if (presentationType === 'card') {
+    // Create custom card list panel with industry icon
+    const IndustryCardPanel = createCardListPanel('industry', (item: CardListItem) => (
+      <li className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+        <h3 className="text-lg text-secondary font-semibold mb-1">
+          {item.title || item.name}
+        </h3>
+        {(item.content || item.description) && (
+          <p className="text-sm text-secondary mb-3">
+            {item.content || item.description}
+          </p>
+        )}
+      </li>
+    ));
+
+    return (
+      <IndustryCardPanel
+        items={items}
+        sectionMetadata={sectionMetadata}
+        className={className}
+      />
+    );
+  }
+
+  // Collapsible presentation: Use Collapsible component
   // Format items for Collapsible component
+  // Map frontmatter fields (title/content) to expected fields (name/description)
   const collapsibleItems = [{
     applications: items.map((item: any) => ({
       id: item.id,
-      name: item.name,
-      description: item.description || undefined
+      title: item.title || item.name,
+      name: item.title || item.name,
+      content: item.content || item.description,
+      description: item.content || item.description
     }))
   }];
 

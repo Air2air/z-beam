@@ -72,7 +72,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -398,6 +398,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-what-are-the-key-expo
+        title: As a laser cleaning operator, what are the key exposure limits for phosgene (COCl₂) to stay safe during operations
+          involving potentially chlorinated materials?
+        content: The OSHA permissible exposure limit (PEL) for phosgene is 0.1 ppm as an 8-hour time-weighted average (TWA),
+          with short-term exposure limits not exceeding 0.2 ppm for 15 minutes, and the immediately dangerous to life or health
+          (IDLH) concentration is 2 ppm—always monitor levels below these thresholds using calibrated gas detectors. In laser
+          cleaning, where phosgene may form from ablating plastics like PVC, maintain ventilation to keep concentrations under
+          0.1 ppm and evacuate if levels approach 2 ppm. If exposure is suspected, seek immediate medical attention, as symptoms
+          like chest tightness may be delayed up to 48 hours.
+        metadata:
+          topic: As a laser cleaning operator, what are the key exp
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Phosgene (COCl₂)
 subcategory: reactive_gas
 ppe_requirements: Handling phosgene demands serious caution because this toxic gas can sneak up on you with delayed effects,

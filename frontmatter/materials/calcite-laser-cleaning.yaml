@@ -61,7 +61,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -323,6 +323,60 @@ relationships:
     - Research and Development
     - Museum Conservation
     - Optical Manufacturing
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: without-damaging-the-stone
+        title: How does laser cleaning effectively remove contaminants from calcite surfaces without damaging the stone?
+        content: In laser cleaning, this process applies short, controlled pulses of light to vaporize dirt, soot, or pollutants
+          on calcite surfaces. It targets only the top layers practically, given the material's low absorption at key wavelengths,
+          while preserving the underlying structure.
+        metadata:
+          topic: without damaging the stone
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: calcite-based-artifacts
+        title: What are the benefits of using laser technology for restoring calcite-based artifacts?
+        content: This process delivers a practical, non-abrasive restoration for calcite, showcasing its natural beauty and
+          optical clarity. It efficiently minimizes crack risks from mechanical methods while remaining environmentally friendly
+          by skipping chemicals.
+        metadata:
+          topic: calcite-based artifacts
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: acid-induced-degradation
+        title: Can laser cleaning address the common problem of acid-induced degradation on calcite marble?
+        content: Yes, but with some limitations. Lasers offer a practical way to safely remove surface corrosion from acid
+          exposure, avoiding further dissolution. For severe internal damage, though, complementary treatments are needed
+          to stabilize the calcite's reactivity and halt ongoing erosion in acidic conditions. This process works efficiently
+          for preventive maintenance on sculptures and buildings.
+        metadata:
+          topic: acid-induced degradation
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -380,17 +434,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Cultural Heritage
-- Geology and Mineralogy
-- Electronics Manufacturing
-- Aerospace
-- Medical Devices
-- Construction and Architecture
-- Energy Sector
-- Research and Development
-- Museum Conservation
-- Optical Manufacturing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Calcite
@@ -399,3 +442,67 @@ metaDescription: Calcite laser cleaning guide. Remove contamination while preser
 fullPath: /materials/stone/sedimentary/calcite-laser-cleaning
 pageDescription: When laser cleaning calcite, I've seen its perfect cleavage cause clean splits if you're not careful, but
   this very trait enables precise contaminant removal without harming the underlying stone structure.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Geology and Mineralogy
+      description: Geology and Mineralogy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Construction and Architecture
+      description: Construction and Architecture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Research and Development
+      description: Research and Development industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Museum Conservation
+      description: Museum Conservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Optical Manufacturing
+      description: Optical Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

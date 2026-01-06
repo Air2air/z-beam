@@ -115,7 +115,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -217,6 +217,37 @@ relationships:
       effect: Low toxicity, possible gastrointestinal discomfort
       severity: low
       onset: short-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-protective-measures-should-i-take-to-avoid-in
+        title: What protective measures should I take to avoid inhaling tin oxide (SnO₂) particulates during laser cleaning
+          of metal surfaces?
+        content: Prioritize using a NIOSH-approved half-face or full-face respirator with P100 filters, ensuring a proper
+          fit test before starting work, as laser cleaning can aerosolize fine SnO₂ dust rapidly. Implement local exhaust
+          ventilation or work in a fume hood to capture particulates at the source, and perform operations in a well-ventilated
+          area to keep exposure below the OSHA PEL of 0.5 mg/m³ (as Sn). After each session, clean up any settled dust with
+          HEPA-vacuuming rather than sweeping to prevent re-suspension.
+        metadata:
+          topic: What protective measures should I take to avoid in
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Tin Oxide (SnO₂)
 subcategory: metal-oxide
 ppe_requirements: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—

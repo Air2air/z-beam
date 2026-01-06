@@ -109,11 +109,11 @@ export function resolveCardData(
 }
 
 /**
- * Resolve URL from entity's full_path
+ * Resolve URL from entity's fullPath
  * 
  * @param entityId - Entity identifier
  * @param contentType - Optional content type hint
- * @returns URL path from entity's full_path field
+ * @returns URL path from entity's fullPath field
  */
 export function resolveEntityUrl(
   entityId: string,
@@ -121,12 +121,12 @@ export function resolveEntityUrl(
 ): string {
   const entity = loadEntityFrontmatter(entityId, contentType);
   
-  if (!entity || !entity.full_path) {
-    console.warn(`No full_path found for entity: ${entityId}`);
+  if (!entity || !entity.fullPath) {
+    console.warn(`No fullPath found for entity: ${entityId}`);
     return '#';
   }
   
-  return entity.full_path;
+  return entity.fullPath;
 }
 
 // ============================================

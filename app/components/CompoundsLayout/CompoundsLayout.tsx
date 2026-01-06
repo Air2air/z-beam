@@ -64,7 +64,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
         category: metadata.category || '',
         subcategory: metadata.subcategory || '',
         description: ref.typical_context || metadata.description || '',
-        url: ref.url || metadata.full_path, // Prefer relationship URL, then full_path
+        url: ref.url || metadata.fullPath, // Prefer relationship URL, then fullPath
         frequency: ref.frequency,
         severity: ref.severity,
         typical_context: ref.typical_context,
@@ -90,7 +90,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
         category: metadata.category || '',
         subcategory: metadata.subcategory || '',
         description: metadata.description || '',
-        url: metadata.full_path, // Must have full_path in metadata
+        url: metadata.fullPath, // Must have fullPath in metadata
         image: metadata.images?.hero?.url || '',
       };
     })

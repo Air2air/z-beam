@@ -100,7 +100,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -386,6 +386,158 @@ relationships:
     - Advanced Materials Research
     - Automotive Electronics
     - Cultural Heritage Preservation
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: gallium-contamination
+        title: Can laser cleaning safely remove gallium contamination from aluminum surfaces without causing damage?
+        content: Yeah, laser cleaning can pretty safely remove gallium contamination from aluminum. Basically, a 1064 nm wavelength
+          at ~1.2 J/cm² fluence selectively ablates the gallium without etching the substrate. Typically, post-process EDS
+          verification confirms complete removal and prevents liquid metal embrittlement.
+        metadata:
+          topic: gallium contamination
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: gallium-residues
+        title: What laser wavelength (Fiber, Nd:YAG, etc.) works best for removing gallium residues from equipment surfaces?
+        content: I'd recommend 1064 nm fiber lasers for gallium residue removal, given their fairly high 61.8% absorption
+          rate in gallium. This near-IR wavelength basically vaporizes the metal efficiently at a fluence threshold of 1.2
+          J/cm², helping prevent substrate damage. Gallium's low melting point of 29.76°C demands precise thermal control
+          to avoid spreading molten material.
+        metadata:
+          topic: gallium residues
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: hazardous-fumes-or-nanoparticles
+        title: Does laser cleaning gallium create hazardous fumes or nanoparticles that require special ventilation?
+        content: Yes, gallium laser cleaning produces pretty hazardous nanoparticles and fumes, calling for robust ventilation.
+          Given its fairly low 29.8°C melting point and high 2204°C boiling point, the process readily generates respirable
+          metallic aerosols. Employ local exhaust ventilation plus a P100 respirator to counter inhalation risks from these
+          ultrafine particulates.
+        metadata:
+          topic: hazardous fumes or nanoparticles
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: porous-surfaces
+        title: How do you verify that all gallium has been completely removed after laser cleaning, particularly from porous
+          surfaces?
+        content: For validating porous surfaces, we basically rely on EDX mapping at 15 kV to detect trace gallium residues
+          below 0.1 wt%. With gallium's fairly low melting point of 29.76°C, we also conduct thermal cycling to check for
+          weeping from subsurface contamination that could trigger embrittlement.
+        metadata:
+          topic: porous surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: low-melting-point-metals
+        title: What are the specific laser parameter adjustments needed for cleaning gallium versus other low-melting-point
+          metals?
+        content: For gallium's fairly low 29.8°C melting point, go with ultra-short pulses under 15 ns and a fluence just
+          above its 0.45 J/cm² ablation threshold. Basically, this cuts heat input to prevent liquid phase issues while tapping
+          its high surface tension for clean material removal.
+        metadata:
+          topic: low-melting-point metals
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: can-laser-cleaning-cause-gallium-to-alloy-with-or-
+        title: Can laser cleaning cause gallium to alloy with or further penetrate substrate materials during the cleaning
+          process?
+        content: Yes, laser cleaning can basically lead to gallium alloying if thermal input isn't controlled properly. Given
+          its pretty low melting point of 29.76°C, excessive fluence above ~1.2 J/cm² promotes diffusion into aluminum or
+          copper substrates. Opt for short 15 ns pulses and high scan speeds to ablate contaminants without melting the bulk
+          material.
+        metadata:
+          topic: 'Can laser cleaning cause gallium to alloy with or '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: gallium-contaminated-debris
+        title: What waste management procedures are required for gallium-contaminated debris generated during laser cleaning?
+        content: Gallium debris typically falls under D008 hazardous waste classification because of its toxicity. For your
+          1064 nm laser system, HEPA filtration is essential to capture vaporized particles, as gallium's 2204°C boiling point
+          basically generates fine aerosols during ablation. Consult California's specific metal disposal regulations for
+          proper handling.
+        metadata:
+          topic: gallium-contaminated debris
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: low-melting-point
+        title: How does gallium's low melting point affect laser cleaning efficiency compared to higher-temperature metals?
+        content: Gallium melts at a pretty low 29.8°C, slashing the energy demands for laser cleaning far below what's typical
+          for steel. Still, that low point brings a fairly serious splatter hazard, demanding tight control under the 1.2
+          J/cm² ablation threshold to handle its swift phase shift.
+        metadata:
+          topic: low melting point
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: gallium-spread
+        title: What surface preparation or containment methods prevent gallium spread during laser cleaning operations?
+        content: Keep gallium under its 29.8°C melting point with active chilling to avoid liquefaction. For containment,
+          basically apply a low-fluence (~1.2 J/cm²) laser at 1064 nm to vaporize oxides without melting the base metal. Pretty
+          much, pre-clean parts via cryogenic cooling to freeze surface contaminants, keeping them brittle for precise removal.
+        metadata:
+          topic: gallium spread
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: sensitive-electronic-components
+        title: Are there specific laser cleaning protocols for removing gallium from sensitive electronic components or connectors?
+        content: For delicate electronics, basically stick to low-power nanosecond pulses at the 1064nm wavelength, keeping
+          fluence fairly below 1.2 J/cm². Gallium's 29.76°C melting point demands careful thermal management to avoid smearing.
+          Then, follow up with an isopropyl alcohol rinse to clear residual conductive particles, and confirm cleanliness
+          via electrical testing.
+        metadata:
+          topic: sensitive electronic components
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -444,17 +596,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Semiconductor Manufacturing
-- Aerospace Components
-- Medical Device Manufacturing
-- Research Laboratory Equipment
-- Electronics Recycling
-- Optical Component Manufacturing
-- Nuclear Medicine
-- Advanced Materials Research
-- Automotive Electronics
-- Cultural Heritage Preservation
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Gallium
@@ -463,3 +604,67 @@ metaDescription: Gallium laser cleaning guide. Remove contamination while preser
 fullPath: /materials/metal/specialty/gallium-laser-cleaning
 pageDescription: We've found that Gallium stands out among metals due to its low melting point near room temperature, enabling
   fluid handling in semiconductor manufacturing while requiring careful thermal control to avoid deformation
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Semiconductor Manufacturing
+      description: Semiconductor Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace Components
+      description: Aerospace Components industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Device Manufacturing
+      description: Medical Device Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Research Laboratory Equipment
+      description: Research Laboratory Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Electronics Recycling
+      description: Electronics Recycling industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Optical Component Manufacturing
+      description: Optical Component Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Nuclear Medicine
+      description: Nuclear Medicine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Advanced Materials Research
+      description: Advanced Materials Research industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Automotive Electronics
+      description: Automotive Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Cultural Heritage Preservation
+      description: Cultural Heritage Preservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

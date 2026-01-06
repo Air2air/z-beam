@@ -49,7 +49,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -463,6 +463,49 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: can-laser-cleaning-cause-discoloration-on-stainles
+        title: Can laser cleaning cause discoloration on Stainless Steel 316?
+        content: I've seen discoloration happen if you push the laser power too high right away on Stainless Steel 316, so
+          start with lower settings to avoid heat buildup that marks the surface. This material's strong resistance to oxidation
+          helps it recover quickly once you adjust, unlike softer metals that pit easily. Keep the beam moving steadily, and
+          you'll get a clean finish without any lasting color changes.
+        metadata:
+          topic: Can laser cleaning cause discoloration on Stainles
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-do-i-prevent-warping-when-laser-cleaning-stain
+        title: How do I prevent warping when laser cleaning Stainless Steel 316 parts?
+        content: When laser cleaning Stainless Steel 316, watch out for warping because its good thermal conductivity spreads
+          heat fast if you linger in one spot, so use short pulses from the start. I've found that compared to aluminum, which
+          warps even easier under heat, this steel holds shape better with controlled passes. Focus on cooling the piece between
+          scans, and it stays flat without needing extra fixtures.
+        metadata:
+          topic: How do I prevent warping when laser cleaning Stain
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -474,15 +517,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Marine
-- Medical Devices
-- Chemical Processing
-- Food and Beverage
-- Pharmaceutical
-- Oil and Gas
-- Surgical Instruments
-- Coastal Construction
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Stainless Steel 316
@@ -491,3 +525,55 @@ metaDescription: Stainless Steel 316 laser cleaning guide. Remove contamination 
 fullPath: /materials/metal/alloy/stainless-steel-316-laser-cleaning
 pageDescription: When laser cleaning Stainless Steel 316, rely on its superior corrosion resistance to keep surfaces intact
   in salty or chemical environments, and always adjust the power to avoid unnecessary heat buildup.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Food and Beverage
+      description: Food and Beverage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Pharmaceutical
+      description: Pharmaceutical industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Oil and Gas
+      description: Oil and Gas industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Surgical Instruments
+      description: Surgical Instruments industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Coastal Construction
+      description: Coastal Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

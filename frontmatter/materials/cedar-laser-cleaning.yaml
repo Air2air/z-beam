@@ -99,7 +99,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -372,6 +372,153 @@ relationships:
     - Energy
     - Automotive
     - Medical
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: surface-damage-or-discoloration
+        title: Can cedar wood be safely laser cleaned without causing surface damage or discoloration?
+        content: Yes, cedar can be fairly safely laser cleaned using precise parameters to avoid charring. We typically recommend
+          a 1064 nm wavelength at 2.5 J/cm² fluence for effectively removing contaminants while preserving the wood's natural
+          resins. This method minimizes heat diffusion, safeguarding the delicate surface from discoloration.
+        metadata:
+          topic: surface damage or discoloration
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: cedar-siding
+        title: What laser settings (wavelength, power, pulse duration) work best for cleaning soot and mildew from cedar siding?
+        content: For cedar siding, I'd typically recommend a 1064 nm wavelength at 100 W average power with 12 ns pulses.
+          Keep fluence fairly around 2.5 J/cm² to effectively remove soot and mildew without harming the wood substrate. This
+          setup delivers sufficient energy for contaminant ablation while limiting heat diffusion into the delicate cedar
+          surface.
+        metadata:
+          topic: cedar siding
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: how-does-laser-cleaning-affect-cedars-natural-weat
+        title: How does laser cleaning affect cedar's natural weather-resistant properties and preservative treatments?
+        content: A well-tuned 1064nm laser cleaning at 2.5 J/cm² fluence pretty effectively strips away contaminants while
+          safeguarding cedar's natural protective oils. This fairly minimally invasive approach preserves the wood's built-in
+          rot resistance without undermining surface-applied sealants.
+        metadata:
+          topic: How does laser cleaning affect cedar's natural wea
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: damaging-the-wood-grain
+        title: Is laser cleaning effective for removing old paint from cedar shingles without damaging the wood grain?
+        content: Yes, laser cleaning pretty effectively strips old paint from cedar shingles while keeping the delicate grain
+          intact. Basically, a 1064 nm wavelength at 2.5 J/cm² fluence ablates the paint layer selectively, without harming
+          the underlying wood substrate—unlike abrasive mechanical methods.
+        metadata:
+          topic: damaging the wood grain
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: fumes-and-particulates
+        title: What safety precautions are needed when laser cleaning cedar, particularly regarding fumes and particulates?
+        content: Cedar's natural resins produce pretty significant toxic fumes during ablation at 100W. For safety, you'll
+          typically require industrial ventilation plus a P100 respirator to manage the fine wood particulates and volatile
+          organic compounds. Keep fluence at 2.5 J/cm² to reduce charring and fire hazards.
+        metadata:
+          topic: fumes and particulates
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: immediate-re-sealing
+        title: Does laser cleaning cedar create surface conditions that require immediate re-sealing or protective coating?
+        content: Proper laser cleaning at 2.5 J/cm² fluence basically opens up cedar's surface porosity, boosting coating
+          adhesion. This yields a fairly ideal, contaminant-free substrate that doesn't need immediate sealing, though it
+          should get coated within the typical preparation window for top-notch bond strength.
+        metadata:
+          topic: immediate re-sealing
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: antique-cedar-furniture
+        title: How does laser cleaning compare to traditional methods (sanding, chemical strippers) for restoring antique
+          cedar furniture?
+        content: Laser cleaning basically preserves cedar's delicate patina way better than abrasive methods. At our 2.5 J/cm²
+          fluence threshold, contaminants get fairly selectively removed without damaging the wood grain, ideal for intricate
+          carvings where sanding would ruin original surface details.
+        metadata:
+          topic: antique cedar furniture
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: can-laser-systems-effectively-remove-biological-gr
+        title: Can laser systems effectively remove biological growth (moss, algae, lichen) from cedar roofs without damaging
+          the shakes?
+        content: Yes, laser systems pretty effectively remove biological growth from cedar shakes using 2.5 J/cm² fluence.
+          That near-infrared wavelength at 1064 nm ablates moss and lichen while fairly minimizing heat penetration into the
+          wood's porous structure, preventing damage.
+        metadata:
+          topic: Can laser systems effectively remove biological gr
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: degraded-cedar-surfaces
+        title: What are the limitations of laser cleaning for heavily weathered or degraded cedar surfaces?
+        content: Severely degraded cedar with its structural integrity pretty much compromised presents a major risk. Using
+          our standard 2.5 J/cm² fluence, friable wood fibers can get ablated, resulting in surface loss. When the substrate
+          is basically the contaminant, mechanical methods are typically better for preserving the leftover sound material.
+        metadata:
+          topic: degraded cedar surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: density-and-grain-pattern
+        title: How does cedar's density and grain pattern affect laser cleaning efficiency and results?
+        content: Cedar's density varies fairly between earlywood and latewood, requiring precise fluence control around 2.5
+          J/cm² to prevent differential etching along the grain. Knotty areas typically need lower power settings than clear
+          vertical grain to avoid charring, and a 500 mm/s scan speed helps manage this heterogeneity for uniform cleaning.
+        metadata:
+          topic: density and grain pattern
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -439,17 +586,6 @@ regulatory_standards:
   longName: Unknown Organization
   name: Unknown
   url: ''
-applications:
-- Cultural Heritage
-- Marine
-- Construction
-- Furniture Manufacturing
-- Musical Instruments
-- Aerospace
-- Food Processing
-- Energy
-- Automotive
-- Medical
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Cedar
@@ -459,3 +595,67 @@ fullPath: /materials/wood/softwood/cedar-laser-cleaning
 pageDescription: When laser cleaning Cedar, keep an eye on its natural porosity, which draws contaminants deep into the wood,
   so you'll need to tweak scan speeds to prevent uneven ablation. That same porosity helps bounce back surface integrity fast
   afterward, letting vapors vent out freely without trapping heat under the wood fibers.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Furniture Manufacturing
+      description: Furniture Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Musical Instruments
+      description: Musical Instruments industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy
+      description: Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Medical
+      description: Medical industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

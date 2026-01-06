@@ -76,7 +76,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -373,6 +373,96 @@ relationships:
     - Optics and Laser Manufacturing
     - Marine and Naval
     - Cultural Heritage Preservation
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: effectively-remove-contaminants
+        title: How does laser cleaning effectively remove contaminants from beryllium surfaces without damaging its structure?
+        content: Laser cleaning employs precise pulsed lasers, specifically to vaporize oxides, oils, and residues from beryllium
+          surfaces. Leveraging its high thermal conductivity avoids heat-affected zones. Notably, this non-abrasive technique
+          preserves the metal's integrity and low density.
+        metadata:
+          topic: effectively remove contaminants
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: challenging-to-clean
+        title: What makes beryllium challenging to clean using traditional methods?
+        content: Specifically, beryllium's brittleness in traditional abrasive or chemical cleaning can cause surface pitting,
+          thus generating toxic dust due to its toxicity.
+        metadata:
+          topic: challenging to clean
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: aerospace-applications
+        title: Why is laser cleaning preferred for beryllium in aerospace applications?
+        content: Notably, in aerospace, beryllium's lightweight and fatigue-resistant properties remain crucial. Laser cleaning
+          specifically delivers contaminant-free surfaces without added stresses that could undermine structural performance,
+          thus extending component lifespan considerably.
+        metadata:
+          topic: aerospace applications
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: berylliums-toxicity-risks
+        title: Can laser cleaning address beryllium's toxicity risks during restoration?
+        content: Yes, it notably minimizes dust generation versus mechanical methods, thus lowering inhalation risks. Proper
+          ventilation and PPE remain essential.
+        metadata:
+          topic: beryllium's toxicity risks
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: nuclear-reactor-maintenance
+        title: Is beryllium suitable for laser cleaning in nuclear reactor maintenance?
+        content: Absolutely; laser cleaning particularly enhances its low neutron absorption and corrosion resistance by precisely
+          removing radioactive contaminants, thus avoiding any alteration to thermal properties or introduction of impurities
+          that could impair reactor efficiency.
+        metadata:
+          topic: nuclear reactor maintenance
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: compare-to-its-value
+        title: How does the cost of laser cleaning beryllium compare to its value in high-stakes uses?
+        content: While the initial laser setup proves costly, it yields long-term savings by averting damage to pricey beryllium
+          components in defense and electronics. Particularly, beryllium's superior conductivity and stiffness thus warrant
+          the investment over cheaper, inferior cleaning methods.
+        metadata:
+          topic: compare to its value
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -430,17 +520,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace and Defense
-- Nuclear Energy
-- Medical Device Manufacturing
-- Electronics and Semiconductor
-- Automotive Racing
-- Research and Laboratory
-- Telecommunications
-- Optics and Laser Manufacturing
-- Marine and Naval
-- Cultural Heritage Preservation
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Beryllium
@@ -450,3 +529,67 @@ fullPath: /materials/metal/specialty/beryllium-laser-cleaning
 pageDescription: When laser cleaning Beryllium parts for aerospace use, we've found the biggest hurdle is its slick surface
   that resists absorption of the beam, so we dial in steady pulses to strip away grime effectively while keeping heat spread
   even to dodge any warping in those lightweight frames.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace and Defense
+      description: Aerospace and Defense industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Nuclear Energy
+      description: Nuclear Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Device Manufacturing
+      description: Medical Device Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics and Semiconductor
+      description: Electronics and Semiconductor industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Automotive Racing
+      description: Automotive Racing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Research and Laboratory
+      description: Research and Laboratory industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Telecommunications
+      description: Telecommunications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Optics and Laser Manufacturing
+      description: Optics and Laser Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Marine and Naval
+      description: Marine and Naval industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Cultural Heritage Preservation
+      description: Cultural Heritage Preservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

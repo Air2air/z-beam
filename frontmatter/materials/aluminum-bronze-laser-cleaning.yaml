@@ -53,7 +53,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -435,6 +435,60 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-effectively-clean-oxidation-from-aluminu
+        title: How can I effectively clean oxidation from aluminum bronze using a laser?
+        content: We've found that oxidation on aluminum bronze builds up stubbornly because of its strong resistance to corrosion,
+          making single passes less effective. You need to use multiple short bursts from the laser to gradually lift the
+          layer without overheating the base material. In our experience, adjusting the beam to a wider focus helps spread
+          the energy and prevents any uneven heating spots.
+        metadata:
+          topic: How can I effectively clean oxidation from aluminu
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: what-settings-work-best-for-laser-cleaning-aluminu
+        title: What settings work best for laser cleaning aluminum bronze parts?
+        content: When laser cleaning aluminum bronze, the main challenge comes from its high reflectivity, which bounces much
+          of the laser energy away compared to less shiny metals like steel. We typically start with lower power levels and
+          slower scan speeds to build up absorption gradually over the surface. This approach ensures you remove contaminants
+          like grease or scale while keeping the alloy's durable structure intact.
+        metadata:
+          topic: What settings work best for laser cleaning aluminu
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: why-does-aluminum-bronze-sometimes-warp-during-las
+        title: Why does aluminum bronze sometimes warp during laser cleaning?
+        content: Aluminum bronze can warp if the laser heat isn't managed well, especially since it conducts heat
+        metadata:
+          topic: Why does aluminum bronze sometimes warp during las
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -446,15 +500,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Marine
-- Aerospace
-- Oil and Gas
-- Chemical Processing
-- Valve Manufacturing
-- Pump Components
-- Bearings
-- Corrosion-Resistant Equipment
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Aluminum Bronze
@@ -464,3 +509,55 @@ fullPath: /materials/metal/alloy/aluminum-bronze-laser-cleaning
 pageDescription: Aluminum Bronze acts as strong, corrosion-resistant alloy for laser cleaning. Its durability withstands heat
   during treatment, so contaminants remove easily from surface. Hardness poses challenge, because process needs careful control
   to avoid damage.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Oil and Gas
+      description: Oil and Gas industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Valve Manufacturing
+      description: Valve Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Pump Components
+      description: Pump Components industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Bearings
+      description: Bearings industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Corrosion-Resistant Equipment
+      description: Corrosion-Resistant Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

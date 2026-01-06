@@ -101,7 +101,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -203,6 +203,37 @@ relationships:
       effect: Irritation and abrasion
       severity: moderate
       onset: immediate
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-what-protection-metho
+        title: As a laser cleaning operator, what protection methods should I use to minimize exposure to silicon dioxide
+          (SiO₂) particulates generated during the process?
+        content: Start by assessing the workspace to minimize airborne exposure through engineering controls like local exhaust
+          ventilation or enclosed cleaning systems to capture particulates at the source. Wear a properly fitted NIOSH-approved
+          respirator with an N95 or higher rating for particulate protection, along with gloves, safety goggles, and a coverall
+          to prevent skin and eye contact. Regularly monitor air quality with particulate samplers and follow decontamination
+          procedures after shifts to avoid secondary exposure.
+        metadata:
+          topic: As a laser cleaning operator, what protection meth
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Silicon Dioxide (SiO₂)
 subcategory: mineral
 ppe_requirements: Handling silicon dioxide particulates starts with assessing the workspace setup, where fine dust particles

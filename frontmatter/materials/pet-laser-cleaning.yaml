@@ -51,7 +51,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -283,6 +283,60 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: why-does-pet-sometimes-warp-during-laser-cleaning
+        title: Why does PET sometimes warp during laser cleaning?
+        content: I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the
+          laser heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this,
+          keep the laser moving steadily and use shorter pulses so the material stays intact without deforming.
+        metadata:
+          topic: Why does PET sometimes warp during laser cleaning?
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-do-i-prepare-pet-surfaces-for-effective-laser-
+        title: How do I prepare PET surfaces for effective laser cleaning?
+        content: When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This
+          works best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove them
+          cleanly without residue. I've found wiping with a mild solvent beforehand makes the process faster and leaves a
+          spotless finish every time.
+        metadata:
+          topic: 'How do I prepare PET surfaces for effective laser '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: whats-the-best-speed-for-laser-cleaning-pet-to-avo
+        title: What's the best speed for laser cleaning PET to avoid damage?
+        content: Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser
+          plastics, PET's flexibility means it
+        metadata:
+          topic: What's the best speed for laser cleaning PET to av
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -294,15 +348,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Packaging
-- Beverage Industry
-- Food Processing
-- Textiles
-- Consumer Goods
-- Recycling
-- Manufacturing
-- Medical Packaging
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: PET
@@ -311,3 +356,55 @@ metaDescription: Pet laser cleaning guide. Remove contamination while preserving
 fullPath: /materials/plastic/thermoplastic/pet-laser-cleaning
 pageDescription: PET exhibits non-porous and smooth characteristics, so laser cleaning removes contaminants effectively from
   surfaces without damaging underlying structure.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Packaging
+      description: Packaging industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Beverage Industry
+      description: Beverage Industry industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Textiles
+      description: Textiles industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Consumer Goods
+      description: Consumer Goods industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Recycling
+      description: Recycling industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Medical Packaging
+      description: Medical Packaging industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

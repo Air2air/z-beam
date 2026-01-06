@@ -73,7 +73,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -174,6 +174,38 @@ relationships:
       effect: Gastrointestinal irritation with nausea or vomiting in large amounts
       severity: low
       onset: short-term
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-what-respiratory-prot
+        title: As a laser cleaning operator, what respiratory protection should I use to avoid exposure to aluminum oxide
+          (Al₂O₃) particulates generated during the process?
+        content: Prioritize NIOSH-approved respirators with at least an N95 rating for routine operations, upgrading to a
+          half-facepiece respirator with P100 filters if airborne concentrations exceed the OSHA permissible exposure limit
+          (PEL) of 15 mg/m³ for total dust or 5 mg/m³ for the respirable fraction. Always perform a fit test and ensure the
+          workspace has adequate local exhaust ventilation to minimize particle generation and inhalation risks from these
+          fine, potentially irritating particulates. Conduct regular air monitoring to verify protection effectiveness and
+          comply with site-specific safety protocols.
+        metadata:
+          topic: As a laser cleaning operator, what respiratory pro
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Aluminum Oxide (Al₂O₃)
 subcategory: metal-oxide
 ppe_requirements: 'Handling aluminum oxide particulates demands solid protection. Start with your setup—gloves on first to

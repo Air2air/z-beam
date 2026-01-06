@@ -107,7 +107,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -368,6 +368,157 @@ relationships:
     - Construction
     - Industrial Manufacturing
     - Cultural Heritage
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-are-the-optimal-laser-parameters-(wavelength-
+        title: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning carbon fiber reinforced
+          phenolic composites without damaging the underlying fibers?
+        content: For carbon fiber phenolic composites, typically go with a 1064 nm wavelength and about 5.1 J/cm² fluence.
+          Employing a 10 ns pulse width plus 50% beam overlap at 500 mm/s pretty effectively removes the resin matrix without
+          harming the fibers below. These settings basically cut down thermal damage through the differing absorption rates
+          of the polymer versus carbon reinforcement.
+        metadata:
+          topic: What are the optimal laser parameters (wavelength,
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: release-formaldehyde
+        title: Does laser cleaning of phenolic composites create any hazardous byproducts or release formaldehyde?
+        content: Laser ablation of phenolic composites at 5.1 J/cm² can fairly decompose the resin matrix, releasing hazardous
+          byproducts like formaldehyde. Proper fume extraction is basically essential, and operators must wear respiratory
+          protection to reduce exposure risks from these airborne particulates and gases.
+        metadata:
+          topic: release formaldehyde
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: yellowing-or-discoloration
+        title: How do I prevent yellowing or discoloration of phenolic resin surfaces during laser cleaning?
+        content: To prevent yellowing in phenolic resin, basically minimize thermal exposure with our optimal 5.1 J/cm² fluence
+          and 500 mm/s scan speed. This fairly controlled ablation via a 1064 nm wavelength laser sidesteps the excessive
+          heat that triggers discoloration.
+        metadata:
+          topic: yellowing or discoloration
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: carbonized-char
+        title: Can laser cleaning effectively remove carbonized char from phenolic composites after high-temperature exposure
+          without damaging the undamaged substrate?
+        content: Yes, laser cleaning pretty effectively removes carbonized char from phenolic composites at 1064 nm and 5.1
+          J/cm². This fluence fairly selectively ablates the damaged layer, preserving the undamaged substrate beneath for
+          precise post-fire restoration.
+        metadata:
+          topic: carbonized char
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: maximum-ablation-depth
+        title: What's the maximum ablation depth we can achieve on phenolic composites before compromising structural integrity?
+        content: For phenolic composites, keep removal pretty much under 25-50 μm to preserve structural integrity. At 5.1
+          J/cm² fluence, typically monitor depth via optical coherence tomography to avoid damaging underlying reinforcement
+          fibers. Basically, this keeps mechanical properties intact.
+        metadata:
+          topic: maximum ablation depth
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: phenolic-composites
+        title: How does laser cleaning compare to traditional methods like grit blasting or chemical stripping for removing
+          coatings from phenolic composites?
+        content: Laser cleaning basically outperforms traditional methods by pretty precisely ablating coatings at 5.1 J/cm²
+          without harming the composite substrate. As a non-contact approach, it eliminates media embedment and hazardous
+          waste, delivering superior surface quality and environmental safety over abrasive or chemical options.
+        metadata:
+          topic: phenolic composites
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: woven-carbon-phenolic-composites
+        title: What are the challenges with laser cleaning woven carbon phenolic composites versus molded phenolic materials?
+        content: Woven carbon phenolic poses pretty significant challenges owing to its anisotropic structure. Across the
+          weave, the resin-to-fiber ratio varies fairly, demanding precise fluence control near 5.1 J/cm² to prevent carbon
+          fiber fraying—unlike uniform molded materials.
+        metadata:
+          topic: woven carbon phenolic composites
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: subsequent-bonding-or-painting
+        title: Does laser surface treatment improve adhesion for subsequent bonding or painting on phenolic composites?
+        content: Yes, laser treatment fairly significantly boosts adhesion on phenolic composites. At 5.1 J/cm², we basically
+          ramp up surface energy and generate micro-roughness for superior mechanical interlocking, outperforming traditional
+          abrasive methods.
+        metadata:
+          topic: subsequent bonding or painting
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: what-real-time-monitoring-techniques-work-best-for
+        title: What real-time monitoring techniques work best for laser cleaning phenolic composites to prevent over-processing?
+        content: For phenolic composites, laser-induced breakdown spectroscopy (LIBS) typically provides the most precise
+          real-time monitoring. It directly analyzes plasma emissions to distinguish contaminants from the 1064 nm-absorbing
+          resin matrix, preventing damage by confirming the endpoint before exceeding the 5.1 J/cm² ablation threshold. Basically,
+          this ensures you halt the process right upon reaching a clean surface.
+        metadata:
+          topic: What real-time monitoring techniques work best for
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: filler-content
+        title: How does the filler content (glass fibers, carbon fibers, minerals) in phenolic composites affect laser cleaning
+          efficiency and results?
+        content: Filler content can pretty dramatically alter laser cleaning dynamics. Glass fibers typically reflect at 1064
+          nm, demanding higher fluence around 5.1 J/cm², whereas carbon black absorbs quite aggressively and risks fiber damage.
+          Adjust parameters like the 500 mm/s scan speed according to the composite's specific absorption profile to prevent
+          thermal degradation of the matrix.
+        metadata:
+          topic: filler content
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -427,17 +578,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Automotive
-- Electronics
-- Medical Devices
-- Marine
-- Energy
-- Rail Transportation
-- Construction
-- Industrial Manufacturing
-- Cultural Heritage
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Phenolic Resin Composites
@@ -446,3 +586,67 @@ metaDescription: Phenolic Resin Composites laser cleaning guide. Remove contamin
 fullPath: /materials/composite/fiber-reinforced/phenolic-resin-composites-laser-cleaning
 pageDescription: Phenolic resin composites excel with their outstanding heat resistance, preserving structural integrity under
   severe thermal exposure—unlike most other fiber-reinforced materials
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Electronics
+      description: Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Energy
+      description: Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Rail Transportation
+      description: Rail Transportation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Industrial Manufacturing
+      description: Industrial Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

@@ -96,7 +96,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -210,6 +210,38 @@ relationships:
       effect: Burns to the mouth, throat, and gastrointestinal tract, with risk of perforation
       severity: severe
       onset: immediate
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-skin-protection-methods-should-i-use-when-han
+        title: What skin protection methods should I use when handling calcium oxide (CaO) particulates during laser cleaning
+          operations?
+        content: Always wear chemical-resistant gloves made of nitrile or neoprene, along with full-body protective clothing
+          like coveralls or aprons to prevent direct contact with CaO, which can cause severe burns upon reacting with moisture
+          on the skin. Additionally, use safety goggles or a face shield to protect your eyes from dust and splashes, and
+          immediately rinse any exposed skin with copious amounts of water if contact occurs, followed by medical attention.
+          Ensure your workspace has good ventilation to minimize airborne particulate exposure, and follow OSHA guidelines
+          limiting CaO dust to 5 mg/m³ as an 8-hour TWA.
+        metadata:
+          topic: What skin protection methods should I use when han
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Calcium Oxide (CaO)
 subcategory: metal-oxide
 ppe_requirements: 'Handling calcium oxide in its particulate form demands careful protection against its reactive and dusty

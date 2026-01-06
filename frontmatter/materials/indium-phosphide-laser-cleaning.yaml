@@ -54,7 +54,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -270,6 +270,60 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-avoid-damaging-indium-phosphide-during-la
+        title: How do I avoid damaging Indium Phosphide during laser cleaning?
+        content: I've seen laser cleaning go wrong on Indium Phosphide if you push too hard. Start low on power to watch its
+          response without cracking the surface. This material tends to absorb heat evenly, so gradual passes restore cleanliness
+          safely compared to brittle semiconductors.
+        metadata:
+          topic: How do I avoid damaging Indium Phosphide during la
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-way-to-remove-contaminants-from-ind
+        title: What's the best way to remove contaminants from Indium Phosphide wafers?
+        content: When laser cleaning Indium Phosphide, you'll want to use short pulses first. This exposes the surface gently
+          and removes residues without altering the structure. I've found it works best on flat wafers, reducing haze unlike
+          with rougher compounds.
+        metadata:
+          topic: What's the best way to remove contaminants from In
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: why-does-indium-phosphide-sometimes-show-uneven-cl
+        title: Why does Indium Phosphide sometimes show uneven cleaning results?
+        content: Watch for uneven spots on Indium Phosphide during laser sessions. Its moderate reflectivity can scatter the
+          beam, leading to patchy removal compared to highly reflective materials. Adjust the angle carefully to reveal a
+          uniform finish across the whole piece.
+        metadata:
+          topic: Why does Indium Phosphide sometimes show uneven cl
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -281,15 +335,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Telecommunications
-- Photonics
-- High-Speed Electronics
-- Optical Communications
-- Solar Cells
-- Laser Diodes
-- Integrated Circuits
-- Research
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Indium Phosphide
@@ -298,3 +343,55 @@ metaDescription: Indium Phosphide laser cleaning guide. Remove contamination whi
 fullPath: /materials/semiconductor/compound/indium-phosphide-laser-cleaning
 pageDescription: Indium phosphide excels in optoelectronic performance, powering laser cleaning tools that precisely strip
   contaminants while safeguarding delicate substrates.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Telecommunications
+      description: Telecommunications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Photonics
+      description: Photonics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: High-Speed Electronics
+      description: High-Speed Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Optical Communications
+      description: Optical Communications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Solar Cells
+      description: Solar Cells industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Laser Diodes
+      description: Laser Diodes industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Integrated Circuits
+      description: Integrated Circuits industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Research
+      description: Research industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

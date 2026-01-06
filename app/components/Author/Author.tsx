@@ -22,9 +22,10 @@ export function Author({
   const authorImage = authorInfo?.image || '';
   const credentials = authorInfo?.title || '';
   const country = authorInfo?.country || '';
-  const field = Array.isArray(authorInfo?.expertiseAreas) 
-    ? (authorInfo?.expertiseAreas || []).join(', ') 
-    : authorInfo?.expertiseAreas || ''; // Only use expertiseAreas from type
+  const expertise = (authorInfo as any)?.expertise || (authorInfo as any)?.expertiseAreas;
+  const field = Array.isArray(expertise) 
+    ? expertise.join(', ') 
+    : expertise || '';
 
   // Generate URL-encoded author name for search (null-safe)
   const encodedAuthorName = authorInfo ? encodeURIComponent(authorName) : '';

@@ -95,7 +95,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -355,6 +355,133 @@ relationships:
     - Automotive
     - Medical Equipment
     - Electronics Manufacturing
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: ablation-or-yellowing
+        title: What are the optimal laser settings (wavelength, power, pulse duration) for cleaning soot or biological growth
+          from Fir wood without causing ablation or yellowing?
+        content: As a laser cleaning expert from Indonesia, where we deeply value our wooden heritage, I recommend a practical
+          1064 nm Nd:YAG laser with 200-300 mJ pulse energy and 10-20 ns duration. This process gently clears soot or biological
+          growth from Fir wood, preventing ablation or yellowing by limiting fluence to under 1 J/cm².
+        metadata:
+          topic: ablation or yellowing
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: variable-resin-content
+        title: How does the variable resin content in Fir wood affect the laser cleaning process and how do we adjust for
+          it?
+        content: Fir wood's varying resin levels require precise fluence management at roughly 1.2 J/cm². Those resin pockets
+          vaporize faster than nearby wood fibers, risking irregular finishes. In this process, begin with a practical low-power
+          scan at 500 mm/s to pinpoint the issues, followed by targeted passes that methodically prevent resin from seeping
+          into cleared zones.
+        metadata:
+          topic: variable resin content
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: softwood-surface
+        title: Can a fiber laser effectively remove old, lead-based paint from Fir clapboard without damaging the softwood
+          surface underneath?
+        content: In this process, a fiber laser removes lead paint from Fir clapboard efficiently with ~1.2 J/cm² fluence
+          and 100 µm spot size. Precise parameter control remains straightforward to prevent etching the softwood grain, while
+          a HEPA fume extractor is essential for capturing hazardous lead particulates.
+        metadata:
+          topic: softwood surface
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: maximum-safe-surface-temperature
+        title: What is the maximum safe surface temperature for Fir during laser cleaning to prevent degradation of its structural
+          or aesthetic properties?
+        content: Fir wood hits its thermal degradation threshold at around 150-200°C, causing permanent discoloration and
+          charring. For practical monitoring, efficiently apply IR thermography to maintain surface temperatures below this
+          range, particularly at 1.2 J/cm² fluence and 100 µm spot size, preserving structural integrity.
+        metadata:
+          topic: maximum safe surface temperature
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: fume-extraction-systems
+        title: What specific safety precautions and fume extraction systems are required when laser cleaning Fir, especially
+          when removing paints or contaminants?
+        content: For cleaning Fir at 1.2 J/cm², employ a HEPA/ULPA extraction system efficiently to capture explosive wood
+          dust and lead fumes. Operators require a P100 respirator in this process, given the hazardous pyrolysis by-products
+          from the wood substrate.
+        metadata:
+          topic: fume extraction systems
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: original-patina
+        title: How do you evaluate the success of laser cleaning on Fir? What are the acceptable levels of micro-burning or
+          changes to the original patina?
+        content: Assessing success in a straightforward manner involves preserving the original patina. In this process, we
+          apply colorimetry to maintain ΔE below 3, while microscopy confirms the 100 µm spot size avoids micro-charting.
+          Minor, uniform lightening is acceptable, but carbonization-induced darkening indicates failure.
+        metadata:
+          topic: original patina
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: mold-or-fungi
+        title: Is laser cleaning a viable method for decontaminating Fir wood affected by mold or fungi without using chemicals?
+        content: Laser cleaning provides a straightforward decontamination for Fir wood, employing 1064 nm wavelength light
+          absorbed by mold to trigger rapid thermal ablation. At 1.2 J/cm² fluence and 100 W power, this process eradicates
+          surface spores without carbonizing the substrate. Still, deeply embedded mycelial networks might linger, necessitating
+          multi-pass treatment.
+        metadata:
+          topic: mold or fungi
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: appear-lighter-or-darker
+        title: Why does laser-cleaned Fir sometimes appear lighter or darker than the surrounding untreated wood, and how
+          can this be minimized?
+        content: Laser-cleaned Fir wood shows a lighter tone after removing darkened patina, though it may darken slightly
+          from carbonization if fluence exceeds limits. Straightforwardly, set fluence to 1.2 J/cm² with 500 mm/s scan speed
+          and 50% beam overlap. This process achieves uniform contaminant removal, preserving the natural color for even results.
+        metadata:
+          topic: appear lighter or darker
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -413,17 +540,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Cultural Heritage
-- Aerospace
-- Marine
-- Furniture Manufacturing
-- Construction
-- Musical Instrument Manufacturing
-- Energy
-- Automotive
-- Medical Equipment
-- Electronics Manufacturing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Fir
@@ -433,3 +549,67 @@ fullPath: /materials/wood/softwood/fir-laser-cleaning
 pageDescription: When laser cleaning Fir in heritage restoration or furniture manufacturing, we've found its strong energy
   absorption lets us remove contaminants efficiently while preserving the wood's natural grain and structural integrity without
   excessive heat buildup.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Furniture Manufacturing
+      description: Furniture Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Musical Instrument Manufacturing
+      description: Musical Instrument Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Energy
+      description: Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Medical Equipment
+      description: Medical Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

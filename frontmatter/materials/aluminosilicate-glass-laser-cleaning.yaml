@@ -53,7 +53,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -301,6 +301,51 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-can-i-safely-laser-clean-aluminosilicate-glass
+        title: How can I safely laser clean Aluminosilicate Glass without causing cracks?
+        content: We've found that Aluminosilicate Glass holds up much better than standard soda-lime glass during laser cleaning
+          because of its superior toughness and resistance to thermal shock. In our experience, you start with lower pulse
+          energies to gently remove contaminants, allowing the material's inherent strength to prevent micro-fractures that
+          plague softer glasses. This approach keeps the surface intact while contrasting sharply with how regular glass might
+          shatter under similar heat buildup. Just watch the dwell time closely to avoid any localized overheating at the
+          end.
+        metadata:
+          topic: How can I safely laser clean Aluminosilicate Glass
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-way-to-remove-stubborn-stains-from-
+        title: What's the best way to remove stubborn stains from Aluminosilicate Glass using lasers?
+        content: When tackling tough stains on Aluminosilicate Glass, we typically contrast it with borosilicate types, where
+          higher absorption leads to quicker but riskier ablation. Aluminosilicate's lower light uptake means you need steady,
+          focused passes to build enough energy without overwhelming the surface, ensuring clean removal every time. We've
+          seen great results by adjusting beam overlap slightly
+        metadata:
+          topic: What's the best way to remove stubborn stains from
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -312,15 +357,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Aerospace
-- Display Technology
-- Laboratory Equipment
-- Electronics Manufacturing
-- Optical Systems
-- Medical Devices
-- Research and Development
-- High-Temperature Applications
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Aluminosilicate Glass
@@ -330,3 +366,55 @@ fullPath: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
 pageDescription: Aluminosilicate glass demonstrates exceptional durability and corrosion resistance. This material, it withstands
   laser exposure tenaciously, enabling precise contaminant removal from surfaces. Its smooth texture aids efficiency, though
   toughness demands careful energy control to avoid microcracks.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Display Technology
+      description: Display Technology industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Laboratory Equipment
+      description: Laboratory Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Optical Systems
+      description: Optical Systems industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Research and Development
+      description: Research and Development industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: High-Temperature Applications
+      description: High-Temperature Applications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

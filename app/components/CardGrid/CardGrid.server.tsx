@@ -39,9 +39,9 @@ export async function CardGrid({
         const imageUrl = frontmatter?.images?.hero?.url || '';
         const imageAlt = frontmatter?.images?.hero?.alt || frontmatter?.title || '';
         
-        // Use full_path if available, otherwise construct from content type and slug
-        // Ensure we prioritize full_path to maintain correct URL structure
-        let itemPath = (frontmatter as any)?.full_path;
+        // Use fullPath if available, otherwise construct from content type and slug
+        // Ensure we prioritize fullPath to maintain correct URL structure
+        let itemPath = (frontmatter as any)?.fullPath;
         
         if (!itemPath) {
           const category = (frontmatter as any)?.category || '';

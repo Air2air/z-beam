@@ -99,7 +99,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -199,6 +199,38 @@ relationships:
       effect: Severe eye irritation and conjunctivitis
       severity: high
       onset: immediate
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-how-do-i-protect-myse
+        title: As a laser cleaning operator, how do I protect myself from inhaling cadmium oxide particulates generated during
+          the process?
+        content: Use a NIOSH-approved full-facepiece respirator with P100 filters or higher to capture fine CdO particulates,
+          and ensure the work area has local exhaust ventilation (LEV) systems capturing emissions at the source to keep airborne
+          levels below OSHA's 5 µg/m³ 8-hour PEL. Wear impermeable gloves, coveralls, and eye protection to avoid dermal exposure,
+          and implement a decontamination protocol like showering and laundering PPE after each shift. Conduct air monitoring
+          with real-time particulate samplers to verify controls are effective and schedule annual medical exams for early
+          detection of cadmium-related health effects.
+        metadata:
+          topic: As a laser cleaning operator, how do I protect mys
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Cadmium Oxide (CdO)
 subcategory: metal-oxide
 ppe_requirements: 'Handling cadmium oxide as a fine particulate in industrial settings demands careful protection from inhalation

@@ -106,7 +106,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -380,6 +380,149 @@ relationships:
     - Energy Sector
     - Medical Equipment
     - Marine Applications
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: high-talc-content
+        title: What laser wavelengths are most effective for cleaning soapstone surfaces without causing thermal damage due
+          to its high talc content?
+        content: Soapstone, rich in talc, cleans efficiently with the 1064 nm near-infrared wavelength, as it aligns with
+          talc's absorption spectrum and minimizes thermal risks to its soft structure. The 532 nm green alternative often
+          causes unwanted ablation through excessive surface heating. For practical results, target 2.5 J/cm² fluence at 100
+          W to remove contaminants gently.
+        metadata:
+          topic: high talc content
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: heat-resistant-properties
+        title: How can laser cleaning remove grease and oils from soapstone countertops without altering the material's heat-resistant
+          properties?
+        content: As an Indonesian laser physics specialist, I recommend a practical setup with 1064 nm wavelength, 10 ns pulses,
+          and 2.5 J/cm² fluence to ablate grease from soapstone countertops. This process confines energy to contaminants,
+          preventing substrate heating that might undermine the stone's thermal stability in kitchen or lab settings. Afterward,
+          evaluate using surface wettability or FTIR spectroscopy for residue-free outcomes.
+        metadata:
+          topic: heat-resistant properties
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: talc-dust-release
+        title: What are the main safety concerns when using lasers to clean soapstone sculptures, particularly regarding talc
+          dust release?
+        content: When laser cleaning soapstone sculptures at 2.5 J/cm² fluence, fine talc particles may release, potentially
+          irritating lungs upon inhalation per MSDS guidelines. In a practical setup for this process, robust ventilation
+          captures airborne dust effectively, and operators need N95 respirators along with safety goggles to limit exposure.
+        metadata:
+          topic: talc dust release
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: in-laser-cleaning-equipment-for-soapstone-what-pow
+        title: In laser cleaning equipment for soapstone, what power settings prevent cracking or delamination in this low-hardness
+          material?
+        content: For delicate soapstone, which cracks easily due to low hardness, a straightforward approach is to keep fluence
+          below 1 J/cm² with 100 W power and 500 mm/s scanning speed. This minimizes thermal stress efficiently. Always test
+          small patches per manufacturer protocols before full use, applying 1064 nm wavelength for optimal absorption.
+        metadata:
+          topic: In laser cleaning equipment for soapstone, what po
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: discolor-during-laser
+        title: Why does soapstone sometimes discolor during laser surface treatment, and how to mitigate it in restoration
+          projects?
+        content: Soapstone discolors straightforwardly from laser heat oxidizing iron impurities, which alters its talc-chlorite
+          matrix. For restoration, assess samples first for impurity levels, then apply 1064 nm nanosecond lasers at 2.5 J/cm²
+          fluence and 100 W power. This process limits thermal spread while preserving the patina.
+        metadata:
+          topic: discolor during laser
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: non-porous-surface
+        title: What training is recommended for operators cleaning soapstone with lasers to avoid compromising its non-porous
+          surface?
+        content: Operators require certification in laser safety per ISO 11553 to safely manage soapstone's variable talc-rich
+          composition. Hands-on training should emphasize practical settings like 2.5 J/cm² fluence and 100 W power, preserving
+          the stone's non-porous integrity during cleaning.
+        metadata:
+          topic: non-porous surface
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: soapstones-thermal-conductivity
+        title: How does soapstone's thermal conductivity affect the efficiency of laser cleaning compared to harder stones
+          like granite?
+        content: In laser cleaning, soapstone's low thermal conductivity of 2-4 W/mK localizes heat effectively, boosting
+          efficiency against contaminants compared to granite's higher dissipation. This process calls for straightforward
+          settings like 2.5 J/cm² fluence and 100 W power to achieve uniform results without substrate overheating.
+        metadata:
+          topic: soapstone's thermal conductivity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: asbestos-like-talc-exposure
+        title: Are there regulatory guidelines for laser cleaning soapstone in historical artifacts to prevent asbestos-like
+          talc exposure?
+        content: Yes, OSHA and EPA enforce strict controls on talc dust from soapstone, similar to asbestos risks, including
+          pre-cleaning contaminant tests and PPE for workers handling heritage artifacts. For safe laser ablation, that method
+          employs a 1064 nm wavelength at 2.5 J/cm² fluence to practically minimize airborne particles in restoration. Record
+          all treatments per site protocols for full compliance.
+        metadata:
+          topic: asbestos-like talc exposure
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: industrial-soapstone-surfaces
+        title: What common contaminants on industrial soapstone surfaces (e.g., in labs) are best removed via laser versus
+          mechanical methods?
+        content: In lab settings, oils and chemical residues often build up on soapstone's polished surfaces. That method
+          of laser ablation surpasses mechanical scrubbing efficiently, precisely targeting contaminants at 2.5 J/cm² fluence
+          with a 1064 nm wavelength to protect the stone's smooth texture from abrasion or uneven wear.
+        metadata:
+          topic: industrial soapstone surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -438,17 +581,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Cultural Heritage
-- Aerospace
-- Laboratory Equipment
-- Architectural Restoration
-- Manufacturing
-- Food Processing
-- Art and Sculpture
-- Energy Sector
-- Medical Equipment
-- Marine Applications
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Soapstone
@@ -458,3 +590,67 @@ fullPath: /materials/stone/sedimentary/soapstone-laser-cleaning
 pageDescription: Soapstone differs from hard stones. Softness allows gentle laser cleaning. Contaminants detach easily and
   surface preserves integrity. Treatment applies, thus restoration enhances for heritage. Challenges arise from sensitivity,
   so control matters.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Laboratory Equipment
+      description: Laboratory Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Architectural Restoration
+      description: Architectural Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Food Processing
+      description: Food Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Art and Sculpture
+      description: Art and Sculpture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Medical Equipment
+      description: Medical Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Marine Applications
+      description: Marine Applications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

@@ -108,7 +108,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -369,6 +369,166 @@ relationships:
     - Cultural Heritage Preservation
     - Chemical Processing
     - Consumer Products Manufacturing
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: without-melting-or-damaging
+        title: Can you safely laser clean polyethylene surfaces without melting or damaging the material?
+        content: Yes, polyethylene can be safely cleaned by laser with precise parameters. Employing a 1064 nm wavelength
+          at 5.1 J/cm² fluence and 500 mm/s scan speed, we effectively eliminate contaminants while remaining well below the
+          material's notable 105-130°C melting point. This essential approach prevents any surface deformation or thermal
+          damage to the polymer.
+        metadata:
+          topic: without melting or damaging
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: without-affecting-the-substrate
+        title: What laser wavelength is most effective for cleaning contaminants from polyethylene without affecting the substrate?
+        content: For cleaning polyethylene, 1064nm fiber lasers stand out as optimal, offering sufficient absorption without
+          undue substrate heating. It's essential to keep fluence under 5.1 J/cm² at 100W average power, ensuring contaminant
+          removal while safeguarding material integrity. The polymer's distinct transparency to alternative wavelengths renders
+          near-IR perfect for targeted cleaning.
+        metadata:
+          topic: without affecting the substrate
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: uv-degradation
+        title: How do you remove oxidation or UV degradation from polyethylene surfaces using laser cleaning?
+        content: For removing oxidation from polyethylene, I suggest the notable 1064nm wavelength at 5.1 J/cm² fluence. It
+          ablates the degraded surface layer effectively, while safeguarding the essential integrity of the underlying material.
+          Use a 500 mm/s scan speed to ensure uniform cleaning without thermal harm.
+        metadata:
+          topic: UV degradation
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: potential-fume-generation
+        title: What safety precautions are needed when laser cleaning polyethylene due to potential fume generation?
+        content: Decomposition of polyethylene at 5.1 J/cm² fluence produces notable hazardous aldehydes and ketones. Essential
+          safety demands a high-efficiency fume extraction system plus suitable respiratory protection, since standard ventilation
+          fails against these concentrated toxic byproducts.
+        metadata:
+          topic: potential fume generation
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: increasing-surface-energy
+        title: Can laser cleaning prepare polyethylene surfaces for bonding or painting by increasing surface energy?
+        content: Certainly. Our 1064nm laser, at 5.1 J/cm² fluence, produces distinct micro-textures that markedly elevate
+          Polyethylene's surface energy. This notable improvement boosts wettability, yielding superior paint adhesion and
+          bonding strength versus conventional techniques.
+        metadata:
+          topic: increasing surface energy
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: carbon-black-filled-polyethylene
+        title: What are the challenges with laser cleaning colored or carbon-black-filled polyethylene?
+        content: For colored polyethylene, it's essential to fine-tune parameters carefully, as the notable high absorption
+          of carbon black at 1064 nm requires fluence below 5.1 J/cm² to avert thermal damage. You'll need to drop power substantially
+          from the usual 100 W, preventing material breakdown.
+        metadata:
+          topic: carbon-black-filled polyethylene
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: industrial-applications
+        title: How does laser cleaning compare to traditional methods for cleaning polyethylene in industrial applications?
+        content: Laser cleaning at 5.1 J/cm² provides a notable, non-abrasive option superior to solvents for polyethylene.
+          Essential in this dry approach, it removes chemical residues entirely, suiting medical and food packaging needs
+          where surface purity matters most—unlike mechanical or plasma techniques.
+        metadata:
+          topic: industrial applications
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: biological-contaminants
+        title: What laser parameters work best for removing biological contaminants from polyethylene without leaving residues?
+        content: For decontaminating polyethylene biologically, I suggest a fluence of 5.1 J/cm² at 100W average power. This
+          method effectively eliminates microbial films without risking surface melting. Notably, the 1064 nm wavelength delivers
+          essential absorption for residue-free sterilization.
+        metadata:
+          topic: biological contaminants
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: electrical-properties
+        title: Can laser cleaning restore electrical properties to contaminated polyethylene insulators?
+        content: Yes, laser cleaning notably restores dielectric strength in contaminated polyethylene insulators. Employing
+          a 1064 nm wavelength at 5.1 J/cm² fluence eliminates conductive surface contaminants, while safeguarding the polymer's
+          essential bulk electrical properties to prevent surface tracking.
+        metadata:
+          topic: electrical properties
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: chemical-resistance
+        title: How do you verify that laser cleaning hasn't compromised the chemical resistance of polyethylene surfaces?
+        content: We verify chemical resistance integrity via FTIR spectroscopy to detect any notable oxidation, ensuring our
+          essential 5.1 J/cm² fluence and 100W power settings do not degrade the polymer. Follow-up immersion testing in relevant
+          solvents then confirms the surface's inertness stays uncompromised after cleaning.
+        metadata:
+          topic: chemical resistance
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      - id: ultra-high-molecular-weight-polyethylene
+        title: What are the limitations for laser cleaning ultra-high-molecular-weight polyethylene (UHMWPE) compared to standard
+          PE?
+        content: UHMWPE exhibits a notably higher melting point (~135°C) and distinct molecular chain entanglement, necessitating
+          more conservative laser parameters than standard PE. It's essential to lower fluence below 5.1 J/cm² while raising
+          scan speed, avoiding surface degradation crucial for medical implant cleaning where structural integrity is paramount.
+        metadata:
+          topic: ultra-high-molecular-weight polyethylene
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 11
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -427,17 +587,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Medical Device Manufacturing
-- Food Packaging
-- Automotive Components
-- Marine Equipment
-- Aerospace Composites
-- Electronics Manufacturing
-- Renewable Energy
-- Cultural Heritage Preservation
-- Chemical Processing
-- Consumer Products Manufacturing
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Polyethylene
@@ -447,3 +596,67 @@ fullPath: /materials/plastic/thermoplastic/polyethylene-laser-cleaning
 pageDescription: Polyethylene, this thermoplastic, exhibits flexibility and corrosion resistance, which suits it for laser
   cleaning in heritage preservation. The material cleans readily, yet its sensitivity to heat poses challenges, necessitating
   precise control.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Medical Device Manufacturing
+      description: Medical Device Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Food Packaging
+      description: Food Packaging industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Automotive Components
+      description: Automotive Components industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Marine Equipment
+      description: Marine Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Aerospace Composites
+      description: Aerospace Composites industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Renewable Energy
+      description: Renewable Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Cultural Heritage Preservation
+      description: Cultural Heritage Preservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Consumer Products Manufacturing
+      description: Consumer Products Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

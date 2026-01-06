@@ -52,7 +52,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -282,6 +282,60 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-does-dolomite-compare-to-limestone-when-laser-
+        title: How does dolomite compare to limestone when laser cleaning?
+        content: I've seen dolomite clean up more evenly than limestone because it handles heat better without cracking as
+          easily. While limestone tends to absorb too much energy and pit, dolomite's structure lets you remove dirt steadily.
+          Just keep the laser moving to avoid any hot spots on its surface.
+        metadata:
+          topic: 'How does dolomite compare to limestone when laser '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: what-are-best-practices-for-laser-cleaning-dolomit
+        title: What are best practices for laser cleaning dolomite surfaces?
+        content: Start with a low-intensity pass to test the surface response on dolomite. Move the laser steadily across
+          the area to prevent uneven heating. This approach removes contaminants effectively while preserving the stone's
+          natural finish.
+        metadata:
+          topic: What are best practices for laser cleaning dolomit
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: why-might-dolomite-show-discoloration-after-laser-
+        title: Why might dolomite show discoloration after laser cleaning, and how to fix it?
+        content: Discoloration often happens if the laser lingers too long, causing surface changes in dolomite's mineral
+          makeup. Compared to harder stones like granite, dolomite reacts more sensitively to prolonged exposure. To fix it,
+          reduce power slightly and clean in short bursts, then rinse with water to even out the tone. I've
+        metadata:
+          topic: 'Why might dolomite show discoloration after laser '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -293,15 +347,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Construction
-- Cultural Heritage
-- Metallurgy
-- Glass Manufacturing
-- Refractory
-- Agriculture
-- Monument Restoration
-- Building Materials
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Dolomite
@@ -310,3 +355,55 @@ metaDescription: Dolomite laser cleaning guide. Remove contamination while prese
 fullPath: /materials/stone/sedimentary/dolomite-laser-cleaning
 pageDescription: Dolomite exhibits durable hardness and low porosity, so laser cleaning removes surface contaminants effectively
   while surface maintains integrity during treatment.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Construction
+      description: Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Metallurgy
+      description: Metallurgy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Glass Manufacturing
+      description: Glass Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Refractory
+      description: Refractory industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Agriculture
+      description: Agriculture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Monument Restoration
+      description: Monument Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Building Materials
+      description: Building Materials industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

@@ -104,7 +104,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -370,6 +370,154 @@ relationships:
     - Automotive
     - Energy
     - Medical Equipment
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: black-charring
+        title: How do I remove black charring from oak when laser cleaning without damaging the wood?
+        content: Keep fluence under 2.5 J/cm² with a 100W source at 500 mm/s, ablating charring while avoiding lignin carbonization.
+          The notable 100µm spot size ensures precise control. For best results, opt for multiple low-power passes over a
+          single aggressive one to regulate thermal input and safeguard wood integrity.
+        metadata:
+          topic: black charring
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: oak-beam
+        title: What are the ideal laser parameters (wavelength, power, pulse duration) for cleaning soot and dirt from an
+          oak beam?
+        content: For cleaning oak beams, I suggest nanosecond pulses at 1064 nm wavelength and about 100 W average power.
+          Start testing with a fluence around 2.5 J/cm² plus a 100 µm spot size. This approach effectively ablates soot, while
+          essential minimization of thermal diffusion into the wood substrate notably prevents charring.
+        metadata:
+          topic: oak beam
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: altering-the-patina
+        title: Can a laser safely remove old paint or varnish from an antique oak piece without altering the patina?
+        content: Employing precise 2.5 J/cm² fluence and 100 µm spot control, a laser selectively ablates paint from antique
+          oak. Notably, this preserves the patina by sidestepping the essential differential erosion of soft earlywood that
+          hampers mechanical methods.
+        metadata:
+          topic: altering the patina
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: biological-growth
+        title: Is laser cleaning effective for decontaminating mold or biological growth from oak in heritage conservation?
+        content: UV laser cleaning at 2.5 J/cm² notably deactivates surface mold spores on oak. Yet, it fails to eradicate
+          deep hyphal growth, thus requiring an integrated biocidal treatment. Essentially, proper HEPA filtration remains
+          vital to control aerosolized spores during the procedure.
+        metadata:
+          topic: biological growth
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: what-specific-safety-hazards-exist-when-laser-clea
+        title: What specific safety hazards exist when laser cleaning oak, especially regarding fumes and particulates?
+        content: Laser cleaning of oak at 100W and 2.5 J/cm² notably produces hazardous aldehydes and acetic acid fumes. Fine
+          wood dust, meanwhile, creates an essential explosion risk, demanding robust fume extraction, P3 respiratory protection,
+          and spark detection systems to safeguard operators.
+        metadata:
+          topic: What specific safety hazards exist when laser clea
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: how-does-the-density-and-grain-structure-of-oak-af
+        title: How does the density and grain structure of oak affect the laser cleaning process and final result?
+        content: The distinct alternating porous and dense grain of oak leads to differential ablation at our 2.5 J/cm² fluence.
+          Such variation can yield a slightly textured surface, making it essential to apply multi-directional passes at 500
+          mm/s for uniform cleaning throughout the grain structure.
+        metadata:
+          topic: How does the density and grain structure of oak af
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: structural-integrity
+        title: What is the maximum depth of material removal possible on oak with a laser before structural integrity is compromised?
+        content: Laser cleaning of oak remains notably superficial, stripping away only 10-50 microns per pass. Pushing beyond
+          that endangers the cellular structure. Essential here is applying low fluence at roughly 2.5 J/cm² while capping
+          passes to uphold the wood's integrity.
+        metadata:
+          topic: structural integrity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: acceptable-post-treatment-changes
+        title: How do I evaluate the success of a laser cleaning treatment on oak, and what are the acceptable post-treatment
+          changes?
+        content: Success is notably confirmed through colorimetry indicating ΔE<5, ensuring acceptable lightening without
+          charring. It's essential that microscopy reveals intact cell walls at 100µm resolution. Hold fluence at 2.5 J/cm²
+          and power at 100W to avoid surface roughening.
+        metadata:
+          topic: acceptable post-treatment changes
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: white-ashy-residue
+        title: Why does my laser leave a white, ashy residue on the oak surface after cleaning, and how can I prevent it?
+        content: This white residue consists of distinct micro-charred lignin, caused by fluence exceeding the 2.5 J/cm² threshold.
+          To prevent it, it's essential to lower your laser power or raise the scan speed above 500 mm/s. A final gentle pass
+          at reduced energy will remove leftover ash without harming the oak substrate.
+        metadata:
+          topic: white, ashy residue
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: cleaning-oak
+        title: For which applications is laser cleaning oak most suitable compared to traditional methods like soda blasting
+          or chemical stripping?
+        content: For delicate oak artifacts such as historical furniture or violins, laser cleaning stands out as essential.
+          Our 2.5 J/cm² fluence and 100 µm spot size deliver micron-level precision in contaminant removal, preventing substrate
+          loss unlike aggressive soda blasting. This distinct method suits high-value conservation, safeguarding original
+          surface integrity above all.
+        metadata:
+          topic: cleaning oak
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -437,17 +585,6 @@ regulatory_standards:
   longName: Unknown Organization
   name: Unknown
   url: ''
-applications:
-- Cultural Heritage
-- Aerospace
-- Marine
-- Furniture Manufacturing
-- Musical Instrument
-- Architectural Restoration
-- Wine & Spirits
-- Automotive
-- Energy
-- Medical Equipment
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Oak
@@ -457,3 +594,67 @@ fullPath: /materials/wood/hardwood/oak-laser-cleaning
 pageDescription: I've seen oak stand out in restoration work because its tough, dense grain absorbs laser energy without splintering
   or losing structural integrity, reviving aged surfaces in furniture and heritage pieces beautifully—though you must limit
   passes to prevent surface charring.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Furniture Manufacturing
+      description: Furniture Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Musical Instrument
+      description: Musical Instrument industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Architectural Restoration
+      description: Architectural Restoration industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Wine & Spirits
+      description: Wine & Spirits industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Energy
+      description: Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Medical Equipment
+      description: Medical Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

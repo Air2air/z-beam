@@ -98,7 +98,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -383,6 +383,150 @@ relationships:
     - Manufacturing & Tooling
     - Defense & Military
     - Sports Equipment
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: magnesium-alloys
+        title: What are the specific laser settings and parameters for cleaning magnesium alloys without causing damage?
+        content: For cleaning magnesium alloys, use a 1064 nm wavelength with 10 ns pulses at 1.2 J/cm² fluence. Specifically,
+          keep the repetition rate at 50 kHz and scan speed at 500 mm/s to avoid thermal damage. Thus, these parameters ablate
+          oxides effectively while preserving substrate integrity.
+        metadata:
+          topic: magnesium alloys
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: oxide-layers-and-corrosion
+        title: How do you safely remove oxide layers and corrosion from magnesium surfaces using laser cleaning?
+        content: In the removal of magnesium oxide, we utilize 1064 nm wavelength lasers at 1.2 J/cm² fluence. Specifically,
+          this ablates MgO selectively without harming the base metal. Thus, an inert argon gas shield during the 500 mm/s
+          scan prevents immediate re-oxidation, delivering a pristine, corrosion-free surface.
+        metadata:
+          topic: oxide layers and corrosion
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: fire-risk
+        title: What special safety precautions are needed when laser cleaning magnesium due to fire risk?
+        content: Mandatory inert gas shielding, particularly at the 1064 nm wavelength, prevents magnesium ignition. Thus,
+          keep fluence below 1.2 J/cm² to avoid excessive heat input. Employ robust fume extraction for highly reactive MgO
+          particles, which pose explosion risks.
+        metadata:
+          topic: fire risk
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: welding-or-coating-applications
+        title: Can laser cleaning be used to prepare magnesium surfaces for welding or coating applications?
+        content: Using a 1064 nm wavelength at 1.2 J/cm² fluence, laser cleaning effectively prepares magnesium surfaces.
+          Specifically, this approach removes oxides without thermal damage, thus yielding an ideal surface profile for enhanced
+          coating adhesion and robust welds, notably in aerospace and medical fields.
+        metadata:
+          topic: welding or coating applications
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: cast-magnesium-alloys
+        title: What are the challenges with laser cleaning cast magnesium alloys versus wrought forms?
+        content: Notably, cast magnesium alloys pose greater challenges from their inherent porosity, which can trap contaminants
+          and thus requires careful fluence control below ~1.2 J/cm² to avoid subsurface damage. Their varied surface texture,
+          particularly compared to wrought forms, demands more precise parameter tuning.
+        metadata:
+          topic: cast magnesium alloys
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: oils-and-lubricants
+        title: How effective is laser cleaning for removing contaminants like oils and lubricants from magnesium parts?
+        content: Laser cleaning, specifically employing a 1064nm wavelength and 1.2 J/cm² fluence, effectively removes organic
+          oils from magnesium surfaces. Notably, this method vaporizes contaminants without chemical residue, thus serving
+          as a superior, eco-friendly alternative to solvent-based approaches for precision parts.
+        metadata:
+          topic: oils and lubricants
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: fatigue-strength
+        title: Does laser cleaning affect the fatigue strength or mechanical properties of magnesium components?
+        content: When laser cleaning is properly configured at 1.2 J/cm² fluence, it particularly preserves magnesium's structural
+          integrity. Notably, the 10 ns pulse width limits thermal input, thus avoiding micro-cracking and notable shifts
+          in fatigue strength to sustain component longevity.
+        metadata:
+          topic: fatigue strength
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: validate-the-success
+        title: What is the best way to validate the success of magnesium laser cleaning?
+        content: Validate magnesium laser cleaning through microscopic inspection and surface roughness measurement. Particularly,
+          confirm complete oxide removal while preserving base material integrity, thus ensuring parameters like 1.2 J/cm²
+          fluence avoid inducing thermal damage.
+        metadata:
+          topic: validate the success
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: why-is-magnesium-considered-more-difficult-to-lase
+        title: Why is magnesium considered more difficult to laser clean than aluminum or steel?
+        content: Magnesium's low melting point (~650°C) and high reactivity particularly require precise laser parameters.
+          Specifically, we must control fluence around 1.2 J/cm² to remove oxides without melting the substrate—a far narrower
+          window than for steel or aluminum. Thus, meticulous tuning ensures damage-free outcomes.
+        metadata:
+          topic: Why is magnesium considered more difficult to lase
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: what-type-of-laser-(fiber-pulsed-continuous-wave)-
+        title: What type of laser (fiber, pulsed, continuous wave) works best for magnesium cleaning applications?
+        content: For cleaning magnesium surfaces, pulsed fiber lasers at 1064 nm prove particularly optimal. Specifically,
+          employing a fluence of 1.2 J/cm² alongside a 10 ns pulse width minimizes thermal input, thus preventing harm to
+          the delicate substrate. Scanning at 500 mm/s then delivers efficient, uniform oxide layer removal.
+        metadata:
+          topic: What type of laser (fiber, pulsed, continuous wave
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -442,17 +586,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Automotive
-- Medical Device Manufacturing
-- Electronics
-- Marine
-- Cultural Heritage
-- Energy Sector
-- Manufacturing & Tooling
-- Defense & Military
-- Sports Equipment
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Magnesium
@@ -462,3 +595,67 @@ fullPath: /materials/metal/specialty/magnesium-laser-cleaning
 pageDescription: When laser cleaning magnesium, I've found it works best to start with lower power settings, as its lightweight
   nature and high reflectivity set it apart from denser metals like steel. This allows quick contaminant removal without much
   heat buildup, but always monitor closely to avoid surface melting at the end.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Device Manufacturing
+      description: Medical Device Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics
+      description: Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Manufacturing & Tooling
+      description: Manufacturing & Tooling industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Defense & Military
+      description: Defense & Military industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Sports Equipment
+      description: Sports Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

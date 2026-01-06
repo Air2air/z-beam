@@ -29,7 +29,7 @@ export function RelationshipCard({
   // Load card data from entity frontmatter
   const cardData = resolveCardData(item.id, context, contentType);
   
-  // Derive URL from entity's full_path
+  // Derive URL from entity's fullPath
   const url = resolveEntityUrl(item.id, contentType);
   
   // Fallback if card data not found

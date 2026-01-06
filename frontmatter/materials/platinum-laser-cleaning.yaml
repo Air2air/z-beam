@@ -103,7 +103,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
+  expertise: &id001
   - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
@@ -416,6 +416,158 @@ relationships:
     - Energy Sector
     - Marine and Offshore
     - Cultural Heritage
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: thin-platinum-coating
+        title: Can laser cleaning damage the thin platinum coating on medical devices or catalytic converters?
+        content: In a practical way, laser cleaning avoids damaging platinum coatings by keeping fluence below the ablation
+          threshold, typically under 5 J/cm². This process employs nanosecond pulses at 1064 nm to minimize thermal stress
+          effectively. Scanning electron microscopy then verifies the underlying layer stays intact afterward.
+        metadata:
+          topic: thin platinum coating
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Ikmanda Roswati
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: causing-micro-pitting
+        title: What laser wavelength (nm) and pulse duration work best for cleaning platinum jewelry without causing micro-pitting?
+        content: For platinum jewelry, a practical choice is 1064 nm wavelength fiber lasers with 10 ns pulses at 5 J/cm²
+          fluence. This process balances the metal's high reflectivity while minimizing heat penetration. A 50 μm spot size
+          paired with 500 mm/s scanning prevents micro-pitting by limiting thermal buildup in the substrate.
+        metadata:
+          topic: causing micro-pitting
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: chemical-purity
+        title: How do you safely remove oxidation layers from platinum crucibles used in laboratory settings without altering
+          their chemical purity?
+        content: Laser cleaning at 5 J/cm² fluence efficiently removes platinum oxides, leaving no chemical residues behind.
+          This process keeps surface purity intact for high-temperature uses, unlike that method of acid treatment, which
+          can introduce contamination. The 1064 nm wavelength minimizes thermal effects on the substrate.
+        metadata:
+          topic: chemical purity
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: what-safety-precautions-are-needed-when-laser-clea
+        title: What safety precautions are needed when laser cleaning platinum components that may have absorbed hazardous
+          materials in industrial processes?
+        content: For platinum parts contaminated with arsenic, a practical setup involves Class III fume extraction and full-face
+          respirators. This process uses the 1064 nm wavelength at 5 J/cm² to efficiently remove hazards while cutting down
+          toxic fumes. Always run a material safety analysis first.
+        metadata:
+          topic: What safety precautions are needed when laser clea
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: electrochemical-properties
+        title: Does laser cleaning affect the electrochemical properties of platinum electrodes used in scientific instruments?
+        content: Actually, laser cleaning tuned to 5 J/cm² fluence boosts platinum's electrochemical performance in a straightforward
+          manner. This process clears contaminants while generating useful micro-roughness, thereby expanding the active surface
+          area without adding impurities that impair catalytic activity.
+        metadata:
+          topic: electrochemical properties
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: what-is-the-maximum-safe-laser-power-density-for-c
+        title: What is the maximum safe laser power density for cleaning platinum spark plug electrodes without melting or
+          deforming them?
+        content: As a laser cleaning expert from Indonesia, I've found that for platinum spark plug electrodes, the maximum
+          safe power density is around 150-200 W/cm² using a pulsed Nd:YAG laser at 1064 nm. This prevents melting or deformation
+          while effectively removing deposits—always test on samples first, ya.
+        metadata:
+          topic: What is the maximum safe laser power density for c
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: how-effective-is-laser-cleaning-for-removing-carbo
+        title: How effective is laser cleaning for removing carbon buildup from platinum-rhodium thermocouple wires in high-temperature
+          applications?
+        content: Laser cleaning offers a practical solution for platinum-rhodium thermocouples, applying ~5 J/cm² fluence
+          to remove carbon selectively without affecting the alloy. That method, non-contact by nature, maintains calibration
+          accuracy far superior to abrasive approaches, which often cause surface harm and alloy shifts.
+        metadata:
+          topic: How effective is laser cleaning for removing carbo
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: stress-corrosion-cracking
+        title: Can laser cleaning create surface defects in platinum that lead to stress corrosion cracking in chemical processing
+          equipment?
+        content: Using optimal 5 J/cm² fluence and 50% overlap, this process efficiently minimizes microstructural changes
+          in platinum. Yet, improper parameters may induce residual stress, heightening vulnerability to chemical attack.
+          Practical post-cleaning checks for micro-cracks are vital to safeguard chemical processing equipment integrity.
+        metadata:
+          topic: stress corrosion cracking
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: platinum-recovery-scrap
+        title: What are the economic considerations for laser cleaning platinum recovery scrap versus traditional refining
+          methods?
+        content: Laser cleaning offers a practical way to preserve over 99.9% of your platinum scrap, avoiding the heavy material
+          losses from chemical refining. A 100W, 1064nm system at 5 J/cm² makes this process dramatically faster. It skips
+          hazardous chemical costs, upholds the metal's purity, and delivers economic advantages for high-value recovery.
+        metadata:
+          topic: platinum recovery scrap
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: intricate-platinum-jewelry-designs
+        title: How does laser cleaning compare to ultrasonic cleaning for removing polishing compounds from intricate platinum
+          jewelry designs?
+        content: Laser cleaning proves practical for intricate platinum jewelry, accessing complex geometries that ultrasonic
+          methods overlook. With precise 50 μm spot control at 5 J/cm² fluence, it efficiently removes polishing compounds
+          without embedding residues. This process preserves platinum's premium surface finish while cutting manufacturing
+          cycle times substantially.
+        metadata:
+          topic: intricate platinum jewelry designs
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -477,17 +629,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Aerospace
-- Medical Devices
-- Electronics Manufacturing
-- Jewelry and Luxury Goods
-- Chemical Processing
-- Automotive
-- Research and Laboratory
-- Energy Sector
-- Marine and Offshore
-- Cultural Heritage
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Platinum
@@ -497,3 +638,67 @@ fullPath: /materials/metal/non-ferrous/platinum-laser-cleaning
 pageDescription: When laser cleaning platinum, begin by adjusting the beam intensity to counter its high reflectivity, allowing
   you to remove contaminants efficiently and restore its clean surface for important roles in chemical processing or medical
   implants.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Jewelry and Luxury Goods
+      description: Jewelry and Luxury Goods industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Research and Laboratory
+      description: Research and Laboratory industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Marine and Offshore
+      description: Marine and Offshore industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

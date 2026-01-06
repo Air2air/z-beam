@@ -72,7 +72,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -422,6 +422,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-working-on-equipment-
+        title: As a laser cleaning operator working on equipment that may release benzene vapors due to its volatility, what
+          protection methods should I use to stay below exposure limits?
+        content: Prioritize engineering controls like local exhaust ventilation to capture volatile benzene emissions at the
+          source, aiming to keep airborne concentrations below the OSHA PEL of 1 ppm (8-hour TWA) or the ACGIH TLV of 0.5
+          ppm. Wear a NIOSH-approved half-face respirator with organic vapor cartridges (e.g., N95 or better with OV filter)
+          during operations, and use chemical-resistant gloves and protective clothing to prevent skin contact. Regularly
+          monitor air quality with a photoionization detector (PID) calibrated for benzene to ensure levels remain safe and
+          trigger immediate evacuation if thresholds are approached.
+        metadata:
+          topic: 'As a laser cleaning operator working on equipment '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Benzene (C₆H₆)
 subcategory: aromatic_hydrocarbon
 ppe_requirements: Dealing with benzene in industrial settings calls for robust skin barriers first off, like chemical-resistant

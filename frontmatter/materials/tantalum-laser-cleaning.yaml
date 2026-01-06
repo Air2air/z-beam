@@ -107,7 +107,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -391,6 +391,167 @@ relationships:
     - Research and Development
     - Additive Manufacturing
     - Cultural Heritage
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: what-laser-parameters-such-as-pulse-duration-and-f
+        title: What laser parameters, such as pulse duration and fluence, are recommended for cleaning contaminants from Tantalum
+          surfaces without causing ablation?
+        content: For cleaning tantalum, choose 10 ns pulses at fluences under 2.5 J/cm² using a 1064 nm laser to avoid ablation.
+          This method leverages its 3017°C melting point and reflectivity, particularly minimizing thermal buildup. Thus,
+          at 100 W power and 500 mm/s scanning, it suits medical implants by effectively clearing oxides.
+        metadata:
+          topic: 'What laser parameters, such as pulse duration and '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: how-does-tantalums-corrosion-resistance-affect-the
+        title: How does Tantalum's corrosion resistance affect the choice of laser cleaning methods for removing oxide layers
+          in aerospace components?
+        content: Tantalum's corrosion resistance, particularly from a tough passive oxide film, limits laser absorption due
+          to the metal's high reflectivity. This notably favors pulsed over continuous wave lasers to prevent thermal damage
+          during oxide removal on aerospace parts. Thus, employ 1064 nm wavelength with 2.5 J/cm² fluence and 10 ns pulses
+          for precise ablation without substrate harm.
+        metadata:
+          topic: How does Tantalum's corrosion resistance affect th
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: what-safety-hazards-arise-from-laser-induced-fumes
+        title: What safety hazards arise from laser-induced fumes or particulates when cleaning Tantalum in electronics manufacturing?
+        content: When cleaning Tantalum in electronics using a 100 W laser at 1064 nm wavelength, fine oxide particulates
+          form. These carry low toxicity, but notably risk inhalation-induced lung irritation from the metal's density. Vapors
+          stay minimal due to its high melting point; thus, OSHA requires local exhaust ventilation at 50 fpm to curb airborne
+          buildup.
+        metadata:
+          topic: What safety hazards arise from laser-induced fumes
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: is-fiber-laser-cleaning-suitable-for-tantalum-capa
+        title: Is fiber laser cleaning suitable for Tantalum capacitor leads, and what power levels prevent substrate damage?
+        content: Yes, fiber laser cleaning works particularly well for tantalum capacitor leads, preserving biocompatibility
+          and capacitance in electronic components. Specifically, target 100 W average power with fluence below 2.5 J/cm²
+          at 1064 nm to remove soldering residues without substrate damage, thus reducing thermal impacts on this reflective
+          metal.
+        metadata:
+          topic: Is fiber laser cleaning suitable for Tantalum capa
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: surface-roughness-changes
+        title: 'In technical forums, users ask: How to monitor surface roughness changes on Tantalum after laser cleaning
+          for prosthetic devices?'
+        content: To monitor surface roughness on Tantalum following laser cleaning for prosthetic applications, stylus profilometry
+          proves effective, specifically for precise Ra value measurements after 1064 nm ablation at 2.5 J/cm² fluence. Thus,
+          it preserves the metal's smooth, biocompatible profile, lowering implant rejection risks by verifying limited texturing
+          from the process.
+        metadata:
+          topic: surface roughness changes
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: in-vacuum-environments
+        title: What are common concerns about laser cleaning Tantalum alloys in vacuum environments for semiconductor production?
+        content: In vacuum setups for semiconductor production, Tantalum alloys present risks, particularly from trace oxygen
+          reactivity at high temperatures that may reform oxides during laser cleaning. Notably, plasma generated by 1064
+          nm ablation at 2.5 J/cm² fluence risks scattering contaminants in cleanrooms, thus maintaining 100 W power minimizes
+          debris while upholding vacuum integrity.
+        metadata:
+          topic: in vacuum environments
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: how-do-tantalums-physical-properties-like-density-
+        title: How do Tantalum's physical properties, like density (16.69 g/cm³) and hardness, influence the efficiency of
+          laser ablation during surface treatment?
+        content: Tantalum's density of 16.69 g/cm³ notably elevates its thermal mass, which slows heat dissipation and lifts
+          the ablation threshold to roughly 2.5 J/cm² for oxide removal. Meanwhile, the metal's hardness calls for nanosecond
+          pulses at 1064 nm to safeguard the substrate. In industrial environments, this inert material's weight creates handling
+          hurdles; thus, we fine-tune scan speeds to 500 mm/s, ensuring even efficiency minus unwanted buildup.
+        metadata:
+          topic: How do Tantalum's physical properties, like densit
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: tantalum-medical-components
+        title: What regulatory compliance issues, such as REACH or FDA standards, apply to laser cleaning processes for Tantalum
+          medical components?
+        content: For Tantalum medical implants, FDA standards in 21 CFR Part 820 demand cleaning validation to guarantee sterility
+          and trace metal residues under 10 ppm, confirmed by ICP-MS following laser processes at 2.5 J/cm² fluence for oxide
+          removal. Notably, REACH compliance targets avoidance of SVHC contaminants during near-IR (1064 nm) ablation, thus
+          preserving biocompatibility without substrate harm.
+        metadata:
+          topic: Tantalum medical components
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: hydrogen-embrittlement
+        title: 'In online Q&A sites, people inquire: Can CO2 lasers effectively clean Tantalum without introducing hydrogen
+          embrittlement?'
+        content: CO2 lasers operating at 10.6 μm particularly face challenges with Tantalum's high reflectivity, demanding
+          excessive power that can lead to overheating and unwanted hydrogen absorption—worsening its tendency for embrittlement
+          in cleaning processes. To achieve safer oxide removal, select Nd:YAG lasers at 1064 nm, using 2.5 J/cm² fluence
+          and 100 W power for reducing heat-affected zones while preventing substrate damage. Thus, precise and embrittlement-free
+          outcomes emerge for aerospace uses.
+        metadata:
+          topic: hydrogen embrittlement
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: preparing-tantalum-samples
+        title: What handling requirements are discussed in guides for preparing Tantalum samples before laser surface treatment
+          in research labs?
+        content: Guides particularly stress handling tantalum samples in cleanroom settings to avoid contamination, owing
+          to its rarity and expense—typically via gloves and specialized tools. Pre-cleaning entails ultrasonic baths in isopropyl
+          alcohol, then nitrogen drying, thus yielding oxide-free surfaces for reliable laser ablation at 2.5 J/cm² fluence
+          on this refractory metal.
+        metadata:
+          topic: preparing Tantalum samples
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -440,17 +601,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-applications:
-- Aerospace
-- Medical Devices
-- Chemical Processing
-- Electronics
-- Nuclear Technology
-- Marine Engineering
-- Semiconductor Manufacturing
-- Research and Development
-- Additive Manufacturing
-- Cultural Heritage
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Tantalum
@@ -460,3 +610,67 @@ fullPath: /materials/metal/alloy/tantalum-laser-cleaning
 pageDescription: We've discovered that Tantalum shines in harsh chemical environments because of its exceptional corrosion
   resistance, letting it hold up against strong acids while metals like steel break down fast and give way, which is why we
   choose it for sturdy parts in processing gear and medical implants that need to last for the long haul.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics
+      description: Electronics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Nuclear Technology
+      description: Nuclear Technology industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Marine Engineering
+      description: Marine Engineering industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Semiconductor Manufacturing
+      description: Semiconductor Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Research and Development
+      description: Research and Development industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Additive Manufacturing
+      description: Additive Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

@@ -48,7 +48,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -462,6 +462,59 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: can-laser-cleaning-cause-discoloration-on-stainles
+        title: Can laser cleaning cause discoloration on Stainless Steel 304?
+        content: I've seen discoloration happen if the laser power runs too high during cleaning. This works best when you
+          start with lower settings to gently remove contaminants without heating the surface excessively. Stainless Steel
+          304 tends to maintain its finish if you monitor the process closely and avoid prolonged exposure on one spot.
+        metadata:
+          topic: Can laser cleaning cause discoloration on Stainles
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-way-to-prepare-stainless-steel-304-
+        title: What's the best way to prepare Stainless Steel 304 for laser cleaning?
+        content: When cleaning Stainless Steel 304, you'll want to first ensure the surface is free of heavy debris by wiping
+          it down. This process restores the material's natural shine as the laser removes oxides and residues effectively.
+          I've found that keeping the area dry helps the laser interact evenly with its durable, corrosion-resistant properties.
+        metadata:
+          topic: What's the best way to prepare Stainless Steel 304
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: how-do-i-avoid-warping-stainless-steel-304-during-
+        title: How do I avoid warping Stainless Steel 304 during laser cleaning?
+        content: Stainless Steel 304 cleans well with laser if you use short pulses to limit heat buildup on the surface.
+          This approach reduces the risk of distortion in its strong,
+        metadata:
+          topic: 'How do I avoid warping Stainless Steel 304 during '
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 regulatory_standards:
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
@@ -473,15 +526,6 @@ regulatory_standards:
   longName: American National Standards Institute
   name: ANSI
   url: https://webstore.ansi.org/standards/lia/ansiz1362022
-applications:
-- Food and Beverage
-- Chemical Processing
-- Architecture
-- Automotive
-- Medical Devices
-- Kitchen Equipment
-- Pharmaceutical
-- Marine
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Stainless Steel 304
@@ -491,3 +535,55 @@ fullPath: /materials/metal/alloy/stainless-steel-304-laser-cleaning
 pageDescription: When laser cleaning stainless steel 304, watch out for how it holds heat longer than carbon steels. I've
   seen that cause uneven surfaces if you push too hard. But its strong corrosion resistance really sets it apart, restoring
   a clean finish that stays protected longer. This works best with short, steady pulses.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Food and Beverage
+      description: Food and Beverage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Chemical Processing
+      description: Chemical Processing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Architecture
+      description: Architecture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Kitchen Equipment
+      description: Kitchen Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Pharmaceutical
+      description: Pharmaceutical industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

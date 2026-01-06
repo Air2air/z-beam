@@ -55,7 +55,7 @@ author:
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
-  expertise:
+  expertise: &id001
   - Laser Materials Processing
   affiliation:
     name: National Taiwan University
@@ -380,6 +380,43 @@ relationships:
     - Musical Instruments
     - Plumbing
     - Valves and Fittings
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: brass:-frequently-asked-questions
+        title: 'Brass: Frequently Asked Questions'
+        content: "Brass consists of an alloy that combines copper and zinc. Manufacturers produce it in various compositions\
+          \ to suit different needs. This metal serves in plumbing fittings, electrical components, and decorative hardware\
+          \ due to its corrosion resistance and machinability.\n\nWhat are the key physical properties of brass?  \nBrass\
+          \ offers good electrical conductivity at roughly 15,900,000 siemens per meter. Its electrical resistivity measures\
+          \ about 6.2 × 10⁻⁸ ohm-meters. These values make it suitable for connectors and wiring in industrial settings. The\
+          \ material also shows moderate strength and ductility, which allows shaping without cracking.\n\nHow does brass\
+          \ perform in industrial applications?  \nIndustries use brass for valves, gears, and instruments where durability\
+          \ matters. Its low friction reduces wear in moving parts. Yet, exposure to harsh environments can lead to tarnish\
+          \ over time.\n\nWhat laser cleaning settings apply to brass?  \nLaser cleaning removes oxidation and contaminants\
+          \ from brass surfaces. Operators typically select a power range of 100 watts for effective results. This process\
+          \ restores the metal's appearance without damaging the substrate. It exposes clean layers beneath dirt buildup.\
+          \ In practice, short pulses help control heat input and prevent warping. Brass responds well to this method in restoration\
+          \ work for antiques or machinery parts.  \n\n(Word count: 198)"
+        metadata:
+          topic: 'Brass: Frequently Asked Questions'
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Yi-Chun Lin
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -439,13 +476,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Architecture
-- Hardware Manufacturing
-- Marine
-- Musical Instruments
-- Plumbing
-- Valves and Fittings
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Brass
@@ -456,3 +486,43 @@ pageDescription: Brass, as non-ferrous metal, shows high reflectivity during las
   oxidation and contamination from marine or plumbing uses without deep substrate damage. Because of its good corrosion resistance
   and thermal shock tolerance, process restores uniformity on surfaces effectively, and this sets brass apart from ferrous
   alternatives that suffer more from heat buildup.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Architecture
+      description: Architecture industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Hardware Manufacturing
+      description: Hardware Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Marine
+      description: Marine industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Musical Instruments
+      description: Musical Instruments industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Plumbing
+      description: Plumbing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Valves and Fittings
+      description: Valves and Fittings industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6

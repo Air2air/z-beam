@@ -110,7 +110,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -390,6 +390,161 @@ relationships:
     - Electronics Manufacturing
     - Marine and Offshore
     - Research and Development
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: releasing-asbestos-fibers
+        title: Is laser cleaning safe for removing contaminants from serpentine stone surfaces without releasing asbestos
+          fibers?
+        content: Yes, laser cleaning fairly effectively removes contaminants from serpentine stone surfaces without liberating
+          asbestos fibers, using a 1064 nm wavelength and fluence under 2.5 J/cm² to vaporize only surface layers. This non-contact
+          approach basically minimizes risks compared to mechanical abrasion, which can fracture the material and release
+          fibers, aligning with OSHA and EPA guidelines for safe handling.
+        metadata:
+          topic: releasing asbestos fibers
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: laser-wavelengths
+        title: What laser wavelengths and power settings are optimal for cleaning serpentine minerals in industrial applications?
+        content: When cleaning serpentine in industrial settings, choose the 1064 nm wavelength—serpentine typically absorbs
+          it pretty deeply, avoiding the surface cracking risk from 532 nm's shallower penetration. Combine with 100 W power
+          and 10 ns pulses at 2.5 J/cm² fluence for efficient layer ablation without thermal damage, preserving mineral integrity
+          on 500 mm/s scans.
+        metadata:
+          topic: laser wavelengths
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: layered-structure
+        title: How does serpentine's layered structure affect the efficiency of laser ablation compared to other silicates?
+        content: Serpentine's foliated layers typically promote easier delamination during laser ablation, boosting efficiency
+          over compact silicates like feldspar that require higher thermal thresholds. Employing a 1064 nm wavelength at 2.5
+          J/cm² fluence pretty much minimizes cracking risks, as shown in mining equipment cleanups where layered peeling
+          speeds surface restoration.
+        metadata:
+          topic: layered structure
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: asbestos-bearing-serpentine
+        title: What are the main concerns about dust and particulate generation when using lasers on asbestos-bearing serpentine?
+        content: When lasering asbestos-containing serpentine, the main concern is basically the airborne fiber release during
+          ablation at 2.5 J/cm² fluence. You'll need real-time monitoring for fibers, plus HEPA-ventilated enclosures to capture
+          particulates. Always follow safety data sheets for bagging and disposing residues as hazardous waste.
+        metadata:
+          topic: asbestos-bearing serpentine
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: damaging-the-mineral
+        title: Can laser cleaning effectively remove rust or coatings from serpentine-based architectural elements without
+          damaging the mineral?
+        content: Yeah, laser cleaning does pretty well at stripping rust and coatings from serpentine architectural features.
+          At 1064 nm wavelength and 2.5 J/cm² fluence, it typically ablates contaminants selectively while sparing the mineral
+          matrix, as in heritage restorations where surface roughness stays under 1 μm post-treatment.
+        metadata:
+          topic: damaging the mineral
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: serpentine-in-construction-sites
+        title: What safety protocols should be followed when training operators to laser clean serpentine in construction
+          sites?
+        content: Train operators to typically don full-body PPE, like NIOSH-approved respirators and protective suits, to
+          cut down on asbestos hazards from serpentine's fibrous forms. Set lasers to a fairly tight 2.5 J/cm² fluence level,
+          tweaking for material differences to avoid spotty ablation. During fiber release crises, promptly evacuate the site
+          and fire up HEPA filters.
+        metadata:
+          topic: serpentine in construction sites
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: magnesium-silicate-composition
+        title: How do the chemical properties of serpentine, like its magnesium silicate composition, influence laser-induced
+          reactions during cleaning?
+        content: Serpentine's magnesium silicate composition, pretty rich in hydroxyl groups, drives dehydroxylation during
+          1064 nm laser cleaning and risks phase shifts if fluence tops 2.5 J/cm². Dry methods basically match its low thermal
+          conductivity to prevent cracks, while wet ones better control hydration reactions for safer ablation at 100 W power.
+        metadata:
+          topic: magnesium silicate composition
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: uneven-ablation
+        title: What are common issues reported in forums about laser cleaning serpentine in mining equipment, such as uneven
+          ablation?
+        content: In Reddit threads and mining forums, folks fairly often gripe about uneven ablation on serpentine-coated
+          equipment from its patchy mineral layers. Basically, dialing scan speed to 500 mm/s with 50% beam overlap evens
+          things out, preventing hot spots at 2.5 J/cm² fluence.
+        metadata:
+          topic: uneven ablation
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: serpentine-surface-treatment
+        title: Are there manufacturer recommendations for laser systems specifically tuned for serpentine surface treatment
+          in heritage conservation?
+        content: IPG Photonics typically recommends portable Q-switched Nd:YAG lasers at 1064 nm for serpentine heritage cleaning,
+          as they're fairly superior to industrial setups on delicate sites. To prevent damage to the stone's fibrous structure,
+          keep fluence under 2.5 J/cm² with 100 W power and 10 ns pulses, for controlled ablation without heat buildup.
+        metadata:
+          topic: serpentine surface treatment
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: chrysotile-asbestos
+        title: What regulatory compliance steps are needed for laser cleaning serpentine materials that may contain chrysotile
+          asbestos?
+        content: Before laser cleaning serpentine potentially laced with chrysotile asbestos, typically conduct EPA-required
+          pre-testing to verify contamination levels. Follow NIOSH guidelines by running at 100 W power and 2.5 J/cm² fluence,
+          which basically curbs dust generation. Document ablated waste disposal thoroughly for full regulatory compliance.
+        metadata:
+          topic: chrysotile asbestos
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -448,17 +603,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Cultural Heritage
-- Aerospace
-- Architecture and Construction
-- Manufacturing
-- Museums and Conservation
-- Energy Sector
-- Automotive
-- Electronics Manufacturing
-- Marine and Offshore
-- Research and Development
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Serpentine
@@ -468,3 +612,67 @@ fullPath: /materials/stone/sedimentary/serpentine-laser-cleaning
 pageDescription: When laser cleaning serpentine, begin with a moderate power setting to make use of its good heat resistance,
   which helps avoid surface cracking in the process, then use steady scans to reveal contaminants without changing the stone's
   dense structure, but keep an eye out for porosity buildup if passes overlap too much
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Architecture and Construction
+      description: Architecture and Construction industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Manufacturing
+      description: Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Museums and Conservation
+      description: Museums and Conservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Marine and Offshore
+      description: Marine and Offshore industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Research and Development
+      description: Research and Development industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

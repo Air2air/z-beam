@@ -101,7 +101,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -425,6 +425,154 @@ relationships:
     - Automotive Manufacturing
     - Aerospace Component Manufacturing
     - Industrial Machinery
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: lead-based-paint-removal
+        title: Is laser cleaning safe for lead-based paint removal, and what specific safety measures are required?
+        content: Cleaning lead-based paint with lasers demands utmost caution owing to the toxic fumes it produces. A notable
+          strategy involves a 1064 nm wavelength at 2.5 J/cm² fluence, which curbs particulate emission. Operators should
+          always use high-efficiency local exhaust ventilation alongside supplied-air respirators for essential safety.
+        metadata:
+          topic: lead-based paint removal
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: without-vaporizing-it
+        title: What laser parameters (wavelength, pulse duration, power) work best for removing lead contamination without
+          vaporizing it?
+        content: For lead decontamination, employ nanosecond pulses at 1064 nm wavelength with fluence around 2.5 J/cm². This
+          configuration, using a fiber laser, effectively ablates surface contaminants while the short pulse duration minimizes
+          thermal penetration, thus preventing hazardous vaporization of the underlying lead substrate.
+        metadata:
+          topic: without vaporizing it
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: lead-particles
+        title: How do you properly capture and filter lead particles generated during laser cleaning?
+        content: It's notable that for lead particle capture, we rely on HEPA filtration rated for nanoparticles below 100nm.
+          Essential to the vacuum system is sustaining high velocity with our standard 50 μm spot size and 500 mm/s scan speed,
+          thereby containing the toxic plume effectively.
+        metadata:
+          topic: lead particles
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: airborne-lead-levels
+        title: Does laser cleaning create airborne lead levels that exceed OSHA exposure limits?
+        content: Yes, laser ablation of lead at 2.5 J/cm² can generate hazardous aerosols. Continuous air monitoring is mandatory,
+          as particulate levels often surpass the OSHA PEL of 50 μg/m³. Proper local exhaust ventilation is absolutely essential
+          to maintain compliance.
+        metadata:
+          topic: airborne lead levels
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: lead-removal
+        title: What are the advantages of laser cleaning over traditional methods (blasting, chemical stripping) for lead
+          removal?
+        content: Laser cleaning delivers a notable reduction in hazardous waste volume versus traditional methods. Employing
+          our 1064 nm wavelength and 2.5 J/cm² fluence ensures selective removal free of media contamination—essential for
+          delicate uses like nuclear components. In turn, this approach curbs secondary waste, boosting safety and efficiency.
+        metadata:
+          topic: lead removal
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: driving-it-deeper
+        title: Can laser cleaning effectively remove lead from porous surfaces like concrete or wood without driving it deeper?
+        content: Proper laser parameters like 2.5 J/cm² fluence and 10 ns pulses effectively ablate surface lead without significant
+          substrate penetration. For porous materials like concrete, we recommend initial surface sealing. Post-process verification
+          testing is essential to confirm complete decontamination.
+        metadata:
+          topic: driving it deeper
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: what-personal-protective-equipment-(ppe)-is-specif
+        title: What personal protective equipment (PPE) is specifically needed for laser cleaning of lead-containing materials?
+        content: Due to lead's notable toxicity, don a P100 respirator and disposable coveralls without fail. Our 1064 nm
+          laser, running at 100 W, produces dangerous fumes and fine particulates. Rigorous decontamination of your PPE and
+          equipment remains absolutely essential after every session.
+        metadata:
+          topic: What personal protective equipment (PPE) is specif
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: effectively-removed-lead
+        title: How do you test and verify that laser cleaning has effectively removed lead to meet regulatory standards?
+        content: We confirm lead removal via XRF analysis and swipe tests, aiming for clearance under 10 µg/100 cm². Our 1064
+          nm laser system, at 2.5 J/cm², delivers notable decontamination. Documenting all parameters properly is essential
+          for regulatory approval.
+        metadata:
+          topic: effectively removed lead
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: laser-ablated-lead-debris
+        title: What waste classification does laser-ablated lead debris fall under, and how should it be disposed?
+        content: Laser-ablated lead debris stands as a notable hazardous waste under classification D008. For safe handling,
+          it requires sealing in certified containers during transport and disposal. Notably, the fine particulate produced
+          at 2.5 J/cm² fluence lends itself to recycling by specialized facilities—the essential preferred path for this toxic
+          metal.
+        metadata:
+          topic: laser-ablated lead debris
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: confined-spaces
+        title: Are there specific laser safety considerations when cleaning lead in confined spaces?
+        content: Cleaning lead in confined spaces requires extreme caution. Notably, the 1064 nm wavelength at 100W power
+          produces highly concentrated toxic fumes, necessitating continuous atmospheric monitoring. It is essential to deploy
+          enhanced local exhaust ventilation and emergency protocols, since airborne lead levels can swiftly surpass 500 µg/m³,
+          the standard occupational exposure limit.
+        metadata:
+          topic: confined spaces
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -482,17 +630,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-applications:
-- Nuclear Energy
-- Battery Manufacturing
-- Cultural Heritage
-- Medical Radiation Shielding
-- Marine Engineering
-- Electronics Manufacturing
-- Construction and Roofing
-- Automotive Manufacturing
-- Aerospace Component Manufacturing
-- Industrial Machinery
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Lead
@@ -503,3 +640,67 @@ pageDescription: Cleaning lead with lasers is tricky due to its low melting poin
   the process. I've gotten the best outcomes using lower power settings to gently strip away contaminants while keeping the
   material's dense structure intact for shielding applications, but always keep a close eye on it to avoid any softening or
   deformation at the end.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Nuclear Energy
+      description: Nuclear Energy industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Battery Manufacturing
+      description: Battery Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Cultural Heritage
+      description: Cultural Heritage industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Medical Radiation Shielding
+      description: Medical Radiation Shielding industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Marine Engineering
+      description: Marine Engineering industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Construction and Roofing
+      description: Construction and Roofing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Automotive Manufacturing
+      description: Automotive Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Aerospace Component Manufacturing
+      description: Aerospace Component Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Industrial Machinery
+      description: Industrial Machinery industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

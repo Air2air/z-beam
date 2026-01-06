@@ -111,7 +111,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -385,6 +385,165 @@ relationships:
     - Research and Development
     - Food Processing Equipment
     - Cultural Heritage Conservation
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: titanium-carbide-coatings
+        title: What laser parameters are optimal for cleaning titanium carbide coatings without causing thermal damage to
+          the underlying substrate?
+        content: For cleaning titanium carbide coatings, choose a 1064 nm near-IR laser with 15 ns pulses at 50 kHz—essential
+          for matching its strong absorption and high melting point. Aim at 2.5 J/cm² fluence and 500 mm/s scanning speed
+          to achieve precise ablation of contaminants, avoiding substrate overheating through TiC's notable thermal conductivity.
+          Three passes at 50% overlap deliver thorough outcomes.
+        metadata:
+          topic: titanium carbide coatings
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: titanium-carbide-tool-surfaces
+        title: How effective is fiber laser cleaning at removing contaminants from titanium carbide tool surfaces compared
+          to traditional abrasive methods?
+        content: Fiber laser cleaning outperforms abrasive methods for titanium carbide tools, delivering removal rates up
+          to 5 times faster at 150 W power and 500 mm/s scan speed, along with a smoother surface free of micro-scratches.
+          Grinding, by contrast, often undermines TiC's essential hardness of ~3000 HV, whereas this technique safeguards
+          substrate integrity via 2.5 J/cm² fluence—a notable boon for aerospace precision cutting.
+        metadata:
+          topic: titanium carbide tool surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: fume-generation
+        title: What safety precautions are needed when using lasers to clean titanium carbide parts due to potential fume
+          generation?
+        content: In laser-cleaning titanium carbide with 150 W power and 2.5 J/cm² fluence, it's essential to prioritize robust
+          local exhaust ventilation for dispersing ablation fumes. The TiC MSDS notes notable respiratory hazards from inhaled
+          particles. Always don NIOSH-approved respirators and full-body suits to counter oxidation risks and fine dust exposure.
+        metadata:
+          topic: fume generation
+          severity: critical
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      - id: selectively-remove-oxide-layers
+        title: Can pulsed lasers selectively remove oxide layers from titanium carbide without ablating the carbide itself?
+        content: Indeed, pulsed lasers at 1064 nm facilitate selective oxide removal from titanium carbide, capitalizing on
+          distinct ablation thresholds—oxides vaporize at 1-2 J/cm², whereas TiC tolerates up to 2.5 J/cm². This essential
+          technique protects the substrate in aerospace coating maintenance, applying 50 kHz repetition for uniform coverage
+          without thermal damage.
+        metadata:
+          topic: selectively remove oxide layers
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 4
+      - id: residue-buildup
+        title: What are common issues with residue buildup when laser cleaning titanium carbide coated dies in manufacturing?
+        content: In laser cleaning of titanium carbide coated dies, residue buildup becomes a notable concern at fluences
+          below 2.5 J/cm², due to partial ablation and thermal re-deposition. It's essential to apply multiple passes—ideally
+          three at 150 W with gas assist—for resolution, as forum users confirm through post-cleaning SEM analysis of residue-free,
+          uniform surfaces.
+        metadata:
+          topic: residue buildup
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 5
+      - id: high-hardness
+        title: How does the high hardness of titanium carbide affect the choice of laser power for surface treatment in cleaning
+          applications?
+        content: Titanium carbide's notable hardness requires a fluence threshold of 2.5 J/cm² to remove contaminants without
+          damaging the substrate, steering laser power selections toward 150 W for optimal energy balance. Operating at 1064
+          nm distinctly boosts absorption, thereby minimizing reflections that could otherwise hasten equipment degradation.
+        metadata:
+          topic: high hardness
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 6
+      - id: titanium-carbide-surfaces
+        title: In training guides, what best practices are recommended for preparing titanium carbide surfaces before laser
+          cleaning to ensure uniform results?
+        content: Before laser cleaning titanium carbide, eliminate common metal residues through ultrasonic agitation in a
+          mild solvent—essential to avoid uneven ablation on its hard ceramic surface. Notably, calibrate the laser for a
+          fluence above 2.5 J/cm² with 50% beam overlap, guaranteeing uniform contaminant removal without substrate damage.
+        metadata:
+          topic: titanium carbide surfaces
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 7
+      - id: regulatory-compliance-issues
+        title: Are there regulatory compliance issues when disposing of waste from laser cleaning of titanium carbide in EU
+          manufacturing facilities?
+        content: Under EU regulations, REACH notably classifies titanium carbide particulates as potentially hazardous, demanding
+          specialized waste disposal to avert environmental leaching of titanium ions from ablated debris produced during
+          laser cleaning at 2.5 J/cm² fluence. It's essential to deploy sealed collection systems and review local directives
+          for secure secondary handling, thereby curbing airborne or waterborne risks.
+        metadata:
+          topic: regulatory compliance issues
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 8
+      - id: what-chemical-properties-of-titanium-carbide-make-
+        title: What chemical properties of titanium carbide make it resistant to certain laser wavelengths in cleaning processes?
+        content: Titanium carbide's distinct metallic-like bonding and narrow bandgap enable notable strong absorption in
+          the near-IR spectrum, particularly at 1064 nm, rendering it resilient to shorter UV-Vis wavelengths that pass through
+          with minimal interaction. Such resilience curbs reactivity with laser-induced plasmas, enabling efficient contaminant
+          removal at fluences as low as 2.5 J/cm² without substrate damage in aerospace components.
+        metadata:
+          topic: 'What chemical properties of titanium carbide make '
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 9
+      - id: how-do-manufacturers-of-laser-cleaning-equipment-r
+        title: How do manufacturers of laser cleaning equipment recommend adjusting settings for titanium carbide versus steel
+          surfaces?
+        content: Titanium carbide, offering a notable edge in higher reflectivity and lower thermal expansion over steel,
+          leads manufacturers like CleanLaser to recommend reducing fluence to 2.5 J/cm² while adopting a 1064 nm wavelength
+          for enhanced absorption without risking substrate harm. By contrast, steel calls for 3-4 J/cm² and scan speeds near
+          1000 mm/s, as outlined in vendor guides and aerospace studies, to deliver precise contaminant ablation across three
+          passes at 150 W.
+        metadata:
+          topic: How do manufacturers of laser cleaning equipment r
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 10
+      options:
+        autoOpenFirst: true
+        sortBy: severity
   safety:
     regulatory_standards:
       presentation: card
@@ -432,17 +591,6 @@ regulatory_standards:
   longName: Occupational Safety and Health Administration
   name: OSHA
   url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-applications:
-- Aerospace
-- Automotive
-- Medical Devices
-- Electronics Manufacturing
-- Energy Sector
-- Tool Manufacturing
-- Marine Engineering
-- Research and Development
-- Food Processing Equipment
-- Cultural Heritage Conservation
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Titanium Carbide
@@ -453,3 +601,67 @@ pageDescription: When laser cleaning Titanium Carbide components, we typically b
   accommodate its remarkable heat resistance and low thermal expansion, ensuring no warping occurs during the process and
   allowing us to remove contaminants from aerospace or manufacturing tools effectively, all without affecting the material's
   celebrated hardness and durability.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Electronics Manufacturing
+      description: Electronics Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Energy Sector
+      description: Energy Sector industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: Tool Manufacturing
+      description: Tool Manufacturing industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Marine Engineering
+      description: Marine Engineering industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Research and Development
+      description: Research and Development industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8
+    - title: Food Processing Equipment
+      description: Food Processing Equipment industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 9
+    - title: Cultural Heritage Conservation
+      description: Cultural Heritage Conservation industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 10

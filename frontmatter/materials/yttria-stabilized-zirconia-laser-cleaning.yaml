@@ -53,7 +53,7 @@ author:
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
-  expertise:
+  expertise: &id001
   - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
@@ -391,15 +391,61 @@ relationships:
       - id: semiconductor-residue-contamination
       - id: silicone-buildup-contamination
       - id: soap-scum-contamination
-applications:
-- Dental Implants
-- Medical Devices
-- Thermal Barrier Coatings
-- Aerospace
-- Automotive
-- High-Temperature Applications
-- Fuel Cells
-- Advanced Ceramics
+  operational:
+    expert_answers:
+      presentation: collapsible
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: how-do-i-safely-laser-clean-ysz-without-causing-cr
+        title: How do I safely laser clean YSZ without causing cracks?
+        content: I've seen YSZ hold up well during cleaning if you start slow. Begin with low power to gently remove dirt
+          and oxides from the surface. Watch the heat buildup closely, as this material resists thermal shock but can crack
+          under sudden changes. Keep the beam moving steadily to avoid hot spots. This approach brings back the clean finish
+          every time.
+        metadata:
+          topic: How do I safely laser clean YSZ without causing cr
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: &id002
+            name: Alessandro Moretti
+            title: Ph.D.
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      - id: whats-the-best-way-to-remove-contaminants-from-ysz
+        title: What's the best way to remove contaminants from YSZ coatings?
+        content: When cleaning YSZ, focus on a pulsed laser setup first. This works well because the material's toughness
+          lets it handle short bursts without damage. I've found scanning in overlapping passes removes stubborn buildup like
+          soot effectively. Adjust speed based on layer thickness to ensure even results. Tends to restore the original smooth
+          texture nicely.
+        metadata:
+          topic: What's the best way to remove contaminants from YS
+          severity: medium
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 2
+      - id: can-laser-cleaning-affect-yszs-thermal-properties-
+        title: Can laser cleaning affect YSZ's thermal properties long-term?
+        content: Start by testing a small area to check response. YSZ's stability means cleaning rarely alters its heat resistance
+          over time
+        metadata:
+          topic: Can laser cleaning affect YSZ's thermal properties
+          severity: high
+          acceptedAnswer: true
+          expertInfo: *id002
+        _display:
+          _open: false
+          order: 3
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 schemaVersion: 5.0.0
 contentType: material
 pageTitle: Yttria-Stabilized Zirconia
@@ -409,3 +455,55 @@ fullPath: /materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning
 pageDescription: Yttria-Stabilized Zirconia exhibits exceptional hardness and thermal stability, which renders it suitable
   for laser cleaning applications. This ceramic, it resists oxidation tenaciously, enabling precise contaminant removal without
   damage. Yet, its toughness, that demands careful beam control, presents processing challenges.
+operational:
+  industry_applications:
+    presentation: card
+    items:
+    - title: Dental Implants
+      description: Dental Implants industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 1
+    - title: Medical Devices
+      description: Medical Devices industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 2
+    - title: Thermal Barrier Coatings
+      description: Thermal Barrier Coatings industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 3
+    - title: Aerospace
+      description: Aerospace industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 4
+    - title: Automotive
+      description: Automotive industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 5
+    - title: High-Temperature Applications
+      description: High-Temperature Applications industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 6
+    - title: Fuel Cells
+      description: Fuel Cells industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 7
+    - title: Advanced Ceramics
+      description: Advanced Ceramics industry applications and manufacturing requirements for laser cleaning.
+      metadata:
+        category: Industrial Applications
+        commonality: common
+      order: 8

@@ -1,0 +1,127 @@
+/**
+ * @component CardListPanel
+ * @purpose Base component for rendering lists of items in a 2-column card grid
+ * @dependencies SectionContainer, SectionTitle, @/types
+ * @related RegulatoryStandards, IndustryApplicationsPanel
+ * @complexity Low (base pattern for card list sections)
+ * @aiContext Renders items in a responsive grid with consistent card styling.
+ *           Follows the pattern established by RegulatoryStandards component.
+ *           Extensions should override renderCard() for custom card content.
+ */
+
+import React from 'react';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { getSectionIcon } from '@/app/config/sectionIcons';
+import type { RelationshipSection } from '@/types';
+
+export interface CardListItem {
+  id: string;
+  title?: string;
+  name?: string;
+  content?: string;
+  description?: string;
+  [key: string]: any;
+}
+
+export interface CardListPanelProps {
+  items: CardListItem[];
+  sectionMetadata?: RelationshipSection;
+  className?: string;
+  iconType?: string;
+}
+
+/**
+ * Base CardListPanel component
+ * Renders items in a 2-column responsive grid with card styling
+ */
+export function CardListPanel({
+  items,
+  sectionMetadata,
+  className = '',
+  iconType = 'default'
+}: CardListPanelProps) {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <SectionContainer 
+      bgColor="transparent"
+      radius={false}
+      className={className}
+    >
+      {sectionMetadata && (
+        <SectionTitle 
+          title={sectionMetadata.section_title}
+          icon={getSectionIcon(iconType)}
+          description={sectionMetadata.section_description}
+        />
+      )}
+      <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
+        {items.map((item) => (
+          <CardListItem key={item.id} item={item} />
+        ))}
+      </ul>
+    </SectionContainer>
+  );
+}
+
+/**
+ * Default card rendering for items
+ * Can be overridden by extending components
+ */
+function CardListItem({ item }: { item: CardListItem }) {
+  const displayTitle = item.title || item.name;
+  const displayContent = item.content || item.description;
+
+  return (
+    <li className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+      <h3 className="text-lg text-secondary font-semibold mb-1">
+        {displayTitle}
+      </h3>
+      {displayContent && (
+        <p className="text-sm text-secondary mb-3">
+          {displayContent}
+        </p>
+      )}
+    </li>
+  );
+}
+
+/**
+ * Higher-order component for creating custom card list panels
+ * Usage: const MyPanel = createCardListPanel(iconType, customRenderCard);
+ */
+export function createCardListPanel(
+  iconType: string,
+  renderCard?: (item: CardListItem, index: number) => React.ReactNode
+) {
+  return function CustomCardListPanel(props: CardListPanelProps) {
+    const { items, sectionMetadata, className = '' } = props;
+    
+    if (!items || items.length === 0) return null;
+
+    return (
+      <SectionContainer 
+        bgColor="transparent"
+        radius={false}
+        className={className}
+      >
+        {sectionMetadata && (
+          <SectionTitle 
+            title={sectionMetadata.section_title}
+            icon={getSectionIcon(iconType)}
+            description={sectionMetadata.section_description}
+          />
+        )}
+        <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
+          {items.map((item, index) => (
+            <React.Fragment key={item.id}>
+              {renderCard ? renderCard(item, index) : <CardListItem item={item} />}
+            </React.Fragment>
+          ))}
+        </ul>
+      </SectionContainer>
+    );
+  };
+}

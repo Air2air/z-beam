@@ -78,7 +78,7 @@ author:
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
-  expertise:
+  expertise: &id001
   - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
@@ -426,6 +426,38 @@ relationships:
         section_title: Reactivity
         description: Chemical reactivity and incompatibilities
         icon: atom
+  operational:
+    expert_answers:
+      presentation: card
+      sectionMetadata:
+        section_title: Expert Q&A
+        section_description: Frequently asked questions answered by laser cleaning experts
+        icon: user-tie
+        order: 40
+      items:
+      - id: as-a-laser-cleaning-operator-working-on-chromium-c
+        title: As a laser cleaning operator working on chromium-containing alloys like stainless steel, what personal protective
+          equipment (PPE) should I use to minimize Cr(VI) exposure risks?
+        content: Always wear a NIOSH-approved respirator with a P100 filter or supplied-air system to protect against inhaling
+          Cr(VI) fumes or aerosols generated during laser ablation, as Cr(VI) is a potent carcinogen that can cause lung cancer
+          via respiratory exposure. In addition, use chemical-resistant gloves, full-body coveralls, and safety goggles to
+          prevent skin contact, which can lead to dermatitis or ulceration, and ensure the workspace has local exhaust ventilation
+          to capture airborne particles. Regularly inspect and replace PPE, and follow OSHA's permissible exposure limit of
+          5 µg/m³ for Cr(VI) over an 8-hour shift to stay within safe thresholds.
+        metadata:
+          topic: As a laser cleaning operator working on chromium-c
+          severity: medium
+          acceptedAnswer: true
+          expertInfo:
+            name: Todd Dunning
+            title: MA
+            expertise: *id001
+        _display:
+          _open: true
+          order: 1
+      options:
+        autoOpenFirst: true
+        sortBy: severity
 displayName: Chromium(VI)
 subcategory: heavy_metal
 ppe_requirements: "Handling chromium(VI) compounds demands careful attention to personal protective equipment, especially\
