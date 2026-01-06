@@ -3,8 +3,8 @@ name: Carbon Monoxide
 displayName: Carbon Monoxide (CO)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2026-01-06T01:38:57.311393Z'
-dateModified: '2026-01-06T01:38:57.338770+00:00'
+datePublished: '2026-01-06T05:36:52.546333Z'
+dateModified: '2026-01-06T05:36:52.571960+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/asphyxiant/carbon-monoxide-compound
@@ -136,6 +136,16 @@ relationships:
       items:
       - type: chemical_properties
         id: carbon-monoxide-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -150,8 +160,8 @@ relationships:
         appearance: Colorless gas
         odor: Odorless - Cannot be detected by smell (DANGEROUS!)
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -168,8 +178,8 @@ relationships:
           ec_number: 211-128-3
           pubchem_cid: '281'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -195,6 +205,10 @@ relationships:
         effect: Mild irritation
         severity: low
         onset: immediate
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -208,8 +222,8 @@ relationships:
         special_notes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient atmospheres (<19.5% O2).
           Detector badges provide no respiratory protection.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -228,8 +242,8 @@ relationships:
         special_hazards: Odorless, colorless - cannot detect without monitors. Binds to hemoglobin 200-250x more strongly
           than oxygen, causing tissue hypoxia. Delayed neurological effects possible.
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -260,8 +274,8 @@ relationships:
             timing: End of shift
             bei_value: <3.5% of hemoglobin for non-smokers, <10% post-shift
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -283,8 +297,8 @@ relationships:
         special_requirements: Secure cylinders to prevent falling. Store upright. Cap cylinders when not in use. Post "CARBON
           MONOXIDE - POISON GAS" signs. Implement gas detection systems.
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -308,8 +322,8 @@ relationships:
         cercla_rq: Not listed (gas, difficult to quantify releases)
         rcra_code: Not listed as hazardous waste
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -328,8 +342,8 @@ relationships:
           water: Not reportable (low aquatic persistence)
           air: State-dependent. Many states require reporting large releases (e.g., >100 lbs/hr in some jurisdictions)
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -359,8 +373,8 @@ relationships:
         odor_threshold: NO ODOR - Cannot be detected by smell. MUST use electronic monitors. Odorless nature makes CO extremely
           dangerous.
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -422,6 +436,16 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Quenching Oil Residue
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -446,8 +470,8 @@ relationships:
         reactivity_hazard: Reacts violently with strong oxidizers. May form explosive mixtures with air (12.5-74%). Reacts
           with heated iron to form toxic iron carbonyl.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: asphyxiant
 formula: CO

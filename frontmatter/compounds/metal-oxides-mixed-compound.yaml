@@ -3,8 +3,8 @@ name: Metal Oxides (Mixed)
 displayName: Metal Oxides (Mixed)
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:58.896987Z'
-dateModified: '2026-01-06T01:38:58.897018+00:00'
+datePublished: '2026-01-06T05:36:53.867931Z'
+dateModified: '2026-01-06T05:36:53.867961+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/metal-oxides-mixed-compound
@@ -218,24 +218,40 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Automotive Undercoating
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and potential for pneumoconiosis or metal fume fever depending on specific metals
-      severity: moderate
-      onset: short-term
-    - route: skin_contact
-      effect: Dermatitis or irritation from abrasive dust or specific metal sensitization
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Conjunctivitis and corneal irritation
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Gastrointestinal upset and potential systemic metal toxicity
-      severity: high
-      onset: short-term
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation and potential for pneumoconiosis or metal fume fever depending on specific metals
+        severity: moderate
+        onset: short-term
+      - route: skin_contact
+        effect: Dermatitis or irritation from abrasive dust or specific metal sensitization
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Conjunctivitis and corneal irritation
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal upset and potential systemic metal toxicity
+        severity: high
+        onset: short-term
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: metal-oxide
 formula: Various
 ppe_requirements: Handling metal oxide mixed compounds in particulate form demands solid protection against dust clouds and

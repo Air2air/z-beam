@@ -3,8 +3,8 @@ name: Calcium Oxide
 displayName: Calcium Oxide (CaO)
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:59.219260Z'
-dateModified: '2026-01-06T01:38:59.219289+00:00'
+datePublished: '2026-01-06T05:36:54.181049Z'
+dateModified: '2026-01-06T05:36:54.181073+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/calcium-oxide-compound
@@ -200,24 +200,40 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Mineral Scale / Hard Water Deposits
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Severe irritation and burns to the respiratory tract, potentially leading to pulmonary edema
-      severity: severe
-      onset: immediate
-    - route: skin_contact
-      effect: Chemical burns due to exothermic reaction with moisture, causing tissue damage and pain
-      severity: severe
-      onset: immediate
-    - route: eye_contact
-      effect: Severe corneal burns and potential permanent vision impairment
-      severity: severe
-      onset: immediate
-    - route: ingestion
-      effect: Burns to the mouth, throat, and gastrointestinal tract, with risk of perforation
-      severity: severe
-      onset: immediate
+      items:
+      - route: inhalation
+        effect: Severe irritation and burns to the respiratory tract, potentially leading to pulmonary edema
+        severity: severe
+        onset: immediate
+      - route: skin_contact
+        effect: Chemical burns due to exothermic reaction with moisture, causing tissue damage and pain
+        severity: severe
+        onset: immediate
+      - route: eye_contact
+        effect: Severe corneal burns and potential permanent vision impairment
+        severity: severe
+        onset: immediate
+      - route: ingestion
+        effect: Burns to the mouth, throat, and gastrointestinal tract, with risk of perforation
+        severity: severe
+        onset: immediate
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: metal-oxide
 formula: CaO
 ppe_requirements: 'Handling calcium oxide in its particulate form demands careful protection against its reactive and dusty

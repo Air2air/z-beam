@@ -3,8 +3,8 @@ name: Silicon Dioxide
 displayName: Silicon Dioxide (SiO₂)
 category: particulate
 hazard_class: respiratory_hazard
-datePublished: '2026-01-06T01:38:59.167211Z'
-dateModified: '2026-01-06T01:38:59.167240+00:00'
+datePublished: '2026-01-06T05:36:54.134154Z'
+dateModified: '2026-01-06T05:36:54.134181+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/mineral/silicon-dioxide-compound
@@ -189,28 +189,44 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Silicone Sealant Buildup
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Silicosis (lung fibrosis)
-      severity: severe
-      onset: long-term
-    - route: inhalation
-      effect: Lung cancer
-      severity: severe
-      onset: long-term
-    - route: inhalation
-      effect: Respiratory irritation
-      severity: moderate
-      onset: immediate
-    - route: skin_contact
-      effect: Mechanical irritation or dryness
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Irritation and abrasion
-      severity: moderate
-      onset: immediate
+      items:
+      - route: inhalation
+        effect: Silicosis (lung fibrosis)
+        severity: severe
+        onset: long-term
+      - route: inhalation
+        effect: Lung cancer
+        severity: severe
+        onset: long-term
+      - route: inhalation
+        effect: Respiratory irritation
+        severity: moderate
+        onset: immediate
+      - route: skin_contact
+        effect: Mechanical irritation or dryness
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Irritation and abrasion
+        severity: moderate
+        onset: immediate
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: mineral
 formula: SiO₂
 ppe_requirements: Handling silicon dioxide particulates starts with assessing the workspace setup, where fine dust particles

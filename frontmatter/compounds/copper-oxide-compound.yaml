@@ -3,8 +3,8 @@ name: Copper Oxide
 displayName: Copper Oxide (CuO)
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:59.114021Z'
-dateModified: '2026-01-06T01:38:59.114049+00:00'
+datePublished: '2026-01-06T05:36:54.084273Z'
+dateModified: '2026-01-06T05:36:54.084300+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/copper-oxide-compound
@@ -178,24 +178,40 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Copper Electroplating
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and possible metal fume fever with high exposure
-      severity: moderate
-      onset: immediate
-    - route: skin_contact
-      effect: Skin irritation or dermatitis upon prolonged contact
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Severe eye irritation and conjunctivitis
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Gastrointestinal distress including nausea and vomiting
-      severity: moderate
-      onset: short-term
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation and possible metal fume fever with high exposure
+        severity: moderate
+        onset: immediate
+      - route: skin_contact
+        effect: Skin irritation or dermatitis upon prolonged contact
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Severe eye irritation and conjunctivitis
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal distress including nausea and vomiting
+        severity: moderate
+        onset: short-term
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: metal-oxide
 formula: CuO
 ppe_requirements: When dealing with copper oxide compounds in particulate form, especially during industrial handling or laser

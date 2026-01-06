@@ -3,8 +3,8 @@ name: Cadmium Oxide
 displayName: Cadmium Oxide (CdO)
 category: particulate
 hazard_class: toxic
-datePublished: '2026-01-06T01:38:59.383181Z'
-dateModified: '2026-01-06T01:38:59.383210+00:00'
+datePublished: '2026-01-06T05:36:54.321895Z'
+dateModified: '2026-01-06T05:36:54.321919+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/cadmium-oxide-compound
@@ -180,6 +180,16 @@ relationships:
         frequency: unknown
         severity: high
         typical_context: Laser removal of Cadmium Plating Removal
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -189,24 +199,40 @@ relationships:
       - id: steel-laser-cleaning
       - id: tool-steel-laser-cleaning
       - id: stainless-steel-316-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Links to material pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Acute respiratory irritation and pulmonary edema
-      severity: severe
-      onset: immediate
-    - route: inhalation
-      effect: Chronic lung damage including emphysema and increased risk of lung cancer
-      severity: severe
-      onset: long-term
-    - route: skin_contact
-      effect: Skin irritation and possible burns
-      severity: moderate
-      onset: immediate
-    - route: eye_contact
-      effect: Severe eye irritation and conjunctivitis
-      severity: high
-      onset: immediate
+      items:
+      - route: inhalation
+        effect: Acute respiratory irritation and pulmonary edema
+        severity: severe
+        onset: immediate
+      - route: inhalation
+        effect: Chronic lung damage including emphysema and increased risk of lung cancer
+        severity: severe
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation and possible burns
+        severity: moderate
+        onset: immediate
+      - route: eye_contact
+        effect: Severe eye irritation and conjunctivitis
+        severity: high
+        onset: immediate
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: metal-oxide
 formula: CdO
 ppe_requirements: 'Handling cadmium oxide as a fine particulate in industrial settings demands careful protection from inhalation

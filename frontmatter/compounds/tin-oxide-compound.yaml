@@ -3,8 +3,8 @@ name: Tin Oxide
 displayName: Tin Oxide (SnO₂)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-06T01:38:59.274559Z'
-dateModified: '2026-01-06T01:38:59.274589+00:00'
+datePublished: '2026-01-06T05:36:54.228509Z'
+dateModified: '2026-01-06T05:36:54.228535+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/tin-oxide-compound
@@ -198,6 +198,16 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Tin Plating Residue
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -207,24 +217,40 @@ relationships:
       - id: serpentine-laser-cleaning
       - id: tin-laser-cleaning
       - id: travertine-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Links to material pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and potential for stannosis (benign pneumoconiosis) with chronic exposure
-      severity: low
-      onset: immediate
-    - route: skin_contact
-      effect: Mild mechanical irritation or dryness
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Mechanical irritation and redness
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Low toxicity, possible gastrointestinal discomfort
-      severity: low
-      onset: short-term
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation and potential for stannosis (benign pneumoconiosis) with chronic exposure
+        severity: low
+        onset: immediate
+      - route: skin_contact
+        effect: Mild mechanical irritation or dryness
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Mechanical irritation and redness
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Low toxicity, possible gastrointestinal discomfort
+        severity: low
+        onset: short-term
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: metal-oxide
 formula: SnO₂
 ppe_requirements: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—

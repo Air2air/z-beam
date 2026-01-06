@@ -1,8 +1,8 @@
 id: aluminum-oxidation-contamination
 name: Aluminum Oxidation
 category: oxidation
-datePublished: '2026-01-06T01:38:31.516163Z'
-dateModified: '2026-01-06T01:38:31.516195+00:00'
+datePublished: '2026-01-06T05:35:43.024755Z'
+dateModified: '2026-01-06T05:35:43.024782+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/oxidation/non-ferrous/aluminum-oxidation-contamination
@@ -58,12 +58,24 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety regulations and compliance standards for this contaminant
+        icon: shield-check
+        order: 20
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
       - severity: low
         description: Minimal fire risk with standard precautions and adequate ventilation
         mitigation: Standard fire safety precautions, extinguisher available within 15m
+      _section:
+        sectionTitle: Fire & Explosion Risk
+        sectionDescription: Fire and explosion hazards during laser cleaning
+        icon: flame
+        order: 21
+        variant: warning
     fumes_generated:
       presentation: table
       items:
@@ -75,6 +87,12 @@ relationships:
         concentration_mg_m3: 2.0
         exposure_limit_mg_m3: 5.0
         hazard_class: irritant
+      _section:
+        sectionTitle: Fumes Generated
+        sectionDescription: Hazardous fumes produced during laser removal
+        icon: cloud
+        order: 22
+        variant: warning
     particulate_generation:
       presentation: table
       items:
@@ -82,6 +100,12 @@ relationships:
         size_range_um:
         - 0.1
         - 10.0
+      _section:
+        sectionTitle: Particulate Generation
+        sectionDescription: Airborne particles and dust created during cleaning
+        icon: wind
+        order: 23
+        variant: warning
     ppe_requirements:
       presentation: descriptive
       items:
@@ -89,10 +113,12 @@ relationships:
         respiratory: half_mask
         skin_protection: gloves
         rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Laser parameters must be controlled to prevent base metal damage
-    - Thermal stress may cause micro-cracking in thin aluminum substrates
-    - Reflective surfaces require appropriate laser wavelength selection
+      _section:
+        sectionTitle: PPE Requirements
+        sectionDescription: Required personal protective equipment
+        icon: shield
+        order: 24
+        variant: default
     toxic_gas_risk:
       presentation: card
       items:
@@ -100,6 +126,12 @@ relationships:
         primary_hazards: []
         description: No significant toxic gas generation
         mitigation: Standard respiratory protection for particulate control
+      _section:
+        sectionTitle: Toxic Gas Risk
+        sectionDescription: Toxic gases that may be released during removal
+        icon: alert-triangle
+        order: 25
+        variant: danger
     ventilation_requirements:
       presentation: descriptive
       items:
@@ -107,6 +139,12 @@ relationships:
         filtration_type: HEPA
         minimum_air_changes_per_hour: 10
         rationale: Standard industrial ventilation (10 ACH) for particulate control
+      _section:
+        sectionTitle: Ventilation Requirements
+        sectionDescription: Required ventilation and air filtration systems
+        icon: wind
+        order: 26
+        variant: default
     visibility_hazard:
       presentation: card
       items:
@@ -115,12 +153,28 @@ relationships:
         source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
         mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
         related_field: particulate_generation.respirable_fraction
+      _section:
+        sectionTitle: Visibility Hazard
+        sectionDescription: Smoke and debris affecting operator visibility
+        icon: eye-off
+        order: 27
+        variant: warning
+    substrate_compatibility_warnings:
+    - Laser parameters must be controlled to prevent base metal damage
+    - Thermal stress may cause micro-cracking in thin aluminum substrates
+    - Reflective surfaces require appropriate laser wavelength selection
   interactions:
     produces_compounds:
       presentation: card
       items:
       - id: aluminum-oxide-compound
       - id: aluminum-oxide-compound
+      _section:
+        sectionTitle: Produced Compounds
+        sectionDescription: Hazardous compounds produced during laser cleaning
+        icon: flask-conical
+        order: 10
+        variant: warning
     affects_materials:
       presentation: card
       items:
@@ -144,6 +198,12 @@ relationships:
         frequency: common
       - id: nickel-laser-cleaning
         frequency: common
+      _section:
+        sectionTitle: Affected Materials
+        sectionDescription: Materials where this contaminant commonly appears
+        icon: layers
+        order: 11
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -236,6 +296,12 @@ relationships:
         - chalky
         texture: powdery, chalky, matte
         thickness: thin surface layer
+      _section:
+        sectionTitle: Visual Appearance
+        sectionDescription: How this contaminant appears on different material categories
+        icon: eye
+        order: 50
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -320,6 +386,12 @@ relationships:
           thermal_conductivity: 30
           thermal_diffusivity: 11.6
           vaporization_temperature: 2980
+      _section:
+        sectionTitle: Laser Removal Properties
+        sectionDescription: Laser parameters and removal characteristics
+        icon: zap
+        order: 40
+        variant: default
 subcategory: non-ferrous
 title: Aluminum Oxidation Laser Cleaning
 valid_materials:

@@ -3,8 +3,8 @@ name: Hydrogen Cyanide
 displayName: Hydrogen Cyanide (HCN)
 category: toxic_gas
 hazard_class: toxic
-datePublished: '2026-01-06T01:38:57.611809Z'
-dateModified: '2026-01-06T01:38:57.611840+00:00'
+datePublished: '2026-01-06T05:36:52.809634Z'
+dateModified: '2026-01-06T05:36:52.809659+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/cyanide/hydrogen-cyanide-compound
@@ -163,6 +163,16 @@ relationships:
       items:
       - type: chemical_properties
         id: hydrogen-cyanide-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -177,8 +187,8 @@ relationships:
         appearance: Colorless or pale blue liquid, colorless gas
         odor: 'Faint bitter almond odor; WARNING: 20-40% of population cannot detect odor (genetic variation)'
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -198,8 +208,8 @@ relationships:
           ec_number: 200-821-6
           pubchem_cid: '768'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -224,6 +234,10 @@ relationships:
           convulsions and death
         severity: severe
         onset: immediate
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -236,8 +250,8 @@ relationships:
         special_notes: HCN penetrates ordinary clothing. Rapidly absorbed through skin causing systemic poisoning. Use butyl
           rubber - NOT neoprene or natural rubber. Emergency cyanide antidote kit must be immediately available.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -258,8 +272,8 @@ relationships:
           oxidase. Death can occur within minutes. Polymerizes violently with alkaline contamination. Decomposes producing
           nitrogen oxides and hydrogen cyanide gas.
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -294,8 +308,8 @@ relationships:
             timing: Immediately post-exposure
             bei_value: <0.5 µg/mL (toxic >1 µg/mL, lethal >3 µg/mL)
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -322,8 +336,8 @@ relationships:
           recommended. Gas detection system MANDATORY. Emergency shower/eyewash within 10 seconds travel. Cyanide antidote
           kits at storage location. Written emergency procedures posted.'
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -346,8 +360,8 @@ relationships:
         cercla_rq: 10 pounds (4.54 kg)
         rcra_code: P063
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -365,8 +379,8 @@ relationships:
           water: 10 lbs (4.54 kg) to navigable waters - IMMEDIATELY reportable
           air: 10 lbs/day (CERCLA RQ) - ANY release must be reported immediately due to extreme toxicity
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -396,8 +410,8 @@ relationships:
         odor_threshold: UNRELIABLE - 20-40% of population cannot smell HCN (genetic). Odor threshold (0.58-5 ppm) overlaps
           toxic range. NEVER rely on odor - MANDATORY continuous monitoring with alarms.
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -415,6 +429,16 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Breakdown of cyanoacrylate adhesives
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -424,6 +448,16 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Links to material pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -458,8 +492,8 @@ relationships:
         reactivity_hazard: EXTREMELY REACTIVE. Violent polymerization with alkaline materials. Reacts with oxidizers causing
           fire and explosion. Attacks some metals (copper, zinc) forming explosive metal cyanides.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: cyanide
 formula: HCN

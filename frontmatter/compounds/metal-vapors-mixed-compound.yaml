@@ -3,8 +3,8 @@ name: Metal Vapors (Mixed)
 displayName: Metal Vapors (Mixed)
 category: vapor
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:59.436450Z'
-dateModified: '2026-01-06T01:38:59.436479+00:00'
+datePublished: '2026-01-06T05:36:54.395156Z'
+dateModified: '2026-01-06T05:36:54.395186+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/vapor/metal/metal-vapors-mixed-compound
@@ -197,28 +197,44 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of PVD Coating Defects
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory irritation and metal fume fever (flu-like symptoms including fever, chills, and cough)
-      severity: moderate
-      onset: short-term
-    - route: inhalation
-      effect: Chronic pulmonary damage or fibrosis from heavy metal accumulation
-      severity: high
-      onset: long-term
-    - route: skin_contact
-      effect: Dermatitis or chemical burns from direct contact with condensed metal particles
-      severity: moderate
-      onset: immediate
-    - route: eye_contact
-      effect: Conjunctivitis and corneal irritation leading to redness and tearing
-      severity: moderate
-      onset: immediate
-    - route: inhalation
-      effect: Systemic toxicity including neurological effects (e.g., tremors from mercury-like vapors)
-      severity: severe
-      onset: long-term
+      items:
+      - route: inhalation
+        effect: Respiratory irritation and metal fume fever (flu-like symptoms including fever, chills, and cough)
+        severity: moderate
+        onset: short-term
+      - route: inhalation
+        effect: Chronic pulmonary damage or fibrosis from heavy metal accumulation
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Dermatitis or chemical burns from direct contact with condensed metal particles
+        severity: moderate
+        onset: immediate
+      - route: eye_contact
+        effect: Conjunctivitis and corneal irritation leading to redness and tearing
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Systemic toxicity including neurological effects (e.g., tremors from mercury-like vapors)
+        severity: severe
+        onset: long-term
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: metal
 formula: Various
 ppe_requirements: 'Handling metal-vapors-mixed-compound in industrial setups demands careful gear choices, especially when

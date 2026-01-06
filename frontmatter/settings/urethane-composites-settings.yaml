@@ -1,7 +1,9 @@
 id: urethane-composites-settings
 name: Urethane Composites
-datePublished: '2026-01-06T01:54:39.370757Z'
-dateModified: '2026-01-06T01:54:39.370788+00:00'
+category: composite
+subcategory: structural
+datePublished: '2026-01-06T05:38:05.614007Z'
+dateModified: '2026-01-06T05:38:05.614032+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/structural/urethane-composites-settings
@@ -84,6 +86,15 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Compliance requirements
+          presentation_type: card
   interactions:
     removes_contaminants:
       presentation: card
@@ -92,6 +103,16 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Cross-references to contaminant pages
+          relationship_type: removes_contaminants
+          presentation_type: card
   operational:
     common_challenges:
       presentation: descriptive
@@ -105,11 +126,9 @@ relationships:
         - id: resin-contaminant-removal
           type: challenge
       _section:
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-category: composite
-subcategory: structural
 machine_settings:
   powerRange:
     description: Optimal average power for Urethane Composites cleaning without thermal damage

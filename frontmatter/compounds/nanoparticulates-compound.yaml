@@ -3,8 +3,8 @@ name: Nanoparticulates
 displayName: Nanoparticulates
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:58.951420Z'
-dateModified: '2026-01-06T01:38:58.951449+00:00'
+datePublished: '2026-01-06T05:36:53.922543Z'
+dateModified: '2026-01-06T05:36:53.922572+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/nanomaterial/nanoparticulates-compound
@@ -192,28 +192,44 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Thermal Compound Deposits
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Pulmonary inflammation and oxidative stress leading to respiratory distress
-      severity: moderate
-      onset: short-term
-    - route: skin_contact
-      effect: Skin irritation and potential dermal penetration causing localized inflammation
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Ocular irritation and conjunctivitis
-      severity: moderate
-      onset: immediate
-    - route: inhalation
-      effect: Potential for systemic translocation and cardiovascular effects
-      severity: high
-      onset: long-term
-    - route: skin_contact
-      effect: Allergic dermatitis in sensitive individuals
-      severity: moderate
-      onset: short-term
+      items:
+      - route: inhalation
+        effect: Pulmonary inflammation and oxidative stress leading to respiratory distress
+        severity: moderate
+        onset: short-term
+      - route: skin_contact
+        effect: Skin irritation and potential dermal penetration causing localized inflammation
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Ocular irritation and conjunctivitis
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Potential for systemic translocation and cardiovascular effects
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Allergic dermatitis in sensitive individuals
+        severity: moderate
+        onset: short-term
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: nanomaterial
 formula: Various
 ppe_requirements: "Dealing with nanoparticulate compounds in industrial settings often brings up tricky safety hurdles because\

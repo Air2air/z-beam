@@ -3,8 +3,8 @@ name: Iron Oxide Fume
 displayName: Iron Oxide (Fe₂O₃)
 category: metal_fume
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:58.058596Z'
-dateModified: '2026-01-06T01:38:58.058626+00:00'
+datePublished: '2026-01-06T05:36:53.194949Z'
+dateModified: '2026-01-06T05:36:53.194975+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/metal_fume/metal-oxide/iron-oxide-compound
@@ -170,6 +170,16 @@ relationships:
       items:
       - type: chemical_properties
         id: iron-oxide-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -184,8 +194,8 @@ relationships:
         appearance: Reddish-brown to black powder
         odor: Odorless
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -204,8 +214,8 @@ relationships:
           ec_number: 215-168-2
           pubchem_cid: '518696'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -227,6 +237,10 @@ relationships:
         effect: Gastrointestinal discomfort or constipation
         severity: low
         onset: short-term
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -238,8 +252,8 @@ relationships:
         special_notes: Siderosis (iron dust pneumoconiosis) from chronic exposure. Welding fume contains mixed metal oxides
           - more hazardous than pure iron oxide.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -254,8 +268,8 @@ relationships:
         special_hazards: 'SIDEROSIS: Benign pneumoconiosis from chronic inhalation. X-ray opacities but no functional impairment.
           Reversible when exposure stops. Welding fume may contain other toxic metals (chromium, nickel, manganese).'
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -282,8 +296,8 @@ relationships:
             ceiling: null
           biological_exposure_indices: []
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -299,8 +313,8 @@ relationships:
         quantity_limits: None specified. Follow facility storage protocols.
         special_requirements: Keep containers closed when not in use. Store in dry area. Prevent dust accumulation.
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -320,8 +334,8 @@ relationships:
         cercla_rq: null
         rcra_code: null
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -338,8 +352,8 @@ relationships:
           water: Not reportable (not CERCLA listed)
           air: Not reportable
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -366,8 +380,8 @@ relationships:
           detection_limit: 0.3 µg/sample
         odor_threshold: Not applicable - odorless
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -405,6 +419,16 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Steel Surface Corrosion
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -425,8 +449,8 @@ relationships:
         reactivity_hazard: Generally stable. Thermite reaction with aluminum powder produces extreme heat. Reacts with strong
           acids.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: metal-oxide
 formula: Fe₂O₃

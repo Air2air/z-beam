@@ -3,8 +3,8 @@ name: Polycyclic Aromatic Hydrocarbons
 displayName: PAHs
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2026-01-06T01:38:57.555817Z'
-dateModified: '2026-01-06T01:38:57.555847+00:00'
+datePublished: '2026-01-06T05:36:52.760089Z'
+dateModified: '2026-01-06T05:36:52.760113+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic_hydrocarbon/pahs-compound
@@ -169,6 +169,16 @@ relationships:
       items:
       - type: chemical_properties
         id: pahs-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
   safety:
     health_effects:
       presentation: card
@@ -189,6 +199,10 @@ relationships:
         effect: Gastrointestinal upset and systemic toxicity leading to cancer risk
         severity: high
         onset: long-term
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -197,6 +211,10 @@ relationships:
         overrides:
           specific_compound: Polycyclic Aromatic Hydrocarbons
           pel_ppm: null
+      _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
+        icon: shield-check
     emergency_response:
       presentation: descriptive
       items:
@@ -204,6 +222,10 @@ relationships:
         id: flammable-gas-extremely
         overrides:
           specific_compound: Polycyclic Aromatic Hydrocarbons
+      _section:
+        section_title: Emergency Response
+        description: Procedures for handling emergencies involving this compound
+        icon: triangle-exclamation
     exposure_limits:
       presentation: descriptive
       items:
@@ -214,8 +236,8 @@ relationships:
         acgih_tlv_ppm: null
         acgih_tlv_mg_m3: 0.2
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
   environmental:
     environmental_impact:
@@ -223,12 +245,32 @@ relationships:
       items:
       - type: environmental_impact
         id: pahs-environmental-data
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Environmental hazards, ecological effects, and disposal considerations
+        icon: leaf
+        order: 1
+        variant: warning
+        sectionMetadata:
+          notes: Environmental and ecological concerns
+          source_field: environmental_impact
+          presentation_type: descriptive
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
       items:
       - type: detection_monitoring
         id: pahs-monitoring-methods
+      _section:
+        sectionTitle: Monitoring Systems
+        sectionDescription: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Continuous monitoring and sampling systems
+          source_field: detection_monitoring
+          presentation_type: descriptive
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -265,6 +307,16 @@ relationships:
         frequency: unknown
         severity: high
         typical_context: Laser removal of Exhaust System Deposits
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
 subcategory: aromatic_hydrocarbon
 formula: Various
 ppe_requirements: Handling PAHs demands solid PPE setup, especially since these compounds stick around in materials like coatings

@@ -3,8 +3,8 @@ name: Styrene
 displayName: Styrene (C₈H₈)
 category: irritant
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:57.932475Z'
-dateModified: '2026-01-06T01:38:57.932505+00:00'
+datePublished: '2026-01-06T05:36:53.087099Z'
+dateModified: '2026-01-06T05:36:53.087127+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/aromatic_hydrocarbon/styrene-compound
@@ -172,6 +172,16 @@ relationships:
       items:
       - type: chemical_properties
         id: styrene-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -186,8 +196,8 @@ relationships:
         appearance: Colorless to yellowish oily liquid
         odor: Sweet, floral odor @ 0.05-0.5 ppm (odor fatigue occurs)
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -204,8 +214,8 @@ relationships:
           ec_number: 202-851-5
           pubchem_cid: '7501'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -227,6 +237,10 @@ relationships:
         effect: Eye irritation, redness, and possible corneal damage
         severity: moderate
         onset: immediate
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -237,8 +251,8 @@ relationships:
         special_notes: Neurotoxin and probable carcinogen (IARC 2B). Skin absorption significant. Extremely irritating. May
           cause CNS depression.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -257,8 +271,8 @@ relationships:
           to eyes, skin, respiratory tract. May polymerize explosively. Olfactory fatigue - cannot rely on odor. Metabolized
           to styrene oxide (more toxic).
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -293,8 +307,8 @@ relationships:
             timing: End of shift
             bei_value: 0.2 mg/L
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -316,8 +330,8 @@ relationships:
         special_requirements: 'CRITICAL: Store with polymerization inhibitor (10-15 ppm tert-butylcatechol). Monitor inhibitor
           level monthly. Avoid light and heat. Post "FLAMMABLE" and "CANCER HAZARD" signs. Date containers.'
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -341,8 +355,8 @@ relationships:
         cercla_rq: 1000 pounds (454 kg)
         rcra_code: null
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -359,8 +373,8 @@ relationships:
           water: 1000 lbs to navigable waters
           air: 1000 lbs/day (CERCLA RQ)
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -387,8 +401,8 @@ relationships:
           detection_limit: 0.01 ppm
         odor_threshold: '0.05-0.5 ppm - WARNING: Olfactory fatigue occurs. Cannot rely on odor for protection.'
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -402,6 +416,16 @@ relationships:
         frequency: common
         severity: moderate
         typical_context: Pyrolysis of styrene-butadiene rubber
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -412,6 +436,16 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Links to material pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -442,8 +476,8 @@ relationships:
         reactivity_hazard: May polymerize violently. Reacts with oxidizers. Attacks some plastics, rubber, and coatings. Forms
           peroxides on prolonged storage.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: aromatic_hydrocarbon
 formula: C₈H₈

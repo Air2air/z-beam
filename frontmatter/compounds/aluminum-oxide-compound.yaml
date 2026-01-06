@@ -3,8 +3,8 @@ name: Aluminum Oxide
 displayName: Aluminum Oxide (Al₂O₃)
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-06T01:38:59.061196Z'
-dateModified: '2026-01-06T01:38:59.061227+00:00'
+datePublished: '2026-01-06T05:36:54.032844Z'
+dateModified: '2026-01-06T05:36:54.032874+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/aluminum-oxide-compound
@@ -156,6 +156,16 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Anodizing Layer Irregularities
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -164,24 +174,41 @@ relationships:
       - id: aluminum-nitride-laser-cleaning
       - id: brass-laser-cleaning
       - id: bronze-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Links to material pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation, coughing, and potential for chronic lung damage (aluminosis) with prolonged exposure
-      severity: moderate
-      onset: short-term
-    - route: skin_contact
-      effect: Mechanical irritation leading to dryness, cracking, or dermatitis
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Irritation, redness, and possible corneal abrasion
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Gastrointestinal irritation with nausea or vomiting in large amounts
-      severity: low
-      onset: short-term
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation, coughing, and potential for chronic lung damage (aluminosis) with prolonged
+          exposure
+        severity: moderate
+        onset: short-term
+      - route: skin_contact
+        effect: Mechanical irritation leading to dryness, cracking, or dermatitis
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Irritation, redness, and possible corneal abrasion
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal irritation with nausea or vomiting in large amounts
+        severity: low
+        onset: short-term
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: metal-oxide
 formula: Al₂O₃
 ppe_requirements: 'Handling aluminum oxide particulates demands solid protection. Start with your setup—gloves on first to

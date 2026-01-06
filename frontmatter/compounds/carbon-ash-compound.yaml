@@ -3,8 +3,8 @@ name: Carbon Ash
 displayName: Carbon Ash
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-06T01:38:58.841143Z'
-dateModified: '2026-01-06T01:38:58.841172+00:00'
+datePublished: '2026-01-06T05:36:53.814487Z'
+dateModified: '2026-01-06T05:36:53.814512+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/carbon-based/carbon-ash-compound
@@ -233,24 +233,40 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Wood Rot / Fungal Biodegradation
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and potential for pneumoconiosis with prolonged exposure to fine carbon dust
-      severity: moderate
-      onset: short-term
-    - route: skin_contact
-      effect: Mechanical irritation or drying of skin leading to dermatitis
-      severity: low
-      onset: immediate
-    - route: eye_contact
-      effect: Mechanical irritation causing redness and discomfort
-      severity: low
-      onset: immediate
-    - route: ingestion
-      effect: Generally inert with minimal absorption; possible gastrointestinal discomfort
-      severity: low
-      onset: immediate
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation and potential for pneumoconiosis with prolonged exposure to fine carbon dust
+        severity: moderate
+        onset: short-term
+      - route: skin_contact
+        effect: Mechanical irritation or drying of skin leading to dermatitis
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Mechanical irritation causing redness and discomfort
+        severity: low
+        onset: immediate
+      - route: ingestion
+        effect: Generally inert with minimal absorption; possible gastrointestinal discomfort
+        severity: low
+        onset: immediate
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: carbon-based
 formula: C
 ppe_requirements: Handling carbon-ash-compound in industrial settings demands solid personal protective equipment to counter

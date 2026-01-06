@@ -1,8 +1,8 @@
 id: ink-stains-contamination
 name: Printing Ink Residue
 category: organic-residue
-datePublished: '2026-01-06T01:38:34.401168Z'
-dateModified: '2026-01-06T01:38:34.401198+00:00'
+datePublished: '2026-01-06T05:35:45.622064Z'
+dateModified: '2026-01-06T05:35:45.622092+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/organic-residue/marking/ink-stains-contamination
@@ -58,12 +58,24 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety regulations and compliance standards for this contaminant
+        icon: shield-check
+        order: 20
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
       - severity: low
         description: Minimal fire risk with standard precautions and adequate ventilation
         mitigation: Standard fire safety precautions, extinguisher available within 15m
+      _section:
+        sectionTitle: Fire & Explosion Risk
+        sectionDescription: Fire and explosion hazards during laser cleaning
+        icon: flame
+        order: 21
+        variant: warning
     fumes_generated:
       presentation: table
       items:
@@ -87,6 +99,12 @@ relationships:
         concentration_mg_m3: 0.5
         exposure_limit_mg_m3: 0.37
         hazard_class: carcinogenic
+      _section:
+        sectionTitle: Fumes Generated
+        sectionDescription: Hazardous fumes produced during laser removal
+        icon: cloud
+        order: 22
+        variant: warning
     particulate_generation:
       presentation: table
       items:
@@ -94,6 +112,12 @@ relationships:
         size_range_um:
         - 0.1
         - 10.0
+      _section:
+        sectionTitle: Particulate Generation
+        sectionDescription: Airborne particles and dust created during cleaning
+        icon: wind
+        order: 23
+        variant: warning
     ppe_requirements:
       presentation: descriptive
       items:
@@ -101,10 +125,12 @@ relationships:
         respiratory: PAPR
         skin_protection: gloves
         rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - Avoid laser cleaning on chlorinated polymer substrates to prevent phosgene gas formation
-    - Test on inconspicuous area first - laser may discolor or damage underlying material
-    - Metallic substrates may reflect laser energy creating additional safety hazards
+      _section:
+        sectionTitle: PPE Requirements
+        sectionDescription: Required personal protective equipment
+        icon: shield
+        order: 24
+        variant: default
     toxic_gas_risk:
       presentation: card
       items:
@@ -126,6 +152,12 @@ relationships:
           - requires enhanced protection'
         mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
           Polycyclic Aromatic Hydrocarbons, Formaldehyde - known carcinogen(s), minimize exposure'
+      _section:
+        sectionTitle: Toxic Gas Risk
+        sectionDescription: Toxic gases that may be released during removal
+        icon: alert-triangle
+        order: 25
+        variant: danger
     ventilation_requirements:
       presentation: descriptive
       items:
@@ -133,6 +165,12 @@ relationships:
         filtration_type: carbon
         minimum_air_changes_per_hour: 12
         rationale: Standard industrial ventilation (12 ACH) for particulate control
+      _section:
+        sectionTitle: Ventilation Requirements
+        sectionDescription: Required ventilation and air filtration systems
+        icon: wind
+        order: 26
+        variant: default
     visibility_hazard:
       presentation: card
       items:
@@ -141,6 +179,16 @@ relationships:
         source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
         mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
         related_field: particulate_generation.respirable_fraction
+      _section:
+        sectionTitle: Visibility Hazard
+        sectionDescription: Smoke and debris affecting operator visibility
+        icon: eye-off
+        order: 27
+        variant: warning
+    substrate_compatibility_warnings:
+    - Avoid laser cleaning on chlorinated polymer substrates to prevent phosgene gas formation
+    - Test on inconspicuous area first - laser may discolor or damage underlying material
+    - Metallic substrates may reflect laser energy creating additional safety hazards
   interactions:
     produces_compounds:
       presentation: card
@@ -149,6 +197,12 @@ relationships:
       - id: water-vapor-compound
       - id: carbon-particulates-compound
       - id: vocs-compound
+      _section:
+        sectionTitle: Produced Compounds
+        sectionDescription: Hazardous compounds produced during laser cleaning
+        icon: flask-conical
+        order: 10
+        variant: warning
     affects_materials:
       presentation: card
       items:
@@ -182,6 +236,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        sectionTitle: Affected Materials
+        sectionDescription: Materials where this contaminant commonly appears
+        icon: layers
+        order: 11
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -248,6 +308,12 @@ relationships:
               a rough or absorbed look.
             coverage: Varies from light spotting to extensive patches, often uneven due to porous absorption.
             pattern: Commonly appears as blotches or streaks following the wood grain, with occasional drips or splatters.
+      _section:
+        sectionTitle: Visual Appearance
+        sectionDescription: How this contaminant appears on different material categories
+        icon: eye
+        order: 50
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -334,6 +400,12 @@ relationships:
           thermal_conductivity: 0.25
           thermal_diffusivity: 0.08
           vaporization_temperature: 450
+      _section:
+        sectionTitle: Laser Removal Properties
+        sectionDescription: Laser parameters and removal characteristics
+        icon: zap
+        order: 40
+        variant: default
 subcategory: marking
 valid_materials:
 - aluminum-laser-cleaning

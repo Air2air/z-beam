@@ -1,8 +1,8 @@
 id: metal-polish-contamination
 name: Metal Polish Residue
 category: organic-residue
-datePublished: '2026-01-06T01:38:34.822659Z'
-dateModified: '2026-01-06T01:38:34.822689+00:00'
+datePublished: '2026-01-06T05:35:46.014634Z'
+dateModified: '2026-01-06T05:35:46.014657+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/organic-residue/wax/metal-polish-contamination
@@ -53,12 +53,24 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety regulations and compliance standards for this contaminant
+        icon: shield-check
+        order: 20
+        variant: default
     fire_explosion_risk:
       presentation: card
       items:
       - severity: low
         description: Minimal fire risk with standard precautions and adequate ventilation
         mitigation: Standard fire safety precautions, extinguisher available within 15m
+      _section:
+        sectionTitle: Fire & Explosion Risk
+        sectionDescription: Fire and explosion hazards during laser cleaning
+        icon: flame
+        order: 21
+        variant: warning
     fumes_generated:
       presentation: table
       items:
@@ -78,6 +90,12 @@ relationships:
         concentration_mg_m3: 2.5
         exposure_limit_mg_m3: 17.0
         hazard_class: irritant
+      _section:
+        sectionTitle: Fumes Generated
+        sectionDescription: Hazardous fumes produced during laser removal
+        icon: cloud
+        order: 22
+        variant: warning
     particulate_generation:
       presentation: table
       items:
@@ -85,6 +103,12 @@ relationships:
         size_range_um:
         - 0.01
         - 10.0
+      _section:
+        sectionTitle: Particulate Generation
+        sectionDescription: Airborne particles and dust created during cleaning
+        icon: wind
+        order: 23
+        variant: warning
     ppe_requirements:
       presentation: descriptive
       items:
@@ -92,10 +116,12 @@ relationships:
         respiratory: PAPR
         skin_protection: gloves
         rationale: Standard protection against workplace hazards
-    substrate_compatibility_warnings:
-    - May generate toxic fumes when heated on copper or brass substrates
-    - Avoid use on zinc-coated surfaces due to potential zinc oxide fume generation
-    - Thermal decomposition risk increases with laser power density above 100W/cm²
+      _section:
+        sectionTitle: PPE Requirements
+        sectionDescription: Required personal protective equipment
+        icon: shield
+        order: 24
+        variant: default
     toxic_gas_risk:
       presentation: card
       items:
@@ -110,6 +136,12 @@ relationships:
         description: Metal oxide nanoparticles and Formaldehyde generation - multiple toxic compounds
         mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
           Formaldehyde - known carcinogen(s), minimize exposure'
+      _section:
+        sectionTitle: Toxic Gas Risk
+        sectionDescription: Toxic gases that may be released during removal
+        icon: alert-triangle
+        order: 25
+        variant: danger
     ventilation_requirements:
       presentation: descriptive
       items:
@@ -117,6 +149,12 @@ relationships:
         filtration_type: dual
         minimum_air_changes_per_hour: 12
         rationale: Standard industrial ventilation (12 ACH) for particulate control
+      _section:
+        sectionTitle: Ventilation Requirements
+        sectionDescription: Required ventilation and air filtration systems
+        icon: wind
+        order: 26
+        variant: default
     visibility_hazard:
       presentation: card
       items:
@@ -125,6 +163,16 @@ relationships:
         source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
         mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
         related_field: particulate_generation.respirable_fraction
+      _section:
+        sectionTitle: Visibility Hazard
+        sectionDescription: Smoke and debris affecting operator visibility
+        icon: eye-off
+        order: 27
+        variant: warning
+    substrate_compatibility_warnings:
+    - May generate toxic fumes when heated on copper or brass substrates
+    - Avoid use on zinc-coated surfaces due to potential zinc oxide fume generation
+    - Thermal decomposition risk increases with laser power density above 100W/cm²
   interactions:
     produces_compounds:
       presentation: card
@@ -133,6 +181,12 @@ relationships:
       - id: water-vapor-compound
       - id: organic-residues-compound
       - id: metal-oxides-mixed-compound
+      _section:
+        sectionTitle: Produced Compounds
+        sectionDescription: Hazardous compounds produced during laser cleaning
+        icon: flask-conical
+        order: 10
+        variant: warning
     affects_materials:
       presentation: card
       items:
@@ -166,6 +220,12 @@ relationships:
       - id: aluminum-bronze-laser-cleaning
       - id: aluminum-nitride-laser-cleaning
       - id: titanium-nitride-laser-cleaning
+      _section:
+        sectionTitle: Affected Materials
+        sectionDescription: Materials where this contaminant commonly appears
+        icon: layers
+        order: 11
+        variant: default
   visual:
     appearance_on_categories:
       presentation: descriptive
@@ -226,6 +286,12 @@ relationships:
             appearance: Oily or waxy spots that darken the wood, creating a blotchy, uneven finish with reduced clarity.
             coverage: Variable, ranging from small spots to larger areas, depending on application and wood absorption.
             pattern: Forms irregular patches or streaks, often more visible on porous or unfinished surfaces.
+      _section:
+        sectionTitle: Visual Appearance
+        sectionDescription: How this contaminant appears on different material categories
+        icon: eye
+        order: 50
+        variant: default
   operational:
     laser_properties:
       presentation: descriptive
@@ -312,6 +378,12 @@ relationships:
           thermal_conductivity: 0.15
           thermal_diffusivity: 0.12
           vaporization_temperature: 450
+      _section:
+        sectionTitle: Laser Removal Properties
+        sectionDescription: Laser parameters and removal characteristics
+        icon: zap
+        order: 40
+        variant: default
 subcategory: wax
 valid_materials:
 - aluminum-laser-cleaning

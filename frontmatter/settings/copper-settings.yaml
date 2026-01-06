@@ -1,7 +1,9 @@
 id: copper-settings
 name: Copper
-datePublished: '2026-01-06T01:54:33.394392Z'
-dateModified: '2026-01-06T01:54:33.394425+00:00'
+category: metal
+subcategory: non-ferrous
+datePublished: '2026-01-06T05:38:00.864414Z'
+dateModified: '2026-01-06T05:38:00.864439+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/copper-settings
@@ -84,6 +86,15 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Compliance requirements
+          presentation_type: card
   interactions:
     removes_contaminants:
       presentation: card
@@ -92,11 +103,31 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Cross-references to contaminant pages
+          relationship_type: removes_contaminants
+          presentation_type: card
     works_on_materials:
       presentation: card
       items:
       - id: copper-laser-cleaning
         effectiveness: high
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Cross-references to material pages
+          relationship_type: works_on_materials
+          presentation_type: card
   operational:
     common_challenges:
       presentation: descriptive
@@ -112,11 +143,9 @@ relationships:
         - id: oil-grease-removal
           type: challenge
       _section:
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-category: metal
-subcategory: non-ferrous
 machine_settings:
   powerRange:
     description: Optimal average power for Copper oxide removal and surface cleaning
@@ -238,7 +267,7 @@ machine_settings:
       of Cleaner Production (2020).'
 component_summaries:
   machine_settings:
-    sectionTitle: Machine Settings
+    section_title: Machine Settings
     description: This table displays recommended ranges for power, pulse width, repetition rate, and scan speed, tailored
       to Copper's high reflectivity and thermal conductivity to ensure efficient laser absorption during cleaning. It helps
       you quickly select parameters that minimize energy loss from reflection while preventing overheating, allowing precise
@@ -246,7 +275,7 @@ component_summaries:
       cleaning speed and material integrity, especially noting lower power thresholds around 30-50W where Copper's reflectivity
       peaks.
   material_safety_heatmap:
-    sectionTitle: Material Safety Heatmap
+    section_title: Material Safety Heatmap
     description: This heatmap visualizes safe operating zones for laser cleaning Copper, mapping power against pulse width
       to highlight green areas where the metal's high thermal conductivity prevents overheating, while red zones indicate
       risks like surface melting due to its reflectivity absorbing energy unevenly. It helps you select parameters that avoid
@@ -254,7 +283,7 @@ component_summaries:
       band around 30-50W and short pulses under 100μs to maximize cleaning effectiveness while staying clear of the red boundary
       where vaporization begins.
   energy_coupling_heatmap:
-    sectionTitle: Energy Coupling Heatmap
+    section_title: Energy Coupling Heatmap
     description: This heatmap displays the laser energy coupling efficiency for Copper across parameter combinations like
       power and pulse duration, revealing how its high reflectivity limits absorption in most infrared wavelengths unless
       an oxide layer forms. It helps you pinpoint narrow optimal zones—often around 30-50W with short pulses—where energy
@@ -262,7 +291,7 @@ component_summaries:
       thermal conductivity. Watch for the transition to lower efficiency above 60W, signaling potential surface melting risks
       during extended operation.
   thermal_stress_heatmap:
-    sectionTitle: Thermal Stress Heatmap
+    section_title: Thermal Stress Heatmap
     description: This heatmap visualizes thermal stress risks on copper surfaces, highlighting zones of potential warping
       or distortion based on laser power, speed, and pulse duration, driven by copper's high thermal conductivity that rapidly
       spreads heat but can still cause uneven expansion. It helps you configure safe laser cleaning parameters by steering
@@ -270,7 +299,7 @@ component_summaries:
       integrity. For instance, note the narrow green safe band around 30-40W where copper's reflectivity allows absorption
       without excessive localized heating.
   process_effectiveness_heatmap:
-    sectionTitle: Process Effectiveness Heatmap
+    section_title: Process Effectiveness Heatmap
     description: This heatmap visualizes cleaning effectiveness for copper across laser power and scan speed parameters, highlighting
       under-cleaning (blue zones), optimal removal (green sweet spot), and over-processing risks (red areas) to ensure complete
       contaminant elimination without surface damage. Copper's high reflectivity and thermal conductivity narrow the optimal
@@ -278,21 +307,21 @@ component_summaries:
       stripping. Adjust interactively to avoid reflectivity-induced hotspots that could lead to uneven cleaning or material
       warping.
   heat_buildup_simulator:
-    sectionTitle: Heat Buildup Simulator
+    section_title: Heat Buildup Simulator
     description: The Heat Buildup Simulator animates temperature accumulation in Copper across multiple laser passes, leveraging
       its high thermal conductivity to show rapid heat dissipation while revealing potential hotspots from repeated exposure.
       This helps you configure laser power, speed, and cooling intervals to safely remove oxides without risking melting at
       Copper's 1085°C threshold. By observing when the animation signals cooling needs, you can optimize settings for efficient
       cleaning while preserving the material's integrity.
   diagnostic_center:
-    sectionTitle: Diagnostic Center
+    section_title: Diagnostic Center
     description: The Diagnostic Center features Material Challenges and Troubleshooting tabs that highlight Copper's high
       reflectivity and thermal conductivity, common culprits in laser cleaning setups. Use the Challenges tab to spot narrow
       parameter windows where reflectivity causes energy loss, and the Troubleshooting tab to diagnose issues like uneven
       oxide removal or localized overheating. This guides you in fine-tuning power, pulse duration, and speed to achieve clean,
       damage-free results on Copper surfaces.
   research_citations:
-    sectionTitle: Research Citations
+    section_title: Research Citations
     description: This section displays curated academic and industry papers that validate the recommended laser parameters
       for cleaning Copper, highlighting its high reflectivity and thermal conductivity which demand precise power and pulse
       settings to avoid surface damage. By reviewing these citations, you can cross-reference studies on Copper's laser absorption
@@ -300,21 +329,21 @@ component_summaries:
       Use this to build confidence in your setup, especially when adjusting for Copper's narrow safe operating windows around
       50-100W.
   faq_settings:
-    sectionTitle: Settings FAQ
+    section_title: Settings FAQ
     description: This Settings FAQ provides quick answers to common questions on configuring laser parameters for Copper,
       such as adjusting power and pulse duration to overcome its high reflectivity and prevent overheating. It helps you fine-tune
       settings to efficiently remove oxides without damaging the underlying metal, using insights like safe intensity thresholds
       around 50-100W to balance cleaning speed and surface integrity. Refer to it while testing to avoid frequent pitfalls
       like incomplete ablation or thermal distortion specific to Copper's excellent conductivity.
   dataset_download:
-    sectionTitle: Dataset Download
+    section_title: Dataset Download
     description: The Dataset Download feature provides JSON exports of your customized laser cleaning settings and Copper-specific
       properties, such as its high thermal conductivity and reflectivity, which influence optimal power and pulse parameters.
       This helps you integrate these configurations seamlessly with external simulation software or documentation systems,
       ensuring precise replication of safe operating zones for Copper's sensitive oxide layer removal. By exporting this data,
       you can analyze and refine setups to avoid overheating risks unique to Copper's rapid heat dissipation.
   parameter_relationships:
-    sectionTitle: Parameter Relationships
+    section_title: Parameter Relationships
     description: This network visualization maps out how key laser parameters—like power, scan speed, and pulse duration—interact
       for Copper, highlighting its high thermal conductivity that causes rapid heat spread and potential overheating if not
       balanced. By tracing these dependencies, you can see how increasing power amplifies temperature rise while scan speed

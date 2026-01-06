@@ -1,7 +1,9 @@
 id: maple-settings
 name: Maple
-datePublished: '2026-01-06T01:54:35.236528Z'
-dateModified: '2026-01-06T01:54:35.236557+00:00'
+category: wood
+subcategory: hardwood
+datePublished: '2026-01-06T05:38:02.504435Z'
+dateModified: '2026-01-06T05:38:02.504459+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/maple-settings
@@ -83,6 +85,15 @@ relationships:
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Compliance requirements
+          presentation_type: card
   interactions:
     removes_contaminants:
       presentation: card
@@ -91,11 +102,31 @@ relationships:
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Cross-references to contaminant pages
+          relationship_type: removes_contaminants
+          presentation_type: card
     works_on_materials:
       presentation: card
       items:
       - id: maple-laser-cleaning
         effectiveness: high
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Cross-references to material pages
+          relationship_type: works_on_materials
+          presentation_type: card
   operational:
     common_challenges:
       presentation: descriptive
@@ -109,11 +140,9 @@ relationships:
         - id: varnish-coating-removal
           type: challenge
       _section:
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-category: wood
-subcategory: hardwood
 machine_settings:
   powerRange:
     description: Optimal average power for surface cleaning without charring

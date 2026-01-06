@@ -3,8 +3,8 @@ name: Zinc Oxide
 displayName: Zinc Oxide (ZnO)
 category: metal_fume
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:57.995928Z'
-dateModified: '2026-01-06T01:38:57.995959+00:00'
+datePublished: '2026-01-06T05:36:53.142152Z'
+dateModified: '2026-01-06T05:36:53.142178+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/metal_fume/metal-oxide/zinc-oxide-compound
@@ -165,6 +165,16 @@ relationships:
       items:
       - type: chemical_properties
         id: zinc-oxide-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -179,8 +189,8 @@ relationships:
         appearance: White to yellowish-white powder
         odor: Odorless
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -199,8 +209,8 @@ relationships:
           ec_number: 215-222-5
           pubchem_cid: '14806'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -222,6 +232,10 @@ relationships:
         effect: Gastrointestinal upset including nausea and vomiting
         severity: low
         onset: immediate
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -233,8 +247,8 @@ relationships:
         special_notes: Metal fume fever primary concern. Prevent inhalation during welding/cutting galvanized metal. Symptoms
           develop 4-12 hours post-exposure. Well-ventilated work areas essential.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -249,8 +263,8 @@ relationships:
         special_hazards: 'METAL FUME FEVER: flu-like symptoms 4-12 hours post-exposure (fever, chills, nausea, muscle aches).
           Self-limiting but recurrent with repeated exposure. Welding galvanized metal major exposure source.'
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -285,8 +299,8 @@ relationships:
             timing: End of shift
             bei_value: <1.0 mg/L
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -303,8 +317,8 @@ relationships:
         quantity_limits: None specified. Follow facility storage protocols.
         special_requirements: Keep containers closed when not in use. Store in dry area. Prevent dust accumulation.
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -324,8 +338,8 @@ relationships:
         cercla_rq: 1000 pounds (454 kg) for zinc compounds
         rcra_code: null
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -343,8 +357,8 @@ relationships:
           water: 1000 lbs zinc compounds to navigable waters
           air: 1000 lbs/day zinc compounds (CERCLA RQ)
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -372,8 +386,8 @@ relationships:
           detection_limit: 0.3 µg/sample
         odor_threshold: Not applicable - odorless
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -399,6 +413,16 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Battery Leakage Corrosion
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -419,8 +443,8 @@ relationships:
         reactivity_hazard: Generally stable. Reacts with strong acids producing hydrogen gas. May ignite spontaneously with
           linseed oil.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: metal-oxide
 formula: ZnO

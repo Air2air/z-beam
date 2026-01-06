@@ -3,8 +3,8 @@ name: Benzo[a]pyrene
 displayName: Benzo[a]pyrene (C₂₀H₁₂)
 category: carcinogen
 hazard_class: carcinogenic
-datePublished: '2026-01-06T01:38:58.649226Z'
-dateModified: '2026-01-06T01:38:58.649257+00:00'
+datePublished: '2026-01-06T05:36:53.651738Z'
+dateModified: '2026-01-06T05:36:53.651763+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/polycyclic_aromatic_hydrocarbon/benzoapyrene-compound
@@ -184,6 +184,16 @@ relationships:
       items:
       - type: chemical_properties
         id: benzoapyrene-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -198,8 +208,8 @@ relationships:
         appearance: Pale yellow to tan crystalline solid, needles or plates
         odor: Faint aromatic odor
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -216,8 +226,8 @@ relationships:
           ec_number: 200-028-5
           pubchem_cid: '2336'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -239,6 +249,10 @@ relationships:
         effect: Gastrointestinal irritation and systemic carcinogenic effects
         severity: severe
         onset: long-term
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -251,8 +265,8 @@ relationships:
         special_notes: PAH is carcinogenic - minimize skin contact. Decontaminate immediately after exposure. Disposable protective
           clothing recommended for heavy contamination.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -269,8 +283,8 @@ relationships:
         special_hazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, skin cancer, leukemia. Mutagenic and teratogenic.
           PAH exposure linked to multiple cancers. Contaminated soil requires remediation.
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -305,8 +319,8 @@ relationships:
             timing: End of week
             bei_value: Establish baseline, monitor trends
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -323,8 +337,8 @@ relationships:
         special_requirements: Post "CANCER HAZARD" signs. Restrict access to authorized trained personnel only. Secondary
           containment required. Inspect containers regularly for integrity.
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -347,8 +361,8 @@ relationships:
         cercla_rq: 1 pound (0.454 kg)
         rcra_code: U022
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -367,8 +381,8 @@ relationships:
           water: 1 lb to navigable waters - reportable to NRC
           air: 1 lb/day - reportable to EPA (CERCLA RQ)
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -396,8 +410,8 @@ relationships:
           detection_limit: 0.1 µg/sample
         odor_threshold: Not applicable - no characteristic warning odor at hazardous levels
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -423,6 +437,16 @@ relationships:
         frequency: occasional
         severity: moderate
         typical_context: Formed during high-temperature pyrolysis
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -444,8 +468,8 @@ relationships:
         - Oxidizers
         reactivity_hazard: May react with strong oxidizers. Generally stable but avoid high heat.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: polycyclic_aromatic_hydrocarbon
 formula: C₂₀H₁₂

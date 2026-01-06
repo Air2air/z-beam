@@ -3,8 +3,8 @@ name: Ammonia
 displayName: Ammonia (NH₃)
 category: corrosive_gas
 hazard_class: corrosive
-datePublished: '2026-01-06T01:38:58.442284Z'
-dateModified: '2026-01-06T01:38:58.442333+00:00'
+datePublished: '2026-01-06T05:36:53.470490Z'
+dateModified: '2026-01-06T05:36:53.470515+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/corrosive_gas/alkaline_gas/ammonia-compound
@@ -175,6 +175,16 @@ relationships:
       items:
       - type: chemical_properties
         id: ammonia-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -189,8 +199,8 @@ relationships:
         appearance: Colorless gas, colorless liquid under pressure
         odor: Sharp, pungent, suffocating odor @ 5-50 ppm
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -206,8 +216,8 @@ relationships:
           ec_number: 231-635-3
           pubchem_cid: '222'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -229,6 +239,10 @@ relationships:
         effect: Severe burns to the mouth, throat, and gastrointestinal tract, potentially leading to perforation
         severity: severe
         onset: immediate
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -241,8 +255,8 @@ relationships:
         special_notes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
           frostbite. Emergency eyewash/shower within 10 seconds.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -261,8 +275,8 @@ relationships:
         special_hazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
           Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -289,8 +303,8 @@ relationships:
             ceiling: null
           biological_exposure_indices: []
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -312,8 +326,8 @@ relationships:
         special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "FLAMMABLE GAS" and "CORROSIVE"
           signs. Emergency eyewash/shower within 25 feet. Avoid contact with copper, brass, zinc in piping.
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -336,8 +350,8 @@ relationships:
         cercla_rq: 100 pounds (45.4 kg)
         rcra_code: null
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -355,8 +369,8 @@ relationships:
           water: 100 lbs to navigable waters
           air: 100 lbs/day (CERCLA RQ)
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -385,8 +399,8 @@ relationships:
           detection_limit: 0.02 ppm
         odor_threshold: 5-50 ppm - provides good warning below toxic levels
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -396,6 +410,16 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Breakdown of proteins
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -405,6 +429,16 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Links to material pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -433,8 +467,8 @@ relationships:
         reactivity_hazard: Reacts violently with strong acids producing heat and ammonium salts. Explosive reaction with halogens.
           Attacks copper, brass, zinc, aluminum, and alloys.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: alkaline_gas
 formula: NH₃

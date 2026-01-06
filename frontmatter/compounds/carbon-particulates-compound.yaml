@@ -3,8 +3,8 @@ name: Carbon Particulates
 displayName: Carbon Particulates
 category: particulate
 hazard_class: nuisance_dust
-datePublished: '2026-01-06T01:38:58.783432Z'
-dateModified: '2026-01-06T01:38:58.783460+00:00'
+datePublished: '2026-01-06T05:36:53.762942Z'
+dateModified: '2026-01-06T05:36:53.762967+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/carbon-based/carbon-particulates-compound
@@ -273,24 +273,40 @@ relationships:
         frequency: unknown
         severity: low
         typical_context: Laser removal of Wax Coating Buildup
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory tract irritation and coughing
-      severity: moderate
-      onset: immediate
-    - route: inhalation
-      effect: Chronic exposure leading to pneumoconiosis or increased risk of lung cancer
-      severity: high
-      onset: long-term
-    - route: skin_contact
-      effect: Mechanical irritation or dermatitis from prolonged contact
-      severity: low
-      onset: short-term
-    - route: eye_contact
-      effect: Irritation, redness, and possible corneal abrasion
-      severity: moderate
-      onset: immediate
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation and coughing
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Chronic exposure leading to pneumoconiosis or increased risk of lung cancer
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Mechanical irritation or dermatitis from prolonged contact
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Irritation, redness, and possible corneal abrasion
+        severity: moderate
+        onset: immediate
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: carbon-based
 formula: C
 ppe_requirements: Handling carbon particulate compounds in workshops or labs starts with assessing the dusty setup—think fine

@@ -3,8 +3,8 @@ name: Organic Residues
 displayName: Organic Residues
 category: particulate
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:59.006434Z'
-dateModified: '2026-01-06T01:38:59.006462+00:00'
+datePublished: '2026-01-06T05:36:53.977175Z'
+dateModified: '2026-01-06T05:36:53.977205+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/organic/organic-residues-compound
@@ -241,24 +241,40 @@ relationships:
         frequency: unknown
         severity: moderate
         typical_context: Laser removal of Wax Coating Buildup
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
   safety:
     health_effects:
-    - route: inhalation
-      effect: Respiratory irritation and potential systemic toxicity (e.g., dizziness, nausea)
-      severity: moderate
-      onset: immediate
-    - route: skin_contact
-      effect: Dermatitis or allergic skin reactions
-      severity: low
-      onset: short-term
-    - route: eye_contact
-      effect: Irritation, redness, and possible corneal damage
-      severity: moderate
-      onset: immediate
-    - route: ingestion
-      effect: Gastrointestinal distress and potential liver/kidney effects
-      severity: high
-      onset: short-term
+      items:
+      - route: inhalation
+        effect: Respiratory irritation and potential systemic toxicity (e.g., dizziness, nausea)
+        severity: moderate
+        onset: immediate
+      - route: skin_contact
+        effect: Dermatitis or allergic skin reactions
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Irritation, redness, and possible corneal damage
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal distress and potential liver/kidney effects
+        severity: high
+        onset: short-term
+      presentation: card
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
 subcategory: organic
 formula: CxHyOz
 ppe_requirements: 'Handling organic residue compounds in particulate form demands solid protection, especially in dusty workshops

@@ -3,8 +3,8 @@ name: Acetaldehyde
 displayName: Acetaldehyde (C₂H₄O)
 category: irritant
 hazard_class: irritant
-datePublished: '2026-01-06T01:38:57.676855Z'
-dateModified: '2026-01-06T01:38:57.676884+00:00'
+datePublished: '2026-01-06T05:36:52.865317Z'
+dateModified: '2026-01-06T05:36:52.865341+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/aldehyde/acetaldehyde-compound
@@ -138,6 +138,16 @@ relationships:
       - type: chemical_properties
         id: acetaldehyde-physical-data
         notes: Standard physical/chemical data from NIST
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Core chemical identity data from Compounds.yaml
+          source_field: chemical_properties
+          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -152,8 +162,8 @@ relationships:
         appearance: Colorless liquid, colorless gas >20°C
         odor: Pungent, fruity odor @ 0.05-1 ppm
       _section:
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
     synonyms_identifiers:
       presentation: descriptive
@@ -169,8 +179,8 @@ relationships:
           ec_number: 200-836-8
           pubchem_cid: '177'
       _section:
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
   safety:
     health_effects:
@@ -192,6 +202,10 @@ relationships:
         effect: Gastrointestinal irritation, nausea, and vomiting
         severity: moderate
         onset: immediate
+      _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
+        icon: heart-pulse
     ppe_requirements:
       presentation: descriptive
       items:
@@ -201,8 +215,8 @@ relationships:
         minimum_level: Level C for <25 ppm, Level B for >25 ppm
         special_notes: Probable human carcinogen (IARC Group 2B). Extremely flammable. Irritating vapor. May polymerize explosively.
       _section:
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
     emergency_response:
       presentation: descriptive
@@ -220,8 +234,8 @@ relationships:
           May polymerize violently when contaminated. Narcotic at high concentrations. Irritating to eyes and respiratory
           tract.
       _section:
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
     exposure_limits:
       presentation: descriptive
@@ -248,8 +262,8 @@ relationships:
             ceiling: null
           biological_exposure_indices: []
       _section:
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
     storage_requirements:
       presentation: descriptive
@@ -271,8 +285,8 @@ relationships:
         special_requirements: 'CRITICAL: Store with stabilizer. Check stabilizer regularly. Refrigerated storage required.
           Inert gas blanketing (nitrogen). Post "EXTREMELY FLAMMABLE" and "CANCER HAZARD" signs.'
       _section:
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
     regulatory_classification:
       presentation: descriptive
@@ -295,8 +309,8 @@ relationships:
         cercla_rq: 1000 pounds (454 kg)
         rcra_code: U001
       _section:
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
   environmental:
     environmental_impact:
@@ -313,8 +327,8 @@ relationships:
           water: 1000 lbs to navigable waters
           air: 1000 lbs/day (CERCLA RQ)
       _section:
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
   detection_monitoring:
     detection_monitoring:
@@ -342,8 +356,8 @@ relationships:
           detection_limit: 0.02 ppm
         odor_threshold: 0.05-1 ppm - provides early warning
       _section:
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
   interactions:
     produced_from_contaminants:
@@ -361,6 +375,16 @@ relationships:
         frequency: occasional
         severity: low
         typical_context: Acrylic paint thermal degradation
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          notes: Links to contaminant pages
+          relationship_type: produced_from
+          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -370,6 +394,16 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          notes: Links to material pages
+          relationship_type: produced_from
+          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -402,8 +436,8 @@ relationships:
         reactivity_hazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Forms explosive peroxides
           with air. May self-heat and ignite.
       _section:
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
 subcategory: aldehyde
 formula: C₂H₄O
