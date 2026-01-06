@@ -150,8 +150,8 @@ export function ExpertAnswersPanel({
 
   // Section metadata
   const sectionMetadata = {
-    section_title: 'Expert Answers',
-    section_description: `Expert insights and professional guidance on ${entityName}`,
+    sectionTitle: 'Expert Answers',
+    sectionDescription: `Expert insights and professional guidance on ${entityName}`,
     icon: 'expert',
     order: 90
   };

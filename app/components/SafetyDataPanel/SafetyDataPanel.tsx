@@ -195,8 +195,8 @@ export function SafetyDataPanel({
       <Collapsible
         items={collapsibleItems}
         sectionMetadata={{
-          section_title: entityName ? `${entityName} safety information` : "Safety Information",
-          section_description: isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"
+          sectionTitle: entityName ? `${entityName} safety information` : "Safety Information",
+          sectionDescription: isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"
         }}
       />
     );

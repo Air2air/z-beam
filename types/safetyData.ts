@@ -23,8 +23,8 @@ export type Presentation = 'card' | 'descriptive';
  * Section metadata for display purposes
  */
 export interface SectionMetadata {
-  section_title: string;
-  section_description?: string;
+  sectionTitle: string;
+  sectionDescription?: string;
   icon?: string;
   order?: number;
 }

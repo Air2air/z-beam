@@ -53,8 +53,8 @@ export function IndustryApplicationsPanel({
 
   // Get section metadata or use defaults based on variant
   const sectionMetadata = applications._section || applications.sectionMetadata || {
-    section_title: getDefaultTitle(variant, entityName),
-    section_description: getDefaultDescription(variant),
+    sectionTitle: getDefaultTitle(variant, entityName),
+    sectionDescription: getDefaultDescription(variant),
     icon: 'briefcase',
     order: 1
   };

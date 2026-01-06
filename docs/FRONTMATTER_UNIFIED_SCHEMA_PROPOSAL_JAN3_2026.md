@@ -55,8 +55,8 @@ relationships:
       presentation: card           # ✅ NEW - Has presentation
       items: [id1, id2...]         # ❌ Still just flat IDs
       sectionMetadata:             # ✅ NEW - Has metadata!
-        section_title: "Common Contaminants"
-        section_description: "Types of contamination..."
+        sectionTitle: "Common Contaminants"
+        sectionDescription: "Types of contamination..."
         icon: droplet
         order: 1
   operational:                      # ✅ NEW - Subject area!
@@ -154,7 +154,7 @@ relationships:
       presentation: card
       items: [{id: "...", type: "..."}]
       sectionMetadata:              # ✅ Has metadata
-        section_title: "Safety Standards & Compliance"
+        sectionTitle: "Safety Standards & Compliance"
         icon: shield-check
         order: 10
   

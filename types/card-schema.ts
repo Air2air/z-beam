@@ -99,8 +99,8 @@ export type PresentationType = 'card' | 'badge' | 'list' | 'inline' | 'banner';
  * Section metadata (optional)
  */
 export interface RelationshipSection {
-  section_title: string;
-  section_description?: string;
+  sectionTitle: string;
+  sectionDescription?: string;
   order?: number;
   variant?: string;
   icon?: string;

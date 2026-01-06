@@ -20,8 +20,8 @@ import type { ExpertAnswerItem, ExpertInfo } from '../../app/components/ExpertAn
 jest.mock('../../app/components/Collapsible', () => ({
   Collapsible: ({ items, sectionMetadata }: any) => (
     <div data-testid="collapsible-mock">
-      <h2>{sectionMetadata.section_title}</h2>
-      <p>{sectionMetadata.section_description}</p>
+      <h2>{sectionMetadata.sectionTitle}</h2>
+      <p>{sectionMetadata.sectionDescription}</p>
       {items.map((item: any, index: number) => (
         <div key={index} data-testid={`item-${index}`}>
           <h3>{item.question}</h3>

@@ -51,10 +51,10 @@ export function CardListPanel({
       className={className}
     >
       {sectionMetadata && (
-        <SectionTitle 
-          title={sectionMetadata.section_title}
+        <SectionTitle
+          title={sectionMetadata.sectionTitle}
           icon={getSectionIcon(iconType)}
-          description={sectionMetadata.section_description}
+          description={sectionMetadata.sectionDescription}
         />
       )}
       <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
@@ -109,9 +109,9 @@ export function createCardListPanel(
       >
         {sectionMetadata && (
           <SectionTitle 
-            title={sectionMetadata.section_title}
+            title={sectionMetadata.sectionTitle}
             icon={getSectionIcon(iconType)}
-            description={sectionMetadata.section_description}
+            description={sectionMetadata.sectionDescription}
           />
         )}
         <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>

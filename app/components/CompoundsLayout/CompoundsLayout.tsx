@@ -237,7 +237,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
           .sort(sortByFrequency)
           .map(contaminantLinkageToGridItem),
         title: sourceContaminantsRaw?._section?.title || 'Contaminant Sources',
-        description: sourceContaminantsRaw?._section?.section_description || 'Contaminants that produce this compound during laser cleaning operations',
+        description: sourceContaminantsRaw?._section?.sectionDescription || 'Contaminants that produce this compound during laser cleaning operations',
         cardComponent: ContaminantCard,
       }
     },
@@ -247,7 +247,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
       props: {
         items: enrichedMaterials.map(materialLinkageToGridItem),
         title: sourceMaterialsRaw?._section?.title || 'Material Sources',
-        description: sourceMaterialsRaw?._section?.section_description || 'Materials that produce this compound during laser cleaning operations',
+        description: sourceMaterialsRaw?._section?.sectionDescription || 'Materials that produce this compound during laser cleaning operations',
         variant: 'relationship' as const,
       }
     },

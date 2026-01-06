@@ -147,7 +147,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
           },
         })),
         title: `Compounds produced by ${contaminantName}`,
-        description: producesCompoundsSection?.metadata?.section_description || 'Compounds produced during laser removal with exposure limits and required safety controls',
+        description: producesCompoundsSection?.metadata?.sectionDescription || 'Compounds produced during laser removal with exposure limits and required safety controls',
         variant: 'relationship' as const,
       }
     },
@@ -184,7 +184,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
           category: m.category,
         })),
         title: `Materials affected by ${contaminantName}`,
-        description: affectsMaterialsSection?.metadata?.section_description || 'Materials where this contaminant is commonly present',
+        description: affectsMaterialsSection?.metadata?.sectionDescription || 'Materials where this contaminant is commonly present',
         variant: 'relationship' as const,
       }
     },

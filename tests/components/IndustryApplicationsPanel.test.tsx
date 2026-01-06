@@ -37,8 +37,8 @@ describe('IndustryApplicationsPanel', () => {
           { id: 'automotive', name: 'Automotive', description: 'Vehicle manufacturing' }
         ],
         _section: {
-          section_title: 'Industry Applications',
-          section_description: 'Common industrial uses',
+          sectionTitle: 'Industry Applications',
+          sectionDescription: 'Common industrial uses',
           icon: 'briefcase',
           order: 1
         }

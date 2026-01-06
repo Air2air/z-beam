@@ -77,8 +77,8 @@ relationships:
     contaminated_by:
       presentation: card
       sectionMetadata:
-        section_title: "Common Contaminants"
-        section_description: "Contamination types typically found"
+        sectionTitle: "Common Contaminants"
+        sectionDescription: "Contamination types typically found"
         icon: droplet
         order: 1
       items:
@@ -90,8 +90,8 @@ relationships:
     industry_applications:
       presentation: collapsible
       sectionMetadata:
-        section_title: "Industry Applications"
-        section_description: "Industries and sectors"
+        sectionTitle: "Industry Applications"
+        sectionDescription: "Industries and sectors"
         icon: building-2
         order: 3
       items:
@@ -103,8 +103,8 @@ relationships:
     expert_answers:
       presentation: collapsible
       sectionMetadata:
-        section_title: "Expert Q&A"
-        section_description: "Frequently asked questions"
+        sectionTitle: "Expert Q&A"
+        sectionDescription: "Frequently asked questions"
         icon: user-tie
         order: 4
       items:
@@ -126,8 +126,8 @@ relationships:
     regulatory_standards:
       presentation: card
       sectionMetadata:
-        section_title: "Regulatory Standards"
-        section_description: "Safety and compliance standards"
+        sectionTitle: "Regulatory Standards"
+        sectionDescription: "Safety and compliance standards"
         icon: shield-check
         order: 2
       items:
@@ -335,7 +335,7 @@ relationships:
     regulatory_standards:
       presentation: card
       sectionMetadata:
-        section_title: "Safety Standards & Compliance"
+        sectionTitle: "Safety Standards & Compliance"
         icon: shield-check
         order: 10
       items: [...]
@@ -345,7 +345,7 @@ relationships:
     removes_contaminants:
       presentation: card
       sectionMetadata:
-        section_title: "Effective Contaminants"
+        sectionTitle: "Effective Contaminants"
         icon: droplet
         order: 20
       items:
@@ -355,7 +355,7 @@ relationships:
     works_on_materials:
       presentation: card
       sectionMetadata:
-        section_title: "Compatible Materials"
+        sectionTitle: "Compatible Materials"
         icon: box
         order: 30
       items:
@@ -367,8 +367,8 @@ relationships:
     prevention:
       presentation: collapsible
       sectionMetadata:
-        section_title: "Challenges & Prevention"
-        section_description: "Common issues and solutions"
+        sectionTitle: "Challenges & Prevention"
+        sectionDescription: "Common issues and solutions"
         icon: shield-halved
         order: 5
       items:
@@ -558,8 +558,8 @@ interface FrontmatterStructure {
       [sectionKey: string]: {
         presentation: 'card' | 'collapsible' | 'table' | 'descriptive';
         sectionMetadata?: {
-          section_title: string;
-          section_description?: string;
+          sectionTitle: string;
+          sectionDescription?: string;
           icon?: string;
           order?: number;
         };

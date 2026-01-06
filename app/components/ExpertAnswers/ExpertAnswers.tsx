@@ -170,8 +170,8 @@ export function ExpertAnswers({
 
   // Section metadata
   const sectionMetadata = {
-    section_title: `Expert Troubleshooting: ${materialName}`,
-    section_description: 'Professional answers from verified laser cleaning experts',
+    sectionTitle: `Expert Troubleshooting: ${materialName}`,
+    sectionDescription: 'Professional answers from verified laser cleaning experts',
     icon: 'warning',
     order: 85
   };

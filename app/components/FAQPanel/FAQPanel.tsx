@@ -59,10 +59,10 @@ export function FAQPanel({
 
   // Section metadata
   const sectionMetadata: RelationshipSection = {
-    section_title: variant === 'faq' 
+    sectionTitle: variant === 'faq' 
       ? `FAQs for laser cleaning ${entityName}` 
       : `${entityName} Troubleshooting`,
-    section_description: variant === 'faq'
+    sectionDescription: variant === 'faq'
       ? 'Common questions and expert answers about laser cleaning this material'
       : 'Common issues and solutions for laser cleaning this material',
     icon: variant === 'faq' ? 'help-circle' : 'alert-triangle',

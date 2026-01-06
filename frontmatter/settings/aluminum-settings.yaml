@@ -114,8 +114,8 @@ relationships:
         - id: oil-grease-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
 category: metal
 subcategory: non-ferrous
@@ -241,14 +241,14 @@ machine_settings:
       Technology (2018).'
 component_summaries:
   machine_settings:
-    section_title: Machine Settings
+    sectionTitle: Machine Settings
     description: This table displays recommended ranges for power, pulse width, repetition rate, and scan speed, optimized
       for Aluminum's high reflectivity and low melting point to ensure efficient oxide layer removal without subsurface damage.
       It helps you select parameters that minimize laser reflection risks, allowing safe and precise cleaning of Aluminum
       surfaces like automotive parts or aerospace components. Adjust within these ranges to balance cleaning speed and material
       integrity, watching for lower power thresholds around 20-50W where reflectivity drops for better absorption.
   material_safety_heatmap:
-    section_title: Material Safety Heatmap
+    sectionTitle: Material Safety Heatmap
     description: This heatmap visualizes safe (green) to hazardous (red) zones for laser cleaning Aluminum based on power
       and pulse width, revealing the narrow operating window limited by its low melting point of around 660°C and high thermal
       conductivity. Aluminum's high reflectivity to laser wavelengths means much of the energy bounces off, so staying in
@@ -256,14 +256,14 @@ component_summaries:
       substrate melting or vaporization. Use it to fine-tune settings, avoiding the red boundaries near 40-50W for longer
       pulses where rapid heat buildup risks permanent damage.
   energy_coupling_heatmap:
-    section_title: Energy Coupling Heatmap
+    sectionTitle: Energy Coupling Heatmap
     description: This heatmap displays the efficiency of laser energy absorption into Aluminum across combinations of power,
       pulse duration, and wavelength, revealing how its high reflectivity often limits coupling to specific narrow parameter
       windows. By spotting the vibrant zones of high efficiency, you can fine-tune settings to maximize energy transfer for
       effective surface cleaning without excessive heat buildup or reflection losses. Focus on the green clusters around 30-50W
       and short pulses to target Aluminum's oxide layer precisely, avoiding the dim areas where energy bounces off ineffectively.
   thermal_stress_heatmap:
-    section_title: Thermal Stress Heatmap
+    sectionTitle: Thermal Stress Heatmap
     description: This heatmap visualizes thermal stress risks on aluminum surfaces, highlighting zones of potential warping
       or distortion based on laser power, speed, and scan patterns—crucial given aluminum's high thermal conductivity that
       spreads heat quickly but risks uneven expansion. It helps you identify safe parameter windows to prevent damage, such
@@ -271,42 +271,42 @@ component_summaries:
       By focusing on the green low-risk zones, you can optimize settings for effective oxide removal without compromising
       the material's integrity.
   process_effectiveness_heatmap:
-    section_title: Process Effectiveness Heatmap
+    sectionTitle: Process Effectiveness Heatmap
     description: This heatmap visualizes cleaning effectiveness for aluminum across laser power and speed parameters, highlighting
       optimal zones where the material's high reflectivity and rapid oxide reformation allow for complete contaminant removal
       without surface damage. The green sweet spot indicates ideal settings to achieve thorough cleaning while avoiding underpowered
       incomplete removal or overpowered melting risks unique to aluminum's low thermal conductivity. Use it to fine-tune your
       process by targeting these zones, ensuring efficient laser cleaning tailored to aluminum's sensitivity.
   heat_buildup_simulator:
-    section_title: Heat Buildup Simulator
+    sectionTitle: Heat Buildup Simulator
     description: This simulator animates heat accumulation on Aluminum surfaces across multiple laser passes, highlighting
       how its high thermal conductivity spreads warmth quickly while its relatively low melting point (around 660°C) risks
       deformation if unchecked. Use it to adjust power, speed, and pause intervals, ensuring temperatures stay below critical
       thresholds to prevent melting or oxide reformation. Watch the color gradients to spot when active cooling—like air blasts
       or delays—becomes essential for safe, effective cleaning.
   diagnostic_center:
-    section_title: Diagnostic Center
+    sectionTitle: Diagnostic Center
     description: The Diagnostic Center's Material Challenges tab displays Aluminum's high reflectivity and rapid oxide reformation
       risks, highlighting narrow safe zones for power and speed to avoid incomplete cleaning or surface melting. In the Troubleshooting
       tab, it identifies common issues like beam scattering from shiny surfaces, offering targeted adjustments to your laser
       parameters. This empowers you to configure settings confidently, ensuring efficient oxide removal while preserving the
       material's integrity.
   research_citations:
-    section_title: Research Citations
+    sectionTitle: Research Citations
     description: This section displays key academic and industry papers that validate the recommended laser parameters for
       cleaning Aluminum, highlighting studies on its high reflectivity and rapid heat dissipation. By reviewing these citations,
       you can confidently adjust power and pulse settings to avoid issues like incomplete oxide removal or surface damage,
       ensuring efficient cleaning without risking material warping. Tap on a citation to access the full source and deepen
       your understanding of Aluminum's unique laser interaction behaviors.
   faq_settings:
-    section_title: Settings FAQ
+    sectionTitle: Settings FAQ
     description: This Settings FAQ provides quick answers to common questions about configuring laser parameters for Aluminum,
       such as adjusting power and pulse duration to account for its high reflectivity and rapid heat dissipation. It helps
       operators avoid issues like incomplete oxide removal or overheating by highlighting safe ranges, like keeping power
       below 50W to prevent melting. Use it to fine-tune settings on the fly for efficient, damage-free cleaning of Aluminum
       surfaces.
   dataset_download:
-    section_title: Dataset Download
+    sectionTitle: Dataset Download
     description: The Dataset Download component lets you export JSON files of your laser cleaning settings and Aluminum's
       key properties, like its high reflectivity and rapid oxide reformation, for easy backup or sharing. This helps you integrate
       these configurations with external analysis tools or documentation systems, allowing precise adjustments to power and
@@ -314,7 +314,7 @@ component_summaries:
       power spikes above 50W where reflectivity causes energy loss, streamlining your workflow for consistent metal surface
       preparation.
   parameter_relationships:
-    section_title: Parameter Relationships
+    sectionTitle: Parameter Relationships
     description: This network visualization maps how key parameters like laser power, scanning speed, and pulse duration interdependent
       for Aluminum, highlighting its high reflectivity and thermal conductivity that can amplify heat buildup or beam scattering.
       By tracing these relationships, you can quickly identify safe adjustment ranges—such as keeping power below 50W to avoid

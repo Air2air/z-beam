@@ -191,13 +191,13 @@ card:
 ```yaml
 component_summaries:
   technical_specs:
-    section_title: Technical Specifications    # REQUIRED
+    sectionTitle: Technical Specifications    # REQUIRED
     description: Comprehensive specs...        # REQUIRED
   usage_tips:
-    section_title: Usage Tips                  # REQUIRED
+    sectionTitle: Usage Tips                  # REQUIRED
     description: Practical guidance...         # REQUIRED
   parameter_relationships:
-    section_title: Parameter Relationships     # REQUIRED
+    sectionTitle: Parameter Relationships     # REQUIRED
     description: Parameter interactions...     # REQUIRED
 
 component_summary: The 1064 nm wavelength...   # REQUIRED: Short summary
@@ -481,7 +481,7 @@ relationships:
         variant: default
 component_summaries:
   technical_specs:
-    section_title: Technical Specifications
+    sectionTitle: Technical Specifications
     description: Comprehensive technical specifications...
 component_summary: The 1064 nm wavelength and 10 ns pulse width...
 schemaVersion: 5.0.0

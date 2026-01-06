@@ -188,8 +188,8 @@ function getDefaultMetadata(path: string): RelationshipSection {
     .join(' ');
 
   return {
-    section_title: sectionTitle,
-    section_description: undefined,
+    sectionTitle: sectionTitle,
+    sectionDescription: undefined,
     order: 999, // Put at end if no order specified
     variant: 'default',
     icon: 'box'
@@ -339,11 +339,11 @@ export function validateRelationshipSection(
   } else {
     const metadata = current._section;
     
-    if (!metadata.section_title) {
-      errors.push(`Missing required field: section_title in _section at ${path}`);
+    if (!metadata.sectionTitle) {
+      errors.push(`Missing required field: sectionTitle in _section at ${path}`);
     }
-    if (!metadata.section_description) {
-      errors.push(`Missing recommended field: section_description in _section at ${path}`);
+    if (!metadata.sectionDescription) {
+      errors.push(`Missing recommended field: sectionDescription in _section at ${path}`);
     }
     if (typeof metadata.order !== 'number') {
       errors.push(`Missing required field: order in _section at ${path}`);

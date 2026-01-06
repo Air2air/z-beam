@@ -159,8 +159,8 @@ export function PreventionPanel({
 
   // Section metadata
   const sectionMetadata = {
-    section_title: title,
-    section_description: description,
+    sectionTitle: title,
+    sectionDescription: description,
     icon: 'prevention',
     order: 80
   };
