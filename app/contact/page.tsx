@@ -1,14 +1,14 @@
 // app/contact/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from "../components/JsonLD/JsonLD";
-import { loadPageData } from "../utils/contentAPI";
+import { CONTACT_DATA } from '@/app/utils/staticPageData';
 import { ArticleMetadata } from "@/types";
-import dynamic from "next/dynamic";
+import dynamicImport from "next/dynamic";
 import Link from "next/link";
 
 import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from "@/app/config/site";
 
-const ContactForm = dynamic(
+const ContactForm = dynamicImport(
   () =>
     import("../components/Contact/ContactForm").then((mod) => ({
       default: mod.ContactForm,
@@ -19,7 +19,6 @@ const ContactForm = dynamic(
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     ),
-    ssr: false,
   }
 );
 import { ContactInfo } from "../components/Contact/ContactInfo";
@@ -60,8 +59,8 @@ export const metadata = {
 };
 
 // Default export - the page component
-export default async function ContactPage() {
-  const { metadata: pageMetadata } = await loadPageData("contact");
+export default function ContactPage() {
+  const pageMetadata = CONTACT_DATA as unknown as ArticleMetadata;
 
   // Generate ContactPage schema
   const contactSchema = {

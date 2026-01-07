@@ -51,7 +51,7 @@ export function Citations({ research_library, materialName, heroImage, materialL
           <SectionTitle
             title="Research Citations"
             icon={getSectionIcon('citations')}
-            description={`${citations.length} peer-reviewed ${citations.length === 1 ? 'source' : 'sources'} validating ${materialName || 'these'} settings`}
+            sectionDescription={`${citations.length} peer-reviewed ${citations.length === 1 ? 'source' : 'sources'} validating ${materialName || 'these'} settings`}
           />
         </div>
 

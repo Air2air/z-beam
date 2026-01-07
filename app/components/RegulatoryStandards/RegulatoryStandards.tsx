@@ -44,7 +44,7 @@ export function RegulatoryStandards({
       <SectionTitle 
         title={title}
         icon={getSectionIcon('regulatory')}
-        description="Industry standards and compliance requirements for safe laser cleaning operations"
+        sectionDescription="Industry standards and compliance requirements for safe laser cleaning operations"
       />
       <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
         {validStandards.map((standard, index) => (

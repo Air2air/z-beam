@@ -26,7 +26,7 @@ export function TechnicalSpecsTable({ settings }: TechnicalSpecsTableProps) {
       <div className="container-custom px-4">
         <SectionTitle 
           title="Technical Specifications"
-          subtitle="Recommended machine settings for contamination removal"
+          sectionDescription="Recommended machine settings for contamination removal"
           alignment="left"
           className="mb-8"
         />

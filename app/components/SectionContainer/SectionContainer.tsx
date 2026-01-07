@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '../Button';
+import { SectionTitle } from '../SectionTitle';
 import type { SectionContainerProps } from '@/types/centralized';
 
 export function SectionContainer({
@@ -29,21 +30,17 @@ export function SectionContainer({
   if (variant === 'dark') {
     return (
       <section
-        className={`bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-4 md:px-5 py-4 md:py-5 mb-6 sm:mb-8 ${className}`.trim()}
+        className={`bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-4 md:px-5 py-4 md:py-5 mb-3 sm:mb-4 ${className}`.trim()}
         aria-labelledby={title ? `section-${sectionId}` : undefined}
       >
         {title && (
-          <div className="flex items-center justify-between mb-4 sm:mb-6">
-            <div className="flex items-center space-x-3">
-              {icon}
-              <div>
-                <h2 id={`section-${sectionId}`} className="text-xl font-semibold">
-                  {title}
-                </h2>
-                {description && <p className="text-sm text-gray-300 mt-1">{description}</p>}
-              </div>
-            </div>
-            {finalAction}
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <SectionTitle
+              title={title}
+              icon={icon}
+              sectionDescription={description}
+            />
+            {finalAction && <div>{finalAction}</div>}
           </div>
         )}
         {children}
@@ -64,7 +61,7 @@ export function SectionContainer({
   const bgClass = bgColorClasses[bgColor] || '';
   const paddingClass = horizPadding ? 'px-4 md:px-5' : '';
   const radiusClass = radius ? 'rounded-md' : '';
-  const baseClass = 'py-3 sm:py-4';
+  const baseClass = 'py-1 sm:py-2';
   
   return (
     <section
@@ -72,17 +69,13 @@ export function SectionContainer({
       aria-labelledby={title ? `section-${sectionId}` : undefined}
     >
       {title && (
-        <div className="flex items-center justify-between mb-4 sm:mb-6">
-          <div className="flex items-center space-x-3">
-            {icon}
-            <div>
-              <h2 id={`section-${sectionId}`} className="text-xl font-semibold">
-                {title}
-              </h2>
-              {description && <p className="text-sm text-gray-600 mt-1">{description}</p>}
-            </div>
-          </div>
-          {finalAction}
+        <div className="flex items-center justify-between mb-2 sm:mb-3">
+          <SectionTitle
+            title={title}
+            icon={icon}
+            sectionDescription={description}
+          />
+          {finalAction && <div>{finalAction}</div>}
         </div>
       )}
       {children}

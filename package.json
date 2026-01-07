@@ -9,6 +9,7 @@
     "dev:bg": "npm run dev > /tmp/z-beam-dev.log 2>&1 & echo $! > /tmp/z-beam-dev.pid && echo 'Dev server starting in background (PID saved to /tmp/z-beam-dev.pid)'",
     "dev:stop": "[ -f /tmp/z-beam-dev.pid ] && kill $(cat /tmp/z-beam-dev.pid) && rm /tmp/z-beam-dev.pid && echo 'Dev server stopped' || echo 'No dev server PID file found'",
     "dev:status": "lsof -ti:3000 > /dev/null && echo '✅ Dev server is running on port 3000' || echo '❌ Dev server is not running'",
+    "prebuild": "node app/utils/generateStaticData.js && npm run test:all",
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next node_modules/.cache tsconfig.tsbuildinfo .vercel .validation-cache",

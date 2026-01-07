@@ -643,7 +643,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
       <SectionTitle
         title="Parameter Relationships"
         icon={getSectionIcon('machine-settings')}
-        description="Shows how changing one parameter physically affects others. Click any node to see its downstream impacts and role."
+        sectionDescription="Shows how changing one parameter physically affects others. Click any node to see its downstream impacts and role."
       />
       <div className="space-y-6">
 

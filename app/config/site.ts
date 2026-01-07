@@ -528,7 +528,7 @@ export const GRID_SECTION_SPACING = {
 } as const;
 
 export const SECTION_HEADER_CLASSES = {
-  title: "text-lg md:text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2",
+  title: "text-lg md:text-2xl font-bold text-gray-900 dark:text-gray-100",
   subtitle: "text-gray-600 dark:text-gray-400 mt-2",
   container: "mb-8"
 } as const;

@@ -37,8 +37,11 @@ jest.mock('@/app/components/SectionContainer/SectionContainer', () => ({
 }));
 
 jest.mock('@/app/components/SectionTitle/SectionTitle', () => ({
-  SectionTitle: ({ title }: { title: string }) => (
-    <h2 data-testid="section-title">{title}</h2>
+  SectionTitle: ({ title, sectionDescription }: { title: string; sectionDescription?: string }) => (
+    <div data-testid="section-title">
+      <h2>{title}</h2>
+      {sectionDescription && <p>{sectionDescription}</p>}
+    </div>
   ),
 }));
 

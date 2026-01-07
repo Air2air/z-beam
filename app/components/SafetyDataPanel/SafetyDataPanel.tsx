@@ -26,6 +26,7 @@
 
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { Title } from '../Title/Title';
 import { CompoundSafetyGrid } from '../CompoundSafetyGrid';
 import { Collapsible } from '../Collapsible';
 import { RiskCard } from '../RiskCard/RiskCard';
@@ -207,7 +208,7 @@ export function SafetyDataPanel({
       <div className="container-custom px-4">
         <SectionTitle 
           title="Safety Information"
-          subtitle={isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"}
+          sectionDescription={isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"}
           alignment="left"
           className="mb-8"
         />
@@ -472,7 +473,7 @@ export function SafetyDataPanel({
           <>
             <SectionTitle
               title="Hazardous Compounds Generated"
-              subtitle="Critical compound safety information with exposure limits and control measures"
+              sectionDescription="Critical compound safety information with exposure limits and control measures"
               alignment="left"
               className="mb-8"
             />

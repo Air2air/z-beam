@@ -36,7 +36,7 @@ export function IndustriesGrid({ industries }: IndustriesGridProps) {
       <div className="container-custom px-4">
         <SectionTitle 
           title="Industries Served"
-          subtitle="Primary applications for contamination removal"
+          sectionDescription="Primary applications for contamination removal"
           alignment="left"
           className="mb-8"
         />

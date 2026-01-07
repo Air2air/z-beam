@@ -32,8 +32,8 @@ export function generateBreadcrumbs(
   // Default fallback: Home only
   const defaultBreadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
   
-  // Use explicit breadcrumb array from metadata (check both singular and plural)
-  const breadcrumbArray = metadata?.breadcrumbs || metadata?.breadcrumb;
+  // Use explicit breadcrumb array from metadata
+  const breadcrumbArray = metadata?.breadcrumb;
   
   if (breadcrumbArray && Array.isArray(breadcrumbArray)) {
     // Validate that breadcrumb items have required fields
@@ -42,22 +42,8 @@ export function generateBreadcrumbs(
     );
     
     if (validBreadcrumbs.length > 0) {
-      // Check if breadcrumbs include categories from fullPath
-      const fullPath = metadata?.fullPath || '';
-      const pathSegments = fullPath.split('/').filter(Boolean);
-      
-      // If we have a fullPath with more segments than breadcrumbs, build from path
-      if (fullPath && pathSegments.length > validBreadcrumbs.length) {
-        return buildBreadcrumbsFromPath(fullPath);
-      }
-      
       return validBreadcrumbs;
     }
-  }
-  
-  // Try building from fullPath if available
-  if (metadata?.fullPath) {
-    return buildBreadcrumbsFromPath(metadata.fullPath);
   }
   
   // Return default if no valid breadcrumbs found

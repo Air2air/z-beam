@@ -23,8 +23,8 @@ describe('frontmatterValidation', () => {
             { osha_pel: '100 ppm', niosh_rel: '50 ppm' }
           ],
           _section: {
-            title: 'Exposure Limits',
-            section_description: 'Regulatory exposure limits',
+            sectionTitle: 'Exposure Limits',
+            sectionDescription: 'Regulatory exposure limits',
             order: 1,
             variant: 'default',
             icon: 'shield-check'
@@ -37,8 +37,8 @@ describe('frontmatterValidation', () => {
             { id: 'goggles', type: 'Eye Protection' }
           ],
           _section: {
-            title: 'PPE Requirements',
-            section_description: 'Required protective equipment',
+            sectionTitle: 'PPE Requirements',
+            sectionDescription: 'Required protective equipment',
             order: 2,
             variant: 'warning',
             icon: 'alert-triangle'
@@ -92,7 +92,7 @@ describe('frontmatterValidation', () => {
       expect(result.warnings[0].message).toContain('contains no sections');
     });
 
-    it('should warn about missing _section metadata', () => {
+    it('should error on missing _section metadata', () => {
       const missingMetadata = {
         relationships: {
           test_section: {
@@ -102,9 +102,9 @@ describe('frontmatterValidation', () => {
         }
       };
       
-      const result = validateFrontmatterRelationships(missingMetadata, 'missing-metadata.yaml');
-      
-      expect(result.warnings.some(w => w.message.includes('Missing _section metadata'))).toBe(true);
+      expect(() => {
+        validateFrontmatterRelationships(missingMetadata, 'missing-metadata.yaml');
+      }).toThrow('Missing required _section metadata');
     });
 
     it('should warn about missing required _section fields', () => {
@@ -113,8 +113,8 @@ describe('frontmatterValidation', () => {
           test_section: {
             items: [{ id: 'test' }],
             _section: {
-              // Missing title, order, icon
-              section_description: 'Test'
+              // Missing sectionTitle, order, icon
+              sectionDescription: 'Test'
             }
           }
         }
@@ -123,7 +123,7 @@ describe('frontmatterValidation', () => {
       const result = validateFrontmatterRelationships(incompleteMetadata, 'incomplete.yaml');
       
       expect(result.warnings.length).toBeGreaterThan(0);
-      expect(result.warnings.some(w => w.message.includes('title'))).toBe(true);
+      expect(result.warnings.some(w => w.message.includes('sectionTitle'))).toBe(true);
       expect(result.warnings.some(w => w.message.includes('order'))).toBe(true);
       expect(result.warnings.some(w => w.message.includes('icon'))).toBe(true);
     });
@@ -134,7 +134,7 @@ describe('frontmatterValidation', () => {
           test_section: {
             items: [{ id: 'valid' }, null, { id: 'another' }],
             _section: {
-              title: 'Test',
+              sectionTitle: 'Test',
               order: 1,
               icon: 'box'
             }
@@ -153,8 +153,8 @@ describe('frontmatterValidation', () => {
           test_section: {
             items: [],
             _section: {
-              title: 'Empty',
-              description: 'Empty section',
+              sectionTitle: 'Empty',
+              sectionDescription: 'Empty section',
               order: 1,
               icon: 'box'
             }
@@ -174,7 +174,7 @@ describe('frontmatterValidation', () => {
             presentation: 'card',
             items: [{ name: 'Test' }], // Missing id
             _section: {
-              title: 'Test Cards',
+              sectionTitle: 'Test Cards',
               order: 1,
               icon: 'box'
             }
@@ -194,7 +194,7 @@ describe('frontmatterValidation', () => {
             exposure_limits: {
               items: [{ value: 'test' }],
               _section: {
-                title: 'Exposure Limits',
+                sectionTitle: 'Exposure Limits',
                 order: 1,
                 icon: 'shield-check'
               }
@@ -217,7 +217,7 @@ describe('frontmatterValidation', () => {
           relationships: {
             test: {
               items: [null],
-              _section: { title: 'Test', order: 1, icon: 'box' }
+              _section: { sectionTitle: 'Test', order: 1, icon: 'box' }
             }
           }
         }
@@ -302,7 +302,7 @@ describe('frontmatterValidation', () => {
               level3: {
                 items: [{ id: 'deep' }],
                 _section: {
-                  title: 'Deep',
+                  sectionTitle: 'Deep',
                   order: 1,
                   icon: 'box'
                 }
@@ -322,8 +322,8 @@ describe('frontmatterValidation', () => {
           valid_section: {
             items: [{ id: 'test' }],
             _section: {
-              title: 'Valid',
-              description: 'Valid section',
+              sectionTitle: 'Valid',
+              sectionDescription: 'Valid section',
               order: 1,
               icon: 'box'
             }
@@ -331,7 +331,7 @@ describe('frontmatterValidation', () => {
           invalid_section: {
             items: [null],
             _section: {
-              title: 'Invalid',
+              sectionTitle: 'Invalid',
               order: 2,
               icon: 'box'
             }

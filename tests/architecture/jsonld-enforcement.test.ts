@@ -132,8 +132,8 @@ describe('JSON-LD Architecture Enforcement', () => {
         const fullPath = join(process.cwd(), pagePath);
         const content = readFileSync(fullPath, 'utf-8');
         
-        // Should load configuration from YAML
-        expect(content).toContain('yaml');
+        // Should load configuration from pre-loaded static data constants
+        expect(content).toMatch(/_DATA/);
         expect(content).toContain('pageConfig');
       });
     });

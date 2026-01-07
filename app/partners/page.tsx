@@ -1,14 +1,9 @@
 // app/partners/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
-import { SITE_CONFIG } from "@/app/config";
-import fs from 'fs/promises';
-import path from 'path';
-import yaml from 'js-yaml';
-import type { ArticleMetadata } from '@/types';
-
-export const dynamic = 'force-static';
-export const revalidate = false;
+import { SITE_CONFIG } from "@/app/config/site";
+import { PARTNERS_DATA } from '@/app/utils/staticPageData';
+import type { StaticPageWithCards } from '@/app/utils/staticPageLoader';
 
 export const metadata = {
   title: 'Laser Cleaning Partners | North America & Europe | Z-Beam',
@@ -69,11 +64,9 @@ export const metadata = {
   },
 };
 
-export default async function PartnersPage() {
-  // Load partners page configuration from YAML
-  const yamlPath = path.join(process.cwd(), 'static-pages', 'partners.yaml');
-  const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { contentCards?: any[] };
+export default function PartnersPage() {
+  // Load partners page configuration from pre-loaded static data
+  const pageConfig = PARTNERS_DATA as unknown as StaticPageWithCards;
   
   return (
     <Layout

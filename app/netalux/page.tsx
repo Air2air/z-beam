@@ -1,14 +1,9 @@
 // app/netalux/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
-import { SITE_CONFIG } from "@/app/config";
-import fs from 'fs/promises';
-import path from 'path';
-import yaml from 'js-yaml';
-import type { ArticleMetadata } from '@/types';
-
-export const dynamic = 'force-static';
-export const revalidate = false;
+import { SITE_CONFIG } from "@/app/config/site";
+import { NETALUX_DATA } from '@/app/utils/staticPageData';
+import type { NetaluxPageConfig } from '@/app/utils/staticPageLoader';
 
 export const metadata = {
   title: 'Netalux Needle & Jango Laser Systems | Belgian Tech | Z-Beam',
@@ -69,16 +64,9 @@ export const metadata = {
   },
 };
 
-export default async function NetaluxPage() {
-  // Load netalux page configuration from YAML
-  const yamlPath = path.join(process.cwd(), 'static-pages', 'netalux.yaml');
-  const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { 
-    contentCards?: any[];
-    needle100_150?: any;
-    needle200_300?: any;
-    jangoSpecs?: any;
-  };
+export default function NetaluxPage() {
+  // Load netalux page configuration from pre-loaded static data
+  const pageConfig = NETALUX_DATA as unknown as NetaluxPageConfig;
   
   // Split content cards for specific sections
   const contentCards = pageConfig.contentCards || [];

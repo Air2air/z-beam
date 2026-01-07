@@ -72,6 +72,56 @@ definitions:
       passCount: { $ref: '#/definitions/machine_parameter' }
       overlapRatio: { $ref: '#/definitions/machine_parameter' }
 
+  # Relationship Section Metadata (MANDATORY for all sections)
+  relationship_section_metadata:
+    type: object
+    required: [sectionTitle, sectionDescription, icon, order]
+    properties:
+      sectionTitle:
+        type: string
+        minLength: 1
+        description: "Display title for the section"
+      sectionDescription:
+        type: string
+        minLength: 1
+        description: "Brief description of section content"
+      icon:
+        type: string
+        minLength: 1
+        description: "Lucide-react icon identifier"
+      order:
+        type: integer
+        minimum: 1
+        maximum: 999
+        description: "Sort order for section display"
+      variant:
+        type: string
+        enum: [default, warning, info, success]
+        description: "Visual variant for styling"
+      collapsible:
+        type: boolean
+        description: "Whether section can be collapsed"
+      defaultExpanded:
+        type: boolean
+        description: "Whether section starts expanded"
+
+  # Relationship Section Data Structure
+  relationship_section:
+    type: object
+    required: [presentation, items, _section]
+    properties:
+      presentation:
+        type: string
+        enum: [card, badge, descriptive, table]
+        description: "Presentation type for section data"
+      items:
+        type: array
+        minItems: 0
+        description: "Array of data items (structure varies by section type)"
+      _section:
+        $ref: '#/definitions/relationship_section_metadata'
+        description: "Required metadata for all relationship sections"
+
 # Main schema types
 type: object
 required: [id, name, datePublished, dateModified, content_type, schema_version, fullPath, breadcrumb, author]
@@ -151,31 +201,86 @@ properties:
   machine_settings:
     $ref: '#/definitions/machine_settings'
 
-  # Relationships
+  # Relationships (v5.0 - Structured sections with metadata)
   relationships:
     type: object
+    description: "Structured relationship sections with mandatory _section metadata"
     properties:
-      related_materials:
-        type: array
-        items:
-          type: object
-          properties:
-            type: { const: materials }
-            id: { type: string }
-      related_contaminants:
-        type: array
-        items:
-          type: object
-          properties:
-            type: { const: contaminants }
-            id: { type: string }
-      regulatory_standards:
-        type: array
-        items:
-          type: object
-          properties:
-            type: { const: regulatory_standards }
-            id: { type: string }
+      # Operational category
+      operational:
+        type: object
+        properties:
+          industry_applications:
+            $ref: '#/definitions/relationship_section'
+            description: "Industries using this material/contaminant"
+          laser_properties:
+            $ref: '#/definitions/relationship_section'
+            description: "Laser-material interaction data"
+          removal_difficulty:
+            $ref: '#/definitions/relationship_section'
+            description: "Difficulty ratings for contaminant removal"
+          compatible_materials:
+            $ref: '#/definitions/relationship_section'
+            description: "Materials compatible with this setting"
+          application_scenarios:
+            $ref: '#/definitions/relationship_section'
+            description: "Use cases and application scenarios"
+      
+      # Safety category
+      safety:
+        type: object
+        properties:
+          regulatory_standards:
+            $ref: '#/definitions/relationship_section'
+            description: "Applicable safety and compliance standards"
+          exposure_limits:
+            $ref: '#/definitions/relationship_section'
+            description: "Safety exposure thresholds (OSHA, NIOSH)"
+          ppe_requirements:
+            $ref: '#/definitions/relationship_section'
+            description: "Required protective equipment"
+          health_hazards:
+            $ref: '#/definitions/relationship_section'
+            description: "Health risks from exposure"
+      
+      # Interactions category
+      interactions:
+        type: object
+        properties:
+          contaminated_by:
+            $ref: '#/definitions/relationship_section'
+            description: "Contaminants affecting this material"
+          produces_compounds:
+            $ref: '#/definitions/relationship_section'
+            description: "Hazardous compounds created during cleaning"
+          found_on_materials:
+            $ref: '#/definitions/relationship_section'
+            description: "Materials where this contaminant appears"
+      
+      # Physical category
+      physical:
+        type: object
+        properties:
+          visual_characteristics:
+            $ref: '#/definitions/relationship_section'
+            description: "Observable material properties"
+          physical_properties:
+            $ref: '#/definitions/relationship_section'
+            description: "Measurable material properties"
+      
+      # Technical category
+      technical:
+        type: object
+        properties:
+          chemical_properties:
+            $ref: '#/definitions/relationship_section'
+            description: "Chemical composition and reactivity"
+    
+    # Allow additional categories and sections
+    additionalProperties:
+      type: object
+      additionalProperties:
+        $ref: '#/definitions/relationship_section'
 
   # Challenges
   challenges:

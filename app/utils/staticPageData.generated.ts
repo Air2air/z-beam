@@ -1,0 +1,190 @@
+export const NETALUX_DATA = {
+  "title": "Netalux Needle & Jango Laser Systems | Belgian Tech",
+  "metaDescription": "Netalux Needle® (100-300W precision) & Jango® (7500W industrial) laser cleaning systems. Belgian engineering, award-winning technology. Bay Area dealer.",
+  "description": "Explore Netalux's award-winning laser cleaning systems, from the portable Needle® for precision work to the powerful Jango® for industrial applications. Belgian-engineered technology with integrated safety features and ergonomic design.",
+  "category": "partners",
+  "subcategory": "netalux",
+  "datePublished": "2024-01-15",
+  "dateModified": "2025-11-05",
+  "preservedData": {
+    "generationMetadata": {
+      "generated_date": "2025-11-23T04:15:02.000Z"
+    }
+  },
+  "keywords": [
+    "Netalux laser cleaning",
+    "Needle laser system",
+    "Jango laser system",
+    "industrial laser cleaning equipment",
+    "precision laser cleaning",
+    "Top-Hat beam laser",
+    "Gaussian beam laser"
+  ],
+  "slug": "netalux",
+  "breadcrumb": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Netalux Equipment",
+      "href": "/netalux"
+    }
+  ],
+  "images": {
+    "hero": {
+      "url": "/images/netalux/netalux-group.webp",
+      "alt": "Professional laser cleaning equipment rental for industrial applications",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "needle100_150": {
+    "name": "Needle® 100/150",
+    "category": "Laser Cleaning Equipment",
+    "subcategory": "Portable Precision Systems",
+    "description": "Compact precision laser cleaning system with Gaussian beam for weld cleaning and intricate surfaces",
+    "materialProperties": {
+      "laserType": "Nano-second pulsed ytterbium fiber laser",
+      "wavelength": "1064 nm",
+      "laserClass": "Class 4",
+      "beamShape": "Gaussian",
+      "coolingSystem": "Air cooled",
+      "ipRating": "IP54",
+      "pulseFrequency": "10 - 500 kHz",
+      "pulseLength": "150 ns",
+      "maxPulseEnergy": "1 mJ"
+    },
+    "machineSettings": {
+      "averagePower": "100W / 150W",
+      "powerConsumption": "450W / 600W",
+      "powerRequirements": "1P + PE | 110V-240V | 50-60Hz",
+      "plugType": "Standard EU plug",
+      "totalWeight": "20 kg (44 lb)",
+      "laserUnitWeight": "17 kg (37 lb)",
+      "handsetWeight": "2.3 kg (5 lb)",
+      "fiberLength": "4.5 m"
+    },
+    "applications": "Weld cleaning, small parts, intricate surfaces, precision work",
+    "environmentalImpact": "Non-condensing environment, 0-35°C operating temperature, no significant vibrations",
+    "safety_considerations": "Integrated lenses, safe lifting points, distance sensors, IP54 protection"
+  },
+  "needle200_300": {
+    "name": "Needle® 200/300",
+    "category": "Laser Cleaning Equipment",
+    "subcategory": "Portable Precision Systems",
+    "description": "High-power precision laser cleaning system with variable pulse parameters for versatile applications",
+    "materialProperties": {
+      "laserType": "Nano-second pulsed ytterbium fiber laser",
+      "wavelength": "1064 nm",
+      "laserClass": "Class 4",
+      "beamShape": "Gaussian",
+      "coolingSystem": "Air cooled",
+      "ipRating": "IP54",
+      "pulseFrequency": "2 - 4000 kHz",
+      "pulseLength": "20 - 500 ns",
+      "maxPulseEnergy": "2 mJ"
+    },
+    "machineSettings": {
+      "averagePower": "200W / 300W",
+      "powerConsumption": "950W / 1150W",
+      "powerRequirements": "1P + PE | 110V-240V | 50-60Hz | 11A - 5A",
+      "plugType": "C13 IEC connector",
+      "totalWeight": "43 kg (95 lb)",
+      "laserUnitWeight": "40 kg (88 lb)",
+      "handsetWeight": "3 kg (6.6 lb)",
+      "fiberLength": "5.7 m"
+    },
+    "applications": "Weld cleaning, small parts, intricate surfaces, precision work, higher power requirements",
+    "environmentalImpact": "Non-condensing environment, 0-35°C operating temperature, no significant vibrations",
+    "safety_considerations": "Integrated lenses, safe lifting points, distance sensors, IP54 protection"
+  },
+  "jangoSpecs": {
+    "materialProperties": {
+      "laserType": "Nano-second pulsed ytterbium fiber laser",
+      "wavelength": "1064 nm",
+      "pulseShape": "Top hat",
+      "laserClass": "Class 4",
+      "beamShape": "Top hat",
+      "coolingSystem": "Water cooled",
+      "ipRating": "IP54"
+    },
+    "machineSettings": {
+      "pulseFrequency": "2 - 50 kHz",
+      "pulseLength": "100 ns",
+      "maxPulseEnergy": "100 mJ",
+      "averagePower": "7500 W",
+      "electricalSupply": "3P + N + PE | 380-440V | 50-60Hz",
+      "plugType": "5P-16A",
+      "totalWeight": "850 kg (1874 lb)",
+      "handsetWeight": "4 kg (8.8 lb)",
+      "laserUnitSize": "220 × 100 × 172.3 cm",
+      "handsetSize": "58.9 × 20.5 × 25.6 cm",
+      "fiberLength": "50 m"
+    },
+    "applications": "Large-scale industrial cleaning, tanks, coatings, extensive surface preparation",
+    "environmentalImpact": "Non-condensing environment, 4-35°C operating temperature, no significant vibrations, industrial-grade construction",
+    "safety_considerations": "Integrated lenses, safe lifting points, distance sensors, integrated safety controls, CAD integration capability"
+  },
+  "contentCards": [
+    {
+      "order": 1,
+      "heading": "Needle® - Precision Laser Cleaning",
+      "text": "The Needle®, our precision workforce for operators who demand clean and safe performance in tight, complex spaces. Compact, award-winning and user-first: the Gaussian-pulse genius delivers where every millimeter matters. This lightweight, plug-and-play system (20-43 kg) makes it ideal for weld cleaning, intricate surfaces, and small parts—simply connect to standard 110-240V power and start cleaning. Featuring Gaussian beam technology for precision targeting, the Needle® offers models ranging from 100W to 300W with air-cooled operation for minimal maintenance. Patented integrated safety lenses (a global first!), ergonomic design, and intuitive controls get operators productive immediately. Available in both handheld and stationary configurations for automation integration. Learn more at <a href='https://netalux.com/product/needle/' target='_blank'>netalux.com/product/needle</a>.",
+      "image": {
+        "url": "/images/partners/partner-netalux.webp",
+        "alt": "Netalux Needle laser cleaning system - compact precision cleaning"
+      },
+      "imagePosition": "right",
+      "details": [
+        "Power Range: 100W - 300W",
+        "Beam Shape: Gaussian (precision)",
+        "Cooling: Air-cooled",
+        "Weight: 20-43 kg (portable)",
+        "Standard Power: 110-240V (plug-and-play)",
+        "Applications: Weld cleaning, small parts, intricate surfaces",
+        "Configuration: Handheld & Stationary",
+        "Website: netalux.com/product/needle"
+      ]
+    },
+    {
+      "order": 2,
+      "heading": "Jango® - Industrial Power",
+      "text": "When large-scale industrial cleaning demands speed, safety and reliability, Jango® rises. A water-cooled powerhouse with award-winning design, delivering uniform cleaning performance – no matter how big the task. The Jango® delivers industrial-scale power (7500W) with remarkable ease of operation—featuring intuitive controls, integrated safety systems, and water-cooled reliability that handles continuous high-volume work. Top-Hat beam shape provides uniform coverage across large surfaces, eliminating hot spots and ensuring consistent cleaning on tanks, extensive coatings, and structural components. Extended 50-meter fiber reach allows operators to work at safe distances and access difficult areas without moving the base unit. Despite its power, the Jango is designed for operator comfort with ergonomic handset (4 kg), built-in safety features, and available stationary configuration for automated applications with CAD and industrial control system integration. Learn more at <a href='https://netalux.com/product/jango/' target='_blank'>netalux.com/product/jango</a>.",
+      "image": {
+        "url": "/images/partners/partner-netalux.webp",
+        "alt": "Netalux Jango industrial laser cleaning system - high-power cleaning"
+      },
+      "imagePosition": "left",
+      "details": [
+        "Power: 7,500W",
+        "Beam Shape: Top-Hat (uniform coverage)",
+        "Cooling: Water-cooled",
+        "Weight: ~850 kg (industrial)",
+        "Handset: 4 kg (ergonomic despite power)",
+        "Fiber Reach: 50 meters",
+        "Applications: Large-scale industrial, tanks, coatings",
+        "Configuration: Mobile & Stationary with automation",
+        "Website: netalux.com/product/jango"
+      ]
+    },
+    {
+      "order": 3,
+      "heading": "About Netalux",
+      "text": "Netalux delivers award-winning laser cleaning technology to industries worldwide from its headquarters in Beringen, Belgium. Founded in 2017 as the world's first dedicated laser cleaning contractor, Netalux brings unmatched field expertise to every machine they design and manufacture in-house. Every Netalux machine is designed, engineered and assembled under their roof - no rebadging, no outsourcing. That means full control over quality, supply chain and support. From patented integrated lenses (a global first!) to safe lifting points and distance sensors, safety is designed into every Netalux machine. Built to protect your people, your process and your investment with smart, ergonomic details that actually make a difference in the field. Beyond equipment, their Netalux Academy provides hands-on training, ensuring clients maximize efficiency from day one. From compact precision to industrial scale, Netalux makes laser cleaning accessible, safe, and remarkably effective. Visit <a href='https://netalux.com/' target='_blank'>netalux.com</a> to learn more.",
+      "image": {
+        "url": "/images/partners/partner-netalux.webp",
+        "alt": "Netalux company - laser cleaning equipment manufacturer"
+      },
+      "imagePosition": "right",
+      "details": [
+        "Founded: 2017",
+        "Location: Beringen, Belgium",
+        "Specialization: Laser Cleaning Equipment Manufacturer",
+        "Product Lines: Needle®, Kamino®, Jango®",
+        "Training: Netalux Academy",
+        "Website: netalux.com"
+      ]
+    }
+  ]
+} ;

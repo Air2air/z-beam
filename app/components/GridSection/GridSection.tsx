@@ -45,9 +45,9 @@ export function GridSection({
       <div className="container-custom px-4">
           <SectionTitle
             title={title}
-            subtitle={description}  // SectionTitle still uses 'subtitle' prop internally
+            sectionDescription={description}
             alignment={alignment}
-            className="mb-8"
+            className="mb-2"
           />
           {children}
         </div>

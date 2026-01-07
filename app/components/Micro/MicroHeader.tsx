@@ -5,6 +5,7 @@ import { FrontmatterType, ParsedMicroData } from '@/types';
 import React from 'react';
 import { capitalizeFirst } from '../../utils/formatting';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { Title } from '../Title/Title';
 
 interface MicroHeaderProps {
   materialName: string;

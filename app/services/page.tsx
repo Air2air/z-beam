@@ -2,16 +2,11 @@
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
 import { ScheduleCards } from "../components/Schedule/ScheduleCards";
-import { SITE_CONFIG } from "@/app/config";
+import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { schemaRegistry } from "@/app/utils/schemas/registry";
-import fs from 'fs/promises';
-import path from 'path';
-import yaml from 'js-yaml';
-import type { ArticleMetadata } from '@/types';
-
-export const dynamic = 'force-static';
-export const revalidate = false;
+import { SERVICES_DATA } from '@/app/utils/staticPageData';
+import type { StaticPageWithCards } from '@/app/utils/staticPageLoader';
 
 export const metadata = {
   title: 'Industrial Laser Cleaning Services | Bay Area',
@@ -41,13 +36,11 @@ export const metadata = {
   },
 };
 
-export default async function ServicesPage() {
+export default function ServicesPage() {
   const pricing = SITE_CONFIG.pricing.professionalCleaning;
   
-  // Load services page configuration from YAML
-  const yamlPath = path.join(process.cwd(), 'static-pages', 'services.yaml');
-  const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { contentCards?: any[] };
+  // Load services page configuration from pre-loaded static data
+  const pageConfig = SERVICES_DATA as unknown as StaticPageWithCards;
   
   // Generate schemas using centralized registry
   const serviceSchema = schemaRegistry.getPageSchemas('services', {

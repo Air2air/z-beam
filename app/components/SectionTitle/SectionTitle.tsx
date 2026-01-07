@@ -5,26 +5,24 @@ import { SECTION_HEADER_CLASSES } from '@/app/config/site';
 
 export interface SectionTitleProps {
   title: string;
-  subtitle?: string;
   alignment?: 'left' | 'center' | 'right';
   'aria-label'?: string;
   'aria-describedby'?: string;
   className?: string;
   id?: string;
   icon?: React.ReactNode;
-  description?: string;
+  sectionDescription?: string;
 }
 
 export function SectionTitle({
   title,
-  subtitle,
   alignment = 'left',
   'aria-label': ariaLabel,
   'aria-describedby': ariaDescribedby,
   className = '',
   id,
   icon,
-  description,
+  sectionDescription,
 }: SectionTitleProps) {
   
   const alignmentClasses = {
@@ -35,30 +33,24 @@ export function SectionTitle({
 
   // Remove parentheses, brackets, and special chars from chemical formulas before generating ID
   const headingId = id || `section-${title.toLowerCase().replace(/[()[\]]/g, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`;
-  const subtitleId = subtitle ? `${headingId}-subtitle` : undefined;
+
 
   return (
-    <div className={`flex items-center justify-between gap-4 mb-6 ${className}`}>
+    <div className={`flex items-center justify-between mb-4 ${className}`}>
       <div className={`flex-1 ${alignmentClasses[alignment]}`}>
         <h2
           id={headingId}
-          className={`${SECTION_HEADER_CLASSES.title} flex items-center gap-2`}
+          className={`${SECTION_HEADER_CLASSES.title} flex items-center`}
           aria-label={ariaLabel}
-          aria-describedby={subtitleId || ariaDescribedby}
+          aria-describedby={ariaDescribedby}
         >
           {icon && <span aria-hidden="true">{icon}</span>}
           {title}
         </h2>
         
-        {subtitle && (
-          <p id={subtitleId} className={`text-sm text-muted mt-2 ${alignmentClasses[alignment]}`} role="doc-subtitle">
-            {subtitle}
-          </p>
-        )}
-        
-        {description && (
+        {sectionDescription && (
           <div className={`text-base text-primary mt-2 ${alignmentClasses[alignment]}`}>
-            {description}
+            {sectionDescription}
           </div>
         )}
       </div>

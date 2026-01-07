@@ -56,7 +56,8 @@ export type SectionType =
   | 'warning'
   | 'expert-qa'
   | 'diagnostic'
-  | 'citations';
+  | 'citations'
+  | 'default';
 
 /**
  * Icon mapping configuration
@@ -79,6 +80,7 @@ const SECTION_ICONS: Record<SectionType, React.ReactNode> = {
   'expert-qa': <InfoIcon className={SECTION_ICON_CLASS} />,
   'diagnostic': <ToolIcon className={SECTION_ICON_CLASS} />,
   'citations': <BookIcon className={SECTION_ICON_CLASS} />,
+  'default': <InfoIcon className={SECTION_ICON_CLASS} />,
 };
 
 /**

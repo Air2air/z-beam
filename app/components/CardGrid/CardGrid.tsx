@@ -19,7 +19,7 @@ import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { getContentType } from '@/app/utils/relationshipHelpers';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { Title } from '../Title/Title';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 
 // Unified item interface that handles all data sources - now imported from @/types

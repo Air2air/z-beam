@@ -65,7 +65,7 @@ export default function DatasetSection({
     <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
       <SectionTitle 
         title={title}
-        description={description}
+        sectionDescription={description}
         icon={getSectionIcon('dataset')}
       />
 

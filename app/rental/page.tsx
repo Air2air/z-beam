@@ -1,15 +1,10 @@
 // app/rental/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
-import { SITE_CONFIG } from "@/app/config";
+import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
-import fs from 'fs/promises';
-import path from 'path';
-import yaml from 'js-yaml';
-import type { ArticleMetadata } from '@/types';
-
-export const dynamic = 'force-static';
-export const revalidate = false;
+import { RENTAL_DATA } from '@/app/utils/staticPageData';
+import type { StaticPageWithCards } from '@/app/utils/staticPageLoader';
 
 export const metadata = {
   title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
@@ -39,8 +34,11 @@ export const metadata = {
   },
 };
 
-export default async function RentalPage() {
+export default function RentalPage() {
   const pricing = SITE_CONFIG.pricing.equipmentRental;
+  
+  // Load rental page configuration from pre-loaded static data
+  const pageConfig = RENTAL_DATA as unknown as StaticPageWithCards;
   
   // Equipment Rental Service JSON-LD Schema
   const rentalSchema = {
@@ -202,11 +200,6 @@ export default async function RentalPage() {
       }
     ]
   };
-  
-  // Load rental page configuration from YAML
-  const yamlPath = path.join(process.cwd(), 'static-pages', 'rental.yaml');
-  const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { contentCards?: any[] };
   
   return (
     <>

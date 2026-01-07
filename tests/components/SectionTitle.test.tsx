@@ -55,38 +55,20 @@ describe('SectionTitle', () => {
     });
   });
 
-  describe('Subtitle', () => {
-    it('renders subtitle when provided', () => {
-      render(<SectionTitle title="Title" subtitle="Subtitle text" />);
-      expect(screen.getByText('Subtitle text')).toBeInTheDocument();
-    });
-
-    it('has correct role for subtitle', () => {
-      render(<SectionTitle title="Title" subtitle="Subtitle text" />);
-      const subtitle = screen.getByText('Subtitle text');
-      expect(subtitle).toHaveAttribute('role', 'doc-subtitle');
-    });
-
-    it('does not render subtitle when not provided', () => {
-      render(<SectionTitle title="Title" />);
-      expect(screen.queryByRole('doc-subtitle')).not.toBeInTheDocument();
-    });
-  });
-
-  describe('Description', () => {
-    it('renders description when provided', () => {
-      render(<SectionTitle title="Title" description="Description text" />);
+  describe('Section Description', () => {
+    it('renders sectionDescription when provided', () => {
+      render(<SectionTitle title="Title" sectionDescription="Description text" />);
       expect(screen.getByText('Description text')).toBeInTheDocument();
     });
 
-    it('applies text-primary class to description', () => {
-      render(<SectionTitle title="Title" description="Description text" />);
+    it('applies text-primary class to sectionDescription', () => {
+      render(<SectionTitle title="Title" sectionDescription="Description text" />);
       const description = screen.getByText('Description text');
       expect(description).toHaveClass('text-primary');
     });
 
-    it('applies text-base class to description', () => {
-      render(<SectionTitle title="Title" description="Description text" />);
+    it('applies text-base class to sectionDescription', () => {
+      render(<SectionTitle title="Title" sectionDescription="Description text" />);
       const description = screen.getByText('Description text');
       expect(description).toHaveClass('text-base');
     });
@@ -135,20 +117,13 @@ describe('SectionTitle', () => {
       const heading = screen.getByRole('heading', { level: 2 });
       expect(heading).toHaveAttribute('aria-label', 'Custom aria label');
     });
-
-    it('links heading to subtitle via aria-describedby', () => {
-      render(<SectionTitle title="Title" subtitle="Subtitle" />);
-      const heading = screen.getByRole('heading', { level: 2 });
-      const subtitle = screen.getByText('Subtitle');
-      expect(heading).toHaveAttribute('aria-describedby', subtitle.id);
-    });
   });
 
   describe('Spacing', () => {
-    it('has mb-6 bottom margin', () => {
+    it('has mb-4 bottom margin', () => {
       render(<SectionTitle title="Title" />);
       const container = screen.getByRole('heading', { level: 2 }).parentElement?.parentElement;
-      expect(container).toHaveClass('mb-6');
+      expect(container).toHaveClass('mb-4');
     });
   });
 

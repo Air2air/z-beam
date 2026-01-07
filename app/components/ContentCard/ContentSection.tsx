@@ -10,7 +10,6 @@
  */
 import React from 'react';
 import { ContentCard } from './ContentCard';
-import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import type { ContentCardItem, WorkflowItem, CalloutProps, BenefitItem } from '@/types';
 
 export interface ContentSectionProps {
@@ -31,7 +30,11 @@ export function ContentSection({
 
   return (
     <section className="content-section">
-      {title && <SectionTitle title={title} />}
+      {title && (
+        <h2 className="text-3xl font-bold mb-6 tracking-tight text-gray-100">
+          {title}
+        </h2>
+      )}
       <div className="space-y-8">
         {sortedItems.map((item, index) => {
           // Support ContentCardItem (heading/text), legacy WorkflowItem (name/description), and BenefitItem (title/description)

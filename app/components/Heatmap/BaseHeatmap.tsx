@@ -251,8 +251,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
       <SectionTitle
         title={title}
         icon={icon}
-        description={description}
-
+        sectionDescription={description}
       />
 
       <div className="flex flex-col gap-6">

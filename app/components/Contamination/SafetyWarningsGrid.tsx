@@ -47,7 +47,7 @@ export function SafetyWarningsGrid({ safetyData, materialName, warningText }: Sa
       <div className="container-custom px-4">
         <SectionTitle 
           title="Safety Information"
-          subtitle="Critical Warnings & Hazardous Fumes"
+          sectionDescription="Critical Warnings & Hazardous Fumes"
           alignment="left"
           className="mb-8"
         />

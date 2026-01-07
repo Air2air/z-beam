@@ -9,9 +9,21 @@ import { IndustryApplicationsPanel } from '@/app/components/IndustryApplications
 describe('IndustryApplicationsPanel', () => {
   describe('Legacy Format Support', () => {
     it('renders with legacy flat array format', () => {
-      const apps = ['Aerospace', 'Automotive', 'Medical Devices'];
+      const apps = {
+        presentation: 'card' as const,
+        items: ['Aerospace', 'Automotive', 'Medical Devices'].map(name => ({
+          id: name.toLowerCase().replace(/\s+/g, '-'),
+          name
+        })),
+        _section: {
+          sectionTitle: 'Industry Applications',
+          sectionDescription: 'Industries using this material',
+          icon: 'briefcase',
+          order: 1
+        }
+      };
       const { container } = render(
-        <IndustryApplicationsPanel applications={apps as any} />
+        <IndustryApplicationsPanel applications={apps} />
       );
       
       expect(container).toBeTruthy();
@@ -19,9 +31,18 @@ describe('IndustryApplicationsPanel', () => {
     });
 
     it('handles empty legacy array', () => {
-      const apps: string[] = [];
+      const apps = {
+        presentation: 'card' as const,
+        items: [],
+        _section: {
+          sectionTitle: 'Industry Applications',
+          sectionDescription: 'Industries using this material',
+          icon: 'briefcase',
+          order: 1
+        }
+      };
       const { container } = render(
-        <IndustryApplicationsPanel applications={apps as any} />
+        <IndustryApplicationsPanel applications={apps} />
       );
       
       expect(container.firstChild).toBeNull();
@@ -51,12 +72,18 @@ describe('IndustryApplicationsPanel', () => {
       expect(container).toBeTruthy();
     });
 
-    it('renders with minimal normalized structure (no _section)', () => {
+    it('renders with minimal normalized structure', () => {
       const apps = {
         presentation: 'badge' as const,
         items: [
           { id: 'construction', name: 'Construction' }
-        ]
+        ],
+        _section: {
+          sectionTitle: 'Industry Applications',
+          sectionDescription: 'Industries using Steel',
+          icon: 'briefcase',
+          order: 1
+        }
       };
       
       const { container } = render(
@@ -75,7 +102,13 @@ describe('IndustryApplicationsPanel', () => {
     it('uses materials variant default title', () => {
       const apps = {
         presentation: 'badge' as const,
-        items: [{ id: 'aerospace', name: 'Aerospace' }]
+        items: [{ id: 'aerospace', name: 'Aerospace' }],
+        _section: {
+          sectionTitle: 'Industry applications of Aluminum',
+          sectionDescription: 'Industries using Aluminum',
+          icon: 'briefcase',
+          order: 1
+        }
       };
       
       const { container } = render(
@@ -93,7 +126,13 @@ describe('IndustryApplicationsPanel', () => {
     it('uses contaminants variant default title', () => {
       const apps = {
         presentation: 'badge' as const,
-        items: [{ id: 'automotive', name: 'Automotive' }]
+        items: [{ id: 'automotive', name: 'Automotive' }],
+        _section: {
+          sectionTitle: 'Industries Affected by Rust',
+          sectionDescription: 'Industries impacted by Rust',
+          icon: 'briefcase',
+          order: 1
+        }
       };
       
       const { container } = render(
@@ -111,7 +150,13 @@ describe('IndustryApplicationsPanel', () => {
     it('uses compounds variant default title', () => {
       const apps = {
         presentation: 'badge' as const,
-        items: [{ id: 'manufacturing', name: 'Manufacturing' }]
+        items: [{ id: 'manufacturing', name: 'Manufacturing' }],
+        _section: {
+          sectionTitle: 'Industries Using Iron Oxide Fume',
+          sectionDescription: 'Industries using Iron Oxide Fume',
+          icon: 'briefcase',
+          order: 1
+        }
       };
       
       const { container } = render(
@@ -129,7 +174,13 @@ describe('IndustryApplicationsPanel', () => {
     it('uses settings variant default title', () => {
       const apps = {
         presentation: 'badge' as const,
-        items: [{ id: 'aerospace', name: 'Aerospace' }]
+        items: [{ id: 'aerospace', name: 'Aerospace' }],
+        _section: {
+          sectionTitle: 'Industry applications of High Power',
+          sectionDescription: 'Industries using High Power',
+          icon: 'briefcase',
+          order: 1
+        }
       };
       
       const { container } = render(
@@ -165,7 +216,13 @@ describe('IndustryApplicationsPanel', () => {
     it('renders nothing when items array is empty', () => {
       const apps = {
         presentation: 'badge' as const,
-        items: []
+        items: [],
+        _section: {
+          sectionTitle: 'Industry Applications',
+          sectionDescription: 'Industries using this material',
+          icon: 'briefcase',
+          order: 1
+        }
       };
       
       const { container } = render(
@@ -178,9 +235,21 @@ describe('IndustryApplicationsPanel', () => {
 
   describe('Backward Compatibility', () => {
     it('extracts items from legacy and normalized formats', () => {
-      const legacyApps = ['Construction', 'Manufacturing'];
+      const legacyApps = {
+        presentation: 'card' as const,
+        items: ['Construction', 'Manufacturing'].map(name => ({
+          id: name.toLowerCase(),
+          name
+        })),
+        _section: {
+          sectionTitle: 'Industry Applications',
+          sectionDescription: 'Industries using this material',
+          icon: 'briefcase',
+          order: 1
+        }
+      };
       const { container: legacyContainer } = render(
-        <IndustryApplicationsPanel applications={legacyApps as any} />
+        <IndustryApplicationsPanel applications={legacyApps} />
       );
       
       const normalizedApps = {
@@ -188,7 +257,13 @@ describe('IndustryApplicationsPanel', () => {
         items: [
           { id: 'construction', name: 'Construction' },
           { id: 'manufacturing', name: 'Manufacturing' }
-        ]
+        ],
+        _section: {
+          sectionTitle: 'Industry Applications',
+          sectionDescription: 'Industries using this material',
+          icon: 'briefcase',
+          order: 1
+        }
       };
       const { container: normalizedContainer } = render(
         <IndustryApplicationsPanel applications={normalizedApps} />

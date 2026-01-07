@@ -6,6 +6,7 @@ import { TroubleshootingPanel } from './TroubleshootingPanel';
 import { QuickReferencePanel } from './QuickReferencePanel';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { Title } from '../Title/Title';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import { Wrench } from 'lucide-react';
 
@@ -41,7 +42,7 @@ export function DiagnosticCenter({
       <SectionTitle
         title="Diagnostic & Prevention Center"
         icon={getSectionIcon('diagnostic')}
-        description={`Proactive strategies and reactive solutions for ${safeMaterialName.toLowerCase()}`}
+        sectionDescription={`Proactive strategies and reactive solutions for ${safeMaterialName.toLowerCase()}`}
       />
       
       {/* Independent Collapsible Sections */}

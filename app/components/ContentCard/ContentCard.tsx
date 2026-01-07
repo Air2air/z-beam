@@ -29,6 +29,7 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Title } from '../Title/Title';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import type { ContentCardProps } from '@/types';
 

@@ -49,7 +49,9 @@ describe('relationshipHelpers', () => {
         items: [],
         _section: {
           sectionTitle: 'Empty Section',
-          order: 3
+          sectionDescription: 'An empty test section',
+          order: 3,
+          icon: 'circle'
         }
       }
     },
@@ -60,13 +62,20 @@ describe('relationshipHelpers', () => {
       ],
       _section: {
         sectionTitle: 'Visual Characteristics',
-        order: 10
+        sectionDescription: 'Visual properties',
+        order: 10,
+        icon: 'eye'
       }
     },
     missing_metadata: {
       presentation: 'card' as const,
-      items: [{ id: 'test' }]
-      // No _section block
+      items: [{ id: 'test' }],
+      _section: {
+        sectionTitle: 'Test Section',
+        sectionDescription: 'Test section for validation',
+        order: 99,
+        icon: 'test'
+      }
     }
   };
 
@@ -106,14 +115,13 @@ describe('relationshipHelpers', () => {
       expect(result).toBeNull();
     });
 
-    it('should generate default metadata when _section is missing', () => {
+    it('should use provided metadata when _section exists', () => {
       const result = getRelationshipSection(mockRelationships, 'missing_metadata');
       
       expect(result).not.toBeNull();
-      expect(result?.metadata.sectionTitle).toBe('Missing Metadata');
-      expect(result?.metadata.order).toBe(999);
-      expect(result?.metadata.variant).toBe('default');
-      expect(result?.metadata.icon).toBe('box');
+      expect(result?.metadata.sectionTitle).toBe('Test Section');
+      expect(result?.metadata.order).toBe(99);
+      expect(result?.metadata.icon).toBe('test');
     });
 
     it('should handle empty items array', () => {
@@ -182,8 +190,8 @@ describe('relationshipHelpers', () => {
     it('should return all sections including nested ones', () => {
       const sections = getAllRelationshipSections(mockRelationships);
       
-      // Should find all sections with items (including empty_section)
-      expect(sections.length).toBeGreaterThanOrEqual(4);
+      // Should find all sections with _section metadata (including missing_metadata now)
+      expect(sections.length).toBeGreaterThanOrEqual(5);
       
       const paths = sections.map(s => s.path);
       expect(paths).toContain('safety.exposure_limits');
@@ -233,10 +241,17 @@ describe('relationshipHelpers', () => {
     });
 
     it('should detect missing _section metadata', () => {
-      const result = validateRelationshipSection(mockRelationships, 'missing_metadata');
+      const invalidData = {
+        test_section: {
+          presentation: 'card' as const,
+          items: [{ id: 'test' }]
+          // No _section block
+        }
+      };
       
-      expect(result.isValid).toBe(false);
-      expect(result.errors.some(e => e.includes('Missing _section metadata'))).toBe(true);
+      expect(() => {
+        getRelationshipSection(invalidData, 'test_section');
+      }).toThrow('Missing required _section metadata');
     });
 
     it('should detect missing required fields', () => {
@@ -244,8 +259,8 @@ describe('relationshipHelpers', () => {
         test: {
           items: [{ id: 'test' }],
           _section: {
-            // Missing title, order, icon
-            description: 'Test section'
+            // Missing sectionTitle, order, icon
+            sectionDescription: 'Test section'
           }
         }
       };
@@ -253,7 +268,7 @@ describe('relationshipHelpers', () => {
       const result = validateRelationshipSection(incompleteData, 'test');
       
       expect(result.isValid).toBe(false);
-      expect(result.errors.some(e => e.includes('title'))).toBe(true);
+      expect(result.errors.some(e => e.includes('sectionTitle'))).toBe(true);
       expect(result.errors.some(e => e.includes('order'))).toBe(true);
       expect(result.errors.some(e => e.includes('icon'))).toBe(true);
     });
@@ -266,10 +281,22 @@ describe('relationshipHelpers', () => {
     });
 
     it('should detect missing description as warning', () => {
-      const result = validateRelationshipSection(mockRelationships, 'safety.empty_section');
+      const dataWithoutDescription = {
+        test_no_desc: {
+          items: [{ id: 'test' }],
+          _section: {
+            sectionTitle: 'Test Section',
+            // Missing sectionDescription
+            order: 1,
+            icon: 'test'
+          }
+        }
+      };
       
-      // Missing description is a warning, not error
-      expect(result.errors.some(e => e.includes('description'))).toBe(true);
+      const result = validateRelationshipSection(dataWithoutDescription, 'test_no_desc');
+      
+      // Missing sectionDescription is a warning, not error
+      expect(result.errors.some(e => e.includes('sectionDescription'))).toBe(true);
     });
   });
 
