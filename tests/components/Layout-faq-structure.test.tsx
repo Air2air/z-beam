@@ -27,7 +27,7 @@ describe('Layout Component - Nested FAQ Structure', () => {
     expect(materialFiles.length).toBeGreaterThan(100); // Should have 132 materials
   });
 
-  test('all materials should have valid flat FAQ array structure', () => {
+  test('all materials should have valid structured FAQ format', () => {
     if (!fs.existsSync(materialsDir)) {
       console.warn('Materials directory not found, skipping test');
       return;
@@ -48,12 +48,26 @@ describe('Layout Component - Nested FAQ Structure', () => {
         if (parsed && parsed.faq) {
           filesWithFAQ.push(file);
 
-          // Check for flat array structure: faq (only if faq exists and is not null)
+          // Check for structured format: faq.presentation, faq.items
           if (parsed.faq && parsed.faq !== null) {
-            if (!Array.isArray(parsed.faq)) {
-              filesWithInvalidStructure.push(`${file} (faq is not an array)`);
-            } else {
-              // Validate question structure
+            // New structured format
+            if (typeof parsed.faq === 'object' && !Array.isArray(parsed.faq)) {
+              // Validate structured format
+              if (!parsed.faq.presentation) {
+                filesWithInvalidStructure.push(`${file} (missing presentation field)`);
+              }
+              if (!parsed.faq.items || !Array.isArray(parsed.faq.items)) {
+                filesWithInvalidStructure.push(`${file} (items is not an array)`);
+              } else {
+                // Validate item structure
+                parsed.faq.items.forEach((item: any, index: number) => {
+                  if (!item.id || !item.title || !item.content) {
+                    filesWithInvalidStructure.push(`${file} (item ${index + 1} missing fields)`);
+                  }
+                });
+              }
+            } else if (Array.isArray(parsed.faq)) {
+              // Old flat array format - still valid but should be migrated
               parsed.faq.forEach((item: any, index: number) => {
                 if (!item.question || !item.answer) {
                   filesWithInvalidStructure.push(`${file} (question ${index + 1})`);
@@ -152,21 +166,21 @@ describe('Layout Component - Nested FAQ Structure', () => {
     expect(extractedMarkdown[0].answer).toContain('**This**');
   });
 
-  test('sample material should have valid flat FAQ array structure', () => {
+  test('sample material should have valid structured FAQ format', () => {
     if (!fs.existsSync(materialsDir)) {
       console.warn('Materials directory not found, skipping test');
       return;
     }
 
-    // Test with titanium as a known material with FAQs
-    const titaniumPath = path.join(materialsDir, 'titanium-laser-cleaning.yaml');
+    // Test with aluminum as a known material with FAQs
+    const aluminumPath = path.join(materialsDir, 'aluminum-laser-cleaning.yaml');
 
-    if (!fs.existsSync(titaniumPath)) {
-      console.warn('Titanium material not found, skipping test');
+    if (!fs.existsSync(aluminumPath)) {
+      console.warn('Aluminum material not found, skipping test');
       return;
     }
 
-    const content = fs.readFileSync(titaniumPath, 'utf8');
+    const content = fs.readFileSync(aluminumPath, 'utf8');
     const parsed: any = yaml.load(content);
 
     // Should have faq property
@@ -174,21 +188,27 @@ describe('Layout Component - Nested FAQ Structure', () => {
     
     // If faq is null, that's valid - skip validation
     if (parsed.faq === null) {
-      console.log('FAQ is null for titanium, which is valid');
+      console.log('FAQ is null for aluminum, which is valid');
       return;
     }
 
-    // If FAQ exists, should have flat array structure
-    expect(Array.isArray(parsed.faq)).toBe(true);
-    expect(parsed.faq.length).toBeGreaterThan(0);
+    // New structured format: faq.presentation, faq.items, faq.options
+    expect(typeof parsed.faq).toBe('object');
+    expect(parsed.faq).toHaveProperty('presentation');
+    expect(parsed.faq).toHaveProperty('items');
+    expect(Array.isArray(parsed.faq.items)).toBe(true);
+    expect(parsed.faq.items.length).toBeGreaterThan(0);
 
-    // Check first question structure
-    const firstQuestion = parsed.faq[0];
-    expect(firstQuestion).toHaveProperty('question');
-    expect(firstQuestion).toHaveProperty('answer');
-    expect(typeof firstQuestion.question).toBe('string');
-    expect(typeof firstQuestion.answer).toBe('string');
-    expect(firstQuestion.question.length).toBeGreaterThan(0);
-    expect(firstQuestion.answer.length).toBeGreaterThan(0);
+    // Check first item structure
+    const firstItem = parsed.faq.items[0];
+    expect(firstItem).toHaveProperty('id');
+    expect(firstItem).toHaveProperty('title');
+    expect(firstItem).toHaveProperty('content');
+    expect(typeof firstItem.id).toBe('string');
+    expect(typeof firstItem.title).toBe('string');
+    expect(typeof firstItem.content).toBe('string');
+    expect(firstItem.id.length).toBeGreaterThan(0);
+    expect(firstItem.title.length).toBeGreaterThan(0);
+    expect(firstItem.content.length).toBeGreaterThan(0);
   });
 });
