@@ -44,37 +44,51 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const contaminantRefs = (contaminatedByData?.items || []).filter((item: any) => item != null);
   const contaminatedBySection = contaminatedByData?._section || {};
   
-  // Enrich contaminants with full metadata
+  // Enrich contaminants with full metadata - wrapped in try-catch for production safety
   const { getContaminantArticle } = await import('@/app/utils/contentAPI');
-  const enrichedContaminants = await Promise.all(
-    contaminantRefs.map(async (ref: any) => {
-      if (!ref || !ref.id) return null;
-      
-      // Fetch full article data to get metadata
-      const article = await getContaminantArticle(ref.id);
-      if (!article) return null;
-      
-      const metadata = article.metadata as any;
-      const contaminantCategory = metadata.category || '';
-      const contaminantSubcategory = metadata.subcategory || '';
-      
-      // Use fullPath (camelCase) from frontmatter, fallback to constructing from category/subcategory/id
-      const fullPath = metadata.fullPath || `/contaminants/${contaminantCategory}/${contaminantSubcategory}/${ref.id}`;
-      
-      return {
-        id: ref.id,
-        title: metadata.name || metadata.title,
-        category: contaminantCategory,
-        subcategory: contaminantSubcategory,
-        description: ref.typical_context || metadata.description || '',
-        url: ref.url || fullPath,
-        frequency: ref.frequency || 'unknown',
-        severity: ref.severity || 'unknown',
-        typical_context: ref.typical_context || '',
-        image: metadata.images?.hero?.url || '',
-      };
-    })
-  ).then(items => items.filter(Boolean));
+  let enrichedContaminants: any[] = [];
+  
+  try {
+    const enrichmentResults = await Promise.all(
+      contaminantRefs.map(async (ref: any) => {
+        if (!ref || !ref.id) return null;
+        
+        try {
+          // Fetch full article data to get metadata
+          const article = await getContaminantArticle(ref.id);
+          if (!article) return null;
+          
+          const metadata = article.metadata as any;
+          const contaminantCategory = metadata.category || '';
+          const contaminantSubcategory = metadata.subcategory || '';
+          
+          // Use fullPath (camelCase) from frontmatter, fallback to constructing from category/subcategory/id
+          const fullPath = metadata.fullPath || `/contaminants/${contaminantCategory}/${contaminantSubcategory}/${ref.id}`;
+          
+          return {
+            id: ref.id,
+            title: metadata.name || metadata.title,
+            category: contaminantCategory,
+            subcategory: contaminantSubcategory,
+            description: ref.typical_context || metadata.description || '',
+            url: ref.url || fullPath,
+            frequency: ref.frequency || 'unknown',
+            severity: ref.severity || 'unknown',
+            typical_context: ref.typical_context || '',
+            image: metadata.images?.hero?.url || '',
+          };
+        } catch (error) {
+          console.error(`[MaterialsLayout] Failed to enrich contaminant ${ref.id}:`, error);
+          return null;
+        }
+      })
+    );
+    
+    enrichedContaminants = enrichmentResults.filter(Boolean);
+  } catch (error) {
+    console.error('[MaterialsLayout] Failed to enrich contaminants:', error);
+    enrichedContaminants = [];
+  }
 
   const sections: SectionConfig[] = [
     {
@@ -149,8 +163,9 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     // Relationship cards for contaminated_by (interactions.contaminated_by or technical.contaminated_by)
     {
       component: CardGrid,
+      condition: enrichedContaminants.length > 0,
       props: {
-        items: enrichedContaminants.sort(sortByFrequency).map(contaminantLinkageToGridItem),
+        items: (enrichedContaminants || []).sort(sortByFrequency).map(contaminantLinkageToGridItem),
         title: contaminatedBySection?.title ? contaminatedBySection.title.replace('Common Contaminants', `Common ${materialName} contaminants`) : `Common ${materialName} contaminants`,
         description: contaminatedBySection?.description || 'Contaminants frequently found on this material requiring laser cleaning removal',
         variant: 'relationship' as const,
