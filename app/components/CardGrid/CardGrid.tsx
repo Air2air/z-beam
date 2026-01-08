@@ -16,7 +16,7 @@ import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
 import { Button } from "../Button";
 import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
-import { slugToDisplayName, toCategorySlug } from "../../utils/formatting";
+import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { getContentType } from '@/app/utils/relationshipHelpers';
 import { Title } from '../Title/Title';
@@ -38,7 +38,7 @@ const DEFAULT_CATEGORY_ORDER = [
 ];
 
 export function CardGrid({
-  items: rawItems = [],
+  items = [],
   slugs = [],
   searchResults = [],
   title,
@@ -60,15 +60,6 @@ export function CardGrid({
   
   // Use custom card component if provided, otherwise default to Card
   const CardComponent = CustomCard || Card;
-  
-  // Normalize items at entry point (defensive programming)
-  const items = useMemo(() => {
-    if (!rawItems || !Array.isArray(rawItems)) {
-      console.warn('[CardGrid] Received non-array items:', typeof rawItems);
-      return [];
-    }
-    return rawItems.filter(item => item != null && typeof item === 'object');
-  }, [rawItems]);
   
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -315,7 +306,7 @@ export function CardGrid({
               const displayItems = isExpanded ? categoryItems : categoryItems.slice(0, maxItemsPerCategory);
               const hasMore = categoryItems.length > maxItemsPerCategory;
 
-              const categoryId = `category-${toCategorySlug(category)}`;
+              const categoryId = `category-${category.toLowerCase().replace(/\s+/g, '-')}`;
               
               return (
                 <section 

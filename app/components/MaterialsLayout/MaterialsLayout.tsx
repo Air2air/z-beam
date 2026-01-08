@@ -1,7 +1,7 @@
 // app/components/MaterialsLayout/MaterialsLayout.tsx
 // Specialized layout for materials pages using consolidated BaseContentLayout
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import { BaseContentLayout } from '../BaseContentLayout';
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { FAQPanel } from '../FAQPanel';
@@ -17,7 +17,6 @@ import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { materialLinkageToGridItem, contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { getContaminatedBy, getRegulatoryStandards, getHeroImageUrl } from '@/app/utils/relationshipHelpers';
-import { EnrichedContaminantsSection } from './EnrichedContaminantsSection';
 import type { LayoutProps } from '@/types';
 import type { SectionConfig } from '../BaseContentLayout';
 
@@ -42,10 +41,40 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
 
   // Extract contaminants using standardized helper (handles interactions → technical → legacy fallback)
   const contaminatedByData = getContaminatedBy(metadata);
-  const contaminantRefs = Array.isArray(contaminatedByData?.items) 
-    ? contaminatedByData.items.filter((item: any) => item != null)
-    : [];
+  const contaminantRefs = (contaminatedByData?.items || []).filter((item: any) => item != null);
   const contaminatedBySection = contaminatedByData?._section || {};
+  
+  // Enrich contaminants with full metadata
+  const { getContaminantArticle } = await import('@/app/utils/contentAPI');
+  const enrichedContaminants = await Promise.all(
+    contaminantRefs.map(async (ref: any) => {
+      if (!ref || !ref.id) return null;
+      
+      // Fetch full article data to get metadata
+      const article = await getContaminantArticle(ref.id);
+      if (!article) return null;
+      
+      const metadata = article.metadata as any;
+      const contaminantCategory = metadata.category || '';
+      const contaminantSubcategory = metadata.subcategory || '';
+      
+      // Use fullPath (camelCase) from frontmatter, fallback to constructing from category/subcategory/id
+      const fullPath = metadata.fullPath || `/contaminants/${contaminantCategory}/${contaminantSubcategory}/${ref.id}`;
+      
+      return {
+        id: ref.id,
+        title: metadata.name || metadata.title,
+        category: contaminantCategory,
+        subcategory: contaminantSubcategory,
+        description: ref.typical_context || metadata.description || '',
+        url: ref.url || fullPath,
+        frequency: ref.frequency,
+        severity: ref.severity,
+        typical_context: ref.typical_context,
+        image: metadata.images?.hero?.url || '',
+      };
+    })
+  ).then(items => items.filter(Boolean));
 
   const sections: SectionConfig[] = [
     {
@@ -117,6 +146,16 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         maxItems: 6,
       }
     },
+    // Relationship cards for contaminated_by (interactions.contaminated_by or technical.contaminated_by)
+    {
+      component: CardGrid,
+      props: {
+        items: enrichedContaminants.sort(sortByFrequency).map(contaminantLinkageToGridItem),
+        title: contaminatedBySection?.title ? contaminatedBySection.title.replace('Common Contaminants', `Common ${materialName} contaminants`) : `Common ${materialName} contaminants`,
+        description: contaminatedBySection?.description || 'Contaminants frequently found on this material requiring laser cleaning removal',
+        variant: 'relationship' as const,
+      }
+    },
     // Dataset downloader at bottom
     {
       component: MaterialDatasetDownloader,
@@ -150,32 +189,6 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
       showMicro={false}
     >
       {children}
-      
-      {/* Suspense boundary for slow contaminant enrichment - progressive rendering */}
-      {contaminantRefs.length > 0 && (
-        <Suspense fallback={
-          <div className="animate-pulse space-y-4 my-12">
-            <div className="h-8 bg-gray-200 rounded w-1/3"></div>
-            <div className="h-4 bg-gray-200 rounded w-2/3 mb-6"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="border border-gray-200 rounded-lg p-6">
-                  <div className="h-40 bg-gray-200 rounded mb-4"></div>
-                  <div className="h-5 bg-gray-200 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-200 rounded w-full"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        }>
-          {/* @ts-expect-error Async Server Component */}
-          <EnrichedContaminantsSection 
-            contaminantRefs={contaminantRefs}
-            contaminatedBySection={contaminatedBySection}
-            materialName={materialName}
-          />
-        </Suspense>
-      )}
     </BaseContentLayout>
   );
 }

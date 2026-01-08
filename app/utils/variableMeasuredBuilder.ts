@@ -257,7 +257,7 @@ export function deduplicateMeasurements(measurements: SchemaPropertyValue[]): Sc
  * 
  * Ensures no string citations and required fields present
  */
-export function validatePropertyValue(prop: SchemaPropertyValue): { valid: boolean; errors: string[] } {
+export function validatePropertyValue(prop: SchemaPropertyValue): { isValid: boolean; errors: string[] } {
   const errors: string[] = [];
   
   if (prop['@type'] !== 'PropertyValue') {
@@ -280,7 +280,7 @@ export function validatePropertyValue(prop: SchemaPropertyValue): { valid: boole
   }
   
   return {
-    valid: errors.length === 0,
+    isValid: errors.length === 0,
     errors
   };
 }
@@ -289,14 +289,14 @@ export function validatePropertyValue(prop: SchemaPropertyValue): { valid: boole
  * Validate array of PropertyValue objects
  */
 export function validateVariableMeasured(measurements: SchemaPropertyValue[]): { 
-  valid: boolean; 
+  isValid: boolean; 
   errors: Array<{ index: number; errors: string[] }> 
 } {
   const errors: Array<{ index: number; errors: string[] }> = [];
   
   measurements.forEach((measurement, index) => {
     const validation = validatePropertyValue(measurement);
-    if (!validation.valid) {
+    if (!validation.isValid) {
       errors.push({
         index,
         errors: validation.errors
@@ -305,7 +305,7 @@ export function validateVariableMeasured(measurements: SchemaPropertyValue[]): {
   });
   
   return {
-    valid: errors.length === 0,
+    isValid: errors.length === 0,
     errors
   };
 }
