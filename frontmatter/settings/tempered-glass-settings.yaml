@@ -4,7 +4,7 @@ displayName: Tempered Glass Laser Cleaning Settings
 category: glass
 subcategory: specialty-glass
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:46.107950+00:00'
+dateModified: '2026-01-08T04:55:26.646012+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/specialty-glass/tempered-glass-settings
@@ -44,7 +44,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -67,8 +67,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -85,7 +85,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -99,9 +99,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -115,9 +122,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -133,16 +145,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and catastrophic failure
           severity: critical
-          threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+          thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
           impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
           solutions:
           - Use pulse mode with 5-8 second cooling between passes
@@ -152,27 +169,29 @@ relationships:
           - Monitor for stress fractures; stop immediately if cracks appear
         - challenge: Low thermal diffusivity
           severity: high
-          property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+          propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
           impact: Heat accumulates in localized zones creating thermal gradients
           solutions:
           - Reduce power by 30-40% compared to metals
           - Increase scan speed to distribute heat (1000-2000 mm/s)
           - Use defocused beam to spread energy over larger area
           - Optical-grade glass (fused silica) tolerates higher power
-        contamination_challenges:
+        contaminationChallenges:
         - id: adhesive-paint-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Tempered Glass cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Optimal wavelength for Tempered Glass processing with good absorption
     unit: nm
@@ -180,17 +199,12 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Optimal spot size for precision cleaning on Tempered Glass surface
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 100
-    min: 1
-    max: 200
+    value: 200
+    unit: μm
+    description: '200 μm spot for uniform coverage on large areas of tempered glass; smaller for fine details, larger for
+      broad cleaning to reduce passes. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.'
   fluenceThreshold:
     description: Optimal fluence threshold for contaminant removal without glass damage
     unit: J/cm²
@@ -198,36 +212,57 @@ machine_settings:
     min: 0.3
     max: 4.5
   pulseWidth:
-    description: Optimal pulse width for controlled ablation of contaminants
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    unit: ns
+    value: 10
+    description: 'Nanosecond regime preferred over picosecond/femtosecond for cost-effective cleaning with minimal heat-affected
+      zone (HAZ <10 μm); 10 ns recommended for tempered glass to selectively ablate contaminants without inducing subsurface
+      stress. Source: Laser physics research in Applied Surface Science (2019) on pulsed laser interactions with glass.'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    value: 1000
+    unit: mm/s
+    description: 'Slower speeds for heavy contamination (e.g., oils/residues) ensure complete removal; 1000 mm/s optimal for
+      light contaminants on tempered glass to balance efficiency and minimize heat accumulation. Source: Industry standards
+      from Laserax equipment manuals and Journal of Cleaning Technology (2020) case studies.'
   passCount:
-    description: Optimal number of passes for thorough cleaning
-    unit: passes
-    value: 2
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Multi-pass (2 recommended) for complete removal of layered contaminants without exceeding thermal limits;
+      single pass sufficient for light soils on tempered glass. Source: Industry practice in Laser Cleaning Handbook (2022)
+      and case studies from glass manufacturing (e.g., Pilkington reports).'
   overlapRatio:
-    description: Optimal overlap ratio for complete coverage without excessive energy deposition
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    value: 50
+    unit: '%'
+    description: '50% overlap ensures uniform cleaning without gaps or overexposure on reflective tempered glass surfaces;
+      higher for heavy contamination. Source: Process optimization studies in Surface and Coatings Technology (2016).'
   dwellTime:
     description: Optimal dwell time per cleaning spot
     unit: μs
     value: 100
     min: 0.2
     max: 200
-  power:
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence below tempered glass damage threshold (~4-6 J/cm² at 1064 nm) for safe contaminant removal; 1.5
+      J/cm² recommended for industrial applications like surface preparation. Source: Ablation threshold studies in Journal
+      of Applied Physics (2021) and SPIE proceedings on laser cleaning of optics.'
+  laserPower:
+    description: Optimal average power for Tempered Glass cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
     min: 50
     max: 500
     value: 100
@@ -236,23 +271,7 @@ machine_settings:
       stress on tempered glass (high reflectivity ~8% at 1064 nm, low thermal conductivity ~1 W/m·K); max limited to prevent
       cracking (melting point ~1400°C). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering
       (2018) on glass surface cleaning.'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1000
-    unit: mm/s
-    description: 'Slower speeds for heavy contamination (e.g., oils/residues) ensure complete removal; 1000 mm/s optimal for
-      light contaminants on tempered glass to balance efficiency and minimize heat accumulation. Source: Industry standards
-      from Laserax equipment manuals and Journal of Cleaning Technology (2020) case studies.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 10
-    description: 'Nanosecond regime preferred over picosecond/femtosecond for cost-effective cleaning with minimal heat-affected
-      zone (HAZ <10 μm); 10 ns recommended for tempered glass to selectively ablate contaminants without inducing subsurface
-      stress. Source: Laser physics research in Applied Surface Science (2019) on pulsed laser interactions with glass.'
-  repetition_rate:
+  frequency:
     min: 1
     max: 200
     value: 30
@@ -260,35 +279,5 @@ machine_settings:
     description: '30 kHz balances cleaning speed with reduced heat buildup (high rates increase accumulation, risking tempered
       glass fracture); typical for 1064 nm cleaning of transparent substrates. Source: Academic literature in Optics Express
       (2017) on repetition rate effects in laser ablation of dielectrics.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence below tempered glass damage threshold (~4-6 J/cm² at 1064 nm) for safe contaminant removal; 1.5
-      J/cm² recommended for industrial applications like surface preparation. Source: Ablation threshold studies in Journal
-      of Applied Physics (2021) and SPIE proceedings on laser cleaning of optics.'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: '200 μm spot for uniform coverage on large areas of tempered glass; smaller for fine details, larger for
-      broad cleaning to reduce passes. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Multi-pass (2 recommended) for complete removal of layered contaminants without exceeding thermal limits;
-      single pass sufficient for light soils on tempered glass. Source: Industry practice in Laser Cleaning Handbook (2022)
-      and case studies from glass manufacturing (e.g., Pilkington reports).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: '50% overlap ensures uniform cleaning without gaps or overexposure on reflective tempered glass surfaces;
-      higher for heavy contamination. Source: Process optimization studies in Surface and Coatings Technology (2016).'
-component_summary: These settings employ moderate 100 W power and short 10 ns pulses at 1064 nm to gently ablate contaminants
+componentSummary: These settings employ moderate 100 W power and short 10 ns pulses at 1064 nm to gently ablate contaminants
   from tempered glass, minimizing thermal stress and preventing surface cracking.

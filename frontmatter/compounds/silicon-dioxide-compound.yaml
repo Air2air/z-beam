@@ -3,9 +3,8 @@ name: Silicon Dioxide
 displayName: Silicon Dioxide (SiO₂)
 category: particulate
 subcategory: mineral
-hazard_class: respiratory_hazard
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:14.029852+00:00'
+dateModified: '2026-01-08T04:55:14.984480+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/mineral/silicon-dioxide-compound
@@ -22,10 +21,152 @@ pageTitle: Silicon Dioxide
 pageDescription: Silicon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Silicon Dioxide laser cleaning guide. Technical specifications and applications.
-chemical_formula: SiO₂
-cas_number: 14808-60-7
-molecular_weight: 60.08
-health_effects: When dealing with silicon-dioxide particulates in industrial settings, start by assessing the workspace to
+images:
+  hero:
+    url: /images/compound/silicon-dioxide-compound-hero.jpg
+    alt: Silicon Dioxide laser cleaning visualization showing process effects
+    width: 1200
+    height: 630
+  micro:
+    url: /images/compound/silicon-dioxide-compound-micro.jpg
+    alt: Silicon Dioxide microscopic detail view showing surface characteristics
+    width: 800
+    height: 600
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+card:
+  default:
+    heading: Silicon Dioxide
+    subtitle: particulate / mineral
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: flask
+  contaminationContext:
+    heading: Silicon Dioxide
+    subtitle: Emission Product
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: alert-triangle
+relationships:
+  interactions:
+    producedFromContaminants:
+      presentation: card
+      items:
+      - id: asbestos-coating-contamination
+        frequency: unknown
+        severity: low
+        typicalContext: Laser removal of Asbestos-Containing Material
+      - id: aviation-sealant-contamination
+        frequency: unknown
+        severity: low
+        typicalContext: Laser removal of Aerospace Sealant Residue
+      - id: mineral-stain-contamination
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Mineral Staining
+      - id: road-grime-contamination
+        frequency: unknown
+        severity: low
+        typicalContext: Laser removal of Automotive Road Grime
+      - id: silicone-buildup-contamination
+        frequency: unknown
+        severity: low
+        typicalContext: Laser removal of Silicone Sealant Buildup
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
+          notes: Links to contaminant pages
+  safety:
+    healthEffects:
+      items:
+      - route: inhalation
+        effect: Silicosis (lung fibrosis)
+        severity: severe
+        onset: long-term
+      - route: inhalation
+        effect: Lung cancer
+        severity: severe
+        onset: long-term
+      - route: inhalation
+        effect: Respiratory irritation
+        severity: moderate
+        onset: immediate
+      - route: skin_contact
+        effect: Mechanical irritation or dryness
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Irritation and abrasion
+        severity: moderate
+        onset: immediate
+      presentation: card
+      _section:
+        icon: heart-pulse
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+hazardClass: respiratory_hazard
+chemicalFormula: SiO₂
+casNumber: 14808-60-7
+molecularWeight: 60.08
+healthEffects: When dealing with silicon-dioxide particulates in industrial settings, start by assessing the workspace to
   minimize airborne exposure, since these fine particles can linger and pose risks to respiratory health over prolonged contact.
   As you set up ventilation systems or containment barriers, remember that the compound's inert yet abrasive nature means
   it doesn't dissolve easily but can irritate lung tissues if inhaled deeply, so integrate high-efficiency filters right from
@@ -37,7 +178,10 @@ health_effects: When dealing with silicon-dioxide particulates in industrial set
   Finally, monitor for symptoms like persistent coughing or shortness of breath in team members, and consult health protocols
   immediately if exposure seems likely, since cumulative effects from these durable particulates can lead to serious fibrotic
   conditions in the lungs.
-exposure_guidelines: 'Handling particulate silicon dioxide demands careful attention because its fine dust can irritate lungs
+healthEffectsKeywords:
+- silicosis
+- respiratory_disease
+exposureGuidelines: 'Handling particulate silicon dioxide demands careful attention because its fine dust can irritate lungs
   and lead to long-term respiratory issues if inhaled repeatedly during industrial tasks. Workers in environments where this
   compound appears as airborne particles face heightened risks, especially in processes like grinding, cutting, or mixing
   materials that release it into the air, so establishing strict protocols becomes essential to protect health while maintaining
@@ -65,7 +209,7 @@ exposure_guidelines: 'Handling particulate silicon dioxide demands careful atten
   Ultimately, fostering a culture of awareness through ongoing education ensures everyone understands the compound''s risks,
   from its role in everyday materials to the subtle dangers of its particulate state, empowering safer handling across all
   domains.'
-detection_methods: 'Spot a silicon dioxide particulate under bright light. It scatters rays sharply. Edges gleam with a glassy
+detectionMethods: 'Spot a silicon dioxide particulate under bright light. It scatters rays sharply. Edges gleam with a glassy
   sheen. Grab a magnifier next. Surfaces reveal tiny, jagged crystals. Feels gritty between fingers, yet smooth in bulk.
 
 
@@ -76,8 +220,8 @@ detection_methods: 'Spot a silicon dioxide particulate under bright light. It sc
   For laser cleaning setups, scan with infrared beams. Particles absorb unevenly, heating spots. Watch for vapor trails. They
   lift off cleanly from metal bases. Use acoustic sensors too. Pulses echo back, signaling dense clusters. Quick passes verify
   removal. Surfaces end pristine, free of residue.'
-first_aid: 'Eyes sting from silica dust? Flush with cool water right away. Keep at it for several minutes. No rubbing—let
-  tears help wash it out.
+firstAid: 'Eyes sting from silica dust? Flush with cool water right away. Keep at it for several minutes. No rubbing—let tears
+  help wash it out.
 
 
   Skin feels gritty after contact? Brush off loose particles gently. Rinse with mild soap and water. Pat dry, watch for irritation.
@@ -91,143 +235,7 @@ first_aid: 'Eyes sting from silica dust? Flush with cool water right away. Keep 
 
 
   Always wear masks in dusty spots to dodge trouble upfront.'
-images:
-  hero:
-    url: /images/compound/silicon-dioxide-compound-hero.jpg
-    alt: Silicon Dioxide laser cleaning visualization showing process effects
-    width: 1200
-    height: 630
-  micro:
-    url: /images/compound/silicon-dioxide-compound-micro.jpg
-    alt: Silicon Dioxide microscopic detail view showing surface characteristics
-    width: 800
-    height: 600
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-  slug: todd-dunning
-health_effects_keywords:
-- silicosis
-- respiratory_disease
-monitoring_required: true
-typical_concentration_range: 0.05-0.1 mg/m³
-sources_in_laser_cleaning:
-- concrete_dust
-- ceramic_ablation
-- mineral_contamination_removal
-card:
-  default:
-    heading: Silicon Dioxide
-    subtitle: particulate / mineral
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: flask
-  contamination_context:
-    heading: Silicon Dioxide
-    subtitle: Emission Product
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: alert-triangle
-relationships:
-  interactions:
-    produced_from_contaminants:
-      presentation: card
-      items:
-      - id: asbestos-coating-contamination
-        frequency: unknown
-        severity: low
-        typical_context: Laser removal of Asbestos-Containing Material
-      - id: aviation-sealant-contamination
-        frequency: unknown
-        severity: low
-        typical_context: Laser removal of Aerospace Sealant Residue
-      - id: mineral-stain-contamination
-        frequency: unknown
-        severity: moderate
-        typical_context: Laser removal of Mineral Staining
-      - id: road-grime-contamination
-        frequency: unknown
-        severity: low
-        typical_context: Laser removal of Automotive Road Grime
-      - id: silicone-buildup-contamination
-        frequency: unknown
-        severity: low
-        typical_context: Laser removal of Silicone Sealant Buildup
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          notes: Links to contaminant pages
-          relationship_type: produced_from
-  safety:
-    health_effects:
-      items:
-      - route: inhalation
-        effect: Silicosis (lung fibrosis)
-        severity: severe
-        onset: long-term
-      - route: inhalation
-        effect: Lung cancer
-        severity: severe
-        onset: long-term
-      - route: inhalation
-        effect: Respiratory irritation
-        severity: moderate
-        onset: immediate
-      - route: skin_contact
-        effect: Mechanical irritation or dryness
-        severity: low
-        onset: immediate
-      - route: eye_contact
-        effect: Irritation and abrasion
-        severity: moderate
-        onset: immediate
-      presentation: card
-      _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
-        icon: heart-pulse
-ppe_requirements: Handling silicon dioxide particulates starts with assessing the workspace setup, where fine dust particles
+ppeRequirements: Handling silicon dioxide particulates starts with assessing the workspace setup, where fine dust particles
   can linger in the air during mixing or processing. Dust masks or respirators come first to shield lungs from inhaling these
   tiny fragments, especially in grinding or blasting tasks. Gloves protect hands from skin irritation caused by prolonged
   contact with the abrasive material. Safety goggles shield eyes against flying particles that scatter easily. Full-body coveralls
@@ -235,6 +243,12 @@ ppe_requirements: Handling silicon dioxide particulates starts with assessing th
   aids in surface removal, add heat-resistant aprons to guard against any thermal splash. Ventilation hoods or enclosed systems
   help too, but personal gear remains essential for close-up work. Regular cleaning of tools and suits avoids buildup over
   time.
+monitoringRequired: true
+typicalConcentrationRange: 0.05-0.1 mg/m³
+sourcesInLaserCleaning:
+- concrete_dust
+- ceramic_ablation
+- mineral_contamination_removal
 faq:
   presentation: collapsible
   items:

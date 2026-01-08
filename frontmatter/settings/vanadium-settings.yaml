@@ -4,7 +4,7 @@ displayName: Vanadium Laser Cleaning Settings
 category: metal
 subcategory: alloy
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:46.649277+00:00'
+dateModified: '2026-01-08T04:55:27.317269+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/alloy/vanadium-settings
@@ -39,7 +39,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -61,8 +61,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,9 +93,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -109,9 +116,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -127,33 +139,40 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: high-thermal-conductivity
           type: challenge
         - id: melting-haz
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: rust-oxide-removal
           type: challenge
         - id: oil-grease-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Vanadium oxide removal without substrate damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength for optimal Vanadium absorption and thermal processing
     unit: nm
@@ -161,64 +180,22 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning resolution
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
-  repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
+    unit: μm
+    value: 200
+    description: Beam diameter for precise cleaning; smaller for fine details (100-200 μm), larger for broad areas (300-500
+      μm). 200 μm recommended for uniform coverage on vanadium surfaces. From equipment specifications (e.g., SPI Lasers systems
+      for industrial cleaning).
   energyDensity:
-    description: Fluence threshold for Vanadium oxide removal
-    unit: J/cm²
-    value: 5.1
     min: 0.1
     max: 20.0
+    unit: J/cm²
+    value: 1.5
+    description: Fluence range for contaminant removal without substrate damage; vanadium damage threshold ~4-5 J/cm² at 1064
+      nm due to high reflectivity (~60%). 1.5 J/cm² safe for cleaning. Based on ablation threshold studies for transition
+      metals (e.g., Lorazo et al., Phys. Rev. B, 2003; generalized for vanadium).
   pulseWidth:
-    description: Nanosecond pulse duration for efficient oxide layer ablation
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for efficient area coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Number of cleaning passes for complete oxide removal
-    unit: passes
-    value: 3
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal pulse overlap for uniform cleaning
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 500
-    value: 200
-    unit: W
-    description: Typical range for pulsed laser cleaning of reflective metals like vanadium to avoid excessive heat input;
-      starting at 100-200W recommended to prevent melting (melting point ~1910°C). Based on manufacturer specs from IPG Photonics
-      and Coherent for 1064 nm systems used in metal surface preparation.
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: Effective speeds for contamination removal on metals; slower for heavy contamination (500-1000 mm/s), faster
-      for light (2000-5000 mm/s). Recommended 2000 mm/s balances efficiency and uniformity for vanadium's high thermal conductivity.
-      From industry standards in laser cleaning manuals (e.g., Laserax equipment guidelines).
-  pulse_width:
     min: 0.1
     max: 1000
     unit: ns
@@ -227,31 +204,15 @@ machine_settings:
       picosecond (ps) or femtosecond for minimal HAZ but higher cost. 20 ns recommended for vanadium to limit thermal effects
       due to its reflectivity at 1064 nm. Supported by laser physics studies (e.g., Anisimov et al., Appl. Surf. Sci., 2015
       on metal ablation thresholds).
-  repetition_rate:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 50
-    description: Standard for pulsed cleaning to ensure pulse overlap without excessive heat accumulation on heat-conductive
-      vanadium; higher rates (>50 kHz) speed up process but risk thermal buildup. 50 kHz optimal trade-off. From academic
-      literature on Nd:YAG cleaning (e.g., Kumar et al., J. Laser Appl., 2018).
-  energy_density:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    value: 1.5
-    description: Fluence range for contaminant removal without substrate damage; vanadium damage threshold ~4-5 J/cm² at 1064
-      nm due to high reflectivity (~60%). 1.5 J/cm² safe for cleaning. Based on ablation threshold studies for transition
-      metals (e.g., Lorazo et al., Phys. Rev. B, 2003; generalized for vanadium).
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: Beam diameter for precise cleaning; smaller for fine details (100-200 μm), larger for broad areas (300-500
-      μm). 200 μm recommended for uniform coverage on vanadium surfaces. From equipment specifications (e.g., SPI Lasers systems
-      for industrial cleaning).
-  pass_count:
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: Effective speeds for contamination removal on metals; slower for heavy contamination (500-1000 mm/s), faster
+      for light (2000-5000 mm/s). Recommended 2000 mm/s balances efficiency and uniformity for vanadium's high thermal conductivity.
+      From industry standards in laser cleaning manuals (e.g., Laserax equipment guidelines).
+  passCount:
     min: 1
     max: 10
     unit: passes
@@ -259,7 +220,7 @@ machine_settings:
     description: Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for complete removal on
       metals like vanadium without over-processing. From industry case studies on surface preparation (e.g., reports from
       Adapt Laser Systems).
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     unit: '%'
@@ -267,5 +228,27 @@ machine_settings:
     description: Ensures uniform coverage and avoids gaps in scan lines; 70% recommended for consistent cleaning on reflective,
       conductive vanadium to prevent uneven heating. Typical range from process optimization studies (e.g., Zhou et al., Opt.
       Lasers Eng., 2020 on scan strategies).
-component_summary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to effectively ablate contaminants
-  from Vanadium's high-melting-point surface while minimizing thermal distortion and oxidation risks.
+  laserPower:
+    description: Optimal average power for Vanadium oxide removal without substrate damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 500
+    value: 200
+    unit: W
+    description: Typical range for pulsed laser cleaning of reflective metals like vanadium to avoid excessive heat input;
+      starting at 100-200W recommended to prevent melting (melting point ~1910°C). Based on manufacturer specs from IPG Photonics
+      and Coherent for 1064 nm systems used in metal surface preparation.
+  frequency:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: Standard for pulsed cleaning to ensure pulse overlap without excessive heat accumulation on heat-conductive
+      vanadium; higher rates (>50 kHz) speed up process but risk thermal buildup. 50 kHz optimal trade-off. From academic
+      literature on Nd:YAG cleaning (e.g., Kumar et al., J. Laser Appl., 2018).
+componentSummary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to effectively ablate contaminants from
+  Vanadium's high-melting-point surface while minimizing thermal distortion and oxidation risks.

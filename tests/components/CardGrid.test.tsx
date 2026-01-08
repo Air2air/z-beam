@@ -22,7 +22,8 @@ jest.mock('../../app/components/Card/Card', () => ({
 }));
 
 jest.mock('../../app/utils/formatting', () => ({
-  slugToDisplayName: (slug: string) => slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+  slugToDisplayName: (slug: string) => slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+  toCategorySlug: (name: string) => name.toLowerCase().replace(/\s+/g, '-')
 }));
 
 jest.mock('../../app/utils/gridConfig', () => ({

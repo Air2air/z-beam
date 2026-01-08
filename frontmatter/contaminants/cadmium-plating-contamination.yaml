@@ -2,7 +2,7 @@ id: cadmium-plating-contamination
 name: Cadmium Plating Removal
 category: metallic-coating
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:42.131296+00:00'
+dateModified: '2026-01-08T04:55:05.366541+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/metallic-coating/plating/cadmium-plating-contamination
@@ -39,14 +39,35 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
+  jobTitle: Materials Engineer
   expertise:
   - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -59,114 +80,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Cadmium oxide fume
-        concentration_mg_m3: 0.5
-        exposure_limit_mg_m3: 0.002
-        hazard_class: carcinogenic
-      - compound: Cadmium metal fume
-        concentration_mg_m3: 0.3
-        exposure_limit_mg_m3: 0.01
-        hazard_class: toxic
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.85
-        size_range_um:
-        - 0.1
-        - 10
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Cadmium oxide fume
-          concentration_mg_m3: 0.5
-          hazard_class: carcinogenic
-        - compound: Cadmium metal fume
-          concentration_mg_m3: 0.3
-          hazard_class: toxic
-        description: Cadmium oxide fume and Cadmium metal fume generation - multiple toxic compounds
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Cadmium oxide fume - known carcinogen(s), minimize exposure'
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 15
-        rationale: Standard industrial ventilation (15 ACH) for particulate control
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Laser parameters must be carefully controlled to minimize base metal damage
-    - Thermal decomposition may create irregular surface finish
-    - Residual cadmium contamination requires post-cleaning verification
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items:
       - id: cadmium-oxide-compound
@@ -178,7 +230,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -217,11 +276,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: It appears as dull, metallic stains or discoloration on the glazed surface, sometimes with a rough
               texture where residue adheres.
@@ -312,103 +378,168 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.4
-            min_j_cm2: 0.8
-            recommended_j_cm2: 1.1
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.4
+            minJCm2: 0.8
+            recommendedJCm2: 1.1
+          overlapPercentage: 50
           polarization: circular
-          pulse_duration_range:
-            max_ns: 100
-            min_ns: 10
-            recommended_ns: 30
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 100
+            minNs: 10
+            recommendedNs: 30
+          repetitionRateKhz:
             max: 100
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.2
             min: 0.05
             recommended: 0.1
-          wavelength_preference:
+          wavelengthPreference:
           - 532
           - 1064
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 85000
-            wavelength_355nm: 320000
-            wavelength_532nm: 150000
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 85000
+            wavelength355Nm: 320000
+            wavelength532Nm: 150000
           reflectivity:
-            wavelength_1064nm: 0.65
-            wavelength_355nm: 0.28
-            wavelength_532nm: 0.45
-          refractive_index:
-            imaginary_part: 3.8
-            real_part: 2.1
-          transmission_depth: 0.12
-        removal_characteristics:
+            wavelength1064Nm: 0.65
+            wavelength355Nm: 0.28
+            wavelength532Nm: 0.45
+          refractiveIndex:
+            imaginaryPart: 3.8
+            realPart: 2.1
+          transmissionDepth: 0.12
+        removalCharacteristics:
           byproducts:
           - compound: cadmium-oxide
-            hazard_level: high
+            hazardLevel: high
             phase: gas
           - compound: cadmium-oxide
-            hazard_level: high
+            hazardLevel: high
             phase: gas
           - compound: cadmium-oxide
-            hazard_level: high
+            hazardLevel: high
             phase: solid
-          damage_risk_to_substrate: medium
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 4
-            optimal_passes: 3
-            single_pass: 0.85
-          secondary_mechanisms:
+          damageRiskToSubstrate: medium
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 240
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 4
+            optimalPasses: 3
+            singlePass: 0.85
+          secondaryMechanisms:
           - photochemical
           - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 2.5
-            pulse_duration_10ns: 1.2
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 321
-          heat_affected_zone_depth: 15
-          melting_point: 321
-          specific_heat: 230
-          thermal_conductivity: 96.8
-          thermal_diffusivity: 18.2
-          vaporization_temperature: 765
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: compressive
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Cadmium oxide fume
+            concentrationMgM3: 0.5
+            exposureLimitMgM3: 0.002
+            hazardClass: carcinogenic
+          - compound: Cadmium metal fume
+            concentrationMgM3: 0.3
+            exposureLimitMgM3: 0.01
+            hazardClass: toxic
+          particulateGeneration:
+            respirableFraction: 0.85
+            sizeRangeUm:
+            - 0.1
+            - 10
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: full_suit
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser parameters must be carefully controlled to minimize base metal damage
+          - Thermal decomposition may create irregular surface finish
+          - Residual cadmium contamination requires post-cleaning verification
+          toxicGasRisk:
+            severity: moderate
+            primaryHazards:
+            - compound: Cadmium oxide fume
+              concentrationMgM3: 0.5
+              hazardClass: carcinogenic
+            - compound: Cadmium metal fume
+              concentrationMgM3: 0.3
+              hazardClass: toxic
+            description: Cadmium oxide fume and Cadmium metal fume generation - multiple toxic compounds
+            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+              WARNING: Cadmium oxide fume - known carcinogen(s), minimize exposure'
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: HEPA
+            minimumAirChangesPerHour: 15
+            rationale: Standard industrial ventilation (15 ACH) for particulate control
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 2.5
+            pulseDuration10Ns: 1.2
+            wavelength1064Nm: 0.8
+          decompositionTemperature: 321
+          heatAffectedZoneDepth: 15
+          meltingPoint: 321
+          specificHeat: 230
+          thermalConductivity: 96.8
+          thermalDiffusivity: 18.2
+          vaporizationTemperature: 765
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Cadmium Plating Removal
 subcategory: plating
-valid_materials:
+validMaterials:
 - stainless-steel-laser-cleaning
 - steel-laser-cleaning
 composition:
 - Cd
 - Cd Alloys
-prohibited_materials:
+prohibitedMaterials:
 - Aluminum

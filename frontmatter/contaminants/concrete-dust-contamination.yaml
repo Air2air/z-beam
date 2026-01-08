@@ -2,7 +2,7 @@ id: concrete-dust-contamination
 name: Concrete Dust Deposits
 category: inorganic-coating
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:42.509247+00:00'
+dateModified: '2026-01-08T04:55:05.901277+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
@@ -40,14 +40,36 @@ author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
+  jobTitle: Junior Research Scientist in Laser Physics
   expertise:
   - Ultrafast Laser Physics and Material Interactions
+  affiliation:
+    name: Bandung Institute of Technology
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Physics, ITB, 2020
+  - 2+ years in ultrafast laser research including ASEAN optics workshops
+  - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
+  email: info@z-beam.com
+  image: /images/author/ikmanda-roswati.jpg
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
+  url: https://z-beam.com/authors/ikmanda-roswati
+  sameAs:
+  - https://linkedin.com/in/ikmanda-roswati-physicist
+  - https://www.academia.edu/profile/IkmandaRoswati
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
+  slug: ikmanda-roswati
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -60,122 +82,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Crystalline Silica (as SiO₂)
-        concentration_mg_m3: 5.0
-        exposure_limit_mg_m3: 0.025
-        hazard_class: carcinogenic
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 15.0
-        exposure_limit_mg_m3: 29.0
-        hazard_class: toxic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 900.0
-        exposure_limit_mg_m3: 9000.0
-        hazard_class: toxic
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.3
-        size_range_um:
-        - 0.1
-        - 100
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: low
-        primary_hazards:
-        - compound: Crystalline Silica (as SiO₂)
-          concentration_mg_m3: 5.0
-          hazard_class: carcinogenic
-        - compound: Carbon Monoxide
-          concentration_mg_m3: 15.0
-          hazard_class: toxic
-        - compound: Carbon Dioxide
-          concentration_mg_m3: 900.0
-          hazard_class: toxic
-        description: 'Multiple toxic compounds detected: Crystalline Silica (as SiO₂), Carbon Monoxide, Carbon Dioxide - requires
-          enhanced protection'
-        mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Crystalline Silica (as
-          SiO₂) - known carcinogen(s), minimize exposure'
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.30 (30% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Laser parameters must be controlled to prevent concrete spalling
-    - Moisture in concrete can cause steam explosions
-    - Reinforcing steel may reflect laser energy unpredictably
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items:
       - id: nanoparticulates-compound
@@ -187,7 +232,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -244,11 +296,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: The dust forms a pale gray, powdery coating that can dull glossy finishes and embed into tiny pores,
               giving a chalky, matte appearance.
@@ -343,99 +402,172 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.2
+            minJCm2: 0.3
+            recommendedJCm2: 0.8
+          overlapPercentage: 50
           polarization: circular
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 10
-            recommended_ns: 50
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 200
+            minNs: 10
+            recommendedNs: 50
+          repetitionRateKhz:
             max: 200
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.3
             min: 0.05
             recommended: 0.1
-          wavelength_preference:
+          wavelengthPreference:
           - 1064
           - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 120
-            wavelength_355nm: 2800
-            wavelength_532nm: 450
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 120
+            wavelength355Nm: 2800
+            wavelength532Nm: 450
           reflectivity:
-            wavelength_1064nm: 0.35
-            wavelength_355nm: 0.08
-            wavelength_532nm: 0.25
-          refractive_index:
-            imaginary_part: 0.012
-            real_part: 1.52
-          transmission_depth: 83
-        removal_characteristics:
+            wavelength1064Nm: 0.35
+            wavelength355Nm: 0.08
+            wavelength532Nm: 0.25
+          refractiveIndex:
+            imaginaryPart: 0.012
+            realPart: 1.52
+          transmissionDepth: 83
+        removalCharacteristics:
           byproducts:
           - compound: nanoparticulates
-            hazard_level: moderate
+            hazardLevel: moderate
             phase: solid
           - compound: calcium-oxide
-            hazard_level: low
+            hazardLevel: low
             phase: solid
           - compound: carbon-dioxide
-            hazard_level: low
+            hazardLevel: low
             phase: gas
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 480
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.85
-          secondary_mechanisms:
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 480
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 3
+            optimalPasses: 2
+            singlePass: 0.85
+          secondaryMechanisms:
           - mechanical_spallation
           - photochemical_decomposition
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 2.5
-            pulse_duration_10ns: 1.2
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 850
-          heat_affected_zone_depth: 15
-          melting_point: N/A
-          specific_heat: 900
-          thermal_conductivity: 0.15
-          thermal_diffusivity: 0.12
-          vaporization_temperature: 1200
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: compressive
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Crystalline Silica (as SiO₂)
+            concentrationMgM3: 5.0
+            exposureLimitMgM3: 0.025
+            hazardClass: carcinogenic
+          - compound: Carbon Monoxide
+            concentrationMgM3: 15.0
+            exposureLimitMgM3: 29.0
+            hazardClass: toxic
+          - compound: Carbon Dioxide
+            concentrationMgM3: 900.0
+            exposureLimitMgM3: 9000.0
+            hazardClass: toxic
+          particulateGeneration:
+            respirableFraction: 0.3
+            sizeRangeUm:
+            - 0.1
+            - 100
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: gloves
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser parameters must be controlled to prevent concrete spalling
+          - Moisture in concrete can cause steam explosions
+          - Reinforcing steel may reflect laser energy unpredictably
+          toxicGasRisk:
+            severity: low
+            primaryHazards:
+            - compound: Crystalline Silica (as SiO₂)
+              concentrationMgM3: 5.0
+              hazardClass: carcinogenic
+            - compound: Carbon Monoxide
+              concentrationMgM3: 15.0
+              hazardClass: toxic
+            - compound: Carbon Dioxide
+              concentrationMgM3: 900.0
+              hazardClass: toxic
+            description: 'Multiple toxic compounds detected: Crystalline Silica (as SiO₂), Carbon Monoxide, Carbon Dioxide
+              - requires enhanced protection'
+            mitigation: 'N95 or P100 respirator for particulate control, standard ventilation. WARNING: Crystalline Silica
+              (as SiO₂) - known carcinogen(s), minimize exposure'
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: HEPA
+            minimumAirChangesPerHour: 12
+            rationale: Standard industrial ventilation (12 ACH) for particulate control
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.30 (30% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 2.5
+            pulseDuration10Ns: 1.2
+            wavelength1064Nm: 0.8
+          decompositionTemperature: 850
+          heatAffectedZoneDepth: 15
+          meltingPoint: N/A
+          specificHeat: 900
+          thermalConductivity: 0.15
+          thermalDiffusivity: 0.12
+          vaporizationTemperature: 1200
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Concrete Dust Deposits
 subcategory: mineral
-valid_materials:
+validMaterials:
 - basalt-laser-cleaning
 - bluestone-laser-cleaning
 - concrete-laser-cleaning
@@ -452,7 +584,7 @@ composition:
 - CaCO₃
 - SiO₂
 - CaO
-prohibited_materials:
+prohibitedMaterials:
 - Crown Glass
 - Electronics
 - Float Glass

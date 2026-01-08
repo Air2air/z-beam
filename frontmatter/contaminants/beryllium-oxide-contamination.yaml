@@ -2,7 +2,7 @@ id: beryllium-oxide-contamination
 name: Beryllium Oxide Contamination
 category: chemical-residue
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:41.730835+00:00'
+dateModified: '2026-01-08T04:55:04.979841+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/chemical-residue/hazardous/beryllium-oxide-contamination
@@ -45,14 +45,34 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
+  jobTitle: Laser Processing Engineer
   expertise:
   - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -65,113 +85,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Beryllium Oxide
-        concentration_mg_m3: 0.5
-        exposure_limit_mg_m3: 5.0e-05
-        hazard_class: toxic
-      - compound: Beryllium
-        concentration_mg_m3: 0.1
-        exposure_limit_mg_m3: 5.0e-05
-        hazard_class: toxic
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.85
-        size_range_um:
-        - 0.1
-        - 10
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: high
-        primary_hazards:
-        - compound: Beryllium Oxide
-          concentration_mg_m3: 0.5
-          hazard_class: toxic
-        - compound: Beryllium
-          concentration_mg_m3: 0.1
-          hazard_class: toxic
-        description: Beryllium Oxide and Beryllium generation - multiple toxic compounds
-        mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 15
-        rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with HEPA
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Laser parameters must be carefully controlled to minimize fume generation
-    - Incomplete removal may create mixed hazardous waste
-    - Surface temperature affects decomposition products
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items: []
       _section:
@@ -180,7 +232,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -219,11 +278,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: Beryllium oxide on ceramic surfaces manifests as a dull, white to off-white powdery residue that may
               contrast with the glaze, potentially causing a chalky or frosted appearance.
@@ -321,100 +387,164 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.4
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.4
+            minJCm2: 0.3
+            recommendedJCm2: 0.8
+          overlapPercentage: 50
           polarization: circular
-          pulse_duration_range:
-            max_ns: 100
-            min_ns: 10
-            recommended_ns: 30
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 100
+            minNs: 10
+            recommendedNs: 30
+          repetitionRateKhz:
             max: 100
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.2
             min: 0.05
             recommended: 0.1
-          wavelength_preference:
+          wavelengthPreference:
           - 1064
           - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 150
-            wavelength_355nm: 3200
-            wavelength_532nm: 850
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 150
+            wavelength355Nm: 3200
+            wavelength532Nm: 850
           reflectivity:
-            wavelength_1064nm: 0.45
-            wavelength_355nm: 0.08
-            wavelength_532nm: 0.25
-          refractive_index:
-            imaginary_part: 0.015
-            real_part: 1.72
-          transmission_depth: 66.7
-        removal_characteristics:
+            wavelength1064Nm: 0.45
+            wavelength355Nm: 0.08
+            wavelength532Nm: 0.25
+          refractiveIndex:
+            imaginaryPart: 0.015
+            realPart: 1.72
+          transmissionDepth: 66.7
+        removalCharacteristics:
           byproducts:
           - compound: BeO
-            hazard_level: high
+            hazardLevel: high
             phase: solid
           - compound: Be
-            hazard_level: high
+            hazardLevel: high
             phase: gas
           - compound: O₂
-            hazard_level: low
+            hazardLevel: low
             phase: gas
-          damage_risk_to_substrate: medium
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 120
-            typical_scan_speed_mm_s: 500
-          removal_efficiency:
-            diminishing_returns_after: 5
-            optimal_passes: 3
-            single_pass: 0.85
-          secondary_mechanisms:
+          damageRiskToSubstrate: medium
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 120
+            typicalScanSpeedMmS: 500
+          removalEfficiency:
+            diminishingReturnsAfter: 5
+            optimalPasses: 3
+            singlePass: 0.85
+          secondaryMechanisms:
           - photochemical
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 4.1
-            pulse_duration_10ns: 2.8
-            wavelength_1064nm: 3.2
-          decomposition_temperature: 2530
-          heat_affected_zone_depth: 15
-          melting_point: 2507
-          specific_heat: 1030
-          thermal_conductivity: 280
-          thermal_diffusivity: 105
-          vaporization_temperature: 3900
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: compressive
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Beryllium Oxide
+            concentrationMgM3: 0.5
+            exposureLimitMgM3: 5.0e-05
+            hazardClass: toxic
+          - compound: Beryllium
+            concentrationMgM3: 0.1
+            exposureLimitMgM3: 5.0e-05
+            hazardClass: toxic
+          particulateGeneration:
+            respirableFraction: 0.85
+            sizeRangeUm:
+            - 0.1
+            - 10
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: full_suit
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser parameters must be carefully controlled to minimize fume generation
+          - Incomplete removal may create mixed hazardous waste
+          - Surface temperature affects decomposition products
+          toxicGasRisk:
+            severity: high
+            primaryHazards:
+            - compound: Beryllium Oxide
+              concentrationMgM3: 0.5
+              hazardClass: toxic
+            - compound: Beryllium
+              concentrationMgM3: 0.1
+              hazardClass: toxic
+            description: Beryllium Oxide and Beryllium generation - multiple toxic compounds
+            mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: HEPA
+            minimumAirChangesPerHour: 15
+            rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with HEPA
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 4.1
+            pulseDuration10Ns: 2.8
+            wavelength1064Nm: 3.2
+          decompositionTemperature: 2530
+          heatAffectedZoneDepth: 15
+          meltingPoint: 2507
+          specificHeat: 1030
+          thermalConductivity: 280
+          thermalDiffusivity: 105
+          vaporizationTemperature: 3900
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Beryllium Oxide Contamination
 subcategory: hazardous
-valid_materials:
+validMaterials:
 - steel-laser-cleaning
 composition:
 - BeO
 - Be Compounds
-prohibited_materials: []
+prohibitedMaterials: []

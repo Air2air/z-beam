@@ -4,13 +4,14 @@
  * Converts all snake_case property names to camelCase in YAML frontmatter files
  * 
  * Changes:
- * - machine_settings → machineSettings
  * - material_properties → materialProperties
  * - laser_properties → laserProperties
  * - safety_data → safetyData
  * - removal_by_material → removalByMaterial
  * - visual_characteristics → visualCharacteristics
  * - regulatory_standards → regulatoryStandards
+ * 
+ * NOTE: machine_settings remains snake_case (only in settings files)
  */
 
 const fs = require('fs');
@@ -18,7 +19,6 @@ const path = require('path');
 const glob = require('glob');
 
 const PROPERTY_MAP = {
-  'machine_settings': 'machineSettings',
   'material_properties': 'materialProperties',
   'laser_properties': 'laserProperties',
   'safety_data': 'safetyData',

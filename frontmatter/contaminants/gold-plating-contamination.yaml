@@ -2,7 +2,7 @@ id: gold-plating-contamination
 name: Gold Electroplating
 category: metallic-coating
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:43.557512+00:00'
+dateModified: '2026-01-08T04:55:07.066087+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/metallic-coating/plating/gold-plating-contamination
@@ -40,14 +40,34 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
+  jobTitle: Junior Optical Materials Specialist
   expertise:
   - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -60,116 +80,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Gold nanoparticles
-        concentration_mg_m3: 0.5-5.0
-        exposure_limit_mg_m3: 0.1
-        hazard_class: toxic
-      - compound: Cyanide compounds
-        concentration_mg_m3: 0.1-2.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: toxic
-      - compound: Metal oxides
-        concentration_mg_m3: 1.0-10.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.7
-        size_range_um:
-        - 0.01
-        - 10.0
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Gold nanoparticles
-          concentration_mg_m3: 0.5-5.0
-          hazard_class: toxic
-        - compound: Cyanide compounds
-          concentration_mg_m3: 0.1-2.0
-          hazard_class: toxic
-        description: Gold nanoparticles and Cyanide compounds generation - multiple toxic compounds
-        mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: low
-        description: Light haze (20-40% reduction), minimal impact on sight lines
-        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-        mitigation: Standard visibility precautions, adequate lighting
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Thermal damage possible to underlying substrate
-    - May generate reflective plasma plume requiring laser safety eyewear
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items: []
       _section:
@@ -178,7 +227,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -217,11 +273,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: Gold electroplating manifests as a bright, gold layer that may look glossy or slightly textured, adhering
               to the glazed or unglazed surface.
@@ -302,102 +365,169 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.6
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.2
+            minJCm2: 0.3
+            recommendedJCm2: 0.6
+          overlapPercentage: 50
           polarization: circular
-          pulse_duration_range:
-            max_ns: 20
-            min_ns: 4
-            recommended_ns: 10
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 20
+            minNs: 4
+            recommendedNs: 10
+          repetitionRateKhz:
             max: 100
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.08
             min: 0.02
             recommended: 0.05
-          wavelength_preference:
+          wavelengthPreference:
           - 532
           - 355
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 1.2e6
-            wavelength_355nm: 7.5e6
-            wavelength_532nm: 3.8e6
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 1.2e6
+            wavelength355Nm: 7.5e6
+            wavelength532Nm: 3.8e6
           reflectivity:
-            wavelength_1064nm: 0.98
-            wavelength_355nm: 0.45
-            wavelength_532nm: 0.85
-          refractive_index:
-            imaginary_part: 6.71
-            real_part: 0.28
-          transmission_depth: 0.083
-        removal_characteristics:
+            wavelength1064Nm: 0.98
+            wavelength355Nm: 0.45
+            wavelength532Nm: 0.85
+          refractiveIndex:
+            imaginaryPart: 6.71
+            realPart: 0.28
+          transmissionDepth: 0.083
+        removalCharacteristics:
           byproducts:
           - compound: Au
-            hazard_level: low
+            hazardLevel: low
             phase: gas
           - compound: Au nanoparticles
-            hazard_level: low
+            hazardLevel: low
             phase: solid
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 48
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.85
-          secondary_mechanisms:
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 48
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 3
+            optimalPasses: 2
+            singlePass: 0.85
+          secondaryMechanisms:
           - melting_ejection
           - vaporization
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 3.5
-            pulse_duration_10ns: 2.1
-            wavelength_1064nm: 1.8
-          decomposition_temperature: 450
-          heat_affected_zone_depth: 15
-          melting_point: 1064
-          specific_heat: 129
-          thermal_conductivity: 318
-          thermal_diffusivity: 127
-          vaporization_temperature: 2856
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: compressive
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Gold nanoparticles
+            concentrationMgM3: 0.5-5.0
+            exposureLimitMgM3: 0.1
+            hazardClass: toxic
+          - compound: Cyanide compounds
+            concentrationMgM3: 0.1-2.0
+            exposureLimitMgM3: 5.0
+            hazardClass: toxic
+          - compound: Metal oxides
+            concentrationMgM3: 1.0-10.0
+            exposureLimitMgM3: 5.0
+            hazardClass: irritant
+          particulateGeneration:
+            respirableFraction: 0.7
+            sizeRangeUm:
+            - 0.01
+            - 10.0
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: gloves
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Thermal damage possible to underlying substrate
+          - May generate reflective plasma plume requiring laser safety eyewear
+          toxicGasRisk:
+            severity: moderate
+            primaryHazards:
+            - compound: Gold nanoparticles
+              concentrationMgM3: 0.5-5.0
+              hazardClass: toxic
+            - compound: Cyanide compounds
+              concentrationMgM3: 0.1-2.0
+              hazardClass: toxic
+            description: Gold nanoparticles and Cyanide compounds generation - multiple toxic compounds
+            mitigation: Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: HEPA
+            minimumAirChangesPerHour: 12
+            rationale: Standard industrial ventilation (12 ACH) for particulate control
+          visibilityHazard:
+            severity: low
+            description: Light haze (20-40% reduction), minimal impact on sight lines
+            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+            mitigation: Standard visibility precautions, adequate lighting
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 3.5
+            pulseDuration10Ns: 2.1
+            wavelength1064Nm: 1.8
+          decompositionTemperature: 450
+          heatAffectedZoneDepth: 15
+          meltingPoint: 1064
+          specificHeat: 129
+          thermalConductivity: 318
+          thermalDiffusivity: 127
+          vaporizationTemperature: 2856
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Gold Electroplating
 subcategory: plating
-valid_materials:
+validMaterials:
 - brass-laser-cleaning
 - copper-laser-cleaning
 - nickel-laser-cleaning
 composition:
 - Au
 - Au Alloys
-prohibited_materials:
+prohibitedMaterials:
 - Aluminum
 - Steel

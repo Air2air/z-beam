@@ -4,7 +4,7 @@ displayName: Limestone Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:43.446685+00:00'
+dateModified: '2026-01-08T04:55:23.249144+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/sedimentary/limestone-settings
@@ -44,7 +44,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -66,8 +66,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -84,7 +84,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -98,9 +98,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -114,9 +121,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: limestone-laser-cleaning
@@ -128,16 +140,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and microcracking
           severity: critical
-          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
           impact: Natural stone contains microfissures that propagate under thermal stress
           solutions:
           - Use pulse mode with 8-12 second cooling between passes
@@ -147,7 +164,7 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Moisture-induced spalling
           severity: high
-          threshold_temperature: Steam formation >100°C with trapped moisture
+          thresholdTemperature: Steam formation >100°C with trapped moisture
           impact: Porous stone traps moisture that explosively converts to steam
           solutions:
           - Test moisture content before cleaning (>3% requires drying)
@@ -155,20 +172,22 @@ relationships:
           - Reduce power by 50% for damp stone
           - Use pulse mode with extended cooling (15-20 seconds)
           - Heritage stone requires especially gentle approach
-        contamination_challenges:
+        contaminationChallenges:
         - id: biological-growth
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for limestone cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength optimized for limestone absorption and minimal scattering
     unit: nm
@@ -176,88 +195,6 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for balanced cleaning efficiency and resolution
-    unit: μm
-    value: 100
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  energyDensity:
-    description: Fluence threshold for effective contaminant removal while preserving limestone surface
-    unit: J/cm²
-    value: 12
-    min: 0.1
-    max: 20.0
-  pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with minimal substrate damage
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning without excessive overlap
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for thorough cleaning of limestone surfaces
-    unit: passes
-    value: 3
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap percentage for uniform cleaning coverage
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 1000
-    value: 200
-    unit: W
-    description: Typical range for industrial 1064 nm Nd:YAG lasers cleaning limestone; starting at 50-100 W to avoid thermal
-      damage; max safe below 1000 W to prevent substrate cracking, based on manufacturer specs from Adapt Laser Systems and
-      studies on stone ablation (e.g., Pou et al., Applied Surface Science, 2003).
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1000
-    description: Effective range for contamination removal; slower (100-500 mm/s) for heavy soiling like graffiti, faster
-      (up to 5000 mm/s) for light dust; recommended 1000 mm/s for balanced efficiency on limestone, per industry standards
-      from LaserCladding Technologies manuals and case studies on cultural heritage cleaning.
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: Nanosecond regime preferred for cost-effective cleaning of limestone; picosecond (ps) or femtosecond reduces
-      heat-affected zone (HAZ) but increases cost; 20 ns recommended for minimal thermal damage to CaCO3 substrate, from laser
-      physics research (e.g., S. J. Henley et al., Applied Physics A, 2004).
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: Typical for pulsed 1064 nm systems; 30 kHz balances cleaning speed and heat accumulation on low-conductivity
-      limestone; higher rates (>50 kHz) risk overheating, lower for precision; sourced from academic literature on pulse train
-      effects (e.g., J. C. S. Lai et al., Optics and Lasers in Engineering, 2010).
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: Fluence range for safe removal of contaminants without ablating limestone; damage threshold ~3-5 J/cm² due
-      to CaCO3 decomposition; 1.5 J/cm² recommended for industrial cleaning, based on ablation threshold studies (e.g., R.
-      P. Forbes et al., Journal of Cultural Heritage, 2003).
-  spot_size:
     min: 0.1
     max: 500
     value: 300
@@ -265,7 +202,31 @@ machine_settings:
     description: Beam diameter range for 1064 nm cleaning; smaller (100-300 μm) for fine details like engravings, larger (up
       to 1 mm) for broad surfaces; 300 μm recommended for uniform limestone cleaning, from equipment specifications by IPG
       Photonics and process optimization in stone conservation.
-  pass_count:
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: Fluence range for safe removal of contaminants without ablating limestone; damage threshold ~3-5 J/cm² due
+      to CaCO3 decomposition; 1.5 J/cm² recommended for industrial cleaning, based on ablation threshold studies (e.g., R.
+      P. Forbes et al., Journal of Cultural Heritage, 2003).
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: Nanosecond regime preferred for cost-effective cleaning of limestone; picosecond (ps) or femtosecond reduces
+      heat-affected zone (HAZ) but increases cost; 20 ns recommended for minimal thermal damage to CaCO3 substrate, from laser
+      physics research (e.g., S. J. Henley et al., Applied Physics A, 2004).
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1000
+    description: Effective range for contamination removal; slower (100-500 mm/s) for heavy soiling like graffiti, faster
+      (up to 5000 mm/s) for light dust; recommended 1000 mm/s for balanced efficiency on limestone, per industry standards
+      from LaserCladding Technologies manuals and case studies on cultural heritage cleaning.
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -273,7 +234,7 @@ machine_settings:
     description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
       removal on limestone without excessive exposure, per industry practice and case studies (e.g., European project on laser
       cleaning of monuments, 2015).
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 50
@@ -281,5 +242,27 @@ machine_settings:
     description: Ensures uniform coverage; 50% recommended for even cleaning on irregular limestone surfaces, avoiding gaps
       or overexposure; range from process optimization studies (e.g., A. Nevin et al., Analytical and Bioanalytical Chemistry,
       2007).
-component_summary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to gently ablate surface contaminants
+  laserPower:
+    description: Optimal average power for limestone cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 1000
+    value: 200
+    unit: W
+    description: Typical range for industrial 1064 nm Nd:YAG lasers cleaning limestone; starting at 50-100 W to avoid thermal
+      damage; max safe below 1000 W to prevent substrate cracking, based on manufacturer specs from Adapt Laser Systems and
+      studies on stone ablation (e.g., Pou et al., Applied Surface Science, 2003).
+  frequency:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: Typical for pulsed 1064 nm systems; 30 kHz balances cleaning speed and heat accumulation on low-conductivity
+      limestone; higher rates (>50 kHz) risk overheating, lower for precision; sourced from academic literature on pulse train
+      effects (e.g., J. C. S. Lai et al., Optics and Lasers in Engineering, 2010).
+componentSummary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to gently ablate surface contaminants
   from fragile limestone, avoiding thermal cracking or substrate erosion.

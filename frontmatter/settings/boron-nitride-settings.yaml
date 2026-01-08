@@ -4,7 +4,7 @@ displayName: Boron Nitride Laser Cleaning Settings
 category: ceramic
 subcategory: technical
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:47.151782+00:00'
+dateModified: '2026-01-08T04:55:28.078527+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/technical/boron-nitride-settings
@@ -36,7 +36,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -59,8 +59,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -77,7 +77,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -91,9 +91,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -107,9 +114,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -125,26 +137,33 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    value: 80
-    unit: W
-    description: Optimal average power for ceramic cleaning
-    min: 1.0
-    max: 120
   wavelength:
     value: 1064
     unit: nm
@@ -152,64 +171,22 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    value: 50
-    unit: μm
-    description: Beam spot diameter for effective cleaning resolution
     min: 0.1
     max: 500
-  repetitionRate:
-    value: 50
-    unit: kHz
-    description: Pulse frequency for controlled material removal
-    min: 1
-    max: 200
+    unit: μm
+    value: 200
+    description: 'Typical beam diameter for cleaning; 200 μm recommended for BN to provide fine control on detailed surfaces
+      without excessive energy concentration. Fine detail: 100-200 μm; large area: 300-500 μm. Source: Equipment specs from
+      Coherent and Trumpf laser systems for industrial cleaning.'
   energyDensity:
-    value: 2.0
-    unit: J/cm²
-    description: Energy per unit area for surface cleaning
     min: 0.1
     max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: 'Fluence range for safe contaminant ablation; damage threshold for BN estimated ~2-5 J/cm² based on ceramic
+      studies, so 0.5 J/cm² recommended to stay below while effective for surface prep. Conservative due to BN''s reflectivity
+      at 1064 nm. Source: Ablation threshold studies in Applied Surface Science (e.g., on nitrides and ceramics).'
   pulseWidth:
-    value: 10
-    unit: ns
-    description: Pulse duration for minimal thermal penetration
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    value: 500
-    unit: mm/s
-    description: Beam travel speed for uniform coverage
-    min: 10
-    max: 5000
-  passCount:
-    value: 3
-    unit: passes
-    description: Number of cleaning cycles for complete removal
-    min: 1
-    max: 10
-  overlapRatio:
-    value: 50
-    unit: '%'
-    description: Beam overlap for consistent surface treatment
-    min: 10
-    max: 90
-  power:
-    min: 20
-    max: 300
-    value: 50
-    unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in ceramic cleaning; starting at 50 W to avoid thermal damage to
-      BN''s high melting point substrate (~3000°C). Max safe below damage threshold. Source: IPG Photonics specs for cleaning
-      systems; conservative for BN due to limited specific studies.'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1000
-    description: 'Effective range for contamination removal; recommended 1000 mm/s for optimal balance of cleaning efficiency
-      and heat control on BN. Light contamination: 1500-3000 mm/s; heavy: 100-500 mm/s. Source: Industry standards from Laserax
-      and Adapt Laser manuals.'
-  pulse_width:
     min: 0.1
     max: 1000
     value: 20
@@ -218,7 +195,45 @@ machine_settings:
       for BN to leverage its thermal conductivity and reduce heat accumulation. Picosecond (ps) or femtosecond for ultra-precision
       but less common industrially. Source: Laser physics reviews in Optics & Lasers in Engineering (e.g., studies on ceramic
       ablation).'
-  repetition_rate:
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1000
+    description: 'Effective range for contamination removal; recommended 1000 mm/s for optimal balance of cleaning efficiency
+      and heat control on BN. Light contamination: 1500-3000 mm/s; heavy: 100-500 mm/s. Source: Industry standards from Laserax
+      and Adapt Laser manuals.'
+  passCount:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Typical for complete removal in multi-pass to ensure uniform cleaning without single-pass overload; 2 passes
+      recommended for BN contamination to minimize risk to substrate integrity. Single pass for light layers. Source: Industry
+      case studies in laser cleaning of ceramics (e.g., SPIE proceedings).'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Standard for uniform coverage; 50% recommended for BN to achieve even cleaning while avoiding overexposure
+      and heat zones. Range adjusts for contamination density. Source: Process optimization in Journal of Laser Applications
+      and manufacturer guidelines (e.g., CleanLaser).'
+  laserPower:
+    value: 80
+    unit: W
+    description: Optimal average power for ceramic cleaning
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 300
+    value: 50
+    unit: W
+    description: 'Typical range for pulsed Nd:YAG lasers in ceramic cleaning; starting at 50 W to avoid thermal damage to
+      BN''s high melting point substrate (~3000°C). Max safe below damage threshold. Source: IPG Photonics specs for cleaning
+      systems; conservative for BN due to limited specific studies.'
+  frequency:
     min: 1
     max: 200
     value: 30
@@ -227,37 +242,5 @@ machine_settings:
       rates increase average power and risk substrate damage. Trade-off: High freq accelerates cleaning but accumulates heat
       in low-absorptivity materials like BN at 1064 nm. Source: Academic literature in Journal of Applied Physics on pulse
       train effects.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.5
-    unit: J/cm²
-    description: 'Fluence range for safe contaminant ablation; damage threshold for BN estimated ~2-5 J/cm² based on ceramic
-      studies, so 0.5 J/cm² recommended to stay below while effective for surface prep. Conservative due to BN''s reflectivity
-      at 1064 nm. Source: Ablation threshold studies in Applied Surface Science (e.g., on nitrides and ceramics).'
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Typical beam diameter for cleaning; 200 μm recommended for BN to provide fine control on detailed surfaces
-      without excessive energy concentration. Fine detail: 100-200 μm; large area: 300-500 μm. Source: Equipment specs from
-      Coherent and Trumpf laser systems for industrial cleaning.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Typical for complete removal in multi-pass to ensure uniform cleaning without single-pass overload; 2 passes
-      recommended for BN contamination to minimize risk to substrate integrity. Single pass for light layers. Source: Industry
-      case studies in laser cleaning of ceramics (e.g., SPIE proceedings).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: 'Standard for uniform coverage; 50% recommended for BN to achieve even cleaning while avoiding overexposure
-      and heat zones. Range adjusts for contamination density. Source: Process optimization in Journal of Laser Applications
-      and manufacturer guidelines (e.g., CleanLaser).'
-component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
+componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
   from Boron Nitride's thermally sensitive surface without causing substrate damage or cracking.

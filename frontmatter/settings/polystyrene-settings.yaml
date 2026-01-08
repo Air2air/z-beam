@@ -4,7 +4,7 @@ displayName: Polystyrene Laser Cleaning Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.529598+00:00'
+dateModified: '2026-01-08T04:55:24.591135+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/polystyrene-settings
@@ -43,7 +43,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -66,8 +66,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -84,7 +84,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -98,9 +98,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -114,9 +121,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -132,16 +144,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Low melting/degradation temperatures
           severity: high
-          threshold_range: 80-300°C depending on polymer type
+          thresholdRange: 80-300°C depending on polymer type
           impact: Melting, warping, or chemical degradation at low temperatures
           solutions:
           - Use lowest power settings (20-40W)
@@ -154,7 +171,7 @@ relationships:
           - Mandatory fume extraction system
           - Work in well-ventilated areas
           - Monitor for smoke/discoloration
-        contamination_challenges:
+        contaminationChallenges:
         - challenge: Coating and label removal
           severity: medium
           impact: Adhesives melt and smear rather than ablate cleanly
@@ -162,16 +179,18 @@ relationships:
           - Use UV wavelength (355nm) for better photochemical ablation
           - Multiple gentle passes instead of single high-power pass
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Polystyrene surface cleaning without thermal damage
-    unit: W
-    value: 25
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength providing good absorption in Polystyrene with minimal thermal penetration
     unit: nm
@@ -179,64 +198,20 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning control on Polystyrene surfaces
-    unit: μm
-    value: 100
     min: 0.1
     max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 20
-    min: 1
-    max: 200
+    value: 200
+    unit: μm
+    description: 'Smaller spots for precise surface prep on PS, larger for broad areas; 200 μm balances resolution and efficiency.
+      Source: Equipment specs from Coherent and Trumpf laser systems.'
   energyDensity:
-    description: Fluence threshold for effective contaminant removal without substrate damage
-    unit: J/cm²
-    value: 2.5
     min: 0.1
     max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Below PS ablation threshold (~2-4 J/cm² at 1064 nm) for safe cleaning; typical for removing contaminants
+      while preserving substrate. Source: Fluence threshold measurements for polystyrene (J. Phys. D: Appl. Phys. 2017).'
   pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of Polystyrene surface contaminants
-    unit: ns
-    value: 100
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning pattern
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 20
-    max: 200
-    value: 50
-    unit: W
-    description: 'Typical range for polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PS,
-      max limited by PS melting point (~240°C) and low thermal conductivity. Source: Studies on Nd:YAG laser cleaning of plastics
-      (e.g., J. Appl. Phys. 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1500
-    description: 'Effective for contamination removal without substrate ablation; slower (500-1000 mm/s) for heavy contamination,
-      faster for light; optimal balances fluence and coverage. Source: Industry manuals from IPG Photonics and laser cleaning
-      process optimization papers.'
-  pulse_width:
     min: 0.1
     max: 1000
     value: 20
@@ -244,40 +219,48 @@ machine_settings:
     description: 'Nanosecond regime preferred for cost-effective cleaning of PS; shorter pulses (ps/fs) minimize HAZ but ns
       sufficient for contamination removal without deep polymer damage. Source: Laser ablation studies on polymers (Opt. Lasers
       Eng. 2020).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Balances cleaning speed and heat accumulation in low-conductivity PS; higher rates increase throughput but
-      risk melting. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2019).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Below PS ablation threshold (~2-4 J/cm² at 1064 nm) for safe cleaning; typical for removing contaminants
-      while preserving substrate. Source: Fluence threshold measurements for polystyrene (J. Phys. D: Appl. Phys. 2017).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Smaller spots for precise surface prep on PS, larger for broad areas; 200 μm balances resolution and efficiency.
-      Source: Equipment specs from Coherent and Trumpf laser systems.'
-  pass_count:
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Effective for contamination removal without substrate ablation; slower (500-1000 mm/s) for heavy contamination,
+      faster for light; optimal balances fluence and coverage. Source: Industry manuals from IPG Photonics and laser cleaning
+      process optimization papers.'
+  passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
     description: 'Multi-pass for thorough removal of heavy contamination; single pass for light; recommended 2 for uniform
       PS cleaning without overexposure. Source: Case studies in industrial laser cleaning (Proc. SPIE 2021).'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
     description: 'Ensures uniform coverage on irregular PS surfaces; 50% optimal for efficiency and minimal heat buildup.
       Source: Process optimization in laser scanning (Opt. Express 2016).'
-component_summary: These settings use moderate 50 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from
-  polystyrene, minimizing thermal damage to its heat-sensitive polymer structure.
+  laserPower:
+    description: Optimal average power for Polystyrene surface cleaning without thermal damage
+    unit: W
+    value: 25
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 200
+    value: 50
+    unit: W
+    description: 'Typical range for polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PS,
+      max limited by PS melting point (~240°C) and low thermal conductivity. Source: Studies on Nd:YAG laser cleaning of plastics
+      (e.g., J. Appl. Phys. 2018).'
+  frequency:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Balances cleaning speed and heat accumulation in low-conductivity PS; higher rates increase throughput but
+      risk melting. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2019).'
+componentSummary: These settings use moderate 50 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from polystyrene,
+  minimizing thermal damage to its heat-sensitive polymer structure.

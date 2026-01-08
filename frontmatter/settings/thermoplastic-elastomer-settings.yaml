@@ -4,7 +4,7 @@ displayName: Thermoplastic Elastomer Laser Cleaning Settings
 category: composite
 subcategory: structural
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:46.243354+00:00'
+dateModified: '2026-01-08T04:55:26.819310+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/structural/thermoplastic-elastomer-settings
@@ -42,7 +42,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -64,8 +64,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -82,7 +82,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -96,9 +96,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -112,31 +119,38 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: matrix-degradation
           type: challenge
         - id: anisotropic-thermal
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: resin-contaminant-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Thermoplastic Elastomer surface cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength optimized for Thermoplastic Elastomer absorption and minimal substrate damage
     unit: nm
@@ -144,93 +158,6 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning control on Thermoplastic Elastomer surfaces
-    unit: μm
-    value: 100
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  energyDensity:
-    description: Fluence threshold for effective contaminant removal without damaging Thermoplastic Elastomer substrate
-    unit: J/cm²
-    value: 1.2
-    min: 0.1
-    max: 20.0
-  pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of surface contaminants
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  dwellTime:
-    description: Optimal dwell time per spot for effective cleaning
-    unit: μs
-    value: 100
-    min: 0.2
-    max: 200
-  power:
-    min: 10
-    max: 100
-    value: 30
-    unit: W
-    description: Typical range for polymer cleaning to avoid thermal damage; starting at 30W for light contamination on TPE,
-      max below melting threshold (~150-200°C); based on IPG Photonics specs for YLR series lasers and studies in Optics and
-      Lasers in Engineering (2018).
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: Higher speeds minimize heat accumulation on heat-sensitive TPE; 2000 mm/s optimal for effective contaminant
-      removal without substrate melting; ranges adjust for light (faster) vs heavy contamination; from industry manuals like
-      those from Laserax and Applied Optics journal (2020).
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes HAZ by rapid
-      energy delivery before conduction; TPE's low thermal conductivity (~0.2 W/mK) benefits short pulses; cited in Laser
-      & Photonics Reviews (2019) on polymer ablation.
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: Balanced rate for TPE to enable fast cleaning while limiting heat buildup; higher rates increase speed but
-      risk accumulation on low-melting TPE; trade-off noted in academic literature like Journal of Applied Physics (2021).
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.5
-    unit: J/cm²
-    description: Fluence below TPE damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² safe for
-      contaminant removal; conservative for reflectivity (~0.9) and low melting point; from ablation threshold studies in
-      Applied Surface Science (2017).
-  spot_size:
     min: 0.1
     max: 500
     value: 200
@@ -238,7 +165,31 @@ machine_settings:
     description: 200 μm recommended for uniform cleaning on TPE surfaces; smaller for fine details, larger for broad areas;
       suits industrial prep without focusing heat; per equipment specs from Coherent Inc. and process guidelines in Industrial
       Laser Solutions (2022).
-  pass_count:
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: Fluence below TPE damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² safe for
+      contaminant removal; conservative for reflectivity (~0.9) and low melting point; from ablation threshold studies in
+      Applied Surface Science (2017).
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes HAZ by rapid
+      energy delivery before conduction; TPE's low thermal conductivity (~0.2 W/mK) benefits short pulses; cited in Laser
+      & Photonics Reviews (2019) on polymer ablation.
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: Higher speeds minimize heat accumulation on heat-sensitive TPE; 2000 mm/s optimal for effective contaminant
+      removal without substrate melting; ranges adjust for light (faster) vs heavy contamination; from industry manuals like
+      those from Laserax and Applied Optics journal (2020).
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -246,12 +197,39 @@ machine_settings:
     description: Multi-pass for heavy contamination on TPE to stay under thermal limits; 2 passes typical for complete removal
       without damage; single pass for light soils; based on case studies in Journal of Cleaner Production (2020) for polymer
       surface prep.
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
     description: 60% ensures uniform coverage on irregular TPE surfaces; higher for heavy contamination to avoid gaps; standard
       range optimizes energy distribution; from process optimization in Lasers in Manufacturing and Materials Processing (2019).
-component_summary: These settings use moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from heat-sensitive
+  dwellTime:
+    description: Optimal dwell time per spot for effective cleaning
+    unit: μs
+    value: 100
+    min: 0.2
+    max: 200
+  laserPower:
+    description: Optimal average power for Thermoplastic Elastomer surface cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 10
+    max: 100
+    value: 30
+    unit: W
+    description: Typical range for polymer cleaning to avoid thermal damage; starting at 30W for light contamination on TPE,
+      max below melting threshold (~150-200°C); based on IPG Photonics specs for YLR series lasers and studies in Optics and
+      Lasers in Engineering (2018).
+  frequency:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: Balanced rate for TPE to enable fast cleaning while limiting heat buildup; higher rates increase speed but
+      risk accumulation on low-melting TPE; trade-off noted in academic literature like Journal of Applied Physics (2021).
+componentSummary: These settings use moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from heat-sensitive
   Thermoplastic Elastomer, minimizing thermal damage and preserving material integrity.

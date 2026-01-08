@@ -4,7 +4,7 @@ displayName: Stainless Steel Laser Cleaning Settings
 category: metal
 subcategory: ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:45.851517+00:00'
+dateModified: '2026-01-08T04:55:26.334513+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/ferrous/stainless-steel-settings
@@ -37,7 +37,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -60,8 +60,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -78,7 +78,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -92,9 +92,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -108,9 +115,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: steel-laser-cleaning
@@ -122,33 +134,40 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: high-thermal-conductivity
           type: challenge
         - id: melting-haz
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: rust-oxide-removal
           type: challenge
         - id: oil-grease-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Stainless Steel oxide layer removal
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-infrared wavelength optimized for Stainless Steel absorption
     unit: nm
@@ -156,54 +175,66 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning resolution
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with minimal heat accumulation
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for cleaning; smaller (100-200 μm) for precision surface prep, larger (200-500 μm) for
+      broad areas. 200 μm recommended for uniform SS cleaning to control fluence. Source: Equipment specs from Coherent and
+      Trumpf lasers, per Optics Express (2022).'
   energyDensity:
-    description: Fluence threshold for effective contaminant removal without substrate damage
-    unit: J/cm²
-    value: 5.1
     min: 0.1
     max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for safe ablation of contaminants; SS damage threshold ~4 J/cm² for ns pulses at 1064 nm due
+      to high thermal conductivity. 1.5 J/cm² recommended for effective cleaning without substrate pitting. Source: Ablation
+      threshold studies in Journal of Applied Physics (2017).'
   pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of surface contaminants
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    value: 50
+    unit: ns
+    description: 'Nanosecond regime typical for cost-effective industrial cleaning of SS; picosecond (0.001-1 ns equivalent)
+      or femtosecond for ultra-low HAZ but less common. 50 ns recommended to reduce thermal effects while ablating contaminants.
+      Source: Laser physics review in Applied Surface Science (2019), noting minimal HAZ at <100 ns for metals.'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective range for contamination removal; slower (500-1500 mm/s) for heavy rust/oil, faster (2000-5000
+      mm/s) for light oxides. Recommended 2000 mm/s for optimal balance on SS to minimize heat input. Source: Industry standards
+      from Laserax manuals and Journal of Cleaner Production (2020) case studies.'
   passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    value: 3
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers to avoid excessive energy per pass
+      on heat-sensitive SS. 3 passes recommended for complete removal with minimal distortion. Source: Industry case studies
+      in Surface and Coatings Technology (2019).'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive processing
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage without gaps or over-ablation; 50% optimal for SS to achieve even cleaning while
+      preventing heat buildup. Source: Process optimization in International Journal of Advanced Manufacturing Technology
+      (2020).'
   dwellTime:
     description: Effective dwell time per spot for contaminant ablation
     unit: μs
     value: 100
     min: 0.2
     max: 200
-  power:
+  laserPower:
+    description: Optimal average power for Stainless Steel oxide layer removal
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
     min: 50
     max: 1000
     value: 200
@@ -212,23 +243,7 @@ machine_settings:
       without melting; starting at 200 W for balanced efficiency and safety. Max limited to avoid thermal damage given SS
       reflectivity (~60% at 1064 nm). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering
       (2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: 'Effective range for contamination removal; slower (500-1500 mm/s) for heavy rust/oil, faster (2000-5000
-      mm/s) for light oxides. Recommended 2000 mm/s for optimal balance on SS to minimize heat input. Source: Industry standards
-      from Laserax manuals and Journal of Cleaner Production (2020) case studies.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 50
-    unit: ns
-    description: 'Nanosecond regime typical for cost-effective industrial cleaning of SS; picosecond (0.001-1 ns equivalent)
-      or femtosecond for ultra-low HAZ but less common. 50 ns recommended to reduce thermal effects while ablating contaminants.
-      Source: Laser physics review in Applied Surface Science (2019), noting minimal HAZ at <100 ns for metals.'
-  repetition_rate:
+  frequency:
     min: 1
     max: 200
     value: 50
@@ -236,37 +251,5 @@ machine_settings:
     description: 'Standard for pulsed cleaning; higher rates (>100 kHz) speed up process but risk heat accumulation on reflective
       SS. 50 kHz balances speed and thermal management. Source: Academic literature in Lasers in Manufacturing and Materials
       Processing (2021), highlighting trade-offs for stainless steel.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for safe ablation of contaminants; SS damage threshold ~4 J/cm² for ns pulses at 1064 nm due
-      to high thermal conductivity. 1.5 J/cm² recommended for effective cleaning without substrate pitting. Source: Ablation
-      threshold studies in Journal of Applied Physics (2017).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for cleaning; smaller (100-200 μm) for precision surface prep, larger (200-500 μm) for
-      broad areas. 200 μm recommended for uniform SS cleaning to control fluence. Source: Equipment specs from Coherent and
-      Trumpf lasers, per Optics Express (2022).'
-  pass_count:
-    min: 1
-    max: 10
-    value: 3
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers to avoid excessive energy per pass
-      on heat-sensitive SS. 3 passes recommended for complete removal with minimal distortion. Source: Industry case studies
-      in Surface and Coatings Technology (2019).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage without gaps or over-ablation; 50% optimal for SS to achieve even cleaning while
-      preventing heat buildup. Source: Process optimization in International Journal of Advanced Manufacturing Technology
-      (2020).'
-component_summary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width are ideal for stainless steel, delivering precise
+componentSummary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width are ideal for stainless steel, delivering precise
   ablation of contaminants while minimizing heat-affected zones to prevent oxidation and maintain surface integrity.

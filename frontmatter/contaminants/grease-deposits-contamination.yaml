@@ -2,7 +2,7 @@ id: grease-deposits-contamination
 name: Heavy Machinery Grease
 category: organic-residue
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:43.710697+00:00'
+dateModified: '2026-01-08T04:55:07.272014+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/organic-residue/petroleum/grease-deposits-contamination
@@ -39,14 +39,34 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
+  jobTitle: Junior Optical Materials Specialist
   expertise:
   - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -59,139 +79,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Combustible materials present, risk elevated in confined spaces or high-power settings
-        mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Acrolein
-        concentration_mg_m3: 2.5
-        exposure_limit_mg_m3: 0.23
-        hazard_class: toxic
-      - compound: Formaldehyde
-        concentration_mg_m3: 1.8
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Benzene
-        concentration_mg_m3: 0.9
-        exposure_limit_mg_m3: 0.32
-        hazard_class: carcinogenic
-      - compound: Toluene
-        concentration_mg_m3: 3.2
-        exposure_limit_mg_m3: 75
-        hazard_class: toxic
-      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-        concentration_mg_m3: 1.1
-        exposure_limit_mg_m3: 0.2
-        hazard_class: carcinogenic
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 15
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: full_suit
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: high
-        primary_hazards:
-        - compound: Acrolein
-          concentration_mg_m3: 2.5
-          hazard_class: toxic
-        - compound: Formaldehyde
-          concentration_mg_m3: 1.8
-          hazard_class: carcinogenic
-        - compound: Benzene
-          concentration_mg_m3: 0.9
-          hazard_class: carcinogenic
-        - compound: Toluene
-          concentration_mg_m3: 3.2
-          hazard_class: toxic
-        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-          concentration_mg_m3: 1.1
-          hazard_class: carcinogenic
-        description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Benzene - requires enhanced protection'
-        mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
-          Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 12
-        rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Laser may cause surface damage or discoloration on certain metals
-    - Potential for substrate heating and thermal stress
-    - Reflective surfaces may create beam hazards
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items:
       - id: carbon-dioxide-compound
@@ -204,7 +230,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: steel-laser-cleaning
@@ -223,11 +256,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: Grease shows as dark, greasy smears with a shiny, wet look and a smooth, oily texture on the glazed
               surface.
@@ -315,102 +355,192 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.4
-            min_j_cm2: 0.8
-            recommended_j_cm2: 1.1
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.4
+            minJCm2: 0.8
+            recommendedJCm2: 1.1
+          overlapPercentage: 50
           polarization: circular
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 50
-            recommended_ns: 100
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 200
+            minNs: 50
+            recommendedNs: 100
+          repetitionRateKhz:
             max: 100
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.2
             min: 0.05
             recommended: 0.1
-          wavelength_preference:
+          wavelengthPreference:
           - 1064
           - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 850
-            wavelength_355nm: 18500
-            wavelength_532nm: 4200
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 850
+            wavelength355Nm: 18500
+            wavelength532Nm: 4200
           reflectivity:
-            wavelength_1064nm: 0.12
-            wavelength_355nm: 0.04
-            wavelength_532nm: 0.08
-          refractive_index:
-            imaginary_part: 0.15
-            real_part: 1.48
-          transmission_depth: 11.8
-        removal_characteristics:
+            wavelength1064Nm: 0.12
+            wavelength355Nm: 0.04
+            wavelength532Nm: 0.08
+          refractiveIndex:
+            imaginaryPart: 0.15
+            realPart: 1.48
+          transmissionDepth: 11.8
+        removalCharacteristics:
           byproducts:
           - compound: carbon-dioxide
-            hazard_level: low
+            hazardLevel: low
             phase: gas
           - compound: water-vapor
-            hazard_level: low
+            hazardLevel: low
             phase: gas
           - compound: carbon-ash
-            hazard_level: moderate
+            hazardLevel: moderate
             phase: solid
           - compound: vocs
-            hazard_level: moderate
+            hazardLevel: moderate
             phase: gas
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 480
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.85
-          secondary_mechanisms:
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 480
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 3
+            optimalPasses: 2
+            singlePass: 0.85
+          secondaryMechanisms:
           - photochemical
           - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: none
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 2.5
-            pulse_duration_10ns: 1.2
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 350
-          heat_affected_zone_depth: 15
-          melting_point: null
-          specific_heat: 2000
-          thermal_conductivity: 0.15
-          thermal_diffusivity: 0.08
-          vaporization_temperature: 450
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: none
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: moderate
+            description: Combustible materials present, risk elevated in confined spaces or high-power settings
+            mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+          fumesGenerated:
+          - compound: Acrolein
+            concentrationMgM3: 2.5
+            exposureLimitMgM3: 0.23
+            hazardClass: toxic
+          - compound: Formaldehyde
+            concentrationMgM3: 1.8
+            exposureLimitMgM3: 0.37
+            hazardClass: carcinogenic
+          - compound: Benzene
+            concentrationMgM3: 0.9
+            exposureLimitMgM3: 0.32
+            hazardClass: carcinogenic
+          - compound: Toluene
+            concentrationMgM3: 3.2
+            exposureLimitMgM3: 75
+            hazardClass: toxic
+          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+            concentrationMgM3: 1.1
+            exposureLimitMgM3: 0.2
+            hazardClass: carcinogenic
+          - compound: Carbon Monoxide
+            concentrationMgM3: 15
+            exposureLimitMgM3: 29
+            hazardClass: toxic
+          particulateGeneration:
+            respirableFraction: 0.7
+            sizeRangeUm:
+            - 0.1
+            - 10
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: full_suit
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser may cause surface damage or discoloration on certain metals
+          - Potential for substrate heating and thermal stress
+          - Reflective surfaces may create beam hazards
+          toxicGasRisk:
+            severity: high
+            primaryHazards:
+            - compound: Acrolein
+              concentrationMgM3: 2.5
+              hazardClass: toxic
+            - compound: Formaldehyde
+              concentrationMgM3: 1.8
+              hazardClass: carcinogenic
+            - compound: Benzene
+              concentrationMgM3: 0.9
+              hazardClass: carcinogenic
+            - compound: Toluene
+              concentrationMgM3: 3.2
+              hazardClass: toxic
+            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+              concentrationMgM3: 1.1
+              hazardClass: carcinogenic
+            description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Benzene - requires enhanced protection'
+            mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
+              Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: carbon
+            minimumAirChangesPerHour: 12
+            rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 2.5
+            pulseDuration10Ns: 1.2
+            wavelength1064Nm: 0.8
+          decompositionTemperature: 350
+          heatAffectedZoneDepth: 15
+          meltingPoint: null
+          specificHeat: 2000
+          thermalConductivity: 0.15
+          thermalDiffusivity: 0.08
+          vaporizationTemperature: 450
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Heavy Machinery Grease
 subcategory: petroleum
-valid_materials:
+validMaterials:
 - aluminum-laser-cleaning
 - cast-iron-laser-cleaning
 - iron-laser-cleaning
@@ -419,7 +549,7 @@ composition:
 - Mineral Oil
 - Lithium Soap
 - PTFE
-prohibited_materials:
+prohibitedMaterials:
 - Nylon
 - Plastics
 - Wood

@@ -4,7 +4,7 @@ displayName: PET Laser Cleaning Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:47.563429+00:00'
+dateModified: '2026-01-08T04:55:28.728868+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/pet-settings
@@ -36,7 +36,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -58,8 +58,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -76,7 +76,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -90,9 +90,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -106,9 +113,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -124,26 +136,33 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    value: 30
-    unit: W
-    description: Low power for thermal-sensitive polymer cleaning
-    min: 1.0
-    max: 120
   wavelength:
     value: 1064
     unit: nm
@@ -151,88 +170,6 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    value: 100
-    unit: μm
-    description: Larger spot for gentle surface treatment
-    min: 0.1
-    max: 500
-  repetitionRate:
-    value: 20
-    unit: kHz
-    description: Lower frequency to prevent thermal damage
-    min: 1
-    max: 200
-  energyDensity:
-    value: 0.5
-    unit: J/cm²
-    description: Low energy density to avoid melting
-    min: 0.1
-    max: 20.0
-  pulseWidth:
-    value: 10
-    unit: ns
-    description: Short pulses for minimal thermal impact
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    value: 800
-    unit: mm/s
-    description: Fast scanning to reduce heat accumulation
-    min: 10
-    max: 5000
-  passCount:
-    value: 2
-    unit: passes
-    description: Multiple gentle passes for gradual cleaning
-    min: 1
-    max: 10
-  overlapRatio:
-    value: 30
-    unit: '%'
-    description: Lower overlap to prevent overheating
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 500
-    value: 100
-    unit: W
-    description: 'Typical range for polymer cleaning to avoid thermal damage; starting at 100W for light contamination on
-      PET, max below ~300W to prevent melting (PET melting point ~260°C). Source: Studies on Nd:YAG laser cleaning of plastics
-      (e.g., J. Laser Appl. 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1500
-    description: 'Effective speeds balance cleaning efficiency and heat input; slower (500-1000 mm/s) for heavy contamination,
-      faster (2000+ mm/s) for light; 1500 mm/s optimal for uniform PET surface prep. Source: Industry manuals from IPG Photonics
-      and Laserax equipment specs.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for 1064 nm cleaning of PET to minimize HAZ; picosecond (ps) or femtosecond
-      (fs) for ultra-precise but costlier; 20 ns balances ablation and low thermal diffusion (PET low conductivity ~0.15 W/mK).
-      Source: Laser physics reviews (Opt. Lasers Eng. 2020).'
-  repetition_rate:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 30
-    description: 'Typical for pulsed cleaning; 20-50 kHz recommended for PET to enable fast processing without excessive heat
-      accumulation; higher rates increase speed but risk substrate heating. Source: Academic literature on polymer laser ablation
-      (Appl. Surf. Sci. 2019).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    value: 1.0
-    description: 'Fluence below PET damage threshold (~2-4 J/cm² at 1064 nm) for safe contaminant removal; 0.5-1.5 J/cm² for
-      light cleaning, up to 2.5 for heavy; conservative to account for PET''s moderate IR absorption (~20-30%). Source: Ablation
-      threshold studies (J. Phys. D: Appl. Phys. 2017).'
-  spot_size:
     min: 0.1
     max: 500
     unit: μm
@@ -240,7 +177,31 @@ machine_settings:
     description: 'Smaller spots (100-300 μm) for fine detail on PET, larger (500-1000 μm) for broad areas; 300 μm recommended
       for balanced resolution and energy distribution in industrial cleaning. Source: Manufacturer specs from Coherent and
       Trumpf laser systems.'
-  pass_count:
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    value: 1.0
+    description: 'Fluence below PET damage threshold (~2-4 J/cm² at 1064 nm) for safe contaminant removal; 0.5-1.5 J/cm² for
+      light cleaning, up to 2.5 for heavy; conservative to account for PET''s moderate IR absorption (~20-30%). Source: Ablation
+      threshold studies (J. Phys. D: Appl. Phys. 2017).'
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for 1064 nm cleaning of PET to minimize HAZ; picosecond (ps) or femtosecond
+      (fs) for ultra-precise but costlier; 20 ns balances ablation and low thermal diffusion (PET low conductivity ~0.15 W/mK).
+      Source: Laser physics reviews (Opt. Lasers Eng. 2020).'
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Effective speeds balance cleaning efficiency and heat input; slower (500-1000 mm/s) for heavy contamination,
+      faster (2000+ mm/s) for light; 1500 mm/s optimal for uniform PET surface prep. Source: Industry manuals from IPG Photonics
+      and Laserax equipment specs.'
+  passCount:
     min: 1
     max: 10
     unit: passes
@@ -248,12 +209,34 @@ machine_settings:
     description: 'Single pass for light contamination, multi-pass (2-3) for complete removal without damage; 2 passes typical
       for PET to ensure uniformity while minimizing heat exposure. Source: Case studies in industrial laser cleaning (Proc.
       SPIE 2021).'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 50
     description: 'Ensures uniform coverage; 40-60% for PET to avoid gaps or overexposure; higher (70-80%) for heavy contamination,
       lower for speed. Source: Process optimization in laser scanning (Opt. Eng. 2016).'
-component_summary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for PET cleaning, delivering
+  laserPower:
+    value: 30
+    unit: W
+    description: Low power for thermal-sensitive polymer cleaning
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 500
+    value: 100
+    unit: W
+    description: 'Typical range for polymer cleaning to avoid thermal damage; starting at 100W for light contamination on
+      PET, max below ~300W to prevent melting (PET melting point ~260°C). Source: Studies on Nd:YAG laser cleaning of plastics
+      (e.g., J. Laser Appl. 2018).'
+  frequency:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 30
+    description: 'Typical for pulsed cleaning; 20-50 kHz recommended for PET to enable fast processing without excessive heat
+      accumulation; higher rates increase speed but risk substrate heating. Source: Academic literature on polymer laser ablation
+      (Appl. Surf. Sci. 2019).'
+componentSummary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for PET cleaning, delivering
   precise ablation of contaminants while minimizing thermal input to avoid melting the sensitive polymer substrate.

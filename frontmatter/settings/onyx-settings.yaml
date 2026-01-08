@@ -4,7 +4,7 @@ displayName: Onyx Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.053783+00:00'
+dateModified: '2026-01-08T04:55:23.999285+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/sedimentary/onyx-settings
@@ -38,7 +38,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -60,8 +60,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -78,7 +78,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -92,9 +92,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -108,9 +115,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -126,16 +138,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and microcracking
           severity: critical
-          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
           impact: Natural stone contains microfissures that propagate under thermal stress
           solutions:
           - Use pulse mode with 8-12 second cooling between passes
@@ -145,7 +162,7 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Moisture-induced spalling
           severity: high
-          threshold_temperature: Steam formation >100°C with trapped moisture
+          thresholdTemperature: Steam formation >100°C with trapped moisture
           impact: Porous stone traps moisture that explosively converts to steam
           solutions:
           - Test moisture content before cleaning (>3% requires drying)
@@ -153,20 +170,22 @@ relationships:
           - Reduce power by 50% for damp stone
           - Use pulse mode with extended cooling (15-20 seconds)
           - Heritage stone requires especially gentle approach
-        contamination_challenges:
+        contaminationChallenges:
         - id: biological-growth
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Onyx surface cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength optimized for Onyx absorption and minimal subsurface damage
     unit: nm
@@ -174,69 +193,20 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning resolution
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
+    value: 300
+    unit: μm
+    description: Beam diameter for uniform coverage; 300 μm recommended for Onyx surface preparation (fine detail vs. large
+      area); from equipment specs like Coherent lasers, suitable for stone texturing.
   energyDensity:
-    description: Fluence threshold for effective contaminant removal without substrate damage
-    unit: J/cm²
-    value: 5.1
     min: 0.1
     max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: Fluence range for safe contaminant ablation; Onyx damage threshold ~6-8 J/cm² (SiO2-based); 1.5 J/cm² recommended
+      for cleaning without substrate etching (ablation studies in J. Appl. Phys. 2017).
   pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of surface contaminants
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 3
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  dwellTime:
-    description: Optimal dwell time per spot for effective cleaning
-    unit: μs
-    value: 200
-    min: 0.2
-    max: 200
-  power:
-    min: 50
-    max: 500
-    value: 100
-    unit: W
-    description: Typical range for Nd:YAG lasers in stone cleaning to avoid thermal damage; starting at 100W for light contamination
-      on Onyx (chalcedony-based, low thermal conductivity); max safe below 500W to prevent cracking (based on IPG Photonics
-      specs and studies in J. Cult. Herit. 2018).
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 500
-    description: Effective speeds for contamination removal; 500 mm/s recommended for optimal balance on Onyx; slower (100-500
-      mm/s) for heavy contamination, faster (500-2000 mm/s) for light; from industry manuals like those from Adapt Laser Systems.
-  pulse_width:
     min: 0.1
     max: 1000
     value: 20
@@ -244,40 +214,53 @@ machine_settings:
     description: Nanosecond regime typical for industrial cleaning to minimize heat-affected zone (HAZ) on heat-sensitive
       Onyx; 20 ns recommended over ps/fs for cost-effectiveness while reducing thermal accumulation (laser physics in Opt.
       Lasers Eng. 2020).
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: Common for 1064 nm cleaning; 30 kHz recommended for Onyx to balance speed and heat buildup (high freq risks
-      accumulation on low-conductivity substrates); trade-off noted in Appl. Surf. Sci. 2019.
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: Fluence range for safe contaminant ablation; Onyx damage threshold ~6-8 J/cm² (SiO2-based); 1.5 J/cm² recommended
-      for cleaning without substrate etching (ablation studies in J. Appl. Phys. 2017).
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 300
-    unit: μm
-    description: Beam diameter for uniform coverage; 300 μm recommended for Onyx surface preparation (fine detail vs. large
-      area); from equipment specs like Coherent lasers, suitable for stone texturing.
-  pass_count:
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 500
+    description: Effective speeds for contamination removal; 500 mm/s recommended for optimal balance on Onyx; slower (100-500
+      mm/s) for heavy contamination, faster (500-2000 mm/s) for light; from industry manuals like those from Adapt Laser Systems.
+  passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
     description: Typically 1-3 passes for complete removal on stones; 2 passes recommended for Onyx to ensure uniformity without
       overexposure; based on case studies in industrial cleaning (Laser Cleaning Handbook, 2021).
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
     description: Ensures uniform coverage; 50% recommended for Onyx to avoid gaps or excessive overlap-induced damage; typical
       range from process optimization in Opt. Express 2016.
-component_summary: These settings employ a 1064 nm wavelength and 10 ns pulses at 100 W to gently ablate contaminants from
+  dwellTime:
+    description: Optimal dwell time per spot for effective cleaning
+    unit: μs
+    value: 200
+    min: 0.2
+    max: 200
+  laserPower:
+    description: Optimal average power for Onyx surface cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 500
+    value: 100
+    unit: W
+    description: Typical range for Nd:YAG lasers in stone cleaning to avoid thermal damage; starting at 100W for light contamination
+      on Onyx (chalcedony-based, low thermal conductivity); max safe below 500W to prevent cracking (based on IPG Photonics
+      specs and studies in J. Cult. Herit. 2018).
+  frequency:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: Common for 1064 nm cleaning; 30 kHz recommended for Onyx to balance speed and heat buildup (high freq risks
+      accumulation on low-conductivity substrates); trade-off noted in Appl. Surf. Sci. 2019.
+componentSummary: These settings employ a 1064 nm wavelength and 10 ns pulses at 100 W to gently ablate contaminants from
   Onyx's sensitive surface without causing thermal cracking or discoloration.

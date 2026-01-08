@@ -4,7 +4,7 @@ displayName: Silicon Laser Cleaning Settings
 category: semiconductor
 subcategory: elemental
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:45.493244+00:00'
+dateModified: '2026-01-08T04:55:25.822254+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/semiconductor/elemental/silicon-settings
@@ -41,7 +41,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -63,8 +63,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -81,7 +81,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -95,9 +95,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -111,9 +118,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -129,16 +141,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Crystal lattice damage and doping redistribution
           severity: critical
-          threshold_temperature: Above 400-600°C causes dopant migration
+          thresholdTemperature: Above 400-600°C causes dopant migration
           impact: Heat causes permanent alteration of electronic properties and device failure
           solutions:
           - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
@@ -147,14 +164,14 @@ relationships:
           - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
         - challenge: Thermal stress and wafer cracking
           severity: high
-          property_value: Low fracture toughness 0.75-3.0 MPa·√m
+          propertyValue: Low fracture toughness 0.75-3.0 MPa·√m
           impact: Thermal gradients cause catastrophic wafer fracture
           solutions:
           - Use pulse mode with 10-15 second cooling for thick wafers
           - Thin wafers (<200 μm) require substrate backing for thermal management
           - Defocused beam reduces peak temperature gradients
           - Gradual power ramping (start 10W, increase 5W per pass)
-        contamination_challenges:
+        contaminationChallenges:
         - challenge: Photoresist and polymer residue removal
           severity: medium
           impact: Organic residues carbonize and become harder to remove
@@ -165,16 +182,18 @@ relationships:
           - Oxygen-rich environment aids in organic ablation
           - Post-cleaning oxygen plasma for complete residue removal
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Silicon surface cleaning without substrate damage
-    unit: W
-    value: 25
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength with good Silicon absorption for contaminant removal
     unit: nm
@@ -182,90 +201,6 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning with adequate energy density
-    unit: μm
-    value: 50
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and process control
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  fluenceThreshold:
-    description: Fluence threshold for effective contaminant removal without Silicon damage
-    unit: J/cm²
-    value: 2.5
-    min: 0.3
-    max: 4.5
-  pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant ablation with minimal thermal diffusion
-    unit: ns
-    value: 100
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 10
-    max: 200
-    value: 50
-    unit: W
-    description: 'Typical range for industrial laser cleaning of semiconductors like Silicon to balance efficiency and avoid
-      thermal damage; starting at 50 W for light contamination. Max safe below ~200 W to prevent melting (Silicon melting
-      point 1414°C). Source: IPG Photonics YLR series specs for cleaning applications; academic review in Optics and Lasers
-      in Engineering (2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1000
-    unit: mm/s
-    description: 'Effective range for 1064 nm cleaning; 1000 mm/s optimal for uniform contaminant removal on Silicon without
-      excessive heat buildup due to its high thermal conductivity (~150 W/m·K). Light contamination: 2000-5000 mm/s; heavy:
-      100-500 mm/s. Source: Industry standards from Laserline GmbH manuals; case studies in Journal of Applied Physics (2020).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime (5-200 ns) common for industrial 1064 nm cleaning of Silicon; 20 ns recommended for minimal
-      heat-affected zone (HAZ <10 μm) by confining energy to surface ablation. Picosecond (ps) or femtosecond (fs) better
-      for ultra-precision but costlier; ns sufficient for contamination removal. Source: Laser physics research in Applied
-      Surface Science (2019); avoids reflectivity issues at 1064 nm (~35% for Silicon).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; 50 kHz recommended for Silicon to achieve fast coverage while limiting
-      heat accumulation (trade-off: higher rates speed up process but risk thermal stress). Lower rates for heavy contamination.
-      Source: Academic literature in Optics Express (2021); based on Silicon''s moderate IR absorption.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.5
-    unit: J/cm²
-    description: 'Fluence range for safe cleaning below Silicon''s ablation threshold (~1-3 J/cm² at 1064 nm); 0.5 J/cm² recommended
-      to remove contaminants without substrate damage. Damage threshold ~2 J/cm² for ns pulses. Conservative for Silicon''s
-      reflectivity. Source: Ablation threshold studies in Physical Review B (2017); Journal of Laser Applications (2022).'
-  spot_size:
     min: 0.1
     max: 500
     unit: μm
@@ -274,7 +209,30 @@ machine_settings:
       for fine features and coverage for larger areas. Smaller (50-100 μm) for detailed work; larger (300-500 μm) for broad
       contamination. Source: Equipment specs from Coherent ArmoClean systems; industry optimization in Surface and Coatings
       Technology (2020).'
-  pass_count:
+  fluenceThreshold:
+    description: Fluence threshold for effective contaminant removal without Silicon damage
+    unit: J/cm²
+    value: 2.5
+    min: 0.3
+    max: 4.5
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime (5-200 ns) common for industrial 1064 nm cleaning of Silicon; 20 ns recommended for minimal
+      heat-affected zone (HAZ <10 μm) by confining energy to surface ablation. Picosecond (ps) or femtosecond (fs) better
+      for ultra-precision but costlier; ns sufficient for contamination removal. Source: Laser physics research in Applied
+      Surface Science (2019); avoids reflectivity issues at 1064 nm (~35% for Silicon).'
+  scanSpeed:
+    min: 10
+    max: 5000
+    value: 1000
+    unit: mm/s
+    description: 'Effective range for 1064 nm cleaning; 1000 mm/s optimal for uniform contaminant removal on Silicon without
+      excessive heat buildup due to its high thermal conductivity (~150 W/m·K). Light contamination: 2000-5000 mm/s; heavy:
+      100-500 mm/s. Source: Industry standards from Laserline GmbH manuals; case studies in Journal of Applied Physics (2020).'
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -282,7 +240,7 @@ machine_settings:
     description: '1-5 passes typical for complete removal; 2 passes recommended for Silicon to ensure thorough cleaning of
       industrial contaminants without overexposure. Single pass for light layers; multi-pass for heavy or uneven. Source:
       Industry practice in semiconductor processing case studies, e.g., SPIE Proceedings (2019).'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 60
@@ -290,5 +248,36 @@ machine_settings:
     description: '30-80% overlap for uniform coverage; 60% recommended for Silicon cleaning to avoid gaps or streaks while
       minimizing total energy input and heat. Higher (70-80%) for fine uniformity; lower (30-50%) for speed on large areas.
       Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021).'
-component_summary: The 1064 nm wavelength ensures efficient absorption in silicon, while 50 W power and 100 ns pulses enable
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: 'Fluence range for safe cleaning below Silicon''s ablation threshold (~1-3 J/cm² at 1064 nm); 0.5 J/cm² recommended
+      to remove contaminants without substrate damage. Damage threshold ~2 J/cm² for ns pulses. Conservative for Silicon''s
+      reflectivity. Source: Ablation threshold studies in Physical Review B (2017); Journal of Laser Applications (2022).'
+  laserPower:
+    description: Optimal average power for Silicon surface cleaning without substrate damage
+    unit: W
+    value: 25
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 10
+    max: 200
+    value: 50
+    unit: W
+    description: 'Typical range for industrial laser cleaning of semiconductors like Silicon to balance efficiency and avoid
+      thermal damage; starting at 50 W for light contamination. Max safe below ~200 W to prevent melting (Silicon melting
+      point 1414°C). Source: IPG Photonics YLR series specs for cleaning applications; academic review in Optics and Lasers
+      in Engineering (2018).'
+  frequency:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical 10-100 kHz for pulsed cleaning; 50 kHz recommended for Silicon to achieve fast coverage while limiting
+      heat accumulation (trade-off: higher rates speed up process but risk thermal stress). Lower rates for heavy contamination.
+      Source: Academic literature in Optics Express (2021); based on Silicon''s moderate IR absorption.'
+componentSummary: The 1064 nm wavelength ensures efficient absorption in silicon, while 50 W power and 100 ns pulses enable
   precise contaminant removal without causing thermal damage to the sensitive semiconductor surface.

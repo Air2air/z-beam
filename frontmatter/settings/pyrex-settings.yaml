@@ -4,7 +4,7 @@ displayName: Pyrex Laser Cleaning Settings
 category: glass
 subcategory: soda-lime
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.844479+00:00'
+dateModified: '2026-01-08T04:55:24.975502+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/soda-lime/pyrex-settings
@@ -40,7 +40,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -63,8 +63,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -81,7 +81,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -95,9 +95,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -111,9 +118,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -129,16 +141,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and catastrophic failure
           severity: critical
-          threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+          thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
           impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
           solutions:
           - Use pulse mode with 5-8 second cooling between passes
@@ -148,27 +165,29 @@ relationships:
           - Monitor for stress fractures; stop immediately if cracks appear
         - challenge: Low thermal diffusivity
           severity: high
-          property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+          propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
           impact: Heat accumulates in localized zones creating thermal gradients
           solutions:
           - Reduce power by 30-40% compared to metals
           - Increase scan speed to distribute heat (1000-2000 mm/s)
           - Use defocused beam to spread energy over larger area
           - Optical-grade glass (fused silica) tolerates higher power
-        contamination_challenges:
+        contaminationChallenges:
         - id: adhesive-paint-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Pyrex surface cleaning without thermal damage
-    unit: W
-    value: 25
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength providing good absorption in surface contaminants while minimizing bulk Pyrex absorption
     unit: nm
@@ -176,88 +195,6 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning with adequate energy density
-    unit: μm
-    value: 50
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  fluenceThreshold:
-    description: Energy density threshold for effective contaminant removal without damaging Pyrex substrate
-    unit: J/cm²
-    value: 2.5
-    min: 0.3
-    max: 4.5
-  pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
-    unit: ns
-    value: 100
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 3
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap percentage for uniform cleaning without excessive thermal buildup
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 20
-    max: 500
-    value: 100
-    unit: W
-    description: 'Typical range for industrial cleaning of delicate glasses like Pyrex to avoid thermal cracking; starting
-      at 100W for light contamination, max below damage threshold (~500W for short pulses). Source: Manufacturer specs from
-      IPG Photonics and Coherent for 1064 nm systems; academic paper on glass cleaning (Opt. Lasers Eng., 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 500
-    description: 'Effective speeds for 1064 nm cleaning of Pyrex; slower (100-500 mm/s) for heavy contamination, faster (up
-      to 3000 mm/s) for light; 500 mm/s optimal for balance of efficiency and safety. Source: Industry standards from Laser
-      Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for Pyrex to ablate contaminants without deep penetration; 20 ns minimizes heat-affected
-      zone (HAZ) due to Pyrex''s low thermal conductivity (~1 W/mK); picosecond (ps) possible but less common industrially.
-      Source: Laser physics research (Appl. Phys. A, 2015) on glass ablation thresholds.'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical for 1064 nm cleaning to ensure pulse overlap without excessive heat accumulation on Pyrex (melting
-      point ~820°C); 50 kHz balances speed and thermal management; higher rates increase efficiency but risk stress. Source:
-      Academic literature (J. Appl. Phys., 2020) on pulsed laser cleaning of borosilicates.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal on Pyrex; below damage threshold (~5-10 J/cm² at 1064 nm due to moderate
-      absorption); 1 J/cm² recommended for safe cleaning without substrate ablation. Source: Ablation threshold studies (Opt.
-      Express, 2017) for borosilicate glass.'
-  spot_size:
     min: 0.1
     max: 500
     value: 300
@@ -265,19 +202,71 @@ machine_settings:
     description: 'Beam diameter for precise cleaning of Pyrex surfaces; smaller (100-300 μm) for fine details, larger for
       area coverage; 300 μm typical to control energy density on reflective/low-conductivity Pyrex. Source: Equipment specifications
       from Trumpf and SPI Lasers.'
-  pass_count:
+  fluenceThreshold:
+    description: Energy density threshold for effective contaminant removal without damaging Pyrex substrate
+    unit: J/cm²
+    value: 2.5
+    min: 0.3
+    max: 4.5
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for Pyrex to ablate contaminants without deep penetration; 20 ns minimizes heat-affected
+      zone (HAZ) due to Pyrex''s low thermal conductivity (~1 W/mK); picosecond (ps) possible but less common industrially.
+      Source: Laser physics research (Appl. Phys. A, 2015) on glass ablation thresholds.'
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 500
+    description: 'Effective speeds for 1064 nm cleaning of Pyrex; slower (100-500 mm/s) for heavy contamination, faster (up
+      to 3000 mm/s) for light; 500 mm/s optimal for balance of efficiency and safety. Source: Industry standards from Laser
+      Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser).'
+  passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
     description: 'Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes recommended for complete removal
       on Pyrex without cumulative thermal damage. Source: Industry case studies (Proc. SPIE, 2019) on glass surface preparation.'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
     description: 'Ensures uniform coverage in scan patterns; 50% optimal for Pyrex to avoid gaps or overexposure, considering
       beam Gaussian profile. Source: Process optimization studies (Surf. Coat. Technol., 2021) for laser cleaning applications.'
-component_summary: These settings employ moderate 100 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 1
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal on Pyrex; below damage threshold (~5-10 J/cm² at 1064 nm due to moderate
+      absorption); 1 J/cm² recommended for safe cleaning without substrate ablation. Source: Ablation threshold studies (Opt.
+      Express, 2017) for borosilicate glass.'
+  laserPower:
+    description: Optimal average power for Pyrex surface cleaning without thermal damage
+    unit: W
+    value: 25
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 500
+    value: 100
+    unit: W
+    description: 'Typical range for industrial cleaning of delicate glasses like Pyrex to avoid thermal cracking; starting
+      at 100W for light contamination, max below damage threshold (~500W for short pulses). Source: Manufacturer specs from
+      IPG Photonics and Coherent for 1064 nm systems; academic paper on glass cleaning (Opt. Lasers Eng., 2018).'
+  frequency:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical for 1064 nm cleaning to ensure pulse overlap without excessive heat accumulation on Pyrex (melting
+      point ~820°C); 50 kHz balances speed and thermal management; higher rates increase efficiency but risk stress. Source:
+      Academic literature (J. Appl. Phys., 2020) on pulsed laser cleaning of borosilicates.'
+componentSummary: These settings employ moderate 100 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from
   Pyrex, minimizing thermal stress on its heat-sensitive borosilicate glass.

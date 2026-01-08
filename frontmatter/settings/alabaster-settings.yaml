@@ -4,7 +4,7 @@ displayName: Alabaster Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:41.108087+00:00'
+dateModified: '2026-01-08T04:55:19.015606+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/sedimentary/alabaster-settings
@@ -43,7 +43,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -66,8 +66,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -84,7 +84,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -98,9 +98,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -114,9 +121,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -132,16 +144,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and microcracking
           severity: critical
-          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
           impact: Natural stone contains microfissures that propagate under thermal stress
           solutions:
           - Use pulse mode with 8-12 second cooling between passes
@@ -151,7 +168,7 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Moisture-induced spalling
           severity: high
-          threshold_temperature: Steam formation >100°C with trapped moisture
+          thresholdTemperature: Steam formation >100°C with trapped moisture
           impact: Porous stone traps moisture that explosively converts to steam
           solutions:
           - Test moisture content before cleaning (>3% requires drying)
@@ -159,20 +176,22 @@ relationships:
           - Reduce power by 50% for damp stone
           - Use pulse mode with extended cooling (15-20 seconds)
           - Heritage stone requires especially gentle approach
-        contamination_challenges:
+        contaminationChallenges:
         - id: biological-growth
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Alabaster surface cleaning without thermal damage
-    unit: W
-    value: 45
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength providing good absorption in surface contaminants while minimizing bulk material damage
     unit: nm
@@ -180,88 +199,6 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter providing sufficient energy density for cleaning with good resolution
-    unit: μm
-    value: 80
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage while avoiding thermal accumulation
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  fluenceThreshold:
-    description: Energy density threshold for effective contaminant removal without damaging Alabaster substrate
-    unit: J/cm²
-    value: 1.2
-    min: 0.3
-    max: 4.5
-  pulseWidth:
-    description: Short pulse duration for efficient contaminant removal with minimal heat diffusion
-    unit: ns
-    value: 15
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for efficient area coverage while maintaining cleaning effectiveness
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap percentage for uniform cleaning coverage
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 20
-    max: 150
-    value: 50
-    unit: W
-    description: 'Typical range for delicate stone cleaning like alabaster to avoid thermal damage; starting at 50 W for controlled
-      ablation. Max safe ~150 W based on gypsum''s low melting point (~150°C). Source: Manufacturer specs from IPG Photonics
-      and academic studies on stone conservation (e.g., J. Cult. Herit. 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1500
-    description: 'Slower speeds for heavy contamination on alabaster to ensure removal without substrate heating; faster for
-      light dirt. Recommended 1500 mm/s for balance. Source: Industry standards from Laser Cleaning Europe guidelines and
-      equipment manuals (e.g., CleanLaser systems).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for alabaster to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond
-      for ultra-precision but less common industrially. 20 ns optimal for 1064 nm on low-conductivity materials like gypsum.
-      Source: Laser physics research in Opt. Lasers Eng. (2015) on stone ablation.'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Lower rates reduce heat accumulation in thermally sensitive alabaster; higher rates speed up cleaning but
-      risk damage. 30 kHz recommended for effective contamination removal. Trade-off: high freq increases efficiency but elevates
-      surface temp. Source: Academic literature, Appl. Surf. Sci. (2020) on pulsed laser cleaning of minerals.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.8
-    unit: J/cm²
-    description: 'Fluence below alabaster''s damage threshold (~2 J/cm² for gypsum) for safe cleaning; lower for light contamination.
-      0.8 J/cm² recommended to ablate contaminants without melting. Conservative due to alabaster''s poor thermal conductivity.
-      Source: Ablation threshold studies in J. Appl. Phys. (2017) on calcium sulfate materials.'
-  spot_size:
     min: 0.1
     max: 500
     value: 200
@@ -269,7 +206,29 @@ machine_settings:
     description: 'Smaller spots for fine detail on alabaster sculptures; larger for broad industrial surfaces. 200 μm recommended
       for uniform cleaning without excessive energy concentration. Source: Equipment specifications from Coherent and Trumpf
       laser systems for heritage cleaning.'
-  pass_count:
+  fluenceThreshold:
+    description: Energy density threshold for effective contaminant removal without damaging Alabaster substrate
+    unit: J/cm²
+    value: 1.2
+    min: 0.3
+    max: 4.5
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for alabaster to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond
+      for ultra-precision but less common industrially. 20 ns optimal for 1064 nm on low-conductivity materials like gypsum.
+      Source: Laser physics research in Opt. Lasers Eng. (2015) on stone ablation.'
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Slower speeds for heavy contamination on alabaster to ensure removal without substrate heating; faster for
+      light dirt. Recommended 1500 mm/s for balance. Source: Industry standards from Laser Cleaning Europe guidelines and
+      equipment manuals (e.g., CleanLaser systems).'
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -277,7 +236,7 @@ machine_settings:
     description: 'Multi-pass for complete removal of heavy contamination on porous alabaster; single pass for light surface
       prep. 2 passes recommended to minimize total exposure time and heat buildup. Source: Industry practice in conservation
       case studies (e.g., ICLEA project reports on stone artifacts).'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 60
@@ -285,5 +244,35 @@ machine_settings:
     description: 'Higher overlap ensures uniform coverage on uneven alabaster surfaces; 60% balances efficiency and avoids
       striping. Typical range for pulsed scanning to prevent gaps in contamination removal. Source: Process optimization studies
       in Lasers Manuf. Mater. Process. (2019).'
-component_summary: These settings employ moderate power and short pulses at 1064 nm to gently ablate surface contaminants
-  from alabaster's fragile, porous structure without causing thermal cracking or discoloration.
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 0.8
+    unit: J/cm²
+    description: 'Fluence below alabaster''s damage threshold (~2 J/cm² for gypsum) for safe cleaning; lower for light contamination.
+      0.8 J/cm² recommended to ablate contaminants without melting. Conservative due to alabaster''s poor thermal conductivity.
+      Source: Ablation threshold studies in J. Appl. Phys. (2017) on calcium sulfate materials.'
+  laserPower:
+    description: Optimal average power for Alabaster surface cleaning without thermal damage
+    unit: W
+    value: 45
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 150
+    value: 50
+    unit: W
+    description: 'Typical range for delicate stone cleaning like alabaster to avoid thermal damage; starting at 50 W for controlled
+      ablation. Max safe ~150 W based on gypsum''s low melting point (~150°C). Source: Manufacturer specs from IPG Photonics
+      and academic studies on stone conservation (e.g., J. Cult. Herit. 2018).'
+  frequency:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Lower rates reduce heat accumulation in thermally sensitive alabaster; higher rates speed up cleaning but
+      risk damage. 30 kHz recommended for effective contamination removal. Trade-off: high freq increases efficiency but elevates
+      surface temp. Source: Academic literature, Appl. Surf. Sci. (2020) on pulsed laser cleaning of minerals.'
+componentSummary: These settings employ moderate power and short pulses at 1064 nm to gently ablate surface contaminants from
+  alabaster's fragile, porous structure without causing thermal cracking or discoloration.

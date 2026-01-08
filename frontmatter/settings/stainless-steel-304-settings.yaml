@@ -4,7 +4,7 @@ displayName: Stainless Steel 304 Laser Cleaning Settings
 category: metal
 subcategory: alloy
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:47.647972+00:00'
+dateModified: '2026-01-08T04:55:28.854576+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/alloy/stainless-steel-304-settings
@@ -36,7 +36,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -58,8 +58,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -76,7 +76,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -90,9 +90,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -106,9 +113,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: steel-laser-cleaning
@@ -120,26 +132,33 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    value: 100
-    unit: W
-    description: Optimal average power for metal oxide removal
-    min: 1.0
-    max: 120
   wavelength:
     value: 1064
     unit: nm
@@ -147,57 +166,30 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    value: 50
-    unit: μm
-    description: Beam spot diameter for effective cleaning resolution
     min: 0.1
     max: 500
-  repetitionRate:
-    value: 50
-    unit: kHz
-    description: Pulse frequency for controlled cleaning
-    min: 1
-    max: 200
+    value: 150
+    unit: μm
+    description: 'Beam diameter range for cleaning; smaller for fine details (50-100 μm), larger for broad areas (200-300
+      μm). 150 μm recommended for SS304 industrial prep to ensure even fluence distribution. Source: Equipment specs from
+      Adapt Laser Systems and Optics and Lasers in Engineering (2019).'
   energyDensity:
-    value: 2.5
-    unit: J/cm²
-    description: Energy per unit area for oxide removal
     min: 0.1
     max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for safe contaminant removal (e.g., rust, grease) without damaging SS304; damage threshold
+      ~4 J/cm² for ns pulses at 1064 nm. Recommended 1.5 J/cm² avoids ablation while effective, considering high reflectivity.
+      Source: Ablation threshold studies in Surface and Coatings Technology (2018).'
   pulseWidth:
-    value: 10
-    unit: ns
-    description: Pulse duration for minimal heat-affected zone
     min: 0.1
     max: 1000
+    value: 30
+    unit: ns
+    description: 'Nanosecond regime preferred for cost-effective industrial cleaning of SS304; picosecond (ps) or femtosecond
+      (fs) reduce HAZ but are less common. 30 ns minimizes thermal effects while ablating contaminants. Source: Laser physics
+      research in Optics Express (2017) on ablation thresholds for metals.'
   scanSpeed:
-    value: 500
-    unit: mm/s
-    description: Beam travel speed for uniform treatment
-    min: 10
-    max: 5000
-  passCount:
-    value: 2
-    unit: passes
-    description: Number of cleaning cycles for complete removal
-    min: 1
-    max: 10
-  overlapRatio:
-    value: 50
-    unit: '%'
-    description: Beam overlap for consistent coverage
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 1000
-    value: 200
-    unit: W
-    description: 'Typical range for industrial 1064 nm pulsed fiber lasers cleaning SS304 contaminants like oils or rust;
-      starting at 200 W balances efficiency and safety to avoid melting (melting point ~1425°C). Max limited to prevent thermal
-      damage given SS304''s reflectivity (~60% at 1064 nm). Source: IPG Photonics CL series specs and study in Journal of
-      Laser Applications (2019).'
-  scan_speed:
     min: 10
     max: 5000
     value: 1500
@@ -206,39 +198,7 @@ machine_settings:
       500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance on SS304 to minimize heat
       accumulation due to its moderate thermal conductivity (16 W/mK). Source: Industry standards from Laserax equipment manuals
       and Applied Surface Science (2020).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 30
-    unit: ns
-    description: 'Nanosecond regime preferred for cost-effective industrial cleaning of SS304; picosecond (ps) or femtosecond
-      (fs) reduce HAZ but are less common. 30 ns minimizes thermal effects while ablating contaminants. Source: Laser physics
-      research in Optics Express (2017) on ablation thresholds for metals.'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for 1064 nm cleaning to achieve uniform energy delivery; higher rates (>50 kHz) speed up process
-      but risk heat buildup on reflective SS304. 30 kHz recommended for balance. Trade-off: faster cleaning vs. potential
-      oxidation. Source: Academic literature in Lasers in Engineering (2021).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for safe contaminant removal (e.g., rust, grease) without damaging SS304; damage threshold
-      ~4 J/cm² for ns pulses at 1064 nm. Recommended 1.5 J/cm² avoids ablation while effective, considering high reflectivity.
-      Source: Ablation threshold studies in Surface and Coatings Technology (2018).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 150
-    unit: μm
-    description: 'Beam diameter range for cleaning; smaller for fine details (50-100 μm), larger for broad areas (200-300
-      μm). 150 μm recommended for SS304 industrial prep to ensure even fluence distribution. Source: Equipment specs from
-      Adapt Laser Systems and Optics and Lasers in Engineering (2019).'
-  pass_count:
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -246,7 +206,7 @@ machine_settings:
     description: 'Single pass for light contamination, multi-pass (up to 5) for heavy layers; 2 passes recommended for complete
       removal on SS304 without excessive heat input. Source: Industry case studies in Journal of Cleaner Production (2022)
       on metal surface preparation.'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 60
@@ -254,6 +214,29 @@ machine_settings:
     description: 'Ensures uniform coverage and avoids gaps/striping; 60% recommended for SS304 cleaning to optimize energy
       overlap without overexposure. Typical 30-80% based on scan patterns. Source: Process optimization in Applied Physics
       A (2020).'
-component_summary: These settings are optimal for Stainless Steel 304, leveraging 1064 nm wavelength for strong absorption,
+  laserPower:
+    value: 100
+    unit: W
+    description: Optimal average power for metal oxide removal
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 1000
+    value: 200
+    unit: W
+    description: 'Typical range for industrial 1064 nm pulsed fiber lasers cleaning SS304 contaminants like oils or rust;
+      starting at 200 W balances efficiency and safety to avoid melting (melting point ~1425°C). Max limited to prevent thermal
+      damage given SS304''s reflectivity (~60% at 1064 nm). Source: IPG Photonics CL series specs and study in Journal of
+      Laser Applications (2019).'
+  frequency:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for 1064 nm cleaning to achieve uniform energy delivery; higher rates (>50 kHz) speed up process
+      but risk heat buildup on reflective SS304. 30 kHz recommended for balance. Trade-off: faster cleaning vs. potential
+      oxidation. Source: Academic literature in Lasers in Engineering (2021).'
+componentSummary: These settings are optimal for Stainless Steel 304, leveraging 1064 nm wavelength for strong absorption,
   10 ns pulses to minimize heat-affected zones, and 200 W power for precise contaminant removal without compromising corrosion
   resistance.

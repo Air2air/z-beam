@@ -4,7 +4,7 @@ displayName: Plywood Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.308221+00:00'
+dateModified: '2026-01-08T04:55:24.317340+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/plywood-settings
@@ -38,7 +38,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,9 +93,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -109,9 +116,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -127,31 +139,38 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Plywood surface cleaning without charring
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-infrared wavelength for optimal Plywood absorption and minimal penetration
     unit: nm
@@ -159,75 +178,67 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise Plywood surface treatment
-    unit: μm
-    value: 80
     min: 0.1
     max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient Plywood cleaning coverage
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
+    value: 200
+    unit: μm
+    description: 'Smaller spots for precision on plywood''s textured surface; 200 μm recommended for large-area cleaning without
+      excessive overlap issues (source: equipment specs from Coherent and Adapt Laser Systems).'
   energyDensity:
-    description: Fluence threshold for effective Plywood contaminant removal
-    unit: J/cm²
-    value: 2.0
     min: 0.1
     max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: 'Fluence below plywood''s ~1.2 J/cm² damage threshold for safe contaminant ablation; 0.5 J/cm² typical for
+      surface preparation (source: ablation threshold studies for wood, e.g., Wood Sci. Technol. 2017).'
   pulseWidth:
-    description: Nanosecond pulse duration for controlled Plywood surface ablation
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform Plywood cleaning
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete Plywood cleaning
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform Plywood surface treatment
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  dwellTime:
-    description: Optimal dwell time per spot for Plywood processing
-    unit: μs
-    value: 100
-    min: 0.2
-    max: 200
-  power:
-    min: 20
-    max: 200
-    value: 50
-    unit: W
-    description: 'Low to moderate power prevents charring of plywood''s organic layers; starting at 50W for light contamination,
-      max avoids substrate damage (source: studies on 1064 nm cleaning of wood composites, e.g., J. Laser Appl. 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 500
-    unit: mm/s
-    description: 'Slower speeds ensure effective removal without overheating; 500 mm/s optimal for uniform cleaning on plywood,
-      adjustable for light (faster) vs heavy (slower) contamination (source: industry manuals from Laserax and IPG Photonics).'
-  pulse_width:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
     description: 'Nanosecond pulses preferred over ps/fs for cost-effective ablation with minimal HAZ on low-conductivity
       plywood; 20 ns balances efficiency and heat control (source: laser physics reviews in Opt. Lasers Eng. 2020).'
-  repetition_rate:
+  scanSpeed:
+    min: 10
+    max: 5000
+    value: 500
+    unit: mm/s
+    description: 'Slower speeds ensure effective removal without overheating; 500 mm/s optimal for uniform cleaning on plywood,
+      adjustable for light (faster) vs heavy (slower) contamination (source: industry manuals from Laserax and IPG Photonics).'
+  passCount:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Multi-pass for thorough removal of contaminants without single-pass overheating; 2 passes standard for plywood
+      to minimize damage (source: industry case studies on wood surface preparation, Laser Cleaning Handbook 2021).'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 70
+    unit: '%'
+    description: 'Ensures uniform coverage on irregular plywood surfaces; 70% balances efficiency and even cleaning (source:
+      process optimization in J. Clean. Prod. 2022).'
+  dwellTime:
+    description: Optimal dwell time per spot for Plywood processing
+    unit: μs
+    value: 100
+    min: 0.2
+    max: 200
+  laserPower:
+    description: Optimal average power for Plywood surface cleaning without charring
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 200
+    value: 50
+    unit: W
+    description: 'Low to moderate power prevents charring of plywood''s organic layers; starting at 50W for light contamination,
+      max avoids substrate damage (source: studies on 1064 nm cleaning of wood composites, e.g., J. Laser Appl. 2018).'
+  frequency:
     min: 1
     max: 200
     value: 20
@@ -235,33 +246,5 @@ machine_settings:
     description: 'Moderate rates for controlled energy delivery; 20 kHz recommended to avoid heat accumulation in plywood
       while enabling faster cleaning than low rates (source: academic literature on pulsed laser cleaning of organics, Appl.
       Surf. Sci. 2019).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.5
-    unit: J/cm²
-    description: 'Fluence below plywood''s ~1.2 J/cm² damage threshold for safe contaminant ablation; 0.5 J/cm² typical for
-      surface preparation (source: ablation threshold studies for wood, e.g., Wood Sci. Technol. 2017).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Smaller spots for precision on plywood''s textured surface; 200 μm recommended for large-area cleaning without
-      excessive overlap issues (source: equipment specs from Coherent and Adapt Laser Systems).'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Multi-pass for thorough removal of contaminants without single-pass overheating; 2 passes standard for plywood
-      to minimize damage (source: industry case studies on wood surface preparation, Laser Cleaning Handbook 2021).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 70
-    unit: '%'
-    description: 'Ensures uniform coverage on irregular plywood surfaces; 70% balances efficiency and even cleaning (source:
-      process optimization in J. Clean. Prod. 2022).'
-component_summary: These settings use moderate power and short pulses at 1064 nm to gently ablate surface contaminants from
+componentSummary: These settings use moderate power and short pulses at 1064 nm to gently ablate surface contaminants from
   plywood, minimizing charring and preserving the wood's delicate fibrous structure.

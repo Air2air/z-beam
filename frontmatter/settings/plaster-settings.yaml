@@ -4,7 +4,7 @@ displayName: Plaster Laser Cleaning Settings
 category: masonry
 subcategory: general
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.225757+00:00'
+dateModified: '2026-01-08T04:55:24.211901+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/masonry/general/plaster-settings
@@ -40,7 +40,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -62,8 +62,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -80,7 +80,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -94,9 +94,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -110,9 +117,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -128,31 +140,38 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: moisture-spalling
           type: challenge
         - id: low-thermal-diffusivity
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: paint-coating-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for plaster surface cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-infrared wavelength optimized for plaster absorption and minimal substrate damage
     unit: nm
@@ -160,48 +179,60 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for balanced cleaning efficiency and resolution
-    unit: μm
-    value: 100
     min: 0.1
     max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
+    unit: μm
+    value: 300
+    description: 'Beam diameter range for precision vs. area coverage; 300 μm recommended for plaster to focus energy on contaminants
+      while sparing porous substrate. Smaller for fine details, larger for broad industrial prep. Source: Equipment specifications
+      from Coherent and Trumpf laser cleaners.'
   energyDensity:
-    description: Fluence level sufficient for contaminant removal while preserving plaster substrate
-    unit: J/cm²
-    value: 2.5
     min: 0.1
     max: 20.0
+    value: 0.8
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal without ablating plaster; damage threshold ~1.5-2.0 J/cm² for gypsum
+      due to reflectivity (~0.3 at 1064 nm) and low melting point. Recommended 0.8 J/cm² for safe surface preparation. Source:
+      Ablation threshold studies in J. Appl. Phys. (2017) and historical artifact cleaning papers.'
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for cost-effective cleaning of plaster; picosecond (ps) or femtosecond reduces
+      HAZ but less common at 1064 nm for industrial use. 20 ns minimizes heat accumulation on low-melting-point plaster (~150°C
+      dehydration). Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation of calcium sulfate materials.'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning without excessive dwell time
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective range for 1064 nm cleaning on plaster; slower speeds (500-1000 mm/s) for heavy contamination,
+      faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards
+      from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 2
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on plaster to gradually remove without
+      damage. Recommended 2 passes for uniform results in industrial settings. Source: Industry case studies, e.g., restoration
+      projects in Constr. Build. Mater. (2020).'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage and efficiency
-    unit: '%'
-    value: 50
     min: 10
     max: 90
-  power:
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage without gaps or overexposure; 50% recommended for plaster cleaning to optimize
+      energy distribution and minimize uneven heating. Typical 30-80% based on scan patterns. Source: Process optimization
+      studies in Lasers Manuf. Mater. Process. (2016).'
+  laserPower:
+    description: Optimal average power for plaster surface cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
     min: 50
     max: 500
     value: 100
@@ -210,23 +241,7 @@ machine_settings:
       starting at 100 W for light contamination removal. Max safe below 500 W to prevent substrate cracking due to plaster''s
       low thermal conductivity (~0.5 W/m·K). Source: Manufacturer specs from IPG Photonics YLR series and studies on laser
       cleaning of gypsum-based plasters (e.g., J. Cult. Herit. 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective range for 1064 nm cleaning on plaster; slower speeds (500-1000 mm/s) for heavy contamination,
-      faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards
-      from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning of plaster; picosecond (ps) or femtosecond reduces
-      HAZ but less common at 1064 nm for industrial use. 20 ns minimizes heat accumulation on low-melting-point plaster (~150°C
-      dehydration). Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation of calcium sulfate materials.'
-  repetition_rate:
+  frequency:
     min: 1
     max: 200
     value: 30
@@ -234,37 +249,5 @@ machine_settings:
     description: 'Typical for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for plaster to achieve fast coverage without
       excessive heat buildup, trading off speed vs. thermal load. Higher rates (>50 kHz) risk accumulation on low-conductivity
       substrates. Source: Academic literature, e.g., Appl. Surf. Sci. (2019) on stone/plaster cleaning parameters.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.8
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal without ablating plaster; damage threshold ~1.5-2.0 J/cm² for gypsum
-      due to reflectivity (~0.3 at 1064 nm) and low melting point. Recommended 0.8 J/cm² for safe surface preparation. Source:
-      Ablation threshold studies in J. Appl. Phys. (2017) and historical artifact cleaning papers.'
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 300
-    description: 'Beam diameter range for precision vs. area coverage; 300 μm recommended for plaster to focus energy on contaminants
-      while sparing porous substrate. Smaller for fine details, larger for broad industrial prep. Source: Equipment specifications
-      from Coherent and Trumpf laser cleaners.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on plaster to gradually remove without
-      damage. Recommended 2 passes for uniform results in industrial settings. Source: Industry case studies, e.g., restoration
-      projects in Constr. Build. Mater. (2020).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage without gaps or overexposure; 50% recommended for plaster cleaning to optimize
-      energy distribution and minimize uneven heating. Typical 30-80% based on scan patterns. Source: Process optimization
-      studies in Lasers Manuf. Mater. Process. (2016).'
-component_summary: These settings deliver moderate power with short nanosecond pulses at 1064 nm to gently ablate surface
-  dirt from plaster's fragile, porous structure without causing thermal cracking or material loss.
+componentSummary: These settings deliver moderate power with short nanosecond pulses at 1064 nm to gently ablate surface dirt
+  from plaster's fragile, porous structure without causing thermal cracking or material loss.

@@ -4,7 +4,7 @@ displayName: Nickel Laser Cleaning Settings
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:43.921811+00:00'
+dateModified: '2026-01-08T04:55:23.845410+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/specialty/nickel-settings
@@ -40,7 +40,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -62,8 +62,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -80,7 +80,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -94,9 +94,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -110,9 +117,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: nickel-laser-cleaning
@@ -124,33 +136,40 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: high-thermal-conductivity
           type: challenge
         - id: melting-haz
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: rust-oxide-removal
           type: challenge
         - id: oil-grease-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
 machine_settings:
-  powerRange:
-    description: Optimal average power for Nickel oxide and contaminant removal
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
   wavelength:
     description: Near-IR wavelength for efficient Nickel processing with good absorption
     unit: nm
@@ -158,17 +177,13 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Optimal beam diameter for precision cleaning
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
-  repetitionRate:
-    description: High repetition rate for efficient cleaning coverage
-    unit: kHz
-    value: 100
-    min: 1
-    max: 200
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for cleaning; smaller (50-100 μm) for fine details, larger (300-500 μm) for broad areas.
+      Recommended 200 μm for nickel to achieve uniform fluence distribution and control heat input on reflective surfaces.
+      Source: Equipment specifications from Coherent and Trumpf laser systems, per industrial cleaning guidelines.'
   fluenceThreshold:
     description: Minimum fluence required for effective Nickel contaminant removal
     unit: J/cm²
@@ -176,48 +191,6 @@ machine_settings:
     min: 0.3
     max: 4.5
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant ablation without substrate damage
-    unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Scanning speed for efficient area coverage
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 3
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal overlap between adjacent scan lines for uniform cleaning
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 20
-    max: 300
-    value: 100
-    unit: W
-    description: 'Typical range for pulsed fiber lasers at 1064 nm used in industrial cleaning of reflective metals like nickel;
-      starting at 100 W balances efficiency and safety to avoid thermal damage due to nickel''s high reflectivity (~60% at
-      1064 nm) and thermal conductivity (90 W/m·K). Max safe before substrate melting (1455°C) is ~300 W with short pulses.
-      Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on metal surface cleaning.'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective range for contamination removal on nickel; slower for heavy oxides (500-1000 mm/s) to ensure ablation,
-      faster for light contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance of throughput and uniform
-      cleaning without excessive heat buildup. Source: Industry standards from Laserax equipment manuals and Journal of Laser
-      Applications (2020) case study on nickel alloys.'
-  pulse_width:
     min: 0.1
     max: 1000
     value: 50
@@ -226,16 +199,32 @@ machine_settings:
       or femtosecond (fs) reduces heat-affected zone (HAZ <1 μm) but is unnecessary for most industrial apps. Recommended
       50 ns for minimal HAZ (~5-10 μm) on nickel''s reflective surface. Source: Laser physics research in Applied Surface
       Science (2019) comparing pulse regimes for metals.'
-  repetition_rate:
+  scanSpeed:
+    min: 10
+    max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective range for contamination removal on nickel; slower for heavy oxides (500-1000 mm/s) to ensure ablation,
+      faster for light contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance of throughput and uniform
+      cleaning without excessive heat buildup. Source: Industry standards from Laserax equipment manuals and Journal of Laser
+      Applications (2020) case study on nickel alloys.'
+  passCount:
     min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates (>50 kHz) speed up process but increase heat accumulation
-      on nickel due to its conductivity, risking subsurface damage. Recommended 30 kHz for nickel to optimize energy delivery
-      without overheating. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on frequency
-      effects in metal ablation.'
-  energy_density:
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers to ensure complete removal without
+      exceeding damage thresholds. Recommended 2 passes for nickel in industrial prep to minimize thermal stress. Source:
+      Industry practice in case studies from Surface and Coatings Technology (2019) on nickel oxide removal.'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 'Typical 30-80% for uniform coverage; higher overlap ensures no gaps but increases heat exposure on nickel.
+      Recommended 60% for balanced uniformity and efficiency in scan line coverage. Source: Process optimization studies in
+      International Journal of Advanced Manufacturing Technology (2020) for laser cleaning of metals.'
+  energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
@@ -244,29 +233,29 @@ machine_settings:
       high reflectivity, with damage threshold ~4-6 J/cm² to avoid melting. Recommended 1.5 J/cm² for effective cleaning below
       damage threshold. Source: Ablation threshold studies in Journal of Applied Physics (2017) and Optics Express (2022)
       on nickel surfaces.'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for cleaning; smaller (50-100 μm) for fine details, larger (300-500 μm) for broad areas.
-      Recommended 200 μm for nickel to achieve uniform fluence distribution and control heat input on reflective surfaces.
-      Source: Equipment specifications from Coherent and Trumpf laser systems, per industrial cleaning guidelines.'
-  pass_count:
+  laserPower:
+    description: Optimal average power for Nickel oxide and contaminant removal
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 300
+    value: 100
+    unit: W
+    description: 'Typical range for pulsed fiber lasers at 1064 nm used in industrial cleaning of reflective metals like nickel;
+      starting at 100 W balances efficiency and safety to avoid thermal damage due to nickel''s high reflectivity (~60% at
+      1064 nm) and thermal conductivity (90 W/m·K). Max safe before substrate melting (1455°C) is ~300 W with short pulses.
+      Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on metal surface cleaning.'
+  frequency:
     min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers to ensure complete removal without
-      exceeding damage thresholds. Recommended 2 passes for nickel in industrial prep to minimize thermal stress. Source:
-      Industry practice in case studies from Surface and Coatings Technology (2019) on nickel oxide removal.'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: 'Typical 30-80% for uniform coverage; higher overlap ensures no gaps but increases heat exposure on nickel.
-      Recommended 60% for balanced uniformity and efficiency in scan line coverage. Source: Process optimization studies in
-      International Journal of Advanced Manufacturing Technology (2020) for laser cleaning of metals.'
-component_summary: These settings utilize a 1064 nm wavelength for strong contaminant absorption on reflective Nickel, with
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates (>50 kHz) speed up process but increase heat accumulation
+      on nickel due to its conductivity, risking subsurface damage. Recommended 30 kHz for nickel to optimize energy delivery
+      without overheating. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on frequency
+      effects in metal ablation.'
+componentSummary: These settings utilize a 1064 nm wavelength for strong contaminant absorption on reflective Nickel, with
   100 W power and 10 ns pulses to ablate surface oxides efficiently while minimizing heat-affected zones on the durable metal.
