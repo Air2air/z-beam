@@ -4,7 +4,7 @@
 
 import 'server-only';
 import { cache } from 'react';
-import { getContaminantArticle, getCompoundArticle, getMaterialArticle } from './contentAPI';
+import { getContaminantArticle, getCompoundArticle, getArticle } from './contentAPI';
 
 /**
  * Batch load contaminant articles
@@ -87,7 +87,7 @@ export const batchGetMaterialArticles = cache(async (
 ): Promise<Record<string, { metadata: Record<string, unknown>; components: Record<string, any> } | null>> => {
   try {
     const results = await Promise.allSettled(
-      slugs.map(async (slug) => ({ slug, data: await getMaterialArticle(slug) }))
+      slugs.map(async (slug) => ({ slug, data: await getArticle(slug) }))
     );
     
     const articlesMap: Record<string, any> = {};
@@ -171,7 +171,6 @@ export const batchEnrichReferences = cache(async (
       const fullPath = metadata.fullPath || `/${contentType}/${category}/${subcategory}/${ref.id}`;
       
       return {
-        id: ref.id,
         title: metadata.name || metadata.title,
         category,
         subcategory,
@@ -181,7 +180,7 @@ export const batchEnrichReferences = cache(async (
         severity: ref.severity || 'unknown',
         typical_context: ref.typical_context || '',
         image: metadata.images?.hero?.url || '',
-        // Preserve original reference data
+        // Preserve original reference data (includes id)
         ...ref
       };
     });

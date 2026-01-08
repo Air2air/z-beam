@@ -37,6 +37,15 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const regulatoryStandards = getRegulatoryStandards(metadata);
   const industryApplications = relationships?.operational?.industry_applications || (metadata as any)?.applications;
 
+  // DEFENSIVE: Ensure all arrays are actually arrays to prevent e.map errors
+  const safeFaq = Array.isArray(metadata?.faq) ? metadata.faq : [];
+  const safeRegulatoryStandards = Array.isArray(regulatoryStandards) ? regulatoryStandards : [];
+  const safeRelationshipsRegulatoryStandards = Array.isArray(relationships?.regulatory_standards) 
+    ? relationships.regulatory_standards 
+    : Array.isArray((metadata as any)?.regulatoryStandards) 
+      ? (metadata as any).regulatoryStandards 
+      : [];
+
   // Contaminant enrichment removed - was causing build errors with e.map undefined
   // TODO: Re-add when frontmatter structure is confirmed
 
@@ -79,7 +88,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     {
       component: RegulatoryStandards,
       props: {
-        standards: regulatoryStandards,
+        standards: safeRegulatoryStandards,
         heroImage,
         thumbnailLink,
       }
@@ -96,7 +105,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     {
       component: FAQPanel,
       props: {
-        faq: metadata?.faq || [],
+        faq: safeFaq,
         entityName: materialName,
         variant: 'faq' as const,
       }
@@ -122,8 +131,8 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         subcategory,
         machineSettings: (metadata as any)?.machine_settings || relationships?.machine_settings || {},
         materialProperties: (metadata as any)?.properties || relationships?.materialProperties || {},
-        faq: metadata?.faq,
-        regulatoryStandards: relationships?.regulatory_standards || (metadata as any)?.regulatoryStandards || [],
+        faq: safeFaq,
+        regulatoryStandards: safeRelationshipsRegulatoryStandards,
         showFullDataset: true,
       }
     },

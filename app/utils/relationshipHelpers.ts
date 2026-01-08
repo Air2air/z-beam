@@ -398,8 +398,11 @@ export function getRegulatoryStandards(metadata: any): any[] {
     []
   );
   
+  // Ensure rawStandards is an array before mapping
+  const standardsArray = Array.isArray(rawStandards) ? rawStandards : [];
+  
   // Map frontmatter structure to component format
-  return rawStandards.map((std: any) => {
+  return standardsArray.map((std: any) => {
     // If already in correct format, return as-is
     if (std.name && std.description && !std.metadata) {
       return std;
