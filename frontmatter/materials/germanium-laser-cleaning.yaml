@@ -196,7 +196,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -219,7 +218,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -291,7 +289,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.155505+00:00'
+dateModified: '2026-01-08T01:04:51.642096+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -310,16 +308,47 @@ components:
     after: After laser treatment, the surface appears crisp and uniform, free from those clinging residues. I've watched how
       it restores a clear, even texture that reflects light evenly now. Up close, no rough spots remain, just a
 faq:
-- question: How do I avoid damaging Germanium during laser cleaning?
-  answer: When laser cleaning Germanium, start by using a low-power pulse to gently remove surface contaminants without overheating
-    the material. I've seen that its good thermal conductivity helps spread heat evenly, so you maintain a clean finish easily.
-    But watch out midway—too much energy can cause cracks due to its brittleness, so adjust settings gradually and test on
-    a small area first. This approach keeps the semiconductor intact for reliable use.
-- question: What's the best laser setup for cleaning Germanium optics?
-  answer: You'll want to begin with a short wavelength laser since Germanium absorbs light well in that range, pulling off
-    dirt without deep penetration. In my experience, keeping the beam focused on the smooth, non-porous surface prevents any
-    residue buildup during the process. Just be careful not to overexpose it, as the material's moderate corrosion resistance
-    means prolonged sessions could dull the edges over time. End by cooling it slowly to avoid thermal stress.
+  presentation: collapsible
+  items:
+  - id: how-do-i-avoid-damaging-germanium
+    title: How do I avoid damaging Germanium during laser cleaning?
+    content: When laser cleaning Germanium, start by using a low-power pulse to gently remove surface contaminants without
+      overheating the material. I've seen that its good thermal conductivity helps spread heat evenly, so you maintain a clean
+      finish easily. But watch out midway—too much energy can cause cracks due to its brittleness, so adjust settings gradually
+      and test on a small area first. This approach keeps the semiconductor intact for reliable use.
+    metadata:
+      topic: do i avoid damaging germanium
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: whats-the-best-laser-setup-for
+    title: What's the best laser setup for cleaning Germanium optics?
+    content: You'll want to begin with a short wavelength laser since Germanium absorbs light well in that range, pulling
+      off dirt without deep penetration. In my experience, keeping the beam focused on the smooth, non-porous surface prevents
+      any residue buildup during the process. Just be careful not to overexpose it, as the material's moderate corrosion resistance
+      means prolonged sessions could dull the edges over time. End by cooling it slowly to avoid thermal stress.
+    metadata:
+      topic: '''s the best laser setup'
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/semiconductor/elemental/germanium-laser-cleaning
 breadcrumb:
 - label: Home

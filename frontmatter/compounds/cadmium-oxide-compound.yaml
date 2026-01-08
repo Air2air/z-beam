@@ -5,7 +5,7 @@ category: particulate
 subcategory: metal-oxide
 hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:38.442150+00:00'
+dateModified: '2026-01-08T00:59:14.217655+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/cadmium-oxide-compound
@@ -190,7 +190,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -209,7 +208,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
   safety:
     health_effects:
       items:
@@ -252,11 +250,29 @@ ppe_requirements: 'Handling cadmium oxide as a fine particulate in industrial se
   decontamination after shifts. Training on proper donning and doffing keeps everyone safe, turning routine operations into
   low-risk routines.'
 faq:
-- question: As a laser cleaning operator, how do I protect myself from inhaling cadmium oxide particulates generated during
-    the process?
-  answer: Use a NIOSH-approved full-facepiece respirator with P100 filters or higher to capture fine CdO particulates, and
-    ensure the work area has local exhaust ventilation (LEV) systems capturing emissions at the source to keep airborne levels
-    below OSHA's 5 µg/m³ 8-hour PEL. Wear impermeable gloves, coveralls, and eye protection to avoid dermal exposure, and
-    implement a decontamination protocol like showering and laundering PPE after each shift. Conduct air monitoring with real-time
-    particulate samplers to verify controls are effective and schedule annual medical exams for early detection of cadmium-related
-    health effects.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how do I protect myself from inhaling cadmium oxide particulates generated during
+      the process?
+    content: Use a NIOSH-approved full-facepiece respirator with P100 filters or higher to capture fine CdO particulates,
+      and ensure the work area has local exhaust ventilation (LEV) systems capturing emissions at the source to keep airborne
+      levels below OSHA's 5 µg/m³ 8-hour PEL. Wear impermeable gloves, coveralls, and eye protection to avoid dermal exposure,
+      and implement a decontamination protocol like showering and laundering PPE after each shift. Conduct air monitoring
+      with real-time particulate samplers to verify controls are effective and schedule annual medical exams for early detection
+      of cadmium-related health effects.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

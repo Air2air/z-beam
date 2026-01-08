@@ -229,7 +229,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -292,7 +291,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -338,7 +336,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:30.725800+00:00'
+dateModified: '2026-01-08T01:04:48.064270+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -382,67 +380,183 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- answer: Yes, in my experience as an Indonesian laser cleaning specialist, polypropylene can be safely cleaned using low-power
-    pulsed lasers at precise wavelengths, like 1064 nm, to ablate contaminants without melting. Careful parameter control—pulse
-    duration under 10 ns and energy density below 1 J/cm²—prevents surface damage, preserving material integrity.
-  question: Can you safely laser clean polypropylene without melting or damaging the surface?
-  topic_keyword: without melting
-  topic_statement: Controlled parameters prevent melting
-- answer: Polypropylene's transparency at 1μm wavelengths requires indirect cleaning through contaminant absorption. For practical
-    results, apply 1064 nm lasers with 1.2 J/cm² fluence and 100 μs dwell time to remove surface layers selectively, avoiding
-    substrate damage. This process harnesses the material's optical properties for safe, effective outcomes.
-  question: What laser wavelength is most effective for cleaning contaminants from polypropylene?
-  topic_keyword: laser wavelength
-  topic_statement: 1064 nm leverages transparency
-- answer: For silicone-based release agents on polypropylene, we apply a 1064 nm wavelength with 1.2 J/cm² fluence in a practical
-    manner. This process ablates the thin organic film effectively, while the 100 µm spot size protects the substrate from
-    damage. Verification follows efficiently using FTIR spectroscopy.
-  question: How do you remove mold release agents from polypropylene surfaces with laser cleaning?
-  topic_keyword: mold release agents
-  topic_statement: 1064 nm low fluence ablation
-- answer: Laser cleaning provides a practical approach to significantly boost polypropylene's adhesion via surface activation.
-    At the optimal 1.2 J/cm² fluence and 1064 nm wavelength, this process delivers improved wettability that frequently outperforms
-    traditional flame treatment for bonding uses.
-  question: Does laser cleaning affect the adhesion properties of polypropylene for subsequent painting or bonding?
-  topic_keyword: adhesion properties
-  topic_statement: Enhances adhesion via surface activation
-- answer: When polypropylene breaks down at 1.2 J/cm² fluence, it produces hazardous aldehydes like formaldehyde. This process
-    demands local exhaust ventilation using HEPA and activated carbon filtration. Operators need proper respiratory protection
-    to practically address inhalation hazards from these ultrafine particulates and gases.
-  question: What safety precautions are needed when laser cleaning polypropylene due to fume generation?
-  topic_keyword: fume generation
-  topic_statement: Requires HEPA ventilation and respirators
-- answer: Yes, laser cleaning can effectively modify polypropylene surfaces to enhance printability. By ablating contaminants
-    and creating controlled micro-roughness, it improves wettability and ink adhesion. In my work with Indonesian manufacturers,
-    this technique consistently yields better printing outcomes on such plastics.
-  question: Can laser cleaning create surface modifications that improve polypropylene's printability?
-  topic_keyword: improve polypropylene's printability
-  topic_statement: Increases surface energy via micro-roughness
-- answer: The yellowing of polypropylene arises straightforward from thermal degradation once fluence tops ~1.2 J/cm², triggering
-    polymer chain scission. For this process, optimize parameters like 500 mm/s scan speed to efficiently curb localized heating
-    and block oxidation that forms chromophores.
-  question: Why does polypropylene sometimes turn yellow or brown after laser cleaning?
-  topic_keyword: turn yellow or brown
-  topic_statement: Thermal degradation causes yellowing
-- answer: For removing oxidation layers from aged polypropylene, I recommend using a Q-switched Nd:YAG laser at 1064 nm wavelength,
-    with pulse durations of 10-20 ns and fluences of 0.5-1 J/cm². This setup effectively ablates the oxidized surface while
-    preserving the underlying polymer, based on my experience in tropical climates where such degradation is common.
-  question: What laser parameters work best for removing oxidation layers from aged polypropylene?
-  topic_keyword: oxidation layers
-  topic_statement: Low fluence minimizes embrittlement
-- answer: Filler materials like talc significantly alter absorption dynamics, so practical parameter adjustments are needed
-    to prevent selective removal. For filled PP composites, reduce fluence efficiently to approximately 1.0 J/cm² from the
-    standard 1.2 J/cm², avoiding exposure of underlying particles while achieving effective surface cleaning. This prevents
-    undesirable surface morphology changes.
-  question: How does the presence of fillers (talc, glass) in polypropylene composites affect laser cleaning?
-  topic_keyword: polypropylene composites
-  topic_statement: Reduce fluence to 1.0 J/cm²
-- answer: Laser cleaning offers a practical approach to prepare polypropylene for ultrasonic welding, removing surface contaminants
-    without forming bonding barriers. Applying a 1064 nm wavelength at 1.2 J/cm² fluence ensures optimal surface energy modification.
-    This process boosts joint strength by maintaining the polymer's integrity alongside necessary cleanliness.
-  question: Is laser cleaning suitable for preparing polypropylene surfaces for ultrasonic welding?
-  topic_keyword: ultrasonic welding
-  topic_statement: Removes contaminants without bonding barriers
+  presentation: collapsible
+  items:
+  - id: can-you-safely-laser-clean-polypropylene
+    title: Can you safely laser clean polypropylene without melting or damaging the surface?
+    content: Yes, in my experience as an Indonesian laser cleaning specialist, polypropylene can be safely cleaned using low-power
+      pulsed lasers at precise wavelengths, like 1064 nm, to ablate contaminants without melting. Careful parameter control—pulse
+      duration under 10 ns and energy density below 1 J/cm²—prevents surface damage, preserving material integrity.
+    metadata:
+      topic: you safely laser clean polypropylene
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-wavelength-is-most-effective
+    title: What laser wavelength is most effective for cleaning contaminants from polypropylene?
+    content: Polypropylene's transparency at 1μm wavelengths requires indirect cleaning through contaminant absorption. For
+      practical results, apply 1064 nm lasers with 1.2 J/cm² fluence and 100 μs dwell time to remove surface layers selectively,
+      avoiding substrate damage. This process harnesses the material's optical properties for safe, effective outcomes.
+    metadata:
+      topic: laser wavelength most effective for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: how-do-you-remove-mold-release
+    title: How do you remove mold release agents from polypropylene surfaces with laser cleaning?
+    content: For silicone-based release agents on polypropylene, we apply a 1064 nm wavelength with 1.2 J/cm² fluence in a
+      practical manner. This process ablates the thin organic film effectively, while the 100 µm spot size protects the substrate
+      from damage. Verification follows efficiently using FTIR spectroscopy.
+    metadata:
+      topic: do you remove mold release
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: does-laser-cleaning-affect-the-adhesion
+    title: Does laser cleaning affect the adhesion properties of polypropylene for subsequent painting or bonding?
+    content: Laser cleaning provides a practical approach to significantly boost polypropylene's adhesion via surface activation.
+      At the optimal 1.2 J/cm² fluence and 1064 nm wavelength, this process delivers improved wettability that frequently
+      outperforms traditional flame treatment for bonding uses.
+    metadata:
+      topic: laser cleaning affect the adhesion
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: what-safety-precautions-are-needed-when
+    title: What safety precautions are needed when laser cleaning polypropylene due to fume generation?
+    content: When polypropylene breaks down at 1.2 J/cm² fluence, it produces hazardous aldehydes like formaldehyde. This
+      process demands local exhaust ventilation using HEPA and activated carbon filtration. Operators need proper respiratory
+      protection to practically address inhalation hazards from these ultrafine particulates and gases.
+    metadata:
+      topic: safety precautions needed laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: can-laser-cleaning-create-surface-modifications
+    title: Can laser cleaning create surface modifications that improve polypropylene's printability?
+    content: Yes, laser cleaning can effectively modify polypropylene surfaces to enhance printability. By ablating contaminants
+      and creating controlled micro-roughness, it improves wettability and ink adhesion. In my work with Indonesian manufacturers,
+      this technique consistently yields better printing outcomes on such plastics.
+    metadata:
+      topic: laser cleaning create surface modifications
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: why-does-polypropylene-sometimes-turn-yellow
+    title: Why does polypropylene sometimes turn yellow or brown after laser cleaning?
+    content: The yellowing of polypropylene arises straightforward from thermal degradation once fluence tops ~1.2 J/cm²,
+      triggering polymer chain scission. For this process, optimize parameters like 500 mm/s scan speed to efficiently curb
+      localized heating and block oxidation that forms chromophores.
+    metadata:
+      topic: polypropylene sometimes turn yellow or
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: what-laser-parameters-work-best-for
+    title: What laser parameters work best for removing oxidation layers from aged polypropylene?
+    content: For removing oxidation layers from aged polypropylene, I recommend using a Q-switched Nd:YAG laser at 1064 nm
+      wavelength, with pulse durations of 10-20 ns and fluences of 0.5-1 J/cm². This setup effectively ablates the oxidized
+      surface while preserving the underlying polymer, based on my experience in tropical climates where such degradation
+      is common.
+    metadata:
+      topic: laser parameters work best for
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: how-does-the-presence-of-fillers
+    title: How does the presence of fillers (talc, glass) in polypropylene composites affect laser cleaning?
+    content: Filler materials like talc significantly alter absorption dynamics, so practical parameter adjustments are needed
+      to prevent selective removal. For filled PP composites, reduce fluence efficiently to approximately 1.0 J/cm² from the
+      standard 1.2 J/cm², avoiding exposure of underlying particles while achieving effective surface cleaning. This prevents
+      undesirable surface morphology changes.
+    metadata:
+      topic: the presence of fillers (talc,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  - id: is-laser-cleaning-suitable-for-preparing
+    title: Is laser cleaning suitable for preparing polypropylene surfaces for ultrasonic welding?
+    content: Laser cleaning offers a practical approach to prepare polypropylene for ultrasonic welding, removing surface
+      contaminants without forming bonding barriers. Applying a 1064 nm wavelength at 1.2 J/cm² fluence ensures optimal surface
+      energy modification. This process boosts joint strength by maintaining the polymer's integrity alongside necessary cleanliness.
+    metadata:
+      topic: laser cleaning suitable for preparing
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/plastic/thermoplastic/polypropylene-laser-cleaning
 breadcrumb:
 - label: Home

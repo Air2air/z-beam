@@ -192,7 +192,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -215,7 +214,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -286,7 +284,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.372784+00:00'
+dateModified: '2026-01-08T01:04:51.868119+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -312,18 +310,62 @@ components:
     after: After laser treatment, you see the PEEK surface restored to a clear, uniform shine at 1000x. Smooth planes and
       fine details emerge without any clinging residues. The treatment wipes away all traces, revealing a clean
 faq:
-- question: How do I safely start laser cleaning PEEK parts without causing damage?
-  answer: You must begin by selecting a low-power laser setting to match PEEK's heat resistance, ensuring the beam gently
-    removes contaminants without overheating the surface. Make sure you scan the area slowly and evenly, allowing the material's
-    strong structure to handle the process without warping or weakening. This approach brings back the smooth finish effectively,
-    keeping the part's durable properties intact for continued use.
-- question: What happens if PEEK surfaces discolor during laser cleaning?
-  answer: Start with checking your laser intensity right away, as PEEK's low absorption can lead to uneven heating if the
-    power is too high. You should adjust the pulse duration to shorter bursts, which helps dissipate heat quickly through
-    its moderate conductivity and prevents any color changes. Keep monitoring the surface closely, and this will restore the
-    original appearance without compromising the material's toughness.
-- question: Can laser cleaning affect PEEK's strength after multiple sessions?
-  answer: You must test a small area
+  presentation: collapsible
+  items:
+  - id: how-do-i-safely-start-laser
+    title: How do I safely start laser cleaning PEEK parts without causing damage?
+    content: You must begin by selecting a low-power laser setting to match PEEK's heat resistance, ensuring the beam gently
+      removes contaminants without overheating the surface. Make sure you scan the area slowly and evenly, allowing the material's
+      strong structure to handle the process without warping or weakening. This approach brings back the smooth finish effectively,
+      keeping the part's durable properties intact for continued use.
+    metadata:
+      topic: do i safely start laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: what-happens-if-peek-surfaces-discolor
+    title: What happens if PEEK surfaces discolor during laser cleaning?
+    content: Start with checking your laser intensity right away, as PEEK's low absorption can lead to uneven heating if the
+      power is too high. You should adjust the pulse duration to shorter bursts, which helps dissipate heat quickly through
+      its moderate conductivity and prevents any color changes. Keep monitoring the surface closely, and this will restore
+      the original appearance without compromising the material's toughness.
+    metadata:
+      topic: happens if peek surfaces dcolor
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: can-laser-cleaning-affect-peeks-strength
+    title: Can laser cleaning affect PEEK's strength after multiple sessions?
+    content: You must test a small area
+    metadata:
+      topic: laser cleaning affect peek's strength
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/plastic/thermoplastic/peek-laser-cleaning
 breadcrumb:
 - label: Home

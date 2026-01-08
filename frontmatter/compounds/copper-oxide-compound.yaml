@@ -5,7 +5,7 @@ category: particulate
 subcategory: metal-oxide
 hazard_class: irritant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:38.198104+00:00'
+dateModified: '2026-01-08T00:59:13.984221+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/copper-oxide-compound
@@ -188,7 +188,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
   safety:
     health_effects:
       items:
@@ -226,10 +225,28 @@ ppe_requirements: When dealing with copper oxide compounds in particulate form, 
   operators comfortable and focused throughout extended sessions. Always prioritize easy access to washing stations post-handling
   to rinse away any residue promptly.
 faq:
-- question: What personal protective equipment (PPE) should I wear to minimize inhalation risks from CuO particulates generated
-    during laser cleaning of copper surfaces?
-  answer: Always use a NIOSH-approved respirator with an N95 or higher rating (e.g., P100 filters for particulates) fitted
-    properly to prevent inhaling CuO dust, which can cause respiratory irritation or metal fume fever. Wear safety goggles
-    and gloves to avoid skin or eye contact, and ensure the workspace has local exhaust ventilation to capture airborne particles.
-    Conduct fit-testing for the respirator annually and replace filters when breathing becomes difficult or after each shift
-    involving heavy dust generation.
+  presentation: collapsible
+  items:
+  - id: what-personal-protective-equipment-ppe-should
+    title: What personal protective equipment (PPE) should I wear to minimize inhalation risks from CuO particulates generated
+      during laser cleaning of copper surfaces?
+    content: Always use a NIOSH-approved respirator with an N95 or higher rating (e.g., P100 filters for particulates) fitted
+      properly to prevent inhaling CuO dust, which can cause respiratory irritation or metal fume fever. Wear safety goggles
+      and gloves to avoid skin or eye contact, and ensure the workspace has local exhaust ventilation to capture airborne
+      particles. Conduct fit-testing for the respirator annually and replace filters when breathing becomes difficult or after
+      each shift involving heavy dust generation.
+    metadata:
+      topic: personal protective equipment (ppe) should
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

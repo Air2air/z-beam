@@ -198,7 +198,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -221,7 +220,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -292,7 +290,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.319273+00:00'
+dateModified: '2026-01-08T01:04:51.812397+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -318,17 +316,61 @@ components:
     after: After laser treatment, the Nylon surface appears completely clear and smooth under 1000x view. Fibers stand out
       evenly now, without any clinging residues or rough spots. The clean finish
 faq:
-- question: How can I laser clean Nylon without causing melting?
-  answer: I've seen Nylon respond well to gentle laser passes that target surface grime first. Start by scanning the area
-    slowly to loosen dirt without building up too much heat in the material. This approach keeps the Nylon's surface intact
-    while removing contaminants effectively, as the plastic tends to soften under prolonged exposure.
-- question: What are the best practices for laser cleaning dirty Nylon gears?
-  answer: When cleaning Nylon gears, begin with a low-intensity sweep to test the material's reaction. Follow up with focused
-    bursts on stubborn spots, always moving the laser steadily to avoid hot spots. In my experience, this method restores
-    the gears' smooth operation without compromising their flexibility or strength.
-- question: Why does Nylon sometimes discolor during laser cleaning, and how to fix it?
-  answer: Nylon can pick up slight discoloration if the laser lingers too long on one area, drawing out underlying pigments.
-    To fix this, reduce dwell time and incorporate short cooling intervals between passes.
+  presentation: collapsible
+  items:
+  - id: how-can-i-laser-clean-nylon
+    title: How can I laser clean Nylon without causing melting?
+    content: I've seen Nylon respond well to gentle laser passes that target surface grime first. Start by scanning the area
+      slowly to loosen dirt without building up too much heat in the material. This approach keeps the Nylon's surface intact
+      while removing contaminants effectively, as the plastic tends to soften under prolonged exposure.
+    metadata:
+      topic: i laser clean nylon without
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: what-are-the-best-practices-for
+    title: What are the best practices for laser cleaning dirty Nylon gears?
+    content: When cleaning Nylon gears, begin with a low-intensity sweep to test the material's reaction. Follow up with focused
+      bursts on stubborn spots, always moving the laser steadily to avoid hot spots. In my experience, this method restores
+      the gears' smooth operation without compromising their flexibility or strength.
+    metadata:
+      topic: the best practices for laser
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: why-does-nylon-sometimes-discolor-during
+    title: Why does Nylon sometimes discolor during laser cleaning, and how to fix it?
+    content: Nylon can pick up slight discoloration if the laser lingers too long on one area, drawing out underlying pigments.
+      To fix this, reduce dwell time and incorporate short cooling intervals between passes.
+    metadata:
+      topic: nylon sometimes dcolor during laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/plastic/thermoplastic/nylon-laser-cleaning
 breadcrumb:
 - label: Home

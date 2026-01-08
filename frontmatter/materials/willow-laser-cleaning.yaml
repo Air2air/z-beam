@@ -210,7 +210,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -268,7 +267,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -313,7 +311,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.630814+00:00'
+dateModified: '2026-01-08T01:04:51.049902+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -354,77 +352,193 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/en/publication/3587
 faq:
-- answer: For willow's soft, porous grain, employ a 1064 nm laser at 100 W with 10 ns pulses to gently ablate contaminants.
-    It's essential to hold fluence at 1.2 J/cm² and scan at 500 mm/s, sidestepping higher intensities ideal for denser woods
-    that risk scorching its fibers. This approach yields clean results across three passes.
-  question: What laser power settings are recommended for cleaning willow wood surfaces without causing charring or fiber
-    damage?
-  topic_keyword: charring or fiber damage
-  topic_statement: 1.2 J/cm² fluence multi-pass
-- answer: Laser cleaning stands out notably for removing mold and mildew from willow basketry, vaporizing organic residues
-    while causing minimal fiber damage due to its strong moisture absorption. It's essential to fully dry the material before
-    treatment to prevent steam issues. Use 1.2 J/cm² fluence at 1064 nm, followed by sealing with UV-resistant wax for enduring
-    safeguard.
-  question: How effective is laser cleaning for removing mold and mildew from willow basketry or woven willow products?
-  topic_keyword: mold and mildew
-  topic_statement: Vaporizes residues minimally disrupting fibers
-- answer: For laser cleaning willow furniture at 1.2 J/cm² fluence with a 1064 nm beam, the release of VOCs from its natural
-    oils and resins proves notable, so it's essential to prioritize ANSI Z136-compliant goggles and respirators. Ensure excellent
-    ventilation to disperse fumes and prevent respiratory issues.
-  question: What safety precautions should be taken when using lasers to clean willow furniture, considering its natural oils
-    and resins?
-  topic_keyword: natural oils and resins
-  topic_statement: Ventilate to disperse VOC fumes
-- answer: Indeed, laser cleaning effectively ablates oxidation layers from weathered willow wood, restoring its natural tone
-    for outdoor sculptures. Using 1.2 J/cm² fluence at a 1064 nm wavelength, it precisely eliminates grime without damaging
-    flexible fibers, though slight surface roughening may arise—essential post-treatment color matching then ensures distinct
-    uniformity.
-  question: Can laser cleaning restore the natural color of weathered willow wood used in outdoor sculptures or garden structures?
-  topic_keyword: weathered willow wood
-  topic_statement: Revives natural tone safely
-- answer: The layered structure of willow bark, notable for its tannin-rich makeup, frequently causes uneven ablation and
-    residue buildup during laser cleaning, stemming from irregular absorption and patchy removal. To optimize effectively,
-    apply a 500 mm/s scan speed with 1.2 J/cm² fluence for balanced results, alongside mechanical pre-cleaning to handle its
-    distinct irregularities.
-  question: What are the common issues with laser ablation on willow bark, such as uneven cleaning or residue buildup?
-  topic_keyword: uneven cleaning
-  topic_statement: Requires pre-cleaning and optimized fluence
-- answer: With its notably low density of 0.4 g/cm³, Willow boosts energy absorption for efficient cleaning via 1064 nm wavelength
-    at 1.2 J/cm² fluence, safeguarding the substrate from damage. The essential fine, uniform grain structure suits portable
-    lasers in flexible crate manufacturing—as IPG Photonics advises—outperforming stationary systems for even coverage at
-    500 mm/s scan speed.
-  question: How does willow wood's density and grain pattern affect the choice of laser cleaning equipment for industrial
-    applications like crate manufacturing?
-  topic_keyword: density and grain pattern
-  topic_statement: Enhances absorption, favors portables
-- answer: Given willow's notable pliability, it's essential to keep relative humidity at 50-60% before and after cleaning,
-    preventing moisture-related warping. Secure pieces softly with clamps to harness that flexibility minus any undue stress.
-    Cap energy density at 1.2 J/cm², steering clear of lignin breakdown from overheating.
-  question: In laser cleaning training guides, what handling tips are given for willow materials to prevent warping during
-    the process?
-  topic_keyword: prevent warping
-  topic_statement: Maintain 50-60% humidity
-- answer: Notably high silica content in willow wood creates volatilization risks during laser cleaning at 1.2 J/cm² fluence,
-    generating airborne particulates that require essential EPA-guided filtration and disposal to minimize environmental threats.
-    Moreover, tannin release tends to acidify surface pH, distinctly impacting byproduct stability and restoration effects
-    on cultural artifacts.
-  question: What chemical properties of willow wood, like its high silica content, influence the byproducts generated during
-    laser cleaning?
-  topic_keyword: high silica content
-  topic_statement: Silica volatilization yields particulates
-- answer: Laser cleaning willow for heritage items like traditional basketry complies with ICOMOS guidelines via non-destructive
-    protocols. Document parameters such as 1.2 J/cm² fluence and 1064 nm wavelength to prevent thermal harm to the wood's
-    fibrous structure, ensuring reversible conservation. Preliminary spot tests are essential for compliance.
-  question: Are there regulatory compliance issues for laser cleaning willow in heritage conservation, such as for traditional
-    willow crafts?
-- answer: Willow's notable elasticity, distinct from rigid woods like oak, renders laser-cleaned surfaces on musical instrument
-    parts vulnerable to micro-cracks through repeated flexing, potentially curtailing longevity without post-treatment sealing.
-    Our 1.2 J/cm² fluence at 100 W power delivers precise cleaning; however, applying a flexible sealant is essential to counter
-    fatigue and sustain vibrancy across years of play.
-  question: How do physical properties like willow's elasticity impact the longevity of laser-cleaned surfaces in applications
-    like musical instrument parts?
-  topic_keyword: willow's elasticity
-  topic_statement: Prone to flexing micro-cracks
+  presentation: collapsible
+  items:
+  - id: what-laser-power-settings-are-recommended
+    title: What laser power settings are recommended for cleaning willow wood surfaces without causing charring or fiber damage?
+    content: For willow's soft, porous grain, employ a 1064 nm laser at 100 W with 10 ns pulses to gently ablate contaminants.
+      It's essential to hold fluence at 1.2 J/cm² and scan at 500 mm/s, sidestepping higher intensities ideal for denser woods
+      that risk scorching its fibers. This approach yields clean results across three passes.
+    metadata:
+      topic: laser power settings recommended for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: how-effective-is-laser-cleaning-for
+    title: How effective is laser cleaning for removing mold and mildew from willow basketry or woven willow products?
+    content: Laser cleaning stands out notably for removing mold and mildew from willow basketry, vaporizing organic residues
+      while causing minimal fiber damage due to its strong moisture absorption. It's essential to fully dry the material before
+      treatment to prevent steam issues. Use 1.2 J/cm² fluence at 1064 nm, followed by sealing with UV-resistant wax for enduring
+      safeguard.
+    metadata:
+      topic: effective laser cleaning for removing
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: what-safety-precautions-should-be-taken
+    title: What safety precautions should be taken when using lasers to clean willow furniture, considering its natural oils
+      and resins?
+    content: For laser cleaning willow furniture at 1.2 J/cm² fluence with a 1064 nm beam, the release of VOCs from its natural
+      oils and resins proves notable, so it's essential to prioritize ANSI Z136-compliant goggles and respirators. Ensure
+      excellent ventilation to disperse fumes and prevent respiratory issues.
+    metadata:
+      topic: safety precautions should be taken
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-restore-the-natural
+    title: Can laser cleaning restore the natural color of weathered willow wood used in outdoor sculptures or garden structures?
+    content: Indeed, laser cleaning effectively ablates oxidation layers from weathered willow wood, restoring its natural
+      tone for outdoor sculptures. Using 1.2 J/cm² fluence at a 1064 nm wavelength, it precisely eliminates grime without
+      damaging flexible fibers, though slight surface roughening may arise—essential post-treatment color matching then ensures
+      distinct uniformity.
+    metadata:
+      topic: laser cleaning restore the natural
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 4
+  - id: what-are-the-common-issues-with
+    title: What are the common issues with laser ablation on willow bark, such as uneven cleaning or residue buildup?
+    content: The layered structure of willow bark, notable for its tannin-rich makeup, frequently causes uneven ablation and
+      residue buildup during laser cleaning, stemming from irregular absorption and patchy removal. To optimize effectively,
+      apply a 500 mm/s scan speed with 1.2 J/cm² fluence for balanced results, alongside mechanical pre-cleaning to handle
+      its distinct irregularities.
+    metadata:
+      topic: the common sues with laser
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 5
+  - id: how-does-willow-woods-density-and
+    title: How does willow wood's density and grain pattern affect the choice of laser cleaning equipment for industrial applications
+      like crate manufacturing?
+    content: With its notably low density of 0.4 g/cm³, Willow boosts energy absorption for efficient cleaning via 1064 nm
+      wavelength at 1.2 J/cm² fluence, safeguarding the substrate from damage. The essential fine, uniform grain structure
+      suits portable lasers in flexible crate manufacturing—as IPG Photonics advises—outperforming stationary systems for
+      even coverage at 500 mm/s scan speed.
+    metadata:
+      topic: willow wood's density and grain
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 6
+  - id: in-laser-cleaning-training-guides-what
+    title: In laser cleaning training guides, what handling tips are given for willow materials to prevent warping during
+      the process?
+    content: Given willow's notable pliability, it's essential to keep relative humidity at 50-60% before and after cleaning,
+      preventing moisture-related warping. Secure pieces softly with clamps to harness that flexibility minus any undue stress.
+      Cap energy density at 1.2 J/cm², steering clear of lignin breakdown from overheating.
+    metadata:
+      topic: in laser cleaning training guides,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 7
+  - id: what-chemical-properties-of-willow-wood
+    title: What chemical properties of willow wood, like its high silica content, influence the byproducts generated during
+      laser cleaning?
+    content: Notably high silica content in willow wood creates volatilization risks during laser cleaning at 1.2 J/cm² fluence,
+      generating airborne particulates that require essential EPA-guided filtration and disposal to minimize environmental
+      threats. Moreover, tannin release tends to acidify surface pH, distinctly impacting byproduct stability and restoration
+      effects on cultural artifacts.
+    metadata:
+      topic: chemical properties of willow wood,
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 8
+  - id: are-there-regulatory-compliance-issues-for
+    title: Are there regulatory compliance issues for laser cleaning willow in heritage conservation, such as for traditional
+      willow crafts?
+    content: Laser cleaning willow for heritage items like traditional basketry complies with ICOMOS guidelines via non-destructive
+      protocols. Document parameters such as 1.2 J/cm² fluence and 1064 nm wavelength to prevent thermal harm to the wood's
+      fibrous structure, ensuring reversible conservation. Preliminary spot tests are essential for compliance.
+    metadata:
+      topic: there regulatory compliance sues for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 9
+  - id: how-do-physical-properties-like-willows
+    title: How do physical properties like willow's elasticity impact the longevity of laser-cleaned surfaces in applications
+      like musical instrument parts?
+    content: Willow's notable elasticity, distinct from rigid woods like oak, renders laser-cleaned surfaces on musical instrument
+      parts vulnerable to micro-cracks through repeated flexing, potentially curtailing longevity without post-treatment sealing.
+      Our 1.2 J/cm² fluence at 100 W power delivers precise cleaning; however, applying a flexible sealant is essential to
+      counter fatigue and sustain vibrancy across years of play.
+    metadata:
+      topic: do physical properties like willow's
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/wood/hardwood/willow-laser-cleaning
 breadcrumb:
 - label: Home

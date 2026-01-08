@@ -11,7 +11,7 @@ import type { StandardGridProps, NavItem } from '@/types';
 export const SITE_CONFIG = {
   name: 'Z-Beam Laser Cleaning',
   shortName: 'Z-Beam',
-  description: 'Professional laser cleaning services. Specializing in industrial surface preparation, rust removal, and eco-friendly cleaning solutions.',
+  description: 'Professional laser cleaning for industrial surface prep, rust removal, and eco-friendly solutions. Aerospace and automotive applications.',
   url: process.env.NODE_ENV === 'production' 
     ? 'https://www.z-beam.com' 
     : 'http://localhost:3000',

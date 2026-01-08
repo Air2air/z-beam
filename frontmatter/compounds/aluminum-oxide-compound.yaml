@@ -5,7 +5,7 @@ category: particulate
 subcategory: metal-oxide
 hazard_class: nuisance_dust
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:38.156123+00:00'
+dateModified: '2026-01-08T00:59:13.915805+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/aluminum-oxide-compound
@@ -166,7 +166,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -184,7 +183,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
   safety:
     health_effects:
       items:
@@ -233,10 +231,29 @@ ppe_requirements: 'Handling aluminum oxide particulates demands solid protection
 
   Ventilation matters too, but PPE layers up as your first line. Quick checks before shifts keep everyone steady.'
 faq:
-- question: As a laser cleaning operator, what respiratory protection should I use to avoid exposure to aluminum oxide (Al₂O₃)
-    particulates generated during the process?
-  answer: Prioritize NIOSH-approved respirators with at least an N95 rating for routine operations, upgrading to a half-facepiece
-    respirator with P100 filters if airborne concentrations exceed the OSHA permissible exposure limit (PEL) of 15 mg/m³ for
-    total dust or 5 mg/m³ for the respirable fraction. Always perform a fit test and ensure the workspace has adequate local
-    exhaust ventilation to minimize particle generation and inhalation risks from these fine, potentially irritating particulates.
-    Conduct regular air monitoring to verify protection effectiveness and comply with site-specific safety protocols.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-what
+    title: As a laser cleaning operator, what respiratory protection should I use to avoid exposure to aluminum oxide (Al₂O₃)
+      particulates generated during the process?
+    content: Prioritize NIOSH-approved respirators with at least an N95 rating for routine operations, upgrading to a half-facepiece
+      respirator with P100 filters if airborne concentrations exceed the OSHA permissible exposure limit (PEL) of 15 mg/m³
+      for total dust or 5 mg/m³ for the respirable fraction. Always perform a fit test and ensure the workspace has adequate
+      local exhaust ventilation to minimize particle generation and inhalation risks from these fine, potentially irritating
+      particulates. Conduct regular air monitoring to verify protection effectiveness and comply with site-specific safety
+      protocols.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

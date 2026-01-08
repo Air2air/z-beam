@@ -5,7 +5,7 @@ category: particulate
 subcategory: metal-oxide
 hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:38.399267+00:00'
+dateModified: '2026-01-08T00:59:14.172457+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/lead-oxide-compound
@@ -182,7 +182,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -199,7 +198,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
   safety:
     health_effects:
       items:
@@ -234,10 +232,28 @@ ppe_requirements: "Handling lead oxide compounds in particulate form demands car
   \ layers from metals. \n\nFootwear should be closed-toe boots with non-slip soles for safe movement around dusty workspaces.\
   \ Always include hearing protection if machinery noise accompanies the process, ensuring overall comfort and safety."
 faq:
-- question: What respiratory protection should I use when laser cleaning surfaces that may generate lead oxide (PbO) particulates?
-  answer: Use a NIOSH-approved half-face or full-face respirator with P100 filters (or equivalent) rated for particulates
-    to prevent inhalation of lead oxide dust, ensuring a proper fit test and seal check before each use. In high-exposure
-    scenarios during laser cleaning, opt for powered air-purifying respirators (PAPRs) for better comfort and protection,
-    and always perform air monitoring to confirm levels stay below OSHA's permissible exposure limit of 50 µg/m³ for lead
-    over an 8-hour shift. Combine this with engineering controls like local exhaust ventilation at the laser cleaning site
-    to minimize airborne particulates from the start.
+  presentation: collapsible
+  items:
+  - id: what-respiratory-protection-should-i-use
+    title: What respiratory protection should I use when laser cleaning surfaces that may generate lead oxide (PbO) particulates?
+    content: Use a NIOSH-approved half-face or full-face respirator with P100 filters (or equivalent) rated for particulates
+      to prevent inhalation of lead oxide dust, ensuring a proper fit test and seal check before each use. In high-exposure
+      scenarios during laser cleaning, opt for powered air-purifying respirators (PAPRs) for better comfort and protection,
+      and always perform air monitoring to confirm levels stay below OSHA's permissible exposure limit of 50 µg/m³ for lead
+      over an 8-hour shift. Combine this with engineering controls like local exhaust ventilation at the laser cleaning site
+      to minimize airborne particulates from the start.
+    metadata:
+      topic: respiratory protection should i use
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

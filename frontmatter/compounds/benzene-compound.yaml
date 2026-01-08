@@ -5,7 +5,7 @@ category: carcinogen
 subcategory: aromatic_hydrocarbon
 hazard_class: carcinogenic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:36.838266+00:00'
+dateModified: '2026-01-08T00:59:12.592353+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic_hydrocarbon/benzene-compound
@@ -156,7 +156,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -423,7 +422,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -465,10 +463,29 @@ ppe_requirements: Dealing with benzene in industrial settings calls for robust s
   hoods or powered air systems amp up protection in high-exposure tasks, ensuring workers stay shielded without compromising
   mobility.
 faq:
-- question: As a laser cleaning operator working on equipment that may release benzene vapors due to its volatility, what
-    protection methods should I use to stay below exposure limits?
-  answer: Prioritize engineering controls like local exhaust ventilation to capture volatile benzene emissions at the source,
-    aiming to keep airborne concentrations below the OSHA PEL of 1 ppm (8-hour TWA) or the ACGIH TLV of 0.5 ppm. Wear a NIOSH-approved
-    half-face respirator with organic vapor cartridges (e.g., N95 or better with OV filter) during operations, and use chemical-resistant
-    gloves and protective clothing to prevent skin contact. Regularly monitor air quality with a photoionization detector
-    (PID) calibrated for benzene to ensure levels remain safe and trigger immediate evacuation if thresholds are approached.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-working
+    title: As a laser cleaning operator working on equipment that may release benzene vapors due to its volatility, what protection
+      methods should I use to stay below exposure limits?
+    content: Prioritize engineering controls like local exhaust ventilation to capture volatile benzene emissions at the source,
+      aiming to keep airborne concentrations below the OSHA PEL of 1 ppm (8-hour TWA) or the ACGIH TLV of 0.5 ppm. Wear a
+      NIOSH-approved half-face respirator with organic vapor cartridges (e.g., N95 or better with OV filter) during operations,
+      and use chemical-resistant gloves and protective clothing to prevent skin contact. Regularly monitor air quality with
+      a photoionization detector (PID) calibrated for benzene to ensure levels remain safe and trigger immediate evacuation
+      if thresholds are approached.
+    metadata:
+      topic: as a laser cleaning operator
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

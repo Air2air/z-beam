@@ -217,7 +217,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -280,7 +279,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -324,7 +322,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.968108+00:00'
+dateModified: '2026-01-08T01:04:44.621017+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -373,69 +371,189 @@ eeat:
     name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
     url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
 faq:
-- answer: For typical SiC/SiC composites, I suggest keeping fluence below 2-4 J/cm² using nanosecond pulses at 1064 nm. Notably,
-    this range removes oxides and carbon deposits effectively while preserving matrix integrity. Thus, the precise safe threshold
-    depends on your specific fiber type and initial surface contamination level.
-  question: What is the maximum safe laser fluence (J/cm²) for cleaning CMCs without damaging the SiC matrix or fiber reinforcement?
-  topic_keyword: SiC matrix
-  topic_statement: Fluence below 2-4 J/cm²
-- answer: Employing a 1064 nm wavelength at 5 J/cm² fluence particularly ablates carbonaceous soot, while preserving Yb₂SiO₅
-    EBC integrity. We sustain a 500 mm/s scan speed with 50 μm spot size to guarantee contaminant removal absent thermal alteration.
-    Thus, optical microscopy post-processing verifies surface preservation.
-  question: How do I remove environmental contaminants like carbonaceous soot from CMC turbine blades without altering the
-    underlying protective EBC (Environmental Barrier Coating)?
-  topic_keyword: Environmental Barrier Coating
-  topic_statement: Preserves EBC integrity
-- answer: In CMC laser cleaning, the 1064nm wavelength at 5 J/cm² fluence notably achieves optimal absorption balance. This
-    specifically removes contaminants while preserving the SiC matrix and carbon fibers, thus preventing thermal damage to
-    the composite's critical constituents.
-  question: What laser wavelength (e.g., 1064nm, 532nm, or 10.6μm) is most effective for cleaning CMCs, and why?
-  topic_keyword: laser wavelength
-  topic_statement: 1064nm preserves SiC and fibers
-- answer: Yes, notably, laser cleaning can induce micro-cracks in CMCs due to thermal shock. Employing nanosecond pulses at
-    10 ns with a fluence of 5 J/cm² helps minimize this risk by restricting heat diffusion. Thus, process monitoring remains
-    essential for detecting subsurface thermal stress damage.
-  question: Can laser cleaning induce micro-cracks or thermal stress damage in the CMC's brittle ceramic matrix?
-  topic_keyword: brittle ceramic matrix
-  topic_statement: Nanosecond pulses minimize micro-cracks
-- answer: Applying a 5 J/cm² fluence notably generates SiC nanoparticles and carbon fibers that demand HEPA filtration. Thus,
-    uphold industrial hygiene through adequate ventilation and respiratory safeguards for operators managing these ultrafine
-    byproducts in CMC laser processing.
-  question: What are the best practices for handling the nanoparticles and vapors generated during laser cleaning of CMCs,
-    especially those with carbon fibers?
-  topic_keyword: carbon fibers
-  topic_statement: Requires HEPA filtration ventilation
-- answer: Properly tuned 1064 nm laser cleaning at 5 J/cm² minimally alters CMC topography. Specifically, it can slightly
-    increase surface roughness by opening sealed pores, which notably enhances coating adhesion but may require NDE signal
-    compensation for accurate inspection.
-  question: How does laser cleaning affect the surface roughness and porosity of a CMC, and what is the impact on subsequent
-    re-coating or re-inspection?
-  topic_keyword: surface roughness and porosity
-  topic_statement: Opens pores, enhances adhesion
-- answer: Notably, laser depainting at 5 J/cm² removes organic coatings from CMCs effectively, with minimal substrate interaction.
-    Particularly, the key risk involves incomplete paint pyrolysis, potentially leaving carbonaceous residues unseen in mechanical
-    approaches. Thus, strict parameter control proves vital to prevent this contamination.
-  question: Is laser cleaning a viable method for depainting CMC components, and what are the risks of leaving residual chemical
-    contaminants from the paint?
-  topic_keyword: residual chemical contaminants
-  topic_statement: Risk of carbonaceous residues
-- answer: For intricate CMC airfoils, accurate 3D beam delivery proves essential. Notably, galvo scanners facilitate swift
-    contour tracking at 500 mm/s, while closed-loop LIBS monitoring specifically maintains uniform 5 J/cm² fluence to avert
-    hot spots and thermal damage.
-  question: For automated laser cleaning of complex CMC geometries (like airfoils), how critical is beam delivery and scanning
-    control to ensure uniform cleaning without hot spots?
-  topic_keyword: complex CMC geometries
-  topic_statement: Precise 3D beam delivery paramount
-- answer: The core distinction arises from carbon's strong 1064 nm absorption and oxidation susceptibility, compared to SiC's
-    robust ablation threshold around 5 J/cm². Specifically, C/C processing requires inert gas support and milder fluence levels,
-    while SiC/SiC tolerates harsher ns-pulse conditions. Thus, these factors shape unique laser tactics for each composite.
-  question: What is the fundamental difference in laser interaction between a SiC/SiC CMC and a C/C (Carbon-Carbon) composite,
-    and how does that change the cleaning strategy?
-- answer: For verifying CMC surface integrity post-laser cleaning at 5 J/cm², fluorescent penetrant inspection particularly
-    excels at revealing micro-cracks. Notably, pulsed thermography offers high reliability in detecting subsurface thermal
-    alterations by mapping effusivity changes in potential heat-affected zones, all without contact.
-  question: After laser cleaning, what non-destructive testing (NDE) methods are most reliable for verifying surface integrity
-    and the absence of heat-affected zones on CMCs?
+  presentation: collapsible
+  items:
+  - id: what-is-the-maximum-safe-laser
+    title: What is the maximum safe laser fluence (J/cm²) for cleaning CMCs without damaging the SiC matrix or fiber reinforcement?
+    content: For typical SiC/SiC composites, I suggest keeping fluence below 2-4 J/cm² using nanosecond pulses at 1064 nm.
+      Notably, this range removes oxides and carbon deposits effectively while preserving matrix integrity. Thus, the precise
+      safe threshold depends on your specific fiber type and initial surface contamination level.
+    metadata:
+      topic: the maximum safe laser fluence
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-i-remove-environmental-contaminants
+    title: How do I remove environmental contaminants like carbonaceous soot from CMC turbine blades without altering the
+      underlying protective EBC (Environmental Barrier Coating)?
+    content: Employing a 1064 nm wavelength at 5 J/cm² fluence particularly ablates carbonaceous soot, while preserving Yb₂SiO₅
+      EBC integrity. We sustain a 500 mm/s scan speed with 50 μm spot size to guarantee contaminant removal absent thermal
+      alteration. Thus, optical microscopy post-processing verifies surface preservation.
+    metadata:
+      topic: do i remove environmental contaminants
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: what-laser-wavelength-eg-1064nm-532nm
+    title: What laser wavelength (e.g., 1064nm, 532nm, or 10.6μm) is most effective for cleaning CMCs, and why?
+    content: In CMC laser cleaning, the 1064nm wavelength at 5 J/cm² fluence notably achieves optimal absorption balance.
+      This specifically removes contaminants while preserving the SiC matrix and carbon fibers, thus preventing thermal damage
+      to the composite's critical constituents.
+    metadata:
+      topic: laser wavelength (e.g., 1064nm, 532nm,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-induce-microcracks-or
+    title: Can laser cleaning induce micro-cracks or thermal stress damage in the CMC's brittle ceramic matrix?
+    content: Yes, notably, laser cleaning can induce micro-cracks in CMCs due to thermal shock. Employing nanosecond pulses
+      at 10 ns with a fluence of 5 J/cm² helps minimize this risk by restricting heat diffusion. Thus, process monitoring
+      remains essential for detecting subsurface thermal stress damage.
+    metadata:
+      topic: laser cleaning induce micro-cracks or
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: what-are-the-best-practices-for
+    title: What are the best practices for handling the nanoparticles and vapors generated during laser cleaning of CMCs,
+      especially those with carbon fibers?
+    content: Applying a 5 J/cm² fluence notably generates SiC nanoparticles and carbon fibers that demand HEPA filtration.
+      Thus, uphold industrial hygiene through adequate ventilation and respiratory safeguards for operators managing these
+      ultrafine byproducts in CMC laser processing.
+    metadata:
+      topic: the best practices for handling
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: how-does-laser-cleaning-affect-the
+    title: How does laser cleaning affect the surface roughness and porosity of a CMC, and what is the impact on subsequent
+      re-coating or re-inspection?
+    content: Properly tuned 1064 nm laser cleaning at 5 J/cm² minimally alters CMC topography. Specifically, it can slightly
+      increase surface roughness by opening sealed pores, which notably enhances coating adhesion but may require NDE signal
+      compensation for accurate inspection.
+    metadata:
+      topic: laser cleaning affect the surface
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: is-laser-cleaning-a-viable-method
+    title: Is laser cleaning a viable method for depainting CMC components, and what are the risks of leaving residual chemical
+      contaminants from the paint?
+    content: Notably, laser depainting at 5 J/cm² removes organic coatings from CMCs effectively, with minimal substrate interaction.
+      Particularly, the key risk involves incomplete paint pyrolysis, potentially leaving carbonaceous residues unseen in
+      mechanical approaches. Thus, strict parameter control proves vital to prevent this contamination.
+    metadata:
+      topic: laser cleaning a viable method
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: for-automated-laser-cleaning-of-complex
+    title: For automated laser cleaning of complex CMC geometries (like airfoils), how critical is beam delivery and scanning
+      control to ensure uniform cleaning without hot spots?
+    content: For intricate CMC airfoils, accurate 3D beam delivery proves essential. Notably, galvo scanners facilitate swift
+      contour tracking at 500 mm/s, while closed-loop LIBS monitoring specifically maintains uniform 5 J/cm² fluence to avert
+      hot spots and thermal damage.
+    metadata:
+      topic: for automated laser cleaning of
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: what-is-the-fundamental-difference-in
+    title: What is the fundamental difference in laser interaction between a SiC/SiC CMC and a C/C (Carbon-Carbon) composite,
+      and how does that change the cleaning strategy?
+    content: The core distinction arises from carbon's strong 1064 nm absorption and oxidation susceptibility, compared to
+      SiC's robust ablation threshold around 5 J/cm². Specifically, C/C processing requires inert gas support and milder fluence
+      levels, while SiC/SiC tolerates harsher ns-pulse conditions. Thus, these factors shape unique laser tactics for each
+      composite.
+    metadata:
+      topic: the fundamental difference in laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  - id: after-laser-cleaning-what-nondestructive-testing
+    title: After laser cleaning, what non-destructive testing (NDE) methods are most reliable for verifying surface integrity
+      and the absence of heat-affected zones on CMCs?
+    content: For verifying CMC surface integrity post-laser cleaning at 5 J/cm², fluorescent penetrant inspection particularly
+      excels at revealing micro-cracks. Notably, pulsed thermography offers high reliability in detecting subsurface thermal
+      alterations by mapping effusivity changes in potential heat-affected zones, all without contact.
+    metadata:
+      topic: after laser cleaning, non-destructive testing
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
 breadcrumb:
 - label: Home

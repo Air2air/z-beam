@@ -319,7 +319,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -390,7 +389,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:35.068977+00:00'
+dateModified: '2026-01-08T01:04:52.551784+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -413,17 +412,62 @@ components:
     after: After laser treatment, the surface appears smooth and uniform now. Grains stand out clearly without any residue
       left. This reveals the clean, even finish underneath.
 faq:
-- question: How do I safely laser clean YSZ without causing cracks?
-  answer: I've seen YSZ hold up well during cleaning if you start slow. Begin with low power to gently remove dirt and oxides
-    from the surface. Watch the heat buildup closely, as this material resists thermal shock but can crack under sudden changes.
-    Keep the beam moving steadily to avoid hot spots. This approach brings back the clean finish every time.
-- question: What's the best way to remove contaminants from YSZ coatings?
-  answer: When cleaning YSZ, focus on a pulsed laser setup first. This works well because the material's toughness lets it
-    handle short bursts without damage. I've found scanning in overlapping passes removes stubborn buildup like soot effectively.
-    Adjust speed based on layer thickness to ensure even results. Tends to restore the original smooth texture nicely.
-- question: Can laser cleaning affect YSZ's thermal properties long-term?
-  answer: Start by testing a small area to check response. YSZ's stability means cleaning rarely alters its heat resistance
-    over time
+  presentation: collapsible
+  items:
+  - id: how-do-i-safely-laser-clean
+    title: How do I safely laser clean YSZ without causing cracks?
+    content: I've seen YSZ hold up well during cleaning if you start slow. Begin with low power to gently remove dirt and
+      oxides from the surface. Watch the heat buildup closely, as this material resists thermal shock but can crack under
+      sudden changes. Keep the beam moving steadily to avoid hot spots. This approach brings back the clean finish every time.
+    metadata:
+      topic: do i safely laser clean
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: whats-the-best-way-to-remove
+    title: What's the best way to remove contaminants from YSZ coatings?
+    content: When cleaning YSZ, focus on a pulsed laser setup first. This works well because the material's toughness lets
+      it handle short bursts without damage. I've found scanning in overlapping passes removes stubborn buildup like soot
+      effectively. Adjust speed based on layer thickness to ensure even results. Tends to restore the original smooth texture
+      nicely.
+    metadata:
+      topic: '''s the best way to'
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: can-laser-cleaning-affect-yszs-thermal
+    title: Can laser cleaning affect YSZ's thermal properties long-term?
+    content: Start by testing a small area to check response. YSZ's stability means cleaning rarely alters its heat resistance
+      over time
+    metadata:
+      topic: laser cleaning affect ysz's thermal
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/ceramic/technical/yttria-stabilized-zirconia-laser-cleaning
 breadcrumb:
 - label: Home

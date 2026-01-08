@@ -219,7 +219,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -282,7 +281,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -326,7 +324,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:31.626899+00:00'
+dateModified: '2026-01-08T01:04:48.943531+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -372,64 +370,174 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
 faq:
-- answer: Yes, fiber lasers can safely clean contaminants from rubber seals without thermal damage or cracking, since rubber's
-    low thermal conductivity requires precise heat management. Basically, go with a 1064 nm wavelength at 100 W power, 10
-    ns pulses, and 500 mm/s scan speed to prevent overheating. A 5.1 J/cm² fluence over three passes with 50% overlap ensures
-    pretty uniform results.
-  question: Can fiber lasers safely remove contaminants from rubber seals without causing thermal degradation or cracking?
-  topic_keyword: thermal degradation or cracking
-  topic_statement: Demands precise heat management
-- answer: When ablating silicone-based mold release agents from rubber injection molds, a 1064 nm near-infrared laser typically
-    proves the most effective option. Rubber composites absorb IR light pretty strongly, allowing precise residue removal
-    at 5.1 J/cm² fluence and 100 W power without scorching the substrate—UV alternatives risk over-degradation, while green
-    wavelengths offer fairly poor energy coupling for these contaminants.
-  question: What wavelength is most effective for cleaning mold release agents off rubber injection molds using laser ablation?
-  topic_keyword: rubber injection molds
-  topic_statement: Strong IR absorption enables precision
-- answer: 'To steer clear of vulcanization or discoloration in tire rubber during laser cleaning, typically aim for temperatures
-    below 120°C on natural rubber and 150°C for synthetics, using a 1064 nm wavelength at 5.1 J/cm² fluence. Fairly straightforward:
-    ramp up scan speed to 500 mm/s with air assist cooling, plus a quick solvent pre-wipe, to preserve elasticity sans thermal
-    buildup.'
-  question: How do I prevent rubber vulcanization or discoloration during laser cleaning of tire surfaces?
-  topic_keyword: rubber vulcanization
-  topic_statement: Target temperatures under 120°C
-- answer: Laser cleaning rubber gaskets with a 5.1 J/cm² fluence at 1064 nm wavelength pretty much triggers pyrolysis, releasing
-    volatile organic compounds like hydrocarbons and fine carbon particulates. To handle these, typically deploy local exhaust
-    ventilation for source capture, while equipping workers with NIOSH-approved respirators and safety goggles per OSHA guidelines.
-  question: What fumes or particulates are generated when laser cleaning rubber gaskets, and how should they be handled?
-  topic_keyword: fumes or particulates
-  topic_statement: Pyrolysis releases VOCs and particulates
-- answer: 'When tackling oil cleanup on EPDM or neoprene rubber conveyor belts, target a fluence of 5.1 J/cm² at 1064 nm to
-    ablate contaminants without roughening the surface. Pretty straightforward: employ 100 W power with 10 ns pulses at 50
-    kHz, plus a 500 mm/s scan speed over three passes and 50% overlap, as IPG Photonics verified for minimal thermal damage.'
-  question: In laser cleaning equipment, what settings are recommended for removing oils from rubber conveyor belts without
-    surface roughening?
-  topic_keyword: without surface roughening
-  topic_statement: 5.1 J/cm² fluence multi-pass
-- answer: Yes, EPA regulations in the US pretty much oversee emissions from rubber laser cleaning in automotive setups, zeroing
-    in on VOCs and particulates from ablation to safeguard air quality. REACH compliance remains typically vital for EU operations,
-    curbing hazardous chemicals derived from rubber. Opt for a 1064 nm wavelength at 5.1 J/cm² fluence to enable controlled
-    removal, while seeking ISO 14644 certification for cleanrooms.
-  question: Are there any regulatory standards for laser cleaning rubber components in automotive manufacturing to avoid hazardous
-    byproducts?
-  topic_keyword: hazardous byproducts
-  topic_statement: EPA REACH regulate rubber emissions
-- answer: Rubber's high thermal expansion typically causes rapid swelling or bubbling during laser treatment, since heat vaporizes
-    trapped moisture or gases in its polymer matrix. Pretty much any mitigation starts with controlling humidity below 50%
-    and defocusing the beam to a 5.1 J/cm² fluence at 500 mm/s scan speed for even energy distribution.
-  question: Why does rubber swell or bubble during laser surface treatment, and how can this be mitigated?
-- answer: After cleaning rubber O-rings with a 1064 nm laser at 5.1 J/cm² fluence, pretty much apply dye penetrant inspection
-    right away to spot micro-cracks without harming the composite. Then, typically complement it using pull-off adhesion tests
-    to verify bond strength, protecting against thermal-induced flaws in tough applications like aerospace seals.
-  question: What are the best practices for post-laser cleaning inspection of rubber O-rings to ensure no micro-cracks form?
-  topic_keyword: micro-cracks form
-  topic_statement: Dye penetrant reveals micro-cracks
-- answer: Natural rubber shows pretty high elasticity, which drives more deformation in laser cleaning and yields inconsistent
-    ablation plus uneven results—unlike stiffer synthetic rubbers that keep surfaces more stable. This basically heightens
-    reflectivity and threshold variations, typically needing scan speeds dialed to 500 mm/s for curved sections. At 1064 nm
-    with 5.1 J/cm² fluence, multiple passes boost uniformity.
-  question: How does the elasticity of natural rubber affect the uniformity of laser cleaning results compared to synthetic
-    rubbers?
+  presentation: collapsible
+  items:
+  - id: can-fiber-lasers-safely-remove-contaminants
+    title: Can fiber lasers safely remove contaminants from rubber seals without causing thermal degradation or cracking?
+    content: Yes, fiber lasers can safely clean contaminants from rubber seals without thermal damage or cracking, since rubber's
+      low thermal conductivity requires precise heat management. Basically, go with a 1064 nm wavelength at 100 W power, 10
+      ns pulses, and 500 mm/s scan speed to prevent overheating. A 5.1 J/cm² fluence over three passes with 50% overlap ensures
+      pretty uniform results.
+    metadata:
+      topic: fiber lasers safely remove contaminants
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-wavelength-is-most-effective-for
+    title: What wavelength is most effective for cleaning mold release agents off rubber injection molds using laser ablation?
+    content: When ablating silicone-based mold release agents from rubber injection molds, a 1064 nm near-infrared laser typically
+      proves the most effective option. Rubber composites absorb IR light pretty strongly, allowing precise residue removal
+      at 5.1 J/cm² fluence and 100 W power without scorching the substrate—UV alternatives risk over-degradation, while green
+      wavelengths offer fairly poor energy coupling for these contaminants.
+    metadata:
+      topic: wavelength most effective for cleaning
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: how-do-i-prevent-rubber-vulcanization
+    title: How do I prevent rubber vulcanization or discoloration during laser cleaning of tire surfaces?
+    content: 'To steer clear of vulcanization or discoloration in tire rubber during laser cleaning, typically aim for temperatures
+      below 120°C on natural rubber and 150°C for synthetics, using a 1064 nm wavelength at 5.1 J/cm² fluence. Fairly straightforward:
+      ramp up scan speed to 500 mm/s with air assist cooling, plus a quick solvent pre-wipe, to preserve elasticity sans thermal
+      buildup.'
+    metadata:
+      topic: do i prevent rubber vulization
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: what-fumes-or-particulates-are-generated
+    title: What fumes or particulates are generated when laser cleaning rubber gaskets, and how should they be handled?
+    content: Laser cleaning rubber gaskets with a 5.1 J/cm² fluence at 1064 nm wavelength pretty much triggers pyrolysis,
+      releasing volatile organic compounds like hydrocarbons and fine carbon particulates. To handle these, typically deploy
+      local exhaust ventilation for source capture, while equipping workers with NIOSH-approved respirators and safety goggles
+      per OSHA guidelines.
+    metadata:
+      topic: fumes or particulates generated laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: in-laser-cleaning-equipment-what-settings
+    title: In laser cleaning equipment, what settings are recommended for removing oils from rubber conveyor belts without
+      surface roughening?
+    content: 'When tackling oil cleanup on EPDM or neoprene rubber conveyor belts, target a fluence of 5.1 J/cm² at 1064 nm
+      to ablate contaminants without roughening the surface. Pretty straightforward: employ 100 W power with 10 ns pulses
+      at 50 kHz, plus a 500 mm/s scan speed over three passes and 50% overlap, as IPG Photonics verified for minimal thermal
+      damage.'
+    metadata:
+      topic: in laser cleaning equipment, settings
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: are-there-any-regulatory-standards-for
+    title: Are there any regulatory standards for laser cleaning rubber components in automotive manufacturing to avoid hazardous
+      byproducts?
+    content: Yes, EPA regulations in the US pretty much oversee emissions from rubber laser cleaning in automotive setups,
+      zeroing in on VOCs and particulates from ablation to safeguard air quality. REACH compliance remains typically vital
+      for EU operations, curbing hazardous chemicals derived from rubber. Opt for a 1064 nm wavelength at 5.1 J/cm² fluence
+      to enable controlled removal, while seeking ISO 14644 certification for cleanrooms.
+    metadata:
+      topic: there any regulatory standards for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: why-does-rubber-swell-or-bubble
+    title: Why does rubber swell or bubble during laser surface treatment, and how can this be mitigated?
+    content: Rubber's high thermal expansion typically causes rapid swelling or bubbling during laser treatment, since heat
+      vaporizes trapped moisture or gases in its polymer matrix. Pretty much any mitigation starts with controlling humidity
+      below 50% and defocusing the beam to a 5.1 J/cm² fluence at 500 mm/s scan speed for even energy distribution.
+    metadata:
+      topic: rubber swell or bubble during
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  - id: what-are-the-best-practices-for
+    title: What are the best practices for post-laser cleaning inspection of rubber O-rings to ensure no micro-cracks form?
+    content: After cleaning rubber O-rings with a 1064 nm laser at 5.1 J/cm² fluence, pretty much apply dye penetrant inspection
+      right away to spot micro-cracks without harming the composite. Then, typically complement it using pull-off adhesion
+      tests to verify bond strength, protecting against thermal-induced flaws in tough applications like aerospace seals.
+    metadata:
+      topic: the best practices for post-laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 8
+  - id: how-does-the-elasticity-of-natural
+    title: How does the elasticity of natural rubber affect the uniformity of laser cleaning results compared to synthetic
+      rubbers?
+    content: Natural rubber shows pretty high elasticity, which drives more deformation in laser cleaning and yields inconsistent
+      ablation plus uneven results—unlike stiffer synthetic rubbers that keep surfaces more stable. This basically heightens
+      reflectivity and threshold variations, typically needing scan speeds dialed to 500 mm/s for curved sections. At 1064
+      nm with 5.1 J/cm² fluence, multiple passes boost uniformity.
+    metadata:
+      topic: the elasticity of natural rubber
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/rubber-laser-cleaning
 breadcrumb:
 - label: Home

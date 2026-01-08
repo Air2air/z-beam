@@ -220,7 +220,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -283,7 +282,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -328,7 +326,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:30.790382+00:00'
+dateModified: '2026-01-08T01:04:48.121140+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -376,63 +374,181 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- answer: Polystyrene's 240°C melting point requires essential precision in laser control. Employing a 1064 nm wavelength
-    at 25 W average power with 100 ns pulse width notably removes contaminants while curbing heat buildup. Crucially, fluence
-    must stay below 2.5 J/cm² to prevent substrate thermal damage.
-  question: Can you safely laser clean polystyrene surfaces without melting or damaging the material?
-  topic_keyword: without melting or damaging
-  topic_statement: Fluence below 2.5 J/cm²
-- answer: For cleaning polystyrene, near-IR wavelengths around 1064 nm stand out as optimal. They deliver essential absorption
-    to remove contaminants while limiting thermal penetration into the substrate. Apply a fluence of about 2.5 J/cm² with
-    a 100 µm spot size for effective surface cleaning without polymer degradation.
-  question: What laser wavelength is most suitable for cleaning polystyrene without causing degradation?
-  topic_keyword: without causing degradation
-  topic_statement: 1064 nm minimizes thermal penetration
-- answer: Yes, laser cleaning of polystyrene at 2.5 J/cm² fluence can notably release hazardous styrene monomers. Thermal
-    decomposition demands essential robust fume extraction. A 100 µm spot size paired with 500 mm/s scan speed distinctly
-    reduces localized heating and fume generation.
-  question: Does laser cleaning polystyrene release styrene monomers or other hazardous fumes?
-  topic_keyword: styrene monomers
-  topic_statement: Releases hazardous styrene monomers
-- answer: For cleaning polystyrene, it's essential to keep fluence under 2.5 J/cm² with nanosecond pulses at 20 kHz. Scanning
-    a 100 µm spot at 500 mm/s notably removes contaminants while avoiding substrate melting through precise thermal control.
-  question: What laser parameters (power, pulse duration, repetition rate) work best for removing contaminants from polystyrene?
-  topic_keyword: removing contaminants from polystyrene
-  topic_statement: Low fluence prevents melting
-- answer: Laser cleaning offers notable preparation for polystyrene surfaces via a 1064nm wavelength at 2.5 J/cm². This essential
-    technique eliminates contaminants, elevates surface energy for enhanced bonding and painting, and surpasses solvent-based
-    alternatives through superior precision without residues.
-  question: Can laser cleaning be used to prepare polystyrene surfaces for bonding or painting?
-  topic_keyword: for bonding or painting
-  topic_statement: Increases surface energy
-- answer: Achieving optical clarity through laser cleaning at 2.5 J/cm² fluence and 500 mm/s scan speed proves essential.
-    This precise technique removes contaminants without causing surface hazing or micro-roughness, notably upholding the material's
-    inherent light transmission qualities.
-  question: How does laser cleaning affect the surface roughness and optical properties of transparent polystyrene?
-  topic_keyword: optical properties
-  topic_statement: Preserves optical clarity
-- answer: In laser cleaning, it's notable how effectively a 1064nm wavelength at 2.5 J/cm² removes silicone-based mold releases
-    from polystyrene. This fluence level ablates the contaminant layer without thermally degrading the underlying polymer
-    substrate, ensuring optimal surface quality.
-  question: Is laser cleaning effective for removing mold release agents from polystyrene components?
-  topic_keyword: mold release agents
-  topic_statement: Ablates without thermal degradation
-- answer: Polystyrene shows a notably low ignition threshold, calling for strict fluence control below 2.5 J/cm² to avert
-    combustion. Decomposition releases highly toxic styrene monomer, so essential fume extraction and air-purifying respirators
-    are vital—distinct from most engineering plastics.
-  question: What safety precautions are specific to laser cleaning polystyrene versus other plastics?
-- answer: Polystyrene exhibits notable triboelectric traits, leaving it prone to static charge buildup. Applying laser cleaning
-    at 2.5 J/cm² risks creating surface charges that draw airborne particles afterward. Optimizing parameters remains essential
-    for countering this electrostatic issue and avoiding dust buildup on the treated surface.
-  question: Can laser cleaning create electrostatic issues on polystyrene surfaces?
-  topic_keyword: electrostatic issues
-  topic_statement: Mitigates triboelectric charge generation
-- answer: Laser cleaning entirely eliminates solvent-induced stress cracking risks, an essential advantage for delicate polystyrene
-    components. Employing a precisely controlled 1064 nm wavelength at 2.5 J/cm² fluence, it removes contaminants while upholding
-    dimensional stability. This dry process notably sidesteps the environmental and safety issues tied to chemical residues.
-  question: How does laser cleaning compare to solvent cleaning for delicate polystyrene parts?
-  topic_keyword: delicate polystyrene parts
-  topic_statement: Eliminates solvent-induced stress cracking
+  presentation: collapsible
+  items:
+  - id: can-you-safely-laser-clean-polystyrene
+    title: Can you safely laser clean polystyrene surfaces without melting or damaging the material?
+    content: Polystyrene's 240°C melting point requires essential precision in laser control. Employing a 1064 nm wavelength
+      at 25 W average power with 100 ns pulse width notably removes contaminants while curbing heat buildup. Crucially, fluence
+      must stay below 2.5 J/cm² to prevent substrate thermal damage.
+    metadata:
+      topic: you safely laser clean polystyrene
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-wavelength-is-most-suitable
+    title: What laser wavelength is most suitable for cleaning polystyrene without causing degradation?
+    content: For cleaning polystyrene, near-IR wavelengths around 1064 nm stand out as optimal. They deliver essential absorption
+      to remove contaminants while limiting thermal penetration into the substrate. Apply a fluence of about 2.5 J/cm² with
+      a 100 µm spot size for effective surface cleaning without polymer degradation.
+    metadata:
+      topic: laser wavelength most suitable for
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: does-laser-cleaning-polystyrene-release-styrene
+    title: Does laser cleaning polystyrene release styrene monomers or other hazardous fumes?
+    content: Yes, laser cleaning of polystyrene at 2.5 J/cm² fluence can notably release hazardous styrene monomers. Thermal
+      decomposition demands essential robust fume extraction. A 100 µm spot size paired with 500 mm/s scan speed distinctly
+      reduces localized heating and fume generation.
+    metadata:
+      topic: laser cleaning polystyrene release styrene
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  - id: what-laser-parameters-power-pulse-duration
+    title: What laser parameters (power, pulse duration, repetition rate) work best for removing contaminants from polystyrene?
+    content: For cleaning polystyrene, it's essential to keep fluence under 2.5 J/cm² with nanosecond pulses at 20 kHz. Scanning
+      a 100 µm spot at 500 mm/s notably removes contaminants while avoiding substrate melting through precise thermal control.
+    metadata:
+      topic: laser parameters (power, pulse duration,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 4
+  - id: can-laser-cleaning-be-used-to
+    title: Can laser cleaning be used to prepare polystyrene surfaces for bonding or painting?
+    content: Laser cleaning offers notable preparation for polystyrene surfaces via a 1064nm wavelength at 2.5 J/cm². This
+      essential technique eliminates contaminants, elevates surface energy for enhanced bonding and painting, and surpasses
+      solvent-based alternatives through superior precision without residues.
+    metadata:
+      topic: laser cleaning be used to
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 5
+  - id: how-does-laser-cleaning-affect-the
+    title: How does laser cleaning affect the surface roughness and optical properties of transparent polystyrene?
+    content: Achieving optical clarity through laser cleaning at 2.5 J/cm² fluence and 500 mm/s scan speed proves essential.
+      This precise technique removes contaminants without causing surface hazing or micro-roughness, notably upholding the
+      material's inherent light transmission qualities.
+    metadata:
+      topic: laser cleaning affect the surface
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 6
+  - id: is-laser-cleaning-effective-for-removing
+    title: Is laser cleaning effective for removing mold release agents from polystyrene components?
+    content: In laser cleaning, it's notable how effectively a 1064nm wavelength at 2.5 J/cm² removes silicone-based mold
+      releases from polystyrene. This fluence level ablates the contaminant layer without thermally degrading the underlying
+      polymer substrate, ensuring optimal surface quality.
+    metadata:
+      topic: laser cleaning effective for removing
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 7
+  - id: what-safety-precautions-are-specific-to
+    title: What safety precautions are specific to laser cleaning polystyrene versus other plastics?
+    content: Polystyrene shows a notably low ignition threshold, calling for strict fluence control below 2.5 J/cm² to avert
+      combustion. Decomposition releases highly toxic styrene monomer, so essential fume extraction and air-purifying respirators
+      are vital—distinct from most engineering plastics.
+    metadata:
+      topic: safety precautions specific to laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 8
+  - id: can-laser-cleaning-create-electrostatic-issues
+    title: Can laser cleaning create electrostatic issues on polystyrene surfaces?
+    content: Polystyrene exhibits notable triboelectric traits, leaving it prone to static charge buildup. Applying laser
+      cleaning at 2.5 J/cm² risks creating surface charges that draw airborne particles afterward. Optimizing parameters remains
+      essential for countering this electrostatic issue and avoiding dust buildup on the treated surface.
+    metadata:
+      topic: laser cleaning create electrostatic sues
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 9
+  - id: how-does-laser-cleaning-compare-to
+    title: How does laser cleaning compare to solvent cleaning for delicate polystyrene parts?
+    content: Laser cleaning entirely eliminates solvent-induced stress cracking risks, an essential advantage for delicate
+      polystyrene components. Employing a precisely controlled 1064 nm wavelength at 2.5 J/cm² fluence, it removes contaminants
+      while upholding dimensional stability. This dry process notably sidesteps the environmental and safety issues tied to
+      chemical residues.
+    metadata:
+      topic: laser cleaning comp to solvent
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/plastic/thermoplastic/polystyrene-laser-cleaning
 breadcrumb:
 - label: Home

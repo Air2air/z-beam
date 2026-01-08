@@ -5,7 +5,7 @@ category: toxic_gas
 subcategory: acid_gas
 hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.560041+00:00'
+dateModified: '2026-01-08T00:59:13.263992+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/acid_gas/sulfur-dioxide-compound
@@ -180,7 +180,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -412,7 +411,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -433,7 +431,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -466,10 +463,29 @@ ppe_requirements: Workers handling sulfur dioxide face risks from its irritating
   zones. Breathing the gas harms lungs deeply. Self-contained breathing apparatus ensures clean air supply. Boots and coveralls
   add layers against spills. Always pair PPE with good ventilation to cut risks. Training on quick donning saves time in emergencies.
 faq:
-- question: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas from
-    sulfur-containing materials?
-  answer: Always prioritize engineering controls like local exhaust ventilation to capture and remove SO₂ at the source, maintaining
-    exposure below the OSHA permissible limit of 5 ppm (parts per million) over an 8-hour shift. Wear a full-face respirator
-    with an appropriate cartridge rated for acid gases (e.g., NIOSH-approved P100 with acid gas cartridge) and ensure personal
-    protective equipment like gloves and protective clothing to avoid skin contact. Regularly monitor air quality with SO₂
-    detectors or badges, and evacuate if levels exceed 5 ppm, seeking fresh air immediately if irritation occurs.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas from
+      sulfur-containing materials?
+    content: Always prioritize engineering controls like local exhaust ventilation to capture and remove SO₂ at the source,
+      maintaining exposure below the OSHA permissible limit of 5 ppm (parts per million) over an 8-hour shift. Wear a full-face
+      respirator with an appropriate cartridge rated for acid gases (e.g., NIOSH-approved P100 with acid gas cartridge) and
+      ensure personal protective equipment like gloves and protective clothing to avoid skin contact. Regularly monitor air
+      quality with SO₂ detectors or badges, and evacuate if levels exceed 5 ppm, seeking fresh air immediately if irritation
+      occurs.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

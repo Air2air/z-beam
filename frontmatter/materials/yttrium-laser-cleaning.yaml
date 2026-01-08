@@ -188,7 +188,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -238,7 +237,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -284,7 +282,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.692255+00:00'
+dateModified: '2026-01-08T01:04:51.107483+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -321,78 +319,199 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: To clean yttrium oxide from yttrium alloys, a 1064 nm Nd:YAG laser with 10 ns pulses at 50 kHz performs best. It
-    targets 5.1 J/cm² fluence, leveraging the metal's high reflectivity and thermal conductivity for contaminant ablation
-    without base harm. This process scans efficiently at 500 mm/s with 30% overlap across two passes at 100 W power for even
-    outcomes.
-  question: What laser parameters are optimal for cleaning yttrium oxide contaminants from metal surfaces without damaging
-    the underlying yttrium alloy?
-  topic_keyword: underlying yttrium alloy
-  topic_statement: Exploits reflectivity thermal conductivity
-- answer: In this process, laser cleaning yttrium-stabilized zirconia for thermal barriers—with 5.1 J/cm² fluence at 1064
-    nm—avoids microcracking by keeping thermal stress under the material's 1000°C threshold, thus preserving the tetragonal
-    phase without monoclinic shifts. Electronics industry examples reveal post-cleaning roughness of 0.3-0.5 μm, efficiently
-    enhancing adhesion and microstructural integrity.
-  question: How does laser cleaning affect the surface microstructure of yttrium-stabilized zirconia ceramics used in thermal
-    barrier coatings?
-  topic_keyword: yttrium-stabilized zirconia ceramics
-  topic_statement: Preserves tetragonal phase integrity
-- answer: For cleaning yttrium residues using a 1064 nm laser at 5.1 J/cm² fluence, it's practical to prioritize local exhaust
-    ventilation per OSHA standards. This process captures reactive airborne particles, preventing inhalation risks from this
-    rare-earth metal. Always wear certified eye protection blocking the full laser spectrum, and use respirators in enclosed
-    spaces to manage dust.
-  question: What safety precautions are needed when using lasers to remove yttrium-based residues from industrial equipment,
-    given yttrium's reactivity?
-  topic_keyword: yttrium's reactivity
-  topic_statement: Capture reactive airborne particles
-- answer: Yes, this process of dry laser cleaning effectively removes organic contaminants from yttrium-doped crystals such
-    as Nd:YAG, sidestepping defects that wet methods could introduce via liquid residues. Straightforward application of a
-    1064 nm wavelength at 5.1 J/cm² fluence delivers precise ablation without substrate damage—try two passes at 500 mm/s
-    for even coverage.
-  question: Is dry laser cleaning effective for removing organic contaminants from yttrium-doped laser crystals without introducing
-    defects?
-  topic_keyword: yttrium-doped laser crystals
-  topic_statement: Avoids defects unlike wet methods
-- answer: In laser cleaning yttrium-containing superalloys for aerospace turbine blades, key challenges include removing stubborn
-    oxide scales and limiting heat-affected zones to preserve nickel-yttrium compatibility. This process, using a 1064 nm
-    wavelength at 5.1 J/cm² fluence, ensures efficient ablation without substrate damage, as noted in aviation forums.
-  question: What are the common challenges in laser cleaning yttrium-containing superalloys in aerospace turbine blades?
-  topic_keyword: yttrium-containing superalloys
-  topic_statement: Protects nickel-yttrium compatibility
-- answer: Using laser cleaning on yttrium surfaces at 1064 nm wavelength and 5.1 J/cm² fluence offers a practical approach
-    to remove oxides and residues, preserving the rare-earth substrate for electronics and optics preparation. This process
-    delivers ultra-clean finishes with improved wettability, enhancing coating adhesion through peel tests. For even coverage,
-    apply 100 W power across two passes.
-  question: How can laser cleaning be used to prepare yttrium surfaces for subsequent coatings, and what surface properties
-    result?
-  topic_keyword: yttrium surfaces
-  topic_statement: Removes oxides enhancing wettability
-- answer: Laser ablation of yttrium compounds at 5.1 J/cm² fluence, using that method, generates fine dust particles that
-    pose inhalation risks and mild toxicity akin to other rare-earth metals, potentially irritating lungs or skin with prolonged
-    exposure. Environmentally, byproducts often include heavy metals, so practical EPA-compliant disposal prevents soil or
-    water contamination. Regular monitoring of effluents keeps yttrium levels below 1 ppm, ensuring safety in 1064 nm treatments.
-  question: What environmental and health risks arise from laser ablation of yttrium compounds during surface treatment?
-  topic_keyword: yttrium compounds
-  topic_statement: Mild toxicity inhalation risks
-- answer: In Nd:YAG lasers, yttrium within the host crystal delivers practical stability for beam homogeneity at 1064 nm,
-    matching the high absorption coefficient of yttrium substrates to enable efficient contaminant removal. This process enhances
-    cleaning performance by reducing reflectivity, aiming for a fluence of 5.1 J/cm² to prevent substrate damage and ensure
-    even outcomes. For best results, apply 30% beam overlap in scans.
-  question: In laser cleaning setups using Nd:YAG lasers, how does yttrium's presence in the laser medium influence cleaning
-    efficiency on yttrium substrates?
-- answer: Yttrium's high melting point of 1522°C calls for straightforward fluence control to prevent substrate fusion during
-    pulsed laser cleaning. Its rapid oxide formation kinetics also shape practical selections, such as 5.1 J/cm² at 1064 nm
-    wavelength, ensuring contaminant removal without excess surface oxidation or thermal buildup.
-  question: What are the physical properties of yttrium that impact its response to pulsed laser cleaning, such as melting
-    point and oxidation tendency?
-- answer: 'For laser cleaning yttrium phosphors in displays, training starts practically: operators don full PPE—gloves, respirators,
-    suits—to shield against airborne particles. They isolate workspaces with barriers to prevent cross-contamination, then
-    follow this process—calibrate to 5.1 J/cm² fluence at 1064 nm, scan at 500 mm/s over two passes, and vacuum residues right
-    away for pristine results.'
-  question: How do operators in training programs address contamination risks when laser cleaning yttrium phosphors in display
-    manufacturing?
-  topic_keyword: yttrium phosphors
-  topic_statement: Don PPE and vacuum residues
+  presentation: collapsible
+  items:
+  - id: what-laser-parameters-are-optimal-for
+    title: What laser parameters are optimal for cleaning yttrium oxide contaminants from metal surfaces without damaging
+      the underlying yttrium alloy?
+    content: To clean yttrium oxide from yttrium alloys, a 1064 nm Nd:YAG laser with 10 ns pulses at 50 kHz performs best.
+      It targets 5.1 J/cm² fluence, leveraging the metal's high reflectivity and thermal conductivity for contaminant ablation
+      without base harm. This process scans efficiently at 500 mm/s with 30% overlap across two passes at 100 W power for
+      even outcomes.
+    metadata:
+      topic: laser parameters optimal for cleaning
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: how-does-laser-cleaning-affect-the
+    title: How does laser cleaning affect the surface microstructure of yttrium-stabilized zirconia ceramics used in thermal
+      barrier coatings?
+    content: In this process, laser cleaning yttrium-stabilized zirconia for thermal barriers—with 5.1 J/cm² fluence at 1064
+      nm—avoids microcracking by keeping thermal stress under the material's 1000°C threshold, thus preserving the tetragonal
+      phase without monoclinic shifts. Electronics industry examples reveal post-cleaning roughness of 0.3-0.5 μm, efficiently
+      enhancing adhesion and microstructural integrity.
+    metadata:
+      topic: laser cleaning affect the surface
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: what-safety-precautions-are-needed-when
+    title: What safety precautions are needed when using lasers to remove yttrium-based residues from industrial equipment,
+      given yttrium's reactivity?
+    content: For cleaning yttrium residues using a 1064 nm laser at 5.1 J/cm² fluence, it's practical to prioritize local
+      exhaust ventilation per OSHA standards. This process captures reactive airborne particles, preventing inhalation risks
+      from this rare-earth metal. Always wear certified eye protection blocking the full laser spectrum, and use respirators
+      in enclosed spaces to manage dust.
+    metadata:
+      topic: safety precautions needed using lasers
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: is-dry-laser-cleaning-effective-for
+    title: Is dry laser cleaning effective for removing organic contaminants from yttrium-doped laser crystals without introducing
+      defects?
+    content: Yes, this process of dry laser cleaning effectively removes organic contaminants from yttrium-doped crystals
+      such as Nd:YAG, sidestepping defects that wet methods could introduce via liquid residues. Straightforward application
+      of a 1064 nm wavelength at 5.1 J/cm² fluence delivers precise ablation without substrate damage—try two passes at 500
+      mm/s for even coverage.
+    metadata:
+      topic: dry laser cleaning effective for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: what-are-the-common-challenges-in
+    title: What are the common challenges in laser cleaning yttrium-containing superalloys in aerospace turbine blades?
+    content: In laser cleaning yttrium-containing superalloys for aerospace turbine blades, key challenges include removing
+      stubborn oxide scales and limiting heat-affected zones to preserve nickel-yttrium compatibility. This process, using
+      a 1064 nm wavelength at 5.1 J/cm² fluence, ensures efficient ablation without substrate damage, as noted in aviation
+      forums.
+    metadata:
+      topic: the common challenges in laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: how-can-laser-cleaning-be-used
+    title: How can laser cleaning be used to prepare yttrium surfaces for subsequent coatings, and what surface properties
+      result?
+    content: Using laser cleaning on yttrium surfaces at 1064 nm wavelength and 5.1 J/cm² fluence offers a practical approach
+      to remove oxides and residues, preserving the rare-earth substrate for electronics and optics preparation. This process
+      delivers ultra-clean finishes with improved wettability, enhancing coating adhesion through peel tests. For even coverage,
+      apply 100 W power across two passes.
+    metadata:
+      topic: laser cleaning be used to
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: what-environmental-and-health-risks-arise
+    title: What environmental and health risks arise from laser ablation of yttrium compounds during surface treatment?
+    content: Laser ablation of yttrium compounds at 5.1 J/cm² fluence, using that method, generates fine dust particles that
+      pose inhalation risks and mild toxicity akin to other rare-earth metals, potentially irritating lungs or skin with prolonged
+      exposure. Environmentally, byproducts often include heavy metals, so practical EPA-compliant disposal prevents soil
+      or water contamination. Regular monitoring of effluents keeps yttrium levels below 1 ppm, ensuring safety in 1064 nm
+      treatments.
+    metadata:
+      topic: environmental and health rks from
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: in-laser-cleaning-setups-using-ndyag
+    title: In laser cleaning setups using Nd:YAG lasers, how does yttrium's presence in the laser medium influence cleaning
+      efficiency on yttrium substrates?
+    content: In Nd:YAG lasers, yttrium within the host crystal delivers practical stability for beam homogeneity at 1064 nm,
+      matching the high absorption coefficient of yttrium substrates to enable efficient contaminant removal. This process
+      enhances cleaning performance by reducing reflectivity, aiming for a fluence of 5.1 J/cm² to prevent substrate damage
+      and ensure even outcomes. For best results, apply 30% beam overlap in scans.
+    metadata:
+      topic: in laser cleaning setups using
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: what-are-the-physical-properties-of
+    title: What are the physical properties of yttrium that impact its response to pulsed laser cleaning, such as melting
+      point and oxidation tendency?
+    content: Yttrium's high melting point of 1522°C calls for straightforward fluence control to prevent substrate fusion
+      during pulsed laser cleaning. Its rapid oxide formation kinetics also shape practical selections, such as 5.1 J/cm²
+      at 1064 nm wavelength, ensuring contaminant removal without excess surface oxidation or thermal buildup.
+    metadata:
+      topic: the physical properties of yttrium
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  - id: how-do-operators-in-training-programs
+    title: How do operators in training programs address contamination risks when laser cleaning yttrium phosphors in display
+      manufacturing?
+    content: 'For laser cleaning yttrium phosphors in displays, training starts practically: operators don full PPE—gloves,
+      respirators, suits—to shield against airborne particles. They isolate workspaces with barriers to prevent cross-contamination,
+      then follow this process—calibrate to 5.1 J/cm² fluence at 1064 nm, scan at 500 mm/s over two passes, and vacuum residues
+      right away for pristine results.'
+    metadata:
+      topic: do operators in training programs
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/rare-earth/scandium-group/yttrium-laser-cleaning
 breadcrumb:
 - label: Home

@@ -198,7 +198,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -256,7 +255,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -300,7 +298,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.000230+00:00'
+dateModified: '2026-01-08T01:04:50.335569+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -346,76 +344,197 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 faq:
-- answer: Yes, you can pretty safely clean thermoplastic elastomer surfaces using fiber lasers at 1064 nm, basically avoiding
-    thermal degradation by capping fluence at 1.2 J/cm² with 10 ns pulses at 100 W. TPE's low heat tolerance typically calls
-    for this level of precision, as automotive parts cases from manufacturing forums demonstrate effective contaminant removal
-    across two passes at 500 mm/s without any melting.
-  question: Can thermoplastic elastomer (TPE) surfaces be cleaned with fiber lasers without causing thermal degradation or
-    melting?
-  topic_keyword: thermal degradation or melting
-  topic_statement: Requires multi-pass low fluence
-- answer: Common concerns in laser cleaning TPE molds often involve mold release agents clinging tightly to the soft, flexible
-    material, along with the risk of surpassing ablation thresholds that might deform the substrate. Employing a 1064 nm wavelength
-    at 1.2 J/cm² fluence basically minimizes damage while effectively vaporizing residues. Versus chemicals, lasers deliver
-    residue-free results and quicker cycles, though they call for precise setup beyond simple solvent dips.
-  question: What are the common concerns about residue removal from TPE molds using laser cleaning techniques, and how effective
-    is it compared to chemical methods?
-  topic_keyword: TPE molds
-  topic_statement: Low fluence prevents deformation
-- answer: 'For laser cleaning TPE automotive seals at 1.2 J/cm² fluence with a 1064 nm beam, prioritize robust local exhaust
-    ventilation to capture volatile organic compounds and fine particulates released from surface ablation. Fairly routine
-    advice: always review the material''s safety data sheet for exposure limits, and basically keep power under 100 W to limit
-    substrate breakdown and fume generation.'
-  question: In laser cleaning of TPE automotive seals, what safety precautions are needed to avoid generating harmful fumes
-    or particulates?
-  topic_keyword: harmful fumes or particulates
-  topic_statement: Prioritize local exhaust ventilation
-- answer: TPE materials absorb near-IR light like 1064 nm pretty efficiently for contaminants, preserving surface integrity
-    at 1.2 J/cm² fluence without cracking. By contrast, 532 nm wavelengths typically boost substrate absorption, which risks
-    discoloration from excess heat buildup in cleaning. Stick to 1064 nm for optimal results on these elastomers.
-  question: How do different laser wavelengths (e.g., 1064 nm vs. 532 nm) affect the surface integrity of TPE during cleaning
-    processes?
-- answer: Pulsed laser cleaning of TPE medical components at 1.2 J/cm² fluence pretty much risks subtle thermal degradation,
-    potentially altering surface chemistry and biocompatibility per ISO 10993. Residue-free outcomes stay crucial for sterilization
-    compatibility—typically stick to 1064 nm wavelength and 50 kHz repetition to minimize particulates without compromising
-    the elastomer's flexibility.
-  question: What issues arise when using pulsed lasers to clean TPE medical device components, particularly regarding biocompatibility
-    post-treatment?
-  topic_keyword: biocompatibility post-treatment
-  topic_statement: Risks thermal degradation biocompatibility
-- answer: For TPE gaskets, typically aim for 1.2 J/cm² fluence and 500 mm/s scan speed using a 1064 nm laser to strip contaminants
-    while protecting elasticity. This fairly low-heat approach avoids durometer shifts, preserving flexibility as highlighted
-    in aerospace and automotive forums. Two passes at 50% overlap deliver uniform results.
-  question: Are there specific laser cleaning parameters recommended for TPE gaskets to prevent elastic property loss after
-    treatment?
-  topic_keyword: elastic property loss
-  topic_statement: Low fluence safeguards elasticity
-- answer: Thermoplastic elastomers like TPE typically show low thermal conductivity, pretty much 0.2-0.5 W/m·K, trapping heat
-    and risking subsurface damage from abrasive methods that build friction. Laser cleaning dodges this via precise nanosecond
-    pulses at 1064 nm and 1.2 J/cm² fluence, for controlled ablation without mechanical stress.
-  question: What physical properties of TPE, like low thermal conductivity, influence the choice of laser cleaning over abrasive
-    methods?
-  topic_keyword: low thermal conductivity
-  topic_statement: Avoids friction-induced subsurface damage
-- answer: SEBS TPEs, featuring non-polar styrene blocks, typically call for a higher fluence of 1.2 J/cm² at 1064 nm to boost
-    surface energy and primer compatibility, often delivering 20-30% stronger adhesion after treatment. By contrast, polar
-    TPU types absorb laser energy more easily, which fairly cuts thermal risks while improving bonds in automotive seals.
-  question: How does the chemical composition of TPE (e.g., SEBS vs. TPU types) affect its response to laser surface treatment
-    for adhesion enhancement?
-  topic_keyword: SEBS vs. TPU types
-  topic_statement: SEBS requires higher fluence
-- answer: When laser cleaning thermoplastic elastomer (TPE) parts for food contact, it's pretty essential to prioritize FDA
-    21 CFR 177 guidelines and prevent migration of any laser-induced residues. Run overall migration testing under EU 10/2011
-    standards, keeping fluence below 1.2 J/cm² at 1064 nm to basically avoid substrate degradation that might leach additives
-    into packaging. Check TPE safety data sheets to confirm post-cleaning compliance.
-  question: What regulatory compliance issues should be considered when laser cleaning TPE parts for food contact applications?
-- answer: Online forums typically highlight how skipping oil residues on TPE surfaces results in pretty ineffective cleaning
-    at 1.2 J/cm² fluence, since they absorb laser energy unevenly. Dust contamination ranks as another common error, leading
-    to irregular ablation in 100 W runs. A gentle degreasing with isopropyl alcohol beforehand preserves the material's integrity.
-  question: In online discussions, what common handling mistakes occur when preparing TPE surfaces for laser cleaning, such
-    as pre-treatment steps?
-  topic_keyword: pre-treatment steps
-  topic_statement: Degrease to prevent uneven ablation
+  presentation: collapsible
+  items:
+  - id: can-thermoplastic-elastomer-tpe-surfaces-be
+    title: Can thermoplastic elastomer (TPE) surfaces be cleaned with fiber lasers without causing thermal degradation or
+      melting?
+    content: Yes, you can pretty safely clean thermoplastic elastomer surfaces using fiber lasers at 1064 nm, basically avoiding
+      thermal degradation by capping fluence at 1.2 J/cm² with 10 ns pulses at 100 W. TPE's low heat tolerance typically calls
+      for this level of precision, as automotive parts cases from manufacturing forums demonstrate effective contaminant removal
+      across two passes at 500 mm/s without any melting.
+    metadata:
+      topic: thermoplastic elastomer (tpe) surfaces be
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-are-the-common-concerns-about
+    title: What are the common concerns about residue removal from TPE molds using laser cleaning techniques, and how effective
+      is it compared to chemical methods?
+    content: Common concerns in laser cleaning TPE molds often involve mold release agents clinging tightly to the soft, flexible
+      material, along with the risk of surpassing ablation thresholds that might deform the substrate. Employing a 1064 nm
+      wavelength at 1.2 J/cm² fluence basically minimizes damage while effectively vaporizing residues. Versus chemicals,
+      lasers deliver residue-free results and quicker cycles, though they call for precise setup beyond simple solvent dips.
+    metadata:
+      topic: the common concerns about residue
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: in-laser-cleaning-of-tpe-automotive
+    title: In laser cleaning of TPE automotive seals, what safety precautions are needed to avoid generating harmful fumes
+      or particulates?
+    content: 'For laser cleaning TPE automotive seals at 1.2 J/cm² fluence with a 1064 nm beam, prioritize robust local exhaust
+      ventilation to capture volatile organic compounds and fine particulates released from surface ablation. Fairly routine
+      advice: always review the material''s safety data sheet for exposure limits, and basically keep power under 100 W to
+      limit substrate breakdown and fume generation.'
+    metadata:
+      topic: in laser cleaning of tpe
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: how-do-different-laser-wavelengths-eg
+    title: How do different laser wavelengths (e.g., 1064 nm vs. 532 nm) affect the surface integrity of TPE during cleaning
+      processes?
+    content: TPE materials absorb near-IR light like 1064 nm pretty efficiently for contaminants, preserving surface integrity
+      at 1.2 J/cm² fluence without cracking. By contrast, 532 nm wavelengths typically boost substrate absorption, which risks
+      discoloration from excess heat buildup in cleaning. Stick to 1064 nm for optimal results on these elastomers.
+    metadata:
+      topic: do different laser wavelengths (e.g.,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: what-issues-arise-when-using-pulsed
+    title: What issues arise when using pulsed lasers to clean TPE medical device components, particularly regarding biocompatibility
+      post-treatment?
+    content: Pulsed laser cleaning of TPE medical components at 1.2 J/cm² fluence pretty much risks subtle thermal degradation,
+      potentially altering surface chemistry and biocompatibility per ISO 10993. Residue-free outcomes stay crucial for sterilization
+      compatibility—typically stick to 1064 nm wavelength and 50 kHz repetition to minimize particulates without compromising
+      the elastomer's flexibility.
+    metadata:
+      topic: sues using pulsed lasers to
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: are-there-specific-laser-cleaning-parameters
+    title: Are there specific laser cleaning parameters recommended for TPE gaskets to prevent elastic property loss after
+      treatment?
+    content: For TPE gaskets, typically aim for 1.2 J/cm² fluence and 500 mm/s scan speed using a 1064 nm laser to strip contaminants
+      while protecting elasticity. This fairly low-heat approach avoids durometer shifts, preserving flexibility as highlighted
+      in aerospace and automotive forums. Two passes at 50% overlap deliver uniform results.
+    metadata:
+      topic: there specific laser cleaning parameters
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: what-physical-properties-of-tpe-like
+    title: What physical properties of TPE, like low thermal conductivity, influence the choice of laser cleaning over abrasive
+      methods?
+    content: Thermoplastic elastomers like TPE typically show low thermal conductivity, pretty much 0.2-0.5 W/m·K, trapping
+      heat and risking subsurface damage from abrasive methods that build friction. Laser cleaning dodges this via precise
+      nanosecond pulses at 1064 nm and 1.2 J/cm² fluence, for controlled ablation without mechanical stress.
+    metadata:
+      topic: physical properties of tpe, like
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  - id: how-does-the-chemical-composition-of
+    title: How does the chemical composition of TPE (e.g., SEBS vs. TPU types) affect its response to laser surface treatment
+      for adhesion enhancement?
+    content: SEBS TPEs, featuring non-polar styrene blocks, typically call for a higher fluence of 1.2 J/cm² at 1064 nm to
+      boost surface energy and primer compatibility, often delivering 20-30% stronger adhesion after treatment. By contrast,
+      polar TPU types absorb laser energy more easily, which fairly cuts thermal risks while improving bonds in automotive
+      seals.
+    metadata:
+      topic: the chemical composition of tpe
+      severity: low
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 8
+  - id: what-regulatory-compliance-issues-should-be
+    title: What regulatory compliance issues should be considered when laser cleaning TPE parts for food contact applications?
+    content: When laser cleaning thermoplastic elastomer (TPE) parts for food contact, it's pretty essential to prioritize
+      FDA 21 CFR 177 guidelines and prevent migration of any laser-induced residues. Run overall migration testing under EU
+      10/2011 standards, keeping fluence below 1.2 J/cm² at 1064 nm to basically avoid substrate degradation that might leach
+      additives into packaging. Check TPE safety data sheets to confirm post-cleaning compliance.
+    metadata:
+      topic: regulatory compliance sues should be
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 9
+  - id: in-online-discussions-what-common-handling
+    title: In online discussions, what common handling mistakes occur when preparing TPE surfaces for laser cleaning, such
+      as pre-treatment steps?
+    content: Online forums typically highlight how skipping oil residues on TPE surfaces results in pretty ineffective cleaning
+      at 1.2 J/cm² fluence, since they absorb laser energy unevenly. Dust contamination ranks as another common error, leading
+      to irregular ablation in 100 W runs. A gentle degreasing with isopropyl alcohol beforehand preserves the material's
+      integrity.
+    metadata:
+      topic: in online dcussions, common handling
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/structural/thermoplastic-elastomer-laser-cleaning
 breadcrumb:
 - label: Home

@@ -232,7 +232,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -295,7 +294,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -339,7 +337,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.397443+00:00'
+dateModified: '2026-01-08T01:04:44.072405+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -383,24 +381,63 @@ eeat:
     name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
     url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
 faq:
-- question: How does laser cleaning restore borosilicate glass without causing thermal damage?
-  answer: Laser cleaning employs precise, short-pulse lasers to ablate contaminants from borosilicate glass, particularly
-    leveraging its low thermal expansion to prevent cracks. This non-contact approach thus maintains material integrity, effectively
-    clearing residues in 10-20 seconds per spot.
-  topic_keyword: thermal damage
-  topic_statement: Short-pulse ablation avoids cracks
-- question: What challenges arise when laser cleaning borosilicate glass surfaces?
-  answer: Challenges, particularly micro-cracking when laser intensity surpasses the glass's thermal limits, along with residue
-    re-deposition on porous edges, pose key risks. Thus, operators should precisely calibrate wavelengths (e.g., 1064 nm)
-    to balance cleaning efficiency against the material's inherent brittleness.
-  topic_keyword: borosilicate glass surfaces
-  topic_statement: Calibrate wavelengths carefully
-- question: Can laser cleaning improve the optical clarity of contaminated borosilicate labware?
-  answer: Yes, this approach notably boosts clarity by vaporizing organic and metallic contaminants without abrasives, thus
-    restoring borosilicate's inherent transparency. Particularly effective against haze from chemical exposure, it prolongs
-    lab equipment lifespan while curbing environmental harm through dry methods. Suited for precision optics. (47 words)
-  topic_keyword: optical clarity
-  topic_statement: Enhances optical clarity
+  presentation: collapsible
+  items:
+  - id: how-does-laser-cleaning-restore-borosilicate
+    title: How does laser cleaning restore borosilicate glass without causing thermal damage?
+    content: Laser cleaning employs precise, short-pulse lasers to ablate contaminants from borosilicate glass, particularly
+      leveraging its low thermal expansion to prevent cracks. This non-contact approach thus maintains material integrity,
+      effectively clearing residues in 10-20 seconds per spot.
+    metadata:
+      topic: laser cleaning restore borosilicate glass
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: what-challenges-arise-when-laser-cleaning
+    title: What challenges arise when laser cleaning borosilicate glass surfaces?
+    content: Challenges, particularly micro-cracking when laser intensity surpasses the glass's thermal limits, along with
+      residue re-deposition on porous edges, pose key risks. Thus, operators should precisely calibrate wavelengths (e.g.,
+      1064 nm) to balance cleaning efficiency against the material's inherent brittleness.
+    metadata:
+      topic: challenges laser cleaning borosilicate glass
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: can-laser-cleaning-improve-the-optical
+    title: Can laser cleaning improve the optical clarity of contaminated borosilicate labware?
+    content: Yes, this approach notably boosts clarity by vaporizing organic and metallic contaminants without abrasives,
+      thus restoring borosilicate's inherent transparency. Particularly effective against haze from chemical exposure, it
+      prolongs lab equipment lifespan while curbing environmental harm through dry methods. Suited for precision optics. (47
+      words)
+    metadata:
+      topic: laser cleaning improve the optical
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
 breadcrumb:
 - label: Home

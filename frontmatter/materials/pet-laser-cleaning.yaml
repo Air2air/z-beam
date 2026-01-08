@@ -193,7 +193,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -216,7 +215,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -286,7 +284,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.426878+00:00'
+dateModified: '2026-01-08T01:04:51.922841+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -312,18 +310,62 @@ components:
     after: After laser treatment, you notice the PET surface turns remarkably even and clear overall. The grime vanishes completely,
       leaving behind a polished finish without any visible spots. Now the texture appears uniform and bright, ready for practical
 faq:
-- question: Why does PET sometimes warp during laser cleaning?
-  answer: I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the laser
-    heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this, keep the
-    laser moving steadily and use shorter pulses so the material stays intact without deforming.
-- question: How do I prepare PET surfaces for effective laser cleaning?
-  answer: When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This works
-    best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove them cleanly
-    without residue. I've found wiping with a mild solvent beforehand makes the process faster and leaves a spotless finish
-    every time.
-- question: What's the best speed for laser cleaning PET to avoid damage?
-  answer: Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser plastics,
-    PET's flexibility means it
+  presentation: collapsible
+  items:
+  - id: why-does-pet-sometimes-warp-during
+    title: Why does PET sometimes warp during laser cleaning?
+    content: I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the laser
+      heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this, keep the
+      laser moving steadily and use shorter pulses so the material stays intact without deforming.
+    metadata:
+      topic: pet sometimes warp during laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-i-prepare-pet-surfaces
+    title: How do I prepare PET surfaces for effective laser cleaning?
+    content: When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This works
+      best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove them cleanly
+      without residue. I've found wiping with a mild solvent beforehand makes the process faster and leaves a spotless finish
+      every time.
+    metadata:
+      topic: do i prep pet surfaces
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: whats-the-best-speed-for-laser
+    title: What's the best speed for laser cleaning PET to avoid damage?
+    content: Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser
+      plastics, PET's flexibility means it
+    metadata:
+      topic: '''s the best speed for'
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/plastic/thermoplastic/pet-laser-cleaning
 breadcrumb:
 - label: Home

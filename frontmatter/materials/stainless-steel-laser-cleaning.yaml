@@ -356,7 +356,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -414,7 +413,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -459,7 +457,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:32.492815+00:00'
+dateModified: '2026-01-08T01:04:49.809940+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -505,25 +503,43 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- question: Stainless Steel FAQ
-  answer: 'Stainless steel belongs to the metal category and serves widely in industrial settings. Engineers often select
-    it for corrosion resistance and durability in applications like food processing equipment and structural components.
+  presentation: collapsible
+  items:
+  - id: stainless-steel-faq
+    title: Stainless Steel FAQ
+    content: 'Stainless steel belongs to the metal category and serves widely in industrial settings. Engineers often select
+      it for corrosion resistance and durability in applications like food processing equipment and structural components.
 
 
-    What physical properties matter for laser cleaning? Stainless steel has a specific heat of roughly 500 J/kg·K, which influences
-    how it absorbs laser energy. Its thermal destruction point reaches about 1673 K, marking the threshold where melting occurs
-    during intense treatments.
+      What physical properties matter for laser cleaning? Stainless steel has a specific heat of roughly 500 J/kg·K, which
+      influences how it absorbs laser energy. Its thermal destruction point reaches about 1673 K, marking the threshold where
+      melting occurs during intense treatments.
 
 
-    How does laser cleaning work on stainless steel? The process removes contaminants such as rust or oxide layers without
-    damaging the base material. A power range of 100 W typically suffices for surface preparation. This method restores the
-    metal''s original finish and exposes clean substrates for welding or coating.
+      How does laser cleaning work on stainless steel? The process removes contaminants such as rust or oxide layers without
+      damaging the base material. A power range of 100 W typically suffices for surface preparation. This method restores
+      the metal''s original finish and exposes clean substrates for welding or coating.
 
 
-    In industrial use, laser cleaning improves adhesion in subsequent processes. It reduces preparation time compared to chemical
-    methods. Workers apply short pulses to reveal underlying alloys while maintaining structural integrity. Though settings
-    vary by alloy type, these parameters apply to common grades like 304 and 316. Overall, the technique proves reliable for
-    maintenance tasks.'
+      In industrial use, laser cleaning improves adhesion in subsequent processes. It reduces preparation time compared to
+      chemical methods. Workers apply short pulses to reveal underlying alloys while maintaining structural integrity. Though
+      settings vary by alloy type, these parameters apply to common grades like 304 and 316. Overall, the technique proves
+      reliable for maintenance tasks.'
+    metadata:
+      topic: stainless steel faq
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/ferrous/stainless-steel-laser-cleaning
 breadcrumb:
 - label: Home

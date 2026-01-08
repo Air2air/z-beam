@@ -5,7 +5,7 @@ category: toxic_gas
 subcategory: oxidizing_gas
 hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.504416+00:00'
+dateModified: '2026-01-08T00:59:13.208894+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/oxidizing_gas/nitrogen-oxides-compound
@@ -162,7 +162,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -429,7 +428,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -477,10 +475,28 @@ ppe_requirements: 'Handling nitrogen oxides demands solid PPE setups. I''ve deal
   Ventilation hoods help too, but PPE stays primary. Train up—fit tests save lives. Skip shortcuts; one slip turns a shift
   sour.'
 faq:
-- question: As a laser cleaning operator, how can I protect myself from NOx exposure while working on metal surfaces?
-  answer: Prioritize engineering controls like local exhaust ventilation or fume extractors positioned near the laser head
-    to capture NOx gases at the source, ensuring airflow rates of at least 100-200 linear feet per minute to dilute concentrations
-    below safe levels. Wear a full-facepiece respirator with cartridges rated for acid gases (e.g., NIOSH-approved for NOx)
-    if ventilation is insufficient, and always monitor air quality using a portable NOx detector calibrated for NO and NO2.
-    Adhere to OSHA exposure limits of 25 ppm for NO and 5 ppm for NO2 over an 8-hour shift to prevent respiratory irritation
-    or long-term lung damage.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from NOx exposure while working on metal surfaces?
+    content: Prioritize engineering controls like local exhaust ventilation or fume extractors positioned near the laser head
+      to capture NOx gases at the source, ensuring airflow rates of at least 100-200 linear feet per minute to dilute concentrations
+      below safe levels. Wear a full-facepiece respirator with cartridges rated for acid gases (e.g., NIOSH-approved for NOx)
+      if ventilation is insufficient, and always monitor air quality using a portable NOx detector calibrated for NO and NO2.
+      Adhere to OSHA exposure limits of 25 ppm for NO and 5 ppm for NO2 over an 8-hour shift to prevent respiratory irritation
+      or long-term lung damage.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

@@ -234,7 +234,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -292,7 +291,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -336,7 +334,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.290649+00:00'
+dateModified: '2026-01-08T01:04:50.634346+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -381,72 +379,176 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: Yes, laser cleaning is particularly safe for delicate travertine on historical monuments, as it minimizes thermal
-    cracking risks in the porous calcium carbonate through low fluence of 1.5 J/cm² and 1064 nm wavelength. Notably, nanosecond
-    pulses at 10 ns limit heat penetration, evident in successful Italian heritage restorations free of discoloration. A 500
-    mm/s scan speed then ensures even coverage.
-  question: Is laser cleaning safe for delicate travertine surfaces like those on historical monuments without causing thermal
-    cracking or discoloration?
-  topic_keyword: thermal cracking
-  topic_statement: Low fluence minimizes thermal cracking
-- answer: When cleaning organic stains on travertine tiles, near-infrared lasers at 1064 nm—such as Nd:YAG—perform exceptionally
-    well, thanks to the stone's moderate absorption. This enables selective ablation at fluences of about 1.5 J/cm², avoiding
-    surface etching. Notably, UV wavelengths pose risks of greater substrate damage from intense absorption, while visible
-    light yields poorer selectivity for contaminants. For uniform outcomes, apply 100 W power with a 500 mm/s scan speed.
-  question: What laser wavelengths are most effective for removing organic stains from travertine tiles without etching the
-    surface?
-  topic_keyword: without etching the surface
-  topic_statement: 1064 nm enables selective ablation
-- answer: After laser cleaning travertine at 1.5 J/cm² fluence with a 1064 nm wavelength, promptly apply a penetrating siloxane-based
-    sealant to fill its porous structure and repel water ingress—particularly for effective protection. Keep ambient humidity
-    below 60% during drying and handling to minimize initial absorption. Thus, for longevity, inspect annually and reseal
-    as needed to curb efflorescence from dissolved salts.
-  question: How can I prevent moisture reabsorption in travertine after laser cleaning, given its high porosity?
-  topic_keyword: high porosity
-  topic_statement: Apply siloxane-based sealant promptly
-- answer: For graffiti removal on outdoor travertine facades, target 1.5 J/cm² fluence using 100 W power, 50 kHz repetition,
-    and 10 ns pulses at 1064 nm wavelength. Particularly, this setting preserves the stone's Mohs 3-4 hardness from subsurface
-    damage. Thus, test on samples to fine-tune for sunlight's thermal effects.
-  question: What power settings should be used for laser cleaning graffiti from outdoor travertine facades to avoid subsurface
-    damage?
-  topic_keyword: subsurface damage
-  topic_statement: 1.5 J/cm² protects hardness
-- answer: Laser-induced plasma on travertine's calcite (CaCO3) can trigger thermal decomposition, particularly releasing CO2
-    gas as a byproduct at fluences around 1.5 J/cm² with 1064 nm wavelength. This risks surface pitting if unmanaged. Thus,
-    inert gas shielding during 100 W nanosecond pulsing effectively minimizes oxidation and unwanted residues.
-  question: Are there any chemical reactions between laser-induced plasma and travertine's calcite composition that could
-    lead to unwanted byproducts?
-  topic_keyword: travertine's calcite composition
-  topic_statement: Triggers calcite thermal decomposition
-- answer: For uneven travertine floors, opt for raster scanning via galvanometer with 30% beam overlap at 500 mm/s, particularly
-    to evenly distribute the 1.5 J/cm² fluence and counter the stone's natural texture. Pair this with robotic arms for broad
-    coverage, thus ensuring consistent ablation without hotspots.
-  question: In laser cleaning equipment for travertine floors, what scanning patterns minimize uneven ablation on uneven natural
-    stone surfaces?
-  topic_keyword: uneven natural stone surfaces
-  topic_statement: Raster scanning with beam overlap
-- answer: When using a 1064 nm laser at 1.5 J/cm² fluence to clean travertine in tight spaces, opt for NIOSH N95 respirators
-    or better, particularly to tackle crystalline silica dust from its limestone base that endangers lung health. Follow OSHA
-    29 CFR 1926.1153 on ventilation, thus targeting over 20 air changes per hour to clear fumes. Include laser goggles and
-    gloves for complete safety.
-  question: What safety precautions are needed when laser cleaning travertine in enclosed spaces to handle dust and fumes
-    from vaporized contaminants?
-  topic_keyword: dust and fumes
-  topic_statement: N95 respirators for silica dust
-- answer: Travertine's density varies between 2.5 and 2.7 g/cm³, particularly causing uneven laser penetration at 1064 nm—unlike
-    the steady absorption in denser marble—and thus yielding patchy cleaning results. Lower-density areas risk deeper ablation,
-    so pre-scan surfaces to detect variations and apply 1.5 J/cm² fluence for uniform outcomes.
-  question: How does travertine's variable density affect the uniformity of laser cleaning results compared to denser stones
-    like marble?
-  topic_keyword: variable density
-  topic_statement: Requires pre-scan low fluence
-- answer: Laser cleaning travertine's patina particularly risks over-removing the valued aged layer in its porous limestone
-    structure, resulting in uneven aesthetics or microcracks. Thus, to preserve intentional aging, choose selective surface
-    techniques at 1.5 J/cm² fluence with 1064 nm wavelength, restricting passes to two per heritage guidelines—restoration
-    forums highlight preliminary test areas for accuracy.
-  question: What are common issues with laser cleaning travertine patina, and how to preserve intentional aging effects?
-  topic_keyword: travertine patina
-  topic_statement: Low fluence preserves porous patina
+  presentation: collapsible
+  items:
+  - id: is-laser-cleaning-safe-for-delicate
+    title: Is laser cleaning safe for delicate travertine surfaces like those on historical monuments without causing thermal
+      cracking or discoloration?
+    content: Yes, laser cleaning is particularly safe for delicate travertine on historical monuments, as it minimizes thermal
+      cracking risks in the porous calcium carbonate through low fluence of 1.5 J/cm² and 1064 nm wavelength. Notably, nanosecond
+      pulses at 10 ns limit heat penetration, evident in successful Italian heritage restorations free of discoloration. A
+      500 mm/s scan speed then ensures even coverage.
+    metadata:
+      topic: laser cleaning safe for delicate
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-wavelengths-are-most-effective
+    title: What laser wavelengths are most effective for removing organic stains from travertine tiles without etching the
+      surface?
+    content: When cleaning organic stains on travertine tiles, near-infrared lasers at 1064 nm—such as Nd:YAG—perform exceptionally
+      well, thanks to the stone's moderate absorption. This enables selective ablation at fluences of about 1.5 J/cm², avoiding
+      surface etching. Notably, UV wavelengths pose risks of greater substrate damage from intense absorption, while visible
+      light yields poorer selectivity for contaminants. For uniform outcomes, apply 100 W power with a 500 mm/s scan speed.
+    metadata:
+      topic: laser wavelengths most effective for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: how-can-i-prevent-moisture-reabsorption
+    title: How can I prevent moisture reabsorption in travertine after laser cleaning, given its high porosity?
+    content: After laser cleaning travertine at 1.5 J/cm² fluence with a 1064 nm wavelength, promptly apply a penetrating
+      siloxane-based sealant to fill its porous structure and repel water ingress—particularly for effective protection. Keep
+      ambient humidity below 60% during drying and handling to minimize initial absorption. Thus, for longevity, inspect annually
+      and reseal as needed to curb efflorescence from dissolved salts.
+    metadata:
+      topic: i prevent moture reabsorption in
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: what-power-settings-should-be-used
+    title: What power settings should be used for laser cleaning graffiti from outdoor travertine facades to avoid subsurface
+      damage?
+    content: For graffiti removal on outdoor travertine facades, target 1.5 J/cm² fluence using 100 W power, 50 kHz repetition,
+      and 10 ns pulses at 1064 nm wavelength. Particularly, this setting preserves the stone's Mohs 3-4 hardness from subsurface
+      damage. Thus, test on samples to fine-tune for sunlight's thermal effects.
+    metadata:
+      topic: power settings should be used
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: are-there-any-chemical-reactions-between
+    title: Are there any chemical reactions between laser-induced plasma and travertine's calcite composition that could lead
+      to unwanted byproducts?
+    content: Laser-induced plasma on travertine's calcite (CaCO3) can trigger thermal decomposition, particularly releasing
+      CO2 gas as a byproduct at fluences around 1.5 J/cm² with 1064 nm wavelength. This risks surface pitting if unmanaged.
+      Thus, inert gas shielding during 100 W nanosecond pulsing effectively minimizes oxidation and unwanted residues.
+    metadata:
+      topic: there any chemical reactions between
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: in-laser-cleaning-equipment-for-travertine
+    title: In laser cleaning equipment for travertine floors, what scanning patterns minimize uneven ablation on uneven natural
+      stone surfaces?
+    content: For uneven travertine floors, opt for raster scanning via galvanometer with 30% beam overlap at 500 mm/s, particularly
+      to evenly distribute the 1.5 J/cm² fluence and counter the stone's natural texture. Pair this with robotic arms for
+      broad coverage, thus ensuring consistent ablation without hotspots.
+    metadata:
+      topic: in laser cleaning equipment for
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: what-safety-precautions-are-needed-when
+    title: What safety precautions are needed when laser cleaning travertine in enclosed spaces to handle dust and fumes from
+      vaporized contaminants?
+    content: When using a 1064 nm laser at 1.5 J/cm² fluence to clean travertine in tight spaces, opt for NIOSH N95 respirators
+      or better, particularly to tackle crystalline silica dust from its limestone base that endangers lung health. Follow
+      OSHA 29 CFR 1926.1153 on ventilation, thus targeting over 20 air changes per hour to clear fumes. Include laser goggles
+      and gloves for complete safety.
+    metadata:
+      topic: safety precautions needed laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: how-does-travertines-variable-density-affect
+    title: How does travertine's variable density affect the uniformity of laser cleaning results compared to denser stones
+      like marble?
+    content: Travertine's density varies between 2.5 and 2.7 g/cm³, particularly causing uneven laser penetration at 1064
+      nm—unlike the steady absorption in denser marble—and thus yielding patchy cleaning results. Lower-density areas risk
+      deeper ablation, so pre-scan surfaces to detect variations and apply 1.5 J/cm² fluence for uniform outcomes.
+    metadata:
+      topic: travertine's variable density affect the
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: what-are-common-issues-with-laser
+    title: What are common issues with laser cleaning travertine patina, and how to preserve intentional aging effects?
+    content: Laser cleaning travertine's patina particularly risks over-removing the valued aged layer in its porous limestone
+      structure, resulting in uneven aesthetics or microcracks. Thus, to preserve intentional aging, choose selective surface
+      techniques at 1.5 J/cm² fluence with 1064 nm wavelength, restricting passes to two per heritage guidelines—restoration
+      forums highlight preliminary test areas for accuracy.
+    metadata:
+      topic: common sues with laser cleaning
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/stone/natural/travertine-laser-cleaning
 breadcrumb:
 - label: Home

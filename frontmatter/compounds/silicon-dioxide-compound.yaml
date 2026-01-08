@@ -5,7 +5,7 @@ category: particulate
 subcategory: mineral
 hazard_class: respiratory_hazard
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:38.242045+00:00'
+dateModified: '2026-01-08T00:59:14.029852+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/mineral/silicon-dioxide-compound
@@ -199,7 +199,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
   safety:
     health_effects:
       items:
@@ -237,10 +236,28 @@ ppe_requirements: Handling silicon dioxide particulates starts with assessing th
   help too, but personal gear remains essential for close-up work. Regular cleaning of tools and suits avoids buildup over
   time.
 faq:
-- question: As a laser cleaning operator, what protection methods should I use to minimize exposure to silicon dioxide (SiO₂)
-    particulates generated during the process?
-  answer: Start by assessing the workspace to minimize airborne exposure through engineering controls like local exhaust ventilation
-    or enclosed cleaning systems to capture particulates at the source. Wear a properly fitted NIOSH-approved respirator with
-    an N95 or higher rating for particulate protection, along with gloves, safety goggles, and a coverall to prevent skin
-    and eye contact. Regularly monitor air quality with particulate samplers and follow decontamination procedures after shifts
-    to avoid secondary exposure.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-what
+    title: As a laser cleaning operator, what protection methods should I use to minimize exposure to silicon dioxide (SiO₂)
+      particulates generated during the process?
+    content: Start by assessing the workspace to minimize airborne exposure through engineering controls like local exhaust
+      ventilation or enclosed cleaning systems to capture particulates at the source. Wear a properly fitted NIOSH-approved
+      respirator with an N95 or higher rating for particulate protection, along with gloves, safety goggles, and a coverall
+      to prevent skin and eye contact. Regularly monitor air quality with particulate samplers and follow decontamination
+      procedures after shifts to avoid secondary exposure.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

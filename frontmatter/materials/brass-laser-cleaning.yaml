@@ -288,7 +288,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -343,7 +342,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -387,7 +385,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.451678+00:00'
+dateModified: '2026-01-08T01:04:44.124278+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -436,19 +434,38 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
 faq:
-- question: 'Brass: Frequently Asked Questions'
-  answer: "Brass consists of an alloy that combines copper and zinc. Manufacturers produce it in various compositions to suit\
-    \ different needs. This metal serves in plumbing fittings, electrical components, and decorative hardware due to its corrosion\
-    \ resistance and machinability.\n\nWhat are the key physical properties of brass?  \nBrass offers good electrical conductivity\
-    \ at roughly 15,900,000 siemens per meter. Its electrical resistivity measures about 6.2 × 10⁻⁸ ohm-meters. These values\
-    \ make it suitable for connectors and wiring in industrial settings. The material also shows moderate strength and ductility,\
-    \ which allows shaping without cracking.\n\nHow does brass perform in industrial applications?  \nIndustries use brass\
-    \ for valves, gears, and instruments where durability matters. Its low friction reduces wear in moving parts. Yet, exposure\
-    \ to harsh environments can lead to tarnish over time.\n\nWhat laser cleaning settings apply to brass?  \nLaser cleaning\
-    \ removes oxidation and contaminants from brass surfaces. Operators typically select a power range of 100 watts for effective\
-    \ results. This process restores the metal's appearance without damaging the substrate. It exposes clean layers beneath\
-    \ dirt buildup. In practice, short pulses help control heat input and prevent warping. Brass responds well to this method\
-    \ in restoration work for antiques or machinery parts.  \n\n(Word count: 198)"
+  presentation: collapsible
+  items:
+  - id: brass-frequently-asked-questions
+    title: 'Brass: Frequently Asked Questions'
+    content: "Brass consists of an alloy that combines copper and zinc. Manufacturers produce it in various compositions to\
+      \ suit different needs. This metal serves in plumbing fittings, electrical components, and decorative hardware due to\
+      \ its corrosion resistance and machinability.\n\nWhat are the key physical properties of brass?  \nBrass offers good\
+      \ electrical conductivity at roughly 15,900,000 siemens per meter. Its electrical resistivity measures about 6.2 × 10⁻⁸\
+      \ ohm-meters. These values make it suitable for connectors and wiring in industrial settings. The material also shows\
+      \ moderate strength and ductility, which allows shaping without cracking.\n\nHow does brass perform in industrial applications?\
+      \  \nIndustries use brass for valves, gears, and instruments where durability matters. Its low friction reduces wear\
+      \ in moving parts. Yet, exposure to harsh environments can lead to tarnish over time.\n\nWhat laser cleaning settings\
+      \ apply to brass?  \nLaser cleaning removes oxidation and contaminants from brass surfaces. Operators typically select\
+      \ a power range of 100 watts for effective results. This process restores the metal's appearance without damaging the\
+      \ substrate. It exposes clean layers beneath dirt buildup. In practice, short pulses help control heat input and prevent\
+      \ warping. Brass responds well to this method in restoration work for antiques or machinery parts.  \n\n(Word count:\
+      \ 198)"
+    metadata:
+      topic: 'brass: frequently asked questions'
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/non-ferrous/brass-laser-cleaning
 breadcrumb:
 - label: Home

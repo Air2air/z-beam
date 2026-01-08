@@ -223,7 +223,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -286,7 +285,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -330,7 +328,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.732300+00:00'
+dateModified: '2026-01-08T01:04:44.389935+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -373,77 +371,218 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: For CFRP laser cleaning, near-IR at 1064 nm is generally preferred over UV, particularly due to its superior absorption
-    by carbon contaminants while minimizing resin damage at fluences around 5 J/cm². Thus, this wavelength ablates surface
-    layers effectively without compromising underlying fiber integrity.
-  question: What laser wavelength is most effective for cleaning CFRP without damaging the fibers or resin?
-- answer: For CFRP surface preparation, use nanosecond pulses at 1064 nm and a fluence of 5 J/cm². Specifically, this wavelength
-    gets absorbed by contaminants such as silicone, allowing their removal without harming the epoxy matrix underneath. Thus,
-    scanning at 500 mm/s with 50% overlap avoids thermal damage to the fiber-matrix interface.
-  question: How do I remove release agents and mold residues from CFRP surfaces without compromising structural integrity?
-  topic_keyword: structural integrity
-  topic_statement: Preserves fiber-matrix interface
-- answer: Laser cleaning, particularly at 5 J/cm² fluence with 1064 nm wavelength, effectively activates CFRP surfaces. Notably,
-    it removes contaminants and optimizes surface roughness, thus achieving bond strength akin to grit blasting without harming
-    composite fibers.
-  question: Can laser cleaning effectively prepare CFRP surfaces for bonding and repair without mechanical abrasion?
-  topic_keyword: without mechanical abrasion
-  topic_statement: Activates surfaces without fiber damage
-- answer: Laser cleaning of CFRP at 1064 nm produces toxic hydrogen cyanide and benzene fumes, particularly endangering health.
-    Proper fume extraction remains essential, with operators specifically needing supplied-air respirators. Thus, strictly
-    adhere to the 5 J/cm² fluence threshold to reduce hazardous byproducts.
-  question: What are the safety concerns when laser cleaning CFRP, particularly regarding toxic fume generation?
-  topic_keyword: toxic fume generation
-  topic_statement: Generates HCN and benzene fumes
-- answer: Employ ultrashort pulses under 10 ps, particularly to curb heat diffusion into the epoxy matrix. Target fluence
-    around 5 J/cm² via a 50 μm spot size for precise contaminant removal. Thus, real-time thermal monitoring avoids surpassing
-    the matrix degradation threshold.
-  question: How do I prevent thermal damage to the epoxy matrix when laser cleaning CFRP composites?
-  topic_keyword: epoxy matrix
-  topic_statement: ultrashort pulses minimize heat diffusion
-- answer: For CFRP paint removal, particularly employ a 1064 nm wavelength with fluence under 5 J/cm². Thus, apply multiple
-    passes at 500 mm/s using 50% overlap to selectively ablate coatings, while safeguarding the underlying resin matrix for
-    later recoating.
-  question: What laser parameters work best for removing paint and coatings from CFRP without fiber exposure?
-  topic_keyword: without fiber exposure
-  topic_statement: Preserves underlying resin matrix
-- answer: Laser cleaning at 5 J/cm² fluence chemically functionalizes CFRP surfaces, notably by generating oxygen-containing
-    groups. Thus, it boosts surface energy and wettability, markedly aiding adhesion in later bonding or coating steps. The
-    1064 nm wavelength specifically minimizes matrix damage.
-  question: How does laser cleaning affect the surface chemistry and wettability of CFRP for subsequent processing?
-  topic_keyword: surface chemistry and wettability
-  topic_statement: Functionalizes surfaces enhancing adhesion
-- answer: Achieving consistent 5 J/cm² fluence on curved CFRP surfaces demands precise robotic path planning. Particularly,
-    complex geometries hinder stand-off distance control, potentially causing thermal damage from defocused beams. Thus, beam
-    delivery systems should adapt to contoured parts for uniform energy distribution.
-  question: What are the challenges with automated laser cleaning of complex CFRP geometries and curved surfaces?
-  topic_keyword: complex CFRP geometries
-  topic_statement: Requires precise robotic path planning
-- answer: Notably, laser cleaning at 5 J/cm² reveals BVID via surface morphology changes, though it cannot directly detect
-    subsurface delamination. LIBS specifically identifies contaminants during processing, yet internal fiber damage assessment
-    thus requires complementary NDI methods owing to CFRP's opacity.
-  question: Can laser cleaning detect and remove barely visible impact damage (BVID) in CFRP while cleaning?
-  topic_keyword: barely visible impact damage
-  topic_statement: Requires complementary NDI for subsurface
-- answer: Fiber orientation notably influences thermal conduction, thus necessitating parameter tweaks. Unidirectional composites,
-    particularly along the fibers, require lower fluence around 5 J/cm², whereas woven patterns demand precise beam overlap
-    to manage variations in resin pocket ablation.
-  question: How does carbon fiber orientation and weave pattern affect laser cleaning results and parameter selection?
-  topic_keyword: fiber orientation
-  topic_statement: Affects thermal conduction adjustments
-- answer: For CFRP laser cleaning verification, we particularly rely on contact angle measurements to confirm surface energy
-    increases, alongside optical profilometry for validating sub-micron roughness. At 5 J/cm² fluence, successful cleaning
-    thus delivers 30-50% adhesion gains in pull-tests, while thermography enables non-destructive subsurface thermal damage
-    detection.
-  question: What quality control methods are most effective for verifying successful laser cleaning of CFRP?
-- answer: Laser cleaning delivers superior cost efficiency, particularly for CFRP maintenance in aerospace settings. Operating
-    at 100W with 5 J/cm² fluence, it selectively removes contaminants without harming the composite matrix. Notably, this
-    eliminates pricey consumables and hazardous waste, thus cutting operational costs far below those of traditional abrasive
-    or chemical methods.
-  question: How does laser cleaning compare to traditional methods (grit blasting, chemical stripping) for CFRP in terms of
-    cost and performance?
-  topic_keyword: cost and performance
-  topic_statement: Superior efficiency without matrix damage
+  presentation: collapsible
+  items:
+  - id: what-laser-wavelength-is-most-effective
+    title: What laser wavelength is most effective for cleaning CFRP without damaging the fibers or resin?
+    content: For CFRP laser cleaning, near-IR at 1064 nm is generally preferred over UV, particularly due to its superior
+      absorption by carbon contaminants while minimizing resin damage at fluences around 5 J/cm². Thus, this wavelength ablates
+      surface layers effectively without compromising underlying fiber integrity.
+    metadata:
+      topic: laser wavelength most effective for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-i-remove-release-agents
+    title: How do I remove release agents and mold residues from CFRP surfaces without compromising structural integrity?
+    content: For CFRP surface preparation, use nanosecond pulses at 1064 nm and a fluence of 5 J/cm². Specifically, this wavelength
+      gets absorbed by contaminants such as silicone, allowing their removal without harming the epoxy matrix underneath.
+      Thus, scanning at 500 mm/s with 50% overlap avoids thermal damage to the fiber-matrix interface.
+    metadata:
+      topic: do i remove release agents
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: can-laser-cleaning-effectively-prepare-cfrp
+    title: Can laser cleaning effectively prepare CFRP surfaces for bonding and repair without mechanical abrasion?
+    content: Laser cleaning, particularly at 5 J/cm² fluence with 1064 nm wavelength, effectively activates CFRP surfaces.
+      Notably, it removes contaminants and optimizes surface roughness, thus achieving bond strength akin to grit blasting
+      without harming composite fibers.
+    metadata:
+      topic: laser cleaning effectively prep cfrp
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: what-are-the-safety-concerns-when
+    title: What are the safety concerns when laser cleaning CFRP, particularly regarding toxic fume generation?
+    content: Laser cleaning of CFRP at 1064 nm produces toxic hydrogen cyanide and benzene fumes, particularly endangering
+      health. Proper fume extraction remains essential, with operators specifically needing supplied-air respirators. Thus,
+      strictly adhere to the 5 J/cm² fluence threshold to reduce hazardous byproducts.
+    metadata:
+      topic: the safety concerns laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: how-do-i-prevent-thermal-damage
+    title: How do I prevent thermal damage to the epoxy matrix when laser cleaning CFRP composites?
+    content: Employ ultrashort pulses under 10 ps, particularly to curb heat diffusion into the epoxy matrix. Target fluence
+      around 5 J/cm² via a 50 μm spot size for precise contaminant removal. Thus, real-time thermal monitoring avoids surpassing
+      the matrix degradation threshold.
+    metadata:
+      topic: do i prevent thermal damage
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: what-laser-parameters-work-best-for
+    title: What laser parameters work best for removing paint and coatings from CFRP without fiber exposure?
+    content: For CFRP paint removal, particularly employ a 1064 nm wavelength with fluence under 5 J/cm². Thus, apply multiple
+      passes at 500 mm/s using 50% overlap to selectively ablate coatings, while safeguarding the underlying resin matrix
+      for later recoating.
+    metadata:
+      topic: laser parameters work best for
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: how-does-laser-cleaning-affect-the
+    title: How does laser cleaning affect the surface chemistry and wettability of CFRP for subsequent processing?
+    content: Laser cleaning at 5 J/cm² fluence chemically functionalizes CFRP surfaces, notably by generating oxygen-containing
+      groups. Thus, it boosts surface energy and wettability, markedly aiding adhesion in later bonding or coating steps.
+      The 1064 nm wavelength specifically minimizes matrix damage.
+    metadata:
+      topic: laser cleaning affect the surface
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: what-are-the-challenges-with-automated
+    title: What are the challenges with automated laser cleaning of complex CFRP geometries and curved surfaces?
+    content: Achieving consistent 5 J/cm² fluence on curved CFRP surfaces demands precise robotic path planning. Particularly,
+      complex geometries hinder stand-off distance control, potentially causing thermal damage from defocused beams. Thus,
+      beam delivery systems should adapt to contoured parts for uniform energy distribution.
+    metadata:
+      topic: the challenges with automated laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: can-laser-cleaning-detect-and-remove
+    title: Can laser cleaning detect and remove barely visible impact damage (BVID) in CFRP while cleaning?
+    content: Notably, laser cleaning at 5 J/cm² reveals BVID via surface morphology changes, though it cannot directly detect
+      subsurface delamination. LIBS specifically identifies contaminants during processing, yet internal fiber damage assessment
+      thus requires complementary NDI methods owing to CFRP's opacity.
+    metadata:
+      topic: laser cleaning detect and remove
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  - id: how-does-carbon-fiber-orientation-and
+    title: How does carbon fiber orientation and weave pattern affect laser cleaning results and parameter selection?
+    content: Fiber orientation notably influences thermal conduction, thus necessitating parameter tweaks. Unidirectional
+      composites, particularly along the fibers, require lower fluence around 5 J/cm², whereas woven patterns demand precise
+      beam overlap to manage variations in resin pocket ablation.
+    metadata:
+      topic: carbon fiber orientation and weave
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 10
+  - id: what-quality-control-methods-are-most
+    title: What quality control methods are most effective for verifying successful laser cleaning of CFRP?
+    content: For CFRP laser cleaning verification, we particularly rely on contact angle measurements to confirm surface energy
+      increases, alongside optical profilometry for validating sub-micron roughness. At 5 J/cm² fluence, successful cleaning
+      thus delivers 30-50% adhesion gains in pull-tests, while thermography enables non-destructive subsurface thermal damage
+      detection.
+    metadata:
+      topic: quality control methods most effective
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 11
+  - id: how-does-laser-cleaning-compare-to
+    title: How does laser cleaning compare to traditional methods (grit blasting, chemical stripping) for CFRP in terms of
+      cost and performance?
+    content: Laser cleaning delivers superior cost efficiency, particularly for CFRP maintenance in aerospace settings. Operating
+      at 100W with 5 J/cm² fluence, it selectively removes contaminants without harming the composite matrix. Notably, this
+      eliminates pricey consumables and hazardous waste, thus cutting operational costs far below those of traditional abrasive
+      or chemical methods.
+    metadata:
+      topic: laser cleaning comp to traditional
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 12
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning
 breadcrumb:
 - label: Home

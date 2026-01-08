@@ -308,7 +308,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -358,7 +357,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -403,7 +401,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:32.553942+00:00'
+dateModified: '2026-01-08T01:04:49.869205+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -461,16 +459,34 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- question: 'Steel in Laser Cleaning: Key Facts'
-  answer: "**What makes steel a go-to material in industry?**  \nSteel stands out as a metal with solid strength and versatility.\
-    \ We use it everywhere—from bridges to machine parts—because it holds up under heavy loads. Its density sits around 7.85\
-    \ g/cm³, which gives it that hefty feel without being too brittle. Porosity stays low at about 0.1%, so it resists water\
-    \ or gases sneaking in over time. In my projects, this reliability keeps things running smooth.\n\n**How does laser cleaning\
-    \ handle steel surfaces?**  \nLaser cleaning works well on steel by zapping away rust, paint, or grime without damaging\
-    \ the base. The beam heats just the top layer, and buildup vaporizes or flakes off. You get a clean finish that looks\
-    \ almost new. For steel, a power range of 100 W does the job nicely, especially on thinner sheets. It brings back that\
-    \ shiny surface fast, and no chemicals needed. Though thicker pieces might take a pass or two, results stay consistent.\
-    \ I've seen it fix old tools in minutes—practical and effective."
+  presentation: collapsible
+  items:
+  - id: steel-in-laser-cleaning-key-facts
+    title: 'Steel in Laser Cleaning: Key Facts'
+    content: "**What makes steel a go-to material in industry?**  \nSteel stands out as a metal with solid strength and versatility.\
+      \ We use it everywhere—from bridges to machine parts—because it holds up under heavy loads. Its density sits around\
+      \ 7.85 g/cm³, which gives it that hefty feel without being too brittle. Porosity stays low at about 0.1%, so it resists\
+      \ water or gases sneaking in over time. In my projects, this reliability keeps things running smooth.\n\n**How does\
+      \ laser cleaning handle steel surfaces?**  \nLaser cleaning works well on steel by zapping away rust, paint, or grime\
+      \ without damaging the base. The beam heats just the top layer, and buildup vaporizes or flakes off. You get a clean\
+      \ finish that looks almost new. For steel, a power range of 100 W does the job nicely, especially on thinner sheets.\
+      \ It brings back that shiny surface fast, and no chemicals needed. Though thicker pieces might take a pass or two, results\
+      \ stay consistent. I've seen it fix old tools in minutes—practical and effective."
+    metadata:
+      topic: 'steel in laser cleaning: key'
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/ferrous/steel-laser-cleaning
 breadcrumb:
 - label: Home

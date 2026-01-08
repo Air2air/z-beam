@@ -271,7 +271,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -330,7 +329,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -374,7 +372,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:27.136986+00:00'
+dateModified: '2026-01-08T01:04:44.788165+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -422,70 +420,189 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
 faq:
-- answer: Yes, laser systems can safely strip chrome plating using pretty precise parameters like 2.5 J/cm² fluence and 50
-    µm spot size. It selectively ablates the coating without harming softer substrates like aluminum, fairly offering a big
-    edge over harsh mechanical or chemical methods.
-  question: Can laser cleaning safely remove chromium-containing coatings like chrome plating without damaging the base metal?
-  topic_keyword: chrome plating
-  topic_statement: Selectively ablates without substrate damage
-- answer: Laser cleaning chromium typically generates hazardous hexavalent chromium fumes, particularly at fluences above
-    2.5 J/cm². Employ a fume extractor with both HEPA and activated carbon filtration. This qualifies as a pretty critical
-    OSHA concern, demanding strict respiratory protection from the toxic plume.
-  question: What are the specific safety hazards of laser cleaning chromium or chromium-containing materials like stainless
-    steel?
-- answer: For chromium-nickel steel, I'd typically recommend a 1064 nm wavelength with nanosecond pulses. This setup pretty
-    effectively ablates the chromium oxide at ~2.5 J/cm², while minimizing heat input to safeguard the underlying passive
-    layer and yield a clean, passivated surface.
-  question: What laser parameters (wavelength, pulse duration, power) are most effective for cleaning rust and contaminants
-    from chromium-nickel stainless steel (e.g., 304, 316)?
-  topic_keyword: chromium-nickel stainless steel
-  topic_statement: Preserves underlying passive layer
-- answer: We typically verify the restored passive layer on chromium through water break and ferroxyl tests. After laser processing
-    at about 2.5 J/cm², the surface has to be pretty chemically clean for proper repassivation, which is basically essential
-    for corrosion resistance in tough applications.
-  question: How do you verify that laser cleaning has successfully restored the passive chromium oxide layer on stainless
-    steel for corrosion resistance?
-- answer: Laser cleaning works pretty effectively to prepare chromium-alloy surfaces at ~2.5 J/cm² fluence with a 50 µm spot
-    size. This basically removes oxides without embedding contaminants, yielding the right surface profile for adhesion while
-    dodging thermal damage that hurts fatigue life.
-  question: Is laser cleaning suitable for preparing chromium-alloy surfaces (like tool steels) for subsequent processes like
-    welding or thermal spraying?
-  topic_keyword: chromium-alloy surfaces
-  topic_statement: Avoids thermal damage to fatigue
-- answer: By choosing the right parameters, you can pretty much sidestep micro-cracks in high-chromium alloys. Typically,
-    nanosecond pulses at 1064 nm wavelength, with fluence controlled around 2.5 J/cm², cut down thermal stress and preserve
-    surface hardening in materials like D2 steel.
-  question: What is the risk of creating micro-cracks or altering the surface hardness when laser cleaning high-chromium content
-    materials like D2 tool steel or Stellite?
-  topic_keyword: creating micro-cracks
-  topic_statement: Prevents micro-cracks with low fluence
-- answer: Yes, by dialing in fairly precise 1064 nm settings like 2.5 J/cm² fluence, you can basically leverage chromium oxide's
-    stronger absorption to strip away corrosion. This method selectively vaporizes the oxide layer while keeping the base
-    alloy's structure intact.
-  question: Can laser cleaning be used to selectively remove corrosion products from chromium-copper alloys without depleting
-    the chromium from the surface?
-  topic_keyword: depleting the chromium
-  topic_statement: Exploits chromium oxide absorption
-- answer: Chromium's oxide layer absorbs near-IR wavelengths like 1064 nm pretty strongly, making fiber lasers highly effective.
-    Typically, pulsed systems with fluence around 2.5 J/cm² deliver the controlled ablation required to remove contaminants
-    without thermally damaging the underlying alloy.
-  question: How does the presence of chromium in an alloy affect the choice of laser type (Fiber, Pulsed Nd:YAG) for cleaning?
-  topic_keyword: presence of chromium
-  topic_statement: Oxide layer absorbs near-IR
-- answer: Laser cleaning chromium produces hazardous Cr(VI) particulates, which must be classified as toxic metal waste. The
-    1064 nm wavelength fairly effectively liberates these particles for capture by HEPA filters. Typically, you dispose of
-    those filters per EPA regulations for hazardous waste through permitted facilities handling toxic metals.
-  question: What are the waste disposal considerations for the debris and filters from laser cleaning chromium-contaminated
-    surfaces?
-  topic_keyword: chromium-contaminated surfaces
-  topic_statement: Generates hazardous Cr(VI) particulate
-- answer: That rainbow tint on laser-cleaned chromium is basically thin-film interference from a reformed oxide layer. It's
-    cosmetic and signals a healthy, self-passivating surface, not damage. This typically happens with controlled heat input
-    below the ~2.5 J/cm² ablation threshold, preserving the substrate.
-  question: Why does laser-cleaned stainless steel sometimes show a rainbow-colored effect or tint, and does it indicate surface
-    damage?
-  topic_keyword: rainbow-colored effect
-  topic_statement: Reformed oxide thin-film interference
+  presentation: collapsible
+  items:
+  - id: can-laser-cleaning-safely-remove-chromiumcontaining
+    title: Can laser cleaning safely remove chromium-containing coatings like chrome plating without damaging the base metal?
+    content: Yes, laser systems can safely strip chrome plating using pretty precise parameters like 2.5 J/cm² fluence and
+      50 µm spot size. It selectively ablates the coating without harming softer substrates like aluminum, fairly offering
+      a big edge over harsh mechanical or chemical methods.
+    metadata:
+      topic: laser cleaning safely remove chromium-containing
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-are-the-specific-safety-hazards
+    title: What are the specific safety hazards of laser cleaning chromium or chromium-containing materials like stainless
+      steel?
+    content: Laser cleaning chromium typically generates hazardous hexavalent chromium fumes, particularly at fluences above
+      2.5 J/cm². Employ a fume extractor with both HEPA and activated carbon filtration. This qualifies as a pretty critical
+      OSHA concern, demanding strict respiratory protection from the toxic plume.
+    metadata:
+      topic: the specific safety hazards of
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: what-laser-parameters-wavelength-pulse-duration
+    title: What laser parameters (wavelength, pulse duration, power) are most effective for cleaning rust and contaminants
+      from chromium-nickel stainless steel (e.g., 304, 316)?
+    content: For chromium-nickel steel, I'd typically recommend a 1064 nm wavelength with nanosecond pulses. This setup pretty
+      effectively ablates the chromium oxide at ~2.5 J/cm², while minimizing heat input to safeguard the underlying passive
+      layer and yield a clean, passivated surface.
+    metadata:
+      topic: laser parameters (wavelength, pulse duration,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: how-do-you-verify-that-laser
+    title: How do you verify that laser cleaning has successfully restored the passive chromium oxide layer on stainless steel
+      for corrosion resistance?
+    content: We typically verify the restored passive layer on chromium through water break and ferroxyl tests. After laser
+      processing at about 2.5 J/cm², the surface has to be pretty chemically clean for proper repassivation, which is basically
+      essential for corrosion resistance in tough applications.
+    metadata:
+      topic: do you verify that laser
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: is-laser-cleaning-suitable-for-preparing
+    title: Is laser cleaning suitable for preparing chromium-alloy surfaces (like tool steels) for subsequent processes like
+      welding or thermal spraying?
+    content: Laser cleaning works pretty effectively to prepare chromium-alloy surfaces at ~2.5 J/cm² fluence with a 50 µm
+      spot size. This basically removes oxides without embedding contaminants, yielding the right surface profile for adhesion
+      while dodging thermal damage that hurts fatigue life.
+    metadata:
+      topic: laser cleaning suitable for preparing
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: what-is-the-risk-of-creating
+    title: What is the risk of creating micro-cracks or altering the surface hardness when laser cleaning high-chromium content
+      materials like D2 tool steel or Stellite?
+    content: By choosing the right parameters, you can pretty much sidestep micro-cracks in high-chromium alloys. Typically,
+      nanosecond pulses at 1064 nm wavelength, with fluence controlled around 2.5 J/cm², cut down thermal stress and preserve
+      surface hardening in materials like D2 steel.
+    metadata:
+      topic: the rk of creating micro-cracks
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: can-laser-cleaning-be-used-to
+    title: Can laser cleaning be used to selectively remove corrosion products from chromium-copper alloys without depleting
+      the chromium from the surface?
+    content: Yes, by dialing in fairly precise 1064 nm settings like 2.5 J/cm² fluence, you can basically leverage chromium
+      oxide's stronger absorption to strip away corrosion. This method selectively vaporizes the oxide layer while keeping
+      the base alloy's structure intact.
+    metadata:
+      topic: laser cleaning be used to
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  - id: how-does-the-presence-of-chromium
+    title: How does the presence of chromium in an alloy affect the choice of laser type (Fiber, Pulsed Nd:YAG) for cleaning?
+    content: Chromium's oxide layer absorbs near-IR wavelengths like 1064 nm pretty strongly, making fiber lasers highly effective.
+      Typically, pulsed systems with fluence around 2.5 J/cm² deliver the controlled ablation required to remove contaminants
+      without thermally damaging the underlying alloy.
+    metadata:
+      topic: the presence of chromium in
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 8
+  - id: what-are-the-waste-disposal-considerations
+    title: What are the waste disposal considerations for the debris and filters from laser cleaning chromium-contaminated
+      surfaces?
+    content: Laser cleaning chromium produces hazardous Cr(VI) particulates, which must be classified as toxic metal waste.
+      The 1064 nm wavelength fairly effectively liberates these particles for capture by HEPA filters. Typically, you dispose
+      of those filters per EPA regulations for hazardous waste through permitted facilities handling toxic metals.
+    metadata:
+      topic: the waste dposal considerations for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 9
+  - id: why-does-lasercleaned-stainless-steel-sometimes
+    title: Why does laser-cleaned stainless steel sometimes show a rainbow-colored effect or tint, and does it indicate surface
+      damage?
+    content: That rainbow tint on laser-cleaned chromium is basically thin-film interference from a reformed oxide layer.
+      It's cosmetic and signals a healthy, self-passivating surface, not damage. This typically happens with controlled heat
+      input below the ~2.5 J/cm² ablation threshold, preserving the substrate.
+    metadata:
+      topic: laser-cleaned stainless steel sometimes s
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/specialty/chromium-laser-cleaning
 breadcrumb:
 - label: Home

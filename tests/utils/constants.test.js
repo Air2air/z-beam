@@ -21,7 +21,7 @@ describe('Constants', () => {
     });
 
     test('should have descriptive site description', () => {
-      expect(SITE_CONFIG.description).toBe('Professional laser cleaning services. Specializing in industrial surface preparation, rust removal, and eco-friendly cleaning solutions.');
+      expect(SITE_CONFIG.description).toBe('Professional laser cleaning for industrial surface prep, rust removal, and eco-friendly solutions. Aerospace and automotive applications.');
     });
 
     test('should return localhost URL in development', () => {

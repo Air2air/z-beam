@@ -246,7 +246,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -309,7 +308,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -353,7 +351,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:28.219079+00:00'
+dateModified: '2026-01-08T01:04:45.853854+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -393,48 +391,150 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: Laser cleaning hafnium demands pretty extreme caution because of its pyrophoricity. You'll need to work inside a
-    sealed inert gas chamber with a 1064 nm wavelength laser at a fluence around 2.5 J/cm². This basically avoids creating
-    fine, reactive particulates that create a major combustion risk.
-  question: Is it safe to laser clean hafnium, or does it pose a fire or explosion risk like other reactive metals?
-  topic_keyword: fire or explosion risk
-  topic_statement: Requires inert gas chamber
-- answer: For cleaning hafnium surfaces, I'd suggest a 1064 nm wavelength with nanosecond pulses at about 10 ns. Aim for a
-    fluence fairly close to 2.5 J/cm² to strip away oxides effectively, without melting the substrate or creating a brittle
-    HfO₂ layer. This keeps heat input low and sidesteps micro-cracking.
-  question: What laser parameters (wavelength, pulse duration, power) are recommended for cleaning hafnium surfaces without
-    causing surface oxidation or metallurgical damage?
-- answer: Given hafnium's pyrophoric nature, we typically rely on wet collection systems to avoid igniting those fine particles.
-    The reactive waste slurry basically demands compliant disposal as hazardous material, particularly at our standard 100W
-    power with 50μm spot size.
-  question: How do you handle and dispose of the hazardous waste generated from laser cleaning hafnium?
-  topic_keyword: hazardous waste
-  topic_statement: Wet collection prevents ignition
-- answer: Yes, laser cleaning proves pretty effective for nuclear decontamination of hafnium. Employing a 1064 nm wavelength
-    at ~2.5 J/cm² basically ablates contaminants efficiently while cutting secondary waste. Overall, this approach typically
-    lowers personnel exposure far more than traditional abrasive methods.
-  question: Can laser cleaning be used to decontaminate hafnium components in the nuclear industry?
-- answer: For hafnium, I'd typically kick off with dye penetrant testing to spot micro-fissures. Next, I'd check surface roughness
-    via white light interferometry, keeping it below 0.8 µm to avoid stress concentrations in aerospace parts. This approach
-    basically ensures integrity after your 1064 nm laser cleaning.
-  question: What is the best way to verify the surface integrity of hafnium after laser cleaning?
-  topic_keyword: surface integrity
-  topic_statement: Dye penetrant and interferometry verification
-- answer: Hafnium's strong oxygen affinity pretty much ensures instant re-oxidation right after cleaning, so controlled atmospheres
-    are essential. That high 2227°C melting point calls for precise laser settings, typically 2.5 J/cm² fluence, to clear
-    the stubborn oxide layer without substrate harm.
-  question: Why is hafnium so difficult to clean compared to common metals like steel or aluminum?
-  topic_keyword: difficult to clean
-  topic_statement: Extreme oxygen affinity causes re-oxidation
-- answer: For reactive hafnium, pulsed lasers are pretty superior. Their nanosecond pulses, like 10 ns at 2.5 J/cm², basically
-    ablate the oxide layer with minimal heat input, preventing thermal oxidation. Continuous-wave systems typically deliver
-    excessive energy, risking substrate damage and undermining the material's integrity in critical aerospace and nuclear
-    uses.
-  question: Is a pulsed or continuous-wave (CW) laser more effective for cleaning hafnium?
-- answer: Because hafnium gets pretty pyrophoric in fine particle form, operators require explosion-proof ventilation along
-    with NIOSH-approved P100 respirators. That powerful 1064 nm laser interaction fairly often creates substantial UV plasma,
-    so full-wavelength safety eyewear and face shields are essential for shielding against reflected beams and secondary radiation.
-  question: What personal protective equipment (PPE) is essential for operators laser cleaning hafnium?
+  presentation: collapsible
+  items:
+  - id: is-it-safe-to-laser-clean
+    title: Is it safe to laser clean hafnium, or does it pose a fire or explosion risk like other reactive metals?
+    content: Laser cleaning hafnium demands pretty extreme caution because of its pyrophoricity. You'll need to work inside
+      a sealed inert gas chamber with a 1064 nm wavelength laser at a fluence around 2.5 J/cm². This basically avoids creating
+      fine, reactive particulates that create a major combustion risk.
+    metadata:
+      topic: it safe to laser clean
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-parameters-wavelength-pulse-duration
+    title: What laser parameters (wavelength, pulse duration, power) are recommended for cleaning hafnium surfaces without
+      causing surface oxidation or metallurgical damage?
+    content: For cleaning hafnium surfaces, I'd suggest a 1064 nm wavelength with nanosecond pulses at about 10 ns. Aim for
+      a fluence fairly close to 2.5 J/cm² to strip away oxides effectively, without melting the substrate or creating a brittle
+      HfO₂ layer. This keeps heat input low and sidesteps micro-cracking.
+    metadata:
+      topic: laser parameters (wavelength, pulse duration,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: how-do-you-handle-and-dispose
+    title: How do you handle and dispose of the hazardous waste generated from laser cleaning hafnium?
+    content: Given hafnium's pyrophoric nature, we typically rely on wet collection systems to avoid igniting those fine particles.
+      The reactive waste slurry basically demands compliant disposal as hazardous material, particularly at our standard 100W
+      power with 50μm spot size.
+    metadata:
+      topic: do you handle and dpose
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-be-used-to
+    title: Can laser cleaning be used to decontaminate hafnium components in the nuclear industry?
+    content: Yes, laser cleaning proves pretty effective for nuclear decontamination of hafnium. Employing a 1064 nm wavelength
+      at ~2.5 J/cm² basically ablates contaminants efficiently while cutting secondary waste. Overall, this approach typically
+      lowers personnel exposure far more than traditional abrasive methods.
+    metadata:
+      topic: laser cleaning be used to
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: what-is-the-best-way-to
+    title: What is the best way to verify the surface integrity of hafnium after laser cleaning?
+    content: For hafnium, I'd typically kick off with dye penetrant testing to spot micro-fissures. Next, I'd check surface
+      roughness via white light interferometry, keeping it below 0.8 µm to avoid stress concentrations in aerospace parts.
+      This approach basically ensures integrity after your 1064 nm laser cleaning.
+    metadata:
+      topic: the best way to verify
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: why-is-hafnium-so-difficult-to
+    title: Why is hafnium so difficult to clean compared to common metals like steel or aluminum?
+    content: Hafnium's strong oxygen affinity pretty much ensures instant re-oxidation right after cleaning, so controlled
+      atmospheres are essential. That high 2227°C melting point calls for precise laser settings, typically 2.5 J/cm² fluence,
+      to clear the stubborn oxide layer without substrate harm.
+    metadata:
+      topic: hafnium so difficult to clean
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: is-a-pulsed-or-continuouswave-cw
+    title: Is a pulsed or continuous-wave (CW) laser more effective for cleaning hafnium?
+    content: For reactive hafnium, pulsed lasers are pretty superior. Their nanosecond pulses, like 10 ns at 2.5 J/cm², basically
+      ablate the oxide layer with minimal heat input, preventing thermal oxidation. Continuous-wave systems typically deliver
+      excessive energy, risking substrate damage and undermining the material's integrity in critical aerospace and nuclear
+      uses.
+    metadata:
+      topic: a pulsed or continuous-wave (cw)
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  - id: what-personal-protective-equipment-ppe-is
+    title: What personal protective equipment (PPE) is essential for operators laser cleaning hafnium?
+    content: Because hafnium gets pretty pyrophoric in fine particle form, operators require explosion-proof ventilation along
+      with NIOSH-approved P100 respirators. That powerful 1064 nm laser interaction fairly often creates substantial UV plasma,
+      so full-wavelength safety eyewear and face shields are essential for shielding against reflected beams and secondary
+      radiation.
+    metadata:
+      topic: personal protective equipment (ppe) essential
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 8
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/non-ferrous/hafnium-laser-cleaning
 breadcrumb:
 - label: Home

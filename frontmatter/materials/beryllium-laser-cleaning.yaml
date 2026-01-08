@@ -247,7 +247,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -310,7 +309,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -354,7 +352,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.242359+00:00'
+dateModified: '2026-01-08T01:04:43.914088+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -409,40 +407,111 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- question: How does laser cleaning effectively remove contaminants from beryllium surfaces without damaging its structure?
-  answer: Laser cleaning employs precise pulsed lasers, specifically to vaporize oxides, oils, and residues from beryllium
-    surfaces. Leveraging its high thermal conductivity avoids heat-affected zones. Notably, this non-abrasive technique preserves
-    the metal's integrity and low density.
-  topic_keyword: effectively remove contaminants
-  topic_statement: Vaporizes contaminants with pulsed lasers
-- question: What makes beryllium challenging to clean using traditional methods?
-  answer: Specifically, beryllium's brittleness in traditional abrasive or chemical cleaning can cause surface pitting, thus
-    generating toxic dust due to its toxicity.
-  topic_keyword: challenging to clean
-  topic_statement: Brittleness and toxicity
-- question: Why is laser cleaning preferred for beryllium in aerospace applications?
-  answer: Notably, in aerospace, beryllium's lightweight and fatigue-resistant properties remain crucial. Laser cleaning specifically
-    delivers contaminant-free surfaces without added stresses that could undermine structural performance, thus extending
-    component lifespan considerably.
-  topic_keyword: aerospace applications
-  topic_statement: Maintains structural integrity
-- question: Can laser cleaning address beryllium's toxicity risks during restoration?
-  answer: Yes, it notably minimizes dust generation versus mechanical methods, thus lowering inhalation risks. Proper ventilation
-    and PPE remain essential.
-  topic_keyword: beryllium's toxicity risks
-  topic_statement: Minimizes dust generation
-- question: Is beryllium suitable for laser cleaning in nuclear reactor maintenance?
-  answer: Absolutely; laser cleaning particularly enhances its low neutron absorption and corrosion resistance by precisely
-    removing radioactive contaminants, thus avoiding any alteration to thermal properties or introduction of impurities that
-    could impair reactor efficiency.
-  topic_keyword: nuclear reactor maintenance
-  topic_statement: Yes, suitable for precise removal
-- question: How does the cost of laser cleaning beryllium compare to its value in high-stakes uses?
-  answer: While the initial laser setup proves costly, it yields long-term savings by averting damage to pricey beryllium
-    components in defense and electronics. Particularly, beryllium's superior conductivity and stiffness thus warrant the
-    investment over cheaper, inferior cleaning methods.
-  topic_keyword: compare to its value
-  topic_statement: Long-term savings justify
+  presentation: collapsible
+  items:
+  - id: how-does-laser-cleaning-effectively-remove
+    title: How does laser cleaning effectively remove contaminants from beryllium surfaces without damaging its structure?
+    content: Laser cleaning employs precise pulsed lasers, specifically to vaporize oxides, oils, and residues from beryllium
+      surfaces. Leveraging its high thermal conductivity avoids heat-affected zones. Notably, this non-abrasive technique
+      preserves the metal's integrity and low density.
+    metadata:
+      topic: laser cleaning effectively remove contaminants
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: what-makes-beryllium-challenging-to-clean
+    title: What makes beryllium challenging to clean using traditional methods?
+    content: Specifically, beryllium's brittleness in traditional abrasive or chemical cleaning can cause surface pitting,
+      thus generating toxic dust due to its toxicity.
+    metadata:
+      topic: makes beryllium challenging to clean
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: why-is-laser-cleaning-preferred-for
+    title: Why is laser cleaning preferred for beryllium in aerospace applications?
+    content: Notably, in aerospace, beryllium's lightweight and fatigue-resistant properties remain crucial. Laser cleaning
+      specifically delivers contaminant-free surfaces without added stresses that could undermine structural performance,
+      thus extending component lifespan considerably.
+    metadata:
+      topic: laser cleaning preferred for beryllium
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-address-berylliums-toxicity
+    title: Can laser cleaning address beryllium's toxicity risks during restoration?
+    content: Yes, it notably minimizes dust generation versus mechanical methods, thus lowering inhalation risks. Proper ventilation
+      and PPE remain essential.
+    metadata:
+      topic: laser cleaning address beryllium's toxicity
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: is-beryllium-suitable-for-laser-cleaning
+    title: Is beryllium suitable for laser cleaning in nuclear reactor maintenance?
+    content: Absolutely; laser cleaning particularly enhances its low neutron absorption and corrosion resistance by precisely
+      removing radioactive contaminants, thus avoiding any alteration to thermal properties or introduction of impurities
+      that could impair reactor efficiency.
+    metadata:
+      topic: beryllium suitable for laser cleaning
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: how-does-the-cost-of-laser
+    title: How does the cost of laser cleaning beryllium compare to its value in high-stakes uses?
+    content: While the initial laser setup proves costly, it yields long-term savings by averting damage to pricey beryllium
+      components in defense and electronics. Particularly, beryllium's superior conductivity and stiffness thus warrant the
+      investment over cheaper, inferior cleaning methods.
+    metadata:
+      topic: the cost of laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/specialty/beryllium-laser-cleaning
 breadcrumb:
 - label: Home

@@ -5,7 +5,7 @@ category: irritant
 subcategory: organic_vapor
 hazard_class: irritant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.775358+00:00'
+dateModified: '2026-01-08T00:59:13.498983+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/organic_vapor/vocs-compound
@@ -175,7 +175,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -501,7 +500,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -529,10 +527,28 @@ ppe_requirements: Handling VOCs compounds demands solid PPE choices. Gloves shie
   for heavy exposure. Suits or aprons block splashes in industrial spots. Avoid cotton gear; it soaks up and worsens contact.
   In laser cleaning jobs, add ventilation hoods. Stay covered, breathe easy.
 faq:
-- question: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
-  answer: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs at
-    the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment, such
-    as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face masks),
-    along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors to
-    ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take breaks
-    in fresh air if concentrations rise.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
+    content: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs
+      at the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment,
+      such as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face
+      masks), along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors
+      to ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take
+      breaks in fresh air if concentrations rise.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

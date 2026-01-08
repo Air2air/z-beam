@@ -5,7 +5,7 @@ category: metal_fume
 subcategory: metal-oxide
 hazard_class: irritant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.400703+00:00'
+dateModified: '2026-01-08T00:59:13.100341+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/metal_fume/metal-oxide/iron-oxide-compound
@@ -180,7 +180,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -429,7 +428,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -475,11 +473,29 @@ ppe_requirements: 'Handling iron oxide compounds in industrial settings, unlike 
   puncture standard shoes. Overall, layering this equipment ensures operators stay shielded throughout the demanding cycles
   of production and maintenance, turning potential hazards into manageable routines.'
 faq:
-- question: What are the recommended exposure limits and protection methods for iron oxide (Fe₂O₃) fumes during laser cleaning
-    operations?
-  answer: The OSHA permissible exposure limit (PEL) for iron oxide fume is 10 mg/m³ as iron (Fe) over an 8-hour time-weighted
-    average (TWA), while NIOSH recommends a lower limit of 5 mg/m³ to minimize respiratory irritation and potential siderosis
-    from chronic exposure. To stay below these limits, operators should use local exhaust ventilation systems to capture fumes
-    at the source and wear NIOSH-approved respirators with at least an N95 rating (or higher, like P100, for prolonged work).
-    Regularly monitor air quality with real-time particle counters or personal sampling pumps to ensure compliance and adjust
-    controls as needed.
+  presentation: collapsible
+  items:
+  - id: what-are-the-recommended-exposure-limits
+    title: What are the recommended exposure limits and protection methods for iron oxide (Fe₂O₃) fumes during laser cleaning
+      operations?
+    content: The OSHA permissible exposure limit (PEL) for iron oxide fume is 10 mg/m³ as iron (Fe) over an 8-hour time-weighted
+      average (TWA), while NIOSH recommends a lower limit of 5 mg/m³ to minimize respiratory irritation and potential siderosis
+      from chronic exposure. To stay below these limits, operators should use local exhaust ventilation systems to capture
+      fumes at the source and wear NIOSH-approved respirators with at least an N95 rating (or higher, like P100, for prolonged
+      work). Regularly monitor air quality with real-time particle counters or personal sampling pumps to ensure compliance
+      and adjust controls as needed.
+    metadata:
+      topic: the recommended exposure limits and
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

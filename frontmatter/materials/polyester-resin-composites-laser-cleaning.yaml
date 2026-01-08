@@ -220,7 +220,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -283,7 +282,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -329,7 +327,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:30.606142+00:00'
+dateModified: '2026-01-08T01:04:47.949461+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -374,63 +372,171 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: As a laser cleaning specialist from Indonesia, I recommend using a 1064 nm Nd:YAG laser wavelength, with power levels
-    of 200-400 W and pulse durations of 10-30 ns for polyester resin composites. This setup effectively ablates contaminants
-    like oils or dust while minimizing thermal damage to the substrate, based on our field tests.
-  question: What are the optimal laser parameters (wavelength, power, pulse duration) for safely removing contaminants from
-    polyester resin composites without damaging the underlying material?
-  topic_keyword: polyester resin composites
-  topic_statement: 1064 nm low fluence nanosecond
-- answer: As a laser cleaning specialist from Indonesia, I advise using a Q-switched Nd:YAG laser at low fluence (under 1
-    J/cm²) to selectively vaporize soot, pollutants, or mold from your fiberglass boat hull's gel coat. This precise, non-abrasive
-    process avoids etching while preserving the surface—test a small spot first, ya, for best results.
-  question: How do I clean soot, pollution, or biological growth (like mold) from a fiberglass/polyester composite boat hull
-    without etching the gel coat?
-  topic_keyword: etching the gel coat
-  topic_statement: Evaporates pollutants without resin damage
-- answer: Laser paint removal from polyester composites poses a straightforward delamination risk. Absorption of the 1064
-    nm wavelength and 3.0 J/cm² fluence by the resin builds internal gas pressure, blistering the matrix. That method is typically
-    avoided due to the strong likelihood of subsurface damage.
-  question: Can laser cleaning effectively remove paint or coatings from polyester composites without causing delamination
-    or fiber exposure?
-- answer: In this process, laser cleaning at 3.0 J/cm² breaks down the polyester matrix, releasing hazardous styrene vapor
-    and fine glass fibers. A practical extraction system using HEPA and activated carbon filtration, combined with respiratory
-    PPE, efficiently captures these ultrafine particulates and volatile organic compounds.
-  question: What specific fumes and particulates are generated when laser cleaning polyester resin composites, and what filtration
-    is required?
-  topic_keyword: specific fumes and particulates
-  topic_statement: Releases styrene vapor fibers
-- answer: Laser cleaning provides a straightforward approach for polyester composites, yielding optimal surface roughness
-    at 3.0 J/cm². That method eliminates fiber damage from abrasion. Yet, a follow-up cleaning remains essential to remove
-    low-molecular-weight oxidized residues that could undermine the final bond strength.
-  question: Is laser cleaning a viable method for preparing a polyester composite surface for repair or re-adhesion?
-  topic_keyword: repair or re-adhesion
-  topic_statement: Viable with residue removal
-- answer: That white residue points to straightforward thermal degradation in the black polyester resin matrix. Your 3.0 J/cm²
-    fluence, through this process, likely ablated the surface polymer, exposing underlying glass fibers or talc fillers that
-    appear chalky.
-  question: Why did my laser cleaning attempt on a black polyester composite part leave a white, chalky residue or discoloration?
-  topic_keyword: white, chalky residue
-  topic_statement: Degrades resin exposing fillers
-- answer: The transparency of glass fibers lets 1064 nm laser energy penetrate straightforwardly, cleaning the resin matrix
-    efficiently. By contrast, carbon fibers' strong absorption at this wavelength triggers quick heating, so that method demands
-    precise fluence under 3.0 J/cm² to avoid thermal damage.
-  question: How does the presence of glass fibers versus carbon fibers in the composite change the laser cleaning approach?
-- answer: The core mechanism is straightforward thermal ablation. With our optimal 3.0 J/cm² fluence at 1064 nm wavelength,
-    laser energy absorbs into the polymer matrix, triggering rapid heating that efficiently decomposes and vaporizes contaminants
-    before hitting the underlying composite's damage threshold. This process guarantees selective removal while keeping thermal
-    impact on the material to a minimum.
-  question: What is the fundamental ablation mechanism when a laser interacts with a polyester resin composite?
-  topic_keyword: fundamental ablation mechanism
-  topic_statement: Primarily thermal ablation
-- answer: OSHA requires straightforward monitoring of airborne styrene and ultrafine particulates produced in laser ablation
-    at 3.0 J/cm². This process generates ablated waste as a contaminated solid, subject to EPA rules for hazardous material
-    disposal. Installing proper fume extraction and waste capture systems efficiently supports compliance with worker safety
-    and environmental standards.
-  question: Are there any regulatory or compliance issues (e.g., EPA, OSHA) specific to the laser ablation of composite materials
-    like polyester resin?
-  topic_keyword: polyester resin
-  topic_statement: Monitor styrene and particulates
+  presentation: collapsible
+  items:
+  - id: what-are-the-optimal-laser-parameters
+    title: What are the optimal laser parameters (wavelength, power, pulse duration) for safely removing contaminants from
+      polyester resin composites without damaging the underlying material?
+    content: As a laser cleaning specialist from Indonesia, I recommend using a 1064 nm Nd:YAG laser wavelength, with power
+      levels of 200-400 W and pulse durations of 10-30 ns for polyester resin composites. This setup effectively ablates contaminants
+      like oils or dust while minimizing thermal damage to the substrate, based on our field tests.
+    metadata:
+      topic: the optimal laser parameters (wavelength,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-i-clean-soot-pollution
+    title: How do I clean soot, pollution, or biological growth (like mold) from a fiberglass/polyester composite boat hull
+      without etching the gel coat?
+    content: As a laser cleaning specialist from Indonesia, I advise using a Q-switched Nd:YAG laser at low fluence (under
+      1 J/cm²) to selectively vaporize soot, pollutants, or mold from your fiberglass boat hull's gel coat. This precise,
+      non-abrasive process avoids etching while preserving the surface—test a small spot first, ya, for best results.
+    metadata:
+      topic: do i clean soot, pollution,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: can-laser-cleaning-effectively-remove-paint
+    title: Can laser cleaning effectively remove paint or coatings from polyester composites without causing delamination
+      or fiber exposure?
+    content: Laser paint removal from polyester composites poses a straightforward delamination risk. Absorption of the 1064
+      nm wavelength and 3.0 J/cm² fluence by the resin builds internal gas pressure, blistering the matrix. That method is
+      typically avoided due to the strong likelihood of subsurface damage.
+    metadata:
+      topic: laser cleaning effectively remove paint
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: what-specific-fumes-and-particulates-are
+    title: What specific fumes and particulates are generated when laser cleaning polyester resin composites, and what filtration
+      is required?
+    content: In this process, laser cleaning at 3.0 J/cm² breaks down the polyester matrix, releasing hazardous styrene vapor
+      and fine glass fibers. A practical extraction system using HEPA and activated carbon filtration, combined with respiratory
+      PPE, efficiently captures these ultrafine particulates and volatile organic compounds.
+    metadata:
+      topic: specific fumes and particulates generated
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: is-laser-cleaning-a-viable-method
+    title: Is laser cleaning a viable method for preparing a polyester composite surface for repair or re-adhesion?
+    content: Laser cleaning provides a straightforward approach for polyester composites, yielding optimal surface roughness
+      at 3.0 J/cm². That method eliminates fiber damage from abrasion. Yet, a follow-up cleaning remains essential to remove
+      low-molecular-weight oxidized residues that could undermine the final bond strength.
+    metadata:
+      topic: laser cleaning a viable method
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: why-did-my-laser-cleaning-attempt
+    title: Why did my laser cleaning attempt on a black polyester composite part leave a white, chalky residue or discoloration?
+    content: That white residue points to straightforward thermal degradation in the black polyester resin matrix. Your 3.0
+      J/cm² fluence, through this process, likely ablated the surface polymer, exposing underlying glass fibers or talc fillers
+      that appear chalky.
+    metadata:
+      topic: did my laser cleaning attempt
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: how-does-the-presence-of-glass
+    title: How does the presence of glass fibers versus carbon fibers in the composite change the laser cleaning approach?
+    content: The transparency of glass fibers lets 1064 nm laser energy penetrate straightforwardly, cleaning the resin matrix
+      efficiently. By contrast, carbon fibers' strong absorption at this wavelength triggers quick heating, so that method
+      demands precise fluence under 3.0 J/cm² to avoid thermal damage.
+    metadata:
+      topic: the presence of glass fibers
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: what-is-the-fundamental-ablation-mechanism
+    title: What is the fundamental ablation mechanism when a laser interacts with a polyester resin composite?
+    content: The core mechanism is straightforward thermal ablation. With our optimal 3.0 J/cm² fluence at 1064 nm wavelength,
+      laser energy absorbs into the polymer matrix, triggering rapid heating that efficiently decomposes and vaporizes contaminants
+      before hitting the underlying composite's damage threshold. This process guarantees selective removal while keeping
+      thermal impact on the material to a minimum.
+    metadata:
+      topic: the fundamental ablation mechanm a
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: are-there-any-regulatory-or-compliance
+    title: Are there any regulatory or compliance issues (e.g., EPA, OSHA) specific to the laser ablation of composite materials
+      like polyester resin?
+    content: OSHA requires straightforward monitoring of airborne styrene and ultrafine particulates produced in laser ablation
+      at 3.0 J/cm². This process generates ablated waste as a contaminated solid, subject to EPA rules for hazardous material
+      disposal. Installing proper fume extraction and waste capture systems efficiently supports compliance with worker safety
+      and environmental standards.
+    metadata:
+      topic: there any regulatory or compliance
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/polyester-resin-composites-laser-cleaning
 breadcrumb:
 - label: Home

@@ -229,7 +229,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -292,7 +291,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -338,7 +336,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:27.989333+00:00'
+dateModified: '2026-01-08T01:04:45.628699+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -383,61 +381,183 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: As an Indonesian laser cleaning specialist, I've cleaned GFRP using a 1064 nm Nd:YAG laser with 10-50 ns pulse durations,
-    fluences below 1 J/cm², and 10-20 Hz repetition rates. This process minimizes thermal damage to the resin matrix and glass
-    fibers, ensuring structural integrity. Test samples first for practical results.
-  question: What laser parameters are safe for cleaning GFRP without damaging the glass fibers or resin matrix?
-- answer: Laser cleaning offers a practical solution for removing silicone, wax, and PVA release agents from GFRP molds. With
-    a 1064 nm wavelength at 2.5 J/cm² fluence, this process ablates contaminants while safeguarding the mold's dimensional
-    integrity. That method upholds surface quality, avoiding thermal damage to the composite matrix.
-  question: Can laser cleaning remove release agents from GFRP molds without affecting the surface quality?
-  topic_keyword: GFRP molds
-  topic_statement: Preserves dimensional integrity
-- answer: Laser cleaning delivers practical surface preparation at 3.0 J/cm², boosting adhesion without subsurface damage
-    from abrasives. This process, non-contact with a 100 µm spot size, safeguards GFRP's mechanical integrity—unlike grit
-    blasting, which weakens the fiber-matrix interface.
-  question: How does laser cleaning compare to abrasive methods for GFRP surface preparation before bonding or painting?
-  topic_keyword: surface preparation before bonding
-  topic_statement: Preserves fiber-matrix interface
-- answer: In this process, keep fluence below 2.5 J/cm² to prevent hazardous fume generation from resin decomposition. Practically,
-    employ local exhaust ventilation and respiratory protection, since thermal degradation releases styrene and formaldehyde
-    exceeding workplace exposure limits.
-  question: What safety precautions are needed when laser cleaning GFRP due to potential hazardous fumes?
-- answer: As a laser cleaning specialist from Indonesia, I can tell you straightforwardly that using controlled parameters
-    like low fluence and short pulses in this process minimizes thermal effects on GFRP matrices. It prevents micro-cracks,
-    thus preserving structural integrity without weakening the composite's strength. In my experience, proper calibration
-    is essential.
-  question: Does laser cleaning create micro-cracks or thermal damage in the GFRP matrix that could compromise structural
-    integrity?
-- answer: Using near-IR wavelengths around 1064 nm offers a straightforward approach for GFRP cleaning. This process ensures
-    strong absorption in surface contaminants, while glass fibers remain highly transparent, enabling efficient removal at
-    ~2.5 J/cm² without damaging the composite substrate.
-  question: What laser wavelength (UV, IR, etc.) works best for GFRP cleaning and why?
-  topic_keyword: laser wavelength
-  topic_statement: Near-IR transparent to glass fibers
-- answer: Laser cleaning offers a practical approach to effectively remove surface contaminants from GFRP, employing a 1064
-    nm wavelength and fluence around 2.5 J/cm². This process selectively ablates oils or paints, while safeguarding the underlying
-    composite matrix, as confirmed by microscopic inspection revealing no fiber exposure.
-  question: How effective is laser cleaning for removing contaminants like oils, paints, or carbon deposits from GFRP surfaces?
-- answer: This process of laser treatment at 3.0 J/cm² significantly boosts GFRP adhesion by raising surface energy and generating
-    micro-roughness. That method beats mechanical abrasion through practical functionalization of the polymer surface, avoiding
-    subsurface damage for stronger bonds in composite repairs.
-  question: Can laser surface treatment improve adhesion properties of GFRP for repair applications?
-  topic_keyword: adhesion properties
-  topic_statement: Enhances adhesion via micro-roughness
-- answer: Handling complex GFRP geometries poses straightforward challenges for beam access and focal plane alignment. Keeping
-    the essential 2.5 J/cm² fluence threshold on curved surfaces proves difficult, with stand-off distance shifts risking
-    localized thermal damage or suboptimal cleaning. For practical application, robotic systems with real-time distance monitoring
-    ensure even energy distribution over detailed contours.
-  question: What are the limitations of laser cleaning for complex GFRP geometries and curved surfaces?
-  topic_keyword: complex GFRP geometries
-  topic_statement: Requires robotic distance tracking
-- answer: For epoxy resins, this process of effective ablation demands higher fluence around 2.5 J/cm², owing to their strong
-    thermal stability. In contrast, polyester and vinyl ester matrices break down more readily, emitting styrene and other
-    volatiles, so that method calls for power below 100W to safeguard the composite surface from chemical damage.
-  question: How do different resin systems (epoxy, vinyl ester, polyester) in GFRP respond to laser cleaning?
-  topic_keyword: different resin systems
-  topic_statement: Epoxy requires higher fluence
+  presentation: collapsible
+  items:
+  - id: what-laser-parameters-are-safe-for
+    title: What laser parameters are safe for cleaning GFRP without damaging the glass fibers or resin matrix?
+    content: As an Indonesian laser cleaning specialist, I've cleaned GFRP using a 1064 nm Nd:YAG laser with 10-50 ns pulse
+      durations, fluences below 1 J/cm², and 10-20 Hz repetition rates. This process minimizes thermal damage to the resin
+      matrix and glass fibers, ensuring structural integrity. Test samples first for practical results.
+    metadata:
+      topic: laser parameters safe for cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: can-laser-cleaning-remove-release-agents
+    title: Can laser cleaning remove release agents from GFRP molds without affecting the surface quality?
+    content: Laser cleaning offers a practical solution for removing silicone, wax, and PVA release agents from GFRP molds.
+      With a 1064 nm wavelength at 2.5 J/cm² fluence, this process ablates contaminants while safeguarding the mold's dimensional
+      integrity. That method upholds surface quality, avoiding thermal damage to the composite matrix.
+    metadata:
+      topic: laser cleaning remove release agents
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: how-does-laser-cleaning-compare-to
+    title: How does laser cleaning compare to abrasive methods for GFRP surface preparation before bonding or painting?
+    content: Laser cleaning delivers practical surface preparation at 3.0 J/cm², boosting adhesion without subsurface damage
+      from abrasives. This process, non-contact with a 100 µm spot size, safeguards GFRP's mechanical integrity—unlike grit
+      blasting, which weakens the fiber-matrix interface.
+    metadata:
+      topic: laser cleaning comp to abrasive
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: what-safety-precautions-are-needed-when
+    title: What safety precautions are needed when laser cleaning GFRP due to potential hazardous fumes?
+    content: In this process, keep fluence below 2.5 J/cm² to prevent hazardous fume generation from resin decomposition.
+      Practically, employ local exhaust ventilation and respiratory protection, since thermal degradation releases styrene
+      and formaldehyde exceeding workplace exposure limits.
+    metadata:
+      topic: safety precautions needed laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: does-laser-cleaning-create-microcracks-or
+    title: Does laser cleaning create micro-cracks or thermal damage in the GFRP matrix that could compromise structural integrity?
+    content: As a laser cleaning specialist from Indonesia, I can tell you straightforwardly that using controlled parameters
+      like low fluence and short pulses in this process minimizes thermal effects on GFRP matrices. It prevents micro-cracks,
+      thus preserving structural integrity without weakening the composite's strength. In my experience, proper calibration
+      is essential.
+    metadata:
+      topic: laser cleaning create micro-cracks or
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: what-laser-wavelength-uv-ir-etc
+    title: What laser wavelength (UV, IR, etc.) works best for GFRP cleaning and why?
+    content: Using near-IR wavelengths around 1064 nm offers a straightforward approach for GFRP cleaning. This process ensures
+      strong absorption in surface contaminants, while glass fibers remain highly transparent, enabling efficient removal
+      at ~2.5 J/cm² without damaging the composite substrate.
+    metadata:
+      topic: laser wavelength (uv, ir, etc.)
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: how-effective-is-laser-cleaning-for
+    title: How effective is laser cleaning for removing contaminants like oils, paints, or carbon deposits from GFRP surfaces?
+    content: Laser cleaning offers a practical approach to effectively remove surface contaminants from GFRP, employing a
+      1064 nm wavelength and fluence around 2.5 J/cm². This process selectively ablates oils or paints, while safeguarding
+      the underlying composite matrix, as confirmed by microscopic inspection revealing no fiber exposure.
+    metadata:
+      topic: effective laser cleaning for removing
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: can-laser-surface-treatment-improve-adhesion
+    title: Can laser surface treatment improve adhesion properties of GFRP for repair applications?
+    content: This process of laser treatment at 3.0 J/cm² significantly boosts GFRP adhesion by raising surface energy and
+      generating micro-roughness. That method beats mechanical abrasion through practical functionalization of the polymer
+      surface, avoiding subsurface damage for stronger bonds in composite repairs.
+    metadata:
+      topic: laser surface treatment improve adhesion
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: what-are-the-limitations-of-laser
+    title: What are the limitations of laser cleaning for complex GFRP geometries and curved surfaces?
+    content: Handling complex GFRP geometries poses straightforward challenges for beam access and focal plane alignment.
+      Keeping the essential 2.5 J/cm² fluence threshold on curved surfaces proves difficult, with stand-off distance shifts
+      risking localized thermal damage or suboptimal cleaning. For practical application, robotic systems with real-time distance
+      monitoring ensure even energy distribution over detailed contours.
+    metadata:
+      topic: the limitations of laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  - id: how-do-different-resin-systems-epoxy
+    title: How do different resin systems (epoxy, vinyl ester, polyester) in GFRP respond to laser cleaning?
+    content: For epoxy resins, this process of effective ablation demands higher fluence around 2.5 J/cm², owing to their
+      strong thermal stability. In contrast, polyester and vinyl ester matrices break down more readily, emitting styrene
+      and other volatiles, so that method calls for power below 100W to safeguard the composite surface from chemical damage.
+    metadata:
+      topic: do different resin systems (epoxy,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning
 breadcrumb:
 - label: Home

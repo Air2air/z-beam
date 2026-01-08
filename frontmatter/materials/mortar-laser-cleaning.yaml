@@ -215,7 +215,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -278,7 +277,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -323,7 +321,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:29.550627+00:00'
+dateModified: '2026-01-08T01:04:47.118522+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -366,70 +364,200 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- answer: Yes, laser cleaning stands out for effectively stripping away mortar residue while safeguarding brick integrity.
-    Employing a 1064 nm wavelength at 12.7 J/cm² fluence delivers distinct selective ablation of the mortar. Optimal settings,
-    including 500 mm/s scan speed and 50% overlap, avert thermal harm to the underlying masonry, proving essential for delicate
-    restoration efforts.
-  question: Can laser cleaning effectively remove mortar residue from brickwork without damaging the bricks?
-  topic_keyword: mortar residue
-  topic_statement: selective ablation preserves integrity
-- answer: For treating historical mortar on delicate stone, it's essential to apply low fluence of about 12.7 J/cm² using
-    nanosecond pulses at 10 ns. This approach delivers controlled ablation while safeguarding the substrate. Notably, a 1064
-    nm wavelength paired with 50% beam overlap achieves uniform removal of traditional lime-based compositions, preventing
-    thermal damage.
-  question: What laser parameters work best for cleaning historical mortar from delicate stone surfaces?
-  topic_keyword: historical mortar
-  topic_statement: Low fluence nanosecond pulses
-- answer: Laser ablation at 12.7 J/cm² provides a distinct reduction in hazardous silica dust relative to mechanical grinding.
-    Yet, the method continues to produce fine particulate, so local exhaust ventilation and respiratory protection remain
-    essential for complying with OSHA's permissible exposure limits for crystalline silica.
-  question: Does laser cleaning create hazardous dust when removing mortar containing silica?
-  topic_keyword: mortar containing silica
-  topic_statement: Reduces hazardous silica dust
-- answer: Laser cleaning, delivered at 12.7 J/cm², notably ablates contaminants selectively without inducing chemical reactions,
-    thereby safeguarding the mortar's original composition. This method proves essential for averting damaging salt crystallization
-    and pH alterations, delivering superior long-term stability versus chemical approaches that often deposit reactive residues.
-  question: How does laser cleaning affect the chemical composition of mortar surfaces compared to chemical cleaning?
-  topic_keyword: chemical composition
-  topic_statement: Preserves original composition
-- answer: Yes, laser cleaning can differentiate materials through selective ablation. At 12.7 J/cm², original mortar and modern
-    repairs, with their distinct compositions, ablate at different rates. This allows precise removal of later cementitious
-    additions while preserving the authentic, historical substrate.
-  question: Can laser cleaning distinguish between original mortar and later repairs during restoration projects?
-  topic_keyword: mortar and later repairs
-  topic_statement: Ablates at different rates
-- answer: Laser cleaning effectively removes mortar layers up to 2-3 mm thick per pass at 12.7 J/cm². For thicker residues,
-    a multi-pass strategy is essential to avoid substrate damage, often requiring mechanical pre-cleaning for deposits exceeding
-    5 mm.
-  question: What's the maximum thickness of mortar residue that laser cleaning can effectively remove?
-- answer: The notable higher absorption of lime mortar at 1064 nm enables gentler cleaning around 12.7 J/cm². In contrast,
-    denser Portland cement demands elevated fluence, potentially causing discoloration unless its distinct mineralogy is addressed
-    via tuned power and scan speed.
-  question: How does mortar composition (lime-based vs. Portland cement) affect laser cleaning results?
-  topic_keyword: lime-based vs. Portland cement
-  topic_statement: Lime enables gentler low-fluence cleaning
-- answer: For expansive masonry facades, laser cleaning proves cost-effective on a large scale, even with elevated upfront
-    equipment expenses. Our 100W systems deliver notable 500 mm/s scan speeds at 12.7 J/cm² fluence, slashing labor needs
-    and bypassing abrasive waste—essential advantages over conventional techniques.
-  question: Is laser cleaning cost-effective for large-scale mortar removal from masonry facades?
-- answer: In confined spaces such as chimneys, it's essential to deploy aggressive fume extraction for controlling hazardous
-    mortar dust. The 1064 nm wavelength presents notable reflection risks, so position the beam with precision. Keep monitoring
-    oxygen levels and combustible gases to avoid atmospheric dangers.
-  question: What safety precautions are specific to laser cleaning mortar from confined spaces like chimneys or tunnels?
-  topic_keyword: mortar from confined spaces
-  topic_statement: Aggressive fume extraction for dust
-- answer: Applying laser cleaning at 12.7 J/cm² notably removes contaminants and micro-roughens the mortar surface, forming
-    an essential adhesion profile for repointing. This technique distinctly outperforms mechanical abrasion by safeguarding
-    substrate integrity, yielding superior bond strength in the new mortar without micro-fractures.
-  question: Can laser cleaning prepare mortar surfaces for repointing by creating better adhesion profiles?
-  topic_keyword: better adhesion profiles
-  topic_statement: Micro-roughens without micro-fractures
-- answer: Moisture notably heightens steam generation risks in laser cleaning of mortar. When dealing with damp historical
-    structures, it's essential to lower the fluence below 12.7 J/cm² while raising scan speed over 500 mm/s for better thermal
-    control. Such tweaks distinctly avoid micro-fracturing and sustain ablation efficiency on wet surfaces.
-  question: How does moisture content in mortar affect laser cleaning efficiency and safety?
-  topic_keyword: moisture content
-  topic_statement: Increases steam generation risks
+  presentation: collapsible
+  items:
+  - id: can-laser-cleaning-effectively-remove-mortar
+    title: Can laser cleaning effectively remove mortar residue from brickwork without damaging the bricks?
+    content: Yes, laser cleaning stands out for effectively stripping away mortar residue while safeguarding brick integrity.
+      Employing a 1064 nm wavelength at 12.7 J/cm² fluence delivers distinct selective ablation of the mortar. Optimal settings,
+      including 500 mm/s scan speed and 50% overlap, avert thermal harm to the underlying masonry, proving essential for delicate
+      restoration efforts.
+    metadata:
+      topic: laser cleaning effectively remove mortar
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-parameters-work-best-for
+    title: What laser parameters work best for cleaning historical mortar from delicate stone surfaces?
+    content: For treating historical mortar on delicate stone, it's essential to apply low fluence of about 12.7 J/cm² using
+      nanosecond pulses at 10 ns. This approach delivers controlled ablation while safeguarding the substrate. Notably, a
+      1064 nm wavelength paired with 50% beam overlap achieves uniform removal of traditional lime-based compositions, preventing
+      thermal damage.
+    metadata:
+      topic: laser parameters work best for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: does-laser-cleaning-create-hazardous-dust
+    title: Does laser cleaning create hazardous dust when removing mortar containing silica?
+    content: Laser ablation at 12.7 J/cm² provides a distinct reduction in hazardous silica dust relative to mechanical grinding.
+      Yet, the method continues to produce fine particulate, so local exhaust ventilation and respiratory protection remain
+      essential for complying with OSHA's permissible exposure limits for crystalline silica.
+    metadata:
+      topic: laser cleaning create hazardous dust
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  - id: how-does-laser-cleaning-affect-the
+    title: How does laser cleaning affect the chemical composition of mortar surfaces compared to chemical cleaning?
+    content: Laser cleaning, delivered at 12.7 J/cm², notably ablates contaminants selectively without inducing chemical reactions,
+      thereby safeguarding the mortar's original composition. This method proves essential for averting damaging salt crystallization
+      and pH alterations, delivering superior long-term stability versus chemical approaches that often deposit reactive residues.
+    metadata:
+      topic: laser cleaning affect the chemical
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 4
+  - id: can-laser-cleaning-distinguish-between-original
+    title: Can laser cleaning distinguish between original mortar and later repairs during restoration projects?
+    content: Yes, laser cleaning can differentiate materials through selective ablation. At 12.7 J/cm², original mortar and
+      modern repairs, with their distinct compositions, ablate at different rates. This allows precise removal of later cementitious
+      additions while preserving the authentic, historical substrate.
+    metadata:
+      topic: laser cleaning dtinguh between original
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 5
+  - id: whats-the-maximum-thickness-of-mortar
+    title: What's the maximum thickness of mortar residue that laser cleaning can effectively remove?
+    content: Laser cleaning effectively removes mortar layers up to 2-3 mm thick per pass at 12.7 J/cm². For thicker residues,
+      a multi-pass strategy is essential to avoid substrate damage, often requiring mechanical pre-cleaning for deposits exceeding
+      5 mm.
+    metadata:
+      topic: '''s the maximum thickness of'
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 6
+  - id: how-does-mortar-composition-limebased-vs
+    title: How does mortar composition (lime-based vs. Portland cement) affect laser cleaning results?
+    content: The notable higher absorption of lime mortar at 1064 nm enables gentler cleaning around 12.7 J/cm². In contrast,
+      denser Portland cement demands elevated fluence, potentially causing discoloration unless its distinct mineralogy is
+      addressed via tuned power and scan speed.
+    metadata:
+      topic: mortar composition (lime-based vs. portland
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 7
+  - id: is-laser-cleaning-costeffective-for-largescale
+    title: Is laser cleaning cost-effective for large-scale mortar removal from masonry facades?
+    content: For expansive masonry facades, laser cleaning proves cost-effective on a large scale, even with elevated upfront
+      equipment expenses. Our 100W systems deliver notable 500 mm/s scan speeds at 12.7 J/cm² fluence, slashing labor needs
+      and bypassing abrasive waste—essential advantages over conventional techniques.
+    metadata:
+      topic: laser cleaning cost-effective for large-scale
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 8
+  - id: what-safety-precautions-are-specific-to
+    title: What safety precautions are specific to laser cleaning mortar from confined spaces like chimneys or tunnels?
+    content: In confined spaces such as chimneys, it's essential to deploy aggressive fume extraction for controlling hazardous
+      mortar dust. The 1064 nm wavelength presents notable reflection risks, so position the beam with precision. Keep monitoring
+      oxygen levels and combustible gases to avoid atmospheric dangers.
+    metadata:
+      topic: safety precautions specific to laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 9
+  - id: can-laser-cleaning-prepare-mortar-surfaces
+    title: Can laser cleaning prepare mortar surfaces for repointing by creating better adhesion profiles?
+    content: Applying laser cleaning at 12.7 J/cm² notably removes contaminants and micro-roughens the mortar surface, forming
+      an essential adhesion profile for repointing. This technique distinctly outperforms mechanical abrasion by safeguarding
+      substrate integrity, yielding superior bond strength in the new mortar without micro-fractures.
+    metadata:
+      topic: laser cleaning prep mortar surfaces
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 10
+  - id: how-does-moisture-content-in-mortar
+    title: How does moisture content in mortar affect laser cleaning efficiency and safety?
+    content: Moisture notably heightens steam generation risks in laser cleaning of mortar. When dealing with damp historical
+      structures, it's essential to lower the fluence below 12.7 J/cm² while raising scan speed over 500 mm/s for better thermal
+      control. Such tweaks distinctly avoid micro-fracturing and sustain ablation efficiency on wet surfaces.
+    metadata:
+      topic: moture content in mortar affect
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 11
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/masonry/general/mortar-laser-cleaning
 breadcrumb:
 - label: Home

@@ -16,7 +16,7 @@ interface CategoryPageProps {
   categoryMetadata?: any;
 }
 
-export async function CategoryPage({
+export function CategoryPage({
   config,
   categorySlug,
   categoryData,

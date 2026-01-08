@@ -249,7 +249,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -312,7 +311,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -356,7 +354,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:30.149297+00:00'
+dateModified: '2026-01-08T01:04:47.526413+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -412,66 +410,185 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- answer: I suggest a 1064 nm wavelength for palladium laser cleaning, particularly with 12 ns pulses at 2.5 J/cm² fluence.
-    Set the repetition rate to 50 kHz and scan speed at 500 mm/s. This setup thus removes oxides effectively, while safeguarding
-    the substrate's catalytic integrity against thermal damage and microstructural alterations.
-  question: What laser parameters are optimal for cleaning palladium without causing surface damage or altering its catalytic
-    properties?
-  topic_keyword: catalytic properties
-  topic_statement: Preserves catalytic integrity
-- answer: Palladium's high reflectivity, notably at 1064 nm, poses challenges to laser cleaning efficiency. We address this
-    through 90 W average power and 2.5 J/cm² fluence, ablating contaminants while safeguarding the substrate. Specifically
-    for such reflective surfaces, shorter wavelengths like 532 nm green lasers yield better absorption.
-  question: How does palladium's high reflectivity affect laser cleaning efficiency, and what wavelengths work best?
-  topic_keyword: high reflectivity
-  topic_statement: Shorter wavelengths enhance absorption
-- answer: Particularly, palladium's ablation threshold of 2.5 J/cm² produces toxic nanoparticles that demand HEPA/ULPA filtration.
-    Thus, OSHA caps airborne exposure at 0.015 mg/m³, requiring powered air-purifying respirators for 1064 nm laser processing
-    to trap these respirable metallic compounds.
-  question: What are the specific safety concerns when laser cleaning palladium, particularly regarding fume extraction and
-    airborne particles?
-- answer: Yes, laser cleaning effectively removes palladium oxide at 2.5 J/cm² fluence and 1064 nm wavelength. Notably, this
-    selectively ablates the oxide layer, while the 12 ns pulse width thus prevents substrate melting, preserving the precious
-    metal's integrity far superior to chemical methods.
-  question: Can laser cleaning remove oxidation from palladium without damaging the precious metal substrate?
-  topic_keyword: precious metal substrate
-  topic_statement: Prevents substrate melting
-- answer: Palladium, particularly with its exceptional hydrogen absorption, poses an embrittlement risk during laser cleaning.
-    Keep fluence below 2.5 J/cm² at a 500 mm/s scan speed to prevent thermal-driven hydrogen dissolution. Thus, subsurface
-    hydride formation is avoided while contaminants are effectively removed.
-  question: What is the risk of hydrogen embrittlement in palladium during laser cleaning, and how can it be mitigated?
-  topic_keyword: hydrogen embrittlement
-  topic_statement: Maintain fluence below 2.5 J/cm²
-- answer: Using a fluence of 2.5 J/cm² and 1064 nm wavelength, laser cleaning particularly activates palladium surfaces by
-    removing organic contaminants. Thus, this approach optimizes surface energy and micro-roughness, yielding an ideal condition
-    for enhanced plating adhesion and bonding strength in industrial applications.
-  question: How effective is laser cleaning for preparing palladium surfaces for subsequent plating or bonding applications?
-  topic_keyword: plating or bonding applications
-  topic_statement: Optimizes surface energy micro-roughness
-- answer: Laser cleaning delivers superior economic value, particularly for palladium components, by eliminating material
-    loss—essential given the metal's high cost. Our optimized 2.5 J/cm² fluence and 500 mm/s scan speed thus enable rapid,
-    non-contact cleaning, markedly improving throughput and ROI for jewelry and catalytic converters.
-  question: What are the economic considerations when choosing laser cleaning versus traditional methods for palladium components?
-  topic_keyword: economic considerations
-  topic_statement: Eliminates high-cost material loss
-- answer: Specific laser parameters, such as 2.5 J/cm² fluence and 12 ns pulses, selectively remove oxides while preserving
-    the palladium substrate. Notably, this preserves surface roughness and prevents grain growth in thin films, thus ensuring
-    functional integrity for sensitive electronic applications.
-  question: How does laser cleaning affect the surface roughness and microstructure of palladium, particularly for thin films
-    or coatings?
-- answer: Laser cleaning is particularly effective for removing organic residues and thin oxide layers on palladium surfaces
-    at 2.5 J/cm² fluence. Yet, embedded metallic particles or thick oxides typically demand alternative approaches, thus risking
-    substrate damage during removal, even under optimized 500 mm/s scan speeds and 1064 nm wavelength settings.
-  question: What contaminants commonly found on palladium surfaces respond best to laser cleaning versus those requiring alternative
-    methods?
-  topic_keyword: palladium surfaces
-  topic_statement: Excels at organics, thin oxides
-- answer: For palladium alloys, particularly Pd-Ag, precise fluence control near 2.5 J/cm² is essential to avoid selective
-    silver removal caused by varying ablation thresholds. This thus preserves the alloy's composition. Employing 50% overlap
-    at 500 mm/s scan speed specifically addresses differential vaporization rates among elements, ensuring surface integrity.
-  question: Are there specific laser cleaning challenges for palladium alloys compared to pure palladium?
-  topic_keyword: palladium alloys
-  topic_statement: Prevents selective silver removal
+  presentation: collapsible
+  items:
+  - id: what-laser-parameters-are-optimal-for
+    title: What laser parameters are optimal for cleaning palladium without causing surface damage or altering its catalytic
+      properties?
+    content: I suggest a 1064 nm wavelength for palladium laser cleaning, particularly with 12 ns pulses at 2.5 J/cm² fluence.
+      Set the repetition rate to 50 kHz and scan speed at 500 mm/s. This setup thus removes oxides effectively, while safeguarding
+      the substrate's catalytic integrity against thermal damage and microstructural alterations.
+    metadata:
+      topic: laser parameters optimal for cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: how-does-palladiums-high-reflectivity-affect
+    title: How does palladium's high reflectivity affect laser cleaning efficiency, and what wavelengths work best?
+    content: Palladium's high reflectivity, notably at 1064 nm, poses challenges to laser cleaning efficiency. We address
+      this through 90 W average power and 2.5 J/cm² fluence, ablating contaminants while safeguarding the substrate. Specifically
+      for such reflective surfaces, shorter wavelengths like 532 nm green lasers yield better absorption.
+    metadata:
+      topic: palladium's high reflectivity affect laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: what-are-the-specific-safety-concerns
+    title: What are the specific safety concerns when laser cleaning palladium, particularly regarding fume extraction and
+      airborne particles?
+    content: Particularly, palladium's ablation threshold of 2.5 J/cm² produces toxic nanoparticles that demand HEPA/ULPA
+      filtration. Thus, OSHA caps airborne exposure at 0.015 mg/m³, requiring powered air-purifying respirators for 1064 nm
+      laser processing to trap these respirable metallic compounds.
+    metadata:
+      topic: the specific safety concerns laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-remove-oxidation-from
+    title: Can laser cleaning remove oxidation from palladium without damaging the precious metal substrate?
+    content: Yes, laser cleaning effectively removes palladium oxide at 2.5 J/cm² fluence and 1064 nm wavelength. Notably,
+      this selectively ablates the oxide layer, while the 12 ns pulse width thus prevents substrate melting, preserving the
+      precious metal's integrity far superior to chemical methods.
+    metadata:
+      topic: laser cleaning remove oxidation from
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: what-is-the-risk-of-hydrogen
+    title: What is the risk of hydrogen embrittlement in palladium during laser cleaning, and how can it be mitigated?
+    content: Palladium, particularly with its exceptional hydrogen absorption, poses an embrittlement risk during laser cleaning.
+      Keep fluence below 2.5 J/cm² at a 500 mm/s scan speed to prevent thermal-driven hydrogen dissolution. Thus, subsurface
+      hydride formation is avoided while contaminants are effectively removed.
+    metadata:
+      topic: the rk of hydrogen embrittlement
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: how-effective-is-laser-cleaning-for
+    title: How effective is laser cleaning for preparing palladium surfaces for subsequent plating or bonding applications?
+    content: Using a fluence of 2.5 J/cm² and 1064 nm wavelength, laser cleaning particularly activates palladium surfaces
+      by removing organic contaminants. Thus, this approach optimizes surface energy and micro-roughness, yielding an ideal
+      condition for enhanced plating adhesion and bonding strength in industrial applications.
+    metadata:
+      topic: effective laser cleaning for preparing
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: what-are-the-economic-considerations-when
+    title: What are the economic considerations when choosing laser cleaning versus traditional methods for palladium components?
+    content: Laser cleaning delivers superior economic value, particularly for palladium components, by eliminating material
+      loss—essential given the metal's high cost. Our optimized 2.5 J/cm² fluence and 500 mm/s scan speed thus enable rapid,
+      non-contact cleaning, markedly improving throughput and ROI for jewelry and catalytic converters.
+    metadata:
+      topic: the economic considerations choosing laser
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: how-does-laser-cleaning-affect-the
+    title: How does laser cleaning affect the surface roughness and microstructure of palladium, particularly for thin films
+      or coatings?
+    content: Specific laser parameters, such as 2.5 J/cm² fluence and 12 ns pulses, selectively remove oxides while preserving
+      the palladium substrate. Notably, this preserves surface roughness and prevents grain growth in thin films, thus ensuring
+      functional integrity for sensitive electronic applications.
+    metadata:
+      topic: laser cleaning affect the surface
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: what-contaminants-commonly-found-on-palladium
+    title: What contaminants commonly found on palladium surfaces respond best to laser cleaning versus those requiring alternative
+      methods?
+    content: Laser cleaning is particularly effective for removing organic residues and thin oxide layers on palladium surfaces
+      at 2.5 J/cm² fluence. Yet, embedded metallic particles or thick oxides typically demand alternative approaches, thus
+      risking substrate damage during removal, even under optimized 500 mm/s scan speeds and 1064 nm wavelength settings.
+    metadata:
+      topic: contaminants commonly found on palladium
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  - id: are-there-specific-laser-cleaning-challenges
+    title: Are there specific laser cleaning challenges for palladium alloys compared to pure palladium?
+    content: For palladium alloys, particularly Pd-Ag, precise fluence control near 2.5 J/cm² is essential to avoid selective
+      silver removal caused by varying ablation thresholds. This thus preserves the alloy's composition. Employing 50% overlap
+      at 500 mm/s scan speed specifically addresses differential vaporization rates among elements, ensuring surface integrity.
+    metadata:
+      topic: there specific laser cleaning challenges
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/non-ferrous/palladium-laser-cleaning
 breadcrumb:
 - label: Home

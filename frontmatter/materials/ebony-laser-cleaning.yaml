@@ -194,7 +194,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -217,7 +216,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -288,7 +286,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.101822+00:00'
+dateModified: '2026-01-08T01:04:51.533714+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -311,15 +309,47 @@ components:
     after: After laser treatment, we've found the surface gleams smoothly with no residue left behind. The clean texture reveals
       sharp grain lines that run evenly through the material. Polished areas now shine uniformly, bringing back
 faq:
-- question: How do I prevent burning ebony during laser cleaning?
-  answer: You must start with lower power settings to gently remove surface dirt without overheating the dense wood. Ebony's
-    hardness helps it withstand the process, but its low heat tolerance means you should use short pulses that clear buildup
-    quickly. Keep the laser moving steadily across the surface to avoid hot spots. In my experience, this approach restores
-    the natural finish beautifully. Watch out for prolonged exposure, as it can char the material and ruin your work.
-- question: What's the best practice for cleaning old dirt off ebony artifacts?
-  answer: Make sure you test the laser on a small hidden area first to see how the ebony responds. The wood's tight grain
-    absorbs energy evenly, so a focused beam works well to lift grime without scratching. You'll want to follow up with a
-    soft cloth to polish away any residue left behind. This method preserves the ebony's deep color and smooth texture effectively.
+  presentation: collapsible
+  items:
+  - id: how-do-i-prevent-burning-ebony
+    title: How do I prevent burning ebony during laser cleaning?
+    content: You must start with lower power settings to gently remove surface dirt without overheating the dense wood. Ebony's
+      hardness helps it withstand the process, but its low heat tolerance means you should use short pulses that clear buildup
+      quickly. Keep the laser moving steadily across the surface to avoid hot spots. In my experience, this approach restores
+      the natural finish beautifully. Watch out for prolonged exposure, as it can char the material and ruin your work.
+    metadata:
+      topic: do i prevent burning ebony
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: whats-the-best-practice-for-cleaning
+    title: What's the best practice for cleaning old dirt off ebony artifacts?
+    content: Make sure you test the laser on a small hidden area first to see how the ebony responds. The wood's tight grain
+      absorbs energy evenly, so a focused beam works well to lift grime without scratching. You'll want to follow up with
+      a soft cloth to polish away any residue left behind. This method preserves the ebony's deep color and smooth texture
+      effectively.
+    metadata:
+      topic: '''s the best practice for'
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/wood/hardwood/ebony-laser-cleaning
 breadcrumb:
 - label: Home

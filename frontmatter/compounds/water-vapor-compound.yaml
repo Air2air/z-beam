@@ -5,7 +5,7 @@ category: vapor
 subcategory: inert
 hazard_class: inert
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.881777+00:00'
+dateModified: '2026-01-08T00:59:13.622304+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/vapor/inert/water-vapor-compound
@@ -383,7 +383,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
   safety:
     health_effects:
       items:
@@ -420,10 +419,28 @@ ppe_requirements: "Handling water vapor in its compound form demands careful gea
   \ from prolonged warmth without compromising grip on tools. Overall, this setup prioritizes comfort and durability, allowing\
   \ safe navigation of vapor-heavy operations from power systems to precision cleaning setups."
 faq:
-- question: As a laser cleaning operator, how can I protect myself from potential water vapor exposure in a humid industrial
-    environment?
-  answer: Maintain proper ventilation in the workspace to keep water vapor levels low, as this is essential for preventing
-    respiratory irritation or fogging of safety equipment during laser operations. Use personal protective equipment (PPE)
-    such as respirators rated for vapor (e.g., NIOSH-approved half-face masks with organic vapor cartridges) and ensure the
-    area is monitored with humidity sensors to stay below 80% relative humidity. If exposure is suspected, relocate to fresh
-    air immediately and follow your site's emergency protocols for decontamination.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from potential water vapor exposure in a humid industrial
+      environment?
+    content: Maintain proper ventilation in the workspace to keep water vapor levels low, as this is essential for preventing
+      respiratory irritation or fogging of safety equipment during laser operations. Use personal protective equipment (PPE)
+      such as respirators rated for vapor (e.g., NIOSH-approved half-face masks with organic vapor cartridges) and ensure
+      the area is monitored with humidity sensors to stay below 80% relative humidity. If exposure is suspected, relocate
+      to fresh air immediately and follow your site's emergency protocols for decontamination.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

@@ -254,7 +254,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -312,7 +311,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -358,7 +356,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.868520+00:00'
+dateModified: '2026-01-08T01:04:51.295832+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -404,70 +402,196 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/en/publication/3587
 faq:
-- answer: For zirconium alloys, a 1064 nm near-IR wavelength offers a practical cleaning approach, absorbing just enough to
-    strip oxides without sparking unwanted oxidation or heat buildup—unlike shorter UV options that invite deeper thermal
-    risks. This process works best with 10 ns pulses and 5.1 J/cm² fluence to efficiently remove surface layers while preserving
-    the metal's integrity in nuclear or aerospace applications.
-  question: What laser wavelengths are most effective for cleaning zirconium alloys without causing thermal damage or oxidation?
-  topic_keyword: thermal damage or oxidation
-  topic_statement: 1064 nm prevents oxidation
-- answer: Zirconium's pyrophoric dust from laser ablation at 5.1 J/cm² fluence ignites spontaneously in air, raising fire
-    risks on contaminated surfaces. In this process, shield with inert gas like argon during 100 W operation to prevent oxidation—a
-    practical step—and follow safety sheets by using Class D extinguishers or dry sand for flare-ups.
-  question: Is there a risk of zirconium ignition or fire during laser cleaning processes on contaminated surfaces?
-  topic_keyword: zirconium ignition
-  topic_statement: Pyrophoric dust requires inert shielding
-- answer: Zirconium's high reflectivity, exceeding 90% at 1064 nm wavelengths, complicates laser energy absorption when cleaning
-    nuclear fuel cladding, cutting efficiency and risking incomplete oxide removal. Straightforwardly, we tackle this by raising
-    fluence to 5.1 J/cm² and power to 100 W, plus pre-roughening the surface efficiently for better light trapping.
-  question: How does the high reflectivity of zirconium affect the efficiency of laser cleaning in nuclear fuel cladding applications?
-  topic_keyword: high reflectivity
-  topic_statement: Hinders absorption; requires high fluence
-- answer: In chemical processing plants, zirconium surfaces commonly accumulate oxide scales, mineral deposits, and organic
-    residues amid corrosive conditions. This process of laser cleaning outperforms that method of chemicals through straightforward,
-    non-contact ablation at 5.1 J/cm² fluence and 100 W power, preserving the metal's natural corrosion resistance without
-    residues or secondary contamination.
-  question: What are common contaminants on zirconium surfaces in chemical processing plants, and how does laser cleaning
-    compare to chemical methods?
-- answer: For zirconium laser cleaning, a practical approach involves using real-time IR thermography to keep surface temperatures
-    below 400°C, avoiding alpha-to-beta phase transitions, and gas analyzers to maintain hydrogen under 10 ppm, preventing
-    embrittlement. In this process, adhere to manufacturer thresholds like 5.1 J/cm² fluence at 100 W power, then verify via
-    post-process metallographic exams.
-  question: In laser cleaning equipment for zirconium, what monitoring is needed to prevent hydrogen embrittlement or phase
-    changes?
-  topic_keyword: hydrogen embrittlement
-  topic_statement: Monitor temperature and hydrogen levels
-- answer: Yes, laser cleaning zirconium for aerospace straightforwardly follows ASTM B353 for alloy specs and ASTM F86 for
-    surface prep, delivering oxide-free finishes. Aim for 5.1 J/cm² fluence at 100 W to precisely ablate contaminants, curbing
-    thermal effects on this reactive metal. This process validation relies on profilometry and detailed logs for certification.
-  question: Are there regulatory guidelines for laser cleaning zirconium in aerospace components to ensure compliance with
-    ASTM standards?
-  topic_keyword: compliance with ASTM standards
-  topic_statement: Targets 5.1 J/cm² fluence
-- answer: Zirconium's melting point of 1855°C enables robust thermal processing, yet its low thermal conductivity builds heat
-    quickly, making pulsed lasers preferable to continuous wave for substrate protection. In a practical approach to oxide
-    removal, nanosecond pulses at 1064 nm deliver 5.1 J/cm² fluence and 100 W power, ensuring straightforward ablation control.
-  question: What physical properties of zirconium, like its melting point and thermal conductivity, influence the choice of
-    laser cleaning techniques?
-- answer: In a practical approach, a 1064 nm nanosecond laser at 5.1 J/cm² fluence enables selective photothermal ablation
-    to vaporize zirconium oxide layers, leaving the substrate intact and preventing thermal stress from causing microcracks.
-    This process maintains the metal's corrosion resistance for nuclear or aerospace applications. SEM and XPS analyses verify
-    defect-free surfaces with stable oxide-free chemistry.
-  question: How can laser cleaning remove oxide layers from zirconium without introducing new surface defects or altering
-    its corrosion resistance?
-  topic_keyword: corrosion resistance
-  topic_statement: Preserves inherent corrosion resistance
-- answer: In zirconium laser cleaning at 5.1 J/cm² fluence and 100 W power, operators should practically prioritize enclosed
-    dust collection systems to capture reactive airborne particles, thus preventing ignition risks. Full PPE, including respirators
-    and gloves, remains mandatory, paired with local exhaust ventilation meeting 100 fpm standards to efficiently mitigate
-    toxicity from fine dust inhalation.
-  question: In training materials for laser operators, what handling precautions are emphasized for zirconium during cleaning
-    to avoid dust generation?
-- answer: Laser cleaning zirconium at 5.1 J/cm² fluence and 100 W power provides a practical alternative to acid pickling,
-    cutting chemical waste and minimizing pollution in nuclear and aerospace sectors. That method avoids corrosive fumes,
-    boosting worker safety and ensuring OSHA-EPA compliance, while preserving the metal's integrity for sensitive uses.
-  question: What are the environmental and safety benefits of using laser cleaning on zirconium over traditional pickling
-    methods in industry?
+  presentation: collapsible
+  items:
+  - id: what-laser-wavelengths-are-most-effective
+    title: What laser wavelengths are most effective for cleaning zirconium alloys without causing thermal damage or oxidation?
+    content: For zirconium alloys, a 1064 nm near-IR wavelength offers a practical cleaning approach, absorbing just enough
+      to strip oxides without sparking unwanted oxidation or heat buildup—unlike shorter UV options that invite deeper thermal
+      risks. This process works best with 10 ns pulses and 5.1 J/cm² fluence to efficiently remove surface layers while preserving
+      the metal's integrity in nuclear or aerospace applications.
+    metadata:
+      topic: laser wavelengths most effective for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: is-there-a-risk-of-zirconium
+    title: Is there a risk of zirconium ignition or fire during laser cleaning processes on contaminated surfaces?
+    content: Zirconium's pyrophoric dust from laser ablation at 5.1 J/cm² fluence ignites spontaneously in air, raising fire
+      risks on contaminated surfaces. In this process, shield with inert gas like argon during 100 W operation to prevent
+      oxidation—a practical step—and follow safety sheets by using Class D extinguishers or dry sand for flare-ups.
+    metadata:
+      topic: there a rk of zirconium
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: how-does-the-high-reflectivity-of
+    title: How does the high reflectivity of zirconium affect the efficiency of laser cleaning in nuclear fuel cladding applications?
+    content: Zirconium's high reflectivity, exceeding 90% at 1064 nm wavelengths, complicates laser energy absorption when
+      cleaning nuclear fuel cladding, cutting efficiency and risking incomplete oxide removal. Straightforwardly, we tackle
+      this by raising fluence to 5.1 J/cm² and power to 100 W, plus pre-roughening the surface efficiently for better light
+      trapping.
+    metadata:
+      topic: the high reflectivity of zirconium
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: what-are-common-contaminants-on-zirconium
+    title: What are common contaminants on zirconium surfaces in chemical processing plants, and how does laser cleaning compare
+      to chemical methods?
+    content: In chemical processing plants, zirconium surfaces commonly accumulate oxide scales, mineral deposits, and organic
+      residues amid corrosive conditions. This process of laser cleaning outperforms that method of chemicals through straightforward,
+      non-contact ablation at 5.1 J/cm² fluence and 100 W power, preserving the metal's natural corrosion resistance without
+      residues or secondary contamination.
+    metadata:
+      topic: common contaminants on zirconium surfaces
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: in-laser-cleaning-equipment-for-zirconium
+    title: In laser cleaning equipment for zirconium, what monitoring is needed to prevent hydrogen embrittlement or phase
+      changes?
+    content: For zirconium laser cleaning, a practical approach involves using real-time IR thermography to keep surface temperatures
+      below 400°C, avoiding alpha-to-beta phase transitions, and gas analyzers to maintain hydrogen under 10 ppm, preventing
+      embrittlement. In this process, adhere to manufacturer thresholds like 5.1 J/cm² fluence at 100 W power, then verify
+      via post-process metallographic exams.
+    metadata:
+      topic: in laser cleaning equipment for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: are-there-regulatory-guidelines-for-laser
+    title: Are there regulatory guidelines for laser cleaning zirconium in aerospace components to ensure compliance with
+      ASTM standards?
+    content: Yes, laser cleaning zirconium for aerospace straightforwardly follows ASTM B353 for alloy specs and ASTM F86
+      for surface prep, delivering oxide-free finishes. Aim for 5.1 J/cm² fluence at 100 W to precisely ablate contaminants,
+      curbing thermal effects on this reactive metal. This process validation relies on profilometry and detailed logs for
+      certification.
+    metadata:
+      topic: there regulatory guidelines for laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: what-physical-properties-of-zirconium-like
+    title: What physical properties of zirconium, like its melting point and thermal conductivity, influence the choice of
+      laser cleaning techniques?
+    content: Zirconium's melting point of 1855°C enables robust thermal processing, yet its low thermal conductivity builds
+      heat quickly, making pulsed lasers preferable to continuous wave for substrate protection. In a practical approach to
+      oxide removal, nanosecond pulses at 1064 nm deliver 5.1 J/cm² fluence and 100 W power, ensuring straightforward ablation
+      control.
+    metadata:
+      topic: physical properties of zirconium, like
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: how-can-laser-cleaning-remove-oxide
+    title: How can laser cleaning remove oxide layers from zirconium without introducing new surface defects or altering its
+      corrosion resistance?
+    content: In a practical approach, a 1064 nm nanosecond laser at 5.1 J/cm² fluence enables selective photothermal ablation
+      to vaporize zirconium oxide layers, leaving the substrate intact and preventing thermal stress from causing microcracks.
+      This process maintains the metal's corrosion resistance for nuclear or aerospace applications. SEM and XPS analyses
+      verify defect-free surfaces with stable oxide-free chemistry.
+    metadata:
+      topic: laser cleaning remove oxide layers
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: in-training-materials-for-laser-operators
+    title: In training materials for laser operators, what handling precautions are emphasized for zirconium during cleaning
+      to avoid dust generation?
+    content: In zirconium laser cleaning at 5.1 J/cm² fluence and 100 W power, operators should practically prioritize enclosed
+      dust collection systems to capture reactive airborne particles, thus preventing ignition risks. Full PPE, including
+      respirators and gloves, remains mandatory, paired with local exhaust ventilation meeting 100 fpm standards to efficiently
+      mitigate toxicity from fine dust inhalation.
+    metadata:
+      topic: in training materials for laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  - id: what-are-the-environmental-and-safety
+    title: What are the environmental and safety benefits of using laser cleaning on zirconium over traditional pickling methods
+      in industry?
+    content: Laser cleaning zirconium at 5.1 J/cm² fluence and 100 W power provides a practical alternative to acid pickling,
+      cutting chemical waste and minimizing pollution in nuclear and aerospace sectors. That method avoids corrosive fumes,
+      boosting worker safety and ensuring OSHA-EPA compliance, while preserving the metal's integrity for sensitive uses.
+    metadata:
+      topic: the environmental and safety benefits
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/alloy/zirconium-laser-cleaning
 breadcrumb:
 - label: Home

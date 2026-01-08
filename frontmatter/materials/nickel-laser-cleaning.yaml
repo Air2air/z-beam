@@ -273,7 +273,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -328,7 +327,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -372,7 +370,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:29.831457+00:00'
+dateModified: '2026-01-08T01:04:47.261711+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -418,65 +416,184 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- answer: For nickel oxide removal, I recommend a 1064 nm wavelength with 100 W average power and 10 ns pulses. Specifically,
-    maintain fluence near 2.5 J/cm² to selectively ablate contaminants while preserving the substrate. Thus, employing a 50
-    μm spot size at 500 mm/s scan speed delivers optimal cleaning efficiency without thermal damage to the base metal.
-  question: What are the best laser parameters (wavelength, power, pulse duration) for cleaning rust or oxide from a nickel
-    surface without damaging the base metal?
-  topic_keyword: damaging the base metal
-  topic_statement: Fluence 2.5 J/cm² preserves substrate
-- answer: Yes, particularly at around 100 W and 1064 nm, a fiber laser can effectively strip nickel plating. Tuning parameters
-    like a 2.5 J/cm² fluence presents the main challenge, thus ensuring complete ablation of the nickel layer without thermally
-    harming the underlying copper or steel substrate, which has a distinct ablation threshold.
-  question: Can a fiber laser effectively remove nickel plating from a substrate like copper or steel?
-  topic_keyword: nickel plating
-  topic_statement: Tune fluence for selective ablation
-- answer: Nickel's ablation threshold of 2.5 J/cm² notably produces highly toxic, carcinogenic fumes. Specifically, these
-    respiratory risks demand efficient fume extraction and suitable PPE, as the resulting aerosols represent a key safety
-    issue in 1064 nm laser cleaning operations.
-  question: What specific safety hazards are associated with laser cleaning nickel and nickel alloys?
-  topic_keyword: specific safety hazards
-  topic_statement: Generates toxic carcinogenic fumes
-- answer: Notably, the rainbow discoloration stems from a thin oxide layer caused by residual heat. Thus, shorter 10 ns pulses
-    at higher 500 mm/s scan speeds, or an argon shield, prevent this tint by limiting thermal input to the nickel surface.
-  question: Why does laser cleaning sometimes leave a discolored or rainbow-like pattern on a nickel surface?
-- answer: Particularly suited for nickel surface preparation, laser cleaning delivers chemical purity sans abrasives. Specifically,
-    using 2.5 J/cm² fluence and 1064 nm wavelength, it removes oxides effectively, thus yielding an activated surface primed
-    for welding or coating adhesion.
-  question: Is laser cleaning suitable for preparing a nickel surface for subsequent processes like welding or coating?
-  topic_keyword: preparing a nickel surface
-  topic_statement: Removes oxides leaving activated surface
-- answer: For nickel superalloys, particularly with nanosecond pulses of 10 ns duration and fluence under 2.5 J/cm², this
-    method minimizes thermal input. Thus, it prevents micro-cracks by limiting the heat-affected zone and preserving sensitive
-    material properties.
-  question: How do you clean a nickel-based superalloy (like Inconel) with a laser without inducing micro-cracks or altering
-    its material properties?
-  topic_keyword: inducing micro-cracks
-  topic_statement: Nanosecond pulses below 2.5 J/cm²
-- answer: For nickel surfaces, particularly in demanding scenarios, pair white glove wipe tests with contact angle measurements.
-    Notably, for critical aerospace applications, techniques like XPS verify sub-monolayer contaminant removal, thus optimizing
-    surface energy for later processes.
-  question: What is the best way to verify that a nickel surface is clean after laser processing and not just visually clean?
-- answer: Laser cleaning of porous nickel demands precise fluence control around 2.5 J/cm², particularly to avoid contaminant
-    entrapment. Thus, pairing a 100 kHz pulse rate with gas assist proficiently ejects loosened particles from intricate cast
-    structures, ensuring thorough surface purification.
-  question: Can laser cleaning be used on porous or cast nickel surfaces without trapping contaminants?
-  topic_keyword: porous or cast
-  topic_statement: Precise fluence prevents trapping
-- answer: Notably, nickel's high reflectivity at 1064 nm reduces process efficiency and generates hazardous reflections. Yet,
-    as ablation initiates at the 2.5 J/cm² threshold fluence, surface absorption surges dramatically. We counter this initial
-    hazard particularly via angled beam delivery and protective enclosures that contain stray energy.
-  question: How does the high reflectivity of nickel affect the efficiency and safety of the laser cleaning process?
-  topic_keyword: high reflectivity
-  topic_statement: Absorption increases post-threshold
-- answer: The OSHA PEL for nickel metal fumes stands at 1 mg/m³, a level readily surpassed during laser ablation with 100W
-    average power. Particularly, effective fume extraction proves essential, since the 1064 nm wavelength readily produces
-    inhalable particulates. Thus, ongoing air monitoring helps maintain compliance with these rigorous exposure limits in
-    your nickel processing tasks.
-  question: What are the regulatory (OSHA, NIOSH) exposure limits for nickel fumes, and how do they impact laser cleaning
-    operations?
-  topic_keyword: nickel fumes
-  topic_statement: Requires effective fume extraction
+  presentation: collapsible
+  items:
+  - id: what-are-the-best-laser-parameters
+    title: What are the best laser parameters (wavelength, power, pulse duration) for cleaning rust or oxide from a nickel
+      surface without damaging the base metal?
+    content: For nickel oxide removal, I recommend a 1064 nm wavelength with 100 W average power and 10 ns pulses. Specifically,
+      maintain fluence near 2.5 J/cm² to selectively ablate contaminants while preserving the substrate. Thus, employing a
+      50 μm spot size at 500 mm/s scan speed delivers optimal cleaning efficiency without thermal damage to the base metal.
+    metadata:
+      topic: the best laser parameters (wavelength,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: can-a-fiber-laser-effectively-remove
+    title: Can a fiber laser effectively remove nickel plating from a substrate like copper or steel?
+    content: Yes, particularly at around 100 W and 1064 nm, a fiber laser can effectively strip nickel plating. Tuning parameters
+      like a 2.5 J/cm² fluence presents the main challenge, thus ensuring complete ablation of the nickel layer without thermally
+      harming the underlying copper or steel substrate, which has a distinct ablation threshold.
+    metadata:
+      topic: a fiber laser effectively remove
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: what-specific-safety-hazards-are-associated
+    title: What specific safety hazards are associated with laser cleaning nickel and nickel alloys?
+    content: Nickel's ablation threshold of 2.5 J/cm² notably produces highly toxic, carcinogenic fumes. Specifically, these
+      respiratory risks demand efficient fume extraction and suitable PPE, as the resulting aerosols represent a key safety
+      issue in 1064 nm laser cleaning operations.
+    metadata:
+      topic: specific safety hazards associated with
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: why-does-laser-cleaning-sometimes-leave
+    title: Why does laser cleaning sometimes leave a discolored or rainbow-like pattern on a nickel surface?
+    content: Notably, the rainbow discoloration stems from a thin oxide layer caused by residual heat. Thus, shorter 10 ns
+      pulses at higher 500 mm/s scan speeds, or an argon shield, prevent this tint by limiting thermal input to the nickel
+      surface.
+    metadata:
+      topic: laser cleaning sometimes leave a
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: is-laser-cleaning-suitable-for-preparing
+    title: Is laser cleaning suitable for preparing a nickel surface for subsequent processes like welding or coating?
+    content: Particularly suited for nickel surface preparation, laser cleaning delivers chemical purity sans abrasives. Specifically,
+      using 2.5 J/cm² fluence and 1064 nm wavelength, it removes oxides effectively, thus yielding an activated surface primed
+      for welding or coating adhesion.
+    metadata:
+      topic: laser cleaning suitable for preparing
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: how-do-you-clean-a-nickelbased
+    title: How do you clean a nickel-based superalloy (like Inconel) with a laser without inducing micro-cracks or altering
+      its material properties?
+    content: For nickel superalloys, particularly with nanosecond pulses of 10 ns duration and fluence under 2.5 J/cm², this
+      method minimizes thermal input. Thus, it prevents micro-cracks by limiting the heat-affected zone and preserving sensitive
+      material properties.
+    metadata:
+      topic: do you clean a nickel-based
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: what-is-the-best-way-to
+    title: What is the best way to verify that a nickel surface is clean after laser processing and not just visually clean?
+    content: For nickel surfaces, particularly in demanding scenarios, pair white glove wipe tests with contact angle measurements.
+      Notably, for critical aerospace applications, techniques like XPS verify sub-monolayer contaminant removal, thus optimizing
+      surface energy for later processes.
+    metadata:
+      topic: the best way to verify
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  - id: can-laser-cleaning-be-used-on
+    title: Can laser cleaning be used on porous or cast nickel surfaces without trapping contaminants?
+    content: Laser cleaning of porous nickel demands precise fluence control around 2.5 J/cm², particularly to avoid contaminant
+      entrapment. Thus, pairing a 100 kHz pulse rate with gas assist proficiently ejects loosened particles from intricate
+      cast structures, ensuring thorough surface purification.
+    metadata:
+      topic: laser cleaning be used on
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 8
+  - id: how-does-the-high-reflectivity-of
+    title: How does the high reflectivity of nickel affect the efficiency and safety of the laser cleaning process?
+    content: Notably, nickel's high reflectivity at 1064 nm reduces process efficiency and generates hazardous reflections.
+      Yet, as ablation initiates at the 2.5 J/cm² threshold fluence, surface absorption surges dramatically. We counter this
+      initial hazard particularly via angled beam delivery and protective enclosures that contain stray energy.
+    metadata:
+      topic: the high reflectivity of nickel
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 9
+  - id: what-are-the-regulatory-osha-niosh
+    title: What are the regulatory (OSHA, NIOSH) exposure limits for nickel fumes, and how do they impact laser cleaning operations?
+    content: The OSHA PEL for nickel metal fumes stands at 1 mg/m³, a level readily surpassed during laser ablation with 100W
+      average power. Particularly, effective fume extraction proves essential, since the 1064 nm wavelength readily produces
+      inhalable particulates. Thus, ongoing air monitoring helps maintain compliance with these rigorous exposure limits in
+      your nickel processing tasks.
+    metadata:
+      topic: the regulatory (osha, niosh) exposure
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/specialty/nickel-laser-cleaning
 breadcrumb:
 - label: Home

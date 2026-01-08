@@ -5,7 +5,7 @@ category: corrosive_gas
 subcategory: alkaline_gas
 hazard_class: corrosive
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.664987+00:00'
+dateModified: '2026-01-08T00:59:13.379430+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/corrosive_gas/alkaline_gas/ammonia-compound
@@ -185,7 +185,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -420,7 +419,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -439,7 +437,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -475,11 +472,29 @@ ppe_requirements: Handle ammonia compounds with care. Corrosive vapors demand fu
   Respiratory masks seal tight against fumes. Gloves resist chemical soak-through. Cover skin in impermeable suits. Boots
   prevent splashes on feet. Ventilate areas heavily. Train workers on quick exits. Store in sealed containers away from heat.
 faq:
-- question: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
-    in an industrial setting?
-  answer: Always ensure the work area is well-ventilated with local exhaust systems to dilute and remove ammonia gas, aiming
-    to keep concentrations below the OSHA permissible exposure limit of 50 ppm (35 ppm time-weighted average over 8 hours).
-    Wear appropriate personal protective equipment, including a full-face respirator with ammonia-specific cartridges (NIOSH-approved),
-    chemical-resistant gloves, and protective clothing to shield skin and eyes from the gas's corrosive effects. If exposure
-    is suspected, immediately evacuate the area, seek fresh air, and monitor for symptoms like eye irritation or respiratory
-    distress before resuming work.
+  presentation: collapsible
+  items:
+  - id: what-protective-equipment-and-methods-should
+    title: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
+      in an industrial setting?
+    content: Always ensure the work area is well-ventilated with local exhaust systems to dilute and remove ammonia gas, aiming
+      to keep concentrations below the OSHA permissible exposure limit of 50 ppm (35 ppm time-weighted average over 8 hours).
+      Wear appropriate personal protective equipment, including a full-face respirator with ammonia-specific cartridges (NIOSH-approved),
+      chemical-resistant gloves, and protective clothing to shield skin and eyes from the gas's corrosive effects. If exposure
+      is suspected, immediately evacuate the area, seek fresh air, and monitor for symptoms like eye irritation or respiratory
+      distress before resuming work.
+    metadata:
+      topic: protective equipment and methods should
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

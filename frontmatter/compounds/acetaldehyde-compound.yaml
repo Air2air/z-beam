@@ -5,7 +5,7 @@ category: irritant
 subcategory: aldehyde
 hazard_class: irritant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.028011+00:00'
+dateModified: '2026-01-08T00:59:12.757726+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/aldehyde/acetaldehyde-compound
@@ -148,7 +148,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -385,7 +384,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -404,7 +402,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -449,11 +446,29 @@ ppe_requirements: Handling acetaldehyde demands careful protection against its i
   disposable coveralls and boot covers help contain any residue, keeping contamination minimal and allowing for thorough decontamination
   afterward. Always pair this gear with well-ventilated environments to reduce overall risks.
 faq:
-- question: As a laser cleaning operator, what are the key protection methods to prevent acetaldehyde exposure from vapor
-    generation during surface treatment?
-  answer: Always prioritize engineering controls like local exhaust ventilation systems to capture and remove acetaldehyde
-    vapors at the source, maintaining airborne concentrations below the OSHA permissible exposure limit of 200 ppm (as an
-    8-hour time-weighted average) and the NIOSH recommended limit of 25 ppm. Wear appropriate personal protective equipment,
-    including chemical-resistant gloves, safety goggles, and a full-face respirator with organic vapor cartridges if ventilation
-    is inadequate. Monitor air quality periodically using portable gas detectors specific to acetaldehyde to ensure exposure
-    stays within safe limits and conduct regular training on spill response and emergency eyewash stations.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-what
+    title: As a laser cleaning operator, what are the key protection methods to prevent acetaldehyde exposure from vapor generation
+      during surface treatment?
+    content: Always prioritize engineering controls like local exhaust ventilation systems to capture and remove acetaldehyde
+      vapors at the source, maintaining airborne concentrations below the OSHA permissible exposure limit of 200 ppm (as an
+      8-hour time-weighted average) and the NIOSH recommended limit of 25 ppm. Wear appropriate personal protective equipment,
+      including chemical-resistant gloves, safety goggles, and a full-face respirator with organic vapor cartridges if ventilation
+      is inadequate. Monitor air quality periodically using portable gas detectors specific to acetaldehyde to ensure exposure
+      stays within safe limits and conduct regular training on spill response and emergency eyewash stations.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

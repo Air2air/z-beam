@@ -208,7 +208,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -231,7 +230,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -302,7 +300,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.894006+00:00'
+dateModified: '2026-01-08T01:04:52.389144+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -327,30 +325,74 @@ components:
       clean texture reveals sharp edges without lingering spots or roughness. We've restored the material's natural clarity,
       free from all
 faq:
-- question: What unique challenges arise when laser cleaning boron carbide surfaces?
-  answer: When laser cleaning boron carbide, you'll want to consider its extreme hardness first, which persists tenaciously
-    against contaminants. This material, it exhibits remarkable resistance to abrasion, that demonstrates why standard methods
-    often fail. The process, influenced from its non-porous nature, requires precise control to avoid thermal effects, which
-    could lead to microcracks. Safety demands protective measures, as dust generation manifests during ablation. Effectiveness
-    shows in removing oxides without altering the surface integrity, dependent from wavelength selection. It seems that pulsed
-    lasers yield optimal results, ensuring the ceramic maintains its durability. These properties, they demand careful parameter
-    adjustment for industrial applications like tool restoration.
-- question: How effective is laser cleaning for boron carbide compared to other ceramics?
-  answer: The key with boron carbide in laser cleaning is its superior hardness, that sets it apart from softer ceramics.
-    Layers of contamination, they adhere strongly yet respond to ablation at appropriate intensities. This carbide, it shows
-    low porosity, which facilitates clean removal without residue penetration. Process requirements include monitoring fluence
-    to prevent subsurface heating, as the material exhibits high thermal stability. Safety considerations involve ventilation,
-    since vapors might form under exposure. Effectiveness manifests in preserving flexural strength, influenced from controlled
-    energy delivery. It appears contamination varies by application, but the method proves reliable for nozzles and armor
-    components, yielding smooth finishes post-treatment.
-- question: What safety and process requirements should be followed for laser cleaning boron carbide?
-  answer: If you're cleaning boron carbide with lasers, start by addressing its insulating properties, which complicate charge
-    buildup. The surface, it resists oxidation well, yet high power can induce localized melting if unmanaged. Key challenges
-    include ensuring operator protection from reflected beams, dependent from the material's dark finish. Process demands
-    calibrated pulses to match its fracture toughness, avoiding propagation of flaws. Safety protocols, they emphasize enclosed
-    systems to contain particulates, that demonstrate containment efficacy. It seems effectiveness improves with inert atmospheres,
-    preventing reactions. These ceramics, they maintain compressive strength post-cleaning, which leads to prolonged service
-    life in corrosive environments.
+  presentation: collapsible
+  items:
+  - id: what-unique-challenges-arise-when-laser
+    title: What unique challenges arise when laser cleaning boron carbide surfaces?
+    content: When laser cleaning boron carbide, you'll want to consider its extreme hardness first, which persists tenaciously
+      against contaminants. This material, it exhibits remarkable resistance to abrasion, that demonstrates why standard methods
+      often fail. The process, influenced from its non-porous nature, requires precise control to avoid thermal effects, which
+      could lead to microcracks. Safety demands protective measures, as dust generation manifests during ablation. Effectiveness
+      shows in removing oxides without altering the surface integrity, dependent from wavelength selection. It seems that
+      pulsed lasers yield optimal results, ensuring the ceramic maintains its durability. These properties, they demand careful
+      parameter adjustment for industrial applications like tool restoration.
+    metadata:
+      topic: unique challenges laser cleaning boron
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: how-effective-is-laser-cleaning-for
+    title: How effective is laser cleaning for boron carbide compared to other ceramics?
+    content: The key with boron carbide in laser cleaning is its superior hardness, that sets it apart from softer ceramics.
+      Layers of contamination, they adhere strongly yet respond to ablation at appropriate intensities. This carbide, it shows
+      low porosity, which facilitates clean removal without residue penetration. Process requirements include monitoring fluence
+      to prevent subsurface heating, as the material exhibits high thermal stability. Safety considerations involve ventilation,
+      since vapors might form under exposure. Effectiveness manifests in preserving flexural strength, influenced from controlled
+      energy delivery. It appears contamination varies by application, but the method proves reliable for nozzles and armor
+      components, yielding smooth finishes post-treatment.
+    metadata:
+      topic: effective laser cleaning for boron
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: what-safety-and-process-requirements-should
+    title: What safety and process requirements should be followed for laser cleaning boron carbide?
+    content: If you're cleaning boron carbide with lasers, start by addressing its insulating properties, which complicate
+      charge buildup. The surface, it resists oxidation well, yet high power can induce localized melting if unmanaged. Key
+      challenges include ensuring operator protection from reflected beams, dependent from the material's dark finish. Process
+      demands calibrated pulses to match its fracture toughness, avoiding propagation of flaws. Safety protocols, they emphasize
+      enclosed systems to contain particulates, that demonstrate containment efficacy. It seems effectiveness improves with
+      inert atmospheres, preventing reactions. These ceramics, they maintain compressive strength post-cleaning, which leads
+      to prolonged service life in corrosive environments.
+    metadata:
+      topic: safety and process requirements should
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/ceramic/carbide/boron-carbide-laser-cleaning
 breadcrumb:
 - label: Home

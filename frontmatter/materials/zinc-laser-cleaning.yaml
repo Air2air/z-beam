@@ -270,7 +270,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -318,7 +317,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -364,7 +362,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.752293+00:00'
+dateModified: '2026-01-08T01:04:51.172602+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -414,15 +412,46 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/en/publication/3587
 faq:
-- question: What makes zinc suitable for industrial use?
-  answer: Zinc is a metal we often work with in coatings and alloys. It handles heat well up to around 693 K before it starts
-    to break down. And its specific heat sits at about 389 J/kg·K, so it absorbs energy steadily without big temperature jumps.
-    This helps in applications like galvanizing steel—zinc protects against rust effectively.
-- question: How do we clean zinc surfaces with lasers?
-  answer: For laser cleaning, we use a power range of 100 W. This removes contaminants like oxides or dirt without damaging
-    the zinc underneath. The process heats the surface just enough to vaporize buildup, and since zinc conducts heat evenly,
-    it clears spots quickly. But watch the settings—too much power melts it, so start low and test. We've seen good results
-    on coated parts this way.
+  presentation: collapsible
+  items:
+  - id: what-makes-zinc-suitable-for-industrial
+    title: What makes zinc suitable for industrial use?
+    content: Zinc is a metal we often work with in coatings and alloys. It handles heat well up to around 693 K before it
+      starts to break down. And its specific heat sits at about 389 J/kg·K, so it absorbs energy steadily without big temperature
+      jumps. This helps in applications like galvanizing steel—zinc protects against rust effectively.
+    metadata:
+      topic: makes zinc suitable for industrial
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-we-clean-zinc-surfaces
+    title: How do we clean zinc surfaces with lasers?
+    content: For laser cleaning, we use a power range of 100 W. This removes contaminants like oxides or dirt without damaging
+      the zinc underneath. The process heats the surface just enough to vaporize buildup, and since zinc conducts heat evenly,
+      it clears spots quickly. But watch the settings—too much power melts it, so start low and test. We've seen good results
+      on coated parts this way.
+    metadata:
+      topic: do we clean zinc surfaces
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/alloy/zinc-laser-cleaning
 breadcrumb:
 - label: Home

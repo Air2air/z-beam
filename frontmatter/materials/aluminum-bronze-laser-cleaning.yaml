@@ -354,7 +354,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -377,7 +376,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -447,7 +445,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.722896+00:00'
+dateModified: '2026-01-08T01:04:52.220413+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -465,18 +463,62 @@ contamination:
   - copper_patina
   conditional: {}
 faq:
-- question: How can I effectively clean oxidation from aluminum bronze using a laser?
-  answer: We've found that oxidation on aluminum bronze builds up stubbornly because of its strong resistance to corrosion,
-    making single passes less effective. You need to use multiple short bursts from the laser to gradually lift the layer
-    without overheating the base material. In our experience, adjusting the beam to a wider focus helps spread the energy
-    and prevents any uneven heating spots.
-- question: What settings work best for laser cleaning aluminum bronze parts?
-  answer: When laser cleaning aluminum bronze, the main challenge comes from its high reflectivity, which bounces much of
-    the laser energy away compared to less shiny metals like steel. We typically start with lower power levels and slower
-    scan speeds to build up absorption gradually over the surface. This approach ensures you remove contaminants like grease
-    or scale while keeping the alloy's durable structure intact.
-- question: Why does aluminum bronze sometimes warp during laser cleaning?
-  answer: Aluminum bronze can warp if the laser heat isn't managed well, especially since it conducts heat
+  presentation: collapsible
+  items:
+  - id: how-can-i-effectively-clean-oxidation
+    title: How can I effectively clean oxidation from aluminum bronze using a laser?
+    content: We've found that oxidation on aluminum bronze builds up stubbornly because of its strong resistance to corrosion,
+      making single passes less effective. You need to use multiple short bursts from the laser to gradually lift the layer
+      without overheating the base material. In our experience, adjusting the beam to a wider focus helps spread the energy
+      and prevents any uneven heating spots.
+    metadata:
+      topic: i effectively clean oxidation from
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: what-settings-work-best-for-laser
+    title: What settings work best for laser cleaning aluminum bronze parts?
+    content: When laser cleaning aluminum bronze, the main challenge comes from its high reflectivity, which bounces much
+      of the laser energy away compared to less shiny metals like steel. We typically start with lower power levels and slower
+      scan speeds to build up absorption gradually over the surface. This approach ensures you remove contaminants like grease
+      or scale while keeping the alloy's durable structure intact.
+    metadata:
+      topic: settings work best for laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: why-does-aluminum-bronze-sometimes-warp
+    title: Why does aluminum bronze sometimes warp during laser cleaning?
+    content: Aluminum bronze can warp if the laser heat isn't managed well, especially since it conducts heat
+    metadata:
+      topic: aluminum bronze sometimes warp during
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/alloy/aluminum-bronze-laser-cleaning
 breadcrumb:
 - label: Home

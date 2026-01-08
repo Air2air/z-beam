@@ -204,7 +204,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -262,7 +261,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -308,7 +306,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.401209+00:00'
+dateModified: '2026-01-08T01:04:50.764782+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -351,66 +349,170 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/en/publication/3587
 faq:
-- answer: For tungsten carbide tools, the 1064 nm near-infrared laser offers a practical cleaning approach, using strong absorption
-    to ablate contaminants while protecting the high-melting-point substrate. By contrast, 532 nm green light may penetrate
-    too deeply, causing unwanted heating. This process works efficiently at 5.1 J/cm² fluence for safe removal.
-  question: What laser wavelengths are most effective for cleaning tungsten carbide tools without damaging the substrate?
-  topic_keyword: damaging the substrate
-  topic_statement: 1064 nm leverages strong absorption
-- answer: To safely remove oil residue from tungsten carbide coatings, use a 1064 nm laser at 5.1 J/cm² fluence and 100 W
-    power, with 10 ns pulses at 50 kHz—this process stays straightforward. Scan efficiently at 500 mm/s using 50% overlap
-    over three passes, cutting thermal stress and cracking risks. Afterward, optically inspect for even cleanliness, blocking
-    redeposition on this tough ceramic.
-  question: How do I safely remove oil residues from tungsten carbide coatings using laser cleaning?
-  topic_keyword: tungsten carbide coatings
-  topic_statement: Multi-pass minimizes cracking risks
-- answer: This process of laser cleaning tungsten carbide at 5.1 J/cm² fluence risks vaporizing cobalt binders, which releases
-    fine tungsten and cobalt particles forming toxic fumes. Inhaling them may cause lung damage, according to MSDS warnings.
-    For practical safety in 100 W operations, prioritize robust ventilation to disperse these hazards.
-  question: What are the risks of generating toxic fumes when laser cleaning tungsten carbide parts?
-  topic_keyword: generating toxic fumes
-  topic_statement: Vaporizes cobalt binders releasing toxins
-- answer: Yes, fiber lasers at 1064 nm wavelength offer a straightforward approach to effectively remove oxidized layers from
-    tungsten carbide inserts, absorbing better than CO2 lasers for precise ablation. This process, using 5.1 J/cm² fluence
-    and 100 W power, targets oxide thresholds without substrate harm, yielding minimal surface roughness shifts for aerospace-grade
-    finishes.
-  question: Can fiber lasers effectively clean oxidized layers on tungsten carbide inserts?
-  topic_keyword: oxidized layers
-  topic_statement: Better absorption than CO2
-- answer: For cleaning tungsten carbide, a practical approach is using picosecond pulses around 10 ps rather than nanoseconds
-    to sharply limit heat-affected zones. Given its thermal conductivity of 80-120 W/mK that risks microcracks in hard coatings,
-    this process ensures precise ablation at 5.1 J/cm² fluence without subsurface damage.
-  question: What pulse duration settings should be used for laser cleaning tungsten carbide to minimize heat-affected zones?
-  topic_keyword: pulse duration settings
-  topic_statement: Picosecond pulses limit heat-affected zones
-- answer: In manufacturing, laser cleaning of tungsten carbide adheres practically to OSHA's 29 CFR 1910.1096 for laser safety,
-    requiring enclosures and eye protection against its high reflectivity. The EPA controls ablation dust emissions, mandating
-    ventilation to cap tungsten particulates below 5 mg/m³. ISO 11553 directs this process, optimizing at 5.1 J/cm² fluence
-    for safe, damage-free oxide removal on this resilient ceramic.
-  question: Are there any regulatory standards for laser cleaning tungsten carbide in manufacturing environments?
-  topic_keyword: tungsten carbide
-  topic_statement: Handles high reflectivity safety
-- answer: Tungsten carbide's Vickers hardness of 1500-2000 HV resists ablation straightforwardly, needing higher fluences
-    around 5.1 J/cm² to strip contaminants without substrate etching. Unlike softer metals, this process requires controlled
-    100 W power at 1064 nm wavelength for efficient, damage-free cleaning.
-  question: How does the high hardness of tungsten carbide affect the choice of laser power for surface decontamination?
-  topic_keyword: high hardness
-  topic_statement: Requires higher fluences 5.1 J/cm²
-- answer: Laser cleaning works straightforwardly to remove coolants, metal swarf, and carbon buildup from tungsten carbide
-    drill bits, leveraging the material's high hardness and thermal stability. At a 1064 nm wavelength and 5.1 J/cm² fluence,
-    this process delivers over 95% efficiency in case studies, minimizing substrate damage while restoring cutting edges for
-    aerospace and mining tools.
-  question: What common contaminants on tungsten carbide drill bits can be removed with laser cleaning, and what's the success
-    rate?
-  topic_keyword: tungsten carbide drill bits
-  topic_statement: 95% efficiency via thermal stability
-- answer: In laser cleaning of WC-Co cemented carbide containing 6-10% cobalt, this process requires maintaining fluence at
-    5.1 J/cm² with 100 W power to minimize thermal effects and cobalt leaching during ablation. For practical handling, use
-    enclosed systems with HEPA filtration to capture debris, and wear PPE like respirators. Dispose of collected byproducts
-    as hazardous waste via certified environmental channels to prevent contamination.
-  question: In laser cleaning of tungsten carbide, how do I handle potential cobalt leaching from cemented carbide?
-  topic_keyword: cobalt leaching
-  topic_statement: Low fluence minimizes cobalt leaching
+  presentation: collapsible
+  items:
+  - id: what-laser-wavelengths-are-most-effective
+    title: What laser wavelengths are most effective for cleaning tungsten carbide tools without damaging the substrate?
+    content: For tungsten carbide tools, the 1064 nm near-infrared laser offers a practical cleaning approach, using strong
+      absorption to ablate contaminants while protecting the high-melting-point substrate. By contrast, 532 nm green light
+      may penetrate too deeply, causing unwanted heating. This process works efficiently at 5.1 J/cm² fluence for safe removal.
+    metadata:
+      topic: laser wavelengths most effective for
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-i-safely-remove-oil
+    title: How do I safely remove oil residues from tungsten carbide coatings using laser cleaning?
+    content: To safely remove oil residue from tungsten carbide coatings, use a 1064 nm laser at 5.1 J/cm² fluence and 100
+      W power, with 10 ns pulses at 50 kHz—this process stays straightforward. Scan efficiently at 500 mm/s using 50% overlap
+      over three passes, cutting thermal stress and cracking risks. Afterward, optically inspect for even cleanliness, blocking
+      redeposition on this tough ceramic.
+    metadata:
+      topic: do i safely remove oil
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: what-are-the-risks-of-generating
+    title: What are the risks of generating toxic fumes when laser cleaning tungsten carbide parts?
+    content: This process of laser cleaning tungsten carbide at 5.1 J/cm² fluence risks vaporizing cobalt binders, which releases
+      fine tungsten and cobalt particles forming toxic fumes. Inhaling them may cause lung damage, according to MSDS warnings.
+      For practical safety in 100 W operations, prioritize robust ventilation to disperse these hazards.
+    metadata:
+      topic: the rks of generating toxic
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: can-fiber-lasers-effectively-clean-oxidized
+    title: Can fiber lasers effectively clean oxidized layers on tungsten carbide inserts?
+    content: Yes, fiber lasers at 1064 nm wavelength offer a straightforward approach to effectively remove oxidized layers
+      from tungsten carbide inserts, absorbing better than CO2 lasers for precise ablation. This process, using 5.1 J/cm²
+      fluence and 100 W power, targets oxide thresholds without substrate harm, yielding minimal surface roughness shifts
+      for aerospace-grade finishes.
+    metadata:
+      topic: fiber lasers effectively clean oxidized
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: what-pulse-duration-settings-should-be
+    title: What pulse duration settings should be used for laser cleaning tungsten carbide to minimize heat-affected zones?
+    content: For cleaning tungsten carbide, a practical approach is using picosecond pulses around 10 ps rather than nanoseconds
+      to sharply limit heat-affected zones. Given its thermal conductivity of 80-120 W/mK that risks microcracks in hard coatings,
+      this process ensures precise ablation at 5.1 J/cm² fluence without subsurface damage.
+    metadata:
+      topic: pulse duration settings should be
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: are-there-any-regulatory-standards-for
+    title: Are there any regulatory standards for laser cleaning tungsten carbide in manufacturing environments?
+    content: In manufacturing, laser cleaning of tungsten carbide adheres practically to OSHA's 29 CFR 1910.1096 for laser
+      safety, requiring enclosures and eye protection against its high reflectivity. The EPA controls ablation dust emissions,
+      mandating ventilation to cap tungsten particulates below 5 mg/m³. ISO 11553 directs this process, optimizing at 5.1
+      J/cm² fluence for safe, damage-free oxide removal on this resilient ceramic.
+    metadata:
+      topic: there any regulatory standards for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: how-does-the-high-hardness-of
+    title: How does the high hardness of tungsten carbide affect the choice of laser power for surface decontamination?
+    content: Tungsten carbide's Vickers hardness of 1500-2000 HV resists ablation straightforwardly, needing higher fluences
+      around 5.1 J/cm² to strip contaminants without substrate etching. Unlike softer metals, this process requires controlled
+      100 W power at 1064 nm wavelength for efficient, damage-free cleaning.
+    metadata:
+      topic: the high hardness of tungsten
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: what-common-contaminants-on-tungsten-carbide
+    title: What common contaminants on tungsten carbide drill bits can be removed with laser cleaning, and what's the success
+      rate?
+    content: Laser cleaning works straightforwardly to remove coolants, metal swarf, and carbon buildup from tungsten carbide
+      drill bits, leveraging the material's high hardness and thermal stability. At a 1064 nm wavelength and 5.1 J/cm² fluence,
+      this process delivers over 95% efficiency in case studies, minimizing substrate damage while restoring cutting edges
+      for aerospace and mining tools.
+    metadata:
+      topic: common contaminants on tungsten carbide
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: in-laser-cleaning-of-tungsten-carbide
+    title: In laser cleaning of tungsten carbide, how do I handle potential cobalt leaching from cemented carbide?
+    content: In laser cleaning of WC-Co cemented carbide containing 6-10% cobalt, this process requires maintaining fluence
+      at 5.1 J/cm² with 100 W power to minimize thermal effects and cobalt leaching during ablation. For practical handling,
+      use enclosed systems with HEPA filtration to capture debris, and wear PPE like respirators. Dispose of collected byproducts
+      as hazardous waste via certified environmental channels to prevent contamination.
+    metadata:
+      topic: in laser cleaning of tungsten
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/ceramic/carbide/tungsten-carbide-laser-cleaning
 breadcrumb:
 - label: Home

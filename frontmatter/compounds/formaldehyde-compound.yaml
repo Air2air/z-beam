@@ -5,7 +5,7 @@ category: carcinogen
 subcategory: aldehyde
 hazard_class: carcinogenic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:36.762069+00:00'
+dateModified: '2026-01-08T00:59:12.532844+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aldehyde/formaldehyde-compound
@@ -187,7 +187,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -445,7 +444,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -464,7 +462,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -510,10 +507,28 @@ ppe_requirements: Handling formaldehyde compounds demands careful preparation in
   tailored to the compound's reactive traits in manufacturing or remediation, minimizes long-term health threats by creating
   a robust barrier against absorption or inhalation.
 faq:
-- question: How can I detect and monitor formaldehyde exposure levels while performing laser cleaning on materials that may
-    release it?
-  answer: Use portable gas detectors or colorimetric badges specifically designed for formaldehyde to provide real-time or
-    integrated exposure readings during operations. Regularly calibrate these devices and place them near the breathing zone
-    to ensure accurate detection, aiming to keep levels below the OSHA permissible exposure limit of 0.75 ppm (8-hour time-weighted
-    average) and 2 ppm short-term exposure limit. If levels approach or exceed these thresholds, immediately stop work, increase
-    ventilation, and evacuate if necessary to prevent carcinogenic risks.
+  presentation: collapsible
+  items:
+  - id: how-can-i-detect-and-monitor
+    title: How can I detect and monitor formaldehyde exposure levels while performing laser cleaning on materials that may
+      release it?
+    content: Use portable gas detectors or colorimetric badges specifically designed for formaldehyde to provide real-time
+      or integrated exposure readings during operations. Regularly calibrate these devices and place them near the breathing
+      zone to ensure accurate detection, aiming to keep levels below the OSHA permissible exposure limit of 0.75 ppm (8-hour
+      time-weighted average) and 2 ppm short-term exposure limit. If levels approach or exceed these thresholds, immediately
+      stop work, increase ventilation, and evacuate if necessary to prevent carcinogenic risks.
+    metadata:
+      topic: i detect and monitor formaldehyde
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

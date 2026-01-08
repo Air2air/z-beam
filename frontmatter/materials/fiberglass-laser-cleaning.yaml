@@ -217,7 +217,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -280,7 +279,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -324,7 +322,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:27.650539+00:00'
+dateModified: '2026-01-08T01:04:45.292317+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -371,56 +369,164 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: Laser cleaning is strongly discouraged for fiberglass composites, particularly since the polymer resin absorbs near-infrared
-    energy at 1064 nm so readily. This leads to thermal degradation. Notably, even at a conservative fluence of 5 J/cm², the
-    resin matrix can burn and vaporize, thus catastrophically compromising the material's structural integrity.
-  question: Can you safely use a laser cleaner to remove paint or contamination from a fiberglass surface?
-  topic_keyword: fiberglass surface
-  topic_statement: Polymer resin thermal degradation
-- answer: The 1064 nm laser energy gets strongly absorbed by the polymer resin, particularly triggering rapid thermal decomposition
-    and ablation at fluences around 5 J/cm². This leaves exposed, frayed glass fibers and a charred surface behind, thus critically
-    undermining the material's structural integrity. The composite simply isn't suited for this cleaning method.
-  question: What happens to fiberglass when it's hit with a laser during cleaning?
-  topic_keyword: hit with a laser
-  topic_statement: Causes thermal decomposition ablation
-- answer: UV lasers at 5 J/cm² particularly minimize thermal effects, yet fiberglass proves highly vulnerable. Even under
-    optimized ns-pulse settings, the resin matrix remains prone to degradation. Thus, most industrial systems face material
-    damage risks, deeming this application largely unsuitable.
-  question: Are there any specific laser types or settings (wavelength, power) that make cleaning fiberglass less destructive?
-  topic_keyword: less destructive
-  topic_statement: resin matrix degrades
-- answer: Particularly for fiberglass restoration, gentle mechanical abrasion using plastic media or chemical stripping is
-    preferred. These approaches notably avoid the thermal risks of laser processing, which requires precise control below
-    5 J/cm² to prevent resin degradation in the composite matrix.
-  question: What is the best alternative to laser cleaning for preparing or restoring fiberglass surfaces?
-  topic_keyword: restoring fiberglass surfaces
-  topic_statement: Prevents resin degradation
-- answer: Examine for visible charring, like brown or black marks, alongside a pitted and bubbled surface texture. Specifically,
-    the 1064 nm wavelength ablates the resin matrix, exposing brittle glass fibers. Thus, it leads to substantial loss of
-    surface gloss and structural integrity.
-  question: If a laser accidentally contacts fiberglass, what kind of damage should I look for?
-  topic_keyword: contacts fiberglass
-  topic_statement: Ablates resin exposing fibers
-- answer: Unlike metal dust, laser cleaning fiberglass at 5 J/cm² particularly generates toxic resin fumes and aerosolizes
-    sharp sub-50μm glass fibers. Notably, these pose a severe inhalation risk, thus often requiring HEPA filtration beyond
-    standard PPE.
-  question: What are the specific health hazards of laser cleaning fiberglass compared to cleaning metal?
-- answer: Notably, unlike steel, fiberglass's polymer resin strongly absorbs 1064 nm laser energy. This indicates the substrate
-    itself becomes vulnerable at fluences above ~5 J/cm², beyond just surface contaminants. Thus, precise parameter control
-    remains essential to prevent thermal damage to the composite material.
-  question: Why is fiberglass so problematic for laser cleaning compared to materials like rust or paint on steel?
-  topic_keyword: fiberglass so problematic
-  topic_statement: Polymer resin absorbs 1064 nm
-- answer: Even with ultra-thin mold release, the risk remains extreme. Specifically, the fluence needed for contaminant removal—typically
-    over 5 J/cm²—will almost certainly surpass the damage threshold of the sensitive polymer matrix, thus causing irreversible
-    degradation to the underlying resin.
-  question: Is there any scenario where laser treatment of fiberglass is acceptable, such as for very light surface mold release?
-- answer: Epoxy and polyester resins degrade at varying temperatures, yet notably, both sustain damage from the ~5 J/cm² fluence
-    essential for cleaning. Weave patterns play no role; specifically, the 1064 nm laser energy absorbs into the resin matrix
-    binding the glass fibers, thus undermining the composite's structural integrity irrespective of its design.
-  question: How does the weave and resin type (e.g., epoxy vs. polyester) affect its reaction to a laser?
-  topic_keyword: weave and resin type
-  topic_statement: Compromises structural integrity regardless
+  presentation: collapsible
+  items:
+  - id: can-you-safely-use-a-laser
+    title: Can you safely use a laser cleaner to remove paint or contamination from a fiberglass surface?
+    content: Laser cleaning is strongly discouraged for fiberglass composites, particularly since the polymer resin absorbs
+      near-infrared energy at 1064 nm so readily. This leads to thermal degradation. Notably, even at a conservative fluence
+      of 5 J/cm², the resin matrix can burn and vaporize, thus catastrophically compromising the material's structural integrity.
+    metadata:
+      topic: you safely use a laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: what-happens-to-fiberglass-when-its
+    title: What happens to fiberglass when it's hit with a laser during cleaning?
+    content: The 1064 nm laser energy gets strongly absorbed by the polymer resin, particularly triggering rapid thermal decomposition
+      and ablation at fluences around 5 J/cm². This leaves exposed, frayed glass fibers and a charred surface behind, thus
+      critically undermining the material's structural integrity. The composite simply isn't suited for this cleaning method.
+    metadata:
+      topic: happens to fiberglass it's hit
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: are-there-any-specific-laser-types
+    title: Are there any specific laser types or settings (wavelength, power) that make cleaning fiberglass less destructive?
+    content: UV lasers at 5 J/cm² particularly minimize thermal effects, yet fiberglass proves highly vulnerable. Even under
+      optimized ns-pulse settings, the resin matrix remains prone to degradation. Thus, most industrial systems face material
+      damage risks, deeming this application largely unsuitable.
+    metadata:
+      topic: there any specific laser types
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: what-is-the-best-alternative-to
+    title: What is the best alternative to laser cleaning for preparing or restoring fiberglass surfaces?
+    content: Particularly for fiberglass restoration, gentle mechanical abrasion using plastic media or chemical stripping
+      is preferred. These approaches notably avoid the thermal risks of laser processing, which requires precise control below
+      5 J/cm² to prevent resin degradation in the composite matrix.
+    metadata:
+      topic: the best alternative to laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: if-a-laser-accidentally-contacts-fiberglass
+    title: If a laser accidentally contacts fiberglass, what kind of damage should I look for?
+    content: Examine for visible charring, like brown or black marks, alongside a pitted and bubbled surface texture. Specifically,
+      the 1064 nm wavelength ablates the resin matrix, exposing brittle glass fibers. Thus, it leads to substantial loss of
+      surface gloss and structural integrity.
+    metadata:
+      topic: if a laser accidentally contacts
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: what-are-the-specific-health-hazards
+    title: What are the specific health hazards of laser cleaning fiberglass compared to cleaning metal?
+    content: Unlike metal dust, laser cleaning fiberglass at 5 J/cm² particularly generates toxic resin fumes and aerosolizes
+      sharp sub-50μm glass fibers. Notably, these pose a severe inhalation risk, thus often requiring HEPA filtration beyond
+      standard PPE.
+    metadata:
+      topic: the specific health hazards of
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: why-is-fiberglass-so-problematic-for
+    title: Why is fiberglass so problematic for laser cleaning compared to materials like rust or paint on steel?
+    content: Notably, unlike steel, fiberglass's polymer resin strongly absorbs 1064 nm laser energy. This indicates the substrate
+      itself becomes vulnerable at fluences above ~5 J/cm², beyond just surface contaminants. Thus, precise parameter control
+      remains essential to prevent thermal damage to the composite material.
+    metadata:
+      topic: fiberglass so problematic for laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: is-there-any-scenario-where-laser
+    title: Is there any scenario where laser treatment of fiberglass is acceptable, such as for very light surface mold release?
+    content: Even with ultra-thin mold release, the risk remains extreme. Specifically, the fluence needed for contaminant
+      removal—typically over 5 J/cm²—will almost certainly surpass the damage threshold of the sensitive polymer matrix, thus
+      causing irreversible degradation to the underlying resin.
+    metadata:
+      topic: there any scenario laser treatment
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: how-does-the-weave-and-resin
+    title: How does the weave and resin type (e.g., epoxy vs. polyester) affect its reaction to a laser?
+    content: Epoxy and polyester resins degrade at varying temperatures, yet notably, both sustain damage from the ~5 J/cm²
+      fluence essential for cleaning. Weave patterns play no role; specifically, the 1064 nm laser energy absorbs into the
+      resin matrix binding the glass fibers, thus undermining the composite's structural integrity irrespective of its design.
+    metadata:
+      topic: the weave and resin type
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
 breadcrumb:
 - label: Home

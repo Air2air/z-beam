@@ -5,7 +5,7 @@ category: carcinogen
 subcategory: polycyclic_aromatic_hydrocarbon
 hazard_class: carcinogenic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.829034+00:00'
+dateModified: '2026-01-08T00:59:13.559957+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/polycyclic_aromatic_hydrocarbon/benzoapyrene-compound
@@ -194,7 +194,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -447,7 +446,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -484,9 +482,27 @@ ppe_requirements: Handling benzo[a]pyrene demands far stricter safeguards than d
   bursts and liberated toxins. Overall, this setup not only shields against direct absorption but also minimizes secondary
   contamination in high-stakes applications, keeping teams safer amid the compound's stealthy dangers.
 faq:
-- question: What personal protective equipment (PPE) is essential for operators during laser cleaning to minimize Benzo[a]pyrene
-    exposure?
-  answer: Always wear a full-body Tyvek suit or equivalent impermeable coverall, nitrile gloves, and safety goggles to prevent
-    skin contact with airborne particles or residues from laser-ablated surfaces. Use a powered air-purifying respirator (PAPR)
-    with organic vapor cartridges rated for PAHs to protect against inhalation, as Benzo[a]pyrene can persist in the air after
-    cleaning. Change PPE after each session and decontaminate equipment to avoid secondary exposure.
+  presentation: collapsible
+  items:
+  - id: what-personal-protective-equipment-ppe-is
+    title: What personal protective equipment (PPE) is essential for operators during laser cleaning to minimize Benzo[a]pyrene
+      exposure?
+    content: Always wear a full-body Tyvek suit or equivalent impermeable coverall, nitrile gloves, and safety goggles to
+      prevent skin contact with airborne particles or residues from laser-ablated surfaces. Use a powered air-purifying respirator
+      (PAPR) with organic vapor cartridges rated for PAHs to protect against inhalation, as Benzo[a]pyrene can persist in
+      the air after cleaning. Change PPE after each session and decontaminate equipment to avoid secondary exposure.
+    metadata:
+      topic: personal protective equipment (ppe) essential
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

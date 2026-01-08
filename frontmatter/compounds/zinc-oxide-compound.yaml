@@ -5,7 +5,7 @@ category: metal_fume
 subcategory: metal-oxide
 hazard_class: irritant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.345947+00:00'
+dateModified: '2026-01-08T00:59:13.045618+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/metal_fume/metal-oxide/zinc-oxide-compound
@@ -175,7 +175,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -423,7 +422,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -456,11 +454,30 @@ ppe_requirements: Handling zinc oxide compounds often stirs up tricky fumes in w
   materials, adding face shields over respirators adds an extra layer against intense light and scattered debris, ensuring
   smoother operations without health worries.
 faq:
-- question: As a laser cleaning operator working on galvanized steel, how do zinc oxide fumes differ from iron oxide dust
-    in terms of health risks, and what protection should I use to stay safe?
-  answer: Zinc oxide fumes irritate the lungs much faster than iron oxide dust, which accumulates more gradually and causes
-    slower onset of respiratory issues like pneumoconiosis; acute exposure to ZnO can lead to metal fume fever within hours,
-    while iron oxide typically requires chronic exposure. To protect yourself, always use a NIOSH-approved respirator with
-    a P100 filter rated for metal fumes, ensure engineering controls like local exhaust ventilation capture at least 90% of
-    fumes at the source, and monitor personal exposure to keep below the OSHA PEL of 5 mg/m³ (as ZnO) over an 8-hour shift.
-    Perform regular air sampling and medical check-ups if working in high-fume environments to detect early signs of irritation.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-working
+    title: As a laser cleaning operator working on galvanized steel, how do zinc oxide fumes differ from iron oxide dust in
+      terms of health risks, and what protection should I use to stay safe?
+    content: Zinc oxide fumes irritate the lungs much faster than iron oxide dust, which accumulates more gradually and causes
+      slower onset of respiratory issues like pneumoconiosis; acute exposure to ZnO can lead to metal fume fever within hours,
+      while iron oxide typically requires chronic exposure. To protect yourself, always use a NIOSH-approved respirator with
+      a P100 filter rated for metal fumes, ensure engineering controls like local exhaust ventilation capture at least 90%
+      of fumes at the source, and monitor personal exposure to keep below the OSHA PEL of 5 mg/m³ (as ZnO) over an 8-hour
+      shift. Perform regular air sampling and medical check-ups if working in high-fume environments to detect early signs
+      of irritation.
+    metadata:
+      topic: as a laser cleaning operator
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

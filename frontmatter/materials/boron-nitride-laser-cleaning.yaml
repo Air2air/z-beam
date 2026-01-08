@@ -317,7 +317,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -388,7 +387,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.949371+00:00'
+dateModified: '2026-01-08T01:04:52.440428+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -413,16 +412,47 @@ components:
       brightly, restoring the inherent polish without any lingering spots. We've seen this brings back clarity, but watch
       for overexposure to avoid subtle
 faq:
-- question: How do I safely laser clean Boron Nitride without causing damage?
-  answer: You must watch out for its high reflectivity right from the start, as it bounces most laser energy away. This means
-    you should use a pulsed laser at lower power to avoid overheating spots that could crack the surface. Start with short
-    bursts and scan slowly to let its good heat spreading keep things even. Compared to metals that absorb more, Boron Nitride
-    stays cooler overall, so you get cleaner results without much risk if you adjust properly.
-- question: Why is Boron Nitride harder to clean with lasers than other ceramics?
-  answer: Make sure you account for its extremely high reflectivity when setting up, or the laser might not touch the contaminants
-    at all. Unlike softer ceramics that absorb energy easily and clean fast, Boron Nitride reflects almost everything, so
-    you need higher intensities to break through. This difference means longer sessions, but its strong heat resistance prevents
-    melting or warping. You should test on a small area
+  presentation: collapsible
+  items:
+  - id: how-do-i-safely-laser-clean
+    title: How do I safely laser clean Boron Nitride without causing damage?
+    content: You must watch out for its high reflectivity right from the start, as it bounces most laser energy away. This
+      means you should use a pulsed laser at lower power to avoid overheating spots that could crack the surface. Start with
+      short bursts and scan slowly to let its good heat spreading keep things even. Compared to metals that absorb more, Boron
+      Nitride stays cooler overall, so you get cleaner results without much risk if you adjust properly.
+    metadata:
+      topic: do i safely laser clean
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: why-is-boron-nitride-harder-to
+    title: Why is Boron Nitride harder to clean with lasers than other ceramics?
+    content: Make sure you account for its extremely high reflectivity when setting up, or the laser might not touch the contaminants
+      at all. Unlike softer ceramics that absorb energy easily and clean fast, Boron Nitride reflects almost everything, so
+      you need higher intensities to break through. This difference means longer sessions, but its strong heat resistance
+      prevents melting or warping. You should test on a small area
+    metadata:
+      topic: boron nitride harder to clean
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/ceramic/technical/boron-nitride-laser-cleaning
 breadcrumb:
 - label: Home

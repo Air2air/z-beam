@@ -218,7 +218,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -281,7 +280,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -325,7 +323,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:27.485938+00:00'
+dateModified: '2026-01-08T01:04:45.127625+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -370,74 +368,189 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: Yes, by precisely controlling the 1064 nm wavelength and 2.5 J/cm² fluence, selective ablation of the epoxy matrix
-    is achievable. Specifically, the laser's energy needs absorption in the resin first, thus blocking penetration to underlying
-    fibers and averting their exposure or thermal damage.
-  question: Can you safely remove epoxy resin from a composite surface with a laser without damaging the underlying carbon
-    or glass fibers?
-  topic_keyword: carbon or glass fibers
-  topic_statement: Selective epoxy matrix ablation
-- answer: For cleaning epoxy composites, 355 nm UV lasers are particularly optimal. Specifically, this wavelength enables
-    photochemical ablation below the 2.5 J/cm² fluence threshold, efficiently breaking molecular bonds without significant
-    heat generation. Thus, it prevents thermal degradation that causes yellowing, preserving the polymer matrix's chemical
-    integrity.
-  question: What is the best laser wavelength (e.g., 1064nm, 532nm, or 355nm) for cleaning epoxy composite surfaces without
-    causing yellowing or chemical changes?
-  topic_keyword: yellowing or chemical changes
-  topic_statement: 355nm enables photochemical ablation
-- answer: By employing nanosecond pulses at 1064 nm wavelength and fluence exceeding 2.5 J/cm², we specifically target contaminants
-    for ablation. Notably, this approach vaporizes surface layers without melting the epoxy, thus lifting material away to
-    avoid infusion.
-  question: How do you clean contaminated epoxy composites (e.g., mold release, grease, paint) with a laser without just embedding
-    the contaminants deeper?
-  topic_keyword: embedding the contaminants deeper
-  topic_statement: Ablates without melting epoxy
-- answer: Yes, specifically at 2.5 J/cm², laser ablation of epoxy composites releases hazardous pyrolysis byproducts, notably
-    benzene and phenol. Thus, operators require a high-efficiency fume extraction system with HEPA and activated carbon filtration,
-    plus proper respiratory protection.
-  question: Does laser cleaning epoxy composites release hazardous fumes, and what specific filtration or extraction is required?
-  topic_keyword: release hazardous fumes
-  topic_statement: Releases benzene phenol byproducts
-- answer: For controlled epoxy resin ablation, particularly maintain fluence around 2.5 J/cm² using a 50 µm spot size. Thus,
-    fine-tune the number of passes along with 50% beam overlap to accurately control depth removal on irregular composite
-    surfaces.
-  question: What laser parameters should I use to ablate a precise depth of epoxy resin for repair or inspection purposes?
-  topic_keyword: ablate a precise depth
-  topic_statement: 2.5 J/cm² fluence with overlap
-- answer: Laser cleaning, particularly at 2.5 J/cm² fluence, activates epoxy composites by elevating surface energy and forming
-    micro-roughness. This thus delivers strong adhesion preparation, commonly avoiding extra steps like abrasion, unlike mechanical
-    techniques that typically introduce contaminants.
-  question: After laser cleaning an epoxy composite, is the surface properly activated for bonding, or does it require a secondary
-    treatment?
-  topic_keyword: activated for bonding
-  topic_statement: Eliminates secondary treatments
-- answer: Hazing typically stems from fluence exceeding 2.5 J/cm², which thermally degrades the epoxy matrix. Notably, this
-    generates micro-roughness through selective resin removal. Thus, target a scan speed around 500 mm/s while controlling
-    overlap to curb heat buildup and yield a clearer surface.
-  question: Why does my laser-cleaned epoxy composite surface sometimes look hazy or have a changed texture?
-  topic_keyword: changed texture
-  topic_statement: Excessive fluence degrades epoxy matrix
-- answer: Laser cleaning removes carbonized epoxy effectively, but specifically demands precise fluence control around 2.5
-    J/cm². The char layer's altered absorption indicates risks to underlying fibers, thus requiring careful parameter tuning
-    for selective ablation of residue while sparing the composite substrate.
-  question: Is laser cleaning effective for removing carbonized epoxy after a fire or thermal event?
-  topic_keyword: carbonized epoxy
-  topic_statement: Requires precise fluence control
-- answer: Laser cleaning surpasses traditional methods, particularly by selectively removing epoxy at 2.5 J/cm² fluence without
-    harming underlying fibers. As a non-contact approach, it avoids secondary waste from grit or chemicals, thus providing
-    better surface preservation. Precise control at 500 mm/s scan speeds delivers consistent, high-quality outcomes for vital
-    aerospace and marine parts.
-  question: How does the performance of laser cleaning epoxy composites compare to traditional methods like grit blasting
-    or chemical stripping?
-  topic_keyword: epoxy composites
-  topic_statement: Selective removal without fiber damage
-- answer: Beyond standard laser protocols, a primary concern involves toxic fume generation during the 1064 nm ablation process.
-    Particularly at the 2.5 J/cm² fluence threshold, epoxy decomposes into hazardous compounds, thus requiring integrated
-    fume extraction with real-time air monitoring to shield personnel from these carcinogenic byproducts.
-  question: What are the critical safety considerations when using a high-power laser on an epoxy composite, beyond standard
-    laser safety?
-  topic_keyword: epoxy composite
-  topic_statement: Toxic fume generation requires extraction
+  presentation: collapsible
+  items:
+  - id: can-you-safely-remove-epoxy-resin
+    title: Can you safely remove epoxy resin from a composite surface with a laser without damaging the underlying carbon
+      or glass fibers?
+    content: Yes, by precisely controlling the 1064 nm wavelength and 2.5 J/cm² fluence, selective ablation of the epoxy matrix
+      is achievable. Specifically, the laser's energy needs absorption in the resin first, thus blocking penetration to underlying
+      fibers and averting their exposure or thermal damage.
+    metadata:
+      topic: you safely remove epoxy resin
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: what-is-the-best-laser-wavelength
+    title: What is the best laser wavelength (e.g., 1064nm, 532nm, or 355nm) for cleaning epoxy composite surfaces without
+      causing yellowing or chemical changes?
+    content: For cleaning epoxy composites, 355 nm UV lasers are particularly optimal. Specifically, this wavelength enables
+      photochemical ablation below the 2.5 J/cm² fluence threshold, efficiently breaking molecular bonds without significant
+      heat generation. Thus, it prevents thermal degradation that causes yellowing, preserving the polymer matrix's chemical
+      integrity.
+    metadata:
+      topic: the best laser wavelength (e.g.,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: how-do-you-clean-contaminated-epoxy
+    title: How do you clean contaminated epoxy composites (e.g., mold release, grease, paint) with a laser without just embedding
+      the contaminants deeper?
+    content: By employing nanosecond pulses at 1064 nm wavelength and fluence exceeding 2.5 J/cm², we specifically target
+      contaminants for ablation. Notably, this approach vaporizes surface layers without melting the epoxy, thus lifting material
+      away to avoid infusion.
+    metadata:
+      topic: do you clean contaminated epoxy
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: does-laser-cleaning-epoxy-composites-release
+    title: Does laser cleaning epoxy composites release hazardous fumes, and what specific filtration or extraction is required?
+    content: Yes, specifically at 2.5 J/cm², laser ablation of epoxy composites releases hazardous pyrolysis byproducts, notably
+      benzene and phenol. Thus, operators require a high-efficiency fume extraction system with HEPA and activated carbon
+      filtration, plus proper respiratory protection.
+    metadata:
+      topic: laser cleaning epoxy composites release
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: what-laser-parameters-should-i-use
+    title: What laser parameters should I use to ablate a precise depth of epoxy resin for repair or inspection purposes?
+    content: For controlled epoxy resin ablation, particularly maintain fluence around 2.5 J/cm² using a 50 µm spot size.
+      Thus, fine-tune the number of passes along with 50% beam overlap to accurately control depth removal on irregular composite
+      surfaces.
+    metadata:
+      topic: laser parameters should i use
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: after-laser-cleaning-an-epoxy-composite
+    title: After laser cleaning an epoxy composite, is the surface properly activated for bonding, or does it require a secondary
+      treatment?
+    content: Laser cleaning, particularly at 2.5 J/cm² fluence, activates epoxy composites by elevating surface energy and
+      forming micro-roughness. This thus delivers strong adhesion preparation, commonly avoiding extra steps like abrasion,
+      unlike mechanical techniques that typically introduce contaminants.
+    metadata:
+      topic: after laser cleaning an epoxy
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: why-does-my-lasercleaned-epoxy-composite
+    title: Why does my laser-cleaned epoxy composite surface sometimes look hazy or have a changed texture?
+    content: Hazing typically stems from fluence exceeding 2.5 J/cm², which thermally degrades the epoxy matrix. Notably,
+      this generates micro-roughness through selective resin removal. Thus, target a scan speed around 500 mm/s while controlling
+      overlap to curb heat buildup and yield a clearer surface.
+    metadata:
+      topic: my laser-cleaned epoxy composite surface
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: is-laser-cleaning-effective-for-removing
+    title: Is laser cleaning effective for removing carbonized epoxy after a fire or thermal event?
+    content: Laser cleaning removes carbonized epoxy effectively, but specifically demands precise fluence control around
+      2.5 J/cm². The char layer's altered absorption indicates risks to underlying fibers, thus requiring careful parameter
+      tuning for selective ablation of residue while sparing the composite substrate.
+    metadata:
+      topic: laser cleaning effective for removing
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: how-does-the-performance-of-laser
+    title: How does the performance of laser cleaning epoxy composites compare to traditional methods like grit blasting or
+      chemical stripping?
+    content: Laser cleaning surpasses traditional methods, particularly by selectively removing epoxy at 2.5 J/cm² fluence
+      without harming underlying fibers. As a non-contact approach, it avoids secondary waste from grit or chemicals, thus
+      providing better surface preservation. Precise control at 500 mm/s scan speeds delivers consistent, high-quality outcomes
+      for vital aerospace and marine parts.
+    metadata:
+      topic: the performance of laser cleaning
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  - id: what-are-the-critical-safety-considerations
+    title: What are the critical safety considerations when using a high-power laser on an epoxy composite, beyond standard
+      laser safety?
+    content: Beyond standard laser protocols, a primary concern involves toxic fume generation during the 1064 nm ablation
+      process. Particularly at the 2.5 J/cm² fluence threshold, epoxy decomposes into hazardous compounds, thus requiring
+      integrated fume extraction with real-time air monitoring to shield personnel from these carcinogenic byproducts.
+    metadata:
+      topic: the critical safety considerations using
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
 breadcrumb:
 - label: Home

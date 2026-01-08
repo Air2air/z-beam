@@ -221,7 +221,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -289,7 +288,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -333,7 +331,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.294813+00:00'
+dateModified: '2026-01-08T01:04:43.966698+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -379,19 +377,46 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- question: How can laser cleaning restore birch wood surfaces without damaging the grain?
-  answer: Laser cleaning basically employs precise, non-abrasive pulses to strip dirt, old finishes, or contaminants from
-    birch, while preserving its fine grain and natural color. This technique pretty much skips mechanical abrasion, delivering
-    fairly minimal structural impact for a clean, restored finish.
-  topic_keyword: damaging the grain
-  topic_statement: Uses non-abrasive pulses
-- question: What are the challenges of cleaning birch with traditional methods, and why choose laser instead?
-  answer: Birch wood is pretty sensitive to moisture and abrasion, so traditional methods like sanding or chemicals typically
-    risk warping or discoloring it. Laser cleaning addresses this effectively by precisely vaporizing surface grime, avoiding
-    any heat damage or residues. This preserves the wood's natural grain, lightweight structure, and aesthetic appeal during
-    delicate restorations. Best of all, it's fairly eco-friendly, minimizing chemical use and waste overall.
-  topic_keyword: challenges of cleaning birch
-  topic_statement: Laser avoids damage, residues
+  presentation: collapsible
+  items:
+  - id: how-can-laser-cleaning-restore-birch
+    title: How can laser cleaning restore birch wood surfaces without damaging the grain?
+    content: Laser cleaning basically employs precise, non-abrasive pulses to strip dirt, old finishes, or contaminants from
+      birch, while preserving its fine grain and natural color. This technique pretty much skips mechanical abrasion, delivering
+      fairly minimal structural impact for a clean, restored finish.
+    metadata:
+      topic: laser cleaning restore birch wood
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-are-the-challenges-of-cleaning
+    title: What are the challenges of cleaning birch with traditional methods, and why choose laser instead?
+    content: Birch wood is pretty sensitive to moisture and abrasion, so traditional methods like sanding or chemicals typically
+      risk warping or discoloring it. Laser cleaning addresses this effectively by precisely vaporizing surface grime, avoiding
+      any heat damage or residues. This preserves the wood's natural grain, lightweight structure, and aesthetic appeal during
+      delicate restorations. Best of all, it's fairly eco-friendly, minimizing chemical use and waste overall.
+    metadata:
+      topic: the challenges of cleaning birch
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/wood/hardwood/birch-laser-cleaning
 breadcrumb:
 - label: Home

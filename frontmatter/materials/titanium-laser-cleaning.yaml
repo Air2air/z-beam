@@ -305,7 +305,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -361,7 +360,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -407,7 +405,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.112291+00:00'
+dateModified: '2026-01-08T01:04:50.450835+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -456,17 +454,35 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 faq:
-- question: Titanium in Industrial Use and Laser Cleaning
-  answer: "**What makes titanium a go-to metal in industry?**  \nTitanium stands out as a lightweight metal with strong corrosion\
-    \ resistance. We use it in aerospace parts, medical implants, and chemical processing equipment because it holds up well\
-    \ under tough conditions. Its density sits around 4.5 g/cm³, so components stay light yet durable.\n\n**Key physical properties\
-    \ for handling titanium?**  \nThis metal has a specific heat of roughly 522 J/kg·K, meaning it absorbs heat steadily without\
-    \ quick jumps in temperature. Melting starts at about 1941 K, which helps during high-heat processes. But watch for oxidation\
-    \ at those temps—it can form a tough oxide layer.\n\n**How does laser cleaning apply to titanium?**  \nLaser cleaning\
-    \ removes contaminants like oils or rust from titanium surfaces without damaging the base metal. The process works by\
-    \ vaporizing dirt through precise energy pulses. For titanium, start with a power around 100 W to clear buildup safely.\
-    \ This keeps the surface clean for welding or coating, and it avoids chemicals that might etch the material. Just adjust\
-    \ based on the contaminant thickness—thicker layers need a bit more time."
+  presentation: collapsible
+  items:
+  - id: titanium-in-industrial-use-and-laser
+    title: Titanium in Industrial Use and Laser Cleaning
+    content: "**What makes titanium a go-to metal in industry?**  \nTitanium stands out as a lightweight metal with strong\
+      \ corrosion resistance. We use it in aerospace parts, medical implants, and chemical processing equipment because it\
+      \ holds up well under tough conditions. Its density sits around 4.5 g/cm³, so components stay light yet durable.\n\n\
+      **Key physical properties for handling titanium?**  \nThis metal has a specific heat of roughly 522 J/kg·K, meaning\
+      \ it absorbs heat steadily without quick jumps in temperature. Melting starts at about 1941 K, which helps during high-heat\
+      \ processes. But watch for oxidation at those temps—it can form a tough oxide layer.\n\n**How does laser cleaning apply\
+      \ to titanium?**  \nLaser cleaning removes contaminants like oils or rust from titanium surfaces without damaging the\
+      \ base metal. The process works by vaporizing dirt through precise energy pulses. For titanium, start with a power around\
+      \ 100 W to clear buildup safely. This keeps the surface clean for welding or coating, and it avoids chemicals that might\
+      \ etch the material. Just adjust based on the contaminant thickness—thicker layers need a bit more time."
+    metadata:
+      topic: titanium in industrial use and
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/specialty/titanium-laser-cleaning
 breadcrumb:
 - label: Home

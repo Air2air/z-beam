@@ -160,7 +160,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -215,7 +214,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -259,7 +257,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:27.543539+00:00'
+dateModified: '2026-01-08T01:04:45.184226+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -300,71 +298,188 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- answer: Europium-doped glass presents pretty significant discoloration risks during laser cleaning, stemming from strong
-    Eu³⁺ ion absorption—especially at 532 nm. A fluence threshold of 1.2 J/cm² means even fairly moderate power can trigger
-    permanent color centers. This remains a key worry for historical optics and electronics relying on europium phosphors.
-  question: Is europium-doped glass a major concern for laser cleaning of historical artifacts or electronics?
-  topic_keyword: europium-doped glass
-  topic_statement: Induces permanent color centers
-- answer: For cleaning europium compounds, I'd typically go with 532 nm green lasers at 1.2 J/cm² fluence. This wavelength
-    sidesteps strong f-f electron transitions in the rare-earth ion, cutting resonant absorption that triggers intense red
-    photoluminescence. The fairly low thermal conductivity of 13.9 W/(m·K) demands this controlled ablation to avoid thermal
-    damage.
-  question: What laser wavelength is safest for cleaning surfaces containing europium compounds without causing fluorescence
-    or damage?
-  topic_keyword: causing fluorescence
-  topic_statement: 532nm avoids f-f transitions
-- answer: Europium oxide features a pretty low ablation threshold of 1.2 J/cm², so fluence control is essential. Its fairly
-    soft 0.167 HV hardness and high thermal expansion of 35 × 10⁻⁶/K mean excessive power can readily cause subsurface damage
-    to the underlying rare earth component.
-  question: Does europium oxide scale on rare earth metal components require special laser cleaning considerations compared
-    to other oxides?
-  topic_keyword: europium oxide scale
-  topic_statement: Requires careful fluence control
-- answer: Laser ablation of europium phosphors at 1.2 J/cm² typically generates highly respirable nanoparticles. With europium's
-    fairly low oxidation resistance (180°C), these aerosols create a significant inhalation hazard. To mitigate this toxic
-    exposure risk, you must use a P100 respirator and robust fume extraction.
-  question: Are there specific safety hazards when laser cleaning europium-containing phosphors from CRT monitors or fluorescent
-    lamps?
-  topic_keyword: europium-containing phosphors
-  topic_statement: Low oxidation resistance inhalation hazard
-- answer: Properly tuned laser cleaning at 1.2 J/cm² basically preserves europium's luminescence by selectively removing surface
-    contaminants. With the 532 nm wavelength and controlled thermal input, it fairly well prevents damage to the host matrix,
-    ensuring the security feature's photoluminescent integrity stays fully functional.
-  question: How does laser cleaning affect the luminescent properties of europium-doped materials used in security markings?
-  topic_keyword: luminescent properties
-  topic_statement: Preserves photoluminescent integrity
-- answer: Keep an eye out for pretty dark gray discoloration or boosted orange fluorescence, signaling thermal oxidation above
-    180°C. Surface pitting typically points to fluence exceeding the 1.2 J/cm² limit, while haze indicates incomplete contaminant
-    removal.
-  question: What are the signs of improper laser cleaning on europium-containing alloys or coatings?
-  topic_keyword: europium-containing alloys
-  topic_statement: Orange fluorescence indicates oxidation
-- answer: Yes, with pretty precise 532nm wavelength control at 1.2 J/cm² fluence, laser cleaning effectively removes contaminants
-    from europium superconductors. This approach basically minimizes thermal stress below 180°C, preserving the critical current
-    density by preventing surface defect formation.
-  question: Can laser cleaning effectively remove contaminants from europium-based superconductors without degrading their
-    electrical properties?
-  topic_keyword: europium-based superconductors
-  topic_statement: Preserves critical current density
-- answer: Europium's dual oxidation states set it apart, yielding varied colored oxides under laser heating. The Eu³⁺ form
-    creates pretty pale pink compounds, whereas Eu²⁺ produces darker, more intense shades. This variation stands out more
-    than in other rare earths, owing to europium's fairly low oxidation resistance starting around 180°C.
-  question: Why does europium sometimes create different colored residues during laser cleaning compared to other rare earth
-    elements?
-- answer: The europium debris from your 532 nm laser cleaning typically counts as non-hazardous waste in most US jurisdictions,
-    since its compounds lack RCRA-listed toxicity. That said, the fairly low oxidation resistance of 180°C renders ablated
-    particles highly reactive. Just document the waste stream's composition and dispose at a licensed facility for rare earth
-    metals.
-  question: What waste disposal regulations apply to europium-contaminated debris from laser cleaning operations?
-  topic_keyword: europium-contaminated debris
-  topic_statement: Document reactive rare earth waste
-- answer: Leverage europium's inherent luminescence under 532 nm excitation to verify purity. Track the signature red emission
-    peak around 614 nm; dimming signals leftover contaminants. This contactless approach operates fairly below the 1.2 J/cm²
-    ablation threshold, basically keeping the soft substrate intact while confirming cleanliness.
-  question: How do we verify complete contaminant removal from europium surfaces without damaging the substrate?
-  topic_keyword: complete contaminant removal
-  topic_statement: Monitor 614 nm emission attenuation
+  presentation: collapsible
+  items:
+  - id: is-europiumdoped-glass-a-major-concern
+    title: Is europium-doped glass a major concern for laser cleaning of historical artifacts or electronics?
+    content: Europium-doped glass presents pretty significant discoloration risks during laser cleaning, stemming from strong
+      Eu³⁺ ion absorption—especially at 532 nm. A fluence threshold of 1.2 J/cm² means even fairly moderate power can trigger
+      permanent color centers. This remains a key worry for historical optics and electronics relying on europium phosphors.
+    metadata:
+      topic: europium-doped glass a major concern
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-wavelength-is-safest-for
+    title: What laser wavelength is safest for cleaning surfaces containing europium compounds without causing fluorescence
+      or damage?
+    content: For cleaning europium compounds, I'd typically go with 532 nm green lasers at 1.2 J/cm² fluence. This wavelength
+      sidesteps strong f-f electron transitions in the rare-earth ion, cutting resonant absorption that triggers intense red
+      photoluminescence. The fairly low thermal conductivity of 13.9 W/(m·K) demands this controlled ablation to avoid thermal
+      damage.
+    metadata:
+      topic: laser wavelength safest for cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: does-europium-oxide-scale-on-rare
+    title: Does europium oxide scale on rare earth metal components require special laser cleaning considerations compared
+      to other oxides?
+    content: Europium oxide features a pretty low ablation threshold of 1.2 J/cm², so fluence control is essential. Its fairly
+      soft 0.167 HV hardness and high thermal expansion of 35 × 10⁻⁶/K mean excessive power can readily cause subsurface damage
+      to the underlying rare earth component.
+    metadata:
+      topic: europium oxide scale on r
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: are-there-specific-safety-hazards-when
+    title: Are there specific safety hazards when laser cleaning europium-containing phosphors from CRT monitors or fluorescent
+      lamps?
+    content: Laser ablation of europium phosphors at 1.2 J/cm² typically generates highly respirable nanoparticles. With europium's
+      fairly low oxidation resistance (180°C), these aerosols create a significant inhalation hazard. To mitigate this toxic
+      exposure risk, you must use a P100 respirator and robust fume extraction.
+    metadata:
+      topic: there specific safety hazards laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: how-does-laser-cleaning-affect-the
+    title: How does laser cleaning affect the luminescent properties of europium-doped materials used in security markings?
+    content: Properly tuned laser cleaning at 1.2 J/cm² basically preserves europium's luminescence by selectively removing
+      surface contaminants. With the 532 nm wavelength and controlled thermal input, it fairly well prevents damage to the
+      host matrix, ensuring the security feature's photoluminescent integrity stays fully functional.
+    metadata:
+      topic: laser cleaning affect the luminescent
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: what-are-the-signs-of-improper
+    title: What are the signs of improper laser cleaning on europium-containing alloys or coatings?
+    content: Keep an eye out for pretty dark gray discoloration or boosted orange fluorescence, signaling thermal oxidation
+      above 180°C. Surface pitting typically points to fluence exceeding the 1.2 J/cm² limit, while haze indicates incomplete
+      contaminant removal.
+    metadata:
+      topic: the signs of improper laser
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: can-laser-cleaning-effectively-remove-contaminants
+    title: Can laser cleaning effectively remove contaminants from europium-based superconductors without degrading their
+      electrical properties?
+    content: Yes, with pretty precise 532nm wavelength control at 1.2 J/cm² fluence, laser cleaning effectively removes contaminants
+      from europium superconductors. This approach basically minimizes thermal stress below 180°C, preserving the critical
+      current density by preventing surface defect formation.
+    metadata:
+      topic: laser cleaning effectively remove contaminants
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  - id: why-does-europium-sometimes-create-different
+    title: Why does europium sometimes create different colored residues during laser cleaning compared to other rare earth
+      elements?
+    content: Europium's dual oxidation states set it apart, yielding varied colored oxides under laser heating. The Eu³⁺ form
+      creates pretty pale pink compounds, whereas Eu²⁺ produces darker, more intense shades. This variation stands out more
+      than in other rare earths, owing to europium's fairly low oxidation resistance starting around 180°C.
+    metadata:
+      topic: europium sometimes create different colored
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 8
+  - id: what-waste-disposal-regulations-apply-to
+    title: What waste disposal regulations apply to europium-contaminated debris from laser cleaning operations?
+    content: The europium debris from your 532 nm laser cleaning typically counts as non-hazardous waste in most US jurisdictions,
+      since its compounds lack RCRA-listed toxicity. That said, the fairly low oxidation resistance of 180°C renders ablated
+      particles highly reactive. Just document the waste stream's composition and dispose at a licensed facility for rare
+      earth metals.
+    metadata:
+      topic: waste dposal regulations apply to
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 9
+  - id: how-do-we-verify-complete-contaminant
+    title: How do we verify complete contaminant removal from europium surfaces without damaging the substrate?
+    content: Leverage europium's inherent luminescence under 532 nm excitation to verify purity. Track the signature red emission
+      peak around 614 nm; dimming signals leftover contaminants. This contactless approach operates fairly below the 1.2 J/cm²
+      ablation threshold, basically keeping the soft substrate intact while confirming cleanliness.
+    metadata:
+      topic: do we verify complete contaminant
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 industryTags:
 - Electronics Manufacturing
 - Permanent Magnet Production

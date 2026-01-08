@@ -5,7 +5,7 @@ category: vapor
 subcategory: metal
 hazard_class: irritant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:38.486269+00:00'
+dateModified: '2026-01-08T00:59:14.262501+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/vapor/metal/metal-vapors-mixed-compound
@@ -207,7 +207,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
   safety:
     health_effects:
       items:
@@ -257,10 +256,28 @@ ppe_requirements: 'Handling metal-vapors-mixed-compound in industrial setups dem
   the bustle. Always check gear for wear after each use; this stuff''s conductive nature means stray sparks could turn routine
   jobs risky if protection falters.'
 faq:
-- question: What are the best protection methods against mixed metal vapor exposure during laser cleaning operations?
-  answer: Always use local exhaust ventilation systems, such as fume extractors positioned close to the laser work area, to
-    capture and remove vapors at the source before they spread. Wear a full-face respirator with appropriate filters (e.g.,
-    P100 or combination cartridges rated for metal fumes) and protective clothing like gloves and coveralls to minimize skin
-    and inhalation exposure. Regularly monitor air quality with portable vapor detectors and ensure the workspace maintains
-    good general ventilation to keep concentrations below applicable exposure limits, such as those set by OSHA for specific
-    metals like zinc oxide (5 mg/m³ as ceiling).
+  presentation: collapsible
+  items:
+  - id: what-are-the-best-protection-methods
+    title: What are the best protection methods against mixed metal vapor exposure during laser cleaning operations?
+    content: Always use local exhaust ventilation systems, such as fume extractors positioned close to the laser work area,
+      to capture and remove vapors at the source before they spread. Wear a full-face respirator with appropriate filters
+      (e.g., P100 or combination cartridges rated for metal fumes) and protective clothing like gloves and coveralls to minimize
+      skin and inhalation exposure. Regularly monitor air quality with portable vapor detectors and ensure the workspace maintains
+      good general ventilation to keep concentrations below applicable exposure limits, such as those set by OSHA for specific
+      metals like zinc oxide (5 mg/m³ as ceiling).
+    metadata:
+      topic: the best protection methods against
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

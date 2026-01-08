@@ -16,7 +16,7 @@ interface SubcategoryPageProps {
   subcategoryInfo: any;
 }
 
-export async function SubcategoryPage({
+export function SubcategoryPage({
   config,
   categorySlug,
   subcategorySlug,

@@ -290,7 +290,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -349,7 +348,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -393,7 +391,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:27.314703+00:00'
+dateModified: '2026-01-08T01:04:44.960909+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -471,18 +469,36 @@ eeat:
     name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
     url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
 faq:
-- question: 'Copper in Industrial Use: Key Facts and Laser Cleaning'
-  answer: "**What makes copper a go-to metal in industry?**  \nCopper stands out as a solid metal choice. It conducts electricity\
-    \ and heat well. Factories use it for wiring, pipes, and heat exchangers. This metal holds up in tough environments without\
-    \ breaking down quickly.\n\n**Tell me about its basic physical properties.**  \nDensity sits around 8.96 grams per cubic\
-    \ centimeter. Porosity stays near zero percent, so it's dense and non-porous. That means water or air won't seep in easily.\
-    \ You get a smooth, reliable surface for most jobs.\n\n**How does laser cleaning work on copper?**  \nLaser cleaning clears\
-    \ off rust, oils, or coatings from copper parts. It restores the finish without damaging the base metal. For standard\
-    \ setups, aim for about 100 watts of power. This level removes contaminants cleanly. Keep the beam moving to avoid overheating.\
-    \ I've seen it work great on circuit boards and tubing in Taiwanese workshops. Just adjust based on the dirt layer—but\
-    \ start low to test.\n\n**Any tips for handling copper during cleaning?**  \nWear gloves; copper can stain skin over time.\
-    \ And watch the reflections—lasers bounce off shiny surfaces. Safe practices keep everyone steady. Overall, this process\
-    \ saves time compared to chemicals."
+  presentation: collapsible
+  items:
+  - id: copper-in-industrial-use-key-facts
+    title: 'Copper in Industrial Use: Key Facts and Laser Cleaning'
+    content: "**What makes copper a go-to metal in industry?**  \nCopper stands out as a solid metal choice. It conducts electricity\
+      \ and heat well. Factories use it for wiring, pipes, and heat exchangers. This metal holds up in tough environments\
+      \ without breaking down quickly.\n\n**Tell me about its basic physical properties.**  \nDensity sits around 8.96 grams\
+      \ per cubic centimeter. Porosity stays near zero percent, so it's dense and non-porous. That means water or air won't\
+      \ seep in easily. You get a smooth, reliable surface for most jobs.\n\n**How does laser cleaning work on copper?** \
+      \ \nLaser cleaning clears off rust, oils, or coatings from copper parts. It restores the finish without damaging the\
+      \ base metal. For standard setups, aim for about 100 watts of power. This level removes contaminants cleanly. Keep the\
+      \ beam moving to avoid overheating. I've seen it work great on circuit boards and tubing in Taiwanese workshops. Just\
+      \ adjust based on the dirt layer—but start low to test.\n\n**Any tips for handling copper during cleaning?**  \nWear\
+      \ gloves; copper can stain skin over time. And watch the reflections—lasers bounce off shiny surfaces. Safe practices\
+      \ keep everyone steady. Overall, this process saves time compared to chemicals."
+    metadata:
+      topic: 'copper in industrial use: key'
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/non-ferrous/copper-laser-cleaning
 breadcrumb:
 - label: Home

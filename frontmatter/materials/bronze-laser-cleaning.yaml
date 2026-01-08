@@ -266,7 +266,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -321,7 +320,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -366,7 +364,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.618324+00:00'
+dateModified: '2026-01-08T01:04:44.287365+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -413,14 +411,45 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- question: What makes bronze a reliable metal for industrial use?
-  answer: Bronze is a copper-tin alloy we often turn to in manufacturing. It holds up well in tools, fittings, and even marine
-    parts because it resists corrosion. Density sits around 8.8 g/cm³, so pieces stay sturdy without getting too heavy. Porosity
-    hovers at about 0.5%, which means fewer voids that could trap dirt or weaken the structure.
-- question: How do we clean bronze with lasers?
-  answer: Laser cleaning works great here. You apply roughly 100 W power to remove rust or grime from surfaces. This method
-    clears contaminants fast and leaves the base metal intact. It suits restoration projects, like old statues, without harsh
-    chemicals. Just watch the settings to avoid heating the alloy too much.
+  presentation: collapsible
+  items:
+  - id: what-makes-bronze-a-reliable-metal
+    title: What makes bronze a reliable metal for industrial use?
+    content: Bronze is a copper-tin alloy we often turn to in manufacturing. It holds up well in tools, fittings, and even
+      marine parts because it resists corrosion. Density sits around 8.8 g/cm³, so pieces stay sturdy without getting too
+      heavy. Porosity hovers at about 0.5%, which means fewer voids that could trap dirt or weaken the structure.
+    metadata:
+      topic: makes bronze a reliable metal
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-we-clean-bronze-with
+    title: How do we clean bronze with lasers?
+    content: Laser cleaning works great here. You apply roughly 100 W power to remove rust or grime from surfaces. This method
+      clears contaminants fast and leaves the base metal intact. It suits restoration projects, like old statues, without
+      harsh chemicals. Just watch the settings to avoid heating the alloy too much.
+    metadata:
+      topic: do we clean bronze with
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/non-ferrous/bronze-laser-cleaning
 breadcrumb:
 - label: Home

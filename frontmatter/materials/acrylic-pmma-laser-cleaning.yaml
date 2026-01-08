@@ -196,7 +196,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -219,7 +218,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -289,7 +287,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:33.935176+00:00'
+dateModified: '2026-01-08T01:04:51.359055+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -315,18 +313,62 @@ components:
     after: Laser treatment clears away all traces of dirt and debris from the acrylic effectively. The surface now displays
       a smooth, uniform finish without any visible flaws. It exposes a clear, pristine layer that reflects light evenly throughout.
 faq:
-- question: How can I prevent warping when laser cleaning acrylic sheets?
-  answer: When laser cleaning acrylic, you'll want to start with low-power settings to avoid overheating its heat-sensitive
-    surface. I've seen that this material contrasts with metals by deforming easily under brief heat exposure, so short pulses
-    remove dirt without causing warps. This approach restores clarity and shape effectively in practical applications like
-    signage restoration.
-- question: What's the best way to remove stains from PMMA without scratching?
-  answer: If you're cleaning PMMA, watch for its smooth surface that resists scratches but absorbs laser energy quickly. Unlike
-    rougher plastics, acrylic cleans best with gentle, focused beams that lift stains layer by layer. In my experience, this
-    method exposes a pristine finish and improves durability for repeated use in displays.
-- question: Does laser cleaning affect the transparency of acrylic parts?
-  answer: Laser cleaning acrylic demands careful control since its clear nature can fog from uneven heating. Compared to opaque
-    thermoplastics, PMMA reveals contaminants easily but risks haze if pulses are too intense.
+  presentation: collapsible
+  items:
+  - id: how-can-i-prevent-warping-when
+    title: How can I prevent warping when laser cleaning acrylic sheets?
+    content: When laser cleaning acrylic, you'll want to start with low-power settings to avoid overheating its heat-sensitive
+      surface. I've seen that this material contrasts with metals by deforming easily under brief heat exposure, so short
+      pulses remove dirt without causing warps. This approach restores clarity and shape effectively in practical applications
+      like signage restoration.
+    metadata:
+      topic: i prevent warping laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: whats-the-best-way-to-remove
+    title: What's the best way to remove stains from PMMA without scratching?
+    content: If you're cleaning PMMA, watch for its smooth surface that resists scratches but absorbs laser energy quickly.
+      Unlike rougher plastics, acrylic cleans best with gentle, focused beams that lift stains layer by layer. In my experience,
+      this method exposes a pristine finish and improves durability for repeated use in displays.
+    metadata:
+      topic: '''s the best way to'
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: does-laser-cleaning-affect-the-transparency
+    title: Does laser cleaning affect the transparency of acrylic parts?
+    content: Laser cleaning acrylic demands careful control since its clear nature can fog from uneven heating. Compared to
+      opaque thermoplastics, PMMA reveals contaminants easily but risks haze if pulses are too intense.
+    metadata:
+      topic: laser cleaning affect the transpncy
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
 breadcrumb:
 - label: Home

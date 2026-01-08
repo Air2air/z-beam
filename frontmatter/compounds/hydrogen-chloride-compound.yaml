@@ -5,7 +5,7 @@ category: corrosive_gas
 subcategory: acid_gas
 hazard_class: corrosive
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.159783+00:00'
+dateModified: '2026-01-08T00:59:12.867396+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/corrosive_gas/acid_gas/hydrogen-chloride-compound
@@ -173,7 +173,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -406,7 +405,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -425,7 +423,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -463,10 +460,29 @@ ppe_requirements: Handling hydrogen chloride demands serious gear to counter its
   or helmet with integrated breathing apparatus for total enclosure against the corrosive haze. Always pair this with ventilation
   hoods nearby to dilute the air, though the focus stays on personal barriers that hold up under steady use.
 faq:
-- question: How can I detect and monitor HCl gas exposure during laser cleaning to stay within safe limits?
-  answer: Use portable gas detectors equipped with electrochemical sensors specific to HCl, placed in the breathing zone and
-    work area, to monitor concentrations in real-time; the OSHA permissible exposure limit (PEL) is 5 ppm as a ceiling limit,
-    meaning levels should never exceed this to avoid immediate respiratory irritation. Calibrate detectors daily and set alarms
-    for 1-2 ppm to allow early evacuation or ventilation adjustments, especially since HCl from laser ablation can rapidly
-    irritate eyes, skin, and lungs far more aggressively than milder acids like acetic. If levels approach the PEL, immediately
-    don a full-face respirator with acid gas cartridges and enhance local exhaust ventilation to dilute the corrosive gas.
+  presentation: collapsible
+  items:
+  - id: how-can-i-detect-and-monitor
+    title: How can I detect and monitor HCl gas exposure during laser cleaning to stay within safe limits?
+    content: Use portable gas detectors equipped with electrochemical sensors specific to HCl, placed in the breathing zone
+      and work area, to monitor concentrations in real-time; the OSHA permissible exposure limit (PEL) is 5 ppm as a ceiling
+      limit, meaning levels should never exceed this to avoid immediate respiratory irritation. Calibrate detectors daily
+      and set alarms for 1-2 ppm to allow early evacuation or ventilation adjustments, especially since HCl from laser ablation
+      can rapidly irritate eyes, skin, and lungs far more aggressively than milder acids like acetic. If levels approach the
+      PEL, immediately don a full-face respirator with acid gas cartridges and enhance local exhaust ventilation to dilute
+      the corrosive gas.
+    metadata:
+      topic: i detect and monitor hcl
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

@@ -187,7 +187,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -210,7 +209,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -280,7 +278,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.267151+00:00'
+dateModified: '2026-01-08T01:04:51.756924+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -299,18 +297,62 @@ components:
     after: After laser treatment, the same surface appears smooth and uniform under 1000x magnification, with no visible particles
       remaining. The base material now reveals a consistent texture that reflects
 faq:
-- question: How do I avoid damaging Indium Phosphide during laser cleaning?
-  answer: I've seen laser cleaning go wrong on Indium Phosphide if you push too hard. Start low on power to watch its response
-    without cracking the surface. This material tends to absorb heat evenly, so gradual passes restore cleanliness safely
-    compared to brittle semiconductors.
-- question: What's the best way to remove contaminants from Indium Phosphide wafers?
-  answer: When laser cleaning Indium Phosphide, you'll want to use short pulses first. This exposes the surface gently and
-    removes residues without altering the structure. I've found it works best on flat wafers, reducing haze unlike with rougher
-    compounds.
-- question: Why does Indium Phosphide sometimes show uneven cleaning results?
-  answer: Watch for uneven spots on Indium Phosphide during laser sessions. Its moderate reflectivity can scatter the beam,
-    leading to patchy removal compared to highly reflective materials. Adjust the angle carefully to reveal a uniform finish
-    across the whole piece.
+  presentation: collapsible
+  items:
+  - id: how-do-i-avoid-damaging-indium
+    title: How do I avoid damaging Indium Phosphide during laser cleaning?
+    content: I've seen laser cleaning go wrong on Indium Phosphide if you push too hard. Start low on power to watch its response
+      without cracking the surface. This material tends to absorb heat evenly, so gradual passes restore cleanliness safely
+      compared to brittle semiconductors.
+    metadata:
+      topic: do i avoid damaging indium
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: whats-the-best-way-to-remove
+    title: What's the best way to remove contaminants from Indium Phosphide wafers?
+    content: When laser cleaning Indium Phosphide, you'll want to use short pulses first. This exposes the surface gently
+      and removes residues without altering the structure. I've found it works best on flat wafers, reducing haze unlike with
+      rougher compounds.
+    metadata:
+      topic: '''s the best way to'
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: why-does-indium-phosphide-sometimes-show
+    title: Why does Indium Phosphide sometimes show uneven cleaning results?
+    content: Watch for uneven spots on Indium Phosphide during laser sessions. Its moderate reflectivity can scatter the beam,
+      leading to patchy removal compared to highly reflective materials. Adjust the angle carefully to reveal a uniform finish
+      across the whole piece.
+    metadata:
+      topic: indium phosphide sometimes s uneven
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/semiconductor/compound/indium-phosphide-laser-cleaning
 breadcrumb:
 - label: Home

@@ -242,7 +242,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -315,7 +314,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 4
   name: Todd Dunning
@@ -359,7 +357,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:28.161546+00:00'
+dateModified: '2026-01-08T01:04:45.800884+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -400,39 +398,123 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 faq:
-- question: How does laser cleaning remove biological growth like lichens from Granite without causing damage?
-  answer: Basically, laser ablation follows a pretty systematic approach to eliminate biological contaminants, while preserving
-    the granite's mineral composition and polished surface integrity.
-- question: Can laser cleaning safely remove rust stains from polished Granite countertops?
-  answer: Basically, laser cleaning vaporizes iron oxide rust pretty precisely, all while safeguarding the granite's sealant
-    and structural integrity.
-  topic_keyword: polished Granite countertops
-  topic_statement: Preserves sealant and integrity
-- question: What advantages does laser cleaning offer over traditional chemical cleaners for maintaining Granite monuments?
-  answer: Laser cleaning basically provides a systematic approach to removing contaminants, while fairly precisely preserving
-    stone patina and engraving details for long-term conservation.
-  topic_keyword: maintaining Granite monuments
-  topic_statement: Preserves patina and engravings
-- question: Is laser cleaning suitable for all types of Granite, regardless of color or mineral composition?
-  answer: Our methodical process pretty much delivers spot-on calibration for every granite variety. Though feldspar and mica
-    levels fairly influence absorption, our data-driven system ensures thorough cleaning throughout the color range.
-  topic_keyword: color or mineral composition
-  topic_statement: Calibrates for mineral absorption variations
-- question: How does laser cleaning address the potential for mineral-specific degradation in Granite, like biotite oxidation?
-  answer: Our systematic laser methodology basically prevents heat-induced oxidation in biotite minerals, enabling pretty
-    precise contaminant removal without accelerating geological weathering processes.
-  topic_keyword: biotite oxidation
-  topic_statement: Prevents heat-induced biotite oxidation
-- question: Why is laser cleaning recommended for delicate Granite carvings and engraved details?
-  answer: Laser cleaning basically offers a systematic approach, letting conservators fairly precisely strip contaminants
-    from intricate carvings without mechanical wear.
-  topic_keyword: delicate Granite carvings
-  topic_statement: Prevents mechanical wear on details
-- question: Can laser cleaning restore the original polish and reflectivity of weathered Granite cladding?
-  answer: Laser cleaning basically strips away embedded contaminants systematically, precisely uncovering the original stone.
-    A fairly thorough repolishing process typically follows for those high-gloss finishes.
-  topic_keyword: original polish and reflectivity
-  topic_statement: Reveals original stone, requires repolishing
+  presentation: collapsible
+  items:
+  - id: how-does-laser-cleaning-remove-biological
+    title: How does laser cleaning remove biological growth like lichens from Granite without causing damage?
+    content: Basically, laser ablation follows a pretty systematic approach to eliminate biological contaminants, while preserving
+      the granite's mineral composition and polished surface integrity.
+    metadata:
+      topic: laser cleaning remove biological growth
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: can-laser-cleaning-safely-remove-rust
+    title: Can laser cleaning safely remove rust stains from polished Granite countertops?
+    content: Basically, laser cleaning vaporizes iron oxide rust pretty precisely, all while safeguarding the granite's sealant
+      and structural integrity.
+    metadata:
+      topic: laser cleaning safely remove rust
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: what-advantages-does-laser-cleaning-offer
+    title: What advantages does laser cleaning offer over traditional chemical cleaners for maintaining Granite monuments?
+    content: Laser cleaning basically provides a systematic approach to removing contaminants, while fairly precisely preserving
+      stone patina and engraving details for long-term conservation.
+    metadata:
+      topic: advantages laser cleaning offer over
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: is-laser-cleaning-suitable-for-all
+    title: Is laser cleaning suitable for all types of Granite, regardless of color or mineral composition?
+    content: Our methodical process pretty much delivers spot-on calibration for every granite variety. Though feldspar and
+      mica levels fairly influence absorption, our data-driven system ensures thorough cleaning throughout the color range.
+    metadata:
+      topic: laser cleaning suitable for all
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: how-does-laser-cleaning-address-the
+    title: How does laser cleaning address the potential for mineral-specific degradation in Granite, like biotite oxidation?
+    content: Our systematic laser methodology basically prevents heat-induced oxidation in biotite minerals, enabling pretty
+      precise contaminant removal without accelerating geological weathering processes.
+    metadata:
+      topic: laser cleaning address the potential
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: why-is-laser-cleaning-recommended-for
+    title: Why is laser cleaning recommended for delicate Granite carvings and engraved details?
+    content: Laser cleaning basically offers a systematic approach, letting conservators fairly precisely strip contaminants
+      from intricate carvings without mechanical wear.
+    metadata:
+      topic: laser cleaning recommended for delicate
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: can-laser-cleaning-restore-the-original
+    title: Can laser cleaning restore the original polish and reflectivity of weathered Granite cladding?
+    content: Laser cleaning basically strips away embedded contaminants systematically, precisely uncovering the original
+      stone. A fairly thorough repolishing process typically follows for those high-gloss finishes.
+    metadata:
+      topic: laser cleaning restore the original
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/stone/igneous/granite-laser-cleaning
 breadcrumb:
 - label: Home

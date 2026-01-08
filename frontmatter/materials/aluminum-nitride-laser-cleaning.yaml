@@ -250,7 +250,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -273,7 +272,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -343,7 +341,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.836751+00:00'
+dateModified: '2026-01-08T01:04:52.330960+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -367,18 +365,62 @@ components:
     after: After laser treatment, the same surface displays a uniform, clean texture free from any visible residues. The process
       exposes clear, even facets that reflect light consistently throughout the view. Now the material
 faq:
-- question: How does Aluminum Nitride compare to alumina in laser cleaning?
-  answer: Aluminum Nitride cleans more efficiently than alumina due to its superior thermal conductivity. We've found that
-    heat from the laser dissipates quickly across the surface. This reduces the risk of localized overheating during the process.
-    In contrast, alumina tends to retain heat and develop cracks more easily. We typically adjust laser parameters lower for
-    Aluminum Nitrite to preserve its integrity.
-- question: What challenges arise when laser cleaning porous Aluminum Nitride substrates?
-  answer: Aluminum Nitride features low porosity, which simplifies laser cleaning compared to more absorbent ceramics. The
-    laser removes contaminants without deep penetration into the material structure. We've observed that surface residues
-    lift cleanly under controlled pulses. This approach restores the original smoothness effectively. However, excessive power
-    can still cause micro-fractures if not monitored.
-- question: Can laser cleaning improve the thermal performance of used Aluminum Nitride components?
-  answer: Laser cleaning effectively removes oxidation layers from Aluminum Nitride to restore its heat transfer properties.
+  presentation: collapsible
+  items:
+  - id: how-does-aluminum-nitride-compare-to
+    title: How does Aluminum Nitride compare to alumina in laser cleaning?
+    content: Aluminum Nitride cleans more efficiently than alumina due to its superior thermal conductivity. We've found that
+      heat from the laser dissipates quickly across the surface. This reduces the risk of localized overheating during the
+      process. In contrast, alumina tends to retain heat and develop cracks more easily. We typically adjust laser parameters
+      lower for Aluminum Nitrite to preserve its integrity.
+    metadata:
+      topic: aluminum nitride comp to alumina
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-challenges-arise-when-laser-cleaning
+    title: What challenges arise when laser cleaning porous Aluminum Nitride substrates?
+    content: Aluminum Nitride features low porosity, which simplifies laser cleaning compared to more absorbent ceramics.
+      The laser removes contaminants without deep penetration into the material structure. We've observed that surface residues
+      lift cleanly under controlled pulses. This approach restores the original smoothness effectively. However, excessive
+      power can still cause micro-fractures if not monitored.
+    metadata:
+      topic: challenges laser cleaning porous aluminum
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: can-laser-cleaning-improve-the-thermal
+    title: Can laser cleaning improve the thermal performance of used Aluminum Nitride components?
+    content: Laser cleaning effectively removes oxidation layers from Aluminum Nitride to restore its heat transfer properties.
+    metadata:
+      topic: laser cleaning improve the thermal
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
 breadcrumb:
 - label: Home

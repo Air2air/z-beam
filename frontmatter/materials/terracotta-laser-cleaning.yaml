@@ -198,7 +198,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -256,7 +255,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -300,7 +298,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:32.948363+00:00'
+dateModified: '2026-01-08T01:04:50.277886+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -344,62 +342,171 @@ eeat:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 faq:
-- answer: For terracotta cleaning, 1064 nm near-infrared lasers notably excel by aligning with the absorption of iron oxides
-    and clays, thus avoiding cracking or discoloration—unlike 532 nm, which can lead to deeper heating. Target 2.5 J/cm² fluence,
-    and test on sample tiles first.
-  question: What laser wavelengths are most effective for cleaning terracotta surfaces without causing cracking or discoloration?
-- answer: Terracotta's high porosity, particularly for 1064 nm laser light, enables deeper penetration into pores, thus elevating
-    subsurface heating risks during removal of embedded salts or dirt. To avoid structural weakening, adjust pulse energy
-    to 2.5 J/cm² using 10 ns widths, which balances ablation efficiency with thermal control for effective, safe cleaning.
-  question: How does the high porosity of terracotta impact the laser cleaning process, particularly in removing embedded
-    salts or dirt?
-  topic_keyword: high porosity
-  topic_statement: Low energy pulses prevent weakening
-- answer: When laser-cleaning terracotta artifacts with a 1064 nm beam at 2.5 J/cm² fluence, particularly prioritize robust
-    ventilation systems to capture silica-laden clay particles and fumes. Operators must wear N95 masks, goggles, and gloves
-    for dust protection. Notably, on painted surfaces, monitor temperatures closely to prevent pigment degradation from localized
-    heating.
-  question: What safety precautions are needed when using lasers to clean terracotta artifacts, especially regarding airborne
-    clay particles or fumes?
-  topic_keyword: airborne clay particles
-  topic_statement: Ventilation traps silica-laden particles
-- answer: Yes, laser cleaning effectively removes black crusts from historical terracotta facades via layer-by-layer ablation,
-    particularly sparing the fragile clay matrix. Notably, at 1064 nm wavelength and 2.5 J/cm² fluence, it outperforms mechanical
-    scraping by minimizing erosion, as demonstrated in European architectural restorations.
-  question: Can laser cleaning effectively remove black crusts from historical terracotta facades without damaging the underlying
-    clay matrix?
-  topic_keyword: underlying clay matrix
-  topic_statement: Spares fragile clay matrix
-- answer: For terracotta pottery cleaning in archaeological contexts, I suggest nanosecond pulses of about 10 ns at a fluence
-    of 2.5 J/cm² with 1064 nm wavelength. Particularly, this short-pulse method selectively ablates organic residues while
-    preserving the delicate surface patina, unlike longer pulses that may cause deeper thermal damage. Thus, set scan speed
-    to 500 mm/s for uniform coverage.
-  question: What are the optimal pulse durations and fluences for cleaning terracotta pottery in archaeological contexts?
-  topic_keyword: pulse durations and fluences
-  topic_statement: 10 ns at 2.5 J/cm²
-- answer: Terracotta, particularly with its low thermal conductivity, traps heat during laser treatment and risks localized
-    cracks at 2.5 J/cm² fluence. Notably, scanning at 500 mm/s with 50% overlap promotes dissipation, thus boosting cleaning
-    efficiency equally for glazed and unglazed surfaces using 100 W power.
-  question: How does the low thermal conductivity of terracotta affect heat buildup during laser surface treatment?
-  topic_keyword: low thermal conductivity
-  topic_statement: Traps heat risking localized cracks
-- answer: The inherent porosity of terracotta, particularly after laser cleaning at 2.5 J/cm² fluence with a 1064 nm wavelength,
-    can increase re-wetting risks and thus accelerate weathering on roofs. Integrating hydrophobic coatings with this process
-    boosts water repellency, promoting long-term outdoor durability by limiting moisture penetration.
-  question: Are there specific concerns about laser cleaning terracotta roofs, such as potential for water absorption post-treatment?
-  topic_keyword: water absorption post-treatment
-  topic_statement: Mitigate re-wetting with hydrophobic coatings
-- answer: When using a 1064 nm laser at 2.5 J/cm² fluence to clean terracotta, carbonates like calcite in impurities particularly
-    decompose thermally into lime and CO₂, while sulfates release SO₂, thus generating off-gassing risks that demand ventilation.
-    Pre-cleaning spectroscopic scans detect these minerals, enabling parameter adjustments to prevent substrate damage.
-  question: What chemical reactions might occur when lasers interact with mineral impurities in terracotta during cleaning?
-- answer: For terracotta conservation in museums, ICOM-CC guidelines particularly emphasize non-destructive techniques like
-    spectroscopy, applied before and after cleaning, to protect the porous substrate. Notably, EN standards require precise
-    documentation of parameters—such as 1064 nm wavelength and 2.5 J/cm² fluence—for uniform contaminant removal without inducing
-    thermal stress on the delicate material.
-  question: How do industry standards guide the use of laser cleaning for terracotta in museum conservation projects?
-  topic_keyword: museum conservation projects
-  topic_statement: Safeguards porous substrate with testing
+  presentation: collapsible
+  items:
+  - id: what-laser-wavelengths-are-most-effective
+    title: What laser wavelengths are most effective for cleaning terracotta surfaces without causing cracking or discoloration?
+    content: For terracotta cleaning, 1064 nm near-infrared lasers notably excel by aligning with the absorption of iron oxides
+      and clays, thus avoiding cracking or discoloration—unlike 532 nm, which can lead to deeper heating. Target 2.5 J/cm²
+      fluence, and test on sample tiles first.
+    metadata:
+      topic: laser wavelengths most effective for
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: how-does-the-high-porosity-of
+    title: How does the high porosity of terracotta impact the laser cleaning process, particularly in removing embedded salts
+      or dirt?
+    content: Terracotta's high porosity, particularly for 1064 nm laser light, enables deeper penetration into pores, thus
+      elevating subsurface heating risks during removal of embedded salts or dirt. To avoid structural weakening, adjust pulse
+      energy to 2.5 J/cm² using 10 ns widths, which balances ablation efficiency with thermal control for effective, safe
+      cleaning.
+    metadata:
+      topic: the high porosity of terracotta
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: what-safety-precautions-are-needed-when
+    title: What safety precautions are needed when using lasers to clean terracotta artifacts, especially regarding airborne
+      clay particles or fumes?
+    content: When laser-cleaning terracotta artifacts with a 1064 nm beam at 2.5 J/cm² fluence, particularly prioritize robust
+      ventilation systems to capture silica-laden clay particles and fumes. Operators must wear N95 masks, goggles, and gloves
+      for dust protection. Notably, on painted surfaces, monitor temperatures closely to prevent pigment degradation from
+      localized heating.
+    metadata:
+      topic: safety precautions needed using lasers
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-effectively-remove-black
+    title: Can laser cleaning effectively remove black crusts from historical terracotta facades without damaging the underlying
+      clay matrix?
+    content: Yes, laser cleaning effectively removes black crusts from historical terracotta facades via layer-by-layer ablation,
+      particularly sparing the fragile clay matrix. Notably, at 1064 nm wavelength and 2.5 J/cm² fluence, it outperforms mechanical
+      scraping by minimizing erosion, as demonstrated in European architectural restorations.
+    metadata:
+      topic: laser cleaning effectively remove black
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: what-are-the-optimal-pulse-durations
+    title: What are the optimal pulse durations and fluences for cleaning terracotta pottery in archaeological contexts?
+    content: For terracotta pottery cleaning in archaeological contexts, I suggest nanosecond pulses of about 10 ns at a fluence
+      of 2.5 J/cm² with 1064 nm wavelength. Particularly, this short-pulse method selectively ablates organic residues while
+      preserving the delicate surface patina, unlike longer pulses that may cause deeper thermal damage. Thus, set scan speed
+      to 500 mm/s for uniform coverage.
+    metadata:
+      topic: the optimal pulse durations and
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: how-does-the-low-thermal-conductivity
+    title: How does the low thermal conductivity of terracotta affect heat buildup during laser surface treatment?
+    content: Terracotta, particularly with its low thermal conductivity, traps heat during laser treatment and risks localized
+      cracks at 2.5 J/cm² fluence. Notably, scanning at 500 mm/s with 50% overlap promotes dissipation, thus boosting cleaning
+      efficiency equally for glazed and unglazed surfaces using 100 W power.
+    metadata:
+      topic: the low thermal conductivity of
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: are-there-specific-concerns-about-laser
+    title: Are there specific concerns about laser cleaning terracotta roofs, such as potential for water absorption post-treatment?
+    content: The inherent porosity of terracotta, particularly after laser cleaning at 2.5 J/cm² fluence with a 1064 nm wavelength,
+      can increase re-wetting risks and thus accelerate weathering on roofs. Integrating hydrophobic coatings with this process
+      boosts water repellency, promoting long-term outdoor durability by limiting moisture penetration.
+    metadata:
+      topic: there specific concerns about laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: what-chemical-reactions-might-occur-when
+    title: What chemical reactions might occur when lasers interact with mineral impurities in terracotta during cleaning?
+    content: When using a 1064 nm laser at 2.5 J/cm² fluence to clean terracotta, carbonates like calcite in impurities particularly
+      decompose thermally into lime and CO₂, while sulfates release SO₂, thus generating off-gassing risks that demand ventilation.
+      Pre-cleaning spectroscopic scans detect these minerals, enabling parameter adjustments to prevent substrate damage.
+    metadata:
+      topic: chemical reactions might occur lasers
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: how-do-industry-standards-guide-the
+    title: How do industry standards guide the use of laser cleaning for terracotta in museum conservation projects?
+    content: For terracotta conservation in museums, ICOM-CC guidelines particularly emphasize non-destructive techniques
+      like spectroscopy, applied before and after cleaning, to protect the porous substrate. Notably, EN standards require
+      precise documentation of parameters—such as 1064 nm wavelength and 2.5 J/cm² fluence—for uniform contaminant removal
+      without inducing thermal stress on the delicate material.
+    metadata:
+      topic: do industry standards guide the
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/masonry/concrete/terracotta-laser-cleaning
 breadcrumb:
 - label: Home

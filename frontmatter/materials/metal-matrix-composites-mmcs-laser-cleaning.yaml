@@ -218,7 +218,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -281,7 +280,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -327,7 +325,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:29.404395+00:00'
+dateModified: '2026-01-08T01:04:46.996084+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -373,71 +371,190 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
 faq:
-- answer: Cleaning MMCs with lasers calls for precise parameter control to avoid damage. A 1064 nm wavelength at 5 J/cm² fluence
-    efficiently cuts thermal stress gaps between metal matrix and ceramic reinforcements. This process stops micro-cracks
-    while removing contaminants through controlled ablation and limited thermal diffusion to the composite.
-  question: Can laser cleaning be used on Metal Matrix Composites (MMCs) without damaging the reinforcing particles or creating
-    micro-cracks?
-  topic_keyword: damaging the reinforcing particles
-  topic_statement: Minimizes thermal stress differences
-- answer: For SiC-Al MMCs, a practical choice is 1064 nm wavelength with nanosecond pulses around 10 ns. That method's fluence
-    of 5 J/cm² efficiently removes oxides, as the aluminum matrix's high thermal conductivity dissipates energy to safeguard
-    SiC reinforcements. This parameter set achieves selective ablation of the contaminant layer.
-  question: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning oxides from silicon carbide
-    (SiC) aluminum MMCs without etching the surface?
-- answer: We assess cleaning efficacy in a straightforward manner using SEM/EDS, confirming contaminant removal while maintaining
-    the MMC's microstructure. Importantly, that method employs X-ray diffraction to gauge residual stress, ensuring our 5
-    J/cm² fluence and 50 µm spot size preserve fatigue and corrosion resistance.
-  question: How do you verify that laser cleaning has removed contaminants from an MMC surface without altering its fatigue
-    or corrosion-resistant properties?
-  topic_keyword: fatigue or corrosion-resistant properties
-  topic_statement: Measures residual stress via XRD
-- answer: When laser cleaning MMCs at 5 J/cm² fluence, this process generates hazardous ceramic nanoparticles like Al₂O₃ and
-    SiC fumes. Straightforward safety demands effective local exhaust ventilation with HEPA/ULPA filtration. Operators must
-    use full PPE, including respiratory protection, to counter inhalation risks from these ultrafine toxic by-products.
-  question: What safety hazards are specific to laser cleaning MMCs, such as toxic fume generation from vaporized ceramic
-    or metal particles?
-  topic_keyword: toxic fume generation
-  topic_statement: Requires HEPA ventilation and PPE
-- answer: In a straightforward manner, laser cleaning prepares MMC surfaces at 5 J/cm² fluence with a 50 µm spot size. This
-    process removes contaminants efficiently while creating ideal roughness for adhesion, minimizing thermal effects on the
-    matrix versus abrasive methods.
-  question: Is laser cleaning effective for preparing MMC surfaces for subsequent processes like thermal spraying or adhesive
-    bonding?
-  topic_keyword: adhesive bonding
-  topic_statement: Minimal thermal impact matrix
-- answer: Discoloration stems straightforward from micro-melting in the aluminum matrix and swift oxide reformation. Practically,
-    to avoid it, keep fluence under ~5 J/cm² with a 1064 nm wavelength. This process removes contaminants without surface
-    thermal damage, maintaining the composite's even look.
-  question: Why might laser cleaning cause discoloration or a hazy finish on an aluminum MMC part, and how can it be prevented?
-  topic_keyword: hazy finish
-  topic_statement: Low fluence avoids micro-melting
-- answer: To avoid damaging carbon fibers in CFRP-Al MMCs during laser cleaning, use short-pulse Nd:YAG lasers at low fluence
-    (0.5-1.5 J/cm²) and high scanning speeds (up to 1000 mm/s). This selectively ablates aluminum surface contaminants without
-    thermal propagation to the fibers, as we've optimized in our Indonesian facilities for precision restoration.
-  question: For carbon fiber reinforced aluminum MMCs, how do you avoid damaging the carbon fibers during laser cleaning of
-    surface contaminants?
-  topic_keyword: damaging the carbon fibers
-  topic_statement: Low fluence prevents fiber ablation
-- answer: Laser cleaning at 5 J/cm² fluence efficiently eliminates chemical disposal costs and abrasive media consumption.
-    For MMCs, this straightforward non-contact approach preserves reinforcement integrity, cutting part rejection rates. Initial
-    investments recover quickly in high-value aerospace components needing precise surface preparation.
-  question: What is the cost-benefit analysis of using laser cleaning for MMCs compared to traditional methods like chemical
-    etching or abrasive blasting?
-  topic_keyword: cost-benefit analysis
-  topic_statement: Preserves reinforcement integrity
-- answer: Yes, laser cleaning can be automated for complex MMC components like turbine blades with cooling channels using
-    robotic arms and adaptive laser scanning. Precise parameter control, such as pulse duration and power modulation, prevents
-    thin-edge effects. In my Indonesian practice, this has proven reliable for aerospace parts.
-  question: Can laser cleaning be automated for complex-shaped MMC components, like turbine blades with cooling channels,
-    without creating thin-edge effects?
-  topic_keyword: thin-edge effects
-  topic_statement: Adaptive scanning prevents heat accumulation
-- answer: The high thermal conductivity of Aluminium MMCs dissipates energy rapidly, so we need peak powers around 100 W and
-    nanosecond pulses to overcome it in a practical way. This process keeps heat confined to the surface, avoiding bulk substrate
-    damage while removing contaminants effectively at 5 J/cm².
-  question: How does the high thermal conductivity of an aluminum MMC matrix affect the laser cleaning process and required
-    energy input?
+  presentation: collapsible
+  items:
+  - id: can-laser-cleaning-be-used-on
+    title: Can laser cleaning be used on Metal Matrix Composites (MMCs) without damaging the reinforcing particles or creating
+      micro-cracks?
+    content: Cleaning MMCs with lasers calls for precise parameter control to avoid damage. A 1064 nm wavelength at 5 J/cm²
+      fluence efficiently cuts thermal stress gaps between metal matrix and ceramic reinforcements. This process stops micro-cracks
+      while removing contaminants through controlled ablation and limited thermal diffusion to the composite.
+    metadata:
+      topic: laser cleaning be used on
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: what-are-the-optimal-laser-parameters
+    title: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning oxides from silicon carbide
+      (SiC) aluminum MMCs without etching the surface?
+    content: For SiC-Al MMCs, a practical choice is 1064 nm wavelength with nanosecond pulses around 10 ns. That method's
+      fluence of 5 J/cm² efficiently removes oxides, as the aluminum matrix's high thermal conductivity dissipates energy
+      to safeguard SiC reinforcements. This parameter set achieves selective ablation of the contaminant layer.
+    metadata:
+      topic: the optimal laser parameters (wavelength,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: how-do-you-verify-that-laser
+    title: How do you verify that laser cleaning has removed contaminants from an MMC surface without altering its fatigue
+      or corrosion-resistant properties?
+    content: We assess cleaning efficacy in a straightforward manner using SEM/EDS, confirming contaminant removal while maintaining
+      the MMC's microstructure. Importantly, that method employs X-ray diffraction to gauge residual stress, ensuring our
+      5 J/cm² fluence and 50 µm spot size preserve fatigue and corrosion resistance.
+    metadata:
+      topic: do you verify that laser
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: what-safety-hazards-are-specific-to
+    title: What safety hazards are specific to laser cleaning MMCs, such as toxic fume generation from vaporized ceramic or
+      metal particles?
+    content: When laser cleaning MMCs at 5 J/cm² fluence, this process generates hazardous ceramic nanoparticles like Al₂O₃
+      and SiC fumes. Straightforward safety demands effective local exhaust ventilation with HEPA/ULPA filtration. Operators
+      must use full PPE, including respiratory protection, to counter inhalation risks from these ultrafine toxic by-products.
+    metadata:
+      topic: safety hazards specific to laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: is-laser-cleaning-effective-for-preparing
+    title: Is laser cleaning effective for preparing MMC surfaces for subsequent processes like thermal spraying or adhesive
+      bonding?
+    content: In a straightforward manner, laser cleaning prepares MMC surfaces at 5 J/cm² fluence with a 50 µm spot size.
+      This process removes contaminants efficiently while creating ideal roughness for adhesion, minimizing thermal effects
+      on the matrix versus abrasive methods.
+    metadata:
+      topic: laser cleaning effective for preparing
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: why-might-laser-cleaning-cause-discoloration
+    title: Why might laser cleaning cause discoloration or a hazy finish on an aluminum MMC part, and how can it be prevented?
+    content: Discoloration stems straightforward from micro-melting in the aluminum matrix and swift oxide reformation. Practically,
+      to avoid it, keep fluence under ~5 J/cm² with a 1064 nm wavelength. This process removes contaminants without surface
+      thermal damage, maintaining the composite's even look.
+    metadata:
+      topic: might laser cleaning cause dcoloration
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: for-carbon-fiber-reinforced-aluminum-mmcs
+    title: For carbon fiber reinforced aluminum MMCs, how do you avoid damaging the carbon fibers during laser cleaning of
+      surface contaminants?
+    content: To avoid damaging carbon fibers in CFRP-Al MMCs during laser cleaning, use short-pulse Nd:YAG lasers at low fluence
+      (0.5-1.5 J/cm²) and high scanning speeds (up to 1000 mm/s). This selectively ablates aluminum surface contaminants without
+      thermal propagation to the fibers, as we've optimized in our Indonesian facilities for precision restoration.
+    metadata:
+      topic: for carbon fiber reinforced aluminum
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: what-is-the-costbenefit-analysis-of
+    title: What is the cost-benefit analysis of using laser cleaning for MMCs compared to traditional methods like chemical
+      etching or abrasive blasting?
+    content: Laser cleaning at 5 J/cm² fluence efficiently eliminates chemical disposal costs and abrasive media consumption.
+      For MMCs, this straightforward non-contact approach preserves reinforcement integrity, cutting part rejection rates.
+      Initial investments recover quickly in high-value aerospace components needing precise surface preparation.
+    metadata:
+      topic: the cost-benefit analys of using
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: can-laser-cleaning-be-automated-for
+    title: Can laser cleaning be automated for complex-shaped MMC components, like turbine blades with cooling channels, without
+      creating thin-edge effects?
+    content: Yes, laser cleaning can be automated for complex MMC components like turbine blades with cooling channels using
+      robotic arms and adaptive laser scanning. Precise parameter control, such as pulse duration and power modulation, prevents
+      thin-edge effects. In my Indonesian practice, this has proven reliable for aerospace parts.
+    metadata:
+      topic: laser cleaning be automated for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  - id: how-does-the-high-thermal-conductivity
+    title: How does the high thermal conductivity of an aluminum MMC matrix affect the laser cleaning process and required
+      energy input?
+    content: The high thermal conductivity of Aluminium MMCs dissipates energy rapidly, so we need peak powers around 100
+      W and nanosecond pulses to overcome it in a practical way. This process keeps heat confined to the surface, avoiding
+      bulk substrate damage while removing contaminants effectively at 5 J/cm².
+    metadata:
+      topic: the high thermal conductivity of
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning
 breadcrumb:
 - label: Home

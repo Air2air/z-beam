@@ -376,7 +376,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   safety:
     regulatory_standards:
       presentation: card
@@ -399,7 +398,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -469,7 +467,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:34.543626+00:00'
+dateModified: '2026-01-08T01:04:52.035621+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -494,16 +492,47 @@ components:
     after: After laser treatment, the clean surface shines smoothly under 1000x view. You must see how the beam removes every
       trace of contamination without harm. Now the grains appear even
 faq:
-- question: Can laser cleaning cause discoloration on Stainless Steel 316?
-  answer: I've seen discoloration happen if you push the laser power too high right away on Stainless Steel 316, so start
-    with lower settings to avoid heat buildup that marks the surface. This material's strong resistance to oxidation helps
-    it recover quickly once you adjust, unlike softer metals that pit easily. Keep the beam moving steadily, and you'll get
-    a clean finish without any lasting color changes.
-- question: How do I prevent warping when laser cleaning Stainless Steel 316 parts?
-  answer: When laser cleaning Stainless Steel 316, watch out for warping because its good thermal conductivity spreads heat
-    fast if you linger in one spot, so use short pulses from the start. I've found that compared to aluminum, which warps
-    even easier under heat, this steel holds shape better with controlled passes. Focus on cooling the piece between scans,
-    and it stays flat without needing extra fixtures.
+  presentation: collapsible
+  items:
+  - id: can-laser-cleaning-cause-discoloration-on
+    title: Can laser cleaning cause discoloration on Stainless Steel 316?
+    content: I've seen discoloration happen if you push the laser power too high right away on Stainless Steel 316, so start
+      with lower settings to avoid heat buildup that marks the surface. This material's strong resistance to oxidation helps
+      it recover quickly once you adjust, unlike softer metals that pit easily. Keep the beam moving steadily, and you'll
+      get a clean finish without any lasting color changes.
+    metadata:
+      topic: laser cleaning cause dcoloration on
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-i-prevent-warping-when
+    title: How do I prevent warping when laser cleaning Stainless Steel 316 parts?
+    content: When laser cleaning Stainless Steel 316, watch out for warping because its good thermal conductivity spreads
+      heat fast if you linger in one spot, so use short pulses from the start. I've found that compared to aluminum, which
+      warps even easier under heat, this steel holds shape better with controlled passes. Focus on cooling the piece between
+      scans, and it stays flat without needing extra fixtures.
+    metadata:
+      topic: do i prevent warping laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/metal/alloy/stainless-steel-316-laser-cleaning
 breadcrumb:
 - label: Home

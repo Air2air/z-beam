@@ -220,7 +220,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -283,7 +282,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -328,7 +326,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:25.815421+00:00'
+dateModified: '2026-01-08T01:04:43.522979+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -376,38 +374,109 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
 faq:
-- question: How does laser cleaning safely remove dirt from alabaster sculptures?
-  answer: Laser cleaning employs precise, non-contact ablation to vaporize surface contaminants, safeguarding the essential
-    soft alabaster substrate from damage while preserving its delicate texture and notable translucency in just a few sessions.
-  topic_keyword: safely remove dirt
-  topic_statement: Precise non-contact ablation
-- question: What makes alabaster ideal for restoration using laser technology?
-  answer: Alabaster's essential softness, paired with its low thermal conductivity, proves notable for laser use, which delicately
-    clears grime while dodging the fracture hazards of mechanical techniques.
-  topic_keyword: ideal for restoration
-  topic_statement: Softness and low conductivity
-- question: Why is alabaster prone to staining and how can laser cleaning help?
-  answer: Due to its porous structure, alabaster readily absorbs oils and pollutants, resulting in notable discoloration.
-    Laser cleaning, an essential method, precisely targets and removes these stains at the molecular level, without chemicals
-    that could heighten porosity.
-  topic_keyword: prone to staining
-  topic_statement: Removes stains without chemicals
-- question: Can laser cleaning restore the translucency of aged alabaster?
-  answer: Indeed, laser cleaning precisely eliminates surface buildup and oxidation layers, thereby restoring alabaster's
-    essential light-diffusing qualities. This distinct method boosts its visual charm without modifying the material's core
-    makeup.
-  topic_keyword: restore the translucency
-  topic_statement: Revives natural translucency
-- question: Is laser cleaning suitable for fragile alabaster artifacts?
-  answer: Absolutely; its non-abrasive quality is essential for preventing chipping or further fragility issues, which are
-    notable in traditional cleaning, rendering it ideal for museum-grade restorations of delicate pieces.
-  topic_keyword: fragile alabaster artifacts
-  topic_statement: Non-abrasive prevents chipping
-- question: How to prevent water damage in alabaster after laser cleaning?
-  answer: After cleaning, it's essential to apply a breathable sealant for protection against moisture uptake, given alabaster's
-    notable vulnerability to dissolution; routine laser maintenance can tackle any subsequent soiling before deep penetration.
-  topic_keyword: prevent water damage
-  topic_statement: Apply breathable sealant
+  presentation: collapsible
+  items:
+  - id: how-does-laser-cleaning-safely-remove
+    title: How does laser cleaning safely remove dirt from alabaster sculptures?
+    content: Laser cleaning employs precise, non-contact ablation to vaporize surface contaminants, safeguarding the essential
+      soft alabaster substrate from damage while preserving its delicate texture and notable translucency in just a few sessions.
+    metadata:
+      topic: laser cleaning safely remove dirt
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: what-makes-alabaster-ideal-for-restoration
+    title: What makes alabaster ideal for restoration using laser technology?
+    content: Alabaster's essential softness, paired with its low thermal conductivity, proves notable for laser use, which
+      delicately clears grime while dodging the fracture hazards of mechanical techniques.
+    metadata:
+      topic: makes alabaster ideal for restoration
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: why-is-alabaster-prone-to-staining
+    title: Why is alabaster prone to staining and how can laser cleaning help?
+    content: Due to its porous structure, alabaster readily absorbs oils and pollutants, resulting in notable discoloration.
+      Laser cleaning, an essential method, precisely targets and removes these stains at the molecular level, without chemicals
+      that could heighten porosity.
+    metadata:
+      topic: alabaster prone to staining and
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-restore-the-translucency
+    title: Can laser cleaning restore the translucency of aged alabaster?
+    content: Indeed, laser cleaning precisely eliminates surface buildup and oxidation layers, thereby restoring alabaster's
+      essential light-diffusing qualities. This distinct method boosts its visual charm without modifying the material's core
+      makeup.
+    metadata:
+      topic: laser cleaning restore the translucency
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 4
+  - id: is-laser-cleaning-suitable-for-fragile
+    title: Is laser cleaning suitable for fragile alabaster artifacts?
+    content: Absolutely; its non-abrasive quality is essential for preventing chipping or further fragility issues, which
+      are notable in traditional cleaning, rendering it ideal for museum-grade restorations of delicate pieces.
+    metadata:
+      topic: laser cleaning suitable for fragile
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 5
+  - id: how-to-prevent-water-damage-in
+    title: How to prevent water damage in alabaster after laser cleaning?
+    content: After cleaning, it's essential to apply a breathable sealant for protection against moisture uptake, given alabaster's
+      notable vulnerability to dissolution; routine laser maintenance can tackle any subsequent soiling before deep penetration.
+    metadata:
+      topic: to prevent water damage in
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 6
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/stone/sedimentary/alabaster-laser-cleaning
 breadcrumb:
 - label: Home

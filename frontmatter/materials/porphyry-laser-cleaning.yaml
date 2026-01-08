@@ -228,7 +228,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -291,7 +290,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -337,7 +335,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:31.103258+00:00'
+dateModified: '2026-01-08T01:04:48.406741+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -384,68 +382,192 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: As a laser cleaning specialist from Indonesia, I recommend using a 1064 nm Nd:YAG laser wavelength for gentle ablation
-    of lichen and moss on Porphyry. Set power to 20-50 W with 10-20 ns pulse duration to remove biological growth without
-    harming the crystalline matrix—precise control is key in our tropical heritage sites.
-  question: What are the best laser settings (wavelength, power, pulse duration) for cleaning biological growth like lichen
-    and moss from Porphyry without damaging the crystalline matrix?
-  topic_keyword: crystalline matrix
-  topic_statement: Avoids thermal shock to feldspar
-- answer: Laser cleaning effectively removes black gypsum crusts from Porphyry at 12.7 J/cm² through this process, but risks
-    forming altered mineral phases like anhydrite. That method with the 1064 nm wavelength minimizes sub-surface damage to
-    phenocrysts. Verify complete removal using Raman spectroscopy to detect residual sulfates without surface etching.
-  question: Can laser cleaning effectively remove black gypsum crusts from Porphyry surfaces, and what are the risks of leaving
-    behind altered mineral phases?
-  topic_keyword: altered mineral phases
-  topic_statement: Risks anhydrite formation
-- answer: Porphyry's variable crystal distribution and porous groundmass lead to inconsistent absorption of our 12.7 J/cm²
-    fluence. Practically, this process requires constant power and scan speed adjustments to avoid uneven cleaning, since
-    denser areas resist ablation while pores may overheat.
-  question: How does the variable composition and porosity of Porphyry affect the consistency of laser cleaning results across
-    a single slab or facade?
-  topic_keyword: variable composition and porosity
-  topic_statement: Demands power and scan adjustments
-- answer: The risk of thermal cracking stands out significantly, stemming from mismatched expansion coefficients between feldspar
-    phenocrysts and groundmass. Practically speaking, apply nanosecond pulses at 12.7 J/cm² to contain thermal stress and
-    avoid micro-fractures in the crystalline structure. That method guarantees efficient, controlled contaminant ablation.
-  question: Is there a risk of thermal cracking or micro-fracturing in Porphyry's large feldspar phenocrysts during laser
-    cleaning, especially with high-power or continuous-wave lasers?
-- answer: For Porphyry's pitted surface, a practical recommendation is to pair low-pressure water rinsing with soft nylon
-    brushing after laser ablation at 12.7 J/cm². That method efficiently clears trapped particles from vesicles, sidestepping
-    the micro-fracture risks that air abrasion often brings.
-  question: What is the recommended method for post-laser cleaning residue removal from the rough, often pitted, surface of
-    Porphyry?
-- answer: At 12.7 J/cm² fluence, ns-pulsed 1064 nm lasers efficiently remove contaminants from Porphyry without damaging its
-    purplish-red hematite pigments. That method's mineral-specific interaction at this wavelength preserves the stone's chromatic
-    integrity, as shown in European monument conservation projects.
-  question: For historical Porphyry monuments, does laser cleaning cause any irreversible color changes, particularly to the
-    characteristic purplish-red hues?
-  topic_keyword: purplish-red hues
-  topic_statement: Preserves purplish-red hematite pigments
-- answer: To validate laser cleaning success on porphyry, assess surface cleanliness and substrate integrity through visual
-    inspection and colorimetry for residue removal. Effective NDT methods include Raman spectroscopy for molecular analysis
-    and portable XRF for elemental composition, ensuring no damage—key in our Indonesian heritage preservation projects.
-  question: How do we validate the success of a laser cleaning process on Porphyry? What non-destructive testing (NDT) methods
-    are most effective?
-- answer: Laser cleaning offers a practical way to preserve Porphyry's delicate arrises and patina, unlike abrasive methods.
-    This process applies precise parameters, such as a 12.7 J/cm² fluence threshold, to selectively remove contaminants without
-    chemical runoff or substrate damage, safeguarding the stone's integrity.
-  question: Why might laser cleaning be preferred over chemical or abrasive methods for sensitive Porphyry restoration?
-  topic_keyword: sensitive Porphyry restoration
-  topic_statement: Preserves delicate arrises patina
-- answer: Porphyry's metal oxide content demands HEPA filtration to manage hazardous aerosols like crystalline silica. Operating
-    at 100 W and 1064 nm wavelength requires efficient fume extraction. For safety, operators should use P3-rated respiratory
-    protection against fine particulates from this process.
-  question: What are the specific safety considerations (e.g., fume extraction, PPE) when laser cleaning Porphyry, given its
-    potential metal oxide content?
-- answer: Laser cleaning at 12.7 J/cm² efficiently prepares Porphyry by stripping away contaminants, resulting in a micro-rough,
-    chemically clean surface that improves coating adhesion. Yet, we need careful parameter control to avoid surface glazing,
-    which could hinder permeability for later consolidation. This process works well with the 1064 nm wavelength, matching
-    the stone's mineralogy.
-  question: Can laser cleaning be used to prepare a Porphyry surface for subsequent treatments like consolidation or protective
-    coatings?
-  topic_keyword: consolidation or protective coatings
-  topic_statement: Creates micro-rough surface adhesion
+  presentation: collapsible
+  items:
+  - id: what-are-the-best-laser-settings
+    title: What are the best laser settings (wavelength, power, pulse duration) for cleaning biological growth like lichen
+      and moss from Porphyry without damaging the crystalline matrix?
+    content: As a laser cleaning specialist from Indonesia, I recommend using a 1064 nm Nd:YAG laser wavelength for gentle
+      ablation of lichen and moss on Porphyry. Set power to 20-50 W with 10-20 ns pulse duration to remove biological growth
+      without harming the crystalline matrix—precise control is key in our tropical heritage sites.
+    metadata:
+      topic: the best laser settings (wavelength,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: can-laser-cleaning-effectively-remove-black
+    title: Can laser cleaning effectively remove black gypsum crusts from Porphyry surfaces, and what are the risks of leaving
+      behind altered mineral phases?
+    content: Laser cleaning effectively removes black gypsum crusts from Porphyry at 12.7 J/cm² through this process, but
+      risks forming altered mineral phases like anhydrite. That method with the 1064 nm wavelength minimizes sub-surface damage
+      to phenocrysts. Verify complete removal using Raman spectroscopy to detect residual sulfates without surface etching.
+    metadata:
+      topic: laser cleaning effectively remove black
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: how-does-the-variable-composition-and
+    title: How does the variable composition and porosity of Porphyry affect the consistency of laser cleaning results across
+      a single slab or facade?
+    content: Porphyry's variable crystal distribution and porous groundmass lead to inconsistent absorption of our 12.7 J/cm²
+      fluence. Practically, this process requires constant power and scan speed adjustments to avoid uneven cleaning, since
+      denser areas resist ablation while pores may overheat.
+    metadata:
+      topic: the variable composition and porosity
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: is-there-a-risk-of-thermal
+    title: Is there a risk of thermal cracking or micro-fracturing in Porphyry's large feldspar phenocrysts during laser cleaning,
+      especially with high-power or continuous-wave lasers?
+    content: The risk of thermal cracking stands out significantly, stemming from mismatched expansion coefficients between
+      feldspar phenocrysts and groundmass. Practically speaking, apply nanosecond pulses at 12.7 J/cm² to contain thermal
+      stress and avoid micro-fractures in the crystalline structure. That method guarantees efficient, controlled contaminant
+      ablation.
+    metadata:
+      topic: there a rk of thermal
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: what-is-the-recommended-method-for
+    title: What is the recommended method for post-laser cleaning residue removal from the rough, often pitted, surface of
+      Porphyry?
+    content: For Porphyry's pitted surface, a practical recommendation is to pair low-pressure water rinsing with soft nylon
+      brushing after laser ablation at 12.7 J/cm². That method efficiently clears trapped particles from vesicles, sidestepping
+      the micro-fracture risks that air abrasion often brings.
+    metadata:
+      topic: the recommended method for post-laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: for-historical-porphyry-monuments-does-laser
+    title: For historical Porphyry monuments, does laser cleaning cause any irreversible color changes, particularly to the
+      characteristic purplish-red hues?
+    content: At 12.7 J/cm² fluence, ns-pulsed 1064 nm lasers efficiently remove contaminants from Porphyry without damaging
+      its purplish-red hematite pigments. That method's mineral-specific interaction at this wavelength preserves the stone's
+      chromatic integrity, as shown in European monument conservation projects.
+    metadata:
+      topic: for htorical porphyry monuments, laser
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: how-do-we-validate-the-success
+    title: How do we validate the success of a laser cleaning process on Porphyry? What non-destructive testing (NDT) methods
+      are most effective?
+    content: To validate laser cleaning success on porphyry, assess surface cleanliness and substrate integrity through visual
+      inspection and colorimetry for residue removal. Effective NDT methods include Raman spectroscopy for molecular analysis
+      and portable XRF for elemental composition, ensuring no damage—key in our Indonesian heritage preservation projects.
+    metadata:
+      topic: do we validate the success
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: why-might-laser-cleaning-be-preferred
+    title: Why might laser cleaning be preferred over chemical or abrasive methods for sensitive Porphyry restoration?
+    content: Laser cleaning offers a practical way to preserve Porphyry's delicate arrises and patina, unlike abrasive methods.
+      This process applies precise parameters, such as a 12.7 J/cm² fluence threshold, to selectively remove contaminants
+      without chemical runoff or substrate damage, safeguarding the stone's integrity.
+    metadata:
+      topic: might laser cleaning be preferred
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: what-are-the-specific-safety-considerations
+    title: What are the specific safety considerations (e.g., fume extraction, PPE) when laser cleaning Porphyry, given its
+      potential metal oxide content?
+    content: Porphyry's metal oxide content demands HEPA filtration to manage hazardous aerosols like crystalline silica.
+      Operating at 100 W and 1064 nm wavelength requires efficient fume extraction. For safety, operators should use P3-rated
+      respiratory protection against fine particulates from this process.
+    metadata:
+      topic: the specific safety considerations (e.g.,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  - id: can-laser-cleaning-be-used-to
+    title: Can laser cleaning be used to prepare a Porphyry surface for subsequent treatments like consolidation or protective
+      coatings?
+    content: Laser cleaning at 12.7 J/cm² efficiently prepares Porphyry by stripping away contaminants, resulting in a micro-rough,
+      chemically clean surface that improves coating adhesion. Yet, we need careful parameter control to avoid surface glazing,
+      which could hinder permeability for later consolidation. This process works well with the 1064 nm wavelength, matching
+      the stone's mineralogy.
+    metadata:
+      topic: laser cleaning be used to
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/stone/sedimentary/porphyry-laser-cleaning
 breadcrumb:
 - label: Home

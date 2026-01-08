@@ -236,7 +236,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -299,7 +298,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -344,7 +342,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:26.344026+00:00'
+dateModified: '2026-01-08T01:04:44.018416+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -390,36 +388,111 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
 faq:
-- question: How does laser cleaning restore stained Bluestone surfaces?
-  answer: Laser cleaning employs precise pulsed lasers to vaporize dirt, grime, and stains without harming the stone's distinct
-    texture. This essential technique suits Bluestone patios perfectly, clearing years of buildup in one efficient pass.
-  topic_keyword: stained Bluestone surfaces
-  topic_statement: Vaporizes stains without texture damage
-- question: What makes Bluestone a good candidate for laser restoration?
-  answer: Bluestone's notable quartz-rich makeup endures laser energy effectively, enabling essential contaminant removal
-    while safeguarding its inherent color and resilience—ideal for weathered paving stones.
-  topic_keyword: laser restoration
-  topic_statement: quartz-rich composition withstands laser
-- question: Why choose laser cleaning over chemical methods for Bluestone maintenance?
-  answer: Laser cleaning stands out as eco-friendly, steering clear of harsh chemicals that could seep into Bluestone's pores
-    and inflict long-term damage. Essentially, it focuses solely on surface issues, minimizing environmental impact and health
-    risks for users.
-  topic_keyword: Bluestone maintenance
-  topic_statement: Avoids chemical seepage into pores
-- question: Can laser cleaning fix efflorescence on Bluestone walls?
-  answer: Indeed, lasers ablate salt deposits from efflorescence in a notable manner, avoiding any stone abrasion. This essential
-    non-contact technique halts further moisture wicking—a typical Bluestone challenge—while yielding a clean, dry surface.
-  topic_keyword: efflorescence on Bluestone
-  topic_statement: Prevents moisture wicking
-- question: Is laser cleaning safe for porous Bluestone materials?
-  answer: Indeed. Adjustable laser wavelengths provide an essential advantage, penetrating only surface layers to gently remove
-    stains from Bluestone's porous structure without etching or weakening it—unlike abrasive techniques that risk notable
-    micro-cracks.
-- question: How long does laser cleaning last on outdoor Bluestone applications?
-  answer: Results can last a notable 5-10 years on well-sealed Bluestone, influenced by traffic and weather exposure. It's
-    essential to perform regular inspections, proactively tackling Bluestone's staining vulnerability with minimal downtime.
-  topic_keyword: outdoor Bluestone applications
-  topic_statement: Endures 5-10 years sealed
+  presentation: collapsible
+  items:
+  - id: how-does-laser-cleaning-restore-stained
+    title: How does laser cleaning restore stained Bluestone surfaces?
+    content: Laser cleaning employs precise pulsed lasers to vaporize dirt, grime, and stains without harming the stone's
+      distinct texture. This essential technique suits Bluestone patios perfectly, clearing years of buildup in one efficient
+      pass.
+    metadata:
+      topic: laser cleaning restore stained bluestone
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: what-makes-bluestone-a-good-candidate
+    title: What makes Bluestone a good candidate for laser restoration?
+    content: Bluestone's notable quartz-rich makeup endures laser energy effectively, enabling essential contaminant removal
+      while safeguarding its inherent color and resilience—ideal for weathered paving stones.
+    metadata:
+      topic: makes bluestone a good didate
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: why-choose-laser-cleaning-over-chemical
+    title: Why choose laser cleaning over chemical methods for Bluestone maintenance?
+    content: Laser cleaning stands out as eco-friendly, steering clear of harsh chemicals that could seep into Bluestone's
+      pores and inflict long-term damage. Essentially, it focuses solely on surface issues, minimizing environmental impact
+      and health risks for users.
+    metadata:
+      topic: choose laser cleaning over chemical
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  - id: can-laser-cleaning-fix-efflorescence-on
+    title: Can laser cleaning fix efflorescence on Bluestone walls?
+    content: Indeed, lasers ablate salt deposits from efflorescence in a notable manner, avoiding any stone abrasion. This
+      essential non-contact technique halts further moisture wicking—a typical Bluestone challenge—while yielding a clean,
+      dry surface.
+    metadata:
+      topic: laser cleaning fix efflorescence on
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 4
+  - id: is-laser-cleaning-safe-for-porous
+    title: Is laser cleaning safe for porous Bluestone materials?
+    content: Indeed. Adjustable laser wavelengths provide an essential advantage, penetrating only surface layers to gently
+      remove stains from Bluestone's porous structure without etching or weakening it—unlike abrasive techniques that risk
+      notable micro-cracks.
+    metadata:
+      topic: laser cleaning safe for porous
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 5
+  - id: how-long-does-laser-cleaning-last
+    title: How long does laser cleaning last on outdoor Bluestone applications?
+    content: Results can last a notable 5-10 years on well-sealed Bluestone, influenced by traffic and weather exposure. It's
+      essential to perform regular inspections, proactively tackling Bluestone's staining vulnerability with minimal downtime.
+    metadata:
+      topic: long laser cleaning last on
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 6
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/stone/sedimentary/bluestone-laser-cleaning
 breadcrumb:
 - label: Home

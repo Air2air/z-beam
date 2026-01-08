@@ -5,7 +5,7 @@ category: carcinogen
 subcategory: aromatic_hydrocarbon
 hazard_class: carcinogenic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:36.905264+00:00'
+dateModified: '2026-01-08T00:59:12.652576+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic_hydrocarbon/pahs-compound
@@ -179,7 +179,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
   safety:
     health_effects:
       presentation: card
@@ -255,7 +254,6 @@ relationships:
         sectionMetadata:
           notes: Environmental and ecological concerns
           source_field: environmental_impact
-          presentation_type: descriptive
   detection_monitoring:
     detection_monitoring:
       presentation: descriptive
@@ -271,7 +269,6 @@ relationships:
         sectionMetadata:
           notes: Continuous monitoring and sampling systems
           source_field: detection_monitoring
-          presentation_type: descriptive
   interactions:
     produced_from_contaminants:
       presentation: card
@@ -317,7 +314,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
 ppe_requirements: Handling PAHs demands solid PPE setup, especially since these compounds stick around in materials like coatings
   or residues from industrial processes. Gloves made of nitrile or neoprene keep hands safe from skin contact, as PAHs can
   seep through thinner barriers. Full-body suits, the kind that cover everything without gaps, shield against splashes or
@@ -329,10 +325,28 @@ ppe_requirements: Handling PAHs demands solid PPE setup, especially since these 
   even one piece led to health headaches down the line. Avoid cotton-based gear; it absorbs too readily and turns into a hazard
   itself.
 faq:
-- question: As a laser cleaning operator, how can I best protect myself from PAH exposure during the process?
-  answer: Always prioritize engineering controls like local exhaust ventilation or fume extractors positioned near the laser
-    work area to capture PAH vapors and particulates at the source, reducing inhalation risks in industrial settings. Wear
-    appropriate personal protective equipment, including a NIOSH-approved respirator with organic vapor cartridges, nitrile
-    gloves, and protective eyewear, especially when cleaning surfaces that may release PAHs from organic residues or coatings.
-    Monitor air quality regularly with real-time detectors for PAHs, and ensure exposure stays below OSHA's permissible limits
-    (e.g., 0.2 mg/m³ for coal tar pitch volatiles as a proxy), stopping work if levels approach thresholds.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I best protect myself from PAH exposure during the process?
+    content: Always prioritize engineering controls like local exhaust ventilation or fume extractors positioned near the
+      laser work area to capture PAH vapors and particulates at the source, reducing inhalation risks in industrial settings.
+      Wear appropriate personal protective equipment, including a NIOSH-approved respirator with organic vapor cartridges,
+      nitrile gloves, and protective eyewear, especially when cleaning surfaces that may release PAHs from organic residues
+      or coatings. Monitor air quality regularly with real-time detectors for PAHs, and ensure exposure stays below OSHA's
+      permissible limits (e.g., 0.2 mg/m³ for coal tar pitch volatiles as a proxy), stopping work if levels approach thresholds.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity

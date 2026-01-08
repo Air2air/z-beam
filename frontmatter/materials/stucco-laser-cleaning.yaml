@@ -198,7 +198,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -256,7 +255,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 3
   name: Ikmanda Roswati
@@ -302,7 +300,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:32.665378+00:00'
+dateModified: '2026-01-08T01:04:49.987470+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -341,68 +339,188 @@ eeat:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
 faq:
-- answer: Yes, this process safely removes dirt and pollutants from historic stucco walls via a 1064 nm wavelength at 3.2
-    J/cm² fluence. It limits thermal stress on the cementitious makeup to prevent cracks or fading. That method upholds heritage
-    preservation norms efficiently by curbing heat buildup, with 100 W power for gentle, even treatment.
-  question: Can laser cleaning safely remove dirt and pollutants from historic stucco walls without causing cracking or discoloration?
-- answer: For graffiti removal on stucco, a practical choice is the 1064 nm near-infrared laser with 10 ns pulses, which selectively
-    ablates pigments while sparing the porous lime-cement binder. At 3.2 J/cm² fluence, this process delivers efficient cleaning
-    without substrate thermal damage, yielding uniform results in two passes at 500 mm/s.
-  question: What laser parameters, like wavelength and pulse duration, work best for cleaning graffiti off stucco surfaces?
-  topic_keyword: stucco surfaces
-  topic_statement: Spares porous lime-cement binder
-- answer: Yes, cleaning weathered stucco with lasers at 3.2 J/cm² fluence can release silica-laden dust that irritates lungs.
-    For outdoor jobs, wear N95 masks and rely on natural ventilation straightforwardly to cut airborne risks. That method
-    ensures low fumes at 1064 nm wavelength and 100 W power.
-  question: Are there risks of releasing hazardous dust or fumes when using lasers to clean weathered stucco exteriors?
-  topic_keyword: hazardous dust or fumes
-  topic_statement: Releases silica-laden dust
-- answer: Fiber lasers at 1064 nm provide a straightforward edge over CO2 systems for aged stucco restoration, owing to superior
-    absorption in the inorganic matrix that efficiently limits excessive heat buildup. This process upholds surface roughness
-    via 3.2 J/cm² fluence and nanosecond pulses, averting over-etching while softly clearing contaminants.
-  question: How effective is fiber laser cleaning compared to CO2 lasers for restoring the texture of aged stucco facades?
-  topic_keyword: texture of aged stucco
-  topic_statement: Stronger absorption curbs heat buildup
-- answer: Before cleaning stucco with a 1064 nm laser, it's practical to assess moisture content below 5% to prevent uneven
-    ablation at 3.2 J/cm² fluence, and check for efflorescence by lightly brushing salts away. If damp, allow natural drying
-    or apply a temporary sealant efficiently, ensuring the porous masonry surface remains stable for uniform contaminant removal.
-  question: What preparation steps are needed for stucco before laser cleaning to ensure even contaminant removal?
-  topic_keyword: even contaminant removal
-  topic_statement: Assess moisture below 5%
-- answer: Yes, this process allows laser cleaning to straightforwardly penetrate stucco's porous structure through capillary
-    action, vaporizing embedded efflorescent salts at 3.2 J/cm² fluence without structural damage. Employing a 1064 nm wavelength
-    and 100 W power controls thermal effects, preserving masonry integrity. Apply stabilization coatings afterward for lasting
-    durability.
-  question: Can laser cleaning penetrate and remove embedded salts from porous stucco without structural weakening?
-- answer: When restoring 18th-century Mediterranean villas in Palermo, Italy, this process of laser cleaning at 1064 nm wavelength
-    and 3.2 J/cm² fluence effectively removed soot from stucco of varying thicknesses, applying 500 mm/s scan speeds to prevent
-    uneven ablation. Athens' urban projects showed practical durability, with surfaces intact for 15 years afterward amid
-    coastal conditions.
-  question: What are real-world case studies of laser cleaning applied to stucco on Mediterranean-style buildings?
-  topic_keyword: stucco on Mediterranean-style buildings
-  topic_statement: Handles variable-thickness stucco durably
-- answer: Stucco's alkaline pH of about 12-13 boosts chemical reactivity in laser ablation, potentially releasing caustic
-    dust that irritates skin or corrodes nearby metals. For a practical fix, select a 1064 nm wavelength at 3.2 J/cm² fluence
-    to cut thermal disruption and handle residue efficiently. Afterward, neutralize this process with a dilute vinegar rinse
-    following cement plaster guidelines for surface stability.
-  question: How does stucco's alkaline pH affect the choice of laser cleaning methods and post-treatment care?
-  topic_keyword: stucco's alkaline pH
-  topic_statement: Requires 1064 nm neutralization
-- answer: Yes, laser cleaning serves as a practical alternative to sandblasting for stucco in salty coastal regions, safeguarding
-    its erosion resistance by skipping abrasive damage. This process efficiently clears salt buildup at 3.2 J/cm² fluence
-    and 100 W power. Long-term, that method proves cost-effective with little waste and aligns with regulations promoting
-    non-abrasive options, improving durability sans substrate injury.
-  question: Is laser cleaning a viable alternative to sandblasting for maintaining stucco in coastal environments prone to
-    salt buildup?
-  topic_keyword: salt buildup
-  topic_statement: Preserves erosion resistance
-- answer: Operators using lasers on delicate stucco surfaces require manufacturer-issued certification. This process stresses
-    hands-on calibration to a 3.2 J/cm² fluence threshold and 500 mm/s scan speed, preventing pitting straightforward. Training
-    needs to emphasize real-time thermal gradient monitoring efficiently, avoiding uneven heating that etches porous masonry.
-  question: What training is recommended for operators using lasers on delicate stucco finishes to prevent unintended surface
-    pitting?
-  topic_keyword: surface pitting
-  topic_statement: Calibrate to fluence threshold
+  presentation: collapsible
+  items:
+  - id: can-laser-cleaning-safely-remove-dirt
+    title: Can laser cleaning safely remove dirt and pollutants from historic stucco walls without causing cracking or discoloration?
+    content: Yes, this process safely removes dirt and pollutants from historic stucco walls via a 1064 nm wavelength at 3.2
+      J/cm² fluence. It limits thermal stress on the cementitious makeup to prevent cracks or fading. That method upholds
+      heritage preservation norms efficiently by curbing heat buildup, with 100 W power for gentle, even treatment.
+    metadata:
+      topic: laser cleaning safely remove dirt
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-parameters-like-wavelength-and
+    title: What laser parameters, like wavelength and pulse duration, work best for cleaning graffiti off stucco surfaces?
+    content: For graffiti removal on stucco, a practical choice is the 1064 nm near-infrared laser with 10 ns pulses, which
+      selectively ablates pigments while sparing the porous lime-cement binder. At 3.2 J/cm² fluence, this process delivers
+      efficient cleaning without substrate thermal damage, yielding uniform results in two passes at 500 mm/s.
+    metadata:
+      topic: laser parameters, like wavelength and
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 2
+  - id: are-there-risks-of-releasing-hazardous
+    title: Are there risks of releasing hazardous dust or fumes when using lasers to clean weathered stucco exteriors?
+    content: Yes, cleaning weathered stucco with lasers at 3.2 J/cm² fluence can release silica-laden dust that irritates
+      lungs. For outdoor jobs, wear N95 masks and rely on natural ventilation straightforwardly to cut airborne risks. That
+      method ensures low fumes at 1064 nm wavelength and 100 W power.
+    metadata:
+      topic: there rks of releasing hazardous
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 3
+  - id: how-effective-is-fiber-laser-cleaning
+    title: How effective is fiber laser cleaning compared to CO2 lasers for restoring the texture of aged stucco facades?
+    content: Fiber lasers at 1064 nm provide a straightforward edge over CO2 systems for aged stucco restoration, owing to
+      superior absorption in the inorganic matrix that efficiently limits excessive heat buildup. This process upholds surface
+      roughness via 3.2 J/cm² fluence and nanosecond pulses, averting over-etching while softly clearing contaminants.
+    metadata:
+      topic: effective fiber laser cleaning compd
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 4
+  - id: what-preparation-steps-are-needed-for
+    title: What preparation steps are needed for stucco before laser cleaning to ensure even contaminant removal?
+    content: Before cleaning stucco with a 1064 nm laser, it's practical to assess moisture content below 5% to prevent uneven
+      ablation at 3.2 J/cm² fluence, and check for efflorescence by lightly brushing salts away. If damp, allow natural drying
+      or apply a temporary sealant efficiently, ensuring the porous masonry surface remains stable for uniform contaminant
+      removal.
+    metadata:
+      topic: preparation steps needed for stucco
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 5
+  - id: can-laser-cleaning-penetrate-and-remove
+    title: Can laser cleaning penetrate and remove embedded salts from porous stucco without structural weakening?
+    content: Yes, this process allows laser cleaning to straightforwardly penetrate stucco's porous structure through capillary
+      action, vaporizing embedded efflorescent salts at 3.2 J/cm² fluence without structural damage. Employing a 1064 nm wavelength
+      and 100 W power controls thermal effects, preserving masonry integrity. Apply stabilization coatings afterward for lasting
+      durability.
+    metadata:
+      topic: laser cleaning penetrate and remove
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 6
+  - id: what-are-realworld-case-studies-of
+    title: What are real-world case studies of laser cleaning applied to stucco on Mediterranean-style buildings?
+    content: When restoring 18th-century Mediterranean villas in Palermo, Italy, this process of laser cleaning at 1064 nm
+      wavelength and 3.2 J/cm² fluence effectively removed soot from stucco of varying thicknesses, applying 500 mm/s scan
+      speeds to prevent uneven ablation. Athens' urban projects showed practical durability, with surfaces intact for 15 years
+      afterward amid coastal conditions.
+    metadata:
+      topic: real-world case studies of laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 7
+  - id: how-does-stuccos-alkaline-ph-affect
+    title: How does stucco's alkaline pH affect the choice of laser cleaning methods and post-treatment care?
+    content: Stucco's alkaline pH of about 12-13 boosts chemical reactivity in laser ablation, potentially releasing caustic
+      dust that irritates skin or corrodes nearby metals. For a practical fix, select a 1064 nm wavelength at 3.2 J/cm² fluence
+      to cut thermal disruption and handle residue efficiently. Afterward, neutralize this process with a dilute vinegar rinse
+      following cement plaster guidelines for surface stability.
+    metadata:
+      topic: stucco's alkaline ph affect the
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 8
+  - id: is-laser-cleaning-a-viable-alternative
+    title: Is laser cleaning a viable alternative to sandblasting for maintaining stucco in coastal environments prone to
+      salt buildup?
+    content: Yes, laser cleaning serves as a practical alternative to sandblasting for stucco in salty coastal regions, safeguarding
+      its erosion resistance by skipping abrasive damage. This process efficiently clears salt buildup at 3.2 J/cm² fluence
+      and 100 W power. Long-term, that method proves cost-effective with little waste and aligns with regulations promoting
+      non-abrasive options, improving durability sans substrate injury.
+    metadata:
+      topic: laser cleaning a viable alternative
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 9
+  - id: what-training-is-recommended-for-operators
+    title: What training is recommended for operators using lasers on delicate stucco finishes to prevent unintended surface
+      pitting?
+    content: Operators using lasers on delicate stucco surfaces require manufacturer-issued certification. This process stresses
+      hands-on calibration to a 3.2 J/cm² fluence threshold and 500 mm/s scan speed, preventing pitting straightforward. Training
+      needs to emphasize real-time thermal gradient monitoring efficiently, avoiding uneven heating that etches porous masonry.
+    metadata:
+      topic: training recommended for operators using
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 fullPath: /materials/masonry/concrete/stucco-laser-cleaning
 breadcrumb:
 - label: Home

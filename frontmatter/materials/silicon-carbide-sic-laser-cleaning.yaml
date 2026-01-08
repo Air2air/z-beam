@@ -195,7 +195,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -258,7 +257,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 1
   name: Yi-Chun Lin
@@ -302,7 +300,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:32.086884+00:00'
+dateModified: '2026-01-08T01:04:49.405095+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -353,67 +351,175 @@ eeat:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
 faq:
-- answer: For cleaning silicon carbide, 1064 nm near-IR wavelengths from Nd:YAG or fiber lasers prove ideal. SiC absorbs efficiently
-    in this range without excessive heat buildup, particularly given its high thermal conductivity that risks cracking. Maintain
-    fluence at 2.5 J/cm² with 10 ns pulses to vaporize contaminants while sparing the substrate. Thus, this method delivers
-    uniform results in semiconductor applications.
-  question: What laser wavelengths are best for cleaning silicon carbide surfaces without causing thermal damage?
-  topic_keyword: thermal damage
-  topic_statement: 1064 nm prevents cracking risk
-- answer: With a Mohs hardness of 9.5, silicon carbide shows exceptional resistance to laser ablation, particularly demanding
-    a fluence threshold of 2.5 J/cm² for contaminant removal—far above levels for softer metals like aluminum. Thus, precise
-    1064 nm wavelength settings and 50% beam overlap are essential to achieve clean, undamaged surfaces in semiconductor applications.
-  question: How does the high hardness of silicon carbide impact the effectiveness of laser ablation in cleaning processes?
-  topic_keyword: high hardness
-  topic_statement: Requires 2.5 J/cm² fluence
-- answer: Particularly in semiconductor and aerospace SiC components, laser cleaning removes oxides, machining residues, and
-    carbon deposits effectively without substrate damage, due to its high selectivity. A 1064 nm wavelength combined with
-    fluence over 2.5 J/cm² ensures precise ablation of contaminants while upholding SiC's thermal stability. Thus, this method
-    proves essential in electronics fabrication to sustain surface integrity.
-  question: What are common contaminants on silicon carbide components that laser cleaning targets, such as in semiconductor
-    or aerospace parts?
-  topic_keyword: semiconductor or aerospace parts
-  topic_statement: Removes oxides, residues, deposits
-- answer: Yes, laser cleaning remains safe for silicon carbide, particularly in high-temperature applications such as turbine
-    blades. Employing a 1064 nm wavelength and 2.5 J/cm² fluence prevents microcracking its hexagonal structure or phase shifts.
-    Notably, SiC's thermal shock resistance manages 100 W power effectively. Thus, always use eye goggles and properly contain
-    dust.
-  question: Is laser cleaning safe for silicon carbide used in high-temperature applications like turbine blades?
-  topic_keyword: high-temperature applications
-  topic_statement: Avoids microcracking hexagonal structure
-- answer: For cleaning silicon carbide ceramics via fiber lasers, particularly to ablate contaminants without excess heat,
-    I recommend 10 ns pulses at 2.5 J/cm² fluence. This approach avoids melting near 2700°C. Notably, nanosecond durations
-    surpass picoseconds for most SiC tasks, thus matching IPG Photonics' precision guidelines.
-  question: What pulse duration and energy density settings are recommended for fiber lasers when cleaning silicon carbide
-    ceramics?
-- answer: Yes, laser cleaning effectively removes oxide layers from silicon carbide without harming its crystalline structure,
-    drawing on the material's chemical inertness to prevent unwanted reactions. Specifically, a 1064 nm wavelength with fluence
-    around 2.5 J/cm² enables precise ablation, sidestepping graphitization or sublimation. Thus, SEM inspections reveal smooth,
-    defect-free surfaces afterward.
-  question: Can laser cleaning remove oxide layers from silicon carbide without introducing defects in its crystalline structure?
-  topic_keyword: crystalline structure
-  topic_statement: Preserves crystalline structure
-- answer: In industrial laser cleaning of silicon carbide, follow OSHA standards, particularly with Class 4-rated eyewear
-    and enclosures at the 1064 nm wavelength to protect against beam hazards. SiC's inert properties notably reduce risks,
-    yet thus, implement local exhaust ventilation to capture released silicon particulates or volatile organics from contaminants,
-    maintaining exposure below 5 mg/m³.
-  question: What safety precautions are needed when laser cleaning silicon carbide in industrial settings, including fume
-    handling?
-- answer: Notably, silicon carbide's thermal conductivity of 490 W/m·K enables rapid heat dissipation, supporting laser powers
-    near 100 W for effective wafer surface cleaning without damage. Its low thermal expansion thus prevents uneven heating
-    and distortion in semiconductor processes. Target a fluence of 2.5 J/cm² to balance contaminant removal with material
-    integrity.
-  question: How do the thermal properties of silicon carbide influence the choice of laser power for surface treatment and
-    cleaning?
-  topic_keyword: thermal properties
-  topic_statement: Enables 100 W without damage
-- answer: In the automotive and aerospace industries, particularly when laser cleaning silicon carbide, ISO 11146 compliance
-    ensures precise beam characterization to avoid substrate damage. For engine components, traceability protocols prove vital,
-    specifically monitoring processes at 100 W power and 2.5 J/cm² fluence. Subsequently, apply non-destructive testing to
-    verify surface integrity while preserving SiC's semiconductor properties.
-  question: What are the regulatory requirements for laser cleaning silicon carbide in automotive or aerospace manufacturing?
-  topic_keyword: automotive or aerospace manufacturing
-  topic_statement: Demands ISO 11146 compliance
+  presentation: collapsible
+  items:
+  - id: what-laser-wavelengths-are-best-for
+    title: What laser wavelengths are best for cleaning silicon carbide surfaces without causing thermal damage?
+    content: For cleaning silicon carbide, 1064 nm near-IR wavelengths from Nd:YAG or fiber lasers prove ideal. SiC absorbs
+      efficiently in this range without excessive heat buildup, particularly given its high thermal conductivity that risks
+      cracking. Maintain fluence at 2.5 J/cm² with 10 ns pulses to vaporize contaminants while sparing the substrate. Thus,
+      this method delivers uniform results in semiconductor applications.
+    metadata:
+      topic: laser wavelengths best for cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  - id: how-does-the-high-hardness-of
+    title: How does the high hardness of silicon carbide impact the effectiveness of laser ablation in cleaning processes?
+    content: With a Mohs hardness of 9.5, silicon carbide shows exceptional resistance to laser ablation, particularly demanding
+      a fluence threshold of 2.5 J/cm² for contaminant removal—far above levels for softer metals like aluminum. Thus, precise
+      1064 nm wavelength settings and 50% beam overlap are essential to achieve clean, undamaged surfaces in semiconductor
+      applications.
+    metadata:
+      topic: the high hardness of silicon
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 2
+  - id: what-are-common-contaminants-on-silicon
+    title: What are common contaminants on silicon carbide components that laser cleaning targets, such as in semiconductor
+      or aerospace parts?
+    content: Particularly in semiconductor and aerospace SiC components, laser cleaning removes oxides, machining residues,
+      and carbon deposits effectively without substrate damage, due to its high selectivity. A 1064 nm wavelength combined
+      with fluence over 2.5 J/cm² ensures precise ablation of contaminants while upholding SiC's thermal stability. Thus,
+      this method proves essential in electronics fabrication to sustain surface integrity.
+    metadata:
+      topic: common contaminants on silicon carbide
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 3
+  - id: is-laser-cleaning-safe-for-silicon
+    title: Is laser cleaning safe for silicon carbide used in high-temperature applications like turbine blades?
+    content: Yes, laser cleaning remains safe for silicon carbide, particularly in high-temperature applications such as turbine
+      blades. Employing a 1064 nm wavelength and 2.5 J/cm² fluence prevents microcracking its hexagonal structure or phase
+      shifts. Notably, SiC's thermal shock resistance manages 100 W power effectively. Thus, always use eye goggles and properly
+      contain dust.
+    metadata:
+      topic: laser cleaning safe for silicon
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 4
+  - id: what-pulse-duration-and-energy-density
+    title: What pulse duration and energy density settings are recommended for fiber lasers when cleaning silicon carbide
+      ceramics?
+    content: For cleaning silicon carbide ceramics via fiber lasers, particularly to ablate contaminants without excess heat,
+      I recommend 10 ns pulses at 2.5 J/cm² fluence. This approach avoids melting near 2700°C. Notably, nanosecond durations
+      surpass picoseconds for most SiC tasks, thus matching IPG Photonics' precision guidelines.
+    metadata:
+      topic: pulse duration and energy density
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 5
+  - id: can-laser-cleaning-remove-oxide-layers
+    title: Can laser cleaning remove oxide layers from silicon carbide without introducing defects in its crystalline structure?
+    content: Yes, laser cleaning effectively removes oxide layers from silicon carbide without harming its crystalline structure,
+      drawing on the material's chemical inertness to prevent unwanted reactions. Specifically, a 1064 nm wavelength with
+      fluence around 2.5 J/cm² enables precise ablation, sidestepping graphitization or sublimation. Thus, SEM inspections
+      reveal smooth, defect-free surfaces afterward.
+    metadata:
+      topic: laser cleaning remove oxide layers
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 6
+  - id: what-safety-precautions-are-needed-when
+    title: What safety precautions are needed when laser cleaning silicon carbide in industrial settings, including fume handling?
+    content: In industrial laser cleaning of silicon carbide, follow OSHA standards, particularly with Class 4-rated eyewear
+      and enclosures at the 1064 nm wavelength to protect against beam hazards. SiC's inert properties notably reduce risks,
+      yet thus, implement local exhaust ventilation to capture released silicon particulates or volatile organics from contaminants,
+      maintaining exposure below 5 mg/m³.
+    metadata:
+      topic: safety precautions needed laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 7
+  - id: how-do-the-thermal-properties-of
+    title: How do the thermal properties of silicon carbide influence the choice of laser power for surface treatment and
+      cleaning?
+    content: Notably, silicon carbide's thermal conductivity of 490 W/m·K enables rapid heat dissipation, supporting laser
+      powers near 100 W for effective wafer surface cleaning without damage. Its low thermal expansion thus prevents uneven
+      heating and distortion in semiconductor processes. Target a fluence of 2.5 J/cm² to balance contaminant removal with
+      material integrity.
+    metadata:
+      topic: do the thermal properties of
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 8
+  - id: what-are-the-regulatory-requirements-for
+    title: What are the regulatory requirements for laser cleaning silicon carbide in automotive or aerospace manufacturing?
+    content: In the automotive and aerospace industries, particularly when laser cleaning silicon carbide, ISO 11146 compliance
+      ensures precise beam characterization to avoid substrate damage. For engine components, traceability protocols prove
+      vital, specifically monitoring processes at 100 W power and 2.5 J/cm² fluence. Subsequently, apply non-destructive testing
+      to verify surface integrity while preserving SiC's semiconductor properties.
+    metadata:
+      topic: the regulatory requirements for laser
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: false
+      order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 abbreviations:
 - SiC
 fullPath: /materials/ceramic/carbide/silicon-carbide-sic-laser-cleaning

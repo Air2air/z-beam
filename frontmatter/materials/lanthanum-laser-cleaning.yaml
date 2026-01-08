@@ -161,7 +161,6 @@ relationships:
         sectionMetadata:
           notes: Cross-references to contaminant pages
           relationship_type: contaminated_by
-          presentation_type: card
   operational:
     industry_applications:
       presentation: card
@@ -216,7 +215,6 @@ relationships:
         variant: default
         sectionMetadata:
           notes: Compliance requirements
-          presentation_type: card
 author:
   id: 2
   name: Alessandro Moretti
@@ -261,7 +259,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:43:28.675663+00:00'
+dateModified: '2026-01-08T01:04:46.355184+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -301,65 +299,185 @@ eeat:
     name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
     url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
 faq:
-- answer: A standard 1064nm laser system effectively removes lanthanum oxide scale, though it demands precise fluence control
-    near the notable 2.5 J/cm² ablation threshold. Boasting a high absorption coefficient of 0.85 for efficient cleaning,
-    it still requires careful parameterization due to the low thermal conductivity of 13.4 W/(m·K), making such steps essential
-    to avert localized thermal effects and surface alterations.
-  question: Can a standard laser cleaning machine safely remove lanthanum oxide scale or contamination from components?
-  topic_keyword: lanthanum oxide scale
-  topic_statement: Requires precise fluence control
-- answer: Lanthanum's notably low 200°C oxidation threshold ensures laser cleaning produces hazardous oxide fumes with ease.
-    Employing our standard 2.5 J/cm² fluence demands a P100 particulate filter alongside robust fume extraction. Fine, reactive
-    particles make essential this respiratory and ventilation safeguard against inhalation dangers.
-  question: What are the specific safety hazards of laser cleaning lanthanum or lanthanum-containing alloys?
-  topic_keyword: specific safety hazards
-  topic_statement: Generates hazardous oxide fumes
-- answer: Given lanthanum's notable 85% absorptivity, employ a 1064 nm wavelength at 90 W average power. It's essential to
-    keep fluence just above the 2.8 J/cm² ablation threshold via 12 ns pulses, thus removing oxides without melting the soft
-    substrate—exploiting its low thermal conductivity.
-  question: What is the best laser parameter setup (wavelength, power, pulse width) for cleaning lanthanum without damaging
-    the substrate?
-- answer: Yes, laser cleaning at 2.5 J/cm² fluence indeed forms a thin lanthanum oxide passivation layer. This proves essential,
-    as it notably enhances the material's corrosion resistance—otherwise constrained below 200°C—thereby extending part durability
-    for later uses.
-  question: Does laser cleaning create a passivation layer on lanthanum metal, and is it desirable?
-  topic_keyword: passivation layer
-  topic_statement: Creates desirable oxide passivation
-- answer: To confirm cleaning effectiveness, we rely on white light interferometry for surface topography below 1 µm roughness.
-    Essential EDX analysis verifies oxide contaminants under 200 ppm, while a distinct uniform matte finish at 2.5 J/cm² fluence
-    signals successful ablation.
-  question: How do you verify the effectiveness of laser cleaning on lanthanum surfaces? What inspection methods are used?
-- answer: Lanthanum stands as a notable rare earth element, yet unlike radioactive thorium, it carries no radiological risk.
-    Essential laser safety protocols guide the process, with a 1064 nm wavelength at 2.5 J/cm² fluence for oxide removal.
-    Above all, handling the fine particulates from ablation demands careful attention.
-  question: Is lanthanum considered a 'rare earth' in laser cleaning safety protocols, and does it require special handling
-    like thorium?
-  topic_keyword: special handling like thorium
-  topic_statement: No radiological hazard
-- answer: In electronics manufacturing, cleaning lanthanum-containing hydrogen storage alloys and optical components like
-    LaFN21 glass stands out as a notable routine. Essential for precision, their oxide layers—forming above 200°C—are effectively
-    removed via a 1064 nm laser at 2.5 J/cm² fluence, sparing the soft substrate from damage.
-  question: What are the common industrial parts made of lanthanum that might require laser cleaning?
-  topic_keyword: made of lanthanum
-  topic_statement: Cleans alloys and optical glass
-- answer: Lanthanum oxide contamination, notably from catalyst residues or glass polishing, poses a common challenge. We eliminate
-    it with a 1064 nm laser at 2.5 J/cm²—a fluence just exceeding its ablation threshold. This essential method vaporizes
-    the oxide layer while preserving the underlying nickel alloy or stainless steel substrate.
-  question: Why is lanthanum often a contaminant on other materials, and how is it removed with a laser?
-  topic_keyword: lanthanum often a contaminant
-  topic_statement: Ablated above oxide threshold
-- answer: Laser cleaning adeptly readies lanthanum surfaces via a 1064 nm wavelength and fluence around 2.5 J/cm². Notably,
-    it strips away oxides while forming a mildly roughened, activated layer suited for strong adhesion. The essential low
-    thermal conductivity of 13.4 W/(m·K) limits heat exposure, safeguarding substrate integrity for follow-on coating or welding.
-  question: Can laser cleaning be used to prepare a lanthanum surface for subsequent processes like coating or welding?
-  topic_keyword: prepare a lanthanum surface
-  topic_statement: Low conductivity minimizes heat input
-- answer: Lanthanum surfaces, just laser-cleaned, re-oxidize nearly instantly in air owing to the metal's notable reactivity.
-    Preserving the pristine state from 2.5 J/cm² fluence is essential, so transfer the component straight to an argon glovebox
-    or advance to the next step—like coating—without pause.
-  question: How does the high reactivity of fresh lanthanum metal affect post-laser cleaning handling and storage?
-  topic_keyword: high reactivity
-  topic_statement: Immediate inert atmosphere transfer
+  presentation: collapsible
+  items:
+  - id: can-a-standard-laser-cleaning-machine
+    title: Can a standard laser cleaning machine safely remove lanthanum oxide scale or contamination from components?
+    content: A standard 1064nm laser system effectively removes lanthanum oxide scale, though it demands precise fluence control
+      near the notable 2.5 J/cm² ablation threshold. Boasting a high absorption coefficient of 0.85 for efficient cleaning,
+      it still requires careful parameterization due to the low thermal conductivity of 13.4 W/(m·K), making such steps essential
+      to avert localized thermal effects and surface alterations.
+    metadata:
+      topic: a standard laser cleaning machine
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: what-are-the-specific-safety-hazards
+    title: What are the specific safety hazards of laser cleaning lanthanum or lanthanum-containing alloys?
+    content: Lanthanum's notably low 200°C oxidation threshold ensures laser cleaning produces hazardous oxide fumes with
+      ease. Employing our standard 2.5 J/cm² fluence demands a P100 particulate filter alongside robust fume extraction. Fine,
+      reactive particles make essential this respiratory and ventilation safeguard against inhalation dangers.
+    metadata:
+      topic: the specific safety hazards of
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
+  - id: what-is-the-best-laser-parameter
+    title: What is the best laser parameter setup (wavelength, power, pulse width) for cleaning lanthanum without damaging
+      the substrate?
+    content: Given lanthanum's notable 85% absorptivity, employ a 1064 nm wavelength at 90 W average power. It's essential
+      to keep fluence just above the 2.8 J/cm² ablation threshold via 12 ns pulses, thus removing oxides without melting the
+      soft substrate—exploiting its low thermal conductivity.
+    metadata:
+      topic: the best laser parameter setup
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 3
+  - id: does-laser-cleaning-create-a-passivation
+    title: Does laser cleaning create a passivation layer on lanthanum metal, and is it desirable?
+    content: Yes, laser cleaning at 2.5 J/cm² fluence indeed forms a thin lanthanum oxide passivation layer. This proves essential,
+      as it notably enhances the material's corrosion resistance—otherwise constrained below 200°C—thereby extending part
+      durability for later uses.
+    metadata:
+      topic: laser cleaning create a passivation
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 4
+  - id: how-do-you-verify-the-effectiveness
+    title: How do you verify the effectiveness of laser cleaning on lanthanum surfaces? What inspection methods are used?
+    content: To confirm cleaning effectiveness, we rely on white light interferometry for surface topography below 1 µm roughness.
+      Essential EDX analysis verifies oxide contaminants under 200 ppm, while a distinct uniform matte finish at 2.5 J/cm²
+      fluence signals successful ablation.
+    metadata:
+      topic: do you verify the effectiveness
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 5
+  - id: is-lanthanum-considered-a-rare-earth
+    title: Is lanthanum considered a 'rare earth' in laser cleaning safety protocols, and does it require special handling
+      like thorium?
+    content: Lanthanum stands as a notable rare earth element, yet unlike radioactive thorium, it carries no radiological
+      risk. Essential laser safety protocols guide the process, with a 1064 nm wavelength at 2.5 J/cm² fluence for oxide removal.
+      Above all, handling the fine particulates from ablation demands careful attention.
+    metadata:
+      topic: lanthanum considered a 'r earth'
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 6
+  - id: what-are-the-common-industrial-parts
+    title: What are the common industrial parts made of lanthanum that might require laser cleaning?
+    content: In electronics manufacturing, cleaning lanthanum-containing hydrogen storage alloys and optical components like
+      LaFN21 glass stands out as a notable routine. Essential for precision, their oxide layers—forming above 200°C—are effectively
+      removed via a 1064 nm laser at 2.5 J/cm² fluence, sparing the soft substrate from damage.
+    metadata:
+      topic: the common industrial parts made
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 7
+  - id: why-is-lanthanum-often-a-contaminant
+    title: Why is lanthanum often a contaminant on other materials, and how is it removed with a laser?
+    content: Lanthanum oxide contamination, notably from catalyst residues or glass polishing, poses a common challenge. We
+      eliminate it with a 1064 nm laser at 2.5 J/cm²—a fluence just exceeding its ablation threshold. This essential method
+      vaporizes the oxide layer while preserving the underlying nickel alloy or stainless steel substrate.
+    metadata:
+      topic: lanthanum often a contaminant on
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 8
+  - id: can-laser-cleaning-be-used-to
+    title: Can laser cleaning be used to prepare a lanthanum surface for subsequent processes like coating or welding?
+    content: Laser cleaning adeptly readies lanthanum surfaces via a 1064 nm wavelength and fluence around 2.5 J/cm². Notably,
+      it strips away oxides while forming a mildly roughened, activated layer suited for strong adhesion. The essential low
+      thermal conductivity of 13.4 W/(m·K) limits heat exposure, safeguarding substrate integrity for follow-on coating or
+      welding.
+    metadata:
+      topic: laser cleaning be used to
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 9
+  - id: how-does-the-high-reactivity-of
+    title: How does the high reactivity of fresh lanthanum metal affect post-laser cleaning handling and storage?
+    content: Lanthanum surfaces, just laser-cleaned, re-oxidize nearly instantly in air owing to the metal's notable reactivity.
+      Preserving the pristine state from 2.5 J/cm² fluence is essential, so transfer the component straight to an argon glovebox
+      or advance to the next step—like coating—without pause.
+    metadata:
+      topic: the high reactivity of fresh
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 industryTags:
 - Electronics Manufacturing
 - Permanent Magnet Production

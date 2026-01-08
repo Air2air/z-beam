@@ -5,7 +5,7 @@ category: carcinogen
 subcategory: heavy_metal
 hazard_class: carcinogenic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-07T06:46:37.451527+00:00'
+dateModified: '2026-01-08T00:59:13.153221+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/heavy_metal/chromium-vi-compound
@@ -160,7 +160,6 @@ relationships:
         sectionMetadata:
           notes: Core chemical identity data from Compounds.yaml
           source_field: chemical_properties
-          presentation_type: descriptive
     physical_properties:
       presentation: descriptive
       items:
@@ -422,7 +421,6 @@ relationships:
         sectionMetadata:
           notes: Links to contaminant pages
           relationship_type: produced_from
-          presentation_type: card
     produced_from_materials:
       presentation: card
       items:
@@ -439,7 +437,6 @@ relationships:
         sectionMetadata:
           notes: Links to material pages
           relationship_type: produced_from
-          presentation_type: card
     reactivity:
       presentation: descriptive
       items:
@@ -487,11 +484,29 @@ ppe_requirements: "Handling chromium(VI) compounds demands careful attention to 
   \ training on proper fit and maintenance keeps this gear effective, turning routine handling into a safer operation across\
   \ applications from corrosion inhibitors to high-performance coatings."
 faq:
-- question: As a laser cleaning operator working on chromium-containing alloys like stainless steel, what personal protective
-    equipment (PPE) should I use to minimize Cr(VI) exposure risks?
-  answer: Always wear a NIOSH-approved respirator with a P100 filter or supplied-air system to protect against inhaling Cr(VI)
-    fumes or aerosols generated during laser ablation, as Cr(VI) is a potent carcinogen that can cause lung cancer via respiratory
-    exposure. In addition, use chemical-resistant gloves, full-body coveralls, and safety goggles to prevent skin contact,
-    which can lead to dermatitis or ulceration, and ensure the workspace has local exhaust ventilation to capture airborne
-    particles. Regularly inspect and replace PPE, and follow OSHA's permissible exposure limit of 5 µg/m³ for Cr(VI) over
-    an 8-hour shift to stay within safe thresholds.
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-working
+    title: As a laser cleaning operator working on chromium-containing alloys like stainless steel, what personal protective
+      equipment (PPE) should I use to minimize Cr(VI) exposure risks?
+    content: Always wear a NIOSH-approved respirator with a P100 filter or supplied-air system to protect against inhaling
+      Cr(VI) fumes or aerosols generated during laser ablation, as Cr(VI) is a potent carcinogen that can cause lung cancer
+      via respiratory exposure. In addition, use chemical-resistant gloves, full-body coveralls, and safety goggles to prevent
+      skin contact, which can lead to dermatitis or ulceration, and ensure the workspace has local exhaust ventilation to
+      capture airborne particles. Regularly inspect and replace PPE, and follow OSHA's permissible exposure limit of 5 µg/m³
+      for Cr(VI) over an 8-hour shift to stay within safe thresholds.
+    metadata:
+      topic: as a laser cleaning operator
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
