@@ -4,7 +4,7 @@ displayName: Terbium Laser Cleaning Settings
 category: rare-earth
 subcategory: lanthanide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:17.472948+00:00'
+dateModified: '2026-01-08T00:59:46.153560+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/rare-earth/lanthanide/terbium-settings
@@ -50,7 +50,7 @@ author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  countryDisplay: Indonesia
+  country_display: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -74,8 +74,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -92,7 +92,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -106,16 +106,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -129,14 +122,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -152,21 +140,16 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - challenge: Rapid oxidation and pyrophoricity
           severity: critical
-          thresholdTemperature: Above 150-300°C causes spontaneous ignition in air
+          threshold_temperature: Above 150-300°C causes spontaneous ignition in air
           impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
           solutions:
           - Process in inert atmosphere (argon or nitrogen) or high vacuum
@@ -176,14 +159,14 @@ relationships:
           - Immediate passivation after cleaning to prevent further oxidation
         - challenge: Variable thermal properties across series
           severity: medium
-          propertyValue: 3-8 mm²/s thermal diffusivity (2.7x variation)
+          property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
           impact: Different lanthanides require different cooling strategies
           solutions:
           - Light lanthanides (La, Ce, Pr) require more cooling time
           - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
           - Adjust parameters by specific element, not just category
           - Test on small area to determine optimal cooling requirements
-        contaminationChallenges:
+        contamination_challenges:
         - challenge: High-value material recovery
           severity: medium
           impact: Rare-earth elements extremely valuable; contamination removal must preserve material
@@ -203,18 +186,10 @@ relationships:
           - Follow applicable export control regulations
           - Chain of custody documentation for high-value materials
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Terbium oxide layer removal
     unit: W
@@ -228,21 +203,17 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning
+    unit: μm
+    value: 80
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter for precise cleaning; smaller for fine details, larger for broad areas. 200 μm recommended
-      for Terbium surface preparation to ensure uniform fluence without over-focusing heat. Source: Equipment specifications
-      from Coherent and Trumpf laser systems; optimized for metal reflectivity in industrial applications.'
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity
-      materials like Terbium. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause subsurface heating. Source:
-      Academic literature on Nd:YAG cleaning (e.g., Lee et al., J. Phys. D 2015); adapted for rare earth metals.'
   fluenceThreshold:
     description: Fluence threshold for Terbium oxide removal
     unit: J/cm²
@@ -250,38 +221,29 @@ machineSettings:
     min: 0.3
     max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation
+    unit: ns
+    value: 15
     min: 0.1
     max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning to achieve plasma-mediated ablation with minimal HAZ;
-      picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended for Terbium to limit thermal
-      diffusion. Source: Laser physics research on metal ablation (e.g., Ancona et al., Appl. Surf. Sci. 2010); avoids fs
-      due to Terbium''s reflectivity at 1064 nm.'
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective speeds for contamination removal on metals; higher for light contaminants (e.g., oxides), lower
-      for heavy. Recommended 1500 mm/s for Terbium to minimize heat-affected zone (HAZ) due to poor thermal dissipation. Source:
-      Industry standards from Laser Clean Corp. manuals; case studies on rare earth alloys (e.g., J. Laser Appl. 2020).'
   passCount:
+    description: Number of cleaning passes for complete oxide removal
+    unit: passes
+    value: 3
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for complete Terbium
-      cleaning without excessive exposure. Multi-pass allows lower fluence per pass to protect soft substrate. Source: Industry
-      practice from case studies on alloy cleaning (e.g., Proc. SPIE 2019); Terbium''s malleability favors fewer passes.'
   overlapRatio:
+    description: Optimal beam overlap for complete coverage
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and
-      efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser
-      Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals.'
   power:
     min: 50
     max: 300
@@ -291,7 +253,32 @@ machineSettings:
       input. Terbium''s low thermal conductivity (~11 W/mK) requires conservative power to avoid melting (mp 1356°C). Source:
       Extrapolated from metal cleaning studies (e.g., Kumar et al., Opt. Lasers Eng. 2018); manufacturer specs like IPG Photonics
       YLR series limit max to prevent substrate damage.'
-  energyDensity:
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective speeds for contamination removal on metals; higher for light contaminants (e.g., oxides), lower
+      for heavy. Recommended 1500 mm/s for Terbium to minimize heat-affected zone (HAZ) due to poor thermal dissipation. Source:
+      Industry standards from Laser Clean Corp. manuals; case studies on rare earth alloys (e.g., J. Laser Appl. 2020).'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for industrial cleaning to achieve plasma-mediated ablation with minimal HAZ;
+      picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended for Terbium to limit thermal
+      diffusion. Source: Laser physics research on metal ablation (e.g., Ancona et al., Appl. Surf. Sci. 2010); avoids fs
+      due to Terbium''s reflectivity at 1064 nm.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity
+      materials like Terbium. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause subsurface heating. Source:
+      Academic literature on Nd:YAG cleaning (e.g., Lee et al., J. Phys. D 2015); adapted for rare earth metals.'
+  energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
@@ -300,5 +287,29 @@ machineSettings:
       without substrate damage. Recommended 1.5 J/cm² for light industrial cleaning. Terbium''s high reflectivity (~70% at
       IR) requires higher fluence than dielectrics. Source: Ablation threshold studies on similar metals (e.g., Rubenchik
       et al., Appl. Opt. 2017); conservative due to limited Terbium-specific data.'
-componentSummary: These settings employ moderate 100 W power and short 15 ns pulses at 1064 nm to precisely ablate contaminants
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter for precise cleaning; smaller for fine details, larger for broad areas. 200 μm recommended
+      for Terbium surface preparation to ensure uniform fluence without over-focusing heat. Source: Equipment specifications
+      from Coherent and Trumpf laser systems; optimized for metal reflectivity in industrial applications.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for complete Terbium
+      cleaning without excessive exposure. Multi-pass allows lower fluence per pass to protect soft substrate. Source: Industry
+      practice from case studies on alloy cleaning (e.g., Proc. SPIE 2019); Terbium''s malleability favors fewer passes.'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and
+      efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser
+      Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals.'
+component_summary: These settings employ moderate 100 W power and short 15 ns pulses at 1064 nm to precisely ablate contaminants
   from Terbium while minimizing thermal input that could deform its soft, heat-sensitive surface.

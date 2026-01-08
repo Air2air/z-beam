@@ -3,8 +3,9 @@ name: Aluminum Oxide
 displayName: Aluminum Oxide (Al₂O₃)
 category: particulate
 subcategory: metal-oxide
+hazard_class: nuisance_dust
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:28:13.466413+00:00'
+dateModified: '2026-01-08T00:59:13.915805+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/aluminum-oxide-compound
@@ -21,6 +22,47 @@ pageTitle: Aluminum Oxide
 pageDescription: Aluminum Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Aluminum Oxide laser cleaning guide. Technical specifications and applications.
+chemical_formula: Al₂O₃
+cas_number: 1344-28-1
+molecular_weight: 101.96
+health_effects: When working with aluminum-oxide compounds in particulate form, prioritize respiratory protection right from
+  the start, as these fine particles can linger in the air and irritate lung tissues over prolonged exposure. The standout
+  property here—its inherent abrasiveness—serves as both a boon for industrial grinding and polishing tasks and a hidden risk
+  during handling, because that same sharpness allows particles to embed deeply into mucous membranes if inhaled, potentially
+  leading to chronic inflammation without proper ventilation setups in place. In laser cleaning applications, where we often
+  blast away contaminants from metal surfaces, this abrasiveness means the compound acts as an effective media for scouring
+  tough residues, yet it demands we contain the dust plume immediately afterward to prevent it from settling on skin or being
+  breathed in, turning a routine process into a health safeguard drill. We've found that integrating wet collection methods
+  during these operations not only captures the particulates before they disperse but also mitigates the irritation to eyes
+  and airways that dry handling might otherwise provoke, ensuring teams stay productive while avoiding the buildup of fibrotic
+  responses in sensitive workers over time.
+exposure_guidelines: "Handling aluminum oxide particulates demands caution. Dust clouds up fast during grinding or polishing.\
+  \ Wear eye protection to shield from irritants. Gloves keep skin irritation at bay—it's abrasive stuff. \n\nVentilate workspaces\
+  \ well. Inhale fine particles? That irritates lungs over time. Respiratory masks help trap the dust. Avoid eating or drinking\
+  \ nearby; residue clings everywhere. \n\nIn industrial setups like sandblasting, full-body suits work best. Why? Particles\
+  \ embed in fabrics and pores. Rinse tools thoroughly post-use to cut buildup. \n\nLaser cleaning amps up the risk—vapors\
+  \ mix with airborne grit. Stay upwind. Monitor air quality qualitatively; if visibility drops, pause operations. Training\
+  \ beats guesswork here. Skip shortcuts; long-term exposure sneaks up."
+detection_methods: 'Spotting aluminum oxide particles starts with visual checks under bright light. These compounds often
+  show a white, powdery look that stands out against darker surfaces. In industrial setups, workers sweep areas to collect
+  samples, then examine them closely for that telltale grit.
+
+
+  Laser cleaning setups reveal more through subtle glows during the process. The material absorbs energy unevenly, creating
+  faint sparks or residue patterns that hint at its presence without needing fancy gear. For tougher spots, like machinery
+  coatings, gentle scraping followed by a quick rinse exposes the fine, durable grains.
+
+
+  This approach works well in factories handling metals or ceramics, where early detection prevents buildup issues. It keeps
+  operations smooth by flagging contaminants before they snag production lines.'
+first_aid: "Dust from aluminum oxide particles clings stubbornly to skin and clothes. Brush it off gently first. Rinse affected\
+  \ areas under running water right away. Soap helps loosen the grit without irritation.\n\nEyes sting sharp when particles\
+  \ hit. Flush them immediately with lukewarm water. Keep going for several minutes straight. Don't rub— that spreads the\
+  \ trouble worse. See a doctor if redness lingers.\n\nBreathing in fine powder irritates lungs quick. Step outside to fresh\
+  \ air fast. Sit down and rest easy. Cough if needed to clear it out. Get medical check if breathing feels tight or cough\
+  \ won't quit.\n\nSwallowing bits by accident? Spit out what you can. Drink water or milk to dilute. Skip forcing vomit.\
+  \ Head to poison control or ER for advice. Aluminum oxide stays mostly harmless, but pros handle any doubt. \n\nStore it\
+  \ sealed to avoid loose particles everywhere. Wear masks in dusty spots for safety."
 images:
   hero:
     url: /images/compound/aluminum-oxide-compound-hero.jpg
@@ -36,7 +78,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  countryDisplay: United States
+  country_display: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -58,9 +100,17 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
+health_effects_keywords:
+- respiratory_irritation
+monitoring_required: true
+typical_concentration_range: 1-15 mg/m³
+sources_in_laser_cleaning:
+- aluminum_oxidation
+- anodizing_removal
+- aluminum_coating_ablation
 card:
   default:
     heading: Aluminum Oxide
@@ -74,7 +124,7 @@ card:
       legend: Exposure Limit
     severity: low
     icon: flask
-  contaminationContext:
+  contamination_context:
     heading: Aluminum Oxide
     subtitle: Emission Product
     badge:
@@ -88,25 +138,25 @@ card:
     icon: alert-triangle
 relationships:
   interactions:
-    producedFromContaminants:
+    produced_from_contaminants:
       presentation: card
       items:
       - id: aluminum-oxidation-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Aluminum Oxidation
+        typical_context: Laser removal of Aluminum Oxidation
       - id: aluminum-oxidation-contamination
         frequency: unknown
         severity: low
-        typicalContext: Laser removal of Aluminum Oxidation
+        typical_context: Laser removal of Aluminum Oxidation
       - id: anodizing-defects-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Anodizing Layer Irregularities
+        typical_context: Laser removal of Anodizing Layer Irregularities
       - id: anodizing-defects-contamination
         frequency: unknown
         severity: low
-        typicalContext: Laser removal of Anodizing Layer Irregularities
+        typical_context: Laser removal of Anodizing Layer Irregularities
       _section:
         sectionTitle: Source Contaminants
         sectionDescription: Contaminants that generate this compound during laser cleaning
@@ -114,15 +164,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: producedFromContaminants
-          group: interactions
-          domain: compounds
-          icon: box
-          order: 12
-          variant: default
-          schemaDescription: Contaminants that produce this compound
           notes: Links to contaminant pages
-    producedFromMaterials:
+          relationship_type: produced_from
+    produced_from_materials:
       presentation: card
       items:
       - id: aluminum-bronze-laser-cleaning
@@ -137,15 +181,10 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: producedFromMaterials
-          group: interactions
-          domain: compounds
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Links to material pages
+          relationship_type: produced_from
   safety:
-    healthEffects:
+    health_effects:
       items:
       - route: inhalation
         effect: Respiratory tract irritation, coughing, and potential for chronic lung damage (aluminosis) with prolonged
@@ -166,62 +205,10 @@ relationships:
         onset: short-term
       presentation: card
       _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
         icon: heart-pulse
-        sectionMetadata:
-          relationshipType: healthEffects
-          group: safety
-          domain: compounds
-          icon: heart-pulse
-          order: 21
-          variant: warning
-          schemaDescription: Health hazards and exposure effects
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-hazardClass: nuisance_dust
-chemicalFormula: Al₂O₃
-casNumber: 1344-28-1
-molecularWeight: 101.96
-healthEffects: When working with aluminum-oxide compounds in particulate form, prioritize respiratory protection right from
-  the start, as these fine particles can linger in the air and irritate lung tissues over prolonged exposure. The standout
-  property here—its inherent abrasiveness—serves as both a boon for industrial grinding and polishing tasks and a hidden risk
-  during handling, because that same sharpness allows particles to embed deeply into mucous membranes if inhaled, potentially
-  leading to chronic inflammation without proper ventilation setups in place. In laser cleaning applications, where we often
-  blast away contaminants from metal surfaces, this abrasiveness means the compound acts as an effective media for scouring
-  tough residues, yet it demands we contain the dust plume immediately afterward to prevent it from settling on skin or being
-  breathed in, turning a routine process into a health safeguard drill. We've found that integrating wet collection methods
-  during these operations not only captures the particulates before they disperse but also mitigates the irritation to eyes
-  and airways that dry handling might otherwise provoke, ensuring teams stay productive while avoiding the buildup of fibrotic
-  responses in sensitive workers over time.
-healthEffectsKeywords:
-- respiratory_irritation
-exposureGuidelines: "Handling aluminum oxide particulates demands caution. Dust clouds up fast during grinding or polishing.\
-  \ Wear eye protection to shield from irritants. Gloves keep skin irritation at bay—it's abrasive stuff. \n\nVentilate workspaces\
-  \ well. Inhale fine particles? That irritates lungs over time. Respiratory masks help trap the dust. Avoid eating or drinking\
-  \ nearby; residue clings everywhere. \n\nIn industrial setups like sandblasting, full-body suits work best. Why? Particles\
-  \ embed in fabrics and pores. Rinse tools thoroughly post-use to cut buildup. \n\nLaser cleaning amps up the risk—vapors\
-  \ mix with airborne grit. Stay upwind. Monitor air quality qualitatively; if visibility drops, pause operations. Training\
-  \ beats guesswork here. Skip shortcuts; long-term exposure sneaks up."
-detectionMethods: 'Spotting aluminum oxide particles starts with visual checks under bright light. These compounds often show
-  a white, powdery look that stands out against darker surfaces. In industrial setups, workers sweep areas to collect samples,
-  then examine them closely for that telltale grit.
-
-
-  Laser cleaning setups reveal more through subtle glows during the process. The material absorbs energy unevenly, creating
-  faint sparks or residue patterns that hint at its presence without needing fancy gear. For tougher spots, like machinery
-  coatings, gentle scraping followed by a quick rinse exposes the fine, durable grains.
-
-
-  This approach works well in factories handling metals or ceramics, where early detection prevents buildup issues. It keeps
-  operations smooth by flagging contaminants before they snag production lines.'
-firstAid: "Dust from aluminum oxide particles clings stubbornly to skin and clothes. Brush it off gently first. Rinse affected\
-  \ areas under running water right away. Soap helps loosen the grit without irritation.\n\nEyes sting sharp when particles\
-  \ hit. Flush them immediately with lukewarm water. Keep going for several minutes straight. Don't rub— that spreads the\
-  \ trouble worse. See a doctor if redness lingers.\n\nBreathing in fine powder irritates lungs quick. Step outside to fresh\
-  \ air fast. Sit down and rest easy. Cough if needed to clear it out. Get medical check if breathing feels tight or cough\
-  \ won't quit.\n\nSwallowing bits by accident? Spit out what you can. Drink water or milk to dilute. Skip forcing vomit.\
-  \ Head to poison control or ER for advice. Aluminum oxide stays mostly harmless, but pros handle any doubt. \n\nStore it\
-  \ sealed to avoid loose particles everywhere. Wear masks in dusty spots for safety."
-ppeRequirements: 'Handling aluminum oxide particulates demands solid protection. Start with your setup—gloves on first to
+ppe_requirements: 'Handling aluminum oxide particulates demands solid protection. Start with your setup—gloves on first to
   shield skin from sharp edges and irritation. These compounds cut like fine grit, so cover hands fully with durable, fitted
   pairs.
 
@@ -243,12 +230,6 @@ ppeRequirements: 'Handling aluminum oxide particulates demands solid protection.
 
 
   Ventilation matters too, but PPE layers up as your first line. Quick checks before shifts keep everyone steady.'
-monitoringRequired: true
-typicalConcentrationRange: 1-15 mg/m³
-sourcesInLaserCleaning:
-- aluminum_oxidation
-- anodizing_removal
-- aluminum_coating_ablation
 faq:
   presentation: collapsible
   items:

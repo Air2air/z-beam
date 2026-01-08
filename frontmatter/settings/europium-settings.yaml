@@ -4,7 +4,7 @@ displayName: Europium Laser Cleaning Settings
 category: rare-earth
 subcategory: lanthanide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:05.749132+00:00'
+dateModified: '2026-01-08T00:59:42.453191+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/rare-earth/lanthanide/europium-settings
@@ -39,7 +39,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  countryDisplay: United States
+  country_display: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,16 +93,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -116,14 +109,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -139,21 +127,16 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - challenge: Rapid oxidation and pyrophoricity
           severity: critical
-          thresholdTemperature: Above 150-300°C causes spontaneous ignition in air
+          threshold_temperature: Above 150-300°C causes spontaneous ignition in air
           impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
           solutions:
           - Process in inert atmosphere (argon or nitrogen) or high vacuum
@@ -163,14 +146,14 @@ relationships:
           - Immediate passivation after cleaning to prevent further oxidation
         - challenge: Variable thermal properties across series
           severity: medium
-          propertyValue: 3-8 mm²/s thermal diffusivity (2.7x variation)
+          property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
           impact: Different lanthanides require different cooling strategies
           solutions:
           - Light lanthanides (La, Ce, Pr) require more cooling time
           - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
           - Adjust parameters by specific element, not just category
           - Test on small area to determine optimal cooling requirements
-        contaminationChallenges:
+        contamination_challenges:
         - challenge: High-value material recovery
           severity: medium
           impact: Rare-earth elements extremely valuable; contamination removal must preserve material
@@ -190,18 +173,10 @@ relationships:
           - Follow applicable export control regulations
           - Chain of custody documentation for high-value materials
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Europium oxide layer removal
     unit: W
@@ -215,21 +190,17 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning
+    unit: μm
+    value: 50
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter for precise surface preparation; smaller for fine details on Europium components, larger for
-      broad areas; 200 μm balances resolution and efficiency. Source: Equipment specifications (e.g., IPG Photonics scanners,
-      50-1000 μm); adapted for industrial cleaning of reactive metals.'
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 20
-    unit: kHz
-    description: 'Balances cleaning speed and heat buildup; higher rates accelerate process but risk thermal damage to Europium''s
-      soft structure; moderate rate recommended for uniform ablation. Source: Academic literature (e.g., Opt. Express, 2017
-      on pulsed laser cleaning of metals; trade-offs noted in high-rep-rate studies).'
   fluenceThreshold:
     description: Threshold fluence for Europium oxide removal
     unit: J/cm²
@@ -237,37 +208,29 @@ machineSettings:
     min: 0.3
     max: 4.5
   pulseWidth:
+    description: Nanosecond pulse width for controlled ablation
+    unit: ns
+    value: 8
     min: 0.1
     max: 1000
-    value: 10
-    unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on low-melting Europium; picosecond
-      (ps) or femtosecond (fs) reduce thermal effects but increase cost; ns avoids excessive heat accumulation. Source: Laser
-      physics research (e.g., Appl. Surf. Sci., 2019 on metal ablation thresholds); ns typical for 532 nm cleaning.'
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1000
-    unit: mm/s
-    description: 'Effective speeds for contamination removal; slower for heavy contamination (e.g., oxides on reactive Europium),
-      faster for light; optimal balances ablation and heat dissipation. Source: Industry standards (e.g., Laser Cleaning Handbook
-      by Trumpf, 100-10,000 mm/s); case studies on rare earth alloys (J. Laser Appl., 2020).'
   passCount:
+    description: Number of cleaning passes required
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Multi-pass for thorough removal of contaminants (e.g., oxides) on Europium without single-pass overheating;
-      single pass for light cleaning, 2-3 typical for industrial prep. Source: Industry practice (e.g., case studies in Surf.
-      Coat. Technol., 2019 on metal surface cleaning); conservative for soft substrates.'
   overlapRatio:
+    description: Optimal beam overlap for complete coverage
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 70
-    unit: '%'
-    description: 'Ensures uniform coverage and overlap for complete cleaning; higher for heavy contamination on irregular
-      Europium surfaces, lower for speed; 70% optimal for even energy distribution. Source: Process optimization studies (e.g.,
-      Lasers Manuf. Mater. Process., 2022; standard 50-80% in laser scanning protocols).'
   power:
     min: 10
     max: 100
@@ -277,7 +240,31 @@ machineSettings:
       conservative range due to low thermal conductivity (~14 W/m·K); recommended starting low to test. Source: General manufacturer
       specs (e.g., Coherent cleaning systems for metals, 10-200 W range); limited specific Europium data, adapted from Al
       cleaning studies (Opt. Lasers Eng., 2018).'
-  energyDensity:
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1000
+    unit: mm/s
+    description: 'Effective speeds for contamination removal; slower for heavy contamination (e.g., oxides on reactive Europium),
+      faster for light; optimal balances ablation and heat dissipation. Source: Industry standards (e.g., Laser Cleaning Handbook
+      by Trumpf, 100-10,000 mm/s); case studies on rare earth alloys (J. Laser Appl., 2020).'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 10
+    unit: ns
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on low-melting Europium; picosecond
+      (ps) or femtosecond (fs) reduce thermal effects but increase cost; ns avoids excessive heat accumulation. Source: Laser
+      physics research (e.g., Appl. Surf. Sci., 2019 on metal ablation thresholds); ns typical for 532 nm cleaning.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 20
+    unit: kHz
+    description: 'Balances cleaning speed and heat buildup; higher rates accelerate process but risk thermal damage to Europium''s
+      soft structure; moderate rate recommended for uniform ablation. Source: Academic literature (e.g., Opt. Express, 2017
+      on pulsed laser cleaning of metals; trade-offs noted in high-rep-rate studies).'
+  energy_density:
     min: 0.1
     max: 20.0
     value: 1.0
@@ -285,5 +272,29 @@ machineSettings:
     description: 'Fluence for contaminant ablation without exceeding Europium damage threshold (~1.5-3 J/cm² estimated from
       similar soft metals); low values due to high reflectivity at 532 nm and low mp; safe cleaning below threshold. Source:
       Ablation threshold studies (e.g., J. Phys. D: Appl. Phys., 2021 on rare earth metals; conservative estimate for Europium).'
-componentSummary: These settings employ moderate 30 W power and 8 ns pulses at 532 nm to gently ablate contaminants from Europium's
-  soft, reactive surface without causing thermal distortion or oxidation.
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter for precise surface preparation; smaller for fine details on Europium components, larger for
+      broad areas; 200 μm balances resolution and efficiency. Source: Equipment specifications (e.g., IPG Photonics scanners,
+      50-1000 μm); adapted for industrial cleaning of reactive metals.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Multi-pass for thorough removal of contaminants (e.g., oxides) on Europium without single-pass overheating;
+      single pass for light cleaning, 2-3 typical for industrial prep. Source: Industry practice (e.g., case studies in Surf.
+      Coat. Technol., 2019 on metal surface cleaning); conservative for soft substrates.'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 70
+    unit: '%'
+    description: 'Ensures uniform coverage and overlap for complete cleaning; higher for heavy contamination on irregular
+      Europium surfaces, lower for speed; 70% optimal for even energy distribution. Source: Process optimization studies (e.g.,
+      Lasers Manuf. Mater. Process., 2022; standard 50-80% in laser scanning protocols).'
+component_summary: These settings employ moderate 30 W power and 8 ns pulses at 532 nm to gently ablate contaminants from
+  Europium's soft, reactive surface without causing thermal distortion or oxidation.

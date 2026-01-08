@@ -4,7 +4,7 @@ displayName: Gallium Arsenide Laser Cleaning Settings
 category: semiconductor
 subcategory: elemental
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:06.770016+00:00'
+dateModified: '2026-01-08T00:59:42.754738+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/semiconductor/elemental/gallium-arsenide-settings
@@ -39,7 +39,7 @@ author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  countryDisplay: Indonesia
+  country_display: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -63,8 +63,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -81,7 +81,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -95,16 +95,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -118,14 +111,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -141,21 +129,16 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - challenge: Crystal lattice damage and doping redistribution
           severity: critical
-          thresholdTemperature: Above 400-600°C causes dopant migration
+          threshold_temperature: Above 400-600°C causes dopant migration
           impact: Heat causes permanent alteration of electronic properties and device failure
           solutions:
           - Use ultrashort pulses (picosecond or femtosecond) for minimal heat-affected zone
@@ -164,14 +147,14 @@ relationships:
           - Nanosecond pulses acceptable only for non-active areas (scribe lines, edges)
         - challenge: Thermal stress and wafer cracking
           severity: high
-          propertyValue: Low fracture toughness 0.75-3.0 MPa·√m
+          property_value: Low fracture toughness 0.75-3.0 MPa·√m
           impact: Thermal gradients cause catastrophic wafer fracture
           solutions:
           - Use pulse mode with 10-15 second cooling for thick wafers
           - Thin wafers (<200 μm) require substrate backing for thermal management
           - Defocused beam reduces peak temperature gradients
           - Gradual power ramping (start 10W, increase 5W per pass)
-        contaminationChallenges:
+        contamination_challenges:
         - challenge: Photoresist and polymer residue removal
           severity: medium
           impact: Organic residues carbonize and become harder to remove
@@ -182,18 +165,10 @@ relationships:
           - Oxygen-rich environment aids in organic ablation
           - Post-cleaning oxygen plasma for complete residue removal
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for GaAs surface cleaning without thermal damage
     unit: W
@@ -207,21 +182,17 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning resolution
+    unit: μm
+    value: 50
     min: 0.1
     max: 500
-    value: 100
-    unit: μm
-    description: 'Small spots for fine detail on GaAs wafers (e.g., surface prep), larger for broad areas; 100 μm balances
-      resolution and coverage in industrial cleaning. Source: Equipment specs from Coherent and Trumpf lasers for micro-cleaning
-      applications.'
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 10
-    unit: kHz
-    description: 'Low to moderate rates for GaAs to limit heat accumulation while enabling fast cleaning; higher rates (>20
-      kHz) increase speed but risk thermal damage. Recommended 10 kHz for balanced throughput. Source: Academic literature
-      on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019, trade-offs in semiconductor applications).'
   fluenceThreshold:
     description: Fluence threshold for GaAs surface cleaning without substrate damage
     unit: J/cm²
@@ -229,38 +200,29 @@ machineSettings:
     min: 0.3
     max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of contaminants
+    unit: ns
+    value: 15
     min: 0.1
     max: 1000
-    unit: ps
-    value: 10
-    description: 'Picosecond regime preferred over nanoseconds (5-100 ns) for GaAs to minimize heat-affected zone due to its
-      moderate thermal conductivity (~50 W/m·K); femtoseconds (<1 ps) possible but less common for industrial cleaning. Recommended
-      10 ps for precise contaminant ablation. Source: Laser physics research in Opt. Express (2020) on ultrafast cleaning
-      of semiconductors.'
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 500
-    unit: mm/s
-    description: 'Effective speeds for contamination removal without excessive heat buildup on GaAs; slower for heavy contamination
-      (e.g., oxides), faster for light particles. Recommended 500 mm/s for optimal balance in industrial setups. Source: Industry
-      manuals from IPG Photonics and Adapt Laser Systems for precision cleaning.'
   passCount:
+    description: Number of cleaning passes for complete contaminant removal
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers on GaAs to ensure complete removal without
-      overexposure. Recommended 2 passes for uniform results in semiconductor processing. Source: Industry case studies (e.g.,
-      SPIE Proc. 2021 on laser cleaning protocols for GaAs devices).'
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning coverage
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced
-      damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser
-      cleaning.'
   power:
     min: 5
     max: 50
@@ -270,7 +232,32 @@ machineSettings:
       point ~1238°C, high reflectivity at green wavelengths). Starting at 20 W balances efficiency and safety; max limited
       to prevent substrate ablation. Source: Studies on laser cleaning of III-V semiconductors (e.g., J. Appl. Phys. 2018
       on GaAs thresholds).'
-  energyDensity:
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 500
+    unit: mm/s
+    description: 'Effective speeds for contamination removal without excessive heat buildup on GaAs; slower for heavy contamination
+      (e.g., oxides), faster for light particles. Recommended 500 mm/s for optimal balance in industrial setups. Source: Industry
+      manuals from IPG Photonics and Adapt Laser Systems for precision cleaning.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ps
+    value: 10
+    description: 'Picosecond regime preferred over nanoseconds (5-100 ns) for GaAs to minimize heat-affected zone due to its
+      moderate thermal conductivity (~50 W/m·K); femtoseconds (<1 ps) possible but less common for industrial cleaning. Recommended
+      10 ps for precise contaminant ablation. Source: Laser physics research in Opt. Express (2020) on ultrafast cleaning
+      of semiconductors.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 10
+    unit: kHz
+    description: 'Low to moderate rates for GaAs to limit heat accumulation while enabling fast cleaning; higher rates (>20
+      kHz) increase speed but risk thermal damage. Recommended 10 kHz for balanced throughput. Source: Academic literature
+      on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019, trade-offs in semiconductor applications).'
+  energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
@@ -278,5 +265,29 @@ machineSettings:
     description: 'Fluence below GaAs damage threshold (~1.5 J/cm² at 532 nm) for safe cleaning; typical for removing contaminants
       like particles or oxides. Recommended 0.5 J/cm² to ablate surface layers without substrate harm. Source: Ablation threshold
       studies in Phys. Rev. B (2017) for GaAs at visible wavelengths.'
-componentSummary: These settings use moderate 20 W power and 15 ns pulses at 532 nm to gently ablate contaminants from GaAs,
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 100
+    unit: μm
+    description: 'Small spots for fine detail on GaAs wafers (e.g., surface prep), larger for broad areas; 100 μm balances
+      resolution and coverage in industrial cleaning. Source: Equipment specs from Coherent and Trumpf lasers for micro-cleaning
+      applications.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass for heavy layers on GaAs to ensure complete removal without
+      overexposure. Recommended 2 passes for uniform results in semiconductor processing. Source: Industry case studies (e.g.,
+      SPIE Proc. 2021 on laser cleaning protocols for GaAs devices).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced
+      damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser
+      cleaning.'
+component_summary: These settings use moderate 20 W power and 15 ns pulses at 532 nm to gently ablate contaminants from GaAs,
   minimizing thermal damage to its heat-sensitive semiconductor surface.

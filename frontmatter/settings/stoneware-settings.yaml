@@ -4,7 +4,7 @@ displayName: Stoneware Laser Cleaning Settings
 category: ceramic
 subcategory: oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:16.965743+00:00'
+dateModified: '2026-01-08T00:59:45.934835+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/oxide/stoneware-settings
@@ -40,7 +40,7 @@ author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  countryDisplay: Indonesia
+  country_display: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -64,8 +64,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
+  persona_file: indonesia_persona.yaml
+  formatting_file: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -82,7 +82,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -96,16 +96,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -119,14 +112,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: stoneware-laser-cleaning
@@ -138,21 +126,16 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - challenge: Thermal shock and cracking
           severity: critical
-          thresholdTemperature: ΔT > 200-300°C rapid cooling
+          threshold_temperature: ΔT > 200-300°C rapid cooling
           impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
           solutions:
           - Use pulse mode with 3-5 second cooling between passes
@@ -161,28 +144,20 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Variable thermal conductivity
           severity: medium
-          propertyValue: 0.8-120 W/m·K (150x variation between materials)
+          property_value: 0.8-120 W/m·K (150x variation between materials)
           impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
           solutions:
           - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
           - High conductivity ceramics (SiC, WC) tolerate higher power
           - Test on scrap to determine cooling requirements
-        contaminationChallenges:
+        contamination_challenges:
         - id: coating-residue-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Stoneware surface cleaning without thermal damage
     unit: W
@@ -196,63 +171,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control
+    unit: μm
+    value: 100
     min: 0.1
     max: 500
-    value: 500
-    unit: μm
-    description: 'Beam diameter for uniform cleaning; smaller for fine details (200-400 μm), larger for broad areas (500-1000
-      μm). 500 μm recommended for stoneware industrial apps to cover surfaces efficiently without hotspots. Source: Equipment
-      specifications from Coherent and Trumpf laser systems for ceramic processing.'
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning coverage
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for cleaning applications; 30 kHz recommended for stoneware to achieve fast coverage while minimizing
-      heat buildup—higher rates (>50 kHz) risk accumulation on low-thermal-conductivity materials. Trade-off: speed vs thermal
-      safety. Source: Academic literature in Applied Surface Science (e.g., 2019 on repetition rate effects in ceramic cleaning).'
   energyDensity:
+    description: Fluence level for effective contaminant removal without substrate damage
+    unit: J/cm²
+    value: 5
     min: 0.1
     max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal on stoneware; damage threshold ~4 J/cm² due to high melting point
-      (~1200°C) but conservative to prevent micro-cracks. 1.5 J/cm² safe for surface preparation. Stoneware''s moderate reflectivity
-      at 1064 nm requires mid-range. Source: Ablation threshold studies in Journal of Cultural Heritage (e.g., 2017 on stone
-      and ceramic lasers).'
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of contaminants
+    unit: ns
+    value: 10
     min: 0.1
     max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for stoneware to ablate contaminants without deep penetration; picosecond (ps)
-      for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat accumulation in low-conductivity
-      ceramics. Femtosecond avoided due to cost. Source: Laser physics research in Optics Express (e.g., 2015 study on pulsed
-      laser ablation of ceramics).'
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    unit: mm/s
-    value: 1500
-    description: 'Effective speeds for 1064 nm cleaning on stoneware; slower for heavy contaminants (500-1000 mm/s) vs light
-      (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from SPIE proceedings
-      on laser cleaning (e.g., 2020) and equipment manuals from IPG Photonics.'
   passCount:
+    description: Recommended number of passes for complete contaminant removal
+    unit: passes
+    value: 3
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete stoneware
-      cleaning to ensure removal without overexposure. Based on layered ablation approach. Source: Industry practice in case
-      studies from Laser Institute of America reports (e.g., 2021 industrial cleaning guidelines).'
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning pattern
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage; 50% recommended for stoneware to avoid gaps or excessive overlap-induced damage,
-      adjustable 30% for speed or 80% for thoroughness. Typical range balances efficiency. Source: Process optimization studies
-      in Optics and Lasers in Engineering (e.g., 2016 on scan overlap in surface cleaning).'
   power:
     min: 50
     max: 500
@@ -261,5 +220,63 @@ machineSettings:
     description: 'Typical range for industrial laser cleaning of ceramics like stoneware to avoid thermal damage; starting
       at 100W for light contamination removal. Max safe before substrate cracking or discoloration. Source: Manufacturer specs
       from CleanLaser systems and studies in Journal of Laser Applications (e.g., 2018 paper on ceramic surface preparation).'
-componentSummary: These settings provide controlled ablation for Stoneware cleaning, using 100 W power and 10 ns pulses at
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Effective speeds for 1064 nm cleaning on stoneware; slower for heavy contaminants (500-1000 mm/s) vs light
+      (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from SPIE proceedings
+      on laser cleaning (e.g., 2020) and equipment manuals from IPG Photonics.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for stoneware to ablate contaminants without deep penetration; picosecond (ps)
+      for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat accumulation in low-conductivity
+      ceramics. Femtosecond avoided due to cost. Source: Laser physics research in Optics Express (e.g., 2015 study on pulsed
+      laser ablation of ceramics).'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for cleaning applications; 30 kHz recommended for stoneware to achieve fast coverage while minimizing
+      heat buildup—higher rates (>50 kHz) risk accumulation on low-thermal-conductivity materials. Trade-off: speed vs thermal
+      safety. Source: Academic literature in Applied Surface Science (e.g., 2019 on repetition rate effects in ceramic cleaning).'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal on stoneware; damage threshold ~4 J/cm² due to high melting point
+      (~1200°C) but conservative to prevent micro-cracks. 1.5 J/cm² safe for surface preparation. Stoneware''s moderate reflectivity
+      at 1064 nm requires mid-range. Source: Ablation threshold studies in Journal of Cultural Heritage (e.g., 2017 on stone
+      and ceramic lasers).'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 500
+    unit: μm
+    description: 'Beam diameter for uniform cleaning; smaller for fine details (200-400 μm), larger for broad areas (500-1000
+      μm). 500 μm recommended for stoneware industrial apps to cover surfaces efficiently without hotspots. Source: Equipment
+      specifications from Coherent and Trumpf laser systems for ceramic processing.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete stoneware
+      cleaning to ensure removal without overexposure. Based on layered ablation approach. Source: Industry practice in case
+      studies from Laser Institute of America reports (e.g., 2021 industrial cleaning guidelines).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage; 50% recommended for stoneware to avoid gaps or excessive overlap-induced damage,
+      adjustable 30% for speed or 80% for thoroughness. Typical range balances efficiency. Source: Process optimization studies
+      in Optics and Lasers in Engineering (e.g., 2016 on scan overlap in surface cleaning).'
+component_summary: These settings provide controlled ablation for Stoneware cleaning, using 100 W power and 10 ns pulses at
   1064 nm to remove contaminants without causing thermal cracking in the ceramic structure.

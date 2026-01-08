@@ -4,7 +4,7 @@ displayName: Willow Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:18.869272+00:00'
+dateModified: '2026-01-08T00:59:46.733821+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/willow-settings
@@ -39,7 +39,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  countryDisplay: Italy
+  country_display: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -62,8 +62,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -80,7 +80,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -94,16 +94,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -117,14 +110,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -140,38 +128,25 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Willow surface cleaning without thermal damage
     unit: W
@@ -185,60 +160,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning with adequate energy density
+    unit: μm
+    value: 100
     min: 0.1
     max: 500
-    unit: μm
-    value: 200
-    description: 'Beam diameter for precise cleaning on wood grains; smaller for fine details (100-200 μm), larger for broad
-      areas (300-500 μm). 200 μm recommended for uniform willow surface prep. Source: Equipment specs from Coherent and Trumpf
-      laser systems.'
   repetitionRate:
-    min: 1
-    max: 200
+    description: Optimal repetition rate for efficient cleaning coverage and thermal management
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning to ensure coverage without excessive heat buildup in low-melting-point woods
-      (willow ~250-300°C char point); higher rates speed up process but risk accumulation. 50 kHz balances speed and safety.
-      Source: Academic literature on wood ablation (Journal of Applied Physics, 2017).'
+    min: 1
+    max: 200
   energyDensity:
+    description: Fluence threshold for effective contaminant removal without substrate damage
+    unit: J/cm²
+    value: 1.2
     min: 0.1
     max: 20.0
-    unit: J/cm²
-    value: 2
-    description: 'Fluence range for contaminant removal without ablating willow substrate; damage threshold ~5-10 J/cm² at
-      1064 nm due to high absorption. Recommended 2 J/cm² for safe cleaning. Conservative estimate for uncertainty in willow-specific
-      data. Source: Ablation threshold studies in Optics Express (2021).'
   pulseWidth:
+    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
+    unit: ns
+    value: 10
     min: 0.1
     max: 1000
-    unit: ns
-    value: 50
-    description: 'Nanosecond regime preferred for 1064 nm cleaning of organics like willow to minimize heat-affected zone
-      (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 50 ns recommended for willow''s
-      reflectivity (~5-10% at 1064 nm). Source: Laser physics research in Applied Surface Science (2019).'
   scanSpeed:
+    description: Optimal scanning speed for efficient area coverage and effective cleaning
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    unit: mm/s
-    value: 1500
-    description: 'Effective speeds for contaminant removal on porous woods like willow; slower for heavy contamination (500-1000
-      mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance. Source: Industry standards from
-      Laserax equipment manuals and wood cleaning case studies (Optics and Lasers in Engineering, 2020).'
   passCount:
+    description: Optimal number of passes for complete cleaning without excessive processing
+    unit: passes
+    value: 3
     min: 1
     max: 10
-    unit: passes
-    value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete removal on willow
-      without overexposure. Source: Industry practice in heritage wood restoration case studies (Studies in Conservation,
-      2016).'
   overlapRatio:
+    description: Beam overlap percentage for uniform cleaning coverage
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    unit: '%'
-    value: 60
-    description: 'Ensures uniform coverage on irregular wood surfaces like willow; 30-50% for speed, 60-80% for thoroughness.
-      60% recommended to avoid gaps. Source: Process optimization in laser scanning studies (Procedia Manufacturing, 2019).'
   dwellTime:
     description: Optimal dwell time per spot for effective cleaning action
     unit: μs
@@ -253,5 +215,60 @@ machineSettings:
     description: 'Typical range for 1064 nm fiber lasers in wood cleaning to balance efficiency and avoid charring; starting
       at 150 W for willow''s low thermal conductivity (~0.15 W/mK) prevents substrate damage. Source: IPG Photonics YLR series
       specs and studies on laser wood surface treatment (e.g., Journal of Cultural Heritage, 2018).'
-componentSummary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise, non-thermal cleaning
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Effective speeds for contaminant removal on porous woods like willow; slower for heavy contamination (500-1000
+      mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance. Source: Industry standards from
+      Laserax equipment manuals and wood cleaning case studies (Optics and Lasers in Engineering, 2020).'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 50
+    description: 'Nanosecond regime preferred for 1064 nm cleaning of organics like willow to minimize heat-affected zone
+      (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 50 ns recommended for willow''s
+      reflectivity (~5-10% at 1064 nm). Source: Laser physics research in Applied Surface Science (2019).'
+  repetition_rate:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: 'Typical for pulsed cleaning to ensure coverage without excessive heat buildup in low-melting-point woods
+      (willow ~250-300°C char point); higher rates speed up process but risk accumulation. 50 kHz balances speed and safety.
+      Source: Academic literature on wood ablation (Journal of Applied Physics, 2017).'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    value: 2
+    description: 'Fluence range for contaminant removal without ablating willow substrate; damage threshold ~5-10 J/cm² at
+      1064 nm due to high absorption. Recommended 2 J/cm² for safe cleaning. Conservative estimate for uncertainty in willow-specific
+      data. Source: Ablation threshold studies in Optics Express (2021).'
+  spot_size:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: 'Beam diameter for precise cleaning on wood grains; smaller for fine details (100-200 μm), larger for broad
+      areas (300-500 μm). 200 μm recommended for uniform willow surface prep. Source: Equipment specs from Coherent and Trumpf
+      laser systems.'
+  pass_count:
+    min: 1
+    max: 10
+    unit: passes
+    value: 2
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete removal on willow
+      without overexposure. Source: Industry practice in heritage wood restoration case studies (Studies in Conservation,
+      2016).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    unit: '%'
+    value: 60
+    description: 'Ensures uniform coverage on irregular wood surfaces like willow; 30-50% for speed, 60-80% for thoroughness.
+      60% recommended to avoid gaps. Source: Process optimization in laser scanning studies (Procedia Manufacturing, 2019).'
+component_summary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise, non-thermal cleaning
   of Willow's delicate organic structure, effectively removing contaminants without causing fiber damage or discoloration.

@@ -4,7 +4,7 @@ displayName: Mahogany Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:09.504194+00:00'
+dateModified: '2026-01-08T00:59:43.576581+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/mahogany-settings
@@ -39,7 +39,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  countryDisplay: United States
+  country_display: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,16 +93,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -116,14 +109,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: mahogany-laser-cleaning
@@ -135,38 +123,25 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Mahogany surface cleaning without charring
     unit: W
@@ -180,54 +155,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise surface cleaning control
+    unit: μm
+    value: 100
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 200 μm for precise cleaning on detailed mahogany surfaces; smaller for fine work, larger for broad areas
-      (equipment specs from Coherent and Trumpf laser systems for wood processing).
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 20
     min: 1
     max: 200
-    value: 40
-    unit: kHz
-    description: 40 kHz recommended for mahogany to enable fast cleaning without excessive heat buildup; higher rates (>50
-      kHz) risk accumulation on low-conductivity wood (academic review in Pouli et al., 2015, Lasers Med. Sci.).
   energyDensity:
+    description: Fluence threshold for effective contaminant removal without wood damage
+    unit: J/cm²
+    value: 2.5
     min: 0.1
     max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: Fluence below mahogany damage threshold (~2-4 J/cm² at 1064 nm); 1.5 J/cm² safe for contaminant removal without
-      ablation (ablation studies on hardwoods, e.g., Ancona et al., 2010, Appl. Surf. Sci.).
   pulseWidth:
+    description: Pulse duration for controlled ablation of surface contaminants
+    unit: ns
+    value: 100
     min: 0.1
     max: 1000
-    value: 20
-    unit: ns
-    description: Nanosecond regime preferred for minimal heat-affected zone in wood; 20 ns balances cleaning efficiency and
-      substrate safety, avoiding picosecond/femtosecond for cost (Verho et al., 2019, Opt. Lasers Eng.).
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    unit: mm/s
-    value: 2000
-    description: Faster speeds reduce heat accumulation on heat-sensitive mahogany; 2000 mm/s optimal for light contaminants,
-      slower (500-1000 mm/s) for heavy; from industry manuals like IPG Photonics laser cleaning guidelines.
   passCount:
+    description: Number of cleaning passes for complete surface treatment
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: Multi-pass (2 recommended) for complete removal on mahogany without single-pass overheating; single pass
-      for light dirt (industry case studies on wood restoration, e.g., EU project LASER4ART).
   overlapRatio:
+    description: Beam overlap percentage for uniform cleaning pattern
+    unit: '%'
+    value: 30
     min: 10
     max: 90
-    value: 60
-    unit: '%'
-    description: 60% ensures uniform coverage on irregular wood surfaces like mahogany; 30-50% for speed, higher for heavy
-      contamination (process optimization in Asmus, 1995, Stud. Conserv.).
   dwellTime:
     description: Effective dwell time per spot for contaminant removal
     unit: μs
@@ -242,5 +210,54 @@ machineSettings:
     description: Typical range for wood cleaning to avoid thermal damage; starting at 50 W for light contamination on mahogany,
       max ~200 W to prevent charring (based on Nd:YAG systems for cultural heritage wood, e.g., Lee et al., 2016, J. Cult.
       Herit.).
-componentSummary: For Mahogany, the 50 W power, 1064 nm wavelength, and 100 ns pulse width enable gentle ablation of surface
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: Faster speeds reduce heat accumulation on heat-sensitive mahogany; 2000 mm/s optimal for light contaminants,
+      slower (500-1000 mm/s) for heavy; from industry manuals like IPG Photonics laser cleaning guidelines.
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: Nanosecond regime preferred for minimal heat-affected zone in wood; 20 ns balances cleaning efficiency and
+      substrate safety, avoiding picosecond/femtosecond for cost (Verho et al., 2019, Opt. Lasers Eng.).
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 40
+    unit: kHz
+    description: 40 kHz recommended for mahogany to enable fast cleaning without excessive heat buildup; higher rates (>50
+      kHz) risk accumulation on low-conductivity wood (academic review in Pouli et al., 2015, Lasers Med. Sci.).
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: Fluence below mahogany damage threshold (~2-4 J/cm² at 1064 nm); 1.5 J/cm² safe for contaminant removal without
+      ablation (ablation studies on hardwoods, e.g., Ancona et al., 2010, Appl. Surf. Sci.).
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 200 μm for precise cleaning on detailed mahogany surfaces; smaller for fine work, larger for broad areas
+      (equipment specs from Coherent and Trumpf laser systems for wood processing).
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: Multi-pass (2 recommended) for complete removal on mahogany without single-pass overheating; single pass
+      for light dirt (industry case studies on wood restoration, e.g., EU project LASER4ART).
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 60% ensures uniform coverage on irregular wood surfaces like mahogany; 30-50% for speed, higher for heavy
+      contamination (process optimization in Asmus, 1995, Stud. Conserv.).
+component_summary: For Mahogany, the 50 W power, 1064 nm wavelength, and 100 ns pulse width enable gentle ablation of surface
   contaminants while preventing charring and preserving the wood's delicate grain.

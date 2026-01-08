@@ -4,7 +4,7 @@ displayName: Kevlar-Reinforced Polymer Laser Cleaning Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:08.503823+00:00'
+dateModified: '2026-01-08T00:59:43.271712+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/kevlar-reinforced-polymer-settings
@@ -38,7 +38,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  countryDisplay: Italy
+  country_display: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,16 +93,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -116,14 +109,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -139,38 +127,25 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: matrix-degradation
           type: challenge
         - id: anisotropic-thermal
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: resin-contaminant-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Kevlar-Reinforced Polymer surface cleaning without thermal damage
     unit: W
@@ -184,61 +159,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control
+    unit: μm
+    value: 80
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Smaller spots for precision on textured Kevlar surfaces, larger for broad areas; 100-300 μm for fine cleaning,
-      300-500 μm for large-scale prep. 200 μm recommended to match Kevlar weave (~100-200 μm fibers) and ensure even fluence.
-      Source: Equipment specs from Coherent Inc.; process opt. in Lasers Manuf. Mater. Process. (2020).'
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 30
-    unit: kHz
-    description: 'Lower rates reduce heat accumulation in heat-sensitive Kevlar; high rates (>50 kHz) speed cleaning but risk
-      substrate damage. 30 kHz balances speed and safety for contamination removal. Trade-off: higher freq increases throughput
-      but elevates surface temp. Source: Academic lit. in J. Clean. Prod. (2021) on pulsed laser parameters for polymers.'
   energyDensity:
+    description: Fluence threshold for effective contaminant removal without substrate damage
+    unit: J/cm²
+    value: 4.5
     min: 0.1
     max: 20.0
-    value: 1.0
-    unit: J/cm²
-    description: 'Fluence below damage threshold (~2-4 J/cm² for Kevlar epoxy composites at 1064 nm) for safe cleaning; 0.2-1
-      J/cm² for light contaminants, up to 3 J/cm² for heavy. Recommended 1 J/cm² to ablate surface without fiber/matrix harm.
-      Source: Ablation studies in Compos. Part B (2017); damage thresholds from SPIE Proc. (2022).'
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of surface contaminants
+    unit: ns
+    value: 15
     min: 0.1
     max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ; picosecond (ps) or femtosecond
-      reduces thermal effects but increases cost. 20 ns optimal for Kevlar to limit heat diffusion in low-conductivity matrix.
-      Avoid >100 ns to prevent melting (~450°C decomposition). Source: Laser physics in Appl. Phys. A (2019) on aramid composites.'
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1000
-    unit: mm/s
-    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s),
-      faster for light (2000-3000 mm/s). Recommended 1000 mm/s for uniform removal on Kevlar without fiber disruption. Source:
-      Industry standards from Laserax manuals; Opt. Lasers Eng. (2020) case studies on polymer ablation.'
   passCount:
+    description: Recommended number of cleaning passes for complete contaminant removal
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for stubborn residues; 2 passes typical for Kevlar
-      to achieve complete removal without cumulative heat damage. Multi-pass allows lower fluence per pass. Source: Industry
-      practice in case studies from Adapt Laser Systems; J. Mater. Process. Technol. (2019).'
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning pattern
+    unit: '%'
+    value: 40
     min: 10
     max: 90
-    value: 60
-    unit: '%'
-    description: 'Ensures uniform coverage without gaps or over-ablation; 30-50% for fast scans, 60-80% for thorough cleaning
-      on irregular Kevlar surfaces. 60% recommended for even contaminant removal while minimizing total energy input. Source:
-      Process optimization in Opt. Laser Technol. (2021); standards from scanning system manuals like Scanlab.'
   power:
     min: 10
     max: 200
@@ -248,5 +209,61 @@ machineSettings:
       W for initial tests on Kevlar-reinforced polymer due to its low thermal conductivity (~0.3 W/m·K). Max safe ~150-200
       W to prevent matrix degradation. Source: IPG Photonics specs for YLR series; studies in J. Laser Appl. (2018) on composite
       surface prep.'
-componentSummary: These settings, featuring moderate 50 W power and 15 ns pulses at 1064 nm, enable gentle ablation of contaminants
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1000
+    unit: mm/s
+    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s),
+      faster for light (2000-3000 mm/s). Recommended 1000 mm/s for uniform removal on Kevlar without fiber disruption. Source:
+      Industry standards from Laserax manuals; Opt. Lasers Eng. (2020) case studies on polymer ablation.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ; picosecond (ps) or femtosecond
+      reduces thermal effects but increases cost. 20 ns optimal for Kevlar to limit heat diffusion in low-conductivity matrix.
+      Avoid >100 ns to prevent melting (~450°C decomposition). Source: Laser physics in Appl. Phys. A (2019) on aramid composites.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Lower rates reduce heat accumulation in heat-sensitive Kevlar; high rates (>50 kHz) speed cleaning but risk
+      substrate damage. 30 kHz balances speed and safety for contamination removal. Trade-off: higher freq increases throughput
+      but elevates surface temp. Source: Academic lit. in J. Clean. Prod. (2021) on pulsed laser parameters for polymers.'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.0
+    unit: J/cm²
+    description: 'Fluence below damage threshold (~2-4 J/cm² for Kevlar epoxy composites at 1064 nm) for safe cleaning; 0.2-1
+      J/cm² for light contaminants, up to 3 J/cm² for heavy. Recommended 1 J/cm² to ablate surface without fiber/matrix harm.
+      Source: Ablation studies in Compos. Part B (2017); damage thresholds from SPIE Proc. (2022).'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Smaller spots for precision on textured Kevlar surfaces, larger for broad areas; 100-300 μm for fine cleaning,
+      300-500 μm for large-scale prep. 200 μm recommended to match Kevlar weave (~100-200 μm fibers) and ensure even fluence.
+      Source: Equipment specs from Coherent Inc.; process opt. in Lasers Manuf. Mater. Process. (2020).'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for stubborn residues; 2 passes typical for Kevlar
+      to achieve complete removal without cumulative heat damage. Multi-pass allows lower fluence per pass. Source: Industry
+      practice in case studies from Adapt Laser Systems; J. Mater. Process. Technol. (2019).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 'Ensures uniform coverage without gaps or over-ablation; 30-50% for fast scans, 60-80% for thorough cleaning
+      on irregular Kevlar surfaces. 60% recommended for even contaminant removal while minimizing total energy input. Source:
+      Process optimization in Opt. Laser Technol. (2021); standards from scanning system manuals like Scanlab.'
+component_summary: These settings, featuring moderate 50 W power and 15 ns pulses at 1064 nm, enable gentle ablation of contaminants
   from Kevlar Reinforced Polymer while minimizing thermal degradation of its fiber-matrix composite.

@@ -4,7 +4,7 @@ displayName: Walnut Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:18.776191+00:00'
+dateModified: '2026-01-08T00:59:46.691142+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/walnut-settings
@@ -37,7 +37,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  countryDisplay: Taiwan
+  country_display: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -59,8 +59,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -77,7 +77,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -91,16 +91,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -114,14 +107,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: walnut-laser-cleaning
@@ -133,38 +121,25 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for walnut surface cleaning without charring
     unit: W
@@ -178,21 +153,17 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control on walnut surface
+    unit: μm
+    value: 100
     min: 0.1
     max: 500
-    unit: μm
-    value: 200
-    description: Beam diameter for controlled cleaning; 200 μm recommended for walnut to allow fine surface preparation without
-      excessive heat spread. Smaller (100-200 μm) for detail, larger (300-500 μm) for broad areas. Per equipment specs from
-      Adapt Laser Systems and industry standards for wood applications.
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 20
     min: 1
     max: 200
-    value: 40
-    unit: kHz
-    description: 'Typical for pulsed cleaning; 40 kHz recommended for walnut to balance speed and heat accumulation—higher
-      rates (>50 kHz) risk buildup on low-conductivity wood. Trade-off: faster cleaning but potential charring. From academic
-      literature on wood laser processing (e.g., Pouli et al., 2015, Applied Physics A).'
   fluenceThreshold:
     description: Fluence threshold for effective contaminant removal without wood damage
     unit: J/cm²
@@ -200,37 +171,29 @@ machineSettings:
     min: 0.3
     max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of surface contaminants
+    unit: ns
+    value: 100
     min: 0.1
     max: 1000
-    value: 30
-    unit: ns
-    description: Nanosecond regime preferred for cost-effective cleaning of walnut; 30 ns recommended to minimize heat-affected
-      zone (HAZ) due to walnut's low thermal conductivity (~0.17 W/mK). Picosecond (ps) or femtosecond (fs) for ultra-precise
-      but less common industrially. Supported by laser physics research (e.g., Jaeschke et al., 2016, Journal of Laser Applications).
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1500
-    unit: mm/s
-    description: Effective speeds for contamination removal; 1500 mm/s recommended for optimal balance on walnut to prevent
-      overheating. Lower for heavy contamination (500-1000 mm/s), higher for light (2000-3000 mm/s). From industry standards
-      in laser cleaning manuals (e.g., IPG Photonics guidelines) and case studies on wood surface prep.
   passCount:
+    description: Number of cleaning passes for complete contaminant removal
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: Typically 1-3 passes for complete removal on wood; 2 passes recommended for walnut to ensure uniform cleaning
-      of contaminants without substrate damage. Multi-pass for heavy soiling. Based on industry practice and case studies
-      (e.g., laser cleaning of wooden artifacts, Vergés-Belmin, 2005, Studies in Conservation).
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 60
-    unit: '%'
-    description: Ensures uniform coverage; 60% recommended for walnut to avoid gaps or overexposure, considering its density
-      and low thermal diffusion. Typical 30-80% range from process optimization. From studies on scan strategies (e.g., Kumar
-      et al., 2018, Optics and Lasers in Engineering).
   power:
     min: 20
     max: 150
@@ -239,7 +202,31 @@ machineSettings:
     description: Typical range for delicate wood cleaning to avoid thermal damage; starting at 50 W for light contamination
       on walnut, max 150 W before charring risk. Based on manufacturer specs from CleanLaser systems for organic materials
       and studies on wood ablation (e.g., Ancona et al., 2010, Optics Express).
-  energyDensity:
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1500
+    unit: mm/s
+    description: Effective speeds for contamination removal; 1500 mm/s recommended for optimal balance on walnut to prevent
+      overheating. Lower for heavy contamination (500-1000 mm/s), higher for light (2000-3000 mm/s). From industry standards
+      in laser cleaning manuals (e.g., IPG Photonics guidelines) and case studies on wood surface prep.
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 30
+    unit: ns
+    description: Nanosecond regime preferred for cost-effective cleaning of walnut; 30 ns recommended to minimize heat-affected
+      zone (HAZ) due to walnut's low thermal conductivity (~0.17 W/mK). Picosecond (ps) or femtosecond (fs) for ultra-precise
+      but less common industrially. Supported by laser physics research (e.g., Jaeschke et al., 2016, Journal of Laser Applications).
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 40
+    unit: kHz
+    description: 'Typical for pulsed cleaning; 40 kHz recommended for walnut to balance speed and heat accumulation—higher
+      rates (>50 kHz) risk buildup on low-conductivity wood. Trade-off: faster cleaning but potential charring. From academic
+      literature on wood laser processing (e.g., Pouli et al., 2015, Applied Physics A).'
+  energy_density:
     min: 0.1
     max: 20.0
     value: 0.5
@@ -247,5 +234,29 @@ machineSettings:
     description: Fluence range for safe ablation of contaminants; 0.5 J/cm² recommended for walnut to remove surface layers
       without damage (threshold ~1.5-2 J/cm² for charring at 1064 nm). Conservative due to walnut's moderate reflectivity
       (~40% at IR). From ablation threshold studies (e.g., Batani et al., 2006, Applied Surface Science).
-componentSummary: These settings provide moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants
+  spot_size:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: Beam diameter for controlled cleaning; 200 μm recommended for walnut to allow fine surface preparation without
+      excessive heat spread. Smaller (100-200 μm) for detail, larger (300-500 μm) for broad areas. Per equipment specs from
+      Adapt Laser Systems and industry standards for wood applications.
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: Typically 1-3 passes for complete removal on wood; 2 passes recommended for walnut to ensure uniform cleaning
+      of contaminants without substrate damage. Multi-pass for heavy soiling. Based on industry practice and case studies
+      (e.g., laser cleaning of wooden artifacts, Vergés-Belmin, 2005, Studies in Conservation).
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: Ensures uniform coverage; 60% recommended for walnut to avoid gaps or overexposure, considering its density
+      and low thermal diffusion. Typical 30-80% range from process optimization. From studies on scan strategies (e.g., Kumar
+      et al., 2018, Optics and Lasers in Engineering).
+component_summary: These settings provide moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants
   from walnut wood, minimizing thermal damage and preserving its natural grain without charring.

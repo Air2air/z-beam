@@ -4,7 +4,7 @@ displayName: Shale Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:15.836095+00:00'
+dateModified: '2026-01-08T00:59:45.450344+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/sedimentary/shale-settings
@@ -42,7 +42,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  countryDisplay: Taiwan
+  country_display: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -64,8 +64,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -82,7 +82,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -96,16 +96,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -119,14 +112,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -142,21 +130,16 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - challenge: Thermal shock and microcracking
           severity: critical
-          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
           impact: Natural stone contains microfissures that propagate under thermal stress
           solutions:
           - Use pulse mode with 8-12 second cooling between passes
@@ -166,7 +149,7 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Moisture-induced spalling
           severity: high
-          thresholdTemperature: Steam formation >100°C with trapped moisture
+          threshold_temperature: Steam formation >100°C with trapped moisture
           impact: Porous stone traps moisture that explosively converts to steam
           solutions:
           - Test moisture content before cleaning (>3% requires drying)
@@ -174,22 +157,14 @@ relationships:
           - Reduce power by 50% for damp stone
           - Use pulse mode with extended cooling (15-20 seconds)
           - Heritage stone requires especially gentle approach
-        contaminationChallenges:
+        contamination_challenges:
         - id: biological-growth
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Shale surface cleaning without thermal damage
     unit: W
@@ -203,65 +178,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for effective Shale cleaning resolution
+    unit: μm
+    value: 80
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for industrial cleaning; smaller (100-200 μm) for fine detail on shale surfaces, larger
-      (300-500 μm) for broad area prep. Recommended 200 μm for uniform energy distribution on irregular shale textures. Source:
-      Equipment specifications (e.g., Coherent Armoni series) and process optimization for stone cleaning.'
   repetitionRate:
+    description: Optimal repetition rate for continuous Shale surface processing
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical for efficient cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in
-      low-conductivity shale, leading to thermal stress. Recommended 50 kHz balances speed and safety. Trade-off: low freq
-      for heavy contamination to allow cooling. Source: Academic literature on pulsed laser cleaning (Journal of Laser Applications,
-      2019).'
   energyDensity:
+    description: Fluence threshold for effective Shale material removal
+    unit: J/cm²
+    value: 2.5
     min: 0.1
     max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal without damaging shale (ablation threshold ~2-4 J/cm² for siliceous
-      rocks); below 0.5 J/cm² ineffective for heavy soiling. Recommended 1.5 J/cm² for safe cleaning, considering shale''s
-      moderate reflectivity (~20-30% at 1064 nm) and melting point (~1200°C). Source: Ablation threshold studies (International
-      Journal of Rock Mechanics, 2017) on laser-rock interactions.'
   pulseWidth:
+    description: Nanosecond pulse duration for efficient Shale ablation with minimal heat diffusion
+    unit: ns
+    value: 12
     min: 0.1
     max: 1000
-    unit: ns
-    value: 30
-    description: 'Nanosecond regime preferred for 1064 nm cleaning of shale to achieve ablation with minimal heat-affected
-      zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially due to cost.
-      Avoid fs for shale to prevent micro-cracking from shock waves. Recommended 30 ns for low reflectivity materials. Source:
-      Laser physics research (Applied Surface Science, 2020) on pulsed laser ablation thresholds.'
   scanSpeed:
+    description: Optimal scanning speed for uniform Shale surface treatment
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective speeds for contamination removal on shale; slower for heavy contamination (500-1000 mm/s), faster
-      for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal fluence delivery without overheating. Source: Industry
-      standards from laser cleaning equipment manuals (e.g., Laserax systems) and case studies on rock surface preparation.'
   passCount:
+    description: Recommended number of passes for complete Shale surface cleaning
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on shale to ensure complete removal
-      without excessive energy input. Recommended 2 passes for industrial surface preparation, allowing incremental cleaning
-      to minimize damage risk. Source: Industry practice and case studies (e.g., laser cleaning of geological samples in Applied
-      Optics, 2021).'
   overlapRatio:
+    description: Optimal beam overlap for uniform Shale surface cleaning
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 60
-    unit: '%'
-    description: 'Ensures uniform coverage; 30-50% for large areas, 60-80% for detailed shale cleaning to avoid gaps in irregular
-      surfaces. Recommended 60% for optimal uniformity without overexposure. Source: Process optimization studies (Lasers
-      in Engineering, 2016) on scan strategies for rock substrates.'
   power:
     min: 50
     max: 500
@@ -271,5 +228,65 @@ machineSettings:
       at 200 W balances efficiency and avoids thermal cracking due to shale''s low thermal conductivity (~1-2 W/m·K). Max
       safe before damage ~500 W to prevent substrate ablation. Source: Manufacturer specs (e.g., IPG Photonics YLR series)
       and studies on laser cleaning of stone (Optics and Lasers in Engineering, 2018).'
-componentSummary: These settings employ a 1064 nm wavelength and 12 ns pulses at 200 W to ablate surface contaminants from
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective speeds for contamination removal on shale; slower for heavy contamination (500-1000 mm/s), faster
+      for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal fluence delivery without overheating. Source: Industry
+      standards from laser cleaning equipment manuals (e.g., Laserax systems) and case studies on rock surface preparation.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 30
+    description: 'Nanosecond regime preferred for 1064 nm cleaning of shale to achieve ablation with minimal heat-affected
+      zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially due to cost.
+      Avoid fs for shale to prevent micro-cracking from shock waves. Recommended 30 ns for low reflectivity materials. Source:
+      Laser physics research (Applied Surface Science, 2020) on pulsed laser ablation thresholds.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical for efficient cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in
+      low-conductivity shale, leading to thermal stress. Recommended 50 kHz balances speed and safety. Trade-off: low freq
+      for heavy contamination to allow cooling. Source: Academic literature on pulsed laser cleaning (Journal of Laser Applications,
+      2019).'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal without damaging shale (ablation threshold ~2-4 J/cm² for siliceous
+      rocks); below 0.5 J/cm² ineffective for heavy soiling. Recommended 1.5 J/cm² for safe cleaning, considering shale''s
+      moderate reflectivity (~20-30% at 1064 nm) and melting point (~1200°C). Source: Ablation threshold studies (International
+      Journal of Rock Mechanics, 2017) on laser-rock interactions.'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for industrial cleaning; smaller (100-200 μm) for fine detail on shale surfaces, larger
+      (300-500 μm) for broad area prep. Recommended 200 μm for uniform energy distribution on irregular shale textures. Source:
+      Equipment specifications (e.g., Coherent Armoni series) and process optimization for stone cleaning.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on shale to ensure complete removal
+      without excessive energy input. Recommended 2 passes for industrial surface preparation, allowing incremental cleaning
+      to minimize damage risk. Source: Industry practice and case studies (e.g., laser cleaning of geological samples in Applied
+      Optics, 2021).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 'Ensures uniform coverage; 30-50% for large areas, 60-80% for detailed shale cleaning to avoid gaps in irregular
+      surfaces. Recommended 60% for optimal uniformity without overexposure. Source: Process optimization studies (Lasers
+      in Engineering, 2016) on scan strategies for rock substrates.'
+component_summary: These settings employ a 1064 nm wavelength and 12 ns pulses at 200 W to ablate surface contaminants from
   fragile shale layers without causing thermal cracking or structural damage.

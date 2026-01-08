@@ -2,7 +2,7 @@ id: medical-disinfectant-contamination
 name: Medical Disinfectant Residue
 category: chemical-residue
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:27:32.285024+00:00'
+dateModified: '2026-01-08T00:58:44.143799+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/chemical-residue/industrial/medical-disinfectant-contamination
@@ -44,34 +44,14 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  countryDisplay: United States
+  country_display: United States
   title: MA
   sex: m
-  jobTitle: Junior Optical Materials Specialist
   expertise:
   - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -84,145 +64,118 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Formaldehyde
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 0.37
+        hazard_class: carcinogenic
+      - compound: Chlorine compounds
+        concentration_mg_m3: 1.8
+        exposure_limit_mg_m3: 2.9
+        hazard_class: toxic
+      - compound: Quaternary ammonium compounds (decomposition products)
+        concentration_mg_m3: 3.2
+        exposure_limit_mg_m3: 5.0
+        hazard_class: irritant
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: full_face
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Formaldehyde
+          concentration_mg_m3: 2.5
+          hazard_class: carcinogenic
+        - compound: Chlorine compounds
+          concentration_mg_m3: 1.8
+          hazard_class: toxic
+        description: Formaldehyde and Chlorine compounds generation - multiple toxic compounds
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Formaldehyde - known carcinogen(s), minimize exposure'
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
+    ventilation_requirements:
       presentation: descriptive
-      items: []
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
+    substrate_compatibility_warnings:
+    - May react with chlorine-containing residues on certain metals causing corrosion
+    - Thermal decomposition may etch glass and some plastics
+    - Avoid use on porous materials where residue absorption occurs
   interactions:
-    producesCompounds:
+    produces_compounds:
       presentation: card
       items:
       - id: carbon-dioxide-compound
@@ -234,14 +187,7 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
+    affects_materials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -280,18 +226,11 @@ relationships:
         icon: layers
         order: 11
         variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   visual:
-    appearanceOnCategories:
+    appearance_on_categories:
       presentation: descriptive
       items:
-      - appearanceOnCategories:
+      - appearance_on_categories:
           ceramic:
             appearance: Shows as white, crystalline spots or a filmy layer that may dull the glaze and cause slight discoloration
               over time.
@@ -383,171 +322,102 @@ relationships:
         icon: eye
         order: 50
         variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   operational:
-    laserProperties:
+    laser_properties:
       presentation: descriptive
       items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 0.45
-            minJCm2: 0.15
-            recommendedJCm2: 0.3
-          overlapPercentage: 50
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 0.45
+            min_j_cm2: 0.15
+            recommended_j_cm2: 0.3
+          overlap_percentage: 50
           polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 5
-            recommendedNs: 20
-          repetitionRateKhz:
+          pulse_duration_range:
+            max_ns: 100
+            min_ns: 5
+            recommended_ns: 20
+          repetition_rate_khz:
             max: 200
             min: 20
             recommended: 100
-          safetyMarginFactor: 0.6
-          scanSpeedMmS:
+          safety_margin_factor: 0.6
+          scan_speed_mm_s:
             max: 2000
             min: 500
             recommended: 1000
-          spotSizeMm:
+          spot_size_mm:
             max: 0.1
             min: 0.02
             recommended: 0.05
-          wavelengthPreference:
+          wavelength_preference:
           - 355
           - 1064
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 120
-            wavelength355Nm: 2800
-            wavelength532Nm: 450
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 120
+            wavelength_355nm: 2800
+            wavelength_532nm: 450
           reflectivity:
-            wavelength1064Nm: 0.15
-            wavelength355Nm: 0.04
-            wavelength532Nm: 0.08
-          refractiveIndex:
-            imaginaryPart: 0.012
-            realPart: 1.45
-          transmissionDepth: 83.3
-        removalCharacteristics:
+            wavelength_1064nm: 0.15
+            wavelength_355nm: 0.04
+            wavelength_532nm: 0.08
+          refractive_index:
+            imaginary_part: 0.012
+            real_part: 1.45
+          transmission_depth: 83.3
+        removal_characteristics:
           byproducts:
           - compound: carbon-dioxide
-            hazardLevel: low
+            hazard_level: low
             phase: gas
           - compound: water-vapor
-            hazardLevel: low
+            hazard_level: low
             phase: gas
           - compound: organic-residues
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: gas
           - compound: chlorine compounds
-            hazardLevel: high
+            hazard_level: high
             phase: gas
-          damageRiskToSubstrate: low
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 240
-            typicalScanSpeedMmS: 800
-          removalEfficiency:
-            diminishingReturnsAfter: 3
-            optimalPasses: 2
-            singlePass: 0.85
-          secondaryMechanisms:
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.85
+          secondary_mechanisms:
           - photochemical
           - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: compressive
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumesGenerated:
-          - compound: Formaldehyde
-            concentrationMgM3: 2.5
-            exposureLimitMgM3: 0.37
-            hazardClass: carcinogenic
-          - compound: Chlorine compounds
-            concentrationMgM3: 1.8
-            exposureLimitMgM3: 2.9
-            hazardClass: toxic
-          - compound: Quaternary ammonium compounds (decomposition products)
-            concentrationMgM3: 3.2
-            exposureLimitMgM3: 5.0
-            hazardClass: irritant
-          particulateGeneration:
-            respirableFraction: 0.7
-            sizeRangeUm:
-            - 0.1
-            - 10.0
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: full_face
-            skinProtection: gloves
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - May react with chlorine-containing residues on certain metals causing corrosion
-          - Thermal decomposition may etch glass and some plastics
-          - Avoid use on porous materials where residue absorption occurs
-          toxicGasRisk:
-            severity: moderate
-            primaryHazards:
-            - compound: Formaldehyde
-              concentrationMgM3: 2.5
-              hazardClass: carcinogenic
-            - compound: Chlorine compounds
-              concentrationMgM3: 1.8
-              hazardClass: toxic
-            description: Formaldehyde and Chlorine compounds generation - multiple toxic compounds
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde - known carcinogen(s), minimize exposure'
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: carbon
-            minimumAirChangesPerHour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 0.4
-            pulseDuration10Ns: 0.6
-            wavelength1064Nm: 0.8
-          decompositionTemperature: 180
-          heatAffectedZoneDepth: 5
-          meltingPoint: null
-          specificHeat: 1500
-          thermalConductivity: 0.15
-          thermalDiffusivity: 0.1
-          vaporizationTemperature: 250
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: compressive
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 0.4
+            pulse_duration_10ns: 0.6
+            wavelength_1064nm: 0.8
+          decomposition_temperature: 180
+          heat_affected_zone_depth: 5
+          melting_point: null
+          specific_heat: 1500
+          thermal_conductivity: 0.15
+          thermal_diffusivity: 0.1
+          vaporization_temperature: 250
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
 displayName: Medical Disinfectant Residue
 subcategory: industrial
-validMaterials:
+valid_materials:
 - alumina-laser-cleaning
 - aluminosilicate-glass-laser-cleaning
 - aluminum-nitride-laser-cleaning
@@ -567,5 +437,5 @@ composition:
 - NaOCl
 - Quats
 - Phenolics
-prohibitedMaterials:
+prohibited_materials:
 - Aluminum

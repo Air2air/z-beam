@@ -4,7 +4,7 @@ displayName: Neodymium Laser Cleaning Settings
 category: rare-earth
 subcategory: lanthanide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:10.443595+00:00'
+dateModified: '2026-01-08T00:59:43.877928+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/rare-earth/lanthanide/neodymium-settings
@@ -39,7 +39,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  countryDisplay: Taiwan
+  country_display: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -61,8 +61,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,16 +93,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -116,14 +109,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -139,21 +127,16 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - challenge: Rapid oxidation and pyrophoricity
           severity: critical
-          thresholdTemperature: Above 150-300°C causes spontaneous ignition in air
+          threshold_temperature: Above 150-300°C causes spontaneous ignition in air
           impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
           solutions:
           - Process in inert atmosphere (argon or nitrogen) or high vacuum
@@ -163,14 +146,14 @@ relationships:
           - Immediate passivation after cleaning to prevent further oxidation
         - challenge: Variable thermal properties across series
           severity: medium
-          propertyValue: 3-8 mm²/s thermal diffusivity (2.7x variation)
+          property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
           impact: Different lanthanides require different cooling strategies
           solutions:
           - Light lanthanides (La, Ce, Pr) require more cooling time
           - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
           - Adjust parameters by specific element, not just category
           - Test on small area to determine optimal cooling requirements
-        contaminationChallenges:
+        contamination_challenges:
         - challenge: High-value material recovery
           severity: medium
           impact: Rare-earth elements extremely valuable; contamination removal must preserve material
@@ -190,18 +173,10 @@ relationships:
           - Follow applicable export control regulations
           - Chain of custody documentation for high-value materials
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Neodymium oxide removal without substrate damage
     unit: W
@@ -215,65 +190,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control
+    unit: μm
+    value: 50
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for precision vs. area coverage; smaller for fine surface prep on Neodymium components
-      (e.g., magnets), larger for broad cleaning. 200 μm recommended for uniform energy distribution without hotspots. Source:
-      Equipment specifications from Trumpf laser systems; process optimization in Surface and Coatings Technology (2022).'
   repetitionRate:
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for pulsed Nd:YAG cleaning; higher rates speed up process but risk heat accumulation on low-conductivity
-      Neodymium, potentially causing melting. 30 kHz recommended for efficient, controlled energy delivery. Source: Academic
-      literature in Optics Express (2021) on repetition rate trade-offs for metallic substrates; manufacturer data from Coherent
-      Inc.'
   energyDensity:
+    description: Fluence threshold for effective contaminant removal
+    unit: J/cm²
+    value: 5.1
     min: 0.1
     max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for safe ablation of contaminants (e.g., oils, oxides) without exceeding Neodymium''s damage
-      threshold (~4 J/cm² at 1064 nm due to reflectivity ~60%). 1.5 J/cm² recommended for effective cleaning below threshold.
-      Source: Ablation threshold studies in Journal of Applied Physics (2017) for rare earth metals; conservative for Neodymium''s
-      properties.'
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of surface contaminants
+    unit: ns
+    value: 10
     min: 0.1
     max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal heat-affected zone (HAZ) on heat-sensitive
-      Neodymium; picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost. 20 ns recommended for balancing
-      ablation and substrate integrity. Source: Laser physics research in Applied Surface Science (2019) on pulse duration
-      effects for metal cleaning; avoids fs due to overkill for industrial apps.'
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective speeds for contaminant removal on reflective metals; slower for heavy contamination (e.g., oxides),
-      faster for light rust/oils. Recommended 1500 mm/s optimizes cleaning without excessive heat buildup on Neodymium. Source:
-      Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for rare earth
-      metals.'
   passCount:
+    description: Recommended number of passes for complete surface cleaning
+    unit: passes
+    value: 3
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers to ensure complete removal without cumulative
-      damage to soft Neodymium. 2 passes recommended for industrial surface preparation. Source: Industry practice in laser
-      cleaning case studies, e.g., SPIE Proceedings (2020) on metallic alloys; adapts to Neodymium''s reactivity.'
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive heat accumulation
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage and prevents gaps in cleaning; 50% optimal for Neodymium to minimize overexposure
-      while achieving even fluence distribution. Higher for detailed work. Source: Process optimization studies in Lasers
-      in Manufacturing and Materials Processing (2019); standard in equipment like Adapt Laser guidelines.'
   power:
     min: 50
     max: 500
@@ -283,5 +240,65 @@ machineSettings:
       low melting point (1021°C) and moderate thermal conductivity (16.5 W/m·K); starting at 100W balances efficiency and
       safety. Source: IPG Photonics YLR series specs for industrial cleaning; academic review in Optics and Lasers in Engineering
       (2018) on metal surface preparation.'
-componentSummary: These settings employ 100 W power at 1064 nm with 10 ns pulses to ablate contaminants from Neodymium effectively,
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective speeds for contaminant removal on reflective metals; slower for heavy contamination (e.g., oxides),
+      faster for light rust/oils. Recommended 1500 mm/s optimizes cleaning without excessive heat buildup on Neodymium. Source:
+      Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for rare earth
+      metals.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal heat-affected zone (HAZ) on heat-sensitive
+      Neodymium; picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost. 20 ns recommended for balancing
+      ablation and substrate integrity. Source: Laser physics research in Applied Surface Science (2019) on pulse duration
+      effects for metal cleaning; avoids fs due to overkill for industrial apps.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for pulsed Nd:YAG cleaning; higher rates speed up process but risk heat accumulation on low-conductivity
+      Neodymium, potentially causing melting. 30 kHz recommended for efficient, controlled energy delivery. Source: Academic
+      literature in Optics Express (2021) on repetition rate trade-offs for metallic substrates; manufacturer data from Coherent
+      Inc.'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for safe ablation of contaminants (e.g., oils, oxides) without exceeding Neodymium''s damage
+      threshold (~4 J/cm² at 1064 nm due to reflectivity ~60%). 1.5 J/cm² recommended for effective cleaning below threshold.
+      Source: Ablation threshold studies in Journal of Applied Physics (2017) for rare earth metals; conservative for Neodymium''s
+      properties.'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for precision vs. area coverage; smaller for fine surface prep on Neodymium components
+      (e.g., magnets), larger for broad cleaning. 200 μm recommended for uniform energy distribution without hotspots. Source:
+      Equipment specifications from Trumpf laser systems; process optimization in Surface and Coatings Technology (2022).'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass for heavy layers to ensure complete removal without cumulative
+      damage to soft Neodymium. 2 passes recommended for industrial surface preparation. Source: Industry practice in laser
+      cleaning case studies, e.g., SPIE Proceedings (2020) on metallic alloys; adapts to Neodymium''s reactivity.'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage and prevents gaps in cleaning; 50% optimal for Neodymium to minimize overexposure
+      while achieving even fluence distribution. Higher for detailed work. Source: Process optimization studies in Lasers
+      in Manufacturing and Materials Processing (2019); standard in equipment like Adapt Laser guidelines.'
+component_summary: These settings employ 100 W power at 1064 nm with 10 ns pulses to ablate contaminants from Neodymium effectively,
   while short pulses prevent oxidation and thermal damage to its reactive surface.

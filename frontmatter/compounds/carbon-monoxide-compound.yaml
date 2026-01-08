@@ -3,8 +3,9 @@ name: Carbon Monoxide
 displayName: Carbon Monoxide (CO)
 category: toxic_gas
 subcategory: asphyxiant
+hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:28:08.779189+00:00'
+dateModified: '2026-01-08T00:59:12.457034+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/asphyxiant/carbon-monoxide-compound
@@ -21,6 +22,37 @@ pageTitle: Carbon Monoxide
 pageDescription: Carbon Monoxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Carbon Monoxide laser cleaning guide. Technical specifications and applications.
+chemical_formula: CO
+cas_number: 630-08-0
+molecular_weight: 28.01
+health_effects: "When dealing with carbon monoxide, watch its sneaky toxicity right away. Unlike oxygen, which sustains life,\
+  \ this gas binds tightly to your blood. That starves cells of what they need. \n\nCompare it to nitrogen—mostly harmless\
+  \ in air. Carbon monoxide slips in silently, mimicking oxygen's role. But it fools the body hard. Headaches hit first. Dizziness\
+  \ follows quick. \n\nIn industrial spots, like welding or engines, it builds up fast. Workers feel nausea without warning.\
+  \ Worse, confusion sets in deep. Blackouts can end it all. \n\nSafer gases like argon just displace air. Carbon monoxide\
+  \ poisons from within. Always vent well. Use detectors everywhere. Train teams to spot signs early."
+exposure_guidelines: Carbon monoxide slips in silently, unlike oxygen that sustains life. It binds tighter, starving the body
+  fast. Headaches hit first, then dizziness creeps in. Nausea follows, vision blurs quick. In heavy doses, confusion reigns;
+  blackout looms. Factories vent it during burns, welding sparks it free. Laser cleaning? It lingers in fumes, demanding fresh
+  air pulls. Wear masks tight, detect early with alarms. Ventilate wide, never ignore the threat.
+detection_methods: Spotting carbon monoxide in the air demands quick, reliable tools, especially around heavy machinery or
+  enclosed workspaces where leaks sneak up fast. Handheld detectors that change color on contact work well for spot checks,
+  alerting you without fuss. Electrochemical sensors, tucked into portable units, react swiftly to the gas's presence through
+  subtle electrical shifts, ideal for ongoing monitoring in factories. Infrared devices pick up the gas's unique absorption
+  patterns, scanning large areas remotely like a watchful eye over production lines. For tougher spots, like deep into pipes,
+  colorimetric tubes draw in samples and reveal traces via vivid reactions. In laser cleaning setups, where fumes build up,
+  pairing these with ventilation checks keeps things safe, avoiding buildup that dulls equipment over time. Stick to calibrated
+  gear, though—false alarms from poor maintenance can disrupt workflows just as badly as missing a real threat.
+first_aid: While fresh air revives someone gasping from everyday irritants like smoke, carbon monoxide demands swift, decisive
+  action since its silent grip mimics fatigue or flu, potentially turning deadly without warning. Rush the affected person
+  outdoors or to a well-ventilated space right away, loosening any tight clothing around the neck or chest to ease breathing.
+  If they seem unconscious or unresponsive, check for signs of life by gently shaking and calling their name—never delay summoning
+  professional help, as paramedics carry the tools to counter this insidious threat. Should breathing stop entirely, begin
+  chest compressions paired with rescue breaths if you're trained, keeping the rhythm steady until aid arrives. For milder
+  exposures where the person stays alert but woozy, encourage them to rest quietly in open air, avoiding any exertion that
+  could worsen the bind on their oxygen-starved system. Remember, this gas fools the body by binding tightly to blood carriers,
+  so even brief encounters in enclosed spots like garages or faulty heaters call for vigilance; prevention through detectors
+  beats reaction every time, but knowing these steps can bridge the gap to safety.
 images:
   hero:
     url: /images/compound/carbon-monoxide-compound-hero.jpg
@@ -36,7 +68,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  countryDisplay: United States
+  country_display: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -58,9 +90,21 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
   slug: todd-dunning
+health_effects_keywords:
+- asphyxiation
+- cardiovascular_effects
+- headache
+- dizziness
+- fatal_at_high_dose
+monitoring_required: true
+typical_concentration_range: 10-50 mg/m³
+sources_in_laser_cleaning:
+- incomplete_organic_combustion
+- thermal_decomposition_carbon_compounds
+- oxygen_deficient_conditions
 card:
   default:
     heading: Carbon Monoxide
@@ -74,7 +118,7 @@ card:
       legend: OSHA PEL
     severity: low
     icon: flask
-  contaminationContext:
+  contamination_context:
     heading: Carbon Monoxide
     subtitle: Emission Product
     badge:
@@ -88,7 +132,7 @@ card:
     icon: alert-triangle
 relationships:
   identity:
-    chemicalProperties:
+    chemical_properties:
       presentation: descriptive
       items:
       - type: chemical_properties
@@ -100,41 +144,26 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: chemicalProperties
-          group: identity
-          domain: compounds
-          icon: flask
-          order: 70
-          variant: default
-          schemaDescription: Chemical composition and properties
           notes: Core chemical identity data from Compounds.yaml
-          sourceField: chemical_properties
-    physicalProperties:
+          source_field: chemical_properties
+    physical_properties:
       presentation: descriptive
       items:
-      - boilingPoint: -191.5°C (-312.7°F)
-        meltingPoint: -205.1°C (-337.2°F)
-        vaporPressure: '>760 mmHg @ 20°C (gas at normal temperature)'
-        vaporDensity: 0.968 (Air=1)
-        specificGravity: 0.791 @ -191.5°C (liquid)
-        flashPoint: Not applicable (gas)
-        autoignitionTemp: 609°C (1128°F)
-        explosiveLimits: 'LEL: 12.5%, UEL: 74%'
+      - boiling_point: -191.5°C (-312.7°F)
+        melting_point: -205.1°C (-337.2°F)
+        vapor_pressure: '>760 mmHg @ 20°C (gas at normal temperature)'
+        vapor_density: 0.968 (Air=1)
+        specific_gravity: 0.791 @ -191.5°C (liquid)
+        flash_point: Not applicable (gas)
+        autoignition_temp: 609°C (1128°F)
+        explosive_limits: 'LEL: 12.5%, UEL: 74%'
         appearance: Colorless gas
         odor: Odorless - Cannot be detected by smell (DANGEROUS!)
       _section:
+        section_title: Physical Properties
+        description: Chemical and physical characteristics
         icon: flask
-        sectionMetadata:
-          relationshipType: physicalProperties
-          group: identity
-          domain: compounds
-          icon: thermometer
-          order: 71
-          variant: default
-          schemaDescription: Physical characteristics and behavior
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-    synonymsIdentifiers:
+    synonyms_identifiers:
       presentation: descriptive
       items:
       - synonyms:
@@ -143,25 +172,17 @@ relationships:
         - Flue gas
         - Exhaust gas
         - CO
-        commonTradeNames: []
-        otherIdentifiers:
-          rtecsNumber: FG3500000
-          ecNumber: 211-128-3
-          pubchemCid: '281'
+        common_trade_names: []
+        other_identifiers:
+          rtecs_number: FG3500000
+          ec_number: 211-128-3
+          pubchem_cid: '281'
       _section:
+        section_title: Alternative Names
+        description: Synonyms and chemical identifiers
         icon: tag
-        sectionMetadata:
-          relationshipType: synonymsIdentifiers
-          group: identity
-          domain: compounds
-          icon: tag
-          order: 72
-          variant: default
-          schemaDescription: Alternative names and identifiers
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
   safety:
-    healthEffects:
+    health_effects:
       presentation: card
       items:
       - route: inhalation
@@ -185,18 +206,10 @@ relationships:
         severity: low
         onset: immediate
       _section:
+        section_title: Health Effects
+        description: Adverse health impacts from exposure to this compound
         icon: heart-pulse
-        sectionMetadata:
-          relationshipType: healthEffects
-          group: safety
-          domain: compounds
-          icon: heart-pulse
-          order: 21
-          variant: warning
-          schemaDescription: Health hazards and exposure effects
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-    ppeRequirements:
+    ppe_requirements:
       presentation: descriptive
       items:
       - respiratory: NIOSH-approved full-face pressure-demand SCBA or supplied-air respirator with escape bottle for IDLH
@@ -204,94 +217,70 @@ relationships:
         skin: Protective gloves not normally required for gas (required for compressed gas cylinders). Thermal protection
           if handling cryogenic liquid.
         eye: Safety glasses. Face shield if handling compressed gas cylinders.
-        minimumLevel: Level B for confined spaces/unknown concentrations, Level C with supplied air for known concentrations
+        minimum_level: Level B for confined spaces/unknown concentrations, Level C with supplied air for known concentrations
           <1200 ppm
-        specialNotes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient atmospheres (<19.5% O2). Detector
-          badges provide no respiratory protection.
+        special_notes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient atmospheres (<19.5% O2).
+          Detector badges provide no respiratory protection.
       _section:
+        section_title: Personal Protective Equipment
+        description: Required safety equipment for handling this compound
         icon: shield-check
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: compounds
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-    emergencyResponse:
+    emergency_response:
       presentation: descriptive
       items:
-      - fireHazard: Extremely flammable gas. Wide flammability range. Vapors lighter than air but may accumulate in low areas.
+      - fire_hazard: Extremely flammable gas. Wide flammability range. Vapors lighter than air but may accumulate in low areas.
           Cylinders may rupture in fire.
-        fireSuppression: Do not extinguish burning gas unless flow can be stopped. Use water spray to cool cylinders. Use
+        fire_suppression: Do not extinguish burning gas unless flow can be stopped. Use water spray to cool cylinders. Use
           dry chemical or CO2 for surrounding fires.
-        spillProcedures: Evacuate area immediately. Eliminate ignition sources. Ventilate area or move containers to safe
+        spill_procedures: Evacuate area immediately. Eliminate ignition sources. Ventilate area or move containers to safe
           area. Stop leak if safe to do so. Monitor with CO detectors.
-        exposureImmediateActions: Remove to fresh air IMMEDIATELY. Administer 100% oxygen by tight-fitting mask. If breathing
+        exposure_immediate_actions: Remove to fresh air IMMEDIATELY. Administer 100% oxygen by tight-fitting mask. If breathing
           stopped, give artificial respiration. Seek immediate medical attention. Consider hyperbaric oxygen therapy for severe
           exposures.
-        environmentalHazards: Negligible environmental persistence - rapidly disperses and oxidizes to CO2. Primary hazard
+        environmental_hazards: Negligible environmental persistence - rapidly disperses and oxidizes to CO2. Primary hazard
           is asphyxiation, not environmental contamination.
-        specialHazards: Odorless, colorless - cannot detect without monitors. Binds to hemoglobin 200-250x more strongly than
-          oxygen, causing tissue hypoxia. Delayed neurological effects possible.
+        special_hazards: Odorless, colorless - cannot detect without monitors. Binds to hemoglobin 200-250x more strongly
+          than oxygen, causing tissue hypoxia. Delayed neurological effects possible.
       _section:
+        section_title: Emergency Response
+        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
-        sectionMetadata:
-          relationshipType: emergencyResponse
-          group: safety
-          domain: compounds
-          icon: ambulance
-          order: 23
-          variant: danger
-          schemaDescription: Emergency procedures and first aid
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-    exposureLimits:
+    exposure_limits:
       presentation: descriptive
       items:
-      - oshaPelPpm: 50
-        oshaPelMgM3: 55
-        nioshRelPpm: 35
-        nioshRelMgM3: 40
-        acgihTlvPpm: 25
-        acgihTlvMgM3: 29
-        workplaceExposure:
-          oshaPel:
-            twa8Hr: 50 ppm
-            stel15Min: null
+      - osha_pel_ppm: 50
+        osha_pel_mg_m3: 55
+        niosh_rel_ppm: 35
+        niosh_rel_mg_m3: 40
+        acgih_tlv_ppm: 25
+        acgih_tlv_mg_m3: 29
+        workplace_exposure:
+          osha_pel:
+            twa_8hr: 50 ppm
+            stel_15min: null
             ceiling: 200 ppm
-          nioshRel:
-            twa8Hr: 35 ppm
-            stel15Min: null
+          niosh_rel:
+            twa_8hr: 35 ppm
+            stel_15min: null
             ceiling: 200 ppm
             idlh: 1200 ppm
-          acgihTlv:
-            twa8Hr: 25 ppm
-            stel15Min: null
+          acgih_tlv:
+            twa_8hr: 25 ppm
+            stel_15min: null
             ceiling: null
-          biologicalExposureIndices:
+          biological_exposure_indices:
           - metabolite: Carboxyhemoglobin (COHb)
             specimen: Blood
             timing: End of shift
-            beiValue: <3.5% of hemoglobin for non-smokers, <10% post-shift
+            bei_value: <3.5% of hemoglobin for non-smokers, <10% post-shift
       _section:
+        section_title: Exposure Limits
+        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-        sectionMetadata:
-          relationshipType: exposureLimits
-          group: safety
-          domain: compounds
-          icon: gauge
-          order: 24
-          variant: warning
-          schemaDescription: Occupational exposure limits
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-    storageRequirements:
+    storage_requirements:
       presentation: descriptive
       items:
-      - temperatureRange: Store compressed gas cylinders below 52°C (125°F)
+      - temperature_range: Store compressed gas cylinders below 52°C (125°F)
         ventilation: 'Outdoor storage preferred. If indoors: continuous mechanical ventilation, gas detection system with
           alarms'
         incompatibilities:
@@ -301,184 +290,152 @@ relationships:
         - Chlorine
         - Fluorine
         - Nitrous oxide
-        containerMaterial: DOT-approved compressed gas cylinders (steel, aluminum). Do not transfer to unauthorized containers.
+        container_material: DOT-approved compressed gas cylinders (steel, aluminum). Do not transfer to unauthorized containers.
         segregation: Separate from oxygen cylinders by 20 feet or 5-foot non-combustible barrier. Store in dedicated gas cylinder
           storage.
-        quantityLimits: 'Per 29 CFR 1910.253: Maximum 300 cubic feet indoors, unlimited outdoors with proper segregation'
-        specialRequirements: Secure cylinders to prevent falling. Store upright. Cap cylinders when not in use. Post "CARBON
+        quantity_limits: 'Per 29 CFR 1910.253: Maximum 300 cubic feet indoors, unlimited outdoors with proper segregation'
+        special_requirements: Secure cylinders to prevent falling. Store upright. Cap cylinders when not in use. Post "CARBON
           MONOXIDE - POISON GAS" signs. Implement gas detection systems.
       _section:
+        section_title: Storage Requirements
+        description: Safe storage conditions and compatibility
         icon: warehouse
-        sectionMetadata:
-          relationshipType: storageRequirements
-          group: safety
-          domain: compounds
-          icon: warehouse
-          order: 25
-          variant: default
-          schemaDescription: Safe storage conditions
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-    regulatoryClassification:
+    regulatory_classification:
       presentation: descriptive
       items:
-      - unNumber: UN1016
-        dotHazardClass: 2.3 (Poisonous gas), 2.1 (Flammable gas)
-        dotLabel: Poison Gas, Flammable Gas
-        nfpaCodes:
+      - un_number: UN1016
+        dot_hazard_class: 2.3 (Poisonous gas), 2.1 (Flammable gas)
+        dot_label: Poison Gas, Flammable Gas
+        nfpa_codes:
           health: 3
           flammability: 4
           reactivity: 0
           special: null
           instability: 0
-        epaHazardCategories:
+        epa_hazard_categories:
         - Acute toxicity (inhalation)
         - Flammable gases
         - Gases under pressure
         - Reproductive toxicity
         - Specific target organ toxicity (single exposure)
-        saraTitleIii: false
-        cerclaRq: Not listed (gas, difficult to quantify releases)
-        rcraCode: Not listed as hazardous waste
+        sara_title_iii: false
+        cercla_rq: Not listed (gas, difficult to quantify releases)
+        rcra_code: Not listed as hazardous waste
       _section:
+        section_title: Regulatory Classification
+        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
-        sectionMetadata:
-          relationshipType: regulatoryClassification
-          group: safety
-          domain: compounds
-          icon: file-badge
-          order: 26
-          variant: default
-          schemaDescription: Regulatory classification and hazard codes
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
   environmental:
-    environmentalImpact:
+    environmental_impact:
       presentation: descriptive
       items:
-      - aquaticToxicity: 'Low direct toxicity to aquatic life. LC50 (fish): >100 mg/L. Rapidly escapes to atmosphere from
+      - aquatic_toxicity: 'Low direct toxicity to aquatic life. LC50 (fish): >100 mg/L. Rapidly escapes to atmosphere from
           water.'
         biodegradability: Not biodegradable in conventional sense. Oxidizes to CO2 in atmosphere.
         bioaccumulation: No bioaccumulation potential. Does not persist in environment.
-        soilMobility: Not applicable - gas escapes to atmosphere immediately.
-        atmosphericFate: 'Oxidizes to CO2 via hydroxyl radical reaction. Atmospheric lifetime: 1-2 months. Contributes to
+        soil_mobility: Not applicable - gas escapes to atmosphere immediately.
+        atmospheric_fate: 'Oxidizes to CO2 via hydroxyl radical reaction. Atmospheric lifetime: 1-2 months. Contributes to
           tropospheric ozone formation.'
-        ozoneDepletion: false
-        globalWarmingPotential: Indirect effect via methane oxidation, but negligible GWP itself
-        reportableReleases:
+        ozone_depletion: false
+        global_warming_potential: Indirect effect via methane oxidation, but negligible GWP itself
+        reportable_releases:
           water: Not reportable (low aquatic persistence)
           air: State-dependent. Many states require reporting large releases (e.g., >100 lbs/hr in some jurisdictions)
       _section:
+        section_title: Environmental Impact
+        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-        sectionMetadata:
-          relationshipType: environmentalImpact
-          group: environmental
-          domain: compounds
-          icon: leaf
-          order: 50
-          variant: default
-          schemaDescription: Environmental effects and disposal considerations
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-  detectionMonitoring:
-    detectionMonitoring:
+  detection_monitoring:
+    detection_monitoring:
       presentation: descriptive
       items:
-      - sensorTypes:
+      - sensor_types:
         - Electrochemical (most common)
         - Infrared (NDIR)
         - Semiconductor
         - Biomimetic gel (color change)
-        detectionRange: 0-300 ppm typical, 0-1000 ppm extended, 0-2000 ppm for rescue
-        alarmSetpoints:
+        detection_range: 0-300 ppm typical, 0-1000 ppm extended, 0-2000 ppm for rescue
+        alarm_setpoints:
           low: 35 ppm (NIOSH REL)
           high: 200 ppm (NIOSH Ceiling)
           evacuate: 1200 ppm (NIOSH IDLH)
-        colorimetricTubes:
+        colorimetric_tubes:
         - Dräger CH25701
         - Gastec 1LC/1LB
         - Kitagawa 106SD
-        analyticalMethods:
+        analytical_methods:
         - method: NIOSH 6604
           technique: GC-FID or electrochemical sensor
-          detectionLimit: 0.03 ppm
+          detection_limit: 0.03 ppm
         - method: OSHA ID-209
           technique: GC-TCD (thermal conductivity)
-          detectionLimit: 2 ppm
-        odorThreshold: NO ODOR - Cannot be detected by smell. MUST use electronic monitors. Odorless nature makes CO extremely
+          detection_limit: 2 ppm
+        odor_threshold: NO ODOR - Cannot be detected by smell. MUST use electronic monitors. Odorless nature makes CO extremely
           dangerous.
       _section:
+        section_title: Detection & Monitoring
+        description: Methods for detecting and measuring this compound
         icon: radar
-        sectionMetadata:
-          relationshipType: detectionMonitoring
-          group: detectionMonitoring
-          domain: compounds
-          icon: radar
-          order: 80
-          variant: default
-          schemaDescription: Detection and monitoring methods
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
   interactions:
-    producedFromContaminants:
+    produced_from_contaminants:
       presentation: card
       items:
       - id: adhesive-residue-contamination
         frequency: very_common
         severity: high
-        typicalContext: Incomplete combustion of organic adhesives
+        typical_context: Incomplete combustion of organic adhesives
       - id: paint-residue-contamination
         frequency: very_common
         severity: high
-        typicalContext: Combustion of paint binders and solvents
+        typical_context: Combustion of paint binders and solvents
       - id: rubber-residue-contamination
         frequency: very_common
         severity: high
-        typicalContext: Pyrolysis of rubber polymers
+        typical_context: Pyrolysis of rubber polymers
       - id: annealing-scale-contamination
         frequency: unknown
         severity: low
-        typicalContext: Laser removal of Heat Treatment Scale
+        typical_context: Laser removal of Heat Treatment Scale
       - id: bitumen-tar-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Bitumen and Tar Coatings
+        typical_context: Laser removal of Bitumen and Tar Coatings
       - id: carbon-buildup-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Carbon Deposit Buildup
+        typical_context: Laser removal of Carbon Deposit Buildup
       - id: carbon-soot-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Carbon Soot Deposits
+        typical_context: Laser removal of Carbon Soot Deposits
       - id: diamond-coating-contamination
         frequency: unknown
         severity: high
-        typicalContext: Laser removal of Diamond-Like Carbon Removal
+        typical_context: Laser removal of Diamond-Like Carbon Removal
       - id: epoxy-residue-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Epoxy Resin Deposits
+        typical_context: Laser removal of Epoxy Resin Deposits
       - id: graphite-marks-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Graphite Deposit Traces
+        typical_context: Laser removal of Graphite Deposit Traces
       - id: hydraulic-fluid-contamination
         frequency: unknown
         severity: high
-        typicalContext: Laser removal of Hydraulic Fluid Contamination
+        typical_context: Laser removal of Hydraulic Fluid Contamination
       - id: industrial-oil-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Industrial Oil / Grease Buildup
+        typical_context: Laser removal of Industrial Oil / Grease Buildup
       - id: pcb-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of PCB Oil Contamination
+        typical_context: Laser removal of PCB Oil Contamination
       - id: quench-oil-contamination
         frequency: unknown
         severity: moderate
-        typicalContext: Laser removal of Quenching Oil Residue
+        typical_context: Laser removal of Quenching Oil Residue
       _section:
         sectionTitle: Source Contaminants
         sectionDescription: Contaminants that generate this compound during laser cleaning
@@ -486,88 +443,36 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: producedFromContaminants
-          group: interactions
-          domain: compounds
-          icon: box
-          order: 12
-          variant: default
-          schemaDescription: Contaminants that produce this compound
           notes: Links to contaminant pages
+          relationship_type: produced_from
     reactivity:
       presentation: descriptive
       items:
       - stability: Stable under normal conditions.
         polymerization: Will not occur.
-        incompatibleMaterials:
+        incompatible_materials:
         - Strong oxidizers (oxygen, halogens, fluorine, chlorine)
         - Silver oxide
         - Iron oxide
         - Bromine trifluoride
         - Nickel carbonyl (forms at high temperature)
-        hazardousDecomposition:
+        hazardous_decomposition:
         - Carbon dioxide
         - Oxygen (incomplete combustion may regenerate CO)
-        conditionsToAvoid:
+        conditions_to_avoid:
         - Heat
         - Open flames
         - Sparks
         - Oxidizers
         - High temperatures
         - Confined spaces without ventilation
-        reactivityHazard: Reacts violently with strong oxidizers. May form explosive mixtures with air (12.5-74%). Reacts
+        reactivity_hazard: Reacts violently with strong oxidizers. May form explosive mixtures with air (12.5-74%). Reacts
           with heated iron to form toxic iron carbonyl.
       _section:
+        section_title: Reactivity
+        description: Chemical reactivity and incompatibilities
         icon: atom
-        sectionMetadata:
-          relationshipType: reactivity
-          group: interactions
-          domain: compounds
-          icon: zap
-          order: 15
-          variant: default
-          schemaDescription: Chemical reactivity and interactions
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-hazardClass: toxic
-chemicalFormula: CO
-casNumber: 630-08-0
-molecularWeight: 28.01
-healthEffects: "When dealing with carbon monoxide, watch its sneaky toxicity right away. Unlike oxygen, which sustains life,\
-  \ this gas binds tightly to your blood. That starves cells of what they need. \n\nCompare it to nitrogen—mostly harmless\
-  \ in air. Carbon monoxide slips in silently, mimicking oxygen's role. But it fools the body hard. Headaches hit first. Dizziness\
-  \ follows quick. \n\nIn industrial spots, like welding or engines, it builds up fast. Workers feel nausea without warning.\
-  \ Worse, confusion sets in deep. Blackouts can end it all. \n\nSafer gases like argon just displace air. Carbon monoxide\
-  \ poisons from within. Always vent well. Use detectors everywhere. Train teams to spot signs early."
-healthEffectsKeywords:
-- asphyxiation
-- cardiovascular_effects
-- headache
-- dizziness
-- fatal_at_high_dose
-exposureGuidelines: Carbon monoxide slips in silently, unlike oxygen that sustains life. It binds tighter, starving the body
-  fast. Headaches hit first, then dizziness creeps in. Nausea follows, vision blurs quick. In heavy doses, confusion reigns;
-  blackout looms. Factories vent it during burns, welding sparks it free. Laser cleaning? It lingers in fumes, demanding fresh
-  air pulls. Wear masks tight, detect early with alarms. Ventilate wide, never ignore the threat.
-detectionMethods: Spotting carbon monoxide in the air demands quick, reliable tools, especially around heavy machinery or
-  enclosed workspaces where leaks sneak up fast. Handheld detectors that change color on contact work well for spot checks,
-  alerting you without fuss. Electrochemical sensors, tucked into portable units, react swiftly to the gas's presence through
-  subtle electrical shifts, ideal for ongoing monitoring in factories. Infrared devices pick up the gas's unique absorption
-  patterns, scanning large areas remotely like a watchful eye over production lines. For tougher spots, like deep into pipes,
-  colorimetric tubes draw in samples and reveal traces via vivid reactions. In laser cleaning setups, where fumes build up,
-  pairing these with ventilation checks keeps things safe, avoiding buildup that dulls equipment over time. Stick to calibrated
-  gear, though—false alarms from poor maintenance can disrupt workflows just as badly as missing a real threat.
-firstAid: While fresh air revives someone gasping from everyday irritants like smoke, carbon monoxide demands swift, decisive
-  action since its silent grip mimics fatigue or flu, potentially turning deadly without warning. Rush the affected person
-  outdoors or to a well-ventilated space right away, loosening any tight clothing around the neck or chest to ease breathing.
-  If they seem unconscious or unresponsive, check for signs of life by gently shaking and calling their name—never delay summoning
-  professional help, as paramedics carry the tools to counter this insidious threat. Should breathing stop entirely, begin
-  chest compressions paired with rescue breaths if you're trained, keeping the rhythm steady until aid arrives. For milder
-  exposures where the person stays alert but woozy, encourage them to rest quietly in open air, avoiding any exertion that
-  could worsen the bind on their oxygen-starved system. Remember, this gas fools the body by binding tightly to blood carriers,
-  so even brief encounters in enclosed spots like garages or faulty heaters call for vigilance; prevention through detectors
-  beats reaction every time, but knowing these steps can bridge the gap to safety.
-ppeRequirements: 'Unlike many everyday hazards that announce themselves with visible signs or strong smells, carbon monoxide
+ppe_requirements: 'Unlike many everyday hazards that announce themselves with visible signs or strong smells, carbon monoxide
   sneaks in silently, demanding gear that actively shields the lungs from its invisible threat. Workers in industrial settings,
   where this toxic gas might leak from machinery or combustion processes, rely on full-face respirators fitted with cartridges
   designed to filter out such colorless fumes. These aren''t just masks; they form a sealed barrier, preventing even the slightest
@@ -586,16 +491,10 @@ ppeRequirements: 'Unlike many everyday hazards that announce themselves with vis
 
   Overall, this setup emphasizes detection tools integrated into suits, alerting users to rising dangers before they strike,
   turning a stealthy poison into a manageable workplace foe.'
-regulatoryStandards: Carbon monoxide stands out from harmless gases like nitrogen. Its invisibility demands tight controls.
+regulatory_standards: Carbon monoxide stands out from harmless gases like nitrogen. Its invisibility demands tight controls.
   Factories must install detectors everywhere. Workers get mandatory training on leaks. Ventilation systems stay mandatory
   in high-use zones. Storage tanks require robust seals against escape. Spill response plans save lives daily. Industries
   face audits to enforce these rules. Non-compliance brings heavy fines. Safe handling turns risk into routine.
-monitoringRequired: true
-typicalConcentrationRange: 10-50 mg/m³
-sourcesInLaserCleaning:
-- incomplete_organic_combustion
-- thermal_decomposition_carbon_compounds
-- oxygen_deficient_conditions
 faq:
   presentation: collapsible
   items:

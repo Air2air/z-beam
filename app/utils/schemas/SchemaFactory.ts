@@ -2026,7 +2026,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
 
   // **PHASE 1 ENHANCEMENT**: Load generated dataset file for enhanced data
   // These files contain: 20+ variableMeasured items, citation array, author E-E-A-T data, images
-  const generatedDataset = loadGeneratedDataset(baseSlug, datasetFolder);
+  const generatedDataset = loadGeneratedDataset(datasetName, datasetFolder);
   const enhancedFields = extractEnhancedFields(generatedDataset);
 
   // E-E-A-T Enhancement: Use page author as dataset creator for authority

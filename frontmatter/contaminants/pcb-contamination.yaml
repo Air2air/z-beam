@@ -2,7 +2,7 @@ id: pcb-contamination
 name: PCB Oil Contamination
 category: chemical-residue
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:27:32.925169+00:00'
+dateModified: '2026-01-08T00:58:44.630675+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/chemical-residue/industrial/pcb-contamination
@@ -45,34 +45,14 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  countryDisplay: Taiwan
+  country_display: Taiwan
   title: Ph.D.
   sex: f
-  jobTitle: Laser Processing Engineer
   expertise:
   - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -85,145 +65,129 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+      - compound: Aldehydes (formaldehyde)
+        concentration_mg_m3: 1.8
+        exposure_limit_mg_m3: 0.3
+        hazard_class: carcinogenic
+      - compound: Carbon monoxide
+        concentration_mg_m3: 15.0
+        exposure_limit_mg_m3: 29.0
+        hazard_class: toxic
+      - compound: Particulate organics
+        concentration_mg_m3: 8.5
+        exposure_limit_mg_m3: 3.0
+        hazard_class: toxic
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10.0
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 2.5
+          hazard_class: carcinogenic
+        - compound: Aldehydes (formaldehyde)
+          concentration_mg_m3: 1.8
+          hazard_class: carcinogenic
+        - compound: Carbon monoxide
+          concentration_mg_m3: 15.0
+          hazard_class: toxic
+        - compound: Particulate organics
+          concentration_mg_m3: 8.5
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Polycyclic Aromatic Hydrocarbons (PAHs), Aldehydes (formaldehyde),
+          Carbon monoxide - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Polycyclic Aromatic Hydrocarbons (PAHs), Aldehydes (formaldehyde) - known carcinogen(s), minimize exposure'
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
+    ventilation_requirements:
       presentation: descriptive
-      items: []
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: carbon
+        minimum_air_changes_per_hour: 12
+        rationale: Standard industrial ventilation (12 ACH) for particulate control
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize substrate damage and excessive fume generation
+    - Incomplete combustion may increase PAH formation - ensure proper ventilation
+    - Oil residues may create reflective surfaces requiring laser safety considerations
   interactions:
-    producesCompounds:
+    produces_compounds:
       presentation: card
       items:
       - id: carbon-dioxide-compound
@@ -237,14 +201,7 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
+    affects_materials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -287,18 +244,11 @@ relationships:
         icon: layers
         order: 11
         variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   visual:
-    appearanceOnCategories:
+    appearance_on_categories:
       presentation: descriptive
       items:
-      - appearanceOnCategories:
+      - appearance_on_categories:
           ceramic:
             appearance: PCB oil on ceramic surfaces appears as dark, greasy stains that may bead up or soak in slightly, often
               with a shiny, discolored look.
@@ -396,189 +346,109 @@ relationships:
         icon: eye
         order: 50
         variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   operational:
-    laserProperties:
+    laser_properties:
       presentation: descriptive
       items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.2
-            minJCm2: 0.3
-            recommendedJCm2: 0.8
-          overlapPercentage: 50
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.3
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
           polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 10
-            recommendedNs: 30
-          repetitionRateKhz:
+          pulse_duration_range:
+            max_ns: 100
+            min_ns: 10
+            recommended_ns: 30
+          repetition_rate_khz:
             max: 100
             min: 20
             recommended: 50
-          safetyMarginFactor: 0.7
-          scanSpeedMmS:
+          safety_margin_factor: 0.7
+          scan_speed_mm_s:
             max: 2000
             min: 500
             recommended: 1000
-          spotSizeMm:
+          spot_size_mm:
             max: 0.2
             min: 0.05
             recommended: 0.1
-          wavelengthPreference:
+          wavelength_preference:
           - 1064
           - 532
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 850
-            wavelength355Nm: 18500
-            wavelength532Nm: 4200
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 850
+            wavelength_355nm: 18500
+            wavelength_532nm: 4200
           reflectivity:
-            wavelength1064Nm: 0.08
-            wavelength355Nm: 0.03
-            wavelength532Nm: 0.05
-          refractiveIndex:
-            imaginaryPart: 0.015
-            realPart: 1.48
-          transmissionDepth: 11.8
-        removalCharacteristics:
+            wavelength_1064nm: 0.08
+            wavelength_355nm: 0.03
+            wavelength_532nm: 0.05
+          refractive_index:
+            imaginary_part: 0.015
+            real_part: 1.48
+          transmission_depth: 11.8
+        removal_characteristics:
           byproducts:
           - compound: carbon-dioxide
-            hazardLevel: low
+            hazard_level: low
             phase: gas
           - compound: water-vapor
-            hazardLevel: low
+            hazard_level: low
             phase: gas
           - compound: carbon-monoxide
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: gas
           - compound: vocs
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: gas
           - compound: carbon-particulates
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: solid
-          damageRiskToSubstrate: low
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 240
-            typicalScanSpeedMmS: 800
-          removalEfficiency:
-            diminishingReturnsAfter: 4
-            optimalPasses: 3
-            singlePass: 0.75
-          secondaryMechanisms:
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 4
+            optimal_passes: 3
+            single_pass: 0.75
+          secondary_mechanisms:
           - photochemical
           - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: none
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumesGenerated:
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentrationMgM3: 2.5
-            exposureLimitMgM3: 0.2
-            hazardClass: carcinogenic
-          - compound: Aldehydes (formaldehyde)
-            concentrationMgM3: 1.8
-            exposureLimitMgM3: 0.3
-            hazardClass: carcinogenic
-          - compound: Carbon monoxide
-            concentrationMgM3: 15.0
-            exposureLimitMgM3: 29.0
-            hazardClass: toxic
-          - compound: Particulate organics
-            concentrationMgM3: 8.5
-            exposureLimitMgM3: 3.0
-            hazardClass: toxic
-          particulateGeneration:
-            respirableFraction: 0.7
-            sizeRangeUm:
-            - 0.1
-            - 10.0
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: PAPR
-            skinProtection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - Laser parameters must be optimized to minimize substrate damage and excessive fume generation
-          - Incomplete combustion may increase PAH formation - ensure proper ventilation
-          - Oil residues may create reflective surfaces requiring laser safety considerations
-          toxicGasRisk:
-            severity: moderate
-            primaryHazards:
-            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-              concentrationMgM3: 2.5
-              hazardClass: carcinogenic
-            - compound: Aldehydes (formaldehyde)
-              concentrationMgM3: 1.8
-              hazardClass: carcinogenic
-            - compound: Carbon monoxide
-              concentrationMgM3: 15.0
-              hazardClass: toxic
-            - compound: Particulate organics
-              concentrationMgM3: 8.5
-              hazardClass: toxic
-            description: 'Multiple toxic compounds detected: Polycyclic Aromatic Hydrocarbons (PAHs), Aldehydes (formaldehyde),
-              Carbon monoxide - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Polycyclic Aromatic Hydrocarbons (PAHs), Aldehydes (formaldehyde) - known carcinogen(s), minimize exposure'
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: carbon
-            minimumAirChangesPerHour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 1.2
-            pulseDuration10Ns: 0.6
-            wavelength1064Nm: 0.8
-          decompositionTemperature: 400
-          heatAffectedZoneDepth: 15
-          meltingPoint: null
-          specificHeat: 2000
-          thermalConductivity: 0.15
-          thermalDiffusivity: 0.08
-          vaporizationTemperature: 500
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: none
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 1.2
+            pulse_duration_10ns: 0.6
+            wavelength_1064nm: 0.8
+          decomposition_temperature: 400
+          heat_affected_zone_depth: 15
+          melting_point: null
+          specific_heat: 2000
+          thermal_conductivity: 0.15
+          thermal_diffusivity: 0.08
+          vaporization_temperature: 500
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
 displayName: PCB Oil Contamination
 subcategory: industrial
-validMaterials:
+valid_materials:
 - concrete-laser-cleaning
 - steel-laser-cleaning
 composition:
 - C₁₂H₁₀₋ₓClₓ
 - Chlorinated Compounds
-prohibitedMaterials:
+prohibited_materials:
 - Food Areas

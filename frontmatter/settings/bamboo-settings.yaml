@@ -4,7 +4,7 @@ displayName: Bamboo Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:01.947516+00:00'
+dateModified: '2026-01-08T00:59:41.308424+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/bamboo-settings
@@ -44,7 +44,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  countryDisplay: Taiwan
+  country_display: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -66,8 +66,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
+  persona_file: taiwan_persona.yaml
+  formatting_file: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -84,7 +84,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -98,16 +98,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -121,14 +114,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -144,38 +132,25 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for bamboo surface cleaning without charring
     unit: W
@@ -189,21 +164,17 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning resolution on bamboo surface features
+    unit: μm
+    value: 50
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for precise cleaning; smaller (100-200 μm) for fine details on bamboo texture, larger
-      (300-500 μm) for broad areas. Recommended 200 μm for uniform coverage on fibrous surfaces. Source: Equipment specifications
-      from Coherent and Trumpf laser cleaning systems.'
   repetitionRate:
-    min: 1
-    max: 200
+    description: Optimal repetition rate for continuous cleaning coverage with thermal management
     unit: kHz
     value: 50
-    description: 'Typical for cleaning organics; 20-50 kHz recommended for bamboo to enable fast processing while limiting
-      heat accumulation due to low thermal conductivity. Higher rates (>100 kHz) increase speed but risk overheating. Source:
-      Academic literature, e.g., Applied Surface Science (2019) on pulse repetition effects in laser ablation of natural fibers.'
+    min: 1
+    max: 200
   fluenceThreshold:
     description: Optimal fluence level for contaminant ablation while preserving bamboo substrate
     unit: J/cm²
@@ -211,38 +182,29 @@ machineSettings:
     min: 0.3
     max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for efficient contaminant removal with controlled thermal penetration
+    unit: ns
+    value: 10
     min: 0.1
     max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for bamboo to achieve ablation with minimal heat-affected zone (HAZ); picosecond
-      (ps) or femtosecond (fs) reduce HAZ further but are costlier and less common for industrial cleaning at 1064 nm. Avoid
-      longer pulses to prevent burning. Source: Laser physics research in Optics and Lasers in Engineering (2020) on pulsed
-      laser interactions with biopolymers.'
   scanSpeed:
+    description: Optimal scanning speed for efficient area coverage while maintaining cleaning effectiveness
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1000
-    unit: mm/s
-    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s),
-      faster for light (2000-3000 mm/s). Recommended 1000 mm/s for bamboo to minimize thermal damage. Source: Industry manuals
-      from IPG Photonics and Laserax equipment guidelines for organic surfaces.'
   passCount:
+    description: Number of cleaning passes for complete contaminant removal without substrate damage
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; recommended 2 passes for bamboo
-      to ensure complete removal while monitoring for thermal effects. Source: Industry case studies on laser surface preparation
-      for natural materials (e.g., SPIE Proceedings, 2021).'
   overlapRatio:
+    description: Beam overlap percentage for uniform cleaning coverage across bamboo surface
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage without excessive overlap-induced heat; 50% recommended for bamboo to achieve even
-      cleaning on irregular surfaces while avoiding hotspots. Typical range from process optimization. Source: Optimization
-      studies in Lasers in Manufacturing and Materials Processing (2022).'
   power:
     min: 20
     max: 200
@@ -251,7 +213,32 @@ machineSettings:
     description: 'Typical range for delicate organic materials like bamboo to remove surface contaminants without charring;
       starting at 50 W for controlled ablation. Max safe to avoid substrate damage based on thermal sensitivity of lignocellulosic
       fibers. Source: Studies on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018, adapted for bamboo).'
-  energyDensity:
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1000
+    unit: mm/s
+    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s),
+      faster for light (2000-3000 mm/s). Recommended 1000 mm/s for bamboo to minimize thermal damage. Source: Industry manuals
+      from IPG Photonics and Laserax equipment guidelines for organic surfaces.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for bamboo to achieve ablation with minimal heat-affected zone (HAZ); picosecond
+      (ps) or femtosecond (fs) reduce HAZ further but are costlier and less common for industrial cleaning at 1064 nm. Avoid
+      longer pulses to prevent burning. Source: Laser physics research in Optics and Lasers in Engineering (2020) on pulsed
+      laser interactions with biopolymers.'
+  repetition_rate:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: 'Typical for cleaning organics; 20-50 kHz recommended for bamboo to enable fast processing while limiting
+      heat accumulation due to low thermal conductivity. Higher rates (>100 kHz) increase speed but risk overheating. Source:
+      Academic literature, e.g., Applied Surface Science (2019) on pulse repetition effects in laser ablation of natural fibers.'
+  energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
@@ -260,5 +247,29 @@ machineSettings:
       so stay below 5 J/cm². Recommended 1.5 J/cm² for safe cleaning without substrate ablation. Conservative due to bamboo''s
       low melting/decomposition point (~200-300°C). Source: Ablation threshold studies in Journal of Applied Physics (2017)
       for wood and cellulose.'
-componentSummary: These settings enable precise, low-thermal-impact cleaning of bamboo, using moderate 50 W power and 10 ns
-  pulses at 1064 nm to ablate surface contaminants without charring the delicate organic fibers.
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for precise cleaning; smaller (100-200 μm) for fine details on bamboo texture, larger
+      (300-500 μm) for broad areas. Recommended 200 μm for uniform coverage on fibrous surfaces. Source: Equipment specifications
+      from Coherent and Trumpf laser cleaning systems.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; recommended 2 passes for bamboo
+      to ensure complete removal while monitoring for thermal effects. Source: Industry case studies on laser surface preparation
+      for natural materials (e.g., SPIE Proceedings, 2021).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage without excessive overlap-induced heat; 50% recommended for bamboo to achieve even
+      cleaning on irregular surfaces while avoiding hotspots. Typical range from process optimization. Source: Optimization
+      studies in Lasers in Manufacturing and Materials Processing (2022).'
+component_summary: These settings enable precise, low-thermal-impact cleaning of bamboo, using moderate 50 W power and 10
+  ns pulses at 1064 nm to ablate surface contaminants without charring the delicate organic fibers.

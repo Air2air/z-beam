@@ -2,7 +2,7 @@ id: carbon-soot-contamination
 name: Carbon Soot Deposits
 category: organic-residue
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:27:29.883433+00:00'
+dateModified: '2026-01-08T00:58:42.237715+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/organic-residue/other/carbon-soot-contamination
@@ -43,36 +43,14 @@ author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  countryDisplay: Indonesia
+  country_display: Indonesia
   title: Ph.D.
   sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
   expertise:
   - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
-  slug: ikmanda-roswati
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -85,145 +63,129 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: low
+        description: Minimal fire risk with standard precautions and adequate ventilation
+        mitigation: Standard fire safety precautions, extinguisher available within 15m
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Carbon Monoxide
+        concentration_mg_m3: 50.0
+        exposure_limit_mg_m3: 29.0
+        hazard_class: toxic
+      - compound: Carbon Dioxide
+        concentration_mg_m3: 500.0
+        exposure_limit_mg_m3: 9000.0
+        hazard_class: toxic
+      - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+        concentration_mg_m3: 2.5
+        exposure_limit_mg_m3: 0.2
+        hazard_class: carcinogenic
+      - compound: Ultrafine Carbon Particles
+        concentration_mg_m3: 15.0
+        exposure_limit_mg_m3: 3.0
+        hazard_class: toxic
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.8
+        size_range_um:
+        - 0.01
+        - 10.0
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: PAPR
+        skin_protection: full_suit
+        rationale: Standard protection against workplace hazards
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: moderate
+        primary_hazards:
+        - compound: Carbon Monoxide
+          concentration_mg_m3: 50.0
+          hazard_class: toxic
+        - compound: Carbon Dioxide
+          concentration_mg_m3: 500.0
+          hazard_class: toxic
+        - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+          concentration_mg_m3: 2.5
+          hazard_class: carcinogenic
+        - compound: Ultrafine Carbon Particles
+          concentration_mg_m3: 15.0
+          hazard_class: toxic
+        description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Polycyclic Aromatic Hydrocarbons
+          (PAHs) - requires enhanced protection'
+        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
+          Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
+    ventilation_requirements:
       presentation: descriptive
-      items: []
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: dual
+        minimum_air_changes_per_hour: 12
+        rationale: Enhanced ventilation required due to dense particulate generation - 12 ACH with dual
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: high
+        description: Severe visibility reduction (60-80%), dense particulate or smoke generation
+        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+        mitigation: Maintain clear evacuation routes, supplemental lighting, restrict operator movement
+        related_field: particulate_generation.respirable_fraction
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
+    substrate_compatibility_warnings:
+    - Laser parameters must be optimized to minimize substrate damage and excessive fume generation
+    - Avoid laser cleaning on painted surfaces containing lead or chromium
+    - Test on small area first to assess fume generation characteristics
   interactions:
-    producesCompounds:
+    produces_compounds:
       presentation: card
       items:
       - id: carbon-dioxide-compound
@@ -235,14 +197,7 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
+    affects_materials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -293,18 +248,11 @@ relationships:
         icon: layers
         order: 11
         variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   visual:
-    appearanceOnCategories:
+    appearance_on_categories:
       presentation: descriptive
       items:
-      - appearanceOnCategories:
+      - appearance_on_categories:
           ceramic:
             appearance: Carbon soot on ceramic surfaces appears as a dark, sooty layer that can adhere to glazed or unglazed
               areas, resulting in a dull, blackened finish that may feel slightly gritty.
@@ -402,179 +350,99 @@ relationships:
         icon: eye
         order: 50
         variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   operational:
-    laserProperties:
+    laser_properties:
       presentation: descriptive
       items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.2
-            minJCm2: 0.2
-            recommendedJCm2: 0.6
-          overlapPercentage: 50
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.2
+            recommended_j_cm2: 0.6
+          overlap_percentage: 50
           polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 10
-            recommendedNs: 30
-          repetitionRateKhz:
+          pulse_duration_range:
+            max_ns: 100
+            min_ns: 10
+            recommended_ns: 30
+          repetition_rate_khz:
             max: 200
             min: 20
             recommended: 50
-          safetyMarginFactor: 0.6
-          scanSpeedMmS:
+          safety_margin_factor: 0.6
+          scan_speed_mm_s:
             max: 5000
             min: 500
             recommended: 1500
-          spotSizeMm:
+          spot_size_mm:
             max: 0.1
             min: 0.03
             recommended: 0.05
-          wavelengthPreference:
+          wavelength_preference:
           - 1064
           - 532
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 8000
-            wavelength355Nm: 60000
-            wavelength532Nm: 25000
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 8000
+            wavelength_355nm: 60000
+            wavelength_532nm: 25000
           reflectivity:
-            wavelength1064Nm: 0.05
-            wavelength355Nm: 0.01
-            wavelength532Nm: 0.03
-          refractiveIndex:
-            imaginaryPart: 0.4
-            realPart: 1.8
-          transmissionDepth: 1.25
-        removalCharacteristics:
+            wavelength_1064nm: 0.05
+            wavelength_355nm: 0.01
+            wavelength_532nm: 0.03
+          refractive_index:
+            imaginary_part: 0.4
+            real_part: 1.8
+          transmission_depth: 1.25
+        removal_characteristics:
           byproducts:
           - compound: carbon-dioxide
-            hazardLevel: low
+            hazard_level: low
             phase: gas
           - compound: carbon-monoxide
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: gas
           - compound: carbon-particulates
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: solid
-          damageRiskToSubstrate: low
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 1200
-            typicalScanSpeedMmS: 500
-          removalEfficiency:
-            diminishingReturnsAfter: 3
-            optimalPasses: 2
-            singlePass: 0.85
-          secondaryMechanisms:
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 1200
+            typical_scan_speed_mm_s: 500
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.85
+          secondary_mechanisms:
           - photochemical
           - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: none
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumesGenerated:
-          - compound: Carbon Monoxide
-            concentrationMgM3: 50.0
-            exposureLimitMgM3: 29.0
-            hazardClass: toxic
-          - compound: Carbon Dioxide
-            concentrationMgM3: 500.0
-            exposureLimitMgM3: 9000.0
-            hazardClass: toxic
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentrationMgM3: 2.5
-            exposureLimitMgM3: 0.2
-            hazardClass: carcinogenic
-          - compound: Ultrafine Carbon Particles
-            concentrationMgM3: 15.0
-            exposureLimitMgM3: 3.0
-            hazardClass: toxic
-          particulateGeneration:
-            respirableFraction: 0.8
-            sizeRangeUm:
-            - 0.01
-            - 10.0
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: PAPR
-            skinProtection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - Laser parameters must be optimized to minimize substrate damage and excessive fume generation
-          - Avoid laser cleaning on painted surfaces containing lead or chromium
-          - Test on small area first to assess fume generation characteristics
-          toxicGasRisk:
-            severity: moderate
-            primaryHazards:
-            - compound: Carbon Monoxide
-              concentrationMgM3: 50.0
-              hazardClass: toxic
-            - compound: Carbon Dioxide
-              concentrationMgM3: 500.0
-              hazardClass: toxic
-            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-              concentrationMgM3: 2.5
-              hazardClass: carcinogenic
-            - compound: Ultrafine Carbon Particles
-              concentrationMgM3: 15.0
-              hazardClass: toxic
-            description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Polycyclic Aromatic Hydrocarbons
-              (PAHs) - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: dual
-            minimumAirChangesPerHour: 12
-            rationale: Enhanced ventilation required due to dense particulate generation - 12 ACH with dual
-          visibilityHazard:
-            severity: high
-            description: Severe visibility reduction (60-80%), dense particulate or smoke generation
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Maintain clear evacuation routes, supplemental lighting, restrict operator movement
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 1.2
-            pulseDuration10Ns: 0.6
-            wavelength1064Nm: 0.8
-          decompositionTemperature: 400
-          heatAffectedZoneDepth: 15
-          meltingPoint: 3550
-          specificHeat: 840
-          thermalConductivity: 1.5
-          thermalDiffusivity: 1.2
-          vaporizationTemperature: 1800
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: none
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 1.2
+            pulse_duration_10ns: 0.6
+            wavelength_1064nm: 0.8
+          decomposition_temperature: 400
+          heat_affected_zone_depth: 15
+          melting_point: 3550
+          specific_heat: 840
+          thermal_conductivity: 1.5
+          thermal_diffusivity: 1.2
+          vaporization_temperature: 1800
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
 displayName: Carbon Soot Deposits
 subcategory: other
-validMaterials:
+valid_materials:
 - alumina-laser-cleaning
 - aluminum-laser-cleaning
 - aluminum-nitride-laser-cleaning
@@ -610,7 +478,7 @@ validMaterials:
 composition:
 - C
 - PAH
-prohibitedMaterials:
+prohibited_materials:
 - Nylon
 - Plastics
 - Wood

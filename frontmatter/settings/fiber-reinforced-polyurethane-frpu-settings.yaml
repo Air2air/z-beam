@@ -4,7 +4,7 @@ displayName: Fiber Reinforced Polyurethane FRPU Laser Cleaning Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:05.900406+00:00'
+dateModified: '2026-01-08T00:59:42.497459+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-settings
@@ -39,7 +39,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  countryDisplay: Italy
+  country_display: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -62,8 +62,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -80,7 +80,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -94,16 +94,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -117,14 +110,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -140,38 +128,25 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: matrix-degradation
           type: challenge
         - id: anisotropic-thermal
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: resin-contaminant-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for FRPU cleaning without thermal damage to fiber reinforcement
     unit: W
@@ -185,60 +160,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise cleaning control on FRPU surface
+    unit: μm
+    value: 100
     min: 0.1
     max: 500
-    value: 150
-    unit: μm
-    description: 'Beam diameter for precise cleaning on FRPU surfaces; smaller (50-100 μm) for fine details, larger (200-300
-      μm) for broad areas. 150 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Coherent
-      and Trumpf laser systems.'
   repetitionRate:
+    description: High repetition rate for efficient cleaning with minimal thermal accumulation
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 40
-    unit: kHz
-    description: 'Typical for pulsed fiber lasers in cleaning; 40 kHz recommended for FRPU to enable fast processing without
-      excessive heat accumulation in low-thermal-conductivity material. Higher rates (>60 kHz) risk buildup. Source: Academic
-      literature on composite laser processing (Composites Part B, 2019).'
   energyDensity:
+    description: Fluence threshold for effective polyurethane removal while preserving fibers
+    unit: J/cm²
+    value: 2.5
     min: 0.1
     max: 20.0
-    value: 0.8
-    unit: J/cm²
-    description: 'Fluence range for safe contaminant removal on FRPU; damage threshold ~1.5-2.5 J/cm² due to polyurethane''s
-      low melting point (~180-250°C) and moderate 1064 nm absorption. Recommended 0.8 J/cm² for cleaning without substrate
-      harm. Source: Ablation threshold studies (Appl. Surf. Sci. 2017).'
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of polyurethane matrix
+    unit: ns
+    value: 10
     min: 0.1
     max: 1000
-    value: 50
-    unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning of polymers; picosecond (ps) or femtosecond (fs)
-      for ultra-minimal HAZ but overkill for FRPU. 50 ns minimizes heat-affected zone while ablating contaminants. Source:
-      Laser physics research on polymer ablation (Opt. Lasers Eng. 2020).'
   scanSpeed:
+    description: Optimal scanning speed for efficient coverage without excessive dwell time
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective for contamination removal on low-conductivity FRPU; slower for heavy contamination (500-1000 mm/s),
-      faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance. Source: Industry standards from Laserax
-      and Adapt-Laser manuals for composite cleaning.'
   passCount:
+    description: Recommended number of passes for complete contaminant removal
+    unit: passes
+    value: 3
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-4) for heavy; 2 passes recommended for complete FRPU
-      cleaning to ensure removal without overexposure. Source: Industry case studies on polymer composite cleaning (J. Clean.
-      Prod. 2021).'
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal input
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 60
-    unit: '%'
-    description: 'Ensures uniform coverage on irregular FRPU surfaces; 60% recommended for even cleaning without gaps or excessive
-      overlap-induced heat. Typical 30-80% range. Source: Process optimization studies (Opt. Laser Technol. 2019).'
   power:
     min: 50
     max: 200
@@ -247,5 +209,60 @@ machineSettings:
     description: 'Typical range for polymer composites like FRPU to balance cleaning efficiency and avoid thermal degradation;
       starting at 100W for light contamination. Max safe ~150-200W before substrate melting (polyurethane degrades ~200°C).
       Source: IPG Photonics fiber laser specs for cleaning; studies on polymer ablation (e.g., J. Appl. Phys. 2018).'
-componentSummary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise, low-heat ablation for
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective for contamination removal on low-conductivity FRPU; slower for heavy contamination (500-1000 mm/s),
+      faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance. Source: Industry standards from Laserax
+      and Adapt-Laser manuals for composite cleaning.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 50
+    unit: ns
+    description: 'Nanosecond regime preferred for cost-effective cleaning of polymers; picosecond (ps) or femtosecond (fs)
+      for ultra-minimal HAZ but overkill for FRPU. 50 ns minimizes heat-affected zone while ablating contaminants. Source:
+      Laser physics research on polymer ablation (Opt. Lasers Eng. 2020).'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 40
+    unit: kHz
+    description: 'Typical for pulsed fiber lasers in cleaning; 40 kHz recommended for FRPU to enable fast processing without
+      excessive heat accumulation in low-thermal-conductivity material. Higher rates (>60 kHz) risk buildup. Source: Academic
+      literature on composite laser processing (Composites Part B, 2019).'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 0.8
+    unit: J/cm²
+    description: 'Fluence range for safe contaminant removal on FRPU; damage threshold ~1.5-2.5 J/cm² due to polyurethane''s
+      low melting point (~180-250°C) and moderate 1064 nm absorption. Recommended 0.8 J/cm² for cleaning without substrate
+      harm. Source: Ablation threshold studies (Appl. Surf. Sci. 2017).'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 150
+    unit: μm
+    description: 'Beam diameter for precise cleaning on FRPU surfaces; smaller (50-100 μm) for fine details, larger (200-300
+      μm) for broad areas. 150 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Coherent
+      and Trumpf laser systems.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-4) for heavy; 2 passes recommended for complete FRPU
+      cleaning to ensure removal without overexposure. Source: Industry case studies on polymer composite cleaning (J. Clean.
+      Prod. 2021).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 'Ensures uniform coverage on irregular FRPU surfaces; 60% recommended for even cleaning without gaps or excessive
+      overlap-induced heat. Typical 30-80% range. Source: Process optimization studies (Opt. Laser Technol. 2019).'
+component_summary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise, low-heat ablation for
   cleaning FRPU, protecting its sensitive polymer matrix from thermal degradation while effectively removing surface contaminants.

@@ -4,7 +4,7 @@ displayName: Pine Laser Cleaning Settings
 category: wood
 subcategory: softwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:11.244378+00:00'
+dateModified: '2026-01-08T00:59:44.183549+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/softwood/pine-settings
@@ -42,7 +42,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  countryDisplay: Italy
+  country_display: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -65,8 +65,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -83,7 +83,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -97,16 +97,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -120,14 +113,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: pine-laser-cleaning
@@ -139,38 +127,25 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Pine surface cleaning without charring
     unit: W
@@ -184,63 +159,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for precise Pine surface treatment
+    unit: μm
+    value: 80
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Smaller for fine surface preparation on pine, larger for broad industrial areas; 200 μm optimal for uniform
-      energy distribution without pinpoint damage. Source: Equipment specifications from manufacturers like Coherent and Trumpf
-      lasers for cleaning heads (typical 150-300 μm for organic substrates).'
   repetitionRate:
+    description: Optimal repetition rate for efficient Pine surface cleaning
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 30
-    unit: kHz
-    description: 'Mid-range for effective contaminant vaporization on pine; higher rates increase speed but risk heat accumulation
-      due to pine''s poor conductivity, leading to discoloration. Trade-off favors moderate for safety. Source: Academic literature
-      in Applied Surface Science (e.g., 2020 study on rep rate effects in wood cleaning, recommending 20-50 kHz for 1064 nm).'
   energyDensity:
+    description: Fluence threshold for effective contaminant removal from Pine
+    unit: J/cm²
+    value: 1.8
     min: 0.1
     max: 20.0
-    value: 2
-    unit: J/cm²
-    description: 'Fluence below pine''s ablation threshold (~8-12 J/cm² at 1064 nm) for safe removal of surface contaminants;
-      higher risks carbonization. Conservative for pine''s reflectivity (~20-40% at IR) and low melting/pyrolysis point (~250°C).
-      Source: Ablation threshold studies in Journal of Applied Physics (e.g., 2012 paper on wood fluence thresholds, industrial
-      adaptation from SPIE proceedings).'
   pulseWidth:
+    description: Nanosecond pulse duration for controlled ablation of contaminants
+    unit: ns
+    value: 12
     min: 0.1
     max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred over ps/fs for cost-effective cleaning of pine; shorter pulses minimize heat-affected
-      zone (HAZ) to <50 μm, avoiding charring. Ps/fs for ultra-precision but overkill for industrial. Source: Laser physics
-      research in Optics & Lasers in Engineering (e.g., 2018 review on pulsed laser ablation of wood at 1064 nm).'
   scanSpeed:
+    description: Optimal scanning speed for uniform Pine cleaning
+    unit: mm/s
+    value: 800
     min: 10
     max: 5000
-    unit: mm/s
-    value: 1000
-    description: 'Slower speeds for heavy contamination on pine (e.g., resins or dirt), faster for light; optimal balances
-      efficiency and heat dissipation given pine''s low thermal conductivity (~0.12 W/mK). Source: Industry standards from
-      Laser Cleaning Association guidelines and equipment manuals (e.g., CleanLaser systems, recommending 500-2000 mm/s for
-      organics).'
   passCount:
+    description: Number of cleaning passes for complete Pine surface treatment
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy (e.g., paint or rust on pine); 2 passes recommended
-      to achieve complete removal while monitoring for thermal effects. Source: Industry practice in case studies from Laser
-      Focus World (e.g., 2019 industrial wood prep examples) and operator manuals.'
   overlapRatio:
+    description: Beam overlap percentage for uniform Pine surface coverage
+    unit: '%'
+    value: 30
     min: 10
     max: 90
-    value: 70
-    unit: '%'
-    description: 'Higher overlap ensures uniform coverage on irregular pine surfaces, preventing streaks; 70% balances efficiency
-      and overlap-induced heating. Source: Process optimization studies in Optics Express (e.g., 2017 paper on scan strategies
-      for laser cleaning, recommending 60-80% for woods).'
   dwellTime:
     description: Optimal dwell time per spot for Pine cleaning efficiency
     unit: μs
@@ -256,5 +215,63 @@ machineSettings:
       low prevents thermal damage. Max based on avoiding substrate pyrolysis. Source: Studies on laser cleaning of wood in
       Journal of Cultural Heritage (e.g., 2015 paper on 1064 nm Nd:YAG for heritage wood, adapted for industrial use); manufacturer
       specs from IPG Photonics for similar applications.'
-componentSummary: These moderate power and short-pulse settings at 1064 nm wavelength enable gentle contaminant removal from
+  scan_speed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1000
+    description: 'Slower speeds for heavy contamination on pine (e.g., resins or dirt), faster for light; optimal balances
+      efficiency and heat dissipation given pine''s low thermal conductivity (~0.12 W/mK). Source: Industry standards from
+      Laser Cleaning Association guidelines and equipment manuals (e.g., CleanLaser systems, recommending 500-2000 mm/s for
+      organics).'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred over ps/fs for cost-effective cleaning of pine; shorter pulses minimize heat-affected
+      zone (HAZ) to <50 μm, avoiding charring. Ps/fs for ultra-precision but overkill for industrial. Source: Laser physics
+      research in Optics & Lasers in Engineering (e.g., 2018 review on pulsed laser ablation of wood at 1064 nm).'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Mid-range for effective contaminant vaporization on pine; higher rates increase speed but risk heat accumulation
+      due to pine''s poor conductivity, leading to discoloration. Trade-off favors moderate for safety. Source: Academic literature
+      in Applied Surface Science (e.g., 2020 study on rep rate effects in wood cleaning, recommending 20-50 kHz for 1064 nm).'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 2
+    unit: J/cm²
+    description: 'Fluence below pine''s ablation threshold (~8-12 J/cm² at 1064 nm) for safe removal of surface contaminants;
+      higher risks carbonization. Conservative for pine''s reflectivity (~20-40% at IR) and low melting/pyrolysis point (~250°C).
+      Source: Ablation threshold studies in Journal of Applied Physics (e.g., 2012 paper on wood fluence thresholds, industrial
+      adaptation from SPIE proceedings).'
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Smaller for fine surface preparation on pine, larger for broad industrial areas; 200 μm optimal for uniform
+      energy distribution without pinpoint damage. Source: Equipment specifications from manufacturers like Coherent and Trumpf
+      lasers for cleaning heads (typical 150-300 μm for organic substrates).'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass for heavy (e.g., paint or rust on pine); 2 passes recommended
+      to achieve complete removal while monitoring for thermal effects. Source: Industry practice in case studies from Laser
+      Focus World (e.g., 2019 industrial wood prep examples) and operator manuals.'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 70
+    unit: '%'
+    description: 'Higher overlap ensures uniform coverage on irregular pine surfaces, preventing streaks; 70% balances efficiency
+      and overlap-induced heating. Source: Process optimization studies in Optics Express (e.g., 2017 paper on scan strategies
+      for laser cleaning, recommending 60-80% for woods).'
+component_summary: These moderate power and short-pulse settings at 1064 nm wavelength enable gentle contaminant removal from
   pine wood, minimizing charring and preserving the delicate organic structure.

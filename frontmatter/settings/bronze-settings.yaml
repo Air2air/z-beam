@@ -4,7 +4,7 @@ displayName: Bronze Laser Cleaning Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:03.262926+00:00'
+dateModified: '2026-01-08T00:59:41.749302+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/bronze-settings
@@ -38,7 +38,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  countryDisplay: Italy
+  country_display: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,16 +93,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -116,14 +109,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: bronze-laser-cleaning
@@ -135,40 +123,27 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - id: high-thermal-conductivity
           type: challenge
         - id: melting-haz
           type: challenge
-        contaminationChallenges:
+        contamination_challenges:
         - id: rust-oxide-removal
           type: challenge
         - id: oil-grease-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Bronze oxide removal without substrate damage
     unit: W
@@ -182,63 +157,47 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Optimal spot diameter for balancing cleaning efficiency and processing speed
+    unit: μm
+    value: 50
     min: 0.1
     max: 500
-    unit: μm
-    value: 200
-    description: 'Beam diameter range for precise control; smaller (100-200 μm) for detailed bronze artifacts, larger (200-500
-      μm) for industrial surfaces. Recommended 200 μm for uniform energy distribution on bronze without pinpoint damage. Source:
-      Equipment specs from Coherent and Trumpf laser cleaners.'
   repetitionRate:
+    description: High repetition rate for efficient cleaning coverage while maintaining pulse energy
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 30
-    unit: kHz
-    description: 'Standard for pulsed cleaning to achieve high throughput; 10-50 kHz for bronze to balance speed and heat
-      accumulation (higher rates risk melting due to poor IR absorption). Trade-off: higher freq accelerates cleaning but
-      requires faster scans. Recommended 30 kHz. Source: Academic literature (Appl. Surf. Sci. 2019; metal cleaning optimization).'
   energyDensity:
+    description: Fluence threshold for effective Bronze oxide removal while preserving substrate
+    unit: J/cm²
+    value: 5.1
     min: 0.1
     max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for removing contaminants (e.g., oxides, oils) below bronze damage threshold (~2-4 J/cm² for
-      ablation onset); conservative 0.5-1.5 J/cm² for light cleaning, up to 3 J/cm² for heavy. Recommended 1.5 J/cm² safe
-      for surface prep. Accounts for bronze''s reflectivity (~60-70% at 1064 nm). Source: Ablation threshold studies (J. Phys.
-      D: Appl. Phys. 2017; Cu alloys).'
   pulseWidth:
+    description: Nanosecond pulse duration for efficient oxide layer ablation with minimal thermal diffusion
+    unit: ns
+    value: 10
     min: 0.1
     max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning of reflective metals; 5-20 ns minimizes heat-affected
-      zone (HAZ <10 μm) compared to longer pulses, while picosecond (ps) or femtosecond (fs) reduce thermal damage further
-      but increase cost. 20 ns typical for 1064 nm Nd:YAG on bronze. Source: Laser physics research (Opt. Lasers Eng. 2015;
-      ablation studies on Cu-Sn alloys).'
   scanSpeed:
+    description: Optimal scanning speed for uniform oxide removal without substrate damage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 2000
-    unit: mm/s
-    description: 'Effective range for contaminant removal without excessive heat buildup; slower (500-1500 mm/s) for heavy
-      oxidation, faster (2000-5000 mm/s) for light dirt. Recommended 2000 mm/s for optimal bronze cleaning to ensure uniform
-      ablation of contaminants. Source: Industry standards from Laserax and Adapt Laser Systems manuals.'
   passCount:
+    description: Recommended number of passes for complete oxide removal with safety margin
+    unit: passes
+    value: 2
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for stubborn layers like patina on bronze; recommended
-      2 passes ensures complete removal with minimal risk to substrate integrity. Source: Industry case studies (e.g., heritage
-      cleaning in Stud. Conserv. 2020; industrial reports from Laser Cleaning Inc.).'
   overlapRatio:
+    description: Optimal pulse overlap for uniform cleaning coverage without excessive thermal buildup
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage without gaps or over-ablation; 30-50% for large areas, 50-80% for fine uniformity
-      on bronze to prevent uneven heating. Recommended 50% for balanced process efficiency. Source: Process optimization studies
-      (Opt. Laser Technol. 2016; scanning parameter effects on metals).'
   power:
     min: 50
     max: 1000
@@ -248,5 +207,63 @@ machineSettings:
       efficiency and safety to avoid overheating due to bronze''s high reflectivity and thermal conductivity (~100-300 W/m·K).
       Max limited to prevent substrate melting (~950°C). Source: IPG Photonics YLR series specs and studies on copper alloys
       (e.g., J. Laser Appl. 2018).'
-componentSummary: These settings, with 200 W power, 1064 nm wavelength for strong metal absorption, and 10 ns pulses, enable
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 2000
+    unit: mm/s
+    description: 'Effective range for contaminant removal without excessive heat buildup; slower (500-1500 mm/s) for heavy
+      oxidation, faster (2000-5000 mm/s) for light dirt. Recommended 2000 mm/s for optimal bronze cleaning to ensure uniform
+      ablation of contaminants. Source: Industry standards from Laserax and Adapt Laser Systems manuals.'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning of reflective metals; 5-20 ns minimizes heat-affected
+      zone (HAZ <10 μm) compared to longer pulses, while picosecond (ps) or femtosecond (fs) reduce thermal damage further
+      but increase cost. 20 ns typical for 1064 nm Nd:YAG on bronze. Source: Laser physics research (Opt. Lasers Eng. 2015;
+      ablation studies on Cu-Sn alloys).'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Standard for pulsed cleaning to achieve high throughput; 10-50 kHz for bronze to balance speed and heat
+      accumulation (higher rates risk melting due to poor IR absorption). Trade-off: higher freq accelerates cleaning but
+      requires faster scans. Recommended 30 kHz. Source: Academic literature (Appl. Surf. Sci. 2019; metal cleaning optimization).'
+  energy_density:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for removing contaminants (e.g., oxides, oils) below bronze damage threshold (~2-4 J/cm² for
+      ablation onset); conservative 0.5-1.5 J/cm² for light cleaning, up to 3 J/cm² for heavy. Recommended 1.5 J/cm² safe
+      for surface prep. Accounts for bronze''s reflectivity (~60-70% at 1064 nm). Source: Ablation threshold studies (J. Phys.
+      D: Appl. Phys. 2017; Cu alloys).'
+  spot_size:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: 'Beam diameter range for precise control; smaller (100-200 μm) for detailed bronze artifacts, larger (200-500
+      μm) for industrial surfaces. Recommended 200 μm for uniform energy distribution on bronze without pinpoint damage. Source:
+      Equipment specs from Coherent and Trumpf laser cleaners.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for stubborn layers like patina on bronze; recommended
+      2 passes ensures complete removal with minimal risk to substrate integrity. Source: Industry case studies (e.g., heritage
+      cleaning in Stud. Conserv. 2020; industrial reports from Laser Cleaning Inc.).'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage without gaps or over-ablation; 30-50% for large areas, 50-80% for fine uniformity
+      on bronze to prevent uneven heating. Recommended 50% for balanced process efficiency. Source: Process optimization studies
+      (Opt. Laser Technol. 2016; scanning parameter effects on metals).'
+component_summary: These settings, with 200 W power, 1064 nm wavelength for strong metal absorption, and 10 ns pulses, enable
   precise oxide removal from bronze while minimizing heat damage to its soft copper-tin alloy.

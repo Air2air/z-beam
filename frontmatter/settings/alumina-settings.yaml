@@ -4,7 +4,7 @@ displayName: Alumina Laser Cleaning Settings
 category: ceramic
 subcategory: oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:29:01.568245+00:00'
+dateModified: '2026-01-08T00:59:41.175044+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/oxide/alumina-settings
@@ -43,7 +43,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  countryDisplay: Italy
+  country_display: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -66,8 +66,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -84,7 +84,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -98,16 +98,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removesContaminants:
+    removes_contaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -121,14 +114,9 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to contaminant pages
-    worksOnMaterials:
+          relationship_type: removes_contaminants
+    works_on_materials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -144,21 +132,16 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
           notes: Cross-references to material pages
+          relationship_type: works_on_materials
   operational:
-    commonChallenges:
+    common_challenges:
       presentation: descriptive
       items:
-      - thermalManagement:
+      - thermal_management:
         - challenge: Thermal shock and cracking
           severity: critical
-          thresholdTemperature: ΔT > 200-300°C rapid cooling
+          threshold_temperature: ΔT > 200-300°C rapid cooling
           impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
           solutions:
           - Use pulse mode with 3-5 second cooling between passes
@@ -167,28 +150,20 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Variable thermal conductivity
           severity: medium
-          propertyValue: 0.8-120 W/m·K (150x variation between materials)
+          property_value: 0.8-120 W/m·K (150x variation between materials)
           impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
           solutions:
           - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
           - High conductivity ceramics (SiC, WC) tolerate higher power
           - Test on scrap to determine cooling requirements
-        contaminationChallenges:
+        contamination_challenges:
         - id: coating-residue-removal
           type: challenge
       _section:
+        section_title: Common Challenges
+        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-machineSettings:
+machine_settings:
   powerRange:
     description: Optimal average power for Alumina surface cleaning without thermal damage
     unit: W
@@ -202,21 +177,17 @@ machineSettings:
     min: 355
     max: 10640
   spotSize:
+    description: Beam spot diameter for effective cleaning resolution and energy density
+    unit: μm
+    value: 50
     min: 0.1
     max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for precision (50-200 μm for fine details) vs. area coverage (200-500 μm); 200 μm recommended
-      for uniform cleaning on alumina surfaces. Source: Equipment specifications from Trumpf and SPI Lasers for scanning heads
-      in industrial cleaning.'
   repetitionRate:
+    description: Optimal repetition rate balancing cleaning efficiency and thermal management
+    unit: kHz
+    value: 50
     min: 1
     max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates increase speed but risk heat accumulation on alumina
-      (trade-off: >50 kHz may cause microcracks). 30 kHz recommended for safe operation. Source: Academic literature in Appl.
-      Surf. Sci. by Lorenz et al. (2009) on repetition rate effects in oxide cleaning.'
   fluenceThreshold:
     description: Minimum fluence required for effective Alumina surface cleaning
     unit: J/cm²
@@ -224,37 +195,29 @@ machineSettings:
     min: 0.3
     max: 4.5
   pulseWidth:
+    description: Nanosecond pulse duration for efficient material removal with controlled thermal effects
+    unit: ns
+    value: 10
     min: 0.1
     max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime (5-100 ns) preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs)
-      for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit thermal diffusion in low-conductivity
-      alumina. Source: Laser physics research in Opt. Express by Colombier et al. (2012) on ceramic ablation thresholds.'
   scanSpeed:
+    description: Optimal scanning speed for uniform cleaning coverage
+    unit: mm/s
+    value: 500
     min: 10
     max: 5000
-    value: 2000
-    unit: mm/s
-    description: 'Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (500-1000
-      mm/s), faster for light (3000-5000 mm/s). Recommended 2000 mm/s for optimal balance on alumina. Source: Industry standards
-      from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   passCount:
+    description: Recommended number of passes for complete contaminant removal
+    unit: passes
+    value: 3
     min: 1
     max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
-      removal on alumina without risking brittleness-induced damage. Source: Industry practice in case studies from Laser
-      Institute of America reports on ceramic surface preparation.'
   overlapRatio:
+    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
+    unit: '%'
+    value: 50
     min: 10
     max: 90
-    value: 60
-    unit: '%'
-    description: '30-80% ensures uniform coverage; 60% recommended to avoid gaps or overexposure on reflective alumina (reflectivity
-      ~20-40% at 1064 nm). Source: Process optimization studies in Surf. Coat. Technol. by Kumar et al. (2018) on scan overlap
-      for laser cleaning.'
   power:
     min: 50
     max: 500
@@ -263,7 +226,31 @@ machineSettings:
     description: 'Typical range for ns-pulsed fiber lasers in ceramic cleaning to avoid thermal damage; recommended starting
       at 100W for light contamination on alumina (high melting point ~2072°C but low thermal conductivity). Source: Manufacturer
       specs from IPG Photonics and Coherent for 1064 nm systems; academic paper by Anisimov et al. (2015) in J. Appl. Phys.'
-  energyDensity:
+  scan_speed:
+    min: 10
+    max: 5000
+    value: 2000
+    unit: mm/s
+    description: 'Effective range for contaminant removal without excessive heat buildup; slower for heavy contamination (500-1000
+      mm/s), faster for light (3000-5000 mm/s). Recommended 2000 mm/s for optimal balance on alumina. Source: Industry standards
+      from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems).'
+  pulse_width:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime (5-100 ns) preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs)
+      for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit thermal diffusion in low-conductivity
+      alumina. Source: Laser physics research in Opt. Express by Colombier et al. (2012) on ceramic ablation thresholds.'
+  repetition_rate:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates increase speed but risk heat accumulation on alumina
+      (trade-off: >50 kHz may cause microcracks). 30 kHz recommended for safe operation. Source: Academic literature in Appl.
+      Surf. Sci. by Lorenz et al. (2009) on repetition rate effects in oxide cleaning.'
+  energy_density:
     min: 0.1
     max: 20.0
     value: 1.5
@@ -271,5 +258,29 @@ machineSettings:
     description: 'Fluence range for contaminant ablation without substrate damage; alumina damage threshold at 1064 nm ~2-4
       J/cm². 1.5 J/cm² recommended for safe cleaning of light contaminants. Source: Ablation threshold studies in J. Phys.
       D: Appl. Phys. by Autrique et al. (2013) for ceramics at IR wavelengths.'
-componentSummary: These settings employ a 1064 nm wavelength for optimal contaminant absorption on alumina, with 100 W power
+  spot_size:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for precision (50-200 μm for fine details) vs. area coverage (200-500 μm); 200 μm recommended
+      for uniform cleaning on alumina surfaces. Source: Equipment specifications from Trumpf and SPI Lasers for scanning heads
+      in industrial cleaning.'
+  pass_count:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
+      removal on alumina without risking brittleness-induced damage. Source: Industry practice in case studies from Laser
+      Institute of America reports on ceramic surface preparation.'
+  overlap_ratio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: '30-80% ensures uniform coverage; 60% recommended to avoid gaps or overexposure on reflective alumina (reflectivity
+      ~20-40% at 1064 nm). Source: Process optimization studies in Surf. Coat. Technol. by Kumar et al. (2018) on scan overlap
+      for laser cleaning.'
+component_summary: These settings employ a 1064 nm wavelength for optimal contaminant absorption on alumina, with 100 W power
   and 10 ns pulses to minimize thermal stress and prevent cracking in the brittle ceramic.

@@ -2,7 +2,7 @@ id: lime-scale-contamination
 name: Limescale Deposits
 category: thermal-damage
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T03:27:32.124507+00:00'
+dateModified: '2026-01-08T00:58:44.091246+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/thermal-damage/scale/lime-scale-contamination
@@ -39,34 +39,14 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  countryDisplay: United States
+  country_display: United States
   title: MA
   sex: m
-  jobTitle: Junior Optical Materials Specialist
   expertise:
   - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
 relationships:
   safety:
-    regulatoryStandards:
+    regulatory_standards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -79,145 +59,107 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
+    fire_explosion_risk:
+      presentation: card
+      items:
+      - severity: none
+        description: No significant fire or explosion risk identified
+        mitigation: Standard workplace fire safety protocols
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
+    fumes_generated:
+      presentation: table
+      items:
+      - compound: Calcium Oxide (CaO)
+        concentration_mg_m3: 5-25
+        exposure_limit_mg_m3: 2
+        hazard_class: irritant
+      - compound: Carbon Dioxide (CO₂)
+        concentration_mg_m3: 1000-5000
+        exposure_limit_mg_m3: 9000
+        hazard_class: irritant
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
+    particulate_generation:
+      presentation: table
+      items:
+      - respirable_fraction: 0.7
+        size_range_um:
+        - 0.1
+        - 10
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
+    ppe_requirements:
+      presentation: descriptive
+      items:
+      - eye_protection: goggles
+        respiratory: half_mask
+        skin_protection: gloves
+        rationale: Standard protection against workplace hazards
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
+    toxic_gas_risk:
+      presentation: card
+      items:
+      - severity: low
+        primary_hazards: []
+        description: Minimal gas generation, nuisance particulates only
+        mitigation: N95 or P100 respirator for particulate control, standard ventilation
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
+    ventilation_requirements:
       presentation: descriptive
-      items: []
+      items:
+      - exhaust_velocity_m_s: 0.5
+        filtration_type: HEPA
+        minimum_air_changes_per_hour: 10
+        rationale: Standard industrial ventilation (10 ACH) for particulate control
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
+    visibility_hazard:
+      presentation: card
+      items:
+      - severity: moderate
+        description: Moderate visibility reduction (40-60%), significant particulate haze
+        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+        related_field: particulate_generation.respirable_fraction
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
+    substrate_compatibility_warnings:
+    - May cause surface etching on soft metals like aluminum
+    - Can generate thermal stress cracks on glass substrates
+    - May alter surface finish on polished materials
   interactions:
-    producesCompounds:
+    produces_compounds:
       presentation: card
       items:
       - id: calcium-oxide-compound
@@ -229,14 +171,7 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
+    affects_materials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -283,18 +218,11 @@ relationships:
         icon: layers
         order: 11
         variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   visual:
-    appearanceOnCategories:
+    appearance_on_categories:
       presentation: descriptive
       items:
-      - appearanceOnCategories:
+      - appearance_on_categories:
           ceramic:
             appearance: Limescale on ceramic surfaces shows as white, chalky residues that can create a dull, rough finish
               on otherwise smooth tiles.
@@ -380,157 +308,99 @@ relationships:
         icon: eye
         order: 50
         variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
   operational:
-    laserProperties:
+    laser_properties:
       presentation: descriptive
       items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.2
-            minJCm2: 0.4
-            recommendedJCm2: 0.8
-          overlapPercentage: 50
+      - laser_parameters:
+          beam_profile: flat_top
+          fluence_range:
+            max_j_cm2: 1.2
+            min_j_cm2: 0.4
+            recommended_j_cm2: 0.8
+          overlap_percentage: 50
           polarization: circular
-          pulseDurationRange:
-            maxNs: 150
-            minNs: 10
-            recommendedNs: 50
-          repetitionRateKhz:
+          pulse_duration_range:
+            max_ns: 150
+            min_ns: 10
+            recommended_ns: 50
+          repetition_rate_khz:
             max: 200
             min: 20
             recommended: 50
-          safetyMarginFactor: 0.6
-          scanSpeedMmS:
+          safety_margin_factor: 0.6
+          scan_speed_mm_s:
             max: 2000
             min: 500
             recommended: 1000
-          spotSizeMm:
+          spot_size_mm:
             max: 0.1
             min: 0.03
             recommended: 0.05
-          wavelengthPreference:
+          wavelength_preference:
           - 1064
           - 532
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 120
-            wavelength355Nm: 2800
-            wavelength532Nm: 450
+        optical_properties:
+          absorption_coefficient:
+            wavelength_1064nm: 120
+            wavelength_355nm: 2800
+            wavelength_532nm: 450
           reflectivity:
-            wavelength1064Nm: 0.35
-            wavelength355Nm: 0.07
-            wavelength532Nm: 0.18
-          refractiveIndex:
-            imaginaryPart: 0.012
-            realPart: 1.55
-          transmissionDepth: 83.3
-        removalCharacteristics:
+            wavelength_1064nm: 0.35
+            wavelength_355nm: 0.07
+            wavelength_532nm: 0.18
+          refractive_index:
+            imaginary_part: 0.012
+            real_part: 1.55
+          transmission_depth: 83.3
+        removal_characteristics:
           byproducts:
           - compound: calcium-oxide
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: solid
           - compound: carbon-dioxide
-            hazardLevel: low
+            hazard_level: low
             phase: gas
           - compound: calcium-oxide
-            hazardLevel: moderate
+            hazard_level: moderate
             phase: solid
-          damageRiskToSubstrate: low
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 240
-            typicalScanSpeedMmS: 800
-          removalEfficiency:
-            diminishingReturnsAfter: 3
-            optimalPasses: 2
-            singlePass: 0.7
-          secondaryMechanisms:
+          damage_risk_to_substrate: low
+          primary_mechanism: thermal_ablation
+          process_speed:
+            area_coverage_rate_cm2_min: 240
+            typical_scan_speed_mm_s: 800
+          removal_efficiency:
+            diminishing_returns_after: 3
+            optimal_passes: 2
+            single_pass: 0.7
+          secondary_mechanisms:
           - mechanical_spallation
           - thermal_decomposition
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: compressive
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: none
-            description: No significant fire or explosion risk identified
-            mitigation: Standard workplace fire safety protocols
-          fumesGenerated:
-          - compound: Calcium Oxide (CaO)
-            concentrationMgM3: 5-25
-            exposureLimitMgM3: 2
-            hazardClass: irritant
-          - compound: Carbon Dioxide (CO₂)
-            concentrationMgM3: 1000-5000
-            exposureLimitMgM3: 9000
-            hazardClass: irritant
-          particulateGeneration:
-            respirableFraction: 0.7
-            sizeRangeUm:
-            - 0.1
-            - 10
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: half_mask
-            skinProtection: gloves
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - May cause surface etching on soft metals like aluminum
-          - Can generate thermal stress cracks on glass substrates
-          - May alter surface finish on polished materials
-          toxicGasRisk:
-            severity: low
-            primaryHazards: []
-            description: Minimal gas generation, nuisance particulates only
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: HEPA
-            minimumAirChangesPerHour: 10
-            rationale: Standard industrial ventilation (10 ACH) for particulate control
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 3.5
-            pulseDuration10Ns: 2.1
-            wavelength1064Nm: 1.8
-          decompositionTemperature: 825
-          heatAffectedZoneDepth: 45
-          meltingPoint: 2572
-          specificHeat: 850
-          thermalConductivity: 1.3
-          thermalDiffusivity: 0.15
-          vaporizationTemperature: 2850
+          surface_quality_after_removal:
+            color_change: 'no'
+            residual_stress: compressive
+            roughness_increase: minimal
+        thermal_properties:
+          ablation_threshold:
+            pulse_duration_100ns: 3.5
+            pulse_duration_10ns: 2.1
+            wavelength_1064nm: 1.8
+          decomposition_temperature: 825
+          heat_affected_zone_depth: 45
+          melting_point: 2572
+          specific_heat: 850
+          thermal_conductivity: 1.3
+          thermal_diffusivity: 0.15
+          vaporization_temperature: 2850
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
 displayName: Limescale Deposits
 subcategory: scale
-validMaterials:
+valid_materials:
 - alumina-laser-cleaning
 - aluminosilicate-glass-laser-cleaning
 - aluminum-laser-cleaning
@@ -562,5 +432,5 @@ validMaterials:
 composition:
 - CaCO₃
 - MgCO₃
-prohibitedMaterials:
+prohibited_materials:
 - Electronics
