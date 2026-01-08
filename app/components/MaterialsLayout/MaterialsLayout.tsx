@@ -68,9 +68,9 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         subcategory: contaminantSubcategory,
         description: ref.typical_context || metadata.description || '',
         url: ref.url || fullPath,
-        frequency: ref.frequency,
-        severity: ref.severity,
-        typical_context: ref.typical_context,
+        frequency: ref.frequency || 'unknown',
+        severity: ref.severity || 'unknown',
+        typical_context: ref.typical_context || '',
         image: metadata.images?.hero?.url || '',
       };
     })
