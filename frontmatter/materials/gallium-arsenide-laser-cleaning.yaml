@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: cubic
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -79,16 +79,16 @@ properties:
       value: 10.5
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Physics Letters
+      sourceType: journal_article
+      sourceName: Applied Physics Letters
       citation: 'G. R. Huggett, F. W. Chambers, and R. A. House, Applied Physics Letters, 1975, Vol. 27, Issue 6, pp. 298-300,
         DOI: 10.1063/1.88493'
       context: Undoped single-crystal Gallium Arsenide (99.999% purity), room temperature (25°C), 1.06 μm wavelength, 20 ns
         pulse duration, single-shot measurement in vacuum
       confidence: 95
-      researched_date: '2025-11-24T11:58:47.098498'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:58:47.098498'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -173,15 +173,15 @@ properties:
       value: 0.85
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Surface Science
+      sourceType: journal_article
+      sourceName: Applied Surface Science
       citation: 'J. Bonse, J. Krüger, S. Höhm, A. Rosenfeld, ''Femtosecond laser ablation of gallium arsenide: threshold fluences
         and incubation effects'', Applied Surface Science, 2012, DOI: 10.1016/j.apsusc.2012.04.123'
       context: Undoped single-crystal GaAs (purity >99.99%), room temperature (25°C), 800 nm wavelength Ti:sapphire femtosecond
         laser, 100 fs pulse duration, measured in air at 1 atm
       confidence: 95
-      researched_date: '2025-11-24T11:58:55.625892'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:58:55.625892'
+      needsValidation: true
 micro:
   before: Contaminated surface of gallium arsenide, it displays uneven layers of oxide and particulate debris under high magnification.
     These contaminants form irregular clusters and streaks, thus blocking the natural crystalline facets. Material's brittleness
@@ -204,7 +204,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: environmental-dust-contamination
@@ -216,10 +216,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: semiconductor-manufacturing
@@ -248,8 +254,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -279,12 +293,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -308,8 +329,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -325,7 +346,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.571913+00:00'
+dateModified: '2026-01-08T04:06:33.797528+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -337,7 +358,7 @@ contamination:
   _needs_review: true
   _note: Category "semiconductor" not recognized - conservative defaults applied
 components:
-  settings_description: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends
+  settingsDescription: When laser cleaning gallium arsenide, watch out for its heat sensitivity right from the start—it tends
     to decompose easily under intense beams, unlike tougher silicon wafers. I've seen this cause surface cracks if you push
     too hard, so begin with gentle pulses to lift contaminants without harming the fragile lattice. This material stands out
     among semiconductors for absorbing energy well, which helps clear residues fast but demands slower scans to spread the
@@ -350,10 +371,10 @@ components:
     after: After laser treatment, the same surface appears smooth and uniformly bright across the view. No spots remain, and
       the texture feels even, restoring the material's clear, reflective quality. In our experience, this
 metadata:
-  last_updated: '2025-10-27T23:48:40.921971Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921977Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921971Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921977Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

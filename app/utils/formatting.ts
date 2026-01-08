@@ -332,3 +332,51 @@ export function formatKeyAsTitle(key: string): string {
     .replace(/_/g, ' ')
     .replace(/\b\w/g, char => char.toUpperCase());
 }
+
+/**
+ * Convert text to category slug format (lowercase with hyphens)
+ * Consolidates duplicate pattern: category.toLowerCase().replace(/\s+/g, '-')
+ * 
+ * @param name - The category name to convert
+ * @returns Slugified category name
+ * @example
+ * toCategorySlug('Industrial Coatings') // 'industrial-coatings'
+ * toCategorySlug('Metals & Alloys') // 'metals-&-alloys'
+ */
+export function toCategorySlug(name: string): string {
+  if (!name) return '';
+  return name.toLowerCase().trim().replace(/\s+/g, '-');
+}
+
+/**
+ * Normalize property name to lowercase alphanumeric
+ * Consolidates duplicate pattern: name.toLowerCase().replace(/[^a-z0-9]/g, '')
+ * 
+ * @param name - The property name to normalize
+ * @returns Normalized property name
+ * @example
+ * normalizePropertyName('Melting Point') // 'meltingpoint'
+ * normalizePropertyName('density_kg_m3') // 'densitykgm3'
+ */
+export function normalizePropertyName(name: string): string {
+  if (!name) return '';
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+/**
+ * Convert text to title case format
+ * Consolidates duplicate pattern: text.split('-').map(capitalize).join(' ')
+ * 
+ * @param str - The string to convert to title case
+ * @returns Title cased string
+ * @example
+ * toTitleCase('hello-world') // 'Hello World'
+ * toTitleCase('laser cleaning') // 'Laser Cleaning'
+ */
+export function toTitleCase(str: string): string {
+  if (!str) return '';
+  return str
+    .split(/[\s-]+/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}

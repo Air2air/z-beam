@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 12.5
       unit: J/cm²
       source: scientific_literature
-      source_type: textbook
-      source_name: Handbook of Optical Materials
+      sourceType: textbook
+      sourceName: Handbook of Optical Materials
       citation: Weber, M.J., Handbook of Optical Materials, CRC Press, 2003, ISBN 0-8493-3512-4
       context: BK7 crown glass (Schott equivalent, 72% SiO2, 10% Na2O, 10% CaO, 7% B2O3, high purity optical grade), room
         temperature (25°C), 1064 nm wavelength, 10 ns pulse duration, measured in air
       confidence: 95
-      researched_date: '2025-11-24T11:55:40.058395'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:55:40.058395'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -206,7 +206,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -233,10 +233,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -265,8 +271,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -296,12 +310,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -325,8 +346,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -342,7 +363,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.015297+00:00'
+dateModified: '2026-01-08T04:06:33.034570+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -359,7 +380,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: 'We''ve found Crown Glass tricky to clean without cracking. It handles heat poorly compared to sturdier
+  settingsDescription: 'We''ve found Crown Glass tricky to clean without cracking. It handles heat poorly compared to sturdier
     borosilicate types. Start low on power to dodge thermal shock.
 
 
@@ -381,10 +402,10 @@ components:
       the glass now shines with a uniform polish that reflects light evenly. In our experience, this clean finish restores
       the material's natural transparency
 metadata:
-  last_updated: '2025-10-27T23:48:40.921859Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921864Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921859Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921864Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

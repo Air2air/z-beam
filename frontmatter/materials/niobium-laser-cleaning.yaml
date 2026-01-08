@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: FCC
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -139,7 +139,7 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -235,7 +235,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -246,10 +246,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -278,8 +284,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -309,12 +323,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -337,8 +358,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -354,7 +375,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.332709+00:00'
+dateModified: '2026-01-08T04:06:35.564661+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -378,7 +399,7 @@ components:
       scratches. We spot scattered particles that make the whole area look dull and worn from exposure.
     after: After laser treatment at 1000x, the niobium surface gleams with a smooth, uniform shine free of any residue. The
       metal now reveals a clean, even finish without those
-  settings_description: When laser cleaning niobium, you must first watch its high reflectivity, which scatters more laser
+  settingsDescription: When laser cleaning niobium, you must first watch its high reflectivity, which scatters more laser
     energy than you'd see with iron-based metals, so start with lower power settings to prevent wasted shots and uneven cleaning.
     Make sure you adjust the fluence just above its ablation threshold right away, avoiding the pitfall of underpowering that
     leaves stubborn contaminants behind while risking surface pitting if you overshoot. Begin your setup by selecting a near-infrared
@@ -390,10 +411,10 @@ components:
     piece first—niobium forgives minor errors better than brittle alloys but demands precision to avoid dulling its natural
     luster.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922282Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922288Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922282Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922288Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

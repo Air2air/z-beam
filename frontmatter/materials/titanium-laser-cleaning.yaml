@@ -9,31 +9,31 @@ pageDescription: Titanium excels in laser cleaning applications because of its e
 characteristics:
   density:
     source: scientific_literature
-    source_type: Reference handbook
-    source_name: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
+    sourceType: Reference handbook
+    sourceName: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     citation: 'ASM International, 10th Edition, 1990; ISBN: 978-0-87170-376-2'
     context: Commercially pure Titanium (CP Ti, Grade 2, 99.0%+ purity); room temperature (20°C); Archimedes' principle measurement
       method implied in handbook data compilation
     confidence: 85
-    researched_date: '2025-11-07T12:52:17.608325'
-    needs_validation: true
+    researchedDate: '2025-11-07T12:52:17.608325'
+    needsValidation: true
     value: '4.51'
-  thermal_conductivity:
+  thermalConductivity:
     source: scientific_literature
-    source_type: Reference handbook
-    source_name: CRC Handbook of Chemistry and Physics
+    sourceType: Reference handbook
+    sourceName: CRC Handbook of Chemistry and Physics
     citation: 'ISBN 978-1-138-56163-2 (104th Edition, 2023), Section 12: Thermal and Physical Properties of the Elements'
     context: Pure titanium (99.999% purity), at 25°C (298 K), measured via steady-state longitudinal heat flow method
     confidence: 85
-    researched_date: '2025-11-07T12:53:53.440655'
-    needs_validation: true
+    researchedDate: '2025-11-07T12:53:53.440655'
+    needsValidation: true
     value: '21.9'
-  laser_absorption:
+  laserAbsorption:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:58:14.334684'
+    needsResearch: true
+    researchedDate: '2025-11-07T12:58:14.334684'
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -148,7 +148,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
@@ -257,7 +257,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -303,10 +303,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -333,8 +339,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -359,12 +373,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -388,8 +409,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -405,7 +426,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.450835+00:00'
+dateModified: '2026-01-08T04:06:38.923866+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -433,18 +454,18 @@ components:
       sure you note how this dulls the overall shine before any cleaning starts.
     after: After laser treatment on the titanium surface at 1000x magnification, you see a smooth, even layer free of those
       stubborn residues. The metal now reflects light cleanly without any rough interruptions. Watch out for
-  settings_description: When laser cleaning titanium, I've seen it stand out from denser metals like steel because of its
-    lighter weight and strong natural oxide layer that fights corrosion so well. This makes it great for aerospace parts,
-    where you can remove tough contaminants without deep damage, but the layer also means the laser tends to skim the surface
-    gently—start with milder power and slower passes to let heat dissipate evenly and avoid uneven heating. Unlike aluminum,
-    which scatters heat quickly, titanium holds it locally, so building up multiple light passes clears buildup effectively
-    while preserving its durability. Just watch out at the end for any signs of discoloration, and dial back if needed to
-    keep that protective shine intact.
+  settingsDescription: When laser cleaning titanium, I've seen it stand out from denser metals like steel because of its lighter
+    weight and strong natural oxide layer that fights corrosion so well. This makes it great for aerospace parts, where you
+    can remove tough contaminants without deep damage, but the layer also means the laser tends to skim the surface gently—start
+    with milder power and slower passes to let heat dissipate evenly and avoid uneven heating. Unlike aluminum, which scatters
+    heat quickly, titanium holds it locally, so building up multiple light passes clears buildup effectively while preserving
+    its durability. Just watch out at the end for any signs of discoloration, and dial back if needed to keep that protective
+    shine intact.
 metadata:
-  last_updated: '2025-10-27T23:46:20.363552Z'
-  normalization_applied: true
-  restructured_date: '2025-10-27T23:46:20.363563Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:46:20.363552Z'
+  normalizationApplied: true
+  restructuredDate: '2025-10-27T23:46:20.363563Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

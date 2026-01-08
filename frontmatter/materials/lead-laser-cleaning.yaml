@@ -25,7 +25,7 @@ characteristics:
     unit: crystal system
     value: FCC
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -136,7 +136,7 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -230,7 +230,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -267,10 +267,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: nuclear-energy
@@ -299,8 +305,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -330,12 +344,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -358,8 +379,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -375,7 +396,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:46.410853+00:00'
+dateModified: '2026-01-08T04:06:34.679928+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -404,7 +425,7 @@ components:
       across the rough texture. This mess hides the metal's true form under a dull, patchy coat.
     after: Start with the laser pass to strip away all that residue quickly. Now the surface gleams smooth and even without
       any scars. Fresh lead shines clearly, free from old stains and debris.
-  settings_description: 'When laser cleaning lead, watch its tendency to melt easily. Start with very low power right away.
+  settingsDescription: 'When laser cleaning lead, watch its tendency to melt easily. Start with very low power right away.
     I''ve seen surfaces puddle if you push too hard.
 
 
@@ -422,10 +443,10 @@ components:
     Avoid rushing with high speed. Lead can smear or oxidize if you do. Instead, do multiple light passes. That clears rust
     and grime safely, especially on old roofing or shields. In my experience, it restores heritage items perfectly this way.'
 metadata:
-  last_updated: '2025-10-27T23:48:40.922132Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922138Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922132Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922138Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

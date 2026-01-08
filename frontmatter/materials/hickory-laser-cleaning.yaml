@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 2.3
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Hardwoods for Nd:YAG Laser Cleaning
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Hardwoods for Nd:YAG Laser Cleaning
       citation: 'Albertano, P., et al., Journal of Cultural Heritage, 2015, DOI: 10.1016/j.culher.2014.12.005'
       context: Dry hickory wood (Carya spp., 8% moisture content), 25°C, 1064 nm Nd:YAG pulsed laser, threshold for surface
         carbonization
       confidence: 95
-      researched_date: '2025-11-24T11:59:55.883371'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:59:55.883371'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,14 +175,14 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Ablation of Wood: Threshold Fluence for Different Species'
+      sourceType: journal_article
+      sourceName: 'Laser Ablation of Wood: Threshold Fluence for Different Species'
       citation: 'Yilbas, B.S. et al., Optics and Lasers in Engineering, 2015, DOI: 10.1016/j.optlaseng.2014.10.012'
       context: Dry hickory wood (Carya spp., density 0.82 g/cm³, moisture content <5%), room temperature (25°C), 1064 nm Nd:YAG
         laser, pulse duration 10 ns
       confidence: 95
-      researched_date: '2025-11-24T12:00:00.480148'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:00:00.480148'
+      needsValidation: true
 micro:
   before: Laser cleaning hickory surfaces starts with targeting the wood's dense fibers under close magnification. Contaminants
     typically cling to the porous structure, forming irregular patterns that dull the natural grain. Dirt and residues line
@@ -202,7 +202,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -213,10 +213,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -245,8 +251,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -276,12 +290,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -303,8 +324,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -320,7 +341,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.965918+00:00'
+dateModified: '2026-01-08T04:06:34.239586+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -336,7 +357,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: The key with Hickory lies in its dense hardwood structure. We've found this makes it durable yet prone
+  settingsDescription: The key with Hickory lies in its dense hardwood structure. We've found this makes it durable yet prone
     to heat buildup during laser cleaning. Start with lower power settings to remove surface contaminants steadily. Its moderate
     porosity absorbs residues unevenly, so watch for uneven cleaning in the middle of passes. Adjust scan speeds slower to
     avoid charring the grain. This approach restores the wood without damaging its natural toughness.
@@ -346,10 +367,10 @@ components:
     after: After laser treatment, the hickory surface shows a smooth and clear finish at 1000x. The process removes all visible
       grime, exposing fresh fibers beneath. Clean pores restore the wood's natural, even pattern fully.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922046Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922052Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922046Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922052Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

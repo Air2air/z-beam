@@ -1,6 +1,8 @@
 // app/utils/schemas/datasetLoaderClient.ts
 'use client';
 
+import { getDatasetUrl } from '@/app/utils/slugHelpers';
+
 /**
  * Client-side dataset loader
  * Fetches generated dataset JSON files from public directory
@@ -63,7 +65,8 @@ export interface DatasetType {
 /**
  * Load generated dataset from public directory via fetch
  * 
- * @param slug - Dataset filename (without extension)
+ * @param slug - BASE material/contaminant slug (e.g., "aluminum", NOT "aluminum-laser-cleaning")
+ *               The slug should NOT include suffixes - they are added automatically
  * @param type - Dataset type ('materials' or 'contaminants')
  * @returns Dataset object
  */
@@ -71,13 +74,9 @@ export async function loadGeneratedDataset(
   slug: string,
   type: 'materials' | 'contaminants'
 ): Promise<DatasetType> {
-  // Construct filename: materials use full slug, contaminants remove -contamination suffix
-  // Materials: ${slug}-material-dataset.json (e.g., aluminum-laser-cleaning-material-dataset.json)
-  // Contaminants: ${id}-contaminant-dataset.json (e.g., adhesive-residue-contaminant-dataset.json)
-  const filename = type === 'materials' 
-    ? `${slug}-material-dataset.json`
-    : `${slug.replace('-contamination', '')}-contaminant-dataset.json`;
-  const url = `/datasets/${type}/${filename}`;
+  // Use shared utility for consistent URL construction
+  // This prevents duplicate suffix bugs
+  const url = getDatasetUrl(slug, type, 'json');
   const response = await fetch(url);
   
   if (!response.ok) {

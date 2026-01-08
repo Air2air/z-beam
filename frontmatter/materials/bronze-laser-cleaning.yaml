@@ -25,7 +25,7 @@ characteristics:
     unit: crystal system
     value: FCC
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -114,7 +114,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     thermalConductivity:
@@ -224,7 +224,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -264,10 +264,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: architecture
@@ -288,8 +294,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -319,12 +333,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -347,8 +368,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -364,7 +385,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.287365+00:00'
+dateModified: '2026-01-08T04:06:32.254217+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -392,15 +413,15 @@ components:
   description: Bronze has a high reflectivity of 0.65, so we typically use a 1064 nm wavelength for better absorption. Its
     melting point is 950 °C, so we keep the energy density around 5.1 J/cm². This clears contaminants effectively and avoids
     any thermal damage to the valuable substrate.
-  settings_description: When laser cleaning bronze, unlike ferrous metals like steel, you must account for its higher reflectivity
+  settingsDescription: When laser cleaning bronze, unlike ferrous metals like steel, you must account for its higher reflectivity
     that sends more energy back at the source. This means starting with gentler power levels to avoid surface melting, since
     bronze heats up faster from that bounce. Watch out mid-process for uneven patina removal—it can fade historical value—so
     adjust scans slower and use multiple light passes to lift dirt without erasing the alloy's natural shield.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921726Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921734Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921726Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921734Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 14.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Ablation of Wood: Threshold Fluences for Different Species'
+      sourceType: journal_article
+      sourceName: 'Laser Ablation of Wood: Threshold Fluences for Different Species'
       citation: 'H. J. Griesser et al., Optics and Lasers in Engineering, 2015, DOI: 10.1016/j.optlaseng.2015.03.012'
       context: Kiln-dried Poplar wood (Populus deltoides, 8% moisture content), 25°C, measured using 1064 nm Nd:YAG laser
         with 10 ns pulse duration
       confidence: 95
-      researched_date: '2025-11-24T12:07:40.222717'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:07:40.222717'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,15 +176,15 @@ properties:
       value: 2.3
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Surface Science
+      sourceType: journal_article
+      sourceName: Applied Surface Science
       citation: 'Žemaitis, A. et al., Femtosecond laser ablation of poplar wood: Threshold fluence and surface morphology,
         Applied Surface Science, 2019, DOI: 10.1016/j.apsusc.2019.143456'
       context: Dry poplar wood (Populus spp., density 0.42 g/cm³, moisture content <5%), room temperature (25°C), 1030 nm
         femtosecond laser, pulse duration 500 fs, measured via single-pulse ablation diameter method
       confidence: 95
-      researched_date: '2025-11-24T12:07:47.069299'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:07:47.069299'
+      needsValidation: true
 micro:
   before: Laser cleaning poplar wood stands out in my hands-on projects because it uncovers the material's natural grain without
     damaging its lightweight structure. It works well for restoring antique pieces or prepping surfaces for finishing, but
@@ -206,7 +206,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -217,10 +217,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -249,8 +255,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -285,12 +299,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -312,8 +333,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -329,7 +350,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:48.293945+00:00'
+dateModified: '2026-01-08T04:06:36.576841+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -345,11 +366,11 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: 'When laser cleaning Poplar, compare it to denser hardwoods like oak. Poplar''s lighter structure
-    sets it apart. This lower density speeds up the process. It exposes contaminants more easily. But higher porosity changes
-    your approach. You must reduce power to prevent charring. Start with shorter passes on the surface. This restores the
-    wood without deep damage. Unlike oak, Poplar absorbs energy quickly. So adjust overlap to avoid uneven heating. Make sure
-    you scan at steady speeds. This improves cleaning on delicate grains. Poplar suits cultural heritage work well. It reveals
+  settingsDescription: 'When laser cleaning Poplar, compare it to denser hardwoods like oak. Poplar''s lighter structure sets
+    it apart. This lower density speeds up the process. It exposes contaminants more easily. But higher porosity changes your
+    approach. You must reduce power to prevent charring. Start with shorter passes on the surface. This restores the wood
+    without deep damage. Unlike oak, Poplar absorbs energy quickly. So adjust overlap to avoid uneven heating. Make sure you
+    scan at steady speeds. This improves cleaning on delicate grains. Poplar suits cultural heritage work well. It reveals
     fine details in furniture or instruments. But end with caution: Overlap too much, and it warps the soft fibers.'
   micro:
     before: The contaminated surface shows dark particles clinging to the wood fibers. Grime fills the open pores, making
@@ -357,7 +378,7 @@ components:
     after: Laser treatment removes the particles, exposing clean fibers underneath. The pores now stand open and clear, with
       a smooth and even texture. The grain patterns reveal themselves sharply on the restored surface.
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team

@@ -8,7 +8,7 @@ pageDescription: When laser cleaning Tungsten Carbide, consider its dense nature
   residues from mining tools without marring the hard surface. What makes it stand out is that relentless toughness, which
   lets parts stay whole for reuse in tough environments like oil rigs or dies.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -72,15 +72,15 @@ properties:
       value: 3.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Applied Physics
+      sourceType: journal_article
+      sourceName: Journal of Applied Physics
       citation: 'A. A. Semerok et al., Journal of Applied Physics, 2001, DOI: 10.1063/1.1352678'
       context: Polycrystalline Tungsten Carbide (WC, 99.9% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 7 ns pulse
         duration, measured in vacuum
       confidence: 95
-      researched_date: '2025-11-24T12:28:56.719829'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:28:56.719829'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     percentage: 40.0
@@ -190,7 +190,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: diamond-coating-contamination
@@ -202,10 +202,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -234,8 +240,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -260,12 +274,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -289,8 +310,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -306,7 +327,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.764782+00:00'
+dateModified: '2026-01-08T04:06:39.237005+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -323,7 +344,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: "When laser cleaning Tungsten Carbide, we've found you must start low on power to avoid cracking its\
+  settingsDescription: "When laser cleaning Tungsten Carbide, we've found you must start low on power to avoid cracking its\
     \ brittle surface right away. This material's extreme hardness makes contaminants stick tough, so begin with a gentle\
     \ pass to loosen dirt without scratching the base. We've typically set the beam to a focused spot and slow scan speed,\
     \ letting its good heat spread evenly so you don't overheat edges. Unlike softer metals, its low expansion keeps shapes\
@@ -336,10 +357,10 @@ components:
     after: After laser treatment, the same surface appears smooth and uniform across the field. The clean finish reveals a
       consistent shine without any lingering spots. Now, the material's natural polish stands out clearly
 metadata:
-  last_updated: '2025-10-27T23:48:40.922952Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922958Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922952Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922958Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

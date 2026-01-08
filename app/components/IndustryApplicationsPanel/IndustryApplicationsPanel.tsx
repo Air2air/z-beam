@@ -16,6 +16,7 @@ import { Collapsible } from '../Collapsible';
 import { createCardListPanel } from '../CardListPanel/CardListPanel';
 import type { RelationshipSection } from '@/types/card-schema';
 import type { CardListItem } from '../CardListPanel/CardListPanel';
+import { toCategorySlug } from '@/app/utils/formatting';
 
 interface IndustryApplicationsPanelProps {
   applications: {
@@ -44,7 +45,7 @@ export function IndustryApplicationsPanel({
   const items = Array.isArray(applications) 
     ? applications.map((app: string | any) => 
         typeof app === 'string' 
-          ? { id: app.toLowerCase().replace(/\s+/g, '-'), name: app } 
+          ? { id: toCategorySlug(app), name: app } 
           : app
       )
     : applications.items || [];

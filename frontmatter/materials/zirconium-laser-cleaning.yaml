@@ -6,7 +6,7 @@ subcategory: alloy
 pageDescription: When laser cleaning zirconium, begin with lower power to account for its high reflectivity, preventing surface
   damage while removing contaminants from corrosion-resistant layers in chemical applications
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -121,7 +121,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
@@ -241,7 +241,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -252,10 +252,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: nuclear-power
@@ -284,8 +290,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -310,12 +324,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -339,8 +360,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -356,7 +377,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:51.295832+00:00'
+dateModified: '2026-01-08T04:06:39.725677+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -379,7 +400,7 @@ components:
       uneven layers that cling stubbornly to the base metal. We see irregular patches that dull the overall shine.
     after: After laser treatment, the same view shows a smooth and even texture free of spots. The beam clears away all grime
       to expose a bright, uniform finish. We've restored the metal's natural clarity without any harm.
-  settings_description: In our experience, laser cleaning zirconium works best when we dial in conservative power levels right
+  settingsDescription: In our experience, laser cleaning zirconium works best when we dial in conservative power levels right
     from the start. This metal's high reflectivity bounces back a lot of the laser energy, so we keep pulses short and scan
     speeds moderate to ensure contaminants lift off without scorching the surface underneath. We've found this approach restores
     that smooth, corrosion-resistant finish so crucial for nuclear or chemical applications, where even minor pitting could
@@ -388,10 +409,10 @@ components:
     that might embrittle the material. Overall, treat it gentler than more absorbent alloys; adjust dwell times down if you
     see any whitening, and you'll get clean results that hold up in demanding environments.
 metadata:
-  last_updated: '2025-10-27T23:48:40.923050Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.923056Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.923050Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.923056Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

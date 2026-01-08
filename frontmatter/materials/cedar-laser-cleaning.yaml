@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 1.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation thresholds of wood species for nanosecond pulsed Nd:YAG laser
+      sourceType: journal_article
+      sourceName: Laser ablation thresholds of wood species for nanosecond pulsed Nd:YAG laser
       citation: 'Yilbas, B.S. et al., Optics and Lasers in Engineering, 2010, DOI: 10.1016/j.optlaseng.2010.03.005'
       context: Western Red Cedar (Thuja plicata), dry condition (moisture content <5%), room temperature (25°C), 1064 nm wavelength,
         10 ns pulse duration, measured via optical microscopy of ablation onset
       confidence: 92
-      researched_date: '2025-11-24T11:53:42.917799'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:53:42.917799'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 1.75
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation thresholds of wood species for cultural heritage conservation
+      sourceType: journal_article
+      sourceName: Laser ablation thresholds of wood species for cultural heritage conservation
       citation: 'Sanz et al., Applied Surface Science, 2017, DOI: 10.1016/j.apsusc.2017.05.123'
       context: Western red cedar (Thuja plicata), oven-dried (0% moisture), 20°C, measured with Q-switched Nd:YAG laser at
         1064 nm wavelength, pulse duration 10 ns
       confidence: 95
-      researched_date: '2025-11-24T11:53:50.408208'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:53:50.408208'
+      needsValidation: true
 micro:
   before: Cedar wood's porous grain lines up contaminants in tight patterns under 1000x magnification. Dirt and residues cling
     to the softwood fibers, forming irregular clusters that block natural textures. These buildup spots create dull, uneven
@@ -206,7 +206,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -224,10 +224,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -256,8 +262,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -292,12 +306,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -319,8 +340,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -336,7 +357,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.504102+00:00'
+dateModified: '2026-01-08T04:06:32.486807+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -358,15 +379,15 @@ components:
     conductivity of 0.11 W/m·K can lead to localized charring if scan speed drops below 500 mm/s. We typically use 50% overlap
     in two passes to restore surfaces evenly without splintering its modest flexural strength of 51 MPa. Watch for uneven
     ablation on porous grains.
-  settings_description: When laser cleaning cedar, we typically begin by selecting a low-power setting to match its soft,
-    porous structure. This wood absorbs laser energy readily because of its low reflectivity, which allows contaminants to
-    vaporize without much resistance. We've found that starting with a focused spot size helps expose surface layers evenly,
-    reducing the risk of uneven cleaning on its lightweight frame. As you proceed, maintain a moderate scan speed to account
-    for cedar's poor heat conduction—heat tends to localize and can char the material if you push too fast. In our experience,
-    this calls for two passes with significant overlap to restore the wood's natural grain without embedding residues in its
-    open pores. Watch out for overexposure in the middle of thicker sections, where porosity traps moisture and amplifies
-    thermal buildup; dial back the energy density there to avoid splintering. Overall, these adjustments preserve cedar's
-    flexibility for applications like furniture restoration or heritage work.
+  settingsDescription: When laser cleaning cedar, we typically begin by selecting a low-power setting to match its soft, porous
+    structure. This wood absorbs laser energy readily because of its low reflectivity, which allows contaminants to vaporize
+    without much resistance. We've found that starting with a focused spot size helps expose surface layers evenly, reducing
+    the risk of uneven cleaning on its lightweight frame. As you proceed, maintain a moderate scan speed to account for cedar's
+    poor heat conduction—heat tends to localize and can char the material if you push too fast. In our experience, this calls
+    for two passes with significant overlap to restore the wood's natural grain without embedding residues in its open pores.
+    Watch out for overexposure in the middle of thicker sections, where porosity traps moisture and amplifies thermal buildup;
+    dial back the energy density there to avoid splintering. Overall, these adjustments preserve cedar's flexibility for applications
+    like furniture restoration or heritage work.
   micro:
     before: Grime clings to the cedar's porous fibers, making the surface look uneven and dull. Fine particles scatter across
       the textured ridges, blocking the natural wood patterns below. Dark residues fill the tiny crevices, giving the whole
@@ -375,7 +396,7 @@ components:
       particles vanish from the textured ridges, exposing clear wood patterns underneath. Light residues disappear from the
       tiny crevices, restoring
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team

@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: mixed
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -78,15 +78,15 @@ properties:
       value: 1.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation thresholds of glass fiber reinforced polymer composites
+      sourceType: journal_article
+      sourceName: Laser ablation thresholds of glass fiber reinforced polymer composites
       citation: 'Serafetinides et al., Applied Surface Science, 2008, DOI: 10.1016/j.apsusc.2007.10.058'
       context: GFRP composite (E-glass fibers in epoxy matrix, 60% fiber volume), 1064 nm Nd:YAG laser, 5-10 ns pulse duration,
         room temperature (25°C), atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:57:28.072837'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:57:28.072837'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -171,14 +171,14 @@ properties:
       value: 2.7
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation of glass fiber reinforced polymer composites
+      sourceType: journal_article
+      sourceName: Laser ablation of glass fiber reinforced polymer composites
       citation: 'Serafetinides, A.A. et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2008.10.065'
       context: E-glass fiber reinforced epoxy composite (50 wt% fibers), room temperature (25°C), measured with excimer laser
         at 248 nm wavelength, 25 ns pulse duration
       confidence: 95
-      researched_date: '2025-11-24T11:57:33.517238'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:57:33.517238'
+      needsValidation: true
 micro:
   before: Laser cleaning process targets fiberglass surfaces, where fibers embed in strong matrix. At 1000x magnification,
     contamination appears as thick layers of dirt and oxide buildup, so it covers fiber strands completely. This contamination,
@@ -201,7 +201,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: aviation-sealant-contamination
@@ -215,10 +215,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -247,8 +253,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -278,12 +292,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -305,8 +326,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -322,7 +343,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.292317+00:00'
+dateModified: '2026-01-08T04:06:33.398277+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -337,11 +358,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process
+  settingsDescription: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process
     go smoothly. This composite material holds up well because of its strong, lightweight fibers that resist corrosion in
     tough environments like marine or aerospace settings. But watch out midway—its poor heat spread can cause localized damage
     if you push too hard, so adjust to multiple light passes instead of one heavy go. Tends to clean contaminants without
@@ -355,10 +376,10 @@ components:
       view, and the strands look smooth and defined. We've uncovered a pristine layer that reveals the fiberglass's natural
       form clearly.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921909Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921915Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921909Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921915Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

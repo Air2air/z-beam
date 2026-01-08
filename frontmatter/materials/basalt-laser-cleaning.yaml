@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 1.45
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Rock Materials for Cultural Heritage Cleaning
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Rock Materials for Cultural Heritage Cleaning
       citation: 'Sanz et al., Applied Physics A: Materials Science & Processing, 2015, DOI: 10.1007/s00339-015-8987-4'
       context: 'Natural basalt (volcanic rock from Canary Islands, composition: 50% SiO2, 15% Al2O3, 10% FeO, 10% CaO, 10%
         MgO), room temperature (25°C), 1064 nm Nd:YAG laser, 7 ns pulse duration, measured in air at 1 atm'
       confidence: 95
-      researched_date: '2025-11-24T11:51:05.437578'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:51:05.437578'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 2.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation thresholds of common rocks for planetary exploration
+      sourceType: journal_article
+      sourceName: Laser ablation thresholds of common rocks for planetary exploration
       citation: 'Starke, J. et al., Applied Physics A: Materials Science & Processing, 2015, DOI: 10.1007/s00339-015-9123-4'
       context: Natural basalt (mafic composition, 45-52% SiO2), room temperature (25°C), measured with 1064 nm Nd:YAG laser,
         10 ns pulse duration, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:51:12.051697'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:51:12.051697'
+      needsValidation: true
 micro:
   before: Contaminated basalt surface, it exhibits irregular patterns of dirt buildup and oxide layers at high magnification.
     These contaminants form thick, uneven coatings because exposure to environment causes accumulation over time. In observations
@@ -206,7 +206,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -232,10 +232,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -264,8 +270,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -295,12 +309,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -322,8 +343,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -339,7 +360,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:43.811369+00:00'
+dateModified: '2026-01-08T04:06:31.743523+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -362,11 +383,11 @@ components:
     3.4%, which help it hold up well under heat up to 1673 K without cracking easily. But watch its low thermal diffusivity
     of 8.5e-07 m²/s—it heats locally fast, so use 100 W at 1064 nm with 50 kHz pulses and 500 mm/s speed to avoid thermal
     stress. This clears contaminants cleanly in three passes at 50% overlap, unlike softer stones that warp quicker.
-  settings_description: When laser cleaning basalt, it stands out from softer stones like limestone because of its dense,
-    hard nature. I've seen this density help absorb laser energy quickly, so contaminants lift off without much residue left
-    behind. That makes the process efficient for tough buildup in construction or heritage sites. But watch out mid-way—basalt
-    tends to fracture if heat builds unevenly, unlike those porous limestones that just fizz away. This works best when you
-    keep passes steady and overlap spots well, solving the brittleness by spreading the energy. In my experience, it preserves
+  settingsDescription: When laser cleaning basalt, it stands out from softer stones like limestone because of its dense, hard
+    nature. I've seen this density help absorb laser energy quickly, so contaminants lift off without much residue left behind.
+    That makes the process efficient for tough buildup in construction or heritage sites. But watch out mid-way—basalt tends
+    to fracture if heat builds unevenly, unlike those porous limestones that just fizz away. This works best when you keep
+    passes steady and overlap spots well, solving the brittleness by spreading the energy. In my experience, it preserves
     the stone's strength for marine or aerospace uses, avoiding cracks that could weaken structures later. Just ease into
     higher intensities gradually to handle its heat resistance without surprises.
   micro:
@@ -375,10 +396,10 @@ components:
     after: After laser treatment, we observe a crisp, even surface free of debris. The stone's inherent patterns stand out
       sharply now. Clean edges reveal the material's solid, uniform structure.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921602Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921610Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921602Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921610Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

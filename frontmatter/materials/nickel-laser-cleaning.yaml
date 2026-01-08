@@ -25,7 +25,7 @@ characteristics:
     unit: crystal system
     value: FCC
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -140,7 +140,7 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -233,7 +233,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -271,10 +271,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -295,8 +301,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -326,12 +340,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -353,8 +374,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -370,7 +391,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.261711+00:00'
+dateModified: '2026-01-08T04:06:35.501219+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -394,19 +415,19 @@ components:
       builds up in rough spots, making the texture uneven and bumpy. This contamination hides the true shine underneath.
     after: After laser treatment, the nickel gleams smoothly without any residue left behind. The surface looks flat and even,
       reflecting light cleanly now. Make sure you check for any overlooked spots to keep it pristine.
-  settings_description: When laser cleaning nickel, we often run into its strong reflectivity first. This bounces back a good
+  settingsDescription: When laser cleaning nickel, we often run into its strong reflectivity first. This bounces back a good
     portion of the beam. So, the energy doesn't sink in as deeply as we'd like. We've found that starting with focused pulses
     helps overcome this. Nickel conducts heat quickly too. That spreads warmth evenly and avoids hot spots. But it also means
     you need steady control to prevent warping. Its tough surface resists corrosion well. So, cleaning uncovers a durable
     base without extra damage risks. We typically use multiple light passes for even removal. Watch out at the end—overdo
     the power, and you risk surface cracks from thermal stress.
 metadata:
-  micro_corruption_detected: '2025-10-27T23:53:01.654571Z'
-  micro_issue: Truncated JSON structure detected in caption fields
-  last_updated: '2025-10-27T23:48:40.922268Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922275Z'
-  structure_version: '2.0'
+  microCorruptionDetected: '2025-10-27T23:53:01.654571Z'
+  microIssue: Truncated JSON structure detected in caption fields
+  lastUpdated: '2025-10-27T23:48:40.922268Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922275Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

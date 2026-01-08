@@ -7,8 +7,10 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
+const { SITE_URL } = require('../../config/urls');
 
-const SITE_URL = 'https://www.z-beam.com';
+// SITE_URL imported from config/urls.js
+// Provides environment-aware URL resolution
 const SITE_NAME = 'Z-Beam';
 
 // Service pricing configuration (matches app/config/site.ts)

@@ -25,7 +25,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -84,15 +84,15 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser cleaning optimization of slate surfaces for cultural heritage applications
+      sourceType: journal_article
+      sourceName: Laser cleaning optimization of slate surfaces for cultural heritage applications
       citation: 'Sanz et al., Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.102'
       context: Natural slate (metamorphic rock, primarily quartz and illite, commercial roofing grade), room temperature (20°C),
         1064 nm Nd:YAG laser, pulse duration 10 ns, measured under atmospheric conditions
       confidence: 95
-      researched_date: '2025-11-24T12:19:31.813355'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:19:31.813355'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -177,14 +177,14 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds for Natural Stone Materials in Cultural Heritage Conservation
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds for Natural Stone Materials in Cultural Heritage Conservation
       citation: 'Pořízka, P., et al., Applied Surface Science, 2014, DOI: 10.1016/j.apsusc.2014.05.045'
       context: Natural slate (metasedimentary rock, primarily quartz and clay minerals, commercial grade from roofing applications),
         room temperature (25°C), measured using Q-switched Nd:YAG laser at 1064 nm wavelength
       confidence: 95
-      researched_date: '2025-11-24T12:19:35.777365'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:19:35.777365'
+      needsValidation: true
 micro:
   before: Slate surface before laser cleaning, it displays contamination patterns under 1000x magnification. Contaminants
     form irregular clusters and adhere tightly, creating rough textures with embedded particles that obscure natural foliation
@@ -209,7 +209,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -235,10 +235,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -267,8 +273,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -308,12 +322,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -337,8 +358,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -354,7 +375,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:49.637220+00:00'
+dateModified: '2026-01-08T04:06:38.076731+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -371,7 +392,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: We've found that slate's layered structure demands careful attention right from the start during laser
+  settingsDescription: We've found that slate's layered structure demands careful attention right from the start during laser
     cleaning. It can delaminate if heat builds up too quickly, so begin with lower power settings to prevent cracking along
     those natural fissures. This makes slate different from more uniform stones—its metamorphic origins create a brittle yet
     durable surface that absorbs laser energy well but conducts heat poorly. We typically adjust the scan speed to allow gentle
@@ -386,7 +407,7 @@ components:
     after: After laser treatment, the same surface looks fresh and even under 1000x magnification. Fine grains of the stone
       stand out clearly now. A smooth finish emerges without any leftover marks.
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
   - ASTM C629 - Standard Specification for Slate Dimension Stone
 eeat:

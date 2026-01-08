@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: mixed
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 0.75
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser-induced damage threshold of rubber composites for cleaning applications
+      sourceType: journal_article
+      sourceName: Laser-induced damage threshold of rubber composites for cleaning applications
       citation: 'K. Srinivasan et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028374'
       context: Vulcanized natural rubber composite with 30% carbon black filler, 25°C, measured using 1064 nm Nd:YAG pulsed
         laser (10 ns pulse duration) under vacuum conditions
       confidence: 95
-      researched_date: '2025-11-24T12:16:39.867498'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:16:39.867498'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,14 +175,14 @@ properties:
       value: 0.75
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Ablation of Elastomeric Composites: Threshold Fluence for Rubber Materials'
+      sourceType: journal_article
+      sourceName: 'Laser Ablation of Elastomeric Composites: Threshold Fluence for Rubber Materials'
       citation: 'Dupont, A. et al., Journal of Applied Polymer Science, 2018, DOI: 10.1002/app.46215'
       context: Vulcanized natural rubber composite with 30% carbon black filler, 25°C, measured using 1064 nm Nd:YAG laser
         with 10 ns pulse duration under ambient conditions
       confidence: 92
-      researched_date: '2025-11-24T12:16:45.985964'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:16:45.985964'
+      needsValidation: true
 micro:
   before: Laser cleaning stands out for rubber surfaces, where dirty spots cling tight compared to the smooth finish it delivers
     afterward. Contamination patterns show up as irregular clusters of grit and residue that embed into the flexible matrix,
@@ -206,7 +206,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -217,10 +217,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -249,8 +255,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -280,12 +294,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -307,8 +328,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -324,7 +345,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:48.943531+00:00'
+dateModified: '2026-01-08T04:06:37.257029+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -339,11 +360,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: When laser cleaning rubber, you'll want to begin with the lowest possible power settings to account
+  settingsDescription: When laser cleaning rubber, you'll want to begin with the lowest possible power settings to account
     for its exceptional flexibility and low heat tolerance. This material absorbs laser energy quickly due to its dark surface
     properties, which allows contaminants to remove effectively without deep penetration into the base layer. Rubber's elasticity
     means it deforms under heat rather than cracking, so you must control scan speeds to prevent warping during multiple passes.
@@ -357,10 +378,10 @@ components:
     after: After laser treatment at 1000x magnification, the rubber surface emerges smooth and free of debris, with a clear,
       uniform texture. The treatment exposes the material's inherent
 metadata:
-  last_updated: '2025-10-27T23:48:40.922604Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922610Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922604Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922610Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

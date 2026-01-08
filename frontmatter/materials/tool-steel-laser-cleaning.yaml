@@ -6,7 +6,7 @@ subcategory: alloy
 pageDescription: Tool steel excels with its exceptional hardness and heat resistance, allowing tools to keep sharp edges intact
   during intense machining operations without deforming or weakening.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -121,7 +121,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
@@ -231,7 +231,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -312,10 +312,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: manufacturing
@@ -340,8 +346,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -366,12 +380,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -394,8 +415,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -411,7 +432,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.565966+00:00'
+dateModified: '2026-01-08T04:06:39.047492+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -434,15 +455,15 @@ components:
       and debris in cracks. This uneven layer hides the metal's true texture underneath.
     after: After laser treatment at 1000x, the tool steel surface shines smooth and even. No spots remain, and cracks disappear
       into a clean polish. This fresh layer reveals the metal's solid, uniform structure.
-  settings_description: When laser cleaning Tool Steel, watch its toughness first—it resists buildup removal more than softer
+  settingsDescription: When laser cleaning Tool Steel, watch its toughness first—it resists buildup removal more than softer
     alloys like mild steel. I've seen overheating cause surface cracks if you rush. Start slow with the laser on low power.
     This clears rust gently without warping. Tool Steel's heat resistance shines here, unlike brittle metals. Scan in even
     passes. Overlap spots by half. Finish with a quick check for smoothness. It restores tools perfectly.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922915Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922921Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922915Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922921Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

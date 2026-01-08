@@ -23,18 +23,18 @@ characteristics:
     value: FCC
   density:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:51:40.387793'
-  thermal_conductivity:
+    needsResearch: true
+    researchedDate: '2025-11-07T12:51:40.387793'
+  thermalConductivity:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:53:15.519906'
-  laser_absorption:
+    needsResearch: true
+    researchedDate: '2025-11-07T12:53:15.519906'
+  laserAbsorption:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:57:28.763703'
+    needsResearch: true
+    researchedDate: '2025-11-07T12:57:28.763703'
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -123,7 +123,7 @@ properties:
       confidence: 100
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     thermalConductivity:
@@ -235,7 +235,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -294,10 +294,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -324,8 +330,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -355,12 +369,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -382,8 +403,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -399,7 +420,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:43.655347+00:00'
+dateModified: '2026-01-08T04:06:31.572058+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -452,7 +473,7 @@ components:
 
 
     That said'
-  settings_description: I've seen aluminum respond well to laser cleaning when you begin with controlled power levels to counter
+  settingsDescription: I've seen aluminum respond well to laser cleaning when you begin with controlled power levels to counter
     its high reflectivity, which tends to bounce away much of the beam's energy. This approach prevents uneven heating that
     could warp thin sections early in the process. Once set up this way, the laser effectively removes oxides and contaminants
     without compromising the metal's natural corrosion resistance. Aluminum's low density makes it lighter and more prone
@@ -461,10 +482,10 @@ components:
     reliably. Tends to avoid common pitfalls like localized melting if you monitor for any discoloration during the first
     run—adjust by slowing the repetition rate slightly if needed to reduce thermal stress.
 metadata:
-  last_updated: '2025-10-27T23:46:20.363334Z'
-  normalization_applied: true
-  restructured_date: '2025-10-27T23:46:20.363369Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:46:20.363334Z'
+  normalizationApplied: true
+  restructuredDate: '2025-10-27T23:46:20.363369Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

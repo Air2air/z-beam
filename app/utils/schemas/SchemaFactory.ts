@@ -26,6 +26,8 @@ import {
   isMaterialPage,
   isCompoundPage 
 } from '../contentTypeDetection';
+import { normalizeToBaseSlug, getDatasetUrl } from '../slugHelpers';
+import { toCategorySlug } from '../formatting';
 import {
   getMetadata,
   hasProductData,
@@ -1938,7 +1940,7 @@ function generateSoftwareApplicationSchema(data: any, context: SchemaContext): S
     ],
     'screenshot': {
       '@type': 'ImageObject',
-      'url': `${baseUrl}/images/material/${(materialName as string).toLowerCase().replace(/\s+/g, '-')}-hero.jpg`
+      'url': `${baseUrl}/images/material/${toCategorySlug(materialName as string)}-hero.jpg`
     },
     'author': {
       '@type': 'Organization',
@@ -2006,27 +2008,28 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   // Extract material/contaminant slug from the full slug path
   const materialSlug = slug.split('/').pop() || slug;
   
-  // Dataset naming: Normalize slug to use proper dataset suffix
+  // Dataset naming: Use shared utility to normalize slug (removes all suffixes consistently)
+  const baseSlug = normalizeToBaseSlug(materialSlug);
   const datasetFolder = isContaminant ? 'contaminants' : 'materials';
-  // Remove any existing suffixes and add the correct dataset suffix
-  const baseSlug = materialSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '').replace(/-contamination$/, '').replace(/-contaminant-dataset$/, '').replace(/-material-dataset$/, '');
   const datasetSuffix = isContaminant ? '-contaminant-dataset' : '-material-dataset';
   const datasetName = `${baseSlug}${datasetSuffix}`;
   
   // For settings pages, use canonical dataset URL (points to materials page, not settings)
+  // NOTE: canonicalUrl is for Schema.org @id (NO file extension)
   const canonicalUrl = frontmatter.canonicalDatasetUrl && typeof frontmatter.canonicalDatasetUrl === 'string'
     ? (() => {
         const slug = frontmatter.canonicalDatasetUrl.split('/').pop() || '';
-        const baseSlug = slug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '').replace(/-contamination$/, '').replace(/-contaminant-dataset$/, '').replace(/-material-dataset$/, '');
-        const suffix = isContaminant ? '-contaminant-dataset' : '-material-dataset';
-        return `${baseUrl}/datasets/${datasetFolder}/${baseSlug}${suffix}`;
+        const baseSlug = normalizeToBaseSlug(slug);
+        // Schema.org @id should NOT include .json extension
+        return `${baseUrl}/datasets/${datasetFolder}/${baseSlug}${datasetSuffix}`;
       })()
     : `${baseUrl}/datasets/${datasetFolder}/${datasetName}`;
 
 
   // **PHASE 1 ENHANCEMENT**: Load generated dataset file for enhanced data
   // These files contain: 20+ variableMeasured items, citation array, author E-E-A-T data, images
-  const generatedDataset = loadGeneratedDataset(datasetName, datasetFolder);
+  // CRITICAL FIX: Pass baseSlug (NOT datasetName which already has suffix) to prevent duplicate suffix bug
+  const generatedDataset = loadGeneratedDataset(baseSlug, datasetFolder);
   const enhancedFields = extractEnhancedFields(generatedDataset);
 
   // E-E-A-T Enhancement: Use page author as dataset creator for authority

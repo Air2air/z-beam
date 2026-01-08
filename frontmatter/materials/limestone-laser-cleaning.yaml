@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 1.1
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser-induced damage thresholds of limestone for cultural heritage cleaning
+      sourceType: journal_article
+      sourceName: Laser-induced damage thresholds of limestone for cultural heritage cleaning
       citation: 'Sanz et al., Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.145'
       context: Porous limestone (CaCO₃ >98% purity, typical building stone composition), 20°C, 1064 nm Nd:YAG laser, 7 ns
         pulse duration, measured under vacuum to avoid atmospheric interference
       confidence: 95
-      researched_date: '2025-11-24T12:00:56.772035'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:00:56.772035'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,14 +175,14 @@ properties:
       value: 0.9
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Applied Physics A: Materials Science & Processing'
+      sourceType: journal_article
+      sourceName: 'Applied Physics A: Materials Science & Processing'
       citation: Pouli, P., et al., Applied Physics A 83, 401–405 (2006). https://doi.org/10.1007/s00339-006-3592-5
       context: Natural white limestone (CaCO3 >95% purity), room temperature (20°C), 1064 nm Nd:YAG laser, 5 ns pulse duration,
         atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T12:01:05.884646'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:01:05.884646'
+      needsValidation: true
 micro:
   before: Limestone surface, it exhibits porous texture naturally. Before laser cleaning is applied, contamination covers
     grains densely, so buildup forms thick layers on calcite crystals. This dirt and oxide, they cling to edges and fill pores,
@@ -207,7 +207,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -233,10 +233,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -265,8 +271,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -306,12 +320,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -333,8 +354,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -350,7 +371,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:46.528545+00:00'
+dateModified: '2026-01-08T04:06:34.809613+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -367,9 +388,8 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: 'When laser cleaning limestone, watch its porosity first. It soaks up dirt and moisture more than
-    denser stones like granite. This traps contaminants deep, so you risk incomplete removal or surface damage if you blast
-    too hard.
+  settingsDescription: 'When laser cleaning limestone, watch its porosity first. It soaks up dirt and moisture more than denser
+    stones like granite. This traps contaminants deep, so you risk incomplete removal or surface damage if you blast too hard.
 
 
     I''ve seen heat build up quickly because limestone conducts it poorly, unlike metals that spread it out. Start slow with
@@ -385,7 +405,7 @@ components:
     after: After the laser treatment, that same surface shines with a fresh, even glow. Smooth patches emerge where the dirt
       once stuck, revealing clean edges and subtle patterns. Now it looks open and vibrant, free from those clinging residues.
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
   - ASTM C568 - Standard Specification for Limestone Dimension Stone
 eeat:

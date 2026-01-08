@@ -7,7 +7,7 @@ pageDescription: We've discovered that Tantalum shines in harsh chemical environ
   resistance, letting it hold up against strong acids while metals like steel break down fast and give way, which is why we
   choose it for sturdy parts in processing gear and medical implants that need to last for the long haul.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -122,7 +122,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
@@ -232,7 +232,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -243,10 +243,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -275,8 +281,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -301,12 +315,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -328,8 +349,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -345,7 +366,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.044185+00:00'
+dateModified: '2026-01-08T04:06:38.503179+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -369,7 +390,7 @@ components:
       stick out, blocking the true shine beneath.
     after: After laser treatment, the Tantalum surface appears smooth and free from all that buildup. Bright reflections emerge
       across the even texture, revealing a uniform polish without any remnants. Now the metal gleams consistently, ready for
-  settings_description: When laser cleaning Tantalum, start by selecting a stable laser setup that handles its extreme heat
+  settingsDescription: When laser cleaning Tantalum, start by selecting a stable laser setup that handles its extreme heat
     resistance. This metal withstands intense energy without melting easily, so you must ramp up power gradually to avoid
     uneven heating on the surface. Make sure you focus the beam tightly at first, because Tantalum's dense nature holds contaminants
     stubbornly, requiring steady passes to lift them off without scratching the base. Watch out midway—its natural shine can
@@ -378,10 +399,10 @@ components:
     for applications like medical devices or chemical gear. You should always follow with a cool-down period, as the material
     retains heat longer than lighter metals.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922815Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922821Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922815Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922821Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

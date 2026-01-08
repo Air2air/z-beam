@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: HCP
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -59,7 +59,7 @@ properties:
       unit: K
       confidence: 100
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -106,25 +106,25 @@ properties:
       value: 1.25
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Damage Threshold of Rare-Earth Metals: Neodymium'
+      sourceType: journal_article
+      sourceName: 'Laser Damage Threshold of Rare-Earth Metals: Neodymium'
       citation: 'Wood, R.M. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
       context: High-purity neodymium (99.9% purity), room temperature (25°C), measured using 1064 nm Nd:YAG laser with 10
         ns pulse duration
       confidence: 95
-      researched_date: '2025-11-24T12:03:05.408943'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:03:05.408943'
+      needsValidation: true
     thermalDiffusivity:
       value: 1.24e-05
       unit: m²/s
       source: scientific_literature
-      source_type: reference_handbook
-      source_name: CRC Handbook of Chemistry and Physics
+      sourceType: reference_handbook
+      sourceName: CRC Handbook of Chemistry and Physics
       citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2
       context: High purity neodymium metal (>99.9%), 298 K, calculated under standard conditions
       confidence: 95
-      researched_date: '2025-11-24T12:03:19.267034'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:03:19.267034'
+      needsValidation: true
 micro:
   before: Neodymium surfaces show high reactivity. This property causes quick contamination buildup. Contamination forms thick
     oxide layers and dirt particles. At high magnification, these layers appear irregular and clustered. Particles stick tightly
@@ -144,7 +144,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -155,10 +155,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: electronics-manufacturing
@@ -177,8 +183,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -208,12 +222,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -235,8 +256,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -252,7 +273,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.193195+00:00'
+dateModified: '2026-01-08T04:06:35.442643+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -264,7 +285,7 @@ contamination:
   _needs_review: true
   _note: Category "rare-earth" not recognized - conservative defaults applied
 components:
-  settings_description: When laser cleaning Neodymium, we've found it behaves differently from tougher metals like steel because
+  settingsDescription: When laser cleaning Neodymium, we've found it behaves differently from tougher metals like steel because
     of its soft, reactive nature as a rare-earth lanthanide, which makes it prone to quick surface oxidation if heat builds
     up too fast. So, we approach it by starting with gentler pulses to localize energy and prevent unwanted reactions, unlike
     the higher intensities we use on more conductive materials. This keeps the dense structure intact while removing contaminants
@@ -276,10 +297,10 @@ components:
     after: After laser treatment, the surface appears smooth and uniformly bright at 1000x. Clean areas shine without those
       stubborn spots or roughness. Now, the material looks even and ready for use.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922247Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922252Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922247Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922252Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

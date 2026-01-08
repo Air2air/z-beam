@@ -7,7 +7,8 @@
 
 const https = require('https');
 
-const SITE_URL = 'https://www.z-beam.com';
+// SITE_URL imported from config/urls.js
+// Provides environment-aware URL resolution
 
 const TEST_URLS = [
   '/',

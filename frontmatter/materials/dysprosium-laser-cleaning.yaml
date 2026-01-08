@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: HCP
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -59,7 +59,7 @@ properties:
       unit: dimensionless
       confidence: 95
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -106,25 +106,25 @@ properties:
       value: 7.4e-06
       unit: m²/s
       source: scientific_literature
-      source_type: reference_handbook
-      source_name: CRC Handbook of Chemistry and Physics
+      sourceType: reference_handbook
+      sourceName: CRC Handbook of Chemistry and Physics
       citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2
       context: High-purity elemental Dysprosium (>99.9%), 298 K, polycrystalline solid, standard atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:56:26.662981'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:56:26.662981'
+      needsValidation: true
     laserDamageThreshold:
       value: 0.42
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Damage Threshold of Rare-Earth Metals: Dysprosium and Its Alloys'
+      sourceType: journal_article
+      sourceName: 'Laser Damage Threshold of Rare-Earth Metals: Dysprosium and Its Alloys'
       citation: 'Wood, R.M. et al., Applied Optics, Vol. 58, No. 12, 2019, DOI: 10.1364/AO.58.003212'
       context: High-purity Dysprosium (99.99% purity), room temperature (25°C), nanosecond pulsed Nd:YAG laser at 1064 nm
         wavelength, single-shot measurement
       confidence: 95
-      researched_date: '2025-11-24T12:27:01.996420'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:27:01.996420'
+      needsValidation: true
 micro:
   before: Contamination on dysprosium surfaces poses removal challenges, it appears, due to tenacious adherence influenced
     from environmental exposure. At microscopic examination, the contaminated layer manifests as irregular clusters, which
@@ -148,7 +148,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -159,10 +159,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: electronics-manufacturing
@@ -181,8 +187,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -212,12 +226,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -240,8 +261,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -257,7 +278,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.075116+00:00'
+dateModified: '2026-01-08T04:06:33.096865+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -269,7 +290,7 @@ contamination:
   _needs_review: true
   _note: Category "rare-earth" not recognized - conservative defaults applied
 components:
-  settings_description: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity.
+  settingsDescription: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity.
     This shiny surface bounces most energy away, so start low to build absorption gradually. We've found that keeps the dense
     material from overheating locally, given its poor heat spreading. Watch out mid-process for uneven spots—adjust scan speed
     slower there to avoid pitting. Finish with multiple light passes. This brings back the finish without warping its tough
@@ -280,10 +301,10 @@ components:
     after: After the laser passes over it, the surface turns smooth and bare. No traces of dirt remain on the even finish.
       It shines clearly now, free from all that mess.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921871Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921877Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921871Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921877Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

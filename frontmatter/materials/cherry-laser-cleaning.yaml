@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 2.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Cleaning of Cherry Wood: Ablation Thresholds and Surface Morphology'
+      sourceType: journal_article
+      sourceName: 'Laser Cleaning of Cherry Wood: Ablation Thresholds and Surface Morphology'
       citation: 'Bolin, G. et al., Optics and Lasers in Engineering, 2019, DOI: 10.1016/j.optlaseng.2019.03.012'
       context: Cherry wood (Prunus serotina, density 0.65 g/cm³, 8-12% moisture content), room temperature (20°C), 1064 nm
         Nd:YAG laser, 10 ns pulse duration, measured at damage onset via thermal imaging
       confidence: 95
-      researched_date: '2025-11-24T11:55:01.840641'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:55:01.840641'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,14 +175,14 @@ properties:
       value: 0.82
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser cleaning of cherry wood surfaces using a Nd:YAG laser
+      sourceType: journal_article
+      sourceName: Laser cleaning of cherry wood surfaces using a Nd:YAG laser
       citation: 'J. Lawrence, D. W. Bradley, Journal of Materials Processing Technology, 2002, DOI: 10.1016/S0924-0136(01)01145-7'
       context: Cherry wood (Prunus serotina, density 0.65 g/cm³, natural finish), room temperature (25°C), 1064 nm Nd:YAG
         laser, pulse duration 10 ns, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:55:09.787392'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:55:09.787392'
+      needsValidation: true
 micro:
   before: Cherry wood's intricate grain patterns stand out under close microscopic inspection, revealing how laser cleaning
     tackles contamination head-on. Before treatment, the surface clings to stubborn dirt and residues that seep into its porous
@@ -204,7 +204,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -222,10 +222,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: furniture-manufacturing
@@ -254,8 +260,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -290,12 +304,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -317,8 +338,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -334,7 +355,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.732866+00:00'
+dateModified: '2026-01-08T04:06:32.724516+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -350,7 +371,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning Cherry, start with its high porosity. This property absorbs laser energy quickly,
+  settingsDescription: When laser cleaning Cherry, start with its high porosity. This property absorbs laser energy quickly,
     so you must use low power settings to remove contaminants without scorching the surface. Its low density helps the process
     by allowing even heat distribution, but watch for splintering in the middle of the job. Adjust scan speed higher to reduce
     dwell time on porous areas. Make sure you overlap passes minimally to avoid uneven ablation. These steps restore the wood's
@@ -363,7 +384,7 @@ components:
       all visible residues, exposing smooth grain patterns. This reveals a uniform, restored appearance without any lingering
       marks.
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team

@@ -26,18 +26,18 @@ characteristics:
     value: FCC
   density:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:52:35.677857'
-  thermal_conductivity:
+    needsResearch: true
+    researchedDate: '2025-11-07T12:52:35.677857'
+  thermalConductivity:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:54:05.465525'
-  laser_absorption:
+    needsResearch: true
+    researchedDate: '2025-11-07T12:54:05.465525'
+  laserAbsorption:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:58:27.761353'
+    needsResearch: true
+    researchedDate: '2025-11-07T12:58:27.761353'
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -126,7 +126,7 @@ properties:
       confidence: 100
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     thermalConductivity:
@@ -239,7 +239,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -288,10 +288,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: architecture
@@ -316,8 +322,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -347,12 +361,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -374,8 +395,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -391,7 +412,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.960909+00:00'
+dateModified: '2026-01-08T04:06:32.975601+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -447,19 +468,19 @@ components:
 
     One pitfall: don''t rush passes on large panels. Copper''s moderate strength—220 megapascals tensile—flexes under rapid
     heating. We''ve adjusted scan speeds'
-  settings_description: When laser cleaning copper, we've found that starting with gentle pulses works best because its shiny
+  settingsDescription: When laser cleaning copper, we've found that starting with gentle pulses works best because its shiny
     surface bounces back most of the energy, so you get even coverage without wasting shots. This high reflectivity sets it
     apart from duller metals like iron, meaning we adjust our setup to focus on short, repeated passes that gradually lift
     dirt and oxides while the metal's strong heat-spreading ability prevents hot spots. But watch out midway—push too hard
     and the surface can soften unevenly, so we dial back intensity and overlap scans to keep things cool and restore that
     clean, conductive finish for electronics or plumbing jobs.
 metadata:
-  micro_corruption_detected: '2025-10-27T23:53:01.654517Z'
-  micro_issue: Truncated JSON structure detected in caption fields
-  last_updated: '2025-10-27T23:46:20.363438Z'
-  normalization_applied: true
-  restructured_date: '2025-10-27T23:46:20.363457Z'
-  structure_version: '2.0'
+  microCorruptionDetected: '2025-10-27T23:53:01.654517Z'
+  microIssue: Truncated JSON structure detected in caption fields
+  lastUpdated: '2025-10-27T23:46:20.363438Z'
+  normalizationApplied: true
+  restructuredDate: '2025-10-27T23:46:20.363457Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

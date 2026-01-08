@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 0.85
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Cleaning of Gypsum-Based Materials: Alabaster Case Study'
+      sourceType: journal_article
+      sourceName: 'Laser Cleaning of Gypsum-Based Materials: Alabaster Case Study'
       citation: 'Pořízka, P. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005'
       context: Natural alabaster (CaSO4·2H2O, 98% purity), 20°C, Q-switched Nd:YAG laser at 1064 nm wavelength, 10 ns pulse
         duration
       confidence: 92
-      researched_date: '2025-11-24T11:50:00.500965'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:50:00.500965'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 0.75
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Cultural Heritage
+      sourceType: journal_article
+      sourceName: Journal of Cultural Heritage
       citation: 'Pouli, P. et al., Laser cleaning of alabaster artifacts: Threshold determination and optimization, Journal
         of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2016.03.004'
       context: Natural alabaster (CaSO4·2H2O, 95% purity), 20°C, Nd:YAG laser at 1064 nm wavelength, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:50:06.313988'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:50:06.313988'
+      needsValidation: true
 micro:
   before: The contamination on alabaster surfaces, it manifests as irregular clusters, adhered tenaciously to the fine-grained
     matrix. These deposits, they exhibit patchy distributions, influenced from environmental exposure, which obscure the natural
@@ -207,7 +207,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -218,10 +218,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -250,8 +256,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -281,12 +295,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -309,8 +330,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -326,7 +347,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:43.522979+00:00'
+dateModified: '2026-01-08T04:06:31.434277+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -348,7 +369,7 @@ components:
     soft structure—hardness just 2 Mohs and tensile strength at 1.5 MPa. Watch the fluence under 1.2 J/cm²; its poor thermal
     conductivity of 0.86 W/m·K traps heat, risking damage at 423 K. We use 50 kHz pulses, 500 mm/s scan, and two passes with
     50% overlap to gently strip buildup without etching the porous surface.
-  settings_description: When laser cleaning alabaster, you must prioritize its softness compared to harder stones like marble,
+  settingsDescription: When laser cleaning alabaster, you must prioritize its softness compared to harder stones like marble,
     as it scratches easily under aggressive energy. This low durability means the material absorbs heat unevenly, risking
     cracks if you push too hard right away. Start with gentle passes at lower intensities to lift surface dirt without stressing
     the pores, which trap residues but also make it fragile. Watch for discoloration mid-process—dial back if you spot yellowing,
@@ -361,10 +382,10 @@ components:
     after: At 1000x magnification, the alabaster surface now appears smooth and even, free from any clinging grime or debris
       after the laser passes over
 metadata:
-  last_updated: '2025-10-27T23:48:40.921556Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921587Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921556Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921587Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

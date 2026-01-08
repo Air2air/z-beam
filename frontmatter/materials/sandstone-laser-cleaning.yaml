@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Sandstone for Nd:YAG Laser Cleaning
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Sandstone for Nd:YAG Laser Cleaning
       citation: 'Sanz et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2009.05.045'
       context: Natural quartz sandstone (95% SiO2, porosity 10-15%), room temperature (25°C), 1064 nm Nd:YAG laser, pulse
         duration 10 ns
       confidence: 95
-      researched_date: '2025-11-24T12:16:55.442872'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:16:55.442872'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 1.1
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser cleaning of stone surfaces: Threshold fluences for ablation'
+      sourceType: journal_article
+      sourceName: 'Laser cleaning of stone surfaces: Threshold fluences for ablation'
       citation: 'Marczak, J., et al., Applied Surface Science, 2008, DOI: 10.1016/j.apsusc.2007.10.045'
       context: Typical quartz-rich sandstone (90% SiO2, porosity 10-15%), room temperature (25°C), measured with Q-switched
         Nd:YAG laser at 1064 nm wavelength, 10 ns pulse duration
       confidence: 95
-      researched_date: '2025-11-24T12:17:01.119028'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:17:01.119028'
+      needsValidation: true
 micro:
   before: The contamination on sandstone surfaces, it manifests as irregular clusters of dark particulates, which adhere tenaciously
     to the porous matrix. At 1000x magnification, these deposits reveal jagged edges that infiltrate the sedimentary grains,
@@ -206,7 +206,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -232,10 +232,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -264,8 +270,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -305,12 +319,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -333,8 +354,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -350,7 +371,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:49.058672+00:00'
+dateModified: '2026-01-08T04:06:37.380447+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -367,11 +388,11 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning sandstone, the biggest hurdle I've seen is its porous, layered structure that
-    traps grime deep inside while heating unevenly during treatment. This tends to cause micro-cracks if you push too hard,
-    since the stone's sedimentary makeup varies from spot to spot. To handle it, go slow with gentle pulses that let the laser
-    seep into those pores without overwhelming the surface, focusing on dry runs first to map weak areas. Watch out at the
-    end—overlapping passes can still fracture edges, so always cool between them.
+  settingsDescription: When laser cleaning sandstone, the biggest hurdle I've seen is its porous, layered structure that traps
+    grime deep inside while heating unevenly during treatment. This tends to cause micro-cracks if you push too hard, since
+    the stone's sedimentary makeup varies from spot to spot. To handle it, go slow with gentle pulses that let the laser seep
+    into those pores without overwhelming the surface, focusing on dry runs first to map weak areas. Watch out at the end—overlapping
+    passes can still fracture edges, so always cool between them.
   micro:
     before: I see the sandstone's surface cluttered with dark specks and uneven grime layers that dull its grains. Fine particles
       nestle into open pores, creating a mottled haze over the texture. Debris clings stubbornly, masking the stone's original
@@ -379,7 +400,7 @@ components:
     after: After cleaning, the surface exposes crisp, bare grains with sharp edges all around. Pores gape cleanly, free from
       any clinging dirt or film. The stone's natural patterns emerge bright and unhindered, showing its true
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
   - ASTM C616 - Standard Specification for Sandstone Dimension Stone
 eeat:

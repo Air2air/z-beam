@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: mixed
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,16 +82,16 @@ properties:
       value: 2.1
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Composite Materials
+      sourceType: journal_article
+      sourceName: Journal of Composite Materials
       citation: 'Zhang, Y. et al., Laser ablation thresholds of fiber-reinforced phenolic composites, Journal of Composite
         Materials, 2018, DOI: 10.1177/0021998318755852'
       context: Glass fiber reinforced phenolic resin composite (50 wt% resin, 99% purity matrix), 25°C, measured with 1064
         nm Nd:YAG laser, 10 ns pulse duration, vacuum environment
       confidence: 95
-      researched_date: '2025-11-24T12:04:02.241447'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:04:02.241447'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 2.3
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Ablation of Phenolic Resin Composites: Threshold Fluence and Surface Morphology'
+      sourceType: journal_article
+      sourceName: 'Laser Ablation of Phenolic Resin Composites: Threshold Fluence and Surface Morphology'
       citation: 'Wang, L. et al., Composites Part B: Engineering, 2018, DOI: 10.1016/j.compositesb.2018.05.012'
       context: Carbon fiber reinforced phenolic resin composite (60 wt% phenolic resin matrix, 40 wt% carbon fibers), room
         temperature (25°C), Nd:YAG laser at 1064 nm wavelength, pulse duration 10 ns
       confidence: 95
-      researched_date: '2025-11-24T12:04:09.808650'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:04:09.808650'
+      needsValidation: true
 micro:
   before: Laser cleaning works wonders on phenolic resin composites, stripping away contaminants to reveal the material's
     tough, fiber-reinforced structure. At 1000x magnification, the contaminated surface looks rough and cluttered. Dirt particles
@@ -209,7 +209,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -220,10 +220,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -252,8 +258,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -283,12 +297,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -310,8 +331,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -327,7 +348,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.592598+00:00'
+dateModified: '2026-01-08T04:06:35.816593+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -342,12 +363,12 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: When laser cleaning phenolic resin composites, we typically begin by addressing their tendency to
-    retain heat due to poor thermal conductivity. This buildup risks damaging the resin matrix if power levels rise too quickly,
+  settingsDescription: When laser cleaning phenolic resin composites, we typically begin by addressing their tendency to retain
+    heat due to poor thermal conductivity. This buildup risks damaging the resin matrix if power levels rise too quickly,
     so we recommend starting with conservative settings to allow gradual contaminant removal. Unlike metals that dissipate
     heat evenly, these fiber-reinforced materials absorb laser energy efficiently but unevenly, which can expose underlying
     fibers to thermal stress. We've found that multiple low-intensity passes restore surface integrity without delamination.
@@ -360,10 +381,10 @@ components:
     after: After laser treatment, 1000x magnification exposes a uniform surface with all debris removed. Clean fibers emerge
       with sharp edges fully restored and visible. The material now appears smooth and bright overall.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922321Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922327Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922321Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922327Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

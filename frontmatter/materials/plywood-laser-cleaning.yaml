@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,16 +82,16 @@ properties:
       value: 12.5
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Applied Physics
+      sourceType: journal_article
+      sourceName: Journal of Applied Physics
       citation: 'B. W. Hakala et al., ''Laser-induced damage thresholds of wood and plywood composites for 10.6 μm radiation'',
         Journal of Applied Physics, 2018, DOI: 10.1063/1.5028314'
       context: Commercial birch plywood (5-ply, urea-formaldehyde adhesive, density 650 kg/m³), 25°C, CO2 laser at 10.6 μm
         wavelength, nanosecond pulse duration, measured under vacuum to avoid atmospheric interference
       confidence: 95
-      researched_date: '2025-11-24T12:05:04.228661'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:05:04.228661'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,16 +176,16 @@ properties:
       value: 2.3
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation thresholds of wood and plywood for nanosecond pulsed lasers
+      sourceType: journal_article
+      sourceName: Laser ablation thresholds of wood and plywood for nanosecond pulsed lasers
       citation: 'J. F. Ready, Effects of High-Power Laser Radiation, Academic Press, 1971, ISBN 978-0-12-583752-3 (updated
         data in subsequent editions); cross-referenced with ''Laser Processing of Wood'' by A. Pizzi, Journal of Wood Science,
         2005, DOI: 10.1007/s10086-004-0652-3'
       context: Commercial softwood plywood (pine veneers with phenol-formaldehyde adhesive, density 0.55 g/cm³), 25°C, 1064
         nm Nd:YAG laser, 10 ns pulse duration, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T12:05:15.803156'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:05:15.803156'
+      needsValidation: true
 micro:
   before: Plywood surfaces, they exhibit distinct contamination patterns under 1000x magnification, where irregular deposits
     cling tenaciously to the layered fibers, which obscure the natural grain and fill the porous structure. This contamination,
@@ -209,7 +209,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -221,10 +221,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -253,8 +259,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -284,12 +298,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -312,8 +333,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -329,7 +350,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.835965+00:00'
+dateModified: '2026-01-08T04:06:36.071695+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -345,8 +366,8 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning plywood, unlike solid hardwoods, its layered structure and high porosity make
-    it more forgiving on heat buildup, so it tends to clean evenly without deep charring if you keep passes light and quick.
+  settingsDescription: When laser cleaning plywood, unlike solid hardwoods, its layered structure and high porosity make it
+    more forgiving on heat buildup, so it tends to clean evenly without deep charring if you keep passes light and quick.
     I've seen this layered makeup absorb contaminants well, restoring surfaces in furniture or heritage pieces, but watch
     midway—too much dwell can delaminate edges, so adjust speed up to avoid that pitfall and preserve the glue bonds.
   micro:
@@ -356,10 +377,10 @@ components:
     after: After laser treatment, the surface appears fresh and open, with fibers standing out clearly without any residue.
       The texture smooths out nicely, revealing a uniform and vibrant pattern. This treatment brings back the wood's original
 metadata:
-  last_updated: '2025-10-27T23:48:40.922371Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922377Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922371Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922377Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

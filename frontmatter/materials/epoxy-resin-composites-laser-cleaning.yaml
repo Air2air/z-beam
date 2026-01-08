@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: mixed
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 2.3
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation and Damage Threshold of Epoxy-Based Carbon Fiber Composites
+      sourceType: journal_article
+      sourceName: Laser Ablation and Damage Threshold of Epoxy-Based Carbon Fiber Composites
       citation: 'Palmieri, F., et al., Composites Part B: Engineering, 2019, DOI: 10.1016/j.compositesb.2019.107145'
       context: Carbon fiber reinforced epoxy resin composite (CF/EP, 60 vol% fiber, bisphenol-A epoxy matrix), 1064 nm Nd:YAG
         laser, 8 ns pulse duration, room temperature (25°C), vacuum conditions
       confidence: 95
-      researched_date: '2025-11-24T11:56:39.834977'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:56:39.834977'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser cleaning of carbon fiber reinforced epoxy composites: Ablation thresholds and surface morphology'
+      sourceType: journal_article
+      sourceName: 'Laser cleaning of carbon fiber reinforced epoxy composites: Ablation thresholds and surface morphology'
       citation: 'Zhang, Y. et al., Composites Part B: Engineering, 2019, DOI: 10.1016/j.compositesb.2019.107123'
       context: Carbon fiber reinforced epoxy resin composite (60% fiber volume fraction, bisphenol-A epoxy matrix), 1064 nm
         Nd:YAG laser, room temperature (25°C), pulse duration 10 ns, in air
       confidence: 95
-      researched_date: '2025-11-24T11:56:45.366268'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:56:45.366268'
+      needsValidation: true
 micro:
   before: Epoxy resin composites, they show unique surface patterns in microscopic views at high magnification. This material,
     fiber-reinforced type, exhibits dense matrix with embedded fibers that provide strength and durability. Contamination
@@ -205,7 +205,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -216,10 +216,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -248,8 +254,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -279,12 +293,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -306,8 +327,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -323,7 +344,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.127625+00:00'
+dateModified: '2026-01-08T04:06:33.155136+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -338,11 +359,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly
+  settingsDescription: I've seen epoxy resin composites behave differently from plain metals during laser cleaning, mainly
     because their fiber-reinforced structure absorbs energy more readily without reflecting it away. This helps remove contaminants
     efficiently, as the matrix holds up well under controlled heat, preventing quick degradation that you'd get with softer
     plastics. So, approach it by starting with gentler passes to leverage that absorption for clean results. Just watch out
@@ -354,10 +375,10 @@ components:
     after: After laser treatment, the surface appears smooth and even, with no traces of those clinging particles left behind.
       Clear fibers emerge sharply, showing a uniform shine across the cleaned area. The texture now feels
 metadata:
-  last_updated: '2025-10-27T23:48:40.921883Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921889Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921883Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921889Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

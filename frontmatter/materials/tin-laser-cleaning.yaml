@@ -6,7 +6,7 @@ subcategory: alloy
 pageDescription: For laser cleaning of tin, begin with low power to carefully manage its low melting point, in contrast to
   tougher metals that endure higher intensities without deformation.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -121,7 +121,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
@@ -230,7 +230,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -267,10 +267,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: electronics-manufacturing
@@ -299,8 +305,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -325,12 +339,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -352,8 +373,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -369,7 +390,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.391794+00:00'
+dateModified: '2026-01-08T04:06:38.859133+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -394,17 +415,17 @@ components:
       mar the base metal, hiding its natural shine completely.
     after: After the laser treatment, the same view shows a smooth and even surface free from all grime. The metal gleams
       brightly now, with no rough patches or clinging debris left behind
-  settings_description: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because
+  settingsDescription: When laser cleaning Tin, make sure you start with the lowest possible power settings right away, because
     its low melting point means the surface can soften or deform quickly if heat builds up. You'll need to adjust by using
     short pulses and slower scan speeds to control the energy input, so the contaminants lift off without damaging the soft
     base material. This approach works well for Tin's high reflectivity too, which scatters the beam and slows absorption—keep
     passes minimal and overlap low to avoid uneven spots. Watch out for overexposure on thin layers, as it might lead to pitting;
     instead, test on a small area first and build up gradually for clean results in electronics or heritage work.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922890Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922896Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922890Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922896Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

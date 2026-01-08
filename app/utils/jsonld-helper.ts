@@ -1,5 +1,6 @@
 import { SITE_CONFIG } from './constants';
 import type { Author } from '@/types';
+import { normalizeToBaseSlug, getDatasetUrl } from './slugHelpers';
 import {
   generatePersonSchema,
   generateArticleSchema,
@@ -557,10 +558,10 @@ function createDatasetSchema(data: any) {
   const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
   const slugMatch = pageUrl.match(/\/materials\/([^\/]+)\/([^\/]+)\/([^\/]+)/);
   const pageSlug = slugMatch ? slugMatch[3] : 'material';
-  // Transform page slug to dataset slug: remove -laser-cleaning/-settings, add -material-dataset
-  const baseSlug = pageSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '');
+  // Transform page slug to dataset slug using shared utility
+  const baseSlug = normalizeToBaseSlug(pageSlug);
   const datasetSlug = `${baseSlug}-material-dataset`;
-  const datasetBasePath = `${baseUrl}/datasets/materials/${datasetSlug}`;
+  const datasetBasePath = getDatasetUrl(baseSlug, 'materials', 'json', baseUrl);
   
   return propertyCount > 0 ? {
     '@type': 'Dataset',

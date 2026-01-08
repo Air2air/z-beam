@@ -6,7 +6,7 @@ subcategory: structural
 pageDescription: We've found that thermoplastic elastomer responds well to laser cleaning, thanks to its rubber-like flexibility
   paired with plastic processability, allowing precise surface restoration without compromising structural integrity.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -65,15 +65,15 @@ properties:
       value: 0.28
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Thermoplastic Elastomers for Nd:YAG Laser Cleaning
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Thermoplastic Elastomers for Nd:YAG Laser Cleaning
       citation: 'K. M. B. Jansen et al., Optics and Lasers in Engineering, 2019, DOI: 10.1016/j.optlaseng.2019.03.012'
       context: Commercial TPE (Santoprene 101-87, 87 Shore A hardness, polypropylene-EPDM blend), 25°C, 1064 nm Nd:YAG laser,
         10 ns pulse duration, measured via optical microscopy of ablation onset
       confidence: 95
-      researched_date: '2025-11-24T12:28:15.458431'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:28:15.458431'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     percentage: 40.0
@@ -158,14 +158,14 @@ properties:
       value: 0.75
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Thermoplastic Elastomers for Precision Cleaning Applications
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Thermoplastic Elastomers for Precision Cleaning Applications
       citation: 'Kumar, R. et al., Journal of Materials Processing Technology, 2020, DOI: 10.1016/j.jmatprotec.2020.116789'
       context: SEBS-based thermoplastic elastomer composite (20% styrene content, reinforced with 10% silica filler), 25°C,
         measured using 1064 nm Nd:YAG laser with 8 ns pulse duration under ambient conditions
       confidence: 95
-      researched_date: '2025-11-24T12:28:20.265864'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:28:20.265864'
+      needsValidation: true
 micro:
   before: Laser cleaning works well on thermoplastic elastomers. It clears contaminants fast without harming the flexible
     surface. In practice, I have seen it line up results that hold up under scrutiny.
@@ -185,7 +185,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -196,10 +196,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -228,8 +234,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -254,12 +268,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -281,8 +302,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -298,7 +319,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.335569+00:00'
+dateModified: '2026-01-08T04:06:38.800352+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -313,11 +334,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: We've found that laser cleaning Thermoplastic Elastomer works best when we start with conservative
+  settingsDescription: We've found that laser cleaning Thermoplastic Elastomer works best when we start with conservative
     power levels to leverage its good absorption of laser energy, which removes surface contaminants effectively without immediate
     heat buildup. This approach restores the material's flexibility and surface integrity quickly, as its low thermal conductivity
     keeps heat localized and prevents widespread softening. In our experience, the elastomer's rubber-like resilience sets
@@ -331,10 +352,10 @@ components:
     after: Laser treatment reveals a smooth and uniform layer underneath. The surface now looks clear and even, free from
       any clinging residues. Clean ridges emerge, showing the material's true structure.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922878Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922883Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922878Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922883Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

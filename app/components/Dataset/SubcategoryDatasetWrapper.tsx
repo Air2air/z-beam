@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { normalizeToBaseSlug, getDatasetUrl } from '@/app/utils/slugHelpers';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import { trackDatasetDownload } from '@/app/utils/analytics';
@@ -33,9 +34,11 @@ export default function SubcategoryDatasetWrapper({
     // Fetch full data for all materials in this subcategory
     const materialDataPromises = materials.map(async (m) => {
       try {
-        const fullSlug = m.slug.endsWith('-laser-cleaning') ? m.slug : `${m.slug}-laser-cleaning`;
-        const response = await fetch(`/datasets/materials/${fullSlug}-material-dataset.json`);
-        if (!response.ok) throw new Error(`Failed to fetch ${fullSlug}`);
+        // Use shared utility for consistent URL construction
+        const baseSlug = normalizeToBaseSlug(m.slug);
+        const url = getDatasetUrl(baseSlug, 'materials', format);
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to fetch ${baseSlug}`);
         return await response.json();
       } catch (error) {
         console.error(`Error fetching data for ${m.name}:`, error);

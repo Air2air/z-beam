@@ -9,33 +9,33 @@ pageDescription: When laser cleaning stainless steel, start by adjusting the pow
 characteristics:
   density:
     source: scientific_literature
-    source_type: Materials database
-    source_name: MatWeb
+    sourceType: Materials database
+    sourceName: MatWeb
     citation: MatWeb LLC. "AISI Type 304 Stainless Steel." Accessed via http://www.matweb.com/search/DataSheet.aspx?MatGUID=5a2a8d8b1b4e4b0a9f0e4b0a9f0e4b0a
       (specific datasheet ID may vary; data as of 2023). No ISBN/DOI; online database.
     context: 'AISI 304 stainless steel (austenitic, nominal composition: 18% Cr, 8% Ni, balance Fe); room temperature (20-25°C);
       no specific measurement meth'
     confidence: 85
-    researched_date: '2025-11-07T12:52:05.042629'
-    needs_validation: true
+    researchedDate: '2025-11-07T12:52:05.042629'
+    needsValidation: true
     value: 8.00 g/cm³
-  thermal_conductivity:
+  thermalConductivity:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T12:53:41.819931'
-  laser_absorption:
+    needsResearch: true
+    researchedDate: '2025-11-07T12:53:41.819931'
+  laserAbsorption:
     source: scientific_literature
-    source_type: Reference handbook (Woodhead Publishing, ASM-affiliated content)
-    source_name: Handbook of Laser Welding Technologies
+    sourceType: Reference handbook (Woodhead Publishing, ASM-affiliated content)
+    sourceName: Handbook of Laser Welding Technologies
     citation: ISBN 978-0-85709-510-3; Seiji Katayama (Ed.), Woodhead Publishing, 2013
     context: AISI 304 stainless steel (18% Cr, 8% Ni, balance Fe); room temperature (25°C); normal incidence; measured for
       1064 nm Nd:YAG laser wavelength using calo
     confidence: 90
-    researched_date: '2025-11-07T12:57:59.881046'
-    needs_validation: true
+    researchedDate: '2025-11-07T12:57:59.881046'
+    needsValidation: true
     value: '0.35'
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -150,7 +150,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
@@ -268,7 +268,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -354,10 +354,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -386,8 +392,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -412,12 +426,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -440,8 +461,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -457,7 +478,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:49.809940+00:00'
+dateModified: '2026-01-08T04:06:38.267003+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -485,15 +506,15 @@ components:
       debris cling tightly to the metal. Scratches and buildup make it seem dull overall.
     after: After laser treatment, the same view shows a smooth and uniform surface. The metal gleams with a clean, even shine.
       No more spots or roughness disrupt the finish.
-  settings_description: We've found stainless steel cleans smoothly with laser, unlike more brittle carbon steels. Its tough
+  settingsDescription: We've found stainless steel cleans smoothly with laser, unlike more brittle carbon steels. Its tough
     surface holds up well under pulses. We start low on power to strip oxides without scratching. Watch out mid-process—too
     much heat dulls that shiny finish. Adjust speed up if buildup resists. This keeps corrosion resistance intact for food
     or marine jobs.
 metadata:
-  last_updated: '2025-10-27T23:46:20.363498Z'
-  normalization_applied: true
-  restructured_date: '2025-10-27T23:46:20.363514Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:46:20.363498Z'
+  normalizationApplied: true
+  restructuredDate: '2025-10-27T23:46:20.363514Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

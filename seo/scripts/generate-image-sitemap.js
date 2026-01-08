@@ -20,7 +20,8 @@ const path = require('path');
 const { URL } = require('url');
 
 // Configuration
-const BASE_URL = 'https://www.z-beam.com';
+// BASE_URL imported from config/urls.js
+// Provides environment-aware URL resolution
 const PUBLIC_DIR = path.join(__dirname, '../../public');
 const IMAGES_DIR = path.join(PUBLIC_DIR, 'images');
 const OUTPUT_FILE = path.join(PUBLIC_DIR, 'image-sitemap.xml');

@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 0.65
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Surface Science
+      sourceType: journal_article
+      sourceName: Applied Surface Science
       citation: 'A. Costela et al., Applied Surface Science, 1996, Vol. 96-98, pp. 11-18, DOI: 10.1016/0169-4332(95)00375-6'
       context: Commercial PVC film (density 1.4 g/cm³, no additives specified), room temperature (25°C), measured using 248
         nm KrF excimer laser with 20 ns pulse duration
       confidence: 95
-      researched_date: '2025-11-24T12:07:23.620586'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:07:23.620586'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,13 +176,13 @@ properties:
       value: 0.65
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation thresholds of common polymers for nanosecond pulsed laser processing
+      sourceType: journal_article
+      sourceName: Laser ablation thresholds of common polymers for nanosecond pulsed laser processing
       citation: 'Pérez-Hernández, J.A. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
       context: Unplasticized PVC (uPVC, 99% purity), 25°C, 355 nm Nd:YAG laser, 10 ns pulse duration, vacuum environment
       confidence: 95
-      researched_date: '2025-11-24T12:07:30.995574'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:07:30.995574'
+      needsValidation: true
 micro:
   before: Contamination on polyvinyl chloride surfaces, it manifests as irregular clusters. These residues, they adhere tenaciously
     to the polymer matrix, which leads to diffused shadowing under microscopic view. Particles exhibit jagged edges, that
@@ -203,7 +203,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -218,10 +218,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -250,8 +256,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -281,12 +295,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -309,8 +330,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -326,7 +347,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:48.237169+00:00'
+dateModified: '2026-01-08T04:06:36.513545+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -341,11 +362,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
 components:
-  settings_description: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's
+  settingsDescription: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's
     a thermoplastic that softens quickly under intense energy, leading to warping or melting if you're not careful. This makes
     it different from metals, where heat spreads out fast; here, the energy stays localized because it doesn't conduct heat
     well, so you risk damaging the surface before buildup even clears. Start with reduced power to build up gradually, and
@@ -359,10 +380,10 @@ components:
     after: After treatment, the surface appears even and polished right away. No traces of dirt remain, revealing a uniform
       shine across the whole area. The laser restores that clean, glossy look without any leftover marks.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922461Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922467Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922461Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922467Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

@@ -6,8 +6,10 @@
 
 const https = require('https');
 const { parseStringPromise } = require('xml2js');
+const { BASE_URL } = require('../../../config/urls');
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.z-beam.com';
+// BASE_URL imported from config/urls.js
+// Provides environment-aware URL resolution
 const REQUIRED_FIELDS = [
   'g:id',
   'g:title',

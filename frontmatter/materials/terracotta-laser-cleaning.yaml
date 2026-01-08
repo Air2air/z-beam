@@ -8,7 +8,7 @@ pageDescription: We've found that terracotta cleans up nicely with laser treatme
   dirt without spreading deep inside, so you get precise results on old tiles or artifacts. But always watch for any underlying
   cracks that could worsen under repeated passes.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -62,15 +62,15 @@ properties:
       value: 0.42
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser cleaning of architectural terracotta: Threshold determination and surface effects'
+      sourceType: journal_article
+      sourceName: 'Laser cleaning of architectural terracotta: Threshold determination and surface effects'
       citation: 'Pouli, P., et al., Applied Surface Science, 2012, DOI: 10.1016/j.apsusc.2012.05.045'
       context: Traditional fired terracotta (clay-based, porosity 15-20%, SiO2-Al2O3 dominant composition), 1064 nm Nd:YAG
         laser, pulse duration 10 ns, room temperature (20°C), atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T12:27:57.419696'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:27:57.419696'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     percentage: 40.0
@@ -155,14 +155,14 @@ properties:
       value: 1.45
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds for Terracotta in Cultural Heritage Conservation
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds for Terracotta in Cultural Heritage Conservation
       citation: 'Pouli, P. et al., Journal of Cultural Heritage, 2010, DOI: 10.1016/j.culher.2010.03.005'
       context: Traditional fired terracotta (SiO2-Al2O3-Fe2O3 composition, 80-90% silica content), 25°C, Nd:YAG laser at 1064
         nm wavelength, 5-10 ns pulse duration, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T12:28:03.589640'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:28:03.589640'
+      needsValidation: true
 micro:
   before: Terracotta surface before cleaning shows contamination in thick layers. This dirt buildup, it covers pores and reduces
     smoothness already present from exposure. Contamination appears as irregular patterns, so laser treatment is needed for
@@ -185,7 +185,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -196,10 +196,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -228,8 +234,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -254,12 +268,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -281,8 +302,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -298,7 +319,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.277886+00:00'
+dateModified: '2026-01-08T04:06:38.740903+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -310,11 +331,11 @@ contamination:
   _needs_review: true
   _note: Category "masonry" not recognized - conservative defaults applied
 components:
-  settings_description: 'When laser cleaning terracotta, watch out for its porous nature right from the start—it can trap
-    heat unevenly and lead to cracks if you''re not careful. I''ve seen this happen when folks push too hard too soon, so
-    begin by testing a small area with gentle pulses to gauge how the surface responds. This material tends to absorb laser
-    energy moderately well, which helps remove dirt and grime without much effort, but its low heat spreading means you should
-    keep dwell times short to avoid localized overheating.
+  settingsDescription: 'When laser cleaning terracotta, watch out for its porous nature right from the start—it can trap heat
+    unevenly and lead to cracks if you''re not careful. I''ve seen this happen when folks push too hard too soon, so begin
+    by testing a small area with gentle pulses to gauge how the surface responds. This material tends to absorb laser energy
+    moderately well, which helps remove dirt and grime without much effort, but its low heat spreading means you should keep
+    dwell times short to avoid localized overheating.
 
 
     Move to a multi-pass approach next, starting low on power and building up only as needed. Terracotta''s relative fragility
@@ -328,10 +349,10 @@ components:
     after: After laser treatment at the same view, the terracotta surface reveals a clear and even finish. No particles remain
       attached to the smooth areas. The original reddish tone glows brightly once more.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922865Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922871Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922865Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922871Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

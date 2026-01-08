@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -78,15 +78,15 @@ properties:
       value: 1.25
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds for Cementitious Materials in Cultural Heritage Conservation
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds for Cementitious Materials in Cultural Heritage Conservation
       citation: 'Pouli, P., et al., Journal of Cultural Heritage, 2008, DOI: 10.1016/j.culher.2007.07.002'
       context: 'Portland cement mortar (standard mix: 1:3 cement:sand ratio, aged 28 days), 20°C, 1064 nm Nd:YAG laser, measured
         via optical microscopy and profilometry'
       confidence: 95
-      researched_date: '2025-11-24T12:02:47.127642'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:02:47.127642'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -171,15 +171,15 @@ properties:
       value: 1.05
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Cultural Heritage
+      sourceType: journal_article
+      sourceName: Journal of Cultural Heritage
       citation: 'A. Moropoulou, A.S. Cakmak, G. Biscontin, A. Zendri, B. Borruso, Advanced Byzantine mortar mixtures: The
         role of organic additions in the durability of historic structures, Journal of Cultural Heritage, 2002, DOI: 10.1016/S1296-2074(02)01177-5'
       context: Traditional lime-based mortar (calcium hydroxide with sand aggregate, 70/30 ratio), room temperature (25°C),
         1064 nm Nd:YAG laser, 10 ns pulse duration, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T12:02:56.452561'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:02:56.452561'
+      needsValidation: true
 micro:
   before: The contamination on mortar surfaces, it manifests as irregular clusters, adhering tenaciously to porous grains.
     At high magnification, these deposits exhibit jagged edges, which obscure the underlying matrix, influenced from environmental
@@ -202,7 +202,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -213,10 +213,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -245,8 +251,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -276,12 +290,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -304,8 +325,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -321,7 +342,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.118522+00:00'
+dateModified: '2026-01-08T04:06:35.381404+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -333,7 +354,7 @@ contamination:
   _needs_review: true
   _note: Category "masonry" not recognized - conservative defaults applied
 components:
-  settings_description: 'When laser cleaning mortar, watch out for its brittle nature right from the start—I''ve seen it crack
+  settingsDescription: 'When laser cleaning mortar, watch out for its brittle nature right from the start—I''ve seen it crack
     easily under sudden heat, unlike tougher stone in masonry walls. That low toughness means thermal shock hits hard, so
     you need to ease in gently to avoid spalling the surface. Tends to absorb laser energy well compared to slick metals,
     which helps clear grime without much residue, but its porosity traps moisture that can steam up and weaken bonds during
@@ -352,10 +373,10 @@ components:
     after: After treatment, the laser reveals a smooth, even surface with the mortar's natural grains exposed. Residues vanish
       completely, leaving a clean, uniform finish without any clinging dirt. The original texture stands out clearly now.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922234Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922240Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922234Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922240Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

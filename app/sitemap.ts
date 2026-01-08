@@ -3,6 +3,7 @@ import { SITE_CONFIG } from '@/app/config/site';
 import fs from 'fs';
 import path from 'path';
 import { buildCategoryUrl, buildSubcategoryUrl, buildUrlFromMetadata } from './utils/urlBuilder';
+import { toCategorySlug } from './utils/formatting';
 
 // Sitemap configuration constants
 const SITEMAP_PRIORITIES = {
@@ -175,8 +176,8 @@ export default function sitemap(): SitemapEntry[] {
       const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
       
       if (categoryMatch) {
-        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
-        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
+        const category = toCategorySlug(categoryMatch[1].trim()).replace(/'/g, '');
+        const subcategory = subcategoryMatch ? toCategorySlug(subcategoryMatch[1].trim()).replace(/'/g, '') : '';
         const slug = file.replace('.yaml', '');
         
         // Skip if category is empty
@@ -280,8 +281,8 @@ export default function sitemap(): SitemapEntry[] {
       const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
       
       if (categoryMatch) {
-        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
-        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
+        const category = toCategorySlug(categoryMatch[1].trim()).replace(/'/g, '');
+        const subcategory = subcategoryMatch ? toCategorySlug(subcategoryMatch[1].trim()).replace(/'/g, '') : '';
         const slug = file.replace('.yaml', '');
         
         // Skip if category is empty
@@ -354,8 +355,8 @@ export default function sitemap(): SitemapEntry[] {
       const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
       
       if (categoryMatch) {
-        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
-        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
+        const category = toCategorySlug(categoryMatch[1].trim()).replace(/'/g, '');
+        const subcategory = subcategoryMatch ? toCategorySlug(subcategoryMatch[1].trim()).replace(/'/g, '') : '';
         const slug = file.replace('.yaml', '');
         
         // Skip if category is empty

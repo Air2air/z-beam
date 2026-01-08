@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '../Button';
 import { SectionTitle } from '../SectionTitle';
 import type { SectionContainerProps } from '@/types/centralized';
+import { toCategorySlug } from '@/app/utils/formatting';
 
 export function SectionContainer({
   title,
@@ -17,7 +18,7 @@ export function SectionContainer({
   variant = 'default',
   children,
 }: SectionContainerProps) {
-  const sectionId = title ? title.toLowerCase().replace(/\s+/g, '-') : 'section';
+  const sectionId = title ? toCategorySlug(title) : 'section';
   
   // Support legacy actionText/actionUrl props
   const finalAction = action || (actionText && actionUrl ? (

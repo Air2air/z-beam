@@ -1,6 +1,8 @@
 // app/utils/layoutHelpers.ts
 // Shared utilities for layout data preparation
 
+import { toCategorySlug } from './formatting';
+
 /**
  * Infer criticality level from parameter key
  */
@@ -134,7 +136,7 @@ export function convertCitationsToStandards(metadata: any) {
         name,
         description,
         longName: name,
-        image: `/images/logo/logo-org-${name.toLowerCase().replace(/\s+/g, '-')}.png`,
+        image: `/images/logo/logo-org-${toCategorySlug(name)}.png`,
         url: isBasedOn?.url || '#'
       };
     });

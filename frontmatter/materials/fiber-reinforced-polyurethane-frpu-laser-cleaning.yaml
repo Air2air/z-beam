@@ -25,7 +25,7 @@ characteristics:
     unit: crystal system
     value: mixed
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -84,15 +84,15 @@ properties:
       value: 1.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Fiber-Reinforced Polyurethane Composites
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Fiber-Reinforced Polyurethane Composites
       citation: 'Johnson, A. et al., Composites Science and Technology, 2019, DOI: 10.1016/j.compscitech.2019.107892'
       context: FRPU with 60% glass fiber volume fraction, 1064 nm Nd:YAG laser, 10 ns pulse duration, room temperature (25°C),
         vacuum conditions
       confidence: 92
-      researched_date: '2025-11-24T11:57:10.479953'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:57:10.479953'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -177,15 +177,15 @@ properties:
       value: 1.45
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Laser Applications
+      sourceType: journal_article
+      sourceName: Journal of Laser Applications
       citation: 'Kumar, R. et al., ''Laser ablation thresholds of fiber-reinforced polyurethane composites for cleaning applications'',
         Journal of Laser Applications, 2020, DOI: 10.2351/7.0000123'
       context: FRPU with 25 wt% carbon fiber reinforcement, room temperature (25°C), measured using 1064 nm Nd:YAG nanosecond
         pulsed laser under ambient conditions
       confidence: 95
-      researched_date: '2025-11-24T11:57:15.382324'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:57:15.382324'
+      needsValidation: true
 micro:
   before: The contamination, it manifests as irregular clusters on the fiber-reinforced polyurethane surface, adhering tenaciously
     to the matrix, which obscures the embedded fibers. At high magnification, these deposits appear as patchy films, influenced
@@ -208,7 +208,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -219,10 +219,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -251,8 +257,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -282,12 +296,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -310,8 +331,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -327,7 +348,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.236846+00:00'
+dateModified: '2026-01-08T04:06:33.276895+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -342,11 +363,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: When laser cleaning Fiber Reinforced Polyurethane, we typically begin with a gentle power setup to
+  settingsDescription: When laser cleaning Fiber Reinforced Polyurethane, we typically begin with a gentle power setup to
     match its flexible yet tough composite structure. This material absorbs laser energy well, so it clears contaminants quickly
     without deep penetration. But watch out mid-process—its low heat spread can cause localized overheating, leading to fiber-matrix
     separation. We've found multiple light passes at steady speeds fix that, restoring the surface evenly for aerospace or
@@ -357,10 +378,10 @@ components:
     after: After laser treatment, the clean surface reveals crisp fiber outlines clearly. The polyurethane matrix shines smoothly
       without any residue spots. We see a uniform, vibrant finish that highlights the reinforced structure well.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921897Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921902Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921897Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921902Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

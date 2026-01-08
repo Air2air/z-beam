@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: FCC
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -138,7 +138,7 @@ properties:
       unit: J/cm²
       confidence: 92
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -238,7 +238,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -249,10 +249,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -281,8 +287,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -312,12 +326,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -340,8 +361,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -357,7 +378,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:48.773424+00:00'
+dateModified: '2026-01-08T04:06:37.067663+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -381,16 +402,16 @@ components:
       and dull.
     after: After laser treatment, the same surface gleams smoothly under 1000x magnification. The metal now shows a clean,
       even texture without any clinging dirt. Bright reflections highlight the restored flatness, free from pits and old buildup
-  settings_description: When laser cleaning rhenium, watch its strong reflectivity first. It bounces back much of the beam,
+  settingsDescription: When laser cleaning rhenium, watch its strong reflectivity first. It bounces back much of the beam,
     so energy absorption stays low. This makes surface buildup stubborn to remove. I've seen it take extra care to avoid uneven
     heating. Start with lower power settings to build heat gradually. That prevents hot spots on this dense metal. Rhenium's
     extreme heat resistance helps here—it won't warp easily. But go slow on passes. Overlap scans to cover fully without stressing
     the surface. Tends to shine up nicely once clean, restoring that aerospace-grade finish.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922566Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922572Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922566Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922572Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

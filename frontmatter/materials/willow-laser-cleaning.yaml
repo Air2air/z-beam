@@ -7,7 +7,7 @@ pageDescription: When laser cleaning willow, begin with gentle passes at moderat
   lightweight structure that absorbs energy well, removing surface grime from delicate musical instruments or heritage furniture
   while safeguarding the wood's natural flexibility and preventing any charring below.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -66,15 +66,15 @@ properties:
       value: 1.42
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Wood Species for Cultural Heritage Conservation
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Wood Species for Cultural Heritage Conservation
       citation: 'Bella et al., Journal of Cultural Heritage, 2019, DOI: 10.1016/j.culher.2019.03.005'
       context: Dry willow wood (Salix alba, density 0.40 g/cm³, moisture content <5%), 25°C, 1064 nm Nd:YAG laser (10 ns pulse),
         threshold defined as onset of visible ablation via optical microscopy
       confidence: 95
-      researched_date: '2025-11-24T12:29:36.202593'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:29:36.202593'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     percentage: 40.0
@@ -159,14 +159,14 @@ properties:
       value: 1.15
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Different Wood Species for Femtosecond Pulses
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Different Wood Species for Femtosecond Pulses
       citation: 'Hossain, M. et al., Applied Physics A: Materials Science & Processing, 2018, DOI: 10.1007/s00339-018-1675-4'
       context: Natural willow wood (Salix alba, density 0.40 g/cm³), room temperature (20°C), 800 nm femtosecond laser (pulse
         duration 150 fs), measured under vacuum conditions
       confidence: 92
-      researched_date: '2025-11-24T12:29:42.142967'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:29:42.142967'
+      needsValidation: true
 micro:
   before: The porosity of willow wood, it manifests distinctly under microscopic examination, where contaminants nestle tenaciously
     within fibrous voids. Before laser cleaning, the surface exhibits irregular patterns of adhered particles, which seem
@@ -197,7 +197,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -208,10 +208,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -240,8 +246,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -266,12 +280,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -294,8 +315,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -311,7 +332,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:51.049902+00:00'
+dateModified: '2026-01-08T04:06:39.486167+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -327,7 +348,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning Willow, start with low power and slow scan speeds to gently lift surface grime
+  settingsDescription: When laser cleaning Willow, start with low power and slow scan speeds to gently lift surface grime
     without scorching its delicate fibers. This wood's high porosity soaks up contaminants deeply, which helps the laser absorb
     well and clear buildup effectively, but it also traps heat locally due to poor conductivity, so you must overlap passes
     carefully midway through to prevent uneven charring or cracking. Avoid rushing the process—multiple light treatments bring
@@ -338,10 +359,10 @@ components:
     after: After laser treatment at 1000x, fibers stand out clean and distinct. Pores open wide with no residues blocking
       their paths. The surface gleams smooth and reveals the grain clearly.
 metadata:
-  last_updated: '2025-10-27T23:48:40.923001Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.923007Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.923001Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.923007Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

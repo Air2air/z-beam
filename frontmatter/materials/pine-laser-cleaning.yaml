@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 42000.0
       unit: J/m²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser cleaning of pine wood: Damage thresholds and surface morphology'
+      sourceType: journal_article
+      sourceName: 'Laser cleaning of pine wood: Damage thresholds and surface morphology'
       citation: 'Panzera et al., Journal of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2016.03.005'
       context: Natural pine wood (Pinus sylvestris, density 450 kg/m³), room temperature (20°C), 1064 nm Nd:YAG laser, pulse
         duration 10 ns
       confidence: 95
-      researched_date: '2025-11-24T12:04:18.424230'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:04:18.424230'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,14 +175,14 @@ properties:
       value: 1.45
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Threshold fluences for the laser ablation of wood
+      sourceType: journal_article
+      sourceName: Threshold fluences for the laser ablation of wood
       citation: 'Hossain, M. M., et al., Applied Physics A: Materials Science & Processing, 2009, DOI: 10.1007/s00339-009-5215-5'
       context: Dry pine wood (Pinus sylvestris, 10% moisture content), room temperature (20°C), measured with 800 nm femtosecond
         Ti:sapphire laser pulses
       confidence: 95
-      researched_date: '2025-11-24T12:04:27.092137'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:04:27.092137'
+      needsValidation: true
 micro:
   before: The contamination on pine surfaces, it manifests as irregular clusters of particulates, which adhere tenaciously
     to the fibrous matrix. At 1000x magnification, these deposits exhibit a mottled pattern, influenced from environmental
@@ -207,7 +207,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -225,10 +225,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage-restoration
@@ -257,8 +263,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -288,12 +302,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -316,8 +337,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -333,7 +354,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.659937+00:00'
+dateModified: '2026-01-08T04:06:35.880533+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -349,11 +370,11 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning pine, watch out right away for its softness compared to denser hardwoods like
-    oak—I've seen it char easily if you push too hard, so start with gentle passes to avoid scorching the fibers. Unlike those
-    tougher woods that handle higher intensities without flinching, pine's open grain soaks up heat quickly, which means you
-    need shorter dwell times to prevent deep thermal damage. This works best when you adjust the scan speed upward, letting
-    the laser skim the surface and lift grime without embedding into the porous structure. Tends to restore that natural finish
+  settingsDescription: When laser cleaning pine, watch out right away for its softness compared to denser hardwoods like oak—I've
+    seen it char easily if you push too hard, so start with gentle passes to avoid scorching the fibers. Unlike those tougher
+    woods that handle higher intensities without flinching, pine's open grain soaks up heat quickly, which means you need
+    shorter dwell times to prevent deep thermal damage. This works best when you adjust the scan speed upward, letting the
+    laser skim the surface and lift grime without embedding into the porous structure. Tends to restore that natural finish
     nicely in furniture or heritage pieces, but skip multiple overlaps early on, or you'll warp the low-density boards. I've
     found contrasting it this way keeps the process efficient for marine or construction applications, bringing back clean
     timber without compromising its flexibility.
@@ -364,10 +385,10 @@ components:
     after: After laser treatment, the same view shows crisp fibers standing free from any residue. The surface gleams with
       even texture, as pores breathe open and clear. Natural lines emerge sharp, restoring the pine's fresh, unaltered form.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922334Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922340Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922334Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922340Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

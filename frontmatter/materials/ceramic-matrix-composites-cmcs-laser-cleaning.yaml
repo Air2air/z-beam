@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: mixed
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 3.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Damage Thresholds of Silicon Carbide-Based Ceramic Matrix Composites
+      sourceType: journal_article
+      sourceName: Laser Damage Thresholds of Silicon Carbide-Based Ceramic Matrix Composites
       citation: 'Mei, H. et al., Journal of the European Ceramic Society, 2019, DOI: 10.1016/j.jeurceramsoc.2019.05.012'
       context: SiC/SiC CMC with 2D woven Hi-Nicalon fibers, 40 vol% fiber content, as-sintered condition, 1064 nm Nd:YAG laser,
         room temperature, 10 ns pulse duration
       confidence: 95
-      researched_date: '2025-11-24T11:54:16.764004'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:54:16.764004'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,15 +176,15 @@ properties:
       value: 3.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of the European Ceramic Society
+      sourceType: journal_article
+      sourceName: Journal of the European Ceramic Society
       citation: 'Zhang, L. et al., Laser ablation behavior of SiC/SiC ceramic matrix composites, Journal of the European Ceramic
         Society, 2018, DOI: 10.1016/j.jeurceramsoc.2018.05.012'
       context: SiC fiber-reinforced SiC matrix CMC (2D woven, 40 vol% fibers), 1064 nm Nd:YAG laser, 10 ns pulse duration,
         room temperature, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:54:20.810074'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:54:20.810074'
+      needsValidation: true
 micro:
   before: In observations at 1000x magnification, contamination on ceramic-matrix composites shows thick oxide layers. This
     buildup clings to fiber surfaces, so it darkens the matrix unevenly. Particles scatter across exposed fibers, and they
@@ -204,7 +204,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -215,10 +215,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -247,8 +253,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -278,12 +292,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -305,8 +326,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -322,7 +343,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.621017+00:00'
+dateModified: '2026-01-08T04:06:32.607231+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -337,11 +358,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded
+  settingsDescription: When laser cleaning Ceramic Matrix Composites, we always begin by assessing the surface for any embedded
     fibers, as these can trap contaminants and lead to uneven removal if not handled carefully from the outset. This early
     check helps prevent thermal stress that might crack the brittle matrix, so we recommend a gentle initial scan to test
     response. We've found that starting with reduced power settings clears surface buildup effectively without overwhelming
@@ -358,10 +379,10 @@ components:
     after: After laser treatment, the same surface appears smooth and open. Fibers stand out clearly now, free from any clinging
       debris. The clean look reveals a uniform, fresh structure overall.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921793Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921799Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921793Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921799Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

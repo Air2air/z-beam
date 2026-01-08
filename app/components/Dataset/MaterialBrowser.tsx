@@ -9,6 +9,7 @@ import MaterialFilters from './MaterialFilters';
 import { getGridClasses, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
 import { triggerDownload } from '@/app/utils/downloadUtils';
+import { getDatasetUrl } from '@/app/utils/slugHelpers';
 import type { MaterialBrowserProps } from '@/types/centralized';
 
 interface MaterialBrowserExtendedProps extends MaterialBrowserProps {
@@ -117,7 +118,10 @@ export default function MaterialBrowser({
                 href={`/datasets/materials/${material.slug}-material-dataset`}
                 category={formatCategoryName(material.category)}
                 subcategory={formatCategoryName(material.subcategory)}
-                formats={[{ format: 'JSON', url: `/datasets/materials/${material.slug}-material-dataset.json` }]}
+                formats={[{ 
+                  format: 'JSON', 
+                  url: getDatasetUrl(material.slug, 'materials', 'json') 
+                }]}
                 onQuickDownload={(format: string, url: string) => {
                   triggerDownload(url, `${material.slug}-material-dataset.${format.toLowerCase()}`);
                 }}

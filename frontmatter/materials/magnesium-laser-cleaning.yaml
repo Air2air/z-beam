@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: HCP
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -139,7 +139,7 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -234,7 +234,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -245,10 +245,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -277,8 +283,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -308,12 +322,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -335,8 +356,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -352,7 +373,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:46.648809+00:00'
+dateModified: '2026-01-08T04:06:34.934227+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -376,17 +397,17 @@ components:
       metal. These contaminants create a mottled appearance that obscures the material's natural form.
     after: After the laser treatment, the same surface reveals a smooth and even finish under 1000x view. All the grime lifts
       away cleanly, exposing a bright and uniform gleam
-  settings_description: I've found that magnesium cleans up nicely with laser settings when you keep the power gentle and
-    the passes multiple, because its shiny surface bounces most of the energy away and it heats up fast due to low thermal
-    mass. This lightweight metal differs from denser ones like steel by reacting quickly to any excess heat, so the process
-    removes contaminants without much buildup risk, but you need to control the beam overlap to avoid uneven spots. Tends
-    to stay smooth after treatment, ideal for aerospace or automotive parts where precision matters. Just watch out at the
-    end—don't push the fluence too high, or it might ignite and ruin your workpiece.
+  settingsDescription: I've found that magnesium cleans up nicely with laser settings when you keep the power gentle and the
+    passes multiple, because its shiny surface bounces most of the energy away and it heats up fast due to low thermal mass.
+    This lightweight metal differs from denser ones like steel by reacting quickly to any excess heat, so the process removes
+    contaminants without much buildup risk, but you need to control the beam overlap to avoid uneven spots. Tends to stay
+    smooth after treatment, ideal for aerospace or automotive parts where precision matters. Just watch out at the end—don't
+    push the fluence too high, or it might ignite and ruin your workpiece.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922179Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922187Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922179Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922187Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

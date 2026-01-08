@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser damage thresholds of polymers at 1064 nm
+      sourceType: journal_article
+      sourceName: Laser damage thresholds of polymers at 1064 nm
       citation: 'J. Bonse et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-7'
       context: Low-density polyethylene (LDPE, 99% purity), room temperature (25°C), nanosecond Nd:YAG laser at 1064 nm, single-pulse
         irradiation
       confidence: 95
-      researched_date: '2025-11-24T12:06:02.455581'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:06:02.455581'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,15 +176,15 @@ properties:
       value: 0.28
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Applied Physics
+      sourceType: journal_article
+      sourceName: Journal of Applied Physics
       citation: 'Bityurin, N., et al., ''Photothermal and photomechanical effects in laser ablation of polymers'', Journal
         of Applied Physics, 1998, DOI: 10.1063/1.367819'
       context: Low-density polyethylene (LDPE, 99% purity), room temperature (25°C), 248 nm KrF excimer laser, nanosecond
         pulse duration
       confidence: 95
-      researched_date: '2025-11-24T12:06:07.438218'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:06:07.438218'
+      needsValidation: true
 micro:
   before: The challenge in cleaning polyethylene surfaces lies in the tenacious adhesion of contaminants, which embed into
     its soft, thermoplastic matrix, complicating removal without surface damage. This issue, it persists particularly under
@@ -206,7 +206,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -218,10 +218,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: medical-device-manufacturing
@@ -250,8 +256,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -281,12 +295,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -309,8 +330,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -326,7 +347,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:48.005110+00:00'
+dateModified: '2026-01-08T04:06:36.260366+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -341,11 +362,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
 components:
-  settings_description: The key with Polyethylene lies in its flexibility compared to stiffer plastics like PVC—it absorbs
+  settingsDescription: The key with Polyethylene lies in its flexibility compared to stiffer plastics like PVC—it absorbs
     laser energy well without cracking, making surface buildup easy to remove. I've seen it restore food packaging finishes
     smoothly. But watch out mid-process; its low heat tolerance can cause softening if you dwell too long. Keep scans quick
     and light to avoid distortion, bringing back that clean, glossy look every time.
@@ -357,10 +378,10 @@ components:
     after: After laser treatment at the same magnification, the polyethylene surface appears smooth and even, free from those
       clinging particles that once marred it. The treatment has restored a
 metadata:
-  last_updated: '2025-10-27T23:48:40.922409Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922415Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922409Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922415Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

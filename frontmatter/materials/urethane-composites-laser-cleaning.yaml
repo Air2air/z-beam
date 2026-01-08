@@ -7,7 +7,7 @@ pageDescription: When laser cleaning urethane composites, keep an eye on their q
   which calls for lower power settings to avoid surface charring and achieve clean contaminant removal without weakening the
   material's flexible strength.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -66,15 +66,15 @@ properties:
       value: 0.85
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Damage Thresholds of Polymer Matrix Composites for Nanosecond Pulsed Laser Irradiation
+      sourceType: journal_article
+      sourceName: Laser Damage Thresholds of Polymer Matrix Composites for Nanosecond Pulsed Laser Irradiation
       citation: 'Featherston et al., Composites Part B: Engineering, 2018, DOI: 10.1016/j.compositesb.2018.03.045'
       context: Urethane-based fiber-reinforced composite (polyurethane matrix with 30% glass fiber), 1064 nm Nd:YAG laser,
         10 ns pulse duration, room temperature (25°C), normal incidence
       confidence: 95
-      researched_date: '2025-11-24T12:29:05.336415'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:29:05.336415'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     percentage: 40.0
@@ -159,14 +159,14 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Polymer Matrix Composites for Nanosecond Pulsed Laser Cleaning
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Polymer Matrix Composites for Nanosecond Pulsed Laser Cleaning
       citation: 'Lee, J.H. et al., Composites Part B: Engineering, 2019, DOI: 10.1016/j.compositesb.2019.107123'
       context: Urethane matrix composite with 30% carbon fiber reinforcement (commercial grade, density 1.4 g/cm³), 1064 nm
         Nd:YAG laser, room temperature (25°C), pulse duration 10 ns, in air at 1 atm
       confidence: 95
-      researched_date: '2025-11-24T12:29:11.356384'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:29:11.356384'
+      needsValidation: true
 micro:
   before: Laser cleaning ramps up efficiency for urethane composites. At high magnification, the contaminated surface shows
     a rough, pitted texture. Dirt and residues cling to the flexible matrix, disrupting the woven fibers. Contamination patterns
@@ -188,7 +188,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -199,10 +199,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -231,8 +237,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -257,12 +271,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -284,8 +305,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -301,7 +322,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.857561+00:00'
+dateModified: '2026-01-08T04:06:39.297564+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -316,11 +337,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
 components:
-  settings_description: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to
+  settingsDescription: When laser cleaning urethane composites, we typically begin by selecting a moderate power level to
     leverage their high absorption, which efficiently removes surface contaminants without immediate deep penetration. This
     approach accounts for the material's low thermal conductivity, so heat stays localized and reduces the risk of underlying
     delamination in these layered structures. We've found that slower scan speeds with multiple overlapping passes restore
@@ -333,10 +354,10 @@ components:
     after: After laser treatment at the same magnification, the urethane composite surface appears smooth and reveals a consistent
       matrix free of residues. We've observed that the treatment exposes the clean underlying structure with sharp
 metadata:
-  last_updated: '2025-10-27T23:48:40.922964Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922970Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922964Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922970Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

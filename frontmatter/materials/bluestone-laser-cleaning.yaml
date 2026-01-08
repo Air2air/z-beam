@@ -25,7 +25,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -84,15 +84,15 @@ properties:
       value: 0.85
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Cleaning of Sandstone: Ablation Thresholds for Historical Bluestone'
+      sourceType: journal_article
+      sourceName: 'Laser Cleaning of Sandstone: Ablation Thresholds for Historical Bluestone'
       citation: 'Moropoulou, A. et al., Studies in Conservation, 2003, DOI: 10.1179/sic.2003.48.4.00275'
       context: Natural bluestone sandstone (quartz-rich, 95% purity equivalent), 20°C, 1064 nm Nd:YAG laser, pulse duration
         10 ns
       confidence: 95
-      researched_date: '2025-11-24T11:52:00.020510'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:52:00.020510'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -177,14 +177,14 @@ properties:
       value: 0.85
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds for Sandstone Varieties in Cultural Heritage Conservation
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds for Sandstone Varieties in Cultural Heritage Conservation
       citation: 'Vergès-Belmin, V., et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005'
       context: Pennsylvania bluestone (sandstone, 95% quartz content), 1064 nm Nd:YAG laser, room temperature (20°C), atmospheric
         pressure
       confidence: 95
-      researched_date: '2025-11-24T11:52:06.466881'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:52:06.466881'
+      needsValidation: true
 micro:
   before: In observations of bluestone surfaces, laser cleaning reveals striking differences at high magnification. The contamination,
     it manifests as irregular clusters, adhering tenaciously to the porous sedimentary structure, which creates shadowed crevices
@@ -208,7 +208,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -234,10 +234,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -266,8 +272,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -297,12 +311,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -325,8 +346,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -342,7 +363,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.018416+00:00'
+dateModified: '2026-01-08T04:06:31.971928+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -366,7 +387,7 @@ components:
     from granites due to 4.2% porosity, which traps dirt but soaks up laser energy at 0.68 absorption, unlike denser rocks.
     Watch its low thermal conductivity of 1.7 W/m·K; heat builds fast, risking fractures near 950°C destruction point. Use
     100 W at 1064 nm, 5 J/cm² density, and 500 mm/s speed over 3 passes with 50% overlap to clear buildup without warping.
-  settings_description: When laser cleaning Bluestone, make sure you dial back power compared to tougher igneous rocks, since
+  settingsDescription: When laser cleaning Bluestone, make sure you dial back power compared to tougher igneous rocks, since
     its softer sedimentary structure heats unevenly and risks cracking under steady beams. Focus first on its sluggish heat
     spread—this keeps energy focused but demands slower passes to prevent surface damage. Boost overlap for thorough coverage
     on the somewhat porous texture, ensuring clean results without etching.
@@ -376,10 +397,10 @@ components:
     after: After laser treatment, the same view reveals a smooth, even surface free of contaminants. The original fine grains
       now stand out clearly without any residue. Fresh pores appear clean and open, bringing back the stone's subtle sheen.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921645Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921651Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921645Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921651Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

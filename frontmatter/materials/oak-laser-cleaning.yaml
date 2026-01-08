@@ -25,10 +25,10 @@ characteristics:
     value: amorphous
   density:
     source: ai_research
-    needs_research: true
-    researched_date: '2025-11-07T13:12:48.115451'
+    needsResearch: true
+    researchedDate: '2025-11-07T13:12:48.115451'
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -87,16 +87,16 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Journal of Cultural Heritage
+      sourceType: journal_article
+      sourceName: Journal of Cultural Heritage
       citation: 'Pouli, P. et al., Laser cleaning of wooden artifacts: Threshold fluences for oak, Journal of Cultural Heritage,
         2010, DOI: 10.1016/j.culher.2009.11.004'
       context: Quercus robur oak wood (natural density 0.65 g/cm³), 20°C, 1064 nm Nd:YAG laser, pulse duration 10 ns, measured
         via optical microscopy for charring onset
       confidence: 95
-      researched_date: '2025-11-24T12:03:27.756530'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:03:27.756530'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -181,14 +181,14 @@ properties:
       value: 2.45
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Threshold fluences for the laser ablation of woods
+      sourceType: journal_article
+      sourceName: Threshold fluences for the laser ablation of woods
       citation: 'Yh Hu, ZJ Zhang, Journal of Applied Physics, 1998, DOI: 10.1063/1.367689'
       context: Quercus robur (English oak), dry conditions (moisture content <5%), room temperature (20°C), measured using
         532 nm Nd:YAG laser pulses
       confidence: 95
-      researched_date: '2025-11-24T12:03:35.955155'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:03:35.955155'
+      needsValidation: true
 micro:
   before: The oak surface, contaminated with residues, exhibits irregular patterns under magnification, where dirt particles
     cling tenaciously to the porous fibers, which manifest as clustered deposits influenced from environmental exposure. These
@@ -214,7 +214,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -232,10 +232,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -264,8 +270,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -300,12 +314,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -328,8 +349,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -345,7 +366,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:47.398590+00:00'
+dateModified: '2026-01-08T04:06:35.630271+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -361,7 +382,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: We've found Oak's open porosity sets it apart from denser hardwoods like maple. This lets contaminants
+  settingsDescription: We've found Oak's open porosity sets it apart from denser hardwoods like maple. This lets contaminants
     seep deep into the grain, so we typically start with low-power passes to gently draw them out without charring. Watch
     for uneven heat buildup in those pores—bump up overlap midway to even things out and preserve the wood's natural strength.
   micro:
@@ -371,7 +392,7 @@ components:
     after: After laser treatment, the same oak surface at 1000x reveals clean fibers standing out sharply and clearly. Pores
       now sit open and empty, free from any trapped residues or dirt. The texture turns smooth and
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team

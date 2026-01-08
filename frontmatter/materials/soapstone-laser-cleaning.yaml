@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,15 +83,15 @@ properties:
       value: 0.75
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Cleaning of Soapstone Surfaces: Threshold Fluence Determination'
+      sourceType: journal_article
+      sourceName: 'Laser Cleaning of Soapstone Surfaces: Threshold Fluence Determination'
       citation: 'Pini, R. et al., Journal of Cultural Heritage, 2008, DOI: 10.1016/j.culher.2007.07.002'
       context: Natural soapstone (95% talc composition, commercial grade), 20°C, 1064 nm Nd:YAG laser, pulse duration 10 ns,
         measured via optical microscopy for surface ablation onset
       confidence: 92
-      researched_date: '2025-11-24T12:19:45.773108'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:19:45.773108'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Mineral Materials for Cultural Heritage Conservation
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Mineral Materials for Cultural Heritage Conservation
       citation: 'Poćorna-Lechkar, A., et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
       context: Natural soapstone (95% talc composition, commercial grade from Norwegian quarry), room temperature (25°C),
         measured using 1064 nm Nd:YAG laser with 10 ns pulse duration, under ambient atmosphere
       confidence: 95
-      researched_date: '2025-11-24T12:19:52.777102'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:19:52.777102'
+      needsValidation: true
 micro:
   before: Soapstone surface before laser cleaning, it reveals dense contamination layers at 1000x magnification. Irregular
     deposits cling tightly, and they obscure the stone's natural foliated texture. Contamination patterns show patchy accumulations,
@@ -208,7 +208,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -234,10 +234,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -266,8 +272,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -297,12 +311,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -326,8 +347,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -343,7 +364,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:49.697172+00:00'
+dateModified: '2026-01-08T04:06:38.142234+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -360,7 +381,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When cleaning Soapstone, unlike tougher stones like granite, we find its softness sets it apart right
+  settingsDescription: When cleaning Soapstone, unlike tougher stones like granite, we find its softness sets it apart right
     away. That talc-rich makeup makes it prone to surface scratching if you're not careful, so start with gentler laser passes
     to lift dirt without gouging the finish. We've seen this low resistance to wear lead to quick contaminant removal, but
     watch out mid-process for any uneven heating that could cause micro-cracks—dial back intensity there. Its steady heat
@@ -373,10 +394,10 @@ components:
     after: After laser treatment, the soapstone surface gleams with a smooth, uniform finish. Fine details of the stone's
       grain emerge clearly without any residue. The cleaned areas reveal a consistent, vibrant appearance overall.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922752Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922758Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922752Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922758Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

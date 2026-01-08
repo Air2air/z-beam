@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 3.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation and Damage Thresholds in Natural Stone Materials
+      sourceType: journal_article
+      sourceName: Laser Ablation and Damage Thresholds in Natural Stone Materials
       citation: 'Palmer, M. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045'
       context: Natural quartzite (95% SiO2, commercial grade from geological sample), 20°C, 1064 nm Nd:YAG laser, 10 ns pulse
         duration, measured via optical microscopy post-irradiation
       confidence: 92
-      researched_date: '2025-11-24T12:09:24.368778'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:09:24.368778'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,15 +175,15 @@ properties:
       value: 11.3
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Surface Science
+      sourceType: journal_article
+      sourceName: Applied Surface Science
       citation: 'Pérez, S., et al., Laser cleaning of quartzite stone: Ablation thresholds and surface morphology, Applied
         Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.11.045'
       context: Natural quartzite (95% SiO2, metamorphic rock from Spanish quarry), 1064 nm Nd:YAG laser, 8 ns pulse duration,
         room temperature (25°C), atmospheric pressure
       confidence: 94
-      researched_date: '2025-11-24T12:09:33.340642'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:09:33.340642'
+      needsValidation: true
 micro:
   before: Contamination challenges quartzite surfaces during exposure to environment. This buildup forms irregular patterns
     and clings tightly because of natural porosity. So, laser cleaning applies targeted pulses to remove layers effectively.
@@ -202,7 +202,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -228,10 +228,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -260,8 +266,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -291,12 +305,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -318,8 +339,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -335,7 +356,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:48.645987+00:00'
+dateModified: '2026-01-08T04:06:36.940788+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -352,7 +373,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning Quartzite, the biggest challenge is its extreme hardness. This tough stone resists
+  settingsDescription: When laser cleaning Quartzite, the biggest challenge is its extreme hardness. This tough stone resists
     contaminants well, but it demands careful energy control to avoid surface cracks. I've seen setups where rushed power
     ramps cause micro-fractures, so start slow with gentle pulses. Its low porosity helps—dirt doesn't sink deep, making removal
     straightforward once you dial in. Unlike softer stones, Quartzite holds heat unevenly, so keep passes light and spaced.
@@ -364,10 +385,10 @@ components:
     after: This treatment works well by lifting all that buildup away. Grains now gleam smoothly without any spots left. Watch
       closely to avoid over-treating the edges.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922537Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922542Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922537Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922542Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

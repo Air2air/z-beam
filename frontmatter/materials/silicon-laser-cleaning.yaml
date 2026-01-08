@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: cubic
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -85,16 +85,16 @@ properties:
       value: 0.25
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Optics
+      sourceType: journal_article
+      sourceName: Applied Optics
       citation: 'Carr, C. W., et al., Laser-induced defect reactions governing damage initiation in single-crystal Si at 1064
         nm, Applied Optics, 2003, Vol. 42, No. 21, pp. 4242-4248, DOI: 10.1364/AO.42.004242'
       context: Single-crystal silicon (CZ-grown, <100> orientation, 99.9999% purity), room temperature (25°C), 1064 nm wavelength,
         3 ns pulse duration, measured in vacuum
       confidence: 95
-      researched_date: '2025-11-24T12:18:31.619113'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:18:31.619113'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -179,14 +179,14 @@ properties:
       value: 2.5
       unit: J/cm²
       source: scientific_literature
-      source_type: textbook
-      source_name: Laser Processing and Chemistry
+      sourceType: textbook
+      sourceName: Laser Processing and Chemistry
       citation: D. Bäuerle, Laser Processing and Chemistry, 4th Edition, Springer-Verlag Berlin Heidelberg, 2011, ISBN 978-3-642-17652-8
       context: Single-crystal silicon (99.999% purity), room temperature (25°C), nanosecond pulse duration (10-20 ns), 532
         nm wavelength, measured in air at 1 atm
       confidence: 95
-      researched_date: '2025-11-24T12:18:40.536280'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:18:40.536280'
+      needsValidation: true
 micro:
   before: Laser cleaning ramps up efficiency for silicon wafers in semiconductor work. Contaminated surfaces at 1000x magnification
     reveal jagged crystalline edges clogged with irregular dust particles and organic residues that stick tight to the lattice
@@ -209,7 +209,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -220,10 +220,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: semiconductor-manufacturing
@@ -252,8 +258,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -298,12 +312,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -325,8 +346,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -342,7 +363,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:49.347112+00:00'
+dateModified: '2026-01-08T04:06:37.700767+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -354,7 +375,7 @@ contamination:
   _needs_review: true
   _note: Category "semiconductor" not recognized - conservative defaults applied
 components:
-  settings_description: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity.
+  settingsDescription: When laser cleaning silicon, start with low power settings to leverage its strong thermal conductivity.
     This property lets heat spread quickly, unlike brittle ceramics that trap it locally. You must keep pulse durations short
     to avoid microcracks, since silicon's stiffness makes it prone to fracturing under sudden stress. We've found that moderate
     scan speeds work best, revealing contaminants without altering the surface. Adjust overlap ratios carefully to ensure
@@ -368,7 +389,7 @@ components:
     after: Laser treatment removes the grime, exposing a smooth and uniform silicon surface. Debris vanishes completely, revealing
       even textures without any clinging spots. The cleaned area shines clearly, highlighting pristine details throughout.
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - SEMI M1 - Specification for Polished Single Crystal Silicon Wafers
   - ASTM F1188 - Standard Specification for Single Crystal Silicon
   - ISO 14644 - Cleanroom and Associated Controlled Environments

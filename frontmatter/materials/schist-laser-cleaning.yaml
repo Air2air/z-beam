@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,16 +82,16 @@ properties:
       value: 1.1
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Studies in Conservation
+      sourceType: journal_article
+      sourceName: Studies in Conservation
       citation: 'Sanz et al., Laser cleaning of encrusted schist artifacts: Damage thresholds and optimization, 2018, DOI:
         10.1080/00393630.2018.1445821'
       context: Mica schist (commercial grade from Spanish quarry, ~95% mica-quartz composition), 25°C, 1064 nm Nd:YAG pulsed
         laser, atmospheric pressure
       confidence: 92
-      researched_date: '2025-11-24T12:17:31.949938'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:17:31.949938'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 1.45
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser cleaning of schist: Ablation thresholds and surface effects'
+      sourceType: journal_article
+      sourceName: 'Laser cleaning of schist: Ablation thresholds and surface effects'
       citation: 'Sanz et al., Journal of Cultural Heritage, 2017, DOI: 10.1016/j.culher.2016.11.005'
       context: Natural micaceous schist (quartz-mica composition, 95% purity equivalent), 25°C, 1064 nm Nd:YAG laser, pulse
         duration 10 ns, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T12:17:39.090415'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:17:39.090415'
+      needsValidation: true
 micro:
   before: Laser cleaning tackles tough contaminants on schist surfaces effectively. At 1000x magnification, the before image
     reveals a rugged landscape. Schist's flaky layers trap dirt and grime in irregular patterns, with fine particles clinging
@@ -204,7 +204,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -215,10 +215,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -247,8 +253,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -278,12 +292,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -305,8 +326,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -322,7 +343,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:49.174445+00:00'
+dateModified: '2026-01-08T04:06:37.508690+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -339,7 +360,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When cleaning schist, watch its layered foliation that sets it apart from denser, more uniform stones
+  settingsDescription: When cleaning schist, watch its layered foliation that sets it apart from denser, more uniform stones
     like granite. I've seen this structure lead to delamination under uneven heat, so start with gentler passes to avoid cracking
     along those planes. Unlike smoother limestones, schist's moderate absorption pulls in laser energy well but traps heat
     due to low conductivity, which tends to build up quickly. This works best when you reduce power early on, allowing multiple
@@ -351,10 +372,10 @@ components:
     after: Laser treatment exposes smooth, layered structures with clear mineral flecks. Clean planes highlight the rock's
       inherent alignment and texture. Restored surfaces show vibrant contrasts without residual buildup.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922643Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922649Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922643Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922649Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

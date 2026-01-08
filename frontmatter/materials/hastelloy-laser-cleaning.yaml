@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: FCC
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -138,7 +138,7 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -229,7 +229,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -240,10 +240,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -268,8 +274,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -299,12 +313,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -326,8 +347,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -343,7 +364,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:45.909345+00:00'
+dateModified: '2026-01-08T04:06:34.180714+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -361,7 +382,7 @@ contamination:
   - aluminum_oxidation
   conditional: {}
 components:
-  settings_description: When laser cleaning Hastelloy, start with reduced power to manage its low thermal conductivity, which
+  settingsDescription: When laser cleaning Hastelloy, start with reduced power to manage its low thermal conductivity, which
     causes heat to build up quickly in treated areas. This approach removes surface contaminants cleanly while preserving
     the alloy's exceptional corrosion resistance. But watch for uneven heating midway through—adjust scan speeds downward
     to avoid cracking the protective oxide layer. Multiple passes restore the finish without weakening its high-temperature
@@ -374,10 +395,10 @@ components:
       metal grains stand out clearly, free from any clinging debris. The texture now feels even and restored, revealing the
       alloy's
 metadata:
-  last_updated: '2025-10-27T23:48:40.922033Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922039Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922033Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922039Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

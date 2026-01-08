@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,16 +82,16 @@ properties:
       value: 2.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Surface Science
+      sourceType: journal_article
+      sourceName: Applied Surface Science
       citation: 'Sanz et al., Laser cleaning of calcareous stones: Evaluation of damage threshold, Applied Surface Science,
         2013, DOI: 10.1016/j.apsusc.2013.05.123'
       context: Single-crystal calcite (99.9% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration,
         measured on polished surfaces
       confidence: 95
-      researched_date: '2025-11-24T11:53:00.421879'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:53:00.421879'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -176,14 +176,14 @@ properties:
       value: 2.1
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Surface Science
+      sourceType: journal_article
+      sourceName: Applied Surface Science
       citation: 'A. Zafiropulos et al., Applied Surface Science, 1999, DOI: 10.1016/S0169-4332(99)00094-3'
       context: Polycrystalline calcite (natural limestone sample, 95% CaCO3 purity), room temperature (25°C), Nd:YAG laser
         at 1064 nm wavelength, 10 ns pulse duration, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:53:15.934626'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:53:15.934626'
+      needsValidation: true
 micro:
   before: Calcite surface before laser cleaning, it displays irregular contamination patterns. Dust particles cling to cleavage
     planes, and organic residues form patchy films across the mineral's rhombohedral facets. These contaminants obscure natural
@@ -207,7 +207,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -218,10 +218,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -250,8 +256,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -281,12 +295,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -310,8 +331,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -327,7 +348,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.339488+00:00'
+dateModified: '2026-01-08T04:06:32.305627+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -344,7 +365,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning Calcite, I've seen the biggest challenge come from its brittle nature, which sets
+  settingsDescription: When laser cleaning Calcite, I've seen the biggest challenge come from its brittle nature, which sets
     it apart from tougher sedimentary stones like limestone that hold up better under heat. This fragility means localized
     heating can easily cause micro-cracks, especially since Calcite absorbs laser energy quickly without spreading the warmth
     evenly, unlike more conductive materials that dissipate it faster. To handle this, start by using gentler power levels
@@ -359,10 +380,10 @@ components:
     after: After laser treatment, we've seen the calcite surface emerge spotless. All grime vanishes, exposing smooth and
       even features. This reveals the material's clear, vibrant structure.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921740Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921746Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921740Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921746Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

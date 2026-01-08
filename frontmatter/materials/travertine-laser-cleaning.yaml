@@ -6,7 +6,7 @@ subcategory: natural
 pageDescription: When laser cleaning travertine, I've gotten the best results by starting with low-power passes that honor
   its porous texture, letting contaminants lift off easily without heat penetrating too deeply and risking surface cracks.
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -65,15 +65,15 @@ properties:
       value: 12000.0
       unit: J/m²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser cleaning of calcareous stones: A comparative study of damage thresholds for travertine and marble'
+      sourceType: journal_article
+      sourceName: 'Laser cleaning of calcareous stones: A comparative study of damage thresholds for travertine and marble'
       citation: 'Sanz, M., et al., Journal of Cultural Heritage, 2014, DOI: 10.1016/j.culher.2013.10.005'
       context: Natural travertine stone (porosity 15-20%, primarily CaCO3 composition), room temperature (20°C), 1064 nm Nd:YAG
         laser, pulse duration 10 ns
       confidence: 95
-      researched_date: '2025-11-24T12:28:42.229485'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:28:42.229485'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     percentage: 40.0
@@ -158,15 +158,15 @@ properties:
       value: 1.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Cleaning of Architectural Surfaces: The Influence of Wavelength and Pulse Duration on the Ablation
+      sourceType: journal_article
+      sourceName: 'Laser Cleaning of Architectural Surfaces: The Influence of Wavelength and Pulse Duration on the Ablation
         Threshold of Calcareous Stones'
       citation: 'Pou et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2009.05.012'
       context: Natural travertine (calcium carbonate dominant, porosity 15-20%), 1064 nm Nd:YAG laser, room temperature (20°C),
         ambient atmosphere, short pulse duration (10 ns)
       confidence: 95
-      researched_date: '2025-11-24T12:28:49.641257'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:28:49.641257'
+      needsValidation: true
 micro:
   before: Contamination on travertine surface creates problem. It blocks natural pores. So, microscopic view at high magnification
     shows dirty buildup. This dirt, it clings to stone texture. Layers form thick and uneven. Pores appear filled with particles.
@@ -189,7 +189,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -232,10 +232,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -264,8 +270,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -290,12 +304,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -317,8 +338,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -334,7 +355,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.634346+00:00'
+dateModified: '2026-01-08T04:06:39.110754+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -351,12 +372,12 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it
-    soak up heat unevenly, which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone,
-    differs from denser rocks because it traps contaminants deep inside, so you need to go gentle to avoid pulling the surface
-    apart. Tends to heat up slowly due to poor conductivity, meaning prolonged exposure risks surface spalling. Start with
-    lower power settings and slower scan speeds to let the laser gently loosen dirt without stressing the pores. This works
-    best when you overlap passes lightly, pulling grime out layer by layer. I've found multiple light treatments clear buildup
+  settingsDescription: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak
+    up heat unevenly, which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone, differs
+    from denser rocks because it traps contaminants deep inside, so you need to go gentle to avoid pulling the surface apart.
+    Tends to heat up slowly due to poor conductivity, meaning prolonged exposure risks surface spalling. Start with lower
+    power settings and slower scan speeds to let the laser gently loosen dirt without stressing the pores. This works best
+    when you overlap passes lightly, pulling grime out layer by layer. I've found multiple light treatments clear buildup
     effectively while preserving the stone's texture for heritage sites. Just avoid high energy bursts—they'll scorch the
     calcite base and ruin that classic banded look. Adjust based on soiling thickness, and always test a small area first
     to keep things safe.
@@ -367,10 +388,10 @@ components:
     after: After laser treatment, the same surface reveals a smooth, exposed grain that shines clearly now. Pores appear wide
       open without any clinging debris inside them. Fine details of the stone emerge vivid and uniform across the whole area
 metadata:
-  last_updated: '2025-10-27T23:48:40.922927Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922933Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922927Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922933Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

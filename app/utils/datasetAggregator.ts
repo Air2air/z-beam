@@ -10,6 +10,9 @@
 export { calculateAggregateStats } from '@/app/datasets';
 export type { MaterialDataset } from '@/app/datasets';
 
+// Shared utilities for consistent URL construction
+import { getDatasetUrl } from './slugHelpers';
+
 // Note: Original fetchMaterialDataset and loadMaterialDatasets functions
 // are not migrated as they use client-side fetch. These remain below.
 
@@ -24,7 +27,9 @@ export interface AggregateStats {
  */
 async function fetchMaterialDataset(slug: string): Promise<any | null> {
   try {
-    const response = await fetch(`/datasets/materials/${slug}-material-dataset.json`);
+    // Use shared utility for consistent URL construction
+    const url = getDatasetUrl(slug, 'materials', 'json');
+    const response = await fetch(url);
     
     if (!response.ok) {
       console.warn(`Failed to fetch dataset for ${slug}`);

@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: BCC
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -139,7 +139,7 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -233,7 +233,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: forging-scale-contamination
@@ -248,10 +248,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -280,8 +286,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -311,12 +325,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -340,8 +361,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -357,7 +378,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:46.239462+00:00'
+dateModified: '2026-01-08T04:06:34.488116+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -381,7 +402,7 @@ components:
       \ a hazy, irregular view that hides the metal's true form."
     after: "After laser treatment, the same view reveals a smooth, even iron surface free from all those streaks.  \nClean\
       \ lines emerge clearly, with no rough spots or trapped debris in sight."
-  settings_description: When laser cleaning iron, watch out for its strong thermal conductivity right from the start—it spreads
+  settingsDescription: When laser cleaning iron, watch out for its strong thermal conductivity right from the start—it spreads
     heat quickly across the surface, so you must use controlled, lower power settings to prevent warping or unintended melting
     in thicker sections. I've seen this property make iron a solid choice for heavy-duty jobs like restoring marine parts
     or automotive frames, as it absorbs laser energy well enough to clear rust and scale without deep penetration. What sets
@@ -390,10 +411,10 @@ components:
     where its durability lets you strip contaminants gently. Just avoid rushing the process; overlap scans moderately to ensure
     even coverage without hotspots.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922105Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922112Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922105Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922112Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

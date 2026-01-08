@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -77,15 +77,15 @@ properties:
       value: 4.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser cleaning of concrete surfaces: Damage thresholds and ablation mechanisms'
+      sourceType: journal_article
+      sourceName: 'Laser cleaning of concrete surfaces: Damage thresholds and ablation mechanisms'
       citation: 'Pini, R., et al., Applied Surface Science, 2001, DOI: 10.1016/S0169-4332(01)00485-7'
       context: Ordinary Portland cement concrete (OPC, aggregate size 5-20 mm), 1064 nm Nd:YAG laser, room temperature (25°C),
         pulse duration 10 ns, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:55:18.938620'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:55:18.938620'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -170,14 +170,14 @@ properties:
       value: 3.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser
+      sourceType: journal_article
+      sourceName: Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser
       citation: 'P. Pou et al., Optics and Lasers in Engineering, 2000, DOI: 10.1016/S0143-8166(99)00078-5'
       context: Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG laser,
         7 ns pulse duration, atmospheric pressure
       confidence: 95
-      researched_date: '2025-11-24T11:55:28.526883'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:55:28.526883'
+      needsValidation: true
 micro:
   before: Laser cleaning ramps up on concrete surfaces, targeting built-up grime and pollutants at 1000x magnification. Contaminated
     spots show dense pores clogged with dark, irregular particles—think oily residues lining up along cracks and embedding
@@ -201,7 +201,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -242,10 +242,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: civil-infrastructure
@@ -274,8 +280,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -305,12 +319,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -332,8 +353,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -349,7 +370,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:44.902955+00:00'
+dateModified: '2026-01-08T04:06:32.908402+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -366,7 +387,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
+  settingsDescription: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
     a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy,
     which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans
     to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
@@ -376,10 +397,10 @@ components:
     after: Laser treatment removes the stains and exposes smooth, bare areas on the texture. Particles vanish, leaving clear
       edges around the grains in the view. The surface now reflects light evenly without any hidden debris.
 metadata:
-  last_updated: '2025-10-27T23:48:40.921845Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.921851Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.921845Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.921851Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

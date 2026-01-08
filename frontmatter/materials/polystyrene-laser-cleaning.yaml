@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -83,14 +83,14 @@ properties:
       value: 2.5
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Applied Physics A: Materials Science & Processing'
+      sourceType: journal_article
+      sourceName: 'Applied Physics A: Materials Science & Processing'
       citation: 'J. Krüger and W. Kautek, Applied Physics A, 1996, DOI: 10.1007/BF01565578'
       context: Atactic polystyrene (99% purity), 25°C, nanosecond Nd:YAG laser at 532 nm wavelength, single pulse
       confidence: 95
-      researched_date: '2025-11-24T12:06:43.791522'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:06:43.791522'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,14 +175,14 @@ properties:
       value: 0.25
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Ablation of Polystyrene by Ultraviolet Laser Radiation
+      sourceType: journal_article
+      sourceName: Ablation of Polystyrene by Ultraviolet Laser Radiation
       citation: 'Srinivasan, R., and Mayne-Banton, V., Applied Physics Letters, 1982, 41(5), 576-579, DOI: 10.1063/1.93580'
       context: Atactic polystyrene (commercial grade, MW ~250,000 g/mol), 25°C, 248 nm KrF excimer laser, 20 ns pulse duration,
         vacuum environment
       confidence: 95
-      researched_date: '2025-11-24T12:06:52.112132'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:06:52.112132'
+      needsValidation: true
 micro:
   before: The contaminated polystyrene surface, it reveals a textured overlay at 1000x magnification, where residues cling
     tenaciously to the underlying matrix, forming irregular clusters that disrupt the material's inherent uniformity. These
@@ -207,7 +207,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -218,10 +218,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: electronics-manufacturing
@@ -250,8 +256,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -281,12 +295,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -309,8 +330,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -326,7 +347,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:48.121140+00:00'
+dateModified: '2026-01-08T04:06:36.381940+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -341,11 +362,11 @@ contamination:
   - aluminum_oxidation
   - wood_rot
   conditional:
-    industrial_oil:
+    industrialOil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
 components:
-  settings_description: "When laser cleaning Polystyrene, watch its tendency to soften under heat—I've seen it deform quickly\
+  settingsDescription: "When laser cleaning Polystyrene, watch its tendency to soften under heat—I've seen it deform quickly\
     \ if you push the power too high right away. This plastic heats unevenly compared to tougher thermoplastics like acrylic,\
     \ so start slow to avoid melting the surface. \n\nFirst, lower the energy input to let the laser gently lift dirt without\
     \ penetrating deep. Polystyrene's lightweight nature makes it less forgiving than metals, which shrug off minor overheating,\
@@ -361,10 +382,10 @@ components:
     after: After laser treatment, we see a smooth, even surface emerge clearly. The clean polystyrene gleams with a uniform
       finish. No traces of debris remain, restoring its original look. Watch for any slight discoloration in future runs.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922436Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922441Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922436Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922441Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

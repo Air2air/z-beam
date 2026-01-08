@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: cubic
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -88,16 +88,16 @@ properties:
       value: 14.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Applied Optics
+      sourceType: journal_article
+      sourceName: Applied Optics
       citation: 'Gallais, L., et al., ''Laser-induced damage of hafnia/alumina multilayer mirrors: measurement of absorption
         and correlation with a model'', Applied Optics, 2008, DOI: 10.1364/AO.47.004960'
       context: Polycrystalline alumina (99.9% purity), room temperature (25°C), 1064 nm wavelength, 10 ns pulse duration,
         measured on bulk samples via raster scan method
       confidence: 95
-      researched_date: '2025-11-24T11:50:21.142652'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:50:21.142652'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -208,7 +208,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -235,10 +235,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -267,8 +273,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -313,12 +327,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -341,8 +362,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -358,7 +379,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:43.600836+00:00'
+dateModified: '2026-01-08T04:06:31.511448+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -381,7 +402,7 @@ components:
     well unlike most ceramics. But watch its brittle fracture toughness at 4 MPa m^{1/2}—it cracks under stress. Start with
     100 W at 1064 nm, fluence under 2.5 J/cm² to stay above the 2.1 J/cm² ablation threshold. High thermal conductivity of
     25 W/m·K helps, but control scans at 500 mm/s to prevent thermal cracks from 8.1e-6 K^{-1} expansion.
-  settings_description: When laser cleaning alumina, watch out for its exceptional hardness right from the start—it can dull
+  settingsDescription: When laser cleaning alumina, watch out for its exceptional hardness right from the start—it can dull
     tools or abrade the laser optics if you're not careful. I've seen setups where we underpowered the beam, leading to incomplete
     removal without scratching the surface. Unlike softer metals like aluminum, which yield easily to moderate pulses, alumina's
     dense, ceramic structure demands a gentler approach to avoid micro-cracks from thermal shock. This works best when you
@@ -397,7 +418,7 @@ components:
     after: After laser treatment, the same surface appears smooth and uniform at 1000x, with no traces of those dark specks
       left behind. The haze lifts completely, revealing a clean, even texture that reflects light steadily
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
   - ASTM C848 - Standard Specification for High Alumina Refractory Brick
   - ISO 23146 - Technical Ceramics

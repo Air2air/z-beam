@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { logger } from '../../utils/logger';
+import { toCategorySlug } from '../../utils/formatting';
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -24,7 +25,7 @@ export async function GET(request: NextRequest) {
         id: '1',
         title: `Result 1 for ${query}`,
         excerpt: `This is a search result for query: ${query}`,
-        url: `/articles/${query.toLowerCase().replace(/\s+/g, '-')}-1`,
+        url: `/articles/${toCategorySlug(query)}-1`,
         type: 'article',
         score: 0.95
       },
@@ -32,7 +33,7 @@ export async function GET(request: NextRequest) {
         id: '2',
         title: `Result 2 for ${query}`,
         excerpt: `Another search result for query: ${query}`,
-        url: `/articles/${query.toLowerCase().replace(/\s+/g, '-')}-2`,
+        url: `/articles/${toCategorySlug(query)}-2`,
         type: 'page',
         score: 0.87
       }

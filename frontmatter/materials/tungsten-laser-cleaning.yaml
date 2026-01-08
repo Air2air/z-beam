@@ -6,7 +6,7 @@ subcategory: alloy
 pageDescription: In laser processing of tungsten, harness its unparalleled heat resistance to endure extreme conditions without
   deformation, but stay alert for surface oxidation during extended exposure
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
       integrity
@@ -121,7 +121,7 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-  laser_material_interaction:
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
@@ -229,7 +229,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -240,10 +240,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: aerospace
@@ -270,8 +276,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -296,12 +310,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -323,8 +344,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -340,7 +361,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:50.699298+00:00'
+dateModified: '2026-01-08T04:06:39.174030+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -367,7 +388,7 @@ components:
     after: After the laser treatment, that same surface appears smooth and even under magnification, free of any clinging
       debris. The clean metal shines with a consistent gleam, showing off its natural, uniform finish. Now, the texture stands
       out clear
-  settings_description: When we laser clean Tungsten, we typically begin with a thorough surface inspection to spot any contaminants
+  settingsDescription: When we laser clean Tungsten, we typically begin with a thorough surface inspection to spot any contaminants
     like oxides or residues from its aerospace or nuclear uses. This dense metal holds up well under heat, so we ramp up the
     laser power gradually to overcome its reflective nature that bounces back much of the beam. We've found that pulsing the
     laser in short bursts helps the heat spread evenly thanks to its strong thermal conductivity, preventing hot spots on
@@ -375,10 +396,10 @@ components:
     scan speed to avoid unwanted surface changes. We finish with multiple light passes to polish without stressing the material's
     toughness, ensuring clean results for tooling or electrodes. This approach keeps the Tungsten intact and ready for reuse.
 metadata:
-  last_updated: '2025-10-27T23:48:40.922940Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922945Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922940Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922945Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

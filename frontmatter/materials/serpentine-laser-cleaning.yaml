@@ -24,7 +24,7 @@ characteristics:
     unit: crystal system
     value: crystalline
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -79,15 +79,15 @@ properties:
       value: 0.85
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Silicate Minerals for Cultural Heritage Applications
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Silicate Minerals for Cultural Heritage Applications
       citation: 'Pozzi, G. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005'
       context: Natural serpentine (antigorite variety, 98% purity, trace iron impurities), 25°C, 1064 nm Nd:YAG laser, 7 ns
         pulse duration, measured in air at 1 atm
       confidence: 95
-      researched_date: '2025-11-24T12:17:47.526310'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T12:17:47.526310'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -172,14 +172,14 @@ properties:
       value: 2.8
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Laser Ablation Thresholds of Silicate Minerals for Cultural Heritage Applications
+      sourceType: journal_article
+      sourceName: Laser Ablation Thresholds of Silicate Minerals for Cultural Heritage Applications
       citation: 'Pozzi, G., et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
       context: Natural serpentine mineral (Mg3Si2O5(OH)4, 95% purity), room temperature (25°C), measured using 1064 nm Nd:YAG
         nanosecond pulsed laser under ambient conditions
       confidence: 95
-      researched_date: '2025-11-24T12:17:56.900062'
-      needs_validation: true
+      researchedDate: '2025-11-24T12:17:56.900062'
+      needsValidation: true
 micro:
   before: Laser cleaning ramps up the reveal of serpentine's true grit at 1000x magnification. Contaminated surfaces typically
     show dark grime clinging to the stone's wavy, fibrous layers, where pollutants line up in shallow pores and etch faint
@@ -204,7 +204,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -241,10 +241,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -273,8 +279,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -304,12 +318,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -331,8 +352,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -348,7 +369,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:49.232774+00:00'
+dateModified: '2026-01-08T04:06:37.571721+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -365,7 +386,7 @@ contamination:
   - uv_chalking
   conditional: {}
 components:
-  settings_description: When laser cleaning Serpentine, you'll want to address its relative softness first. This stone scratches
+  settingsDescription: When laser cleaning Serpentine, you'll want to address its relative softness first. This stone scratches
     easily compared to harder granites. Start with reduced power to prevent surface pitting. Its low heat spreading means
     energy stays local. Adjust scan speeds higher to avoid hot spots. Serpentine absorbs laser light well unlike reflective
     marbles. This speeds removal of dirt but risks quick heating. Use multiple light passes to control buildup. The material's
@@ -379,10 +400,10 @@ components:
     after: After laser treatment, the clean Serpentine surface reveals a smooth and even texture underneath. The treatment
       removes all grime from the pores, exposing the stone's fine grain details clearly. Now the area appears
 metadata:
-  last_updated: '2025-10-27T23:48:40.922656Z'
-  normalization_applied: true
-  normalization_date: '2025-10-27T23:48:40.922661Z'
-  structure_version: '2.0'
+  lastUpdated: '2025-10-27T23:48:40.922656Z'
+  normalizationApplied: true
+  normalizationDate: '2025-10-27T23:48:40.922661Z'
+  structureVersion: '2.0'
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:

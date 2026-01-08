@@ -23,7 +23,7 @@ characteristics:
     unit: crystal system
     value: amorphous
 properties:
-  material_characteristics:
+  materialCharacteristics:
     label: Material Characteristics
     percentage: 60.0
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
@@ -82,15 +82,15 @@ properties:
       value: 4.2
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: 'Laser Ablation Thresholds of Natural Fibers: Bamboo and Hemp'
+      sourceType: journal_article
+      sourceName: 'Laser Ablation Thresholds of Natural Fibers: Bamboo and Hemp'
       citation: 'Li, Y., et al., Optics and Lasers in Engineering, 2019, DOI: 10.1016/j.optlaseng.2019.105678'
       context: Natural bamboo culm (Phyllostachys edulis, 99% natural composition, no treatments), 25°C, 1064 nm Nd:YAG laser,
         pulse duration 10 ns, measured in air at 1 atm
       confidence: 95
-      researched_date: '2025-11-24T11:50:48.747931'
-      needs_validation: true
-  laser_material_interaction:
+      researchedDate: '2025-11-24T11:50:48.747931'
+      needsValidation: true
+  laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -175,14 +175,14 @@ properties:
       value: 1.85
       unit: J/cm²
       source: scientific_literature
-      source_type: journal_article
-      source_name: Threshold fluence for laser ablation of bamboo
+      sourceType: journal_article
+      sourceName: Threshold fluence for laser ablation of bamboo
       citation: 'Li, Y. et al., Journal of Applied Physics, 2019, DOI: 10.1063/1.5092623'
       context: Natural bamboo (Phyllostachys edulis, 70% moisture content adjusted to 12%), 25°C, 1064 nm Nd:YAG laser, 8
         ns pulse duration, measured in air at 1 atm
       confidence: 95
-      researched_date: '2025-11-24T11:50:57.430395'
-      needs_validation: true
+      researchedDate: '2025-11-24T11:50:57.430395'
+      needsValidation: true
 micro:
   before: Laser cleaning process on bamboo surface starts with contamination observation at 1000x magnification. This contamination,
     it forms irregular layers over fibrous structure, so natural bamboo patterns become hidden. Bamboo exhibits dense, hardwood
@@ -208,7 +208,7 @@ images:
     height: 600
 relationships:
   interactions:
-    contaminated_by:
+    contaminatedBy:
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -225,10 +225,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
           notes: Cross-references to contaminant pages
-          relationship_type: contaminated_by
   operational:
-    industry_applications:
+    industryApplications:
       presentation: card
       items:
       - id: cultural-heritage
@@ -257,8 +263,16 @@ relationships:
         icon: building
         order: 1
         variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -298,12 +312,19 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
 author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -325,8 +346,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -342,7 +363,7 @@ card:
     severity: low
     icon: cube
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T01:04:43.759713+00:00'
+dateModified: '2026-01-08T04:06:31.687640+00:00'
 contentType: material
 schemaVersion: 5.0.0
 contamination:
@@ -365,7 +386,7 @@ components:
     nm wavelength and 2.5 J/cm² fluence, thanks to high absorption at 92%. But because thermal conductivity sits low at 0.2
     W/m·K, heat builds slowly in its porous 0.58 matrix— so keep scan speed to 500 mm/s and overlap passes 50% to avoid charring
     the fibers. Start with one pass and check; its 588 K destruction point leaves little margin if you push too hard.
-  settings_description: When laser cleaning bamboo, you'll want to treat it differently from typical hardwoods because its
+  settingsDescription: When laser cleaning bamboo, you'll want to treat it differently from typical hardwoods because its
     grass-like fibers make it more flexible and porous. This high absorption pulls in laser energy quickly, clearing contaminants
     without deep penetration. But watch out mid-process—its low heat spread can cause localized scorching if you push power
     too high. So start low and scan slowly to keep the structure intact.
@@ -377,7 +398,7 @@ components:
       now sit open and empty, free from any residue that clouded them before. The grain emerges crisp and uniform across the
       entire area, so
 metadata:
-  regulatory_standards:
+  regulatoryStandards:
   - EPA Clean Air Act Compliance
   - FSC Sustainable Forestry Standards
 eeat:

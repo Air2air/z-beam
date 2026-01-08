@@ -16,7 +16,7 @@ import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
 import { Button } from "../Button";
 import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
-import { slugToDisplayName } from "../../utils/formatting";
+import { slugToDisplayName, toCategorySlug } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { getContentType } from '@/app/utils/relationshipHelpers';
 import { Title } from '../Title/Title';
@@ -306,7 +306,7 @@ export function CardGrid({
               const displayItems = isExpanded ? categoryItems : categoryItems.slice(0, maxItemsPerCategory);
               const hasMore = categoryItems.length > maxItemsPerCategory;
 
-              const categoryId = `category-${category.toLowerCase().replace(/\s+/g, '-')}`;
+              const categoryId = `category-${toCategorySlug(category)}`;
               
               return (
                 <section 
