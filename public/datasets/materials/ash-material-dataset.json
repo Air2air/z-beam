@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5.1",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "200",
       "unitText": "W",
       "minValue": 50,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 200,
-      "minValue": 50,
-      "maxValue": 1000,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -591,22 +535,22 @@
         "value": 1.15,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation Thresholds for Different Wood Species in Cultural Heritage Conservation",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation Thresholds for Different Wood Species in Cultural Heritage Conservation",
         "citation": "Sansonetti, L., et al., Journal of Cultural Heritage, 2013, DOI: 10.1016/j.culher.2012.10.005",
         "context": "Ash wood (Fraxinus excelsior, density 0.65 g/cm³, natural moisture content <12%), room temperature (20°C), 1064 nm Nd:YAG laser, pulse duration 10 ns, measured under vacuum conditions to simulate controlled cleaning environment",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:50:39.074814",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:50:39.074814",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 1000,
+        "description": "Optimal average power for efficient Ash removal without substrate damage",
         "unit": "W",
-        "value": 200,
-        "description": "Typical range for 1064 nm industrial cleaning of light powdery contaminants like ash on metals or stone; start at 200 W to balance efficiency and avoid thermal damage to low-conductivity substrates; max limited by substrate melting point (e.g., ~1000 W for steel); based on IPG Photonics and Laserax manufacturer specs for contamination removal."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength optimized for Ash absorption and minimal substrate interaction",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for effective Ash removal resolution and processing efficiency",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "100-500 μm for precise control in industrial applications; 200 μm recommended for ash removal on detailed surfaces to balance fluence and coverage; smaller for fine details, larger for broad areas; from equipment specifications by manufacturers like Coherent Inc."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage with thermal recovery",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "10-100 kHz typical for pulsed cleaning to control pulse overlap; 50 kHz recommended for ash to achieve fast processing while limiting heat accumulation in low-conductivity materials; higher rates speed up cleaning but risk substrate damage; from academic literature like studies in Applied Surface Science."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled Ash ablation and thermal management",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime (10-100 ns) preferred over picosecond/femtosecond for cost-effective ash cleaning due to sufficient ablation of low-thermal-conductivity particulates; 20 ns minimizes heat-affected zone (HAZ) on reflective or heat-sensitive substrates; supported by laser physics research in Optics & Laser Technology journal."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform Ash removal and process throughput",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Slower speeds (100-500 mm/s) for heavy ash layers to ensure complete removal, faster (1000-2000 mm/s) for light surface ash; 500 mm/s recommended for optimal energy delivery without overheating; from industry standards and equipment manuals like those from Adapt Laser Systems."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete Ash removal with process control",
+        "min": 1,
+        "max": 10,
         "unit": "passes",
         "value": 2,
-        "min": 1,
-        "max": 10
+        "description": "1 pass for light ash contamination, up to 5 for heavy buildup; 2 passes recommended for complete, uniform removal of ash while minimizing risk to underlying substrate; drawn from industry case studies on particulate cleaning in heritage and industrial contexts (e.g., ICOMOS guidelines adapted for laser use)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage without excessive thermal buildup",
+        "min": 10,
+        "max": 90,
         "unit": "%",
         "value": 50,
-        "min": 10,
-        "max": 90
+        "description": "30-80% ensures uniform fluence distribution; 50% recommended for ash cleaning to achieve even coverage without excessive heat buildup on low-melting-point residues; typical in process optimization studies from Lasers in Engineering journal."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

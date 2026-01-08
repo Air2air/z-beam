@@ -320,14 +320,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -337,23 +329,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5.1",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "30",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -369,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "2000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -385,70 +369,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "2000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "30",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "70",
       "unitText": "%",
       "minValue": 10,
@@ -456,10 +376,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 200,
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "200",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 1000,
+      "maxValue": 1000
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -473,7 +417,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -481,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -489,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 30,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -497,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 2000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -513,7 +457,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -699,11 +643,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 1000,
-        "value": 200,
+        "description": "Optimal average power for Iron oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial Nd:YAG laser cleaning of metals like iron; starting at 200W balances efficiency and safety to avoid melting (iron melting point ~1538°C). Max limited to prevent substrate damage via thermal conduction. Source: IPG Photonics YLR series specs and review in Optics and Lasers in Engineering (2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength with good absorption in Iron oxides and minimal substrate damage",
@@ -713,52 +657,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for efficient cleaning resolution",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for industrial applications; smaller (100-200 μm) for precise surface prep on iron, larger for broad area cleaning. 200 μm recommended for uniform energy distribution on iron surfaces, avoiding hotspots. Source: Equipment specs from Raycus and Coherent lasers, per Journal of Laser Applications (2019)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Common for pulsed cleaning of reflective metals like iron (reflectivity ~40-60% at 1064 nm); 30 kHz recommended for efficient pulse overlap without excessive heat accumulation, which could lead to oxidation. Higher rates speed up process but risk thermal buildup. Source: Academic review in Lasers in Manufacturing and Materials Processing (2021)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient oxide layer removal",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 30,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for iron cleaning to provide sufficient energy for contaminant ablation with minimal thermal diffusion (due to iron's high conductivity ~80 W/m·K); picosecond (ps) or femtosecond reduces HAZ further but increases cost. 30 ns balances efficacy and safety. Source: Laser physics in Applied Surface Science (2019) on metal ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective range for contamination removal on iron; higher speeds (e.g., 2000 mm/s) for light rust/oil, lower (500-1000 mm/s) for heavy oxides to ensure ablation without overheating. Recommended optimizes throughput while minimizing heat-affected zone (HAZ). Source: Industry standards from CleanLaser manuals and study in Journal of Cleaner Production (2020)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete oxide removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination (e.g., oils), multi-pass (2-3) for heavy rust on iron to achieve complete removal without increasing fluence. 2 passes recommended for industrial prep, allowing progressive cleaning. Source: Case studies in Industrial Laser Solutions (2020) and practical guidelines from laser cleaning consortia."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without excessive heat accumulation",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 70,
+        "unit": "%",
+        "description": "Ensures uniform coverage during scanning on iron; 70% recommended for even fluence distribution and to prevent gaps in cleaning, especially for irregular surfaces. Lower for faster processes, higher for thoroughness. Source: Process optimization in Applied Optics (2018) and manufacturer guidelines from Adapt Laser Systems."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -834,7 +778,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

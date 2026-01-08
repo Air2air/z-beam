@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,23 +233,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "0.8",
-      "unitText": "mm",
+      "value": "1000",
+      "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
+      "maxValue": 1200
     },
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "2.5",
+      "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "2",
+      "value": "3",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -296,7 +280,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "500",
       "unitText": "W",
       "minValue": 100,
@@ -304,23 +296,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -328,42 +304,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "1000",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 1200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 500,
-      "minValue": 100,
-      "maxValue": 2000,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -377,10 +321,10 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 0.8,
+      "value": 1000,
       "minValue": 0.1,
-      "maxValue": 500,
-      "unitText": "mm"
+      "maxValue": 1200,
+      "unitText": "μm"
     },
     {
       "@type": "PropertyValue",
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 2,
+      "value": 3,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -577,22 +521,22 @@
         "value": 3.2,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser",
+        "sourceType": "journal_article",
+        "sourceName": "Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser",
         "citation": "P. Pou et al., Optics and Lasers in Engineering, 2000, DOI: 10.1016/S0143-8166(99)00078-5",
         "context": "Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG laser, 7 ns pulse duration, atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:55:28.526883",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:55:28.526883",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 100,
-        "max": 2000,
-        "value": 500,
+        "description": "Optimal average power for concrete surface cleaning and contaminant removal",
         "unit": "W",
-        "description": "Typical range for industrial 1064 nm laser cleaning of concrete surfaces (e.g., graffiti or rust removal); starting at 500 W balances efficiency and safety to avoid thermal cracking. Max safe below substrate damage threshold (~1000-1500 W depending on fluence). Source: CleanLaser and IPG Photonics equipment specs; academic review in J. Laser Appl. (2018) on stone/concrete cleaning."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength optimized for concrete absorption and minimal substrate damage",
@@ -602,52 +546,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for effective cleaning coverage and energy density control",
-        "unit": "mm",
-        "value": 0.8,
         "min": 0.1,
-        "max": 500
+        "max": 1200,
+        "value": 1000,
+        "unit": "μm",
+        "description": "Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage without thermal buildup",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in low-conductivity concrete. Recommended 50 kHz for balanced throughput and thermal management. Source: Academic literature in J. Clean. Prod. (2021) on industrial laser parameters for building materials."
       },
       "pulseWidth": {
-        "description": "Pulse duration balancing efficient contaminant removal with concrete substrate preservation",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime (10-150 ns) typical for concrete to enable ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 50 ns for efficient contaminant removal without cracking porous concrete. Source: Laser physics research in Appl. Surf. Sci. (2019) on pulsed laser ablation of cementitious materials."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning with sufficient energy deposition",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective range for contamination removal on concrete; slower (100-500 mm/s) for heavy soiling like rust, faster (2000-5000 mm/s) for light contaminants. Recommended 1000 mm/s for optimal balance of cleaning rate and uniformity, considering concrete's low thermal conductivity. Source: Industry standards from Laser Clean Tech manuals; case study in Opt. Lasers Eng. (2020)."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 3,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (3-5) for heavy layers to ensure complete removal without excessive energy input. Recommended 3 passes for typical industrial concrete cleaning to achieve uniform results. Source: Industry case studies in Constr. Build. Mater. (2019) on laser surface preparation."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap percentage for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Standard overlap for uniform scan coverage; 30-50% for faster large-area cleaning, 50-80% for detailed work to avoid gaps on uneven concrete. Recommended 50% for balanced efficiency and homogeneity. Source: Process optimization studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -723,7 +667,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

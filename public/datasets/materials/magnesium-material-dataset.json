@@ -320,14 +320,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -337,18 +329,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -369,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -385,70 +369,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -456,10 +376,42 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 200,
+      "name": "Machine Settings - Energydensity",
+      "value": "1.5",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "200",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 1000,
+      "maxValue": 1000
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -473,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -489,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -497,7 +449,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -513,7 +465,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -700,11 +652,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 1000,
-        "value": 200,
+        "description": "Optimal average power range for Magnesium oxide layer removal",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning of magnesium alloys to avoid melting (low melting point ~650°C); starting at 200W balances efficiency and safety. Max limited to prevent substrate damage due to high reflectivity at 1064 nm. Source: Studies on Mg alloy cleaning (e.g., J. Laser Appl. 2018, Vol. 30, IPG Photonics specs for Yb-fiber lasers)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Optimal wavelength considering Magnesium's optical properties",
@@ -714,52 +666,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam spot diameter for Magnesium surface treatment",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Smaller spots (100-200 μm) for fine detail on Mg surfaces, larger (300-500 μm) for broad area prep. 200 μm recommended for uniform cleaning without excessive heat concentration. Source: Equipment specs from Coherent and Trumpf laser cleaning systems for metals."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient Magnesium cleaning process",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical for pulsed fiber lasers in cleaning; higher rates speed up process but risk heat buildup on thermally conductive Mg. 50 kHz balances speed and safety. Trade-off: >80 kHz may cause melting. Source: Academic literature (Appl. Surf. Sci. 2019, Vol. 475, on rep rate optimization for light metals)."
       },
       "pulseWidth": {
-        "description": "Optimal pulse duration for controlled ablation of Magnesium oxides",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for Mg to ablate contaminants with minimal HAZ; picosecond (ps) or femtosecond reduces thermal effects but increases cost. 50 ns recommended for low reflectivity materials like Mg. Source: Laser physics research (Opt. Lasers Eng. 2020, Vol. 132, on pulse duration effects in metal cleaning)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform Magnesium surface cleaning",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contamination removal; slower (500-1000 mm/s) for heavy rust/oils, faster (2000-3000 mm/s) for light contaminants. Recommended 1500 mm/s for optimal balance on Mg to minimize heat accumulation. Source: Industry standards from Laserax and Adapt Laser manuals for metal surface prep."
       },
       "passCount": {
-        "description": "Recommended number of passes for thorough Magnesium cleaning",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers on Mg to prevent overheating per pass. Recommended 2 passes for industrial removal. Source: Industry case studies (e.g., SPIE Proc. 2021, Vol. 11660, on multi-pass cleaning of alloys)."
       },
       "overlapRatio": {
-        "description": "Optimal pulse overlap for complete Magnesium surface coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or overexposure; 30-50% for large areas, 60-80% for detailed Mg cleaning. 60% recommended to balance efficiency and avoid thermal damage. Source: Process optimization studies (Opt. Laser Technol. 2022, Vol. 145, on scan overlap in laser cleaning)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -835,7 +787,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

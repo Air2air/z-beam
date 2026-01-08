@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,18 +241,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -297,7 +281,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
+      "value": "60",
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90
@@ -312,39 +296,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -352,34 +304,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 50,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "60",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -393,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -409,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -417,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -433,7 +385,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -599,22 +551,22 @@
         "value": 1.2,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser cleaning of wood surfaces: Ablation thresholds for medium-density fiberboard",
+        "sourceType": "journal_article",
+        "sourceName": "Laser cleaning of wood surfaces: Ablation thresholds for medium-density fiberboard",
         "citation": "Panzner et al., Applied Surface Science, 1998, DOI: 10.1016/S0169-4332(98)00245-7",
         "context": "Commercial MDF (density 750 kg/m³, urea-formaldehyde binder), room temperature (25°C), 10.6 µm CO2 laser, pulse duration 100 µs, atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:01:19.902057",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:01:19.902057",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for MDF surface cleaning without charring",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning of wood-based materials like MDF to avoid charring; starting at 100W for light contamination. Max safe before substrate damage (thermal degradation) is ~500W at 1064 nm. Source: IPG Photonics YLR series specs and studies on laser ablation of composites (e.g., J. Laser Appl. 2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for optimal MDF absorption and minimal substrate damage",
@@ -624,52 +576,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning control",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter for precise industrial cleaning; 200 μm recommended for MDF to balance resolution on fibrous surface and large-area coverage, avoiding excessive heat concentration. Finer for details (<150 μm), larger for broad prep (300-500 μm). Source: Equipment specs from Coherent and Trumpf lasers."
       },
       "frequency": {
-        "description": "High repetition rate for efficient surface cleaning",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Typical for 1064 nm cleaning; 50 kHz recommended for MDF to achieve fast coverage without excessive heat accumulation, trading off speed vs. thermal buildup in resinous material. Higher rates (>80 kHz) risk damage. Source: Academic literature, e.g., J. Appl. Phys. (2021) on pulse repetition in ablation."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled material removal",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for MDF cleaning due to cost-effectiveness; picosecond (ps) or femtosecond reduces HAZ but unnecessary for most industrial apps. 20 ns minimizes thermal effects on low-conductivity MDF. Source: Laser physics reviews in Appl. Phys. A (2019) on pulsed laser cleaning of organics."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform surface treatment",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds for contamination removal on MDF; slower for heavy contamination (500-1000 mm/s) to ensure ablation, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and heat control. Source: Industry manuals from CleanLaser and process optimization in Opt. Lasers Eng. (2020)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for thorough contamination removal",
+        "min": 1,
+        "max": 10,
         "unit": "passes",
         "value": 2,
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete MDF surface prep without overexposure. Source: Industry case studies in laser cleaning of wood composites (e.g., Proc. SPIE 2022)."
       },
       "overlapRatio": {
-        "description": "Beam overlap percentage for complete surface coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage on irregular MDF surfaces; 60% recommended for optimal cleaning without gaps or over-ablation, typical range 30-80% based on scan patterns. Source: Process optimization in J. Mater. Process. Technol. (2019)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -745,7 +697,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

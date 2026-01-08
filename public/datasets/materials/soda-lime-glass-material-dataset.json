@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,70 +233,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scanspeed",
-      "value": "1150",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
       "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
@@ -312,7 +240,31 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
+      "name": "Machine Settings - Scanspeed",
+      "value": "1500",
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Pulsewidth",
+      "value": "20",
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Energydensity",
+      "value": "0.5",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Passcount",
       "value": "2",
       "unitText": "passes",
       "minValue": 1,
@@ -320,7 +272,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Overlapratio",
       "value": "50",
       "unitText": "%",
       "minValue": 10,
@@ -328,10 +280,34 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -345,7 +321,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -369,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 1150,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -556,11 +532,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for Soda-Lime Glass surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for 1064 nm pulsed lasers in industrial cleaning of delicate substrates like soda-lime glass to remove contaminants without thermal damage; starting at 100 W for controlled ablation. Max limited to avoid heat accumulation given glass's low thermal conductivity (~1 W/m·K). Source: Manufacturer specs from IPG Photonics and Coherent for YAG lasers; academic review in 'Laser Cleaning' by Kononenko et al. (Optics and Lasers in Engineering, 2016)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for Soda-Lime Glass absorption and minimal subsurface damage",
@@ -570,18 +546,18 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning with adequate energy density",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for precision cleaning; smaller spots (100 μm) for fine details on glass, larger (500 μm) for broad areas. Recommended 200 μm suits industrial surface preparation on soda-lime glass to ensure uniform fluence. Source: Equipment specifications from Trumpf and CleanLaser systems; process studies in Applied Optics (2020)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Typical 10-100 kHz for pulsed cleaning; higher rates speed up process but risk heat accumulation on low-conductivity glass (reflectivity ~4% at 1064 nm). Recommended 50 kHz for optimal balance in contaminant removal without substrate heating. Source: Academic literature in Optics Express (e.g., Anisimov et al., 2015) on repetition rate effects in laser ablation of glasses."
       },
       "pulseWidth": {
         "min": 0.1,
@@ -591,11 +567,11 @@
         "description": "Nanosecond regime (5-100 ns) preferred for cost-effective cleaning with sufficient peak power for contaminant ejection; picosecond (ps) or femtosecond (fs) reduce heat-affected zone (HAZ) but are overkill for most industrial glass cleaning due to transparency at 1064 nm. Recommended 20 ns minimizes thermal diffusion in glass (melting point ~500°C). Source: Laser physics research in Applied Surface Science (e.g., Palmieri et al., 2019) on ns vs. ps for dielectrics."
       },
       "scanSpeed": {
-        "description": "Scan velocity for effective cleaning with controlled thermal input",
-        "unit": "mm/s",
-        "value": 1150,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective range for contaminant removal on glass surfaces; slower speeds (e.g., 500 mm/s) for heavy contamination like oils/paints, faster (up to 3000 mm/s) for light dust. Recommended 1500 mm/s balances efficiency and minimal heat input. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems); case studies in Journal of Cultural Heritage (2018) for glass artifacts."
       },
       "passCount": {
         "min": 1,
@@ -614,8 +590,8 @@
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -691,7 +667,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

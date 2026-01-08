@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,23 +233,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "1.2",
+      "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -289,7 +273,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
+      "value": "60",
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "150",
       "unitText": "W",
       "minValue": 50,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "60",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 150,
-      "minValue": 50,
-      "maxValue": 500,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +535,22 @@
         "value": 1.15,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation Thresholds of Different Wood Species for Femtosecond Pulses",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation Thresholds of Different Wood Species for Femtosecond Pulses",
         "citation": "Hossain, M. et al., Applied Physics A: Materials Science & Processing, 2018, DOI: 10.1007/s00339-018-1675-4",
         "context": "Natural willow wood (Salix alba, density 0.40 g/cm³), room temperature (20°C), 800 nm femtosecond laser (pulse duration 150 fs), measured under vacuum conditions",
         "confidence": 92,
-        "researched_date": "2025-11-24T12:29:42.142967",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:29:42.142967",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 150,
+        "description": "Optimal average power for Willow surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for 1064 nm fiber lasers in wood cleaning to balance efficiency and avoid charring; starting at 150 W for willow's low thermal conductivity (~0.15 W/mK) prevents substrate damage. Source: IPG Photonics YLR series specs and studies on laser wood surface treatment (e.g., Journal of Cultural Heritage, 2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength optimized for Willow absorption and minimal penetration",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning with adequate energy density",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter for precise cleaning on wood grains; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for uniform willow surface prep. Source: Equipment specs from Coherent and Trumpf laser systems."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Typical for pulsed cleaning to ensure coverage without excessive heat buildup in low-melting-point woods (willow ~250-300°C char point); higher rates speed up process but risk accumulation. 50 kHz balances speed and safety. Source: Academic literature on wood ablation (Journal of Applied Physics, 2017)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal effects",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 50,
+        "description": "Nanosecond regime preferred for 1064 nm cleaning of organics like willow to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 50 ns recommended for willow's reflectivity (~5-10% at 1064 nm). Source: Laser physics research in Applied Surface Science (2019)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for efficient area coverage and effective cleaning",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds for contaminant removal on porous woods like willow; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance. Source: Industry standards from Laserax equipment manuals and wood cleaning case studies (Optics and Lasers in Engineering, 2020)."
       },
       "passCount": {
-        "description": "Optimal number of passes for complete cleaning without excessive processing",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete removal on willow without overexposure. Source: Industry practice in heritage wood restoration case studies (Studies in Conservation, 2016)."
       },
       "overlapRatio": {
-        "description": "Beam overlap percentage for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage on irregular wood surfaces like willow; 30-50% for speed, 60-80% for thoroughness. 60% recommended to avoid gaps. Source: Process optimization in laser scanning studies (Procedia Manufacturing, 2019)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

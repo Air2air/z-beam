@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,18 +233,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "250",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "100",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "500",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -273,38 +257,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Passcount",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
       "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
@@ -312,39 +264,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "500",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "250",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
+      "name": "Machine Settings - Passcount",
       "value": "2",
       "unitText": "passes",
       "minValue": 1,
@@ -352,7 +272,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Overlapratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -360,10 +280,42 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Machine Settings - Energydensity",
+      "value": "2",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 20,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -377,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 250,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 100,
+      "value": 50,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -393,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 500,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -409,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -417,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -585,11 +537,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 500,
+        "description": "Optimal average power range for Fused Silica surface cleaning without thermal damage",
         "unit": "W",
         "value": 100,
-        "description": "Typical range for industrial Nd:YAG lasers cleaning delicate optics like fused silica to avoid thermal damage; starting at 100 W for light contamination removal. Max safe below substrate ablation threshold (~10 J/cm² fluence limit). Source: Manufacturer specs from IPG Photonics YLR series and academic review in Optics Express (2018) on laser cleaning of silica optics."
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength providing optimal absorption balance for Fused Silica contamination removal",
@@ -599,52 +551,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam spot diameter for precision cleaning with sufficient energy density",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "description": "Smaller spots (50-200 μm) for fine detail/precision on fused silica surfaces; larger (200-500 μm) for broad area prep. Recommended 200 μm for balanced resolution and efficiency at 1064 nm (high reflectivity ~4% for silica). Source: Equipment specifications from Coherent and Trumpf laser systems manuals.",
+        "value": 250
       },
       "frequency": {
-        "description": "High repetition rate for efficient cleaning coverage while maintaining thermal management",
-        "unit": "kHz",
-        "value": 100,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 50,
+        "description": "Typical 20-80 kHz for cleaning; higher rates speed up process but risk heat accumulation on low-conductivity fused silica (melting point ~1700°C). Recommended 50 kHz balances speed and safety. Source: Academic literature in Optics and Lasers in Engineering (2021) discussing trade-offs in pulsed laser cleaning."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient contaminant ablation with minimal substrate heating",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but higher cost. Typical 10-30 ns for fused silica to limit thermal diffusion given low thermal conductivity (~1.4 W/m·K). Recommended 20 ns. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects for dielectric materials.",
+        "value": 500
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage and process efficiency",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for uniform removal on fused silica. Source: Industry standards from Laser Cleaning Association guidelines and case studies in Journal of Applied Physics (2020)."
       },
       "passCount": {
-        "description": "Recommended number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination; multi-pass (2-3) for heavy layers to build fluence gradually without damage. Recommended 2 passes for fused silica industrial cleaning. Source: Industry practice in case studies from Surface and Coatings Technology (2022) on iterative laser processing."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap percentage for uniform cleaning without excessive energy deposition",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage; 50-70% typical for even energy distribution on transparent/low-absorbing fused silica. Recommended 60% to minimize gaps while avoiding overexposure. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -720,7 +672,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

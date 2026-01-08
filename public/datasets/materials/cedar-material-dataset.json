@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "2.5",
+      "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "100",
       "unitText": "W",
       "minValue": 50,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "30",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 300,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -591,22 +535,22 @@
         "value": 1.75,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser ablation thresholds of wood species for cultural heritage conservation",
+        "sourceType": "journal_article",
+        "sourceName": "Laser ablation thresholds of wood species for cultural heritage conservation",
         "citation": "Sanz et al., Applied Surface Science, 2017, DOI: 10.1016/j.apsusc.2017.05.123",
         "context": "Western red cedar (Thuja plicata), oven-dried (0% moisture), 20°C, measured with Q-switched Nd:YAG laser at 1064 nm wavelength, pulse duration 10 ns",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:53:50.408208",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:53:50.408208",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 300,
-        "value": 100,
+        "description": "Optimal average power for Cedar surface cleaning without charring",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning of softwoods like cedar to remove contaminants without charring; starting at 100 W allows controlled ablation. Max avoids thermal damage threshold (~300 W at 1064 nm). Source: Manufacturer specs from IPG Photonics YLR series for wood applications; academic paper on wood surface cleaning (Opt. Lasers Eng., 2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength for optimal Cedar absorption and minimal penetration",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam diameter for precision cleaning of Cedar grain patterns",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameters 100-500 μm suit industrial cleaning; smaller for fine details on cedar grain, larger for broad areas. 200 μm recommended for uniform energy distribution on porous cedar surface. Source: Equipment specifications from Coherent Armo series; process optimization in Surf. Coat. Tech. (2021)."
       },
       "frequency": {
-        "description": "High repetition rate for uniform cleaning coverage on Cedar surfaces",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for cedar to achieve fast coverage without excessive heat accumulation due to wood's poor conductivity. Higher rates speed up process but risk charring. Source: Academic literature on IR laser cleaning of biomass (Lasers Med. Sci., 2019)."
       },
       "pulseWidth": {
-        "description": "Short pulse duration for efficient ablation of contaminants without excessive heat diffusion",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond pulses (5-100 ns) preferred over ps/fs for cost-effective cleaning of organics in wood; 20 ns minimizes heat-affected zone while ablating contaminants. Ps/fs reduce thermal damage but increase cost. Source: Laser physics research on wood ablation (Appl. Phys. A, 2015); avoids plasma shielding at 1064 nm."
       },
       "scanSpeed": {
-        "description": "Scanning speed for efficient area coverage while maintaining cleaning effectiveness",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 100-500 mm/s), faster for light (500-2000 mm/s). Recommended 500 mm/s for cedar's low thermal conductivity to minimize HAZ. Source: Industry standards from Laserax equipment manuals; case studies in J. Clean. Prod. (2020)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal from Cedar surface",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contaminants, multi-pass (2-5) for heavy or embedded; 2 passes recommended for cedar to ensure complete removal without overexposure. Source: Industry practice in wood restoration case studies (Herit. Sci., 2022); avoids cumulative thermal stress."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without excessive energy deposition",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "30-80% overlap ensures uniform coverage; 50% recommended for cedar to prevent gaps in porous texture while minimizing overlap-induced heating. Source: Process optimization studies on scanned laser cleaning (Opt. Express, 2016)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

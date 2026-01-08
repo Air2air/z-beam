@@ -184,14 +184,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "30",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -201,18 +193,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "20",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -225,7 +209,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -233,7 +217,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "800",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -249,14 +233,22 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "30",
+      "value": "50",
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "30",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "50",
       "unitText": "W",
       "minValue": 10,
@@ -264,23 +256,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "30",
       "unitText": "kHz",
       "minValue": 1,
@@ -288,42 +264,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 50,
-      "minValue": 10,
-      "maxValue": 200,
+      "value": 30,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -337,7 +281,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -345,7 +289,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 20,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -353,7 +297,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -361,7 +305,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 800,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -377,7 +321,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 30,
+      "value": 50,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -462,94 +406,94 @@
         "value": 1.2,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser ablation of polyetheretherketone (PEEK) with femtosecond and nanosecond pulses",
+        "sourceType": "journal_article",
+        "sourceName": "Laser ablation of polyetheretherketone (PEEK) with femtosecond and nanosecond pulses",
         "citation": "Serafetinides et al., Applied Surface Science, 2001, DOI: 10.1016/S0169-4332(01)00457-5",
         "context": "Unfilled PEEK (Victrex 450G, 99.9% purity), room temperature (25°C), 800 nm wavelength, 150 fs pulse duration, measured via single-pulse ablation morphology",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:45:38.259540",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:45:38.259540",
+        "needsValidation": true
       },
       "ablationThreshold": {
         "value": 0.58,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation of PEEK for Biomedical Applications",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation of PEEK for Biomedical Applications",
         "citation": "Sauer, C., et al., Applied Surface Science, Vol. 346, 2015, DOI: 10.1016/j.apsusc.2015.04.045",
         "context": "Unfilled PEEK (Victrex 450G, 99.5% purity), 25°C, measured using 248 nm KrF excimer laser with pulse duration 25 ns",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:51:59.400473",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:51:59.400473",
+        "needsValidation": true
       },
       "thermalDiffusivity": {
         "value": 1.46e-07,
         "unit": "m²/s",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb - Online Materials Information Resource, Victrex USA Inc. PEEK 450G (Unreinforced), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4e2d7742e2b84c3a9d5f8e9b0a1c2d3e, accessed 2024",
         "context": "Unfilled PEEK (Victrex 450G, commercial grade), 23°C, dry condition, calculated for isotropic properties",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:52:10.863432",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:52:10.863432",
+        "needsValidation": true
       },
       "thermalExpansion": {
         "value": 4.7e-05,
         "unit": "10^{-6} K^{-1}",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb, Victrex PEEK 450G Polymer, Unreinforced, http://www.matweb.com/search/DataSheet.aspx?MatGUID=9f8b0a5a4b0e4b0a9f8b0a5a4b0e4b0a, accessed 2023",
         "context": "Unfilled PEEK (polyetheretherketone), 23-100°C temperature range, measured via thermomechanical analysis (TMA)",
         "confidence": 98,
-        "researched_date": "2025-11-24T12:56:29.737749",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:56:29.737749",
+        "needsValidation": true
       },
       "specificHeat": {
         "value": 1170.0,
         "unit": "J/(kg·K)",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb Materials Database, Victrex PEEK 450G Polymer, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4d5e5a5b0e4a4b0e9a5b0e9a5b0e9a5b, accessed 2023",
         "context": "Unfilled PEEK (polyether ether ketone), 23°C, measured via differential scanning calorimetry (DSC)",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:56:35.671131",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:56:35.671131",
+        "needsValidation": true
       },
       "thermalConductivity": {
         "value": 0.25,
         "unit": "W/m·K",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb LLC, Victrex PEEK 450G Polymer, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4e653adaa3d04a0a9f9a9d4b3e5f0b0e, accessed 2023",
         "context": "Unfilled PEEK (polyether ether ketone), 23°C, isotropic measurement via guarded hot plate method",
         "confidence": 100,
-        "researched_date": "2025-11-24T12:56:40.179008",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:56:40.179008",
+        "needsValidation": true
       },
       "laserReflectivity": {
         "value": 0.06,
         "unit": "%",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Polymer Engineering & Science",
+        "sourceType": "journal_article",
+        "sourceName": "Polymer Engineering & Science",
         "citation": "Bardon, J., et al., Laser transmission welding of PEEK: Influence of surface preparation and welding parameters, Polymer Engineering & Science, 2010, DOI: 10.1002/pen.21623",
         "context": "Unfilled PEEK (Victrex PEEK 450G, 99.5% purity), 25°C, 1064 nm Nd:YAG laser wavelength, normal incidence, measured via ellipsometry and spectrophotometry",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:57:51.142881",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:57:51.142881",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 10,
-        "max": 200,
-        "value": 50,
+        "value": 30,
         "unit": "W",
-        "description": "Typical range for polymer cleaning at 1064 nm to avoid thermal damage to PEEK (melting point ~343°C); starting at 50 W for light contamination. Max safe ~200 W based on low thermal conductivity. Source: IPG Photonics laser cleaning guidelines and studies on polymer ablation (e.g., J. Laser Appl. 2018)."
+        "description": "Low power for thermal-sensitive polymer cleaning",
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "value": 1064,
@@ -559,52 +503,52 @@
         "max": 10640
       },
       "spotSize": {
-        "value": 100,
-        "unit": "μm",
-        "description": "Larger spot for gentle surface treatment",
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter for precision vs. area coverage; smaller (100-200 μm) for fine surface prep on PEEK, larger for broad cleaning. Recommended 200 μm to control energy delivery. Source: Manufacturer specs (e.g., Coherent lasers) and equipment for polymer applications."
       },
       "frequency": {
-        "value": 20,
-        "unit": "kHz",
-        "description": "Lower frequency to prevent thermal damage",
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Common for cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation in PEEK due to poor thermal dissipation. Recommended 30 kHz for balance. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2020); trade-off noted for polymers."
       },
       "pulseWidth": {
-        "value": 10,
-        "unit": "ns",
-        "description": "Short pulses for minimal thermal impact",
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for PEEK to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. Typical 10-50 ns avoids excessive melting. Source: Laser physics research on polymer ablation (Opt. Express 2015); ns pulses reduce thermal diffusion in low-conductivity PEEK."
       },
       "scanSpeed": {
-        "value": 800,
-        "unit": "mm/s",
-        "description": "Fast scanning to reduce heat accumulation",
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds for contamination removal; slower (500-1000 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light. Recommended 1500 mm/s for PEEK to balance cleaning efficiency and heat minimization. Source: CleanLaser equipment manuals and industry standards (ISO 11553)."
       },
       "passCount": {
+        "min": 1,
+        "max": 10,
         "value": 2,
         "unit": "passes",
-        "description": "Multiple gentle passes for gradual cleaning",
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; recommended 2 passes for complete PEEK cleaning without overexposure. Source: Industry case studies on polymer surface preparation (Laser Tech. J. 2019); minimizes cumulative heat."
       },
       "overlapRatio": {
-        "value": 30,
-        "unit": "%",
-        "description": "Lower overlap to prevent overheating",
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 30-50% for speed, 50-80% for thoroughness on irregular PEEK surfaces. Recommended 50% to avoid gaps while preventing overheating. Source: Process optimization studies (Opt. Lasers Eng. 2021); standard for scanned laser cleaning."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -680,7 +624,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

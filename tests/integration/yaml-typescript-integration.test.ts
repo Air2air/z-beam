@@ -50,14 +50,15 @@ describe('YAML → TypeScript Integration', () => {
       }
     });
 
-    it('should have machine_settings property (not machineSettings)', () => {
+    it('should have machineSettings property (camelCase standard)', () => {
       const invalidFiles: string[] = [];
       
       for (const file of settingsFiles) {
         const content = fs.readFileSync(file, 'utf8');
         const data = yaml.load(content) as any;
         
-        if (data.machineSettings && !data.machine_settings) {
+        // Expect camelCase (JavaScript/TypeScript standard)
+        if (data.machine_settings && !data.machineSettings) {
           invalidFiles.push(path.basename(file));
         }
       }
@@ -65,7 +66,7 @@ describe('YAML → TypeScript Integration', () => {
       expect(invalidFiles).toEqual([]);
     });
 
-    it('should have valid machine_settings structure', () => {
+    it('should have valid machineSettings structure', () => {
       const requiredParams = [
         'powerRange',
         'wavelength',
@@ -81,12 +82,13 @@ describe('YAML → TypeScript Integration', () => {
         const content = fs.readFileSync(file, 'utf8');
         const data = yaml.load(content) as any;
         
-        if (data.machine_settings) {
+        // Check camelCase property
+        if (data.machineSettings) {
           for (const param of requiredParams) {
-            if (data.machine_settings[param]) {
-              expect(data.machine_settings[param]).toHaveProperty('description');
-              expect(data.machine_settings[param]).toHaveProperty('unit');
-              expect(data.machine_settings[param]).toHaveProperty('value');
+            if (data.machineSettings[param]) {
+              expect(data.machineSettings[param]).toHaveProperty('description');
+              expect(data.machineSettings[param]).toHaveProperty('unit');
+              expect(data.machineSettings[param]).toHaveProperty('value');
             }
           }
         }

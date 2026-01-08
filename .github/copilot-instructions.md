@@ -1745,7 +1745,221 @@ If you create a "fix script" that patches frontmatter files directly, the fix wi
 
 ---
 
-## 📋 Summary Checklist for Every Task
+## � **INVESTIGATING DEEP ARCHITECTURAL PROBLEMS** 🔥 **NEW (Jan 7, 2026)**
+
+When facing complex systemic issues (build failures, type errors, data flow problems), use this comprehensive investigation framework to diagnose and understand architectural problems.
+
+### **🎯 Core Investigation Principles**
+
+1. **"Show, Don't Tell"** - Always request specific evidence:
+   - ❌ VAGUE: "Check if there are any errors"
+   - ✅ SPECIFIC: "Show me the exact error message with file path and line number from the Vercel build log"
+
+2. **Multi-Layer Analysis** - Examine all architectural layers:
+   - Data flow: Where does data originate → transform → display?
+   - Error handling: How are failures propagated and logged?
+   - Type safety: What interfaces govern data contracts?
+   - Performance: What are N+1 query patterns or bottlenecks?
+
+3. **Evidence-Based Diagnosis** - Verify every hypothesis:
+   - Test actual behavior vs. documentation claims
+   - Measure success rates (10% ≠ "saves all attempts")
+   - Check terminal output for what really happens
+   - Run verification tests before claiming understanding
+
+4. **Root Cause Chains** - Trace problems to their source:
+   - Surface symptom → Immediate cause → Underlying architecture
+   - Example: "Error: e.map is not a function" → Promise rejection → camelCase vs snake_case mismatch → property normalization script
+
+### **📋 Comprehensive Investigation Request Template**
+
+Use this template for deep architectural investigations:
+
+```
+I need a comprehensive architectural analysis of [SYSTEM/COMPONENT].
+
+**Context**: [Brief description of the problem/goal]
+
+**Investigation Layers**:
+
+1. DATA FLOW ANALYSIS:
+   - Trace data from source (YAML/database/API) to UI display
+   - Identify all transformation points
+   - Show actual data structures at each stage (with examples)
+   - Document where data shape changes occur
+
+2. ERROR HANDLING REVIEW:
+   - Current error handling patterns (Promise.all vs allSettled)
+   - Where errors are caught vs. propagated
+   - Logging mechanisms (console, file, terminal)
+   - Silent failure points (try-catch without logging)
+
+3. TYPE SAFETY AUDIT:
+   - TypeScript interfaces governing data contracts
+   - Where type assertions bypass safety
+   - Optional vs required fields in practice
+   - Type mismatches between layers (API → component → display)
+
+4. PERFORMANCE ANALYSIS:
+   - N+1 query patterns (fetching in loops)
+   - Unnecessary data enrichment
+   - Build-time vs runtime data fetching
+   - Static generation opportunities
+
+5. BEST PRACTICES COMPLIANCE:
+   - Alignment with Next.js 15 / Vercel standards
+   - Promise handling patterns (prefer allSettled)
+   - Error boundary implementation
+   - Fail-fast vs graceful degradation decisions
+
+6. ROOT CAUSE CHAIN:
+   - Surface symptom: [what user sees]
+   - Immediate cause: [direct technical failure]
+   - Underlying issue: [architectural mismatch]
+   - Systemic pattern: [recurring design problem]
+
+**Deliverables**:
+- Evidence-based findings with file paths and line numbers
+- Comparison: current state vs recommended architecture
+- Specific, actionable recommendations with priorities
+- Impact assessment for each proposed change
+- Migration path if significant refactoring needed
+```
+
+### **🔬 Specific Investigation Techniques**
+
+#### **Data Flow Tracing**
+```
+"Trace the complete data flow for [FEATURE]:
+1. Where does the data originate? (file path, format)
+2. What transformations occur? (normalization scripts, helpers)
+3. Where is it enriched? (API calls, computed properties)
+4. How is it consumed? (component props, rendering logic)
+5. Show actual data structure at each stage with examples"
+```
+
+#### **Error Pattern Analysis**
+```
+"Analyze error handling patterns in [COMPONENT/SYSTEM]:
+1. Show all try-catch blocks with context
+2. Identify Promise.all() vs Promise.allSettled() usage
+3. Find silent failures (catch without logging)
+4. Document error propagation paths
+5. Assess: Are we failing fast or degrading gracefully?
+6. Compare against documented error handling policy"
+```
+
+#### **Type Contract Verification**
+```
+"Audit type safety for [DATA STRUCTURE]:
+1. Show TypeScript interface definition
+2. Find all places this type is used
+3. Identify type assertions or 'any' bypasses
+4. Compare: interface vs actual runtime data
+5. Document mismatches (missing fields, wrong types)
+6. Trace property naming conventions (camelCase vs snake_case)"
+```
+
+#### **Build-Time Optimization Review**
+```
+"Analyze build-time data fetching for [PAGES]:
+1. What data is fetched during static generation?
+2. Is enrichment necessary or over-engineered?
+3. Are there N+1 query patterns in loops?
+4. What's the minimum data needed for static props?
+5. Can we defer non-critical enrichment to client-side?
+6. Estimate: Current vs optimized build times"
+```
+
+### **⚡ Investigation Anti-Patterns to Avoid**
+
+❌ **Assumption-Based Diagnosis**
+```
+BAD: "The error is probably caused by..."
+GOOD: "I tested with material X and confirmed the error occurs at line Y when Z is undefined"
+```
+
+❌ **Surface-Level Fixes Without Root Cause**
+```
+BAD: "Added .catch(() => []) to suppress the error"
+GOOD: "Error occurs because Promise.all fails when any enrichment fails. Fixed with Promise.allSettled to handle individual failures properly."
+```
+
+❌ **Documentation Without Verification**
+```
+BAD: "Feature X is implemented" (no test proves it)
+GOOD: "test_feature_x_works() passes with 100% success rate across 10 materials"
+```
+
+❌ **Ignoring Metrics That Contradict Claims**
+```
+BAD: "Option C saves all attempts" (10% success rate)
+GOOD: "10% success rate proves quality gates are still active. Option C is NOT working as documented."
+```
+
+### **🎓 Real-World Investigation Example**
+
+**Problem**: "TypeError: e.map is not a function" on 159+ material pages during Vercel build
+
+**Investigation Process**:
+1. **Evidence Collection**: Build log shows 612 error occurrences, all in MaterialsLayout component
+2. **Data Flow Tracing**: Contaminant relationships → getContaminatedBy() → Promise.all enrichment → CardGrid
+3. **Error Pattern Analysis**: Promise.all().catch(() => []) silently swallows individual failures
+4. **Type Contract Verification**: Helper checks snake_case (contaminated_by) but YAML has camelCase (contaminatedBy)
+5. **Root Cause Chain**: Property normalization script → camelCase conversion → helper mismatch → undefined array → .map() fails
+6. **Solution Validation**: Switched to Promise.allSettled, updated helper for both cases, grep confirms zero TypeErrors
+
+**Key Insight**: Surface symptom (.map on undefined) was masking architectural issue (property naming inconsistency from normalization)
+
+### **📊 Investigation Success Criteria**
+
+A successful investigation should produce:
+
+✅ **Evidence-Based Findings**
+- File paths and line numbers for every claim
+- Terminal output or test results proving behavior
+- Data samples showing actual vs expected structures
+- Metrics (success rates, error counts, build times)
+
+✅ **Complete Understanding**
+- Can explain the system to someone else
+- Identified root cause, not just symptoms
+- Documented cascading effects of changes
+- Understand why current approach was chosen
+
+✅ **Actionable Recommendations**
+- Prioritized by impact and effort
+- Specific code changes with examples
+- Migration path for breaking changes
+- Test strategy to verify fixes
+
+✅ **Honest Assessment**
+- Acknowledge what's still unknown
+- Document limitations of proposed solutions
+- Identify tradeoffs (complexity vs performance)
+- Call out architectural debt if present
+
+### **🚀 When to Use Comprehensive Investigation**
+
+Use this framework when:
+- 🔴 **Systemic failures** affecting multiple components
+- 🔴 **Build errors** with unclear root causes
+- 🔴 **Data flow confusion** across architectural layers
+- 🔴 **Type mismatches** between interfaces and runtime
+- 🔴 **Performance degradation** (slow builds, N+1 queries)
+- 🔴 **Documentation contradicts** actual behavior
+- 🔴 **Repeated failures** of the same type
+- 🔴 **Architectural decisions** need validation
+
+**Do NOT use for**:
+- ✅ Simple bug fixes with obvious causes
+- ✅ Single-file logic errors
+- ✅ Straightforward feature additions
+- ✅ Well-documented procedures (follow guides instead)
+
+---
+
+## �📋 Summary Checklist for Every Task
 
 **Before I start:**
 - [ ] I understand the exact request

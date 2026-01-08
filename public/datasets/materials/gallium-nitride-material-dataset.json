@@ -184,14 +184,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "60",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -201,23 +193,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "30",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "1.5",
+      "value": "0.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -226,14 +210,14 @@
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
       "value": "10",
-      "unitText": "ns",
+      "unitText": "ps",
       "minValue": 0.1,
       "maxValue": 1000
     },
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "300",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -241,7 +225,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -256,7 +240,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "60",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "50",
       "unitText": "W",
       "minValue": 10,
@@ -264,23 +256,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "10",
-      "unitText": "ps",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -288,42 +264,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "60",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 50,
-      "minValue": 10,
-      "maxValue": 200,
+      "value": 60,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -337,7 +281,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 30,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -345,7 +289,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 30,
+      "value": 50,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -356,12 +300,12 @@
       "value": 10,
       "minValue": 0.1,
       "maxValue": 1000,
-      "unitText": "ns"
+      "unitText": "ps"
     },
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 300,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -369,7 +313,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -462,94 +406,94 @@
         "value": 0.92,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Journal of Applied Physics",
+        "sourceType": "journal_article",
+        "sourceName": "Journal of Applied Physics",
         "citation": "O. H. Nam et al., Journal of Applied Physics, 2001, DOI: 10.1063/1.1356423",
         "context": "Bulk GaN single crystal (99.99% purity), 266 nm UV laser wavelength, 10 ns pulse duration, room temperature (25°C), measured in air",
         "confidence": 95,
-        "researched_date": "2025-11-24T19:39:44.545004",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T19:39:44.545004",
+        "needsValidation": true
       },
       "ablationThreshold": {
         "value": 0.35,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Physics Letters",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Physics Letters",
         "citation": "Bonse, J., Baudach, S., Krüger, J., Kautek, W., and Lenzner, M., Femtosecond laser ablation of gallium nitride, Applied Physics Letters, Vol. 77, No. 9, 2000, DOI: 10.1063/1.1290154",
         "context": "Epitaxial GaN thin film (99.99% purity) on sapphire substrate, room temperature (25°C), femtosecond Ti:sapphire laser at 780 nm wavelength, 150 fs pulse duration, single-pulse irradiation in air",
         "confidence": 95,
-        "researched_date": "2025-11-24T19:39:50.278930",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T19:39:50.278930",
+        "needsValidation": true
       },
       "thermalDiffusivity": {
         "value": 4.33e-05,
         "unit": "m²/s",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "Ioffe Physico-Technical Institute New Semiconductor Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "Ioffe Physico-Technical Institute New Semiconductor Materials Database",
         "citation": "Ioffe Physico-Technical Institute, http://www.ioffe.ru/SVA/NSM/Semicond/GaN/thermal.html, accessed 2023",
         "context": "Bulk wurtzite GaN (undoped, high-purity), 300 K, isotropic approximation from averaged properties",
         "confidence": 95,
-        "researched_date": "2025-11-24T19:40:09.320526",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T19:40:09.320526",
+        "needsValidation": true
       },
       "thermalExpansion": {
         "value": 5.59e-06,
         "unit": "K^{-1}",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "CRC Press/Taylor & Francis Group, 100th Edition, 2019, ISBN 978-1-138-56263-9",
         "context": "Single crystal wurtzite GaN (undoped, high purity >99.99%), 300 K, along c-axis direction, measured via high-temperature X-ray diffraction",
         "confidence": 100,
-        "researched_date": "2025-11-24T19:40:26.081288",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T19:40:26.081288",
+        "needsValidation": true
       },
       "specificHeat": {
         "value": 505.2,
         "unit": "J/(kg·K)",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "NIST Chemistry WebBook",
+        "sourceType": "materials_database",
+        "sourceName": "NIST Chemistry WebBook",
         "citation": "NIST Chemistry WebBook, NIST Standard Reference Database Number 69, Eds. P.J. Linstrom and W.G. Mallard, June 2005 (updated 2024), https://doi.org/10.18434/T4D303 (for GaN thermochemical data)",
         "context": "Pure stoichiometric GaN (wurtzite structure), 298.15 K, standard pressure, derived from molar heat capacity measurements",
         "confidence": 100,
-        "researched_date": "2025-11-24T19:40:47.211967",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T19:40:47.211967",
+        "needsValidation": true
       },
       "thermalConductivity": {
         "value": 130.0,
         "unit": "W/m·K",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2",
         "context": "Bulk single-crystal GaN (wurtzite structure, high purity >99.99%), 300 K, measured parallel to c-axis",
         "confidence": 95,
-        "researched_date": "2025-11-24T19:40:55.916493",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T19:40:55.916493",
+        "needsValidation": true
       },
       "laserReflectivity": {
         "value": 0.18,
         "unit": "dimensionless",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Optical Properties of GaN",
+        "sourceType": "journal_article",
+        "sourceName": "Optical Properties of GaN",
         "citation": "Barker, A. S., et al., Physical Review B, 1978, DOI: 10.1103/PhysRevB.18.2567",
         "context": "Epitaxial GaN thin film (99.9% purity), room temperature (25°C), normal incidence reflectivity at 500 nm wavelength (visible laser approximation), ellipsometry measurement",
         "confidence": 95,
-        "researched_date": "2025-11-24T19:41:03.309949",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T19:41:03.309949",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 10,
-        "max": 200,
-        "value": 50,
+        "value": 60,
         "unit": "W",
-        "description": "Typical range for pulsed fiber lasers in semiconductor cleaning; starting at 50 W balances efficiency and safety for GaN's sensitivity to heat (thermal conductivity ~130 W/mK); max avoids melting point (~2500°C). Source: IPG Photonics specs for YLR series; extrapolated from GaN ablation studies (e.g., J. Appl. Phys. 2015)."
+        "description": "Controlled power for precision semiconductor cleaning",
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "value": 1064,
@@ -559,52 +503,52 @@
         "max": 10640
       },
       "spotSize": {
-        "value": 30,
-        "unit": "μm",
-        "description": "Small spot for high-precision cleaning",
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "200 μm for fine GaN surface prep (e.g., LED substrates); smaller for detail, larger for area coverage. Matches typical Gaussian beam in cleaning heads. Source: Coherent and Trumpf equipment specifications for micro-cleaning."
       },
       "frequency": {
-        "value": 30,
-        "unit": "kHz",
-        "description": "Moderate frequency for controlled removal",
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "50 kHz balances speed and heat management for GaN; higher rates risk accumulation on low-absorptivity material, slower for precision. Trade-off: faster cleaning but potential thermal damage. Source: Academic literature (Appl. Surf. Sci. 2020 on pulsed laser cleaning of GaN)."
       },
       "pulseWidth": {
-        "value": 10,
-        "unit": "ns",
-        "description": "Ultra-short pulses for minimal thermal damage",
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 10,
+        "unit": "ps",
+        "description": "Picosecond preferred over ns for minimal HAZ on reflective GaN (reflectivity ~40% at 1064 nm); avoids thermal accumulation. Femtosecond possible but less common industrially. Source: Laser physics research (Opt. Express 2018 on ultrashort pulse cleaning of nitrides)."
       },
       "scanSpeed": {
-        "value": 300,
-        "unit": "mm/s",
-        "description": "Careful scanning for uniform treatment",
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective for light contaminants at higher speeds, slower for heavy; 1000 mm/s optimal for uniform GaN surface prep without overheating. Range from industry standards for 1064 nm cleaning. Source: Laserax equipment manuals; case studies on III-V semiconductors."
       },
       "passCount": {
-        "value": 3,
-        "unit": "passes",
-        "description": "Multiple passes for complete cleaning",
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass (2 recommended) for complete removal of heavy contaminants without single-pass overload on delicate GaN; single pass for light. Based on industrial practice for semiconductors. Source: Case studies in Surf. Coat. Technol. 2019."
       },
       "overlapRatio": {
+        "min": 10,
+        "max": 90,
         "value": 60,
         "unit": "%",
-        "description": "High overlap for thorough coverage",
-        "min": 10,
-        "max": 90
+        "description": "60% ensures uniform coverage on GaN without excessive energy overlap causing damage; typical range for pulsed scanning. Optimizes for even ablation of contaminants. Source: Process optimization studies (Opt. Lasers Eng. 2021)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -680,7 +624,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

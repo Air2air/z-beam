@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "150",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5",
+      "value": "0.3",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "30",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -289,7 +273,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "50",
       "unitText": "W",
       "minValue": 10,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "30",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "30",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.3",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "150",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 50,
-      "minValue": 10,
-      "maxValue": 200,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 150,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 30,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -591,22 +535,22 @@
         "value": 0.65,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser ablation thresholds of common polymers for nanosecond pulsed laser processing",
+        "sourceType": "journal_article",
+        "sourceName": "Laser ablation thresholds of common polymers for nanosecond pulsed laser processing",
         "citation": "Pérez-Hernández, J.A. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123",
         "context": "Unplasticized PVC (uPVC, 99% purity), 25°C, 355 nm Nd:YAG laser, 10 ns pulse duration, vacuum environment",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:07:30.995574",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:07:30.995574",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 10,
-        "max": 200,
-        "value": 50,
+        "description": "Optimal average power for PVC cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for polymer cleaning to avoid thermal damage; starting at 50 W for PVC's low melting point (~160°C); max safe ~150 W to prevent substrate melting. Source: IPG Photonics specs for fiber lasers in polymer applications; studies in Optics and Lasers in Engineering (2018) on PVC ablation."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for optimal PVC absorption and minimal substrate damage",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise PVC cleaning",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 150,
+        "description": "Beam diameter for effective coverage; smaller (50-100 μm) for fine details, larger (200-300 μm) for broad areas; 150 μm recommended for uniform PVC surface preparation without pinpoint damage. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient PVC removal",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning; 20-50 kHz recommended for PVC to achieve fast processing while limiting heat accumulation from low reflectivity (~5-10% at 1064 nm); higher rates increase speed but risk thermal buildup. Source: Academic literature in Optics Express (2021) on repetition rate effects in polymer laser cleaning."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled PVC ablation",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 30,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for industrial cleaning of polymers to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond for ultra-precision but costlier; 30 ns optimal for PVC to enable photothermal ablation without excessive melting. Source: Laser physics research in Applied Surface Science (2019) on polymer thresholds; avoids fs/ps due to equipment availability."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform PVC removal",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective for contamination removal without overheating; slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light; recommended 1000 mm/s balances efficiency and safety for PVC's poor thermal conductivity. Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cleaner Production (2020)."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete PVC removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-4) for heavy; 2 passes recommended for complete PVC cleaning to ensure removal without cumulative heat damage. Source: Industry practice in case studies from Surface and Coatings Technology (2022); avoids excessive passes due to PVC's heat sensitivity."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform PVC cleaning",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or over-ablation; 50% optimal for PVC to prevent uneven heating and maintain surface integrity during scanning. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020); typical 30-80% range for polymer applications."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

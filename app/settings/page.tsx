@@ -14,7 +14,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 export const dynamic = 'force-static';
-export const revalidate = false;
+export const revalidate = process.env.NODE_ENV === 'production' ? 3600 : false; // 1 hour ISR in production
 
 // SEO metadata generation
 export async function generateMetadata() {

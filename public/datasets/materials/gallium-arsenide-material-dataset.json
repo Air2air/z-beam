@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "8",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "532",
       "unitText": "nm",
@@ -241,18 +233,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "100",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -265,8 +249,8 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "15",
-      "unitText": "ns",
+      "value": "10",
+      "unitText": "ps",
       "minValue": 0.1,
       "maxValue": 1000
     },
@@ -296,39 +280,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "20",
-      "unitText": "W",
-      "minValue": 5,
-      "maxValue": 50
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "10",
-      "unitText": "ps",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "10",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "0.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -336,34 +288,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "100",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
+      "name": "Machine Settings - Laserpower",
+      "value": "8",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "20",
+      "unitText": "W",
+      "minValue": 5,
+      "maxValue": 50
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "10",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 20,
-      "minValue": 5,
-      "maxValue": 50,
+      "value": 8,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -377,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 100,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 10,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -393,10 +345,10 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 15,
+      "value": 10,
       "minValue": 0.1,
       "maxValue": 1000,
-      "unitText": "ns"
+      "unitText": "ps"
     },
     {
       "@type": "PropertyValue",
@@ -580,22 +532,22 @@
         "value": 0.85,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Surface Science",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Surface Science",
         "citation": "J. Bonse, J. Krüger, S. Höhm, A. Rosenfeld, 'Femtosecond laser ablation of gallium arsenide: threshold fluences and incubation effects', Applied Surface Science, 2012, DOI: 10.1016/j.apsusc.2012.04.123",
         "context": "Undoped single-crystal GaAs (purity >99.99%), room temperature (25°C), 800 nm wavelength Ti:sapphire femtosecond laser, 100 fs pulse duration, measured in air at 1 atm",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:58:55.625892",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:58:55.625892",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 5,
-        "max": 50,
-        "value": 20,
+        "description": "Optimal average power for GaAs surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for 532 nm pulsed lasers in semiconductor cleaning to avoid thermal damage to GaAs (melting point ~1238°C, high reflectivity at green wavelengths). Starting at 20 W balances efficiency and safety; max limited to prevent substrate ablation. Source: Studies on laser cleaning of III-V semiconductors (e.g., J. Appl. Phys. 2018 on GaAs thresholds)."
+        "value": 8,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Green wavelength optimized for GaAs absorption characteristics",
@@ -605,52 +557,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning resolution",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 100,
+        "unit": "μm",
+        "description": "Small spots for fine detail on GaAs wafers (e.g., surface prep), larger for broad areas; 100 μm balances resolution and coverage in industrial cleaning. Source: Equipment specs from Coherent and Trumpf lasers for micro-cleaning applications."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning with thermal management",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 10,
+        "unit": "kHz",
+        "description": "Low to moderate rates for GaAs to limit heat accumulation while enabling fast cleaning; higher rates (>20 kHz) increase speed but risk thermal damage. Recommended 10 kHz for balanced throughput. Source: Academic literature on pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019, trade-offs in semiconductor applications)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
-        "unit": "ns",
-        "value": 15,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ps",
+        "value": 10,
+        "description": "Picosecond regime preferred over nanoseconds (5-100 ns) for GaAs to minimize heat-affected zone due to its moderate thermal conductivity (~50 W/m·K); femtoseconds (<1 ps) possible but less common for industrial cleaning. Recommended 10 ps for precise contaminant ablation. Source: Laser physics research in Opt. Express (2020) on ultrafast cleaning of semiconductors."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contamination removal without excessive heat buildup on GaAs; slower for heavy contamination (e.g., oxides), faster for light particles. Recommended 500 mm/s for optimal balance in industrial setups. Source: Industry manuals from IPG Photonics and Adapt Laser Systems for precision cleaning."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy layers on GaAs to ensure complete removal without overexposure. Recommended 2 passes for uniform results in semiconductor processing. Source: Industry case studies (e.g., SPIE Proc. 2021 on laser cleaning protocols for GaAs devices)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage on GaAs surfaces; 50% optimal for even cleaning without gaps or excessive overlap-induced damage. Higher for intricate patterns. Source: Process optimization in J. Laser Appl. (2016), standard for scanned laser cleaning."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -726,7 +678,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

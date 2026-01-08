@@ -192,14 +192,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "45",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -209,18 +201,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -233,7 +217,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "15",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -241,7 +225,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -249,7 +233,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -264,39 +248,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 300
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -304,34 +256,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
+      "name": "Machine Settings - Laserpower",
+      "value": "45",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 300
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 100,
-      "minValue": 50,
-      "maxValue": 300,
+      "value": 45,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -345,7 +297,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -353,7 +305,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -361,7 +313,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 15,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -369,7 +321,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -377,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -515,22 +467,22 @@
         "value": 7.41e-06,
         "unit": "m²/s",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2",
         "context": "Pure Terbium (99.99% purity), 298 K, polycrystalline form, standard conditions",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:27:49.050075",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:27:49.050075",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 300,
-        "value": 100,
+        "description": "Optimal average power for Terbium oxide layer removal",
         "unit": "W",
-        "description": "Typical range for Nd:YAG laser cleaning of reflective metals; starting at 100W to balance ablation and heat input. Terbium's low thermal conductivity (~11 W/mK) requires conservative power to avoid melting (mp 1356°C). Source: Extrapolated from metal cleaning studies (e.g., Kumar et al., Opt. Lasers Eng. 2018); manufacturer specs like IPG Photonics YLR series limit max to prevent substrate damage."
+        "value": 45,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for optimal Terbium absorption",
@@ -540,52 +492,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter for precise cleaning; smaller for fine details, larger for broad areas. 200 μm recommended for Terbium surface preparation to ensure uniform fluence without over-focusing heat. Source: Equipment specifications from Coherent and Trumpf laser systems; optimized for metal reflectivity in industrial applications."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity materials like Terbium. 30 kHz balances efficiency and safety. Trade-off: >50 kHz may cause subsurface heating. Source: Academic literature on Nd:YAG cleaning (e.g., Lee et al., J. Phys. D 2015); adapted for rare earth metals."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation",
-        "unit": "ns",
-        "value": 15,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for industrial cleaning to achieve plasma-mediated ablation with minimal HAZ; picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended for Terbium to limit thermal diffusion. Source: Laser physics research on metal ablation (e.g., Ancona et al., Appl. Surf. Sci. 2010); avoids fs due to Terbium's reflectivity at 1064 nm."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contamination removal on metals; higher for light contaminants (e.g., oxides), lower for heavy. Recommended 1500 mm/s for Terbium to minimize heat-affected zone (HAZ) due to poor thermal dissipation. Source: Industry standards from Laser Clean Corp. manuals; case studies on rare earth alloys (e.g., J. Laser Appl. 2020)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete oxide removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for complete Terbium cleaning without excessive exposure. Multi-pass allows lower fluence per pass to protect soft substrate. Source: Industry practice from case studies on alloy cleaning (e.g., Proc. SPIE 2019); Terbium's malleability favors fewer passes."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for complete coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 50% recommended for Terbium to avoid gaps or over-ablation, balancing speed and efficacy. Higher (70-80%) for heavy contaminants. Source: Process optimization studies (e.g., Katayama et al., J. Laser Micro/Nanoeng. 2012); standard for scanned laser cleaning of metals."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -661,7 +613,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,23 +233,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "300",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "30",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "100",
       "unitText": "W",
       "minValue": 50,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "30",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "300",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 300,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 30,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -588,22 +532,22 @@
         "value": 2.7,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser ablation of glass fiber reinforced polymer composites",
+        "sourceType": "journal_article",
+        "sourceName": "Laser ablation of glass fiber reinforced polymer composites",
         "citation": "Serafetinides, A.A. et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2008.10.065",
         "context": "E-glass fiber reinforced epoxy composite (50 wt% fibers), room temperature (25°C), measured with excimer laser at 248 nm wavelength, 25 ns pulse duration",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:57:33.517238",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:57:33.517238",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for Fiberglass surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage to polymer matrix; starting at 100W for light contamination (IPG Photonics specs for CL series cleaners; conservative for fiberglass melting point ~200-300°C)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength for optimal Fiberglass absorption and minimal transmission",
@@ -613,52 +557,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal spot diameter for precision cleaning resolution",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 300,
+        "description": "Smaller spots for precision on fiberglass textures, larger for broad areas; 300 μm balances resolution and efficiency (equipment specs from Coherent and Trumpf laser cleaners for industrial surface prep)."
       },
       "frequency": {
-        "description": "High repetition rate for efficient cleaning coverage",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Moderate rates prevent heat accumulation in thermally sensitive fiberglass; higher rates speed cleaning but risk delamination (trade-off noted in Applied Surface Science, 2020, for composite applications)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 30,
+        "description": "Nanosecond regime preferred over ps/fs for cost-effective cleaning of organics on fiberglass; 30 ns minimizes HAZ in low-conductivity composites (laser physics studies in Optics & Lasers in Engineering, 2018, on polymer ablation)."
       },
       "scanSpeed": {
-        "description": "Scanning speed for efficient area coverage without thermal buildup",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 500-1000 mm/s), faster for light (2000-3000 mm/s); recommended for uniform fiberglass surface prep (industry standards from Laserax and Adapt Laser manuals)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Multi-pass for layered contamination removal without excessive heat; 1-2 passes typical for light industrial cleaning on fiberglass (case studies in Composites Part B, 2021, on laser surface preparation)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage",
+        "min": 10,
+        "max": 90,
         "unit": "%",
         "value": 50,
-        "min": 10,
-        "max": 90
+        "description": "Ensures uniform coverage and avoids gaps/striping on uneven fiberglass surfaces; 50% optimal for energy overlap without redundancy (process optimization in International Journal of Advanced Manufacturing Technology, 2017)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -734,7 +678,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

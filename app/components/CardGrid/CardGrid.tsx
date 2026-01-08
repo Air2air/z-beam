@@ -38,7 +38,7 @@ const DEFAULT_CATEGORY_ORDER = [
 ];
 
 export function CardGrid({
-  items = [],
+  items: rawItems = [],
   slugs = [],
   searchResults = [],
   title,
@@ -60,6 +60,15 @@ export function CardGrid({
   
   // Use custom card component if provided, otherwise default to Card
   const CardComponent = CustomCard || Card;
+  
+  // Normalize items at entry point (defensive programming)
+  const items = useMemo(() => {
+    if (!rawItems || !Array.isArray(rawItems)) {
+      console.warn('[CardGrid] Received non-array items:', typeof rawItems);
+      return [];
+    }
+    return rawItems.filter(item => item != null && typeof item === 'object');
+  }, [rawItems]);
   
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');

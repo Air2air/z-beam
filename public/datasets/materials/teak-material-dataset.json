@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "45",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,23 +233,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "500",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "2.8",
+      "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "2000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -289,7 +273,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "40",
+      "value": "50",
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "45",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "100",
       "unitText": "W",
       "minValue": 50,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "2000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "500",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 100,
-      "minValue": 50,
-      "maxValue": 300,
+      "value": 45,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 500,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 2000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 40,
+      "value": 50,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +535,22 @@
         "value": 2.8,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation Thresholds for Tropical Hardwoods in Conservation Applications",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation Thresholds for Tropical Hardwoods in Conservation Applications",
         "citation": "Hernandez et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005",
         "context": "Teak wood (Tectona grandis, density 650 kg/m³, natural moisture content 12%), 1064 nm Nd:YAG laser, 10 ns pulse duration, room temperature (25°C), atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:27:16.436260",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:27:16.436260",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 300,
+        "description": "Optimal average power for Teak surface cleaning without charring",
         "unit": "W",
-        "value": 100,
-        "description": "Typical range for industrial Nd:YAG lasers cleaning organic contaminants from wood; starting at 100 W balances efficiency and safety to avoid charring Teak's low thermal conductivity surface (e.g., manufacturer specs from IPG Photonics and studies in Optics and Lasers in Engineering, 2018). Maximum limited to prevent substrate damage."
+        "value": 45,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for optimal absorption in Teak lignin and contaminants",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning resolution",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 500,
+        "description": "Beam diameter for uniform cleaning; 500 μm recommended for Teak surface preparation, balancing fine detail (smaller spots for precision) and large-area efficiency (larger for broad coverage); per equipment specs (e.g., Coherent Inc. lasers and industry standards)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning with thermal management",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Common for pulsed laser cleaning of organics; 50 kHz recommended for Teak to achieve fast cleaning with controlled heat accumulation; higher rates (>80 kHz) speed up process but risk thermal buildup on low-conductivity wood (e.g., academic literature in Lasers in Engineering, 2021)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for Teak to minimize heat-affected zone (HAZ) while ablating contaminants; picosecond (ps) or femtosecond (fs) reduce thermal damage further but are costlier; 20 ns typical for wood cleaning (e.g., laser physics research in Applied Surface Science, 2019). Avoid fs for industrial scale due to complexity."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective speeds for 1064 nm cleaning of wood; recommended 2000 mm/s for optimal contaminant removal without excessive heat buildup on Teak; lower for heavy contamination (500-1000 mm/s), higher for light (3000-5000 mm/s) per industry standards (e.g., Laserax equipment manuals and Journal of Applied Physics, 2020)."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete surface cleaning",
+        "min": 1,
+        "max": 10,
         "unit": "passes",
         "value": 2,
-        "min": 1,
-        "max": 10
+        "description": "Typically 1-3 passes for light contaminants, up to 5 for heavy; 2 passes recommended for complete Teak cleaning to ensure removal without overexposure; multi-pass preferred over single for uniform results (e.g., industry case studies in Wood Science and Technology, 2022)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning pattern",
-        "unit": "%",
-        "value": 40,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 50,
+        "description": "Ensures uniform coverage in scan patterns; 50% recommended for Teak to avoid gaps or over-etching while minimizing processing time; 30-50% for large areas, 60-80% for detailed work (e.g., process optimization in Optics Express, 2016)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

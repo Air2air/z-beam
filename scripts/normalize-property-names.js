@@ -10,8 +10,10 @@
  * - removal_by_material → removalByMaterial
  * - visual_characteristics → visualCharacteristics
  * - regulatory_standards → regulatoryStandards
+ * - machine_settings → machineSettings
  * 
- * NOTE: machine_settings remains snake_case (only in settings files)
+ * Purpose: JavaScript/TypeScript camelCase naming standard
+ * Date: Updated January 7, 2026
  */
 
 const fs = require('fs');
@@ -24,7 +26,8 @@ const PROPERTY_MAP = {
   'safety_data': 'safetyData',
   'removal_by_material': 'removalByMaterial',
   'visual_characteristics': 'visualCharacteristics',
-  'regulatory_standards': 'regulatoryStandards'
+  'regulatory_standards': 'regulatoryStandards',
+  'machine_settings': 'machineSettings'
 };
 
 function normalizeYamlFile(filePath) {

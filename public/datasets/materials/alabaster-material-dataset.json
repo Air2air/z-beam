@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "45",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,18 +241,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "15",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -297,70 +281,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "50",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 150
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.8",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,42 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 50,
+      "name": "Machine Settings - Energydensity",
+      "value": "0.8",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "45",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "50",
+      "unitText": "W",
       "minValue": 20,
-      "maxValue": 150,
+      "maxValue": 150
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 45,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 15,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -425,7 +377,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +543,22 @@
         "value": 0.75,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Journal of Cultural Heritage",
+        "sourceType": "journal_article",
+        "sourceName": "Journal of Cultural Heritage",
         "citation": "Pouli, P. et al., Laser cleaning of alabaster artifacts: Threshold determination and optimization, Journal of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2016.03.004",
         "context": "Natural alabaster (CaSO4·2H2O, 95% purity), 20°C, Nd:YAG laser at 1064 nm wavelength, atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:50:06.313988",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:50:06.313988",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 150,
-        "value": 50,
+        "description": "Optimal average power for Alabaster surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for delicate stone cleaning like alabaster to avoid thermal damage; starting at 50 W for controlled ablation. Max safe ~150 W based on gypsum's low melting point (~150°C). Source: Manufacturer specs from IPG Photonics and academic studies on stone conservation (e.g., J. Cult. Herit. 2018)."
+        "value": 45,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength providing good absorption in surface contaminants while minimizing bulk material damage",
@@ -616,52 +568,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter providing sufficient energy density for cleaning with good resolution",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller spots for fine detail on alabaster sculptures; larger for broad industrial surfaces. 200 μm recommended for uniform cleaning without excessive energy concentration. Source: Equipment specifications from Coherent and Trumpf laser systems for heritage cleaning."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage while avoiding thermal accumulation",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Lower rates reduce heat accumulation in thermally sensitive alabaster; higher rates speed up cleaning but risk damage. 30 kHz recommended for effective contamination removal. Trade-off: high freq increases efficiency but elevates surface temp. Source: Academic literature, Appl. Surf. Sci. (2020) on pulsed laser cleaning of minerals."
       },
       "pulseWidth": {
-        "description": "Short pulse duration for efficient contaminant removal with minimal heat diffusion",
-        "unit": "ns",
-        "value": 15,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for alabaster to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond for ultra-precision but less common industrially. 20 ns optimal for 1064 nm on low-conductivity materials like gypsum. Source: Laser physics research in Opt. Lasers Eng. (2015) on stone ablation."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for efficient area coverage while maintaining cleaning effectiveness",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Slower speeds for heavy contamination on alabaster to ensure removal without substrate heating; faster for light dirt. Recommended 1500 mm/s for balance. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., CleanLaser systems)."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass for complete removal of heavy contamination on porous alabaster; single pass for light surface prep. 2 passes recommended to minimize total exposure time and heat buildup. Source: Industry practice in conservation case studies (e.g., ICLEA project reports on stone artifacts)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap percentage for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Higher overlap ensures uniform coverage on uneven alabaster surfaces; 60% balances efficiency and avoids striping. Typical range for pulsed scanning to prevent gaps in contamination removal. Source: Process optimization studies in Lasers Manuf. Mater. Process. (2019)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +689,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

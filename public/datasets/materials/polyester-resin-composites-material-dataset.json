@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "90",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "15",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "800",
+      "value": "2000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -304,39 +288,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "2000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -344,34 +296,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
+      "name": "Machine Settings - Laserpower",
+      "value": "90",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 20,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 100,
-      "minValue": 20,
-      "maxValue": 500,
+      "value": 90,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 15,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 800,
+      "value": 2000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -417,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -591,22 +543,22 @@
         "value": 1.2,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation of Fiber-Reinforced Polymer Composites: A Review",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation of Fiber-Reinforced Polymer Composites: A Review",
         "citation": "Punshon, C. S., et al., Journal of Laser Applications, 2018, DOI: 10.2351/1.5026123",
         "context": "Glass fiber reinforced polyester resin composite (50 wt% glass fiber), room temperature (25°C), measured using 532 nm Nd:YAG laser with 10 ns pulse duration",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:05:52.899450",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:05:52.899450",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for polyester resin composite cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for industrial 1064 nm laser cleaning of polymer composites to balance efficiency and heat input; starting at 100 W avoids thermal damage to polyester's low melting point (~260°C). Max safe ~300 W at high speeds to prevent substrate ablation. Source: Laserax manufacturer specs and studies in Optics and Lasers in Engineering (2018) on composite surface prep."
+        "value": 90,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength optimal for polyester resin composite processing",
@@ -616,52 +568,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam spot diameter for precision cleaning",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Typical beam diameter for industrial cleaning; 100-200 μm for fine surface prep on composites, 300-500 μm for large areas. 200 μm recommended for polyester to ensure uniform energy distribution and avoid localized overheating. Source: Coherent Inc. equipment specifications and industry standards from Laser Institute of America."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning process",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for polyester composites to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk melting if >50 kHz without high speed). Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on fiber-reinforced polymers."
       },
       "pulseWidth": {
-        "description": "Optimal pulse duration for efficient material removal with minimal heat affected zone",
-        "unit": "ns",
-        "value": 15,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime (5-100 ns) preferred over ps/fs for cost-effective 1064 nm cleaning of composites; 20 ns minimizes heat-affected zone (HAZ <50 μm) by reducing thermal diffusion in polyester. Ps/fs (e.g., <1 ps) for ultra-precise but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for efficient coverage and material removal",
-        "unit": "mm/s",
-        "value": 800,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective range for contamination removal; slower (500-1000 mm/s) for heavy contaminants like oils, faster (2000-5000 mm/s) for light dust. Recommended 2000 mm/s for optimal cleaning without overheating polyester's low thermal conductivity (~0.2 W/m·K). Source: IPG Photonics equipment manuals and Journal of Cleaner Production (2020) case studies on polymer composites."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on polyester composites without excessive heat buildup. Source: Industry practice in case studies from Journal of Materials Processing Technology (2022) on resin composite cleaning."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap percentage for uniform cleaning",
+        "min": 10,
+        "max": 90,
         "unit": "%",
         "value": 50,
-        "min": 10,
-        "max": 90
+        "description": "30-80% ensures uniform coverage; 50% recommended for polyester to balance efficiency and avoid uneven heating or missed spots during scan. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in Optics & Laser Technology (2019) on polymer surface treatment."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +689,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

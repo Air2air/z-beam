@@ -320,14 +320,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "45",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -337,18 +329,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -369,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -392,39 +376,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -432,34 +384,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
+      "name": "Machine Settings - Laserpower",
+      "value": "45",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 50,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "value": 45,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -473,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -481,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -489,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -497,7 +449,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -700,11 +652,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for Indium oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for pulsed Nd:YAG lasers in metal cleaning; lower end for delicate soft metals like Indium to avoid melting (mp 156.6°C). Recommended start conservatively low. Source: IPG Photonics specs for cleaning heads; conservative for Indium's low thermal resistance (similar to Al studies in Opt. Lasers Eng. 2018)."
+        "value": 45,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength providing good absorption in Indium oxide layer",
@@ -714,52 +666,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise oxide removal",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller for precise surface prep on Indium components (e.g., electronics); larger for broad areas. Balances fluence and coverage. Source: Equipment specs from Coherent Inc. cleaning systems; suitable for fine Indium features."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for industrial cleaning; moderate rate prevents heat accumulation on heat-sensitive Indium while enabling efficient coverage. Higher rates increase speed but risk thermal damage. Source: Academic lit. in Appl. Surf. Sci. 2020 on pulse train effects for metals."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled oxide ablation",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on soft metals; picosecond (ps) for ultra-precision but overkill for Indium. Avoids excessive heat buildup due to Indium's conductivity (82 W/m·K). Source: Laser physics in J. Appl. Phys. 2015 on ns ablation thresholds for low-mp metals."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective for contamination removal on reflective metals; slower for heavy contamination (e.g., oxides), faster for light. Recommended balances speed and fluence control. Source: Industry standards from Laserax manuals; adapted for Indium's high reflectivity reducing absorption."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete oxide removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass for thorough removal of layered contamination without single-pass overload; single pass for light cleaning. Recommended for uniform Indium surface prep. Source: Industry case studies in J. Laser Appl. 2019 on metal oxide removal."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage on irregular Indium surfaces; 50% optimal for efficiency without excessive exposure. Higher for heavy contamination. Source: Process optimization in Opt. Laser Technol. 2017 for scanned laser cleaning."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -835,7 +787,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

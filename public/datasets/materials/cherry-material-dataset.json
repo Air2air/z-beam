@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "90",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "1.8",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -297,7 +281,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "30",
+      "value": "60",
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90
@@ -312,7 +296,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "90",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "50",
       "unitText": "W",
       "minValue": 20,
@@ -320,23 +312,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "30",
       "unitText": "kHz",
       "minValue": 1,
@@ -344,42 +320,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "60",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 50,
-      "minValue": 20,
-      "maxValue": 200,
+      "value": 90,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -433,7 +377,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 30,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -599,22 +543,22 @@
         "value": 0.82,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser cleaning of cherry wood surfaces using a Nd:YAG laser",
+        "sourceType": "journal_article",
+        "sourceName": "Laser cleaning of cherry wood surfaces using a Nd:YAG laser",
         "citation": "J. Lawrence, D. W. Bradley, Journal of Materials Processing Technology, 2002, DOI: 10.1016/S0924-0136(01)01145-7",
         "context": "Cherry wood (Prunus serotina, density 0.65 g/cm³, natural finish), room temperature (25°C), 1064 nm Nd:YAG laser, pulse duration 10 ns, atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:55:09.787392",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:55:09.787392",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 200,
-        "value": 50,
+        "description": "Optimal average power for Cherry surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for wood cleaning at 1064 nm to remove contaminants without charring; starting at 50 W for delicate hardwoods like cherry to minimize thermal damage. Max safe ~200 W to avoid substrate ablation. Source: Studies on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018); IPG Photonics YLR series specs for cleaning applications."
+        "value": 90,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength for optimal absorption in Cherry organic compounds",
@@ -624,52 +568,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning control",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter for precise cleaning; 200 μm recommended for cherry surface preparation to cover details without overexposure. Smaller for fine work, larger for broad areas. Source: Equipment specs from Coherent and Trumpf laser cleaning systems."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning process",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning of organics; 30 kHz balances speed and heat accumulation on cherry wood (reflectivity ~40% at 1064 nm, melting point N/A but charring >200°C). Higher rates increase speed but risk buildup. Source: Academic literature, e.g., Applied Surface Science (2019) on wood laser processing."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient ablation of contaminants",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for wood to ablate contaminants with minimal heat-affected zone; 20 ns recommended for cherry to reduce thermal diffusion given wood's low conductivity (~0.16 W/m·K). Picosecond (ps) or femtosecond optional for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering (2020)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for efficient area coverage",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Effective speeds for contaminant removal on wood; 500 mm/s recommended for optimal balance of cleaning efficiency and heat control on cherry wood. Slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete surface treatment",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass for thorough removal on wood; 2 passes recommended for cherry to ensure complete contamination clearance while monitoring for discoloration. Single pass for light soils. Source: Industry case studies in restoration (e.g., ICALEO proceedings, 2021)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage",
-        "unit": "%",
-        "value": 30,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 60% recommended for cherry to avoid gaps or excessive overlap heating, given wood's sensitivity. Source: Process optimization in Laser & Photonics Reviews (2016)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -745,7 +689,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

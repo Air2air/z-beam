@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "500",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -289,7 +273,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "100",
       "unitText": "W",
       "minValue": 50,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "30",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "500",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 500,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -602,11 +546,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for Stoneware surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning of ceramics like stoneware to avoid thermal damage; starting at 100W for light contamination removal. Max safe before substrate cracking or discoloration. Source: Manufacturer specs from CleanLaser systems and studies in Journal of Laser Applications (e.g., 2018 paper on ceramic surface preparation)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength optimized for Stoneware mineral absorption",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning control",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 500,
+        "unit": "μm",
+        "description": "Beam diameter for uniform cleaning; smaller for fine details (200-400 μm), larger for broad areas (500-1000 μm). 500 μm recommended for stoneware industrial apps to cover surfaces efficiently without hotspots. Source: Equipment specifications from Coherent and Trumpf laser systems for ceramic processing."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for cleaning applications; 30 kHz recommended for stoneware to achieve fast coverage while minimizing heat buildup—higher rates (>50 kHz) risk accumulation on low-thermal-conductivity materials. Trade-off: speed vs thermal safety. Source: Academic literature in Applied Surface Science (e.g., 2019 on repetition rate effects in ceramic cleaning)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for stoneware to ablate contaminants without deep penetration; picosecond (ps) for ultra-minimal HAZ but less common industrially. 20 ns recommended to limit heat accumulation in low-conductivity ceramics. Femtosecond avoided due to cost. Source: Laser physics research in Optics Express (e.g., 2015 study on pulsed laser ablation of ceramics)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds for 1064 nm cleaning on stoneware; slower for heavy contaminants (500-1000 mm/s) vs light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. Source: Industry standards from SPIE proceedings on laser cleaning (e.g., 2020) and equipment manuals from IPG Photonics."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete stoneware cleaning to ensure removal without overexposure. Based on layered ablation approach. Source: Industry practice in case studies from Laser Institute of America reports (e.g., 2021 industrial cleaning guidelines)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning pattern",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 50% recommended for stoneware to avoid gaps or excessive overlap-induced damage, adjustable 30% for speed or 80% for thoroughness. Typical range balances efficiency. Source: Process optimization studies in Optics and Lasers in Engineering (e.g., 2016 on scan overlap in surface cleaning)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "100",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -297,70 +281,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "70",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,34 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 100,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +535,22 @@
         "value": 3.2,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Journal of the European Ceramic Society",
+        "sourceType": "journal_article",
+        "sourceName": "Journal of the European Ceramic Society",
         "citation": "Zhang, L. et al., Laser ablation behavior of SiC/SiC ceramic matrix composites, Journal of the European Ceramic Society, 2018, DOI: 10.1016/j.jeurceramsoc.2018.05.012",
         "context": "SiC fiber-reinforced SiC matrix CMC (2D woven, 40 vol% fibers), 1064 nm Nd:YAG laser, 10 ns pulse duration, room temperature, atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:54:20.810074",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:54:20.810074",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for CMC surface contaminant removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning of composites to avoid thermal damage; starting at 100W for CMCs due to low thermal conductivity (e.g., SiC/SiC CMCs). Max safe below 500W to prevent cracking. Source: IPG Photonics specs for YLR series lasers adapted for ceramics; academic review in Optics and Lasers in Engineering (2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength providing optimal absorption balance for CMC ceramic phases and contaminants",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter optimized for precision cleaning of CMC surface features",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter for uniform coverage; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for CMCs to control energy delivery and avoid point overheating. Source: Equipment specs from Coherent Inc. laser systems for surface preparation."
       },
       "frequency": {
-        "description": "High repetition rate for efficient area coverage while maintaining thermal management",
-        "unit": "kHz",
-        "value": 100,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Typical for pulsed cleaning; higher rates speed up process but risk heat accumulation in low-conductivity CMCs. 30 kHz balances speed and safety. Trade-off: >50 kHz may cause delamination. Source: Academic literature in Optics Express (2021) on pulse train effects for composites."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient contaminant ablation with minimal thermal diffusion into CMC substrate",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for CMCs to achieve ablation with minimal thermal diffusion; picosecond (ps) or femtosecond reduces HAZ further but increases cost. 20 ns recommended for contamination removal without substrate damage. Source: Laser physics in Applied Surface Science (2019) on ceramic ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform contaminant removal across CMC surfaces",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for CMCs to minimize HAZ. Source: Industry standards from Laser Institute of America; case studies in Journal of Laser Applications (2020)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for thorough contaminant removal with process control",
+        "min": 1,
+        "max": 10,
         "unit": "passes",
         "value": 2,
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light contamination, multi-pass for heavy; 2 passes recommended for CMCs to ensure complete removal without excessive exposure. Source: Industry case studies in Composites Part B (2022) on laser surface treatment of CMCs."
       },
       "overlapRatio": {
-        "description": "Beam overlap percentage ensuring complete coverage without excessive heat accumulation",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 70,
+        "description": "Ensures uniform cleaning without gaps or overexposure; 70% optimal for CMCs to maintain even fluence distribution and prevent uneven heating. Source: Process optimization in Surface and Coatings Technology (2020)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

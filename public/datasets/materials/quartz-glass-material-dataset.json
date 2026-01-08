@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,18 +241,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -289,7 +273,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -304,39 +288,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -344,34 +296,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 20,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Frequency",
       "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 20,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -417,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -596,11 +548,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for Quartz Glass cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning systems (e.g., CleanLaser CL 50-500 models) on delicate substrates like quartz glass to avoid thermal damage; starting at 100W for controlled ablation of contaminants. Max safe ~300-500W depending on fluence to prevent cracking (source: IPG Photonics specs and J. Laser Appl. 2018 study on glass cleaning)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength with good transmission through Quartz Glass for selective contaminant removal",
@@ -610,52 +562,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning with adequate energy density",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for precision vs. area coverage; 50-200 μm for fine detail on quartz surfaces, 200-500 μm for larger areas; 200 μm recommended for uniform cleaning without hotspots (source: Equipment specs from Coherent and Trumpf laser systems)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning with controlled thermal accumulation",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Standard for pulsed cleaning; 20-50 kHz for controlled energy delivery, up to 100 kHz for faster processing but risk of heat accumulation on low-conductivity quartz; 50 kHz balances speed and safety (source: Academic lit. in J. Appl. Phys. 2021 on rep rate trade-offs for transparent substrates)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant removal with minimal substrate heating",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime typical for cost-effective cleaning of quartz glass; 5-50 ns for ns lasers, ps (10-100 ps) for minimal HAZ but higher cost; 20 ns recommended to reduce thermal effects given quartz's low absorption at 1064 nm (source: Laser physics in Appl. Phys. A 2019 on pulse regimes for dielectrics)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; 500 mm/s recommended for optimal balance on quartz to minimize heat input (source: Industry standards from Laserax manuals and Opt. Lasers Eng. 2020 on scan optimization)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on quartz while staying below damage threshold (source: Industry case studies in Surf. Coat. Technol. 2022 on multi-pass laser cleaning of glass)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap percentage for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 30-50% for speed, 50-80% for thorough cleaning; 50% recommended for quartz to avoid uneven heating given its thermal properties (source: Process optimization in Lasers Manuf. Mater. Process. 2019)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -731,7 +683,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

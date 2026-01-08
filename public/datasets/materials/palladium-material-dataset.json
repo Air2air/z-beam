@@ -320,14 +320,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "90",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -337,18 +329,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -369,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -377,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -385,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
+      "value": "60",
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90
@@ -400,39 +384,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -440,34 +392,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
+      "name": "Machine Settings - Laserpower",
+      "value": "90",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
+      "unitText": "W",
+      "minValue": 50,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "60",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 200,
-      "minValue": 50,
-      "maxValue": 500,
+      "value": 90,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -481,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -497,7 +449,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -505,7 +457,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -513,7 +465,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -521,7 +473,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -708,11 +660,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 200,
+        "description": "Optimal average power for Palladium oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for Nd:YAG laser cleaning of reflective metals like Pd to avoid thermal damage; starting at 200W balances efficiency and safety. Max limited by Pd's high reflectivity (~60% at 1064nm) to prevent melting (mp 1555°C). Source: IPG Photonics specs for YLR series; studies in Optics and Lasers in Engineering (2018) on precious metal cleaning."
+        "value": 90,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for efficient absorption by Palladium oxides and contaminants",
@@ -722,52 +674,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning control on Palladium surfaces",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter for precise cleaning on Pd; smaller for fine details (100-200 μm), larger for areas (300-500 μm). 200 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Trumpf and Adapt Laser Systems; process optimization in Lasers Manuf. Mater. Process. (2021)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning with thermal management",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Typical for pulsed cleaning to control heat accumulation on reflective Pd; higher rates speed up process but risk buildup. 50 kHz recommended for uniform cleaning without overheating. Trade-off: >80 kHz increases efficiency but requires cooling. Source: Academic lit. in J. Appl. Phys. (2017); Coherent Inc. equipment guidelines."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Ns regime preferred for cost-effective cleaning of Pd; ps (5-50 ps) minimizes HAZ due to Pd's thermal conductivity (71 W/mK), but ns sufficient. Avoid fs for industrial scale. Recommended 20 ns for low thermal impact. Source: Laser physics in Appl. Phys. A (2015) on metal ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds for contamination removal on Pd; slower for heavy oxides (500-1000 mm/s), faster for light contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance without excessive heat. Source: Industry standards from Laserax manuals; J. Cleaner Prod. (2020) case studies on metal surface prep."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete Pd surface cleaning without damage. Recommended for layered contaminants in catalysis/electronics apps. Source: Industry practice in case studies from SPIE Proc. (2016); conservative for Pd's sensitivity."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without excessive heat accumulation",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage on Pd; 30-50% for large areas, 60-80% for precision. 60% recommended to avoid gaps while minimizing overexposure/heat. Source: Process studies in Opt. Lasers Eng. (2022); typical range from manufacturer guidelines like CleanLASER."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -843,7 +795,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

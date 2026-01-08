@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "45",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "2.8",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -297,70 +281,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "70",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 100,
+      "name": "Machine Settings - Laserpower",
+      "value": "45",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 200,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 45,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +535,22 @@
         "value": 2.8,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Cleaning of Wooden Artifacts: Ablation Thresholds for Hardwoods",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Cleaning of Wooden Artifacts: Ablation Thresholds for Hardwoods",
         "citation": "Sanz et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005",
         "context": "Sugar Maple (Acer saccharum) wood, kiln-dried to 8% moisture content, 25°C, 1064 nm Nd:YAG laser (10 ns pulse duration), atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:01:56.469165",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:01:56.469165",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 200,
-        "value": 100,
+        "description": "Optimal average power for surface cleaning without charring",
         "unit": "W",
-        "description": "Typical range for ns fiber lasers cleaning delicate organics like wood to avoid charring; starting at 100W balances efficiency and safety. Source: Manufacturer specs from IPG Photonics for 1064 nm systems; academic review in 'Laser Cleaning of Wood Surfaces' (Journal of Cultural Heritage, 2018)."
+        "value": 45,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for controlled wood ablation with minimal thermal damage",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam diameter for precise cleaning control on wood surface",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameters for uniform coverage; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm suits maple's surface texture. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning."
       },
       "frequency": {
-        "description": "Balanced repetition rate for efficient cleaning with controlled thermal input",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Standard for 1064 nm cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation on low-thermal-conductivity maple. 50 kHz recommended for balance. Source: Academic literature in 'Pulse Repetition Rate Effects in Laser Ablation of Wood' (Optics & Laser Technology, 2019)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient contaminant removal with minimal substrate heating",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cost-effective cleaning of organics; picosecond (ps) reduces heat-affected zone but is less common for wood. 50 ns minimizes thermal damage to maple's low-conductivity structure. Source: Laser physics research in 'Ultrashort Pulse Lasers for Material Processing' (Applied Physics Reviews, 2020)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective speeds for contamination removal on wood; slower for heavy soiling (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance on maple. Source: Industry standards from Laserax equipment manuals; case studies in industrial surface prep."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete surface cleaning",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal on maple without excessive exposure. Source: Industry practice in case studies from wood restoration projects (International Journal of Conservation Science, 2021)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 70,
+        "unit": "%",
+        "description": "Ensures uniform cleaning without gaps or over-ablation; 70% optimal for even coverage on irregular wood surfaces like maple. Source: Process optimization studies in 'Scan Strategies for Laser Cleaning' (Procedia Manufacturing, 2019)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

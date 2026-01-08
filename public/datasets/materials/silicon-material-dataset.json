@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "25",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,18 +241,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "100",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -297,70 +281,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "50",
-      "unitText": "W",
-      "minValue": 10,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,42 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 50,
+      "name": "Machine Settings - Energydensity",
+      "value": "0.5",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "25",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "50",
+      "unitText": "W",
       "minValue": 10,
-      "maxValue": 200,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 25,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 100,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -425,7 +377,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -593,22 +545,22 @@
         "value": 2.5,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "textbook",
-        "source_name": "Laser Processing and Chemistry",
+        "sourceType": "textbook",
+        "sourceName": "Laser Processing and Chemistry",
         "citation": "D. Bäuerle, Laser Processing and Chemistry, 4th Edition, Springer-Verlag Berlin Heidelberg, 2011, ISBN 978-3-642-17652-8",
         "context": "Single-crystal silicon (99.999% purity), room temperature (25°C), nanosecond pulse duration (10-20 ns), 532 nm wavelength, measured in air at 1 atm",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:18:40.536280",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:18:40.536280",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 10,
-        "max": 200,
-        "value": 50,
+        "description": "Optimal average power for Silicon surface cleaning without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning of semiconductors like Silicon to balance efficiency and avoid thermal damage; starting at 50 W for light contamination. Max safe below ~200 W to prevent melting (Silicon melting point 1414°C). Source: IPG Photonics YLR series specs for cleaning applications; academic review in Optics and Lasers in Engineering (2018)."
+        "value": 25,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength with good Silicon absorption for contaminant removal",
@@ -618,52 +570,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning with adequate energy density",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Typical beam diameter for cleaning; 200 μm recommended for Silicon surface preparation, balancing resolution for fine features and coverage for larger areas. Smaller (50-100 μm) for detailed work; larger (300-500 μm) for broad contamination. Source: Equipment specs from Coherent ArmoClean systems; industry optimization in Surface and Coatings Technology (2020)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage and process control",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical 10-100 kHz for pulsed cleaning; 50 kHz recommended for Silicon to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk thermal stress). Lower rates for heavy contamination. Source: Academic literature in Optics Express (2021); based on Silicon's moderate IR absorption."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant ablation with minimal thermal diffusion",
-        "unit": "ns",
-        "value": 100,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime (5-200 ns) common for industrial 1064 nm cleaning of Silicon; 20 ns recommended for minimal heat-affected zone (HAZ <10 μm) by confining energy to surface ablation. Picosecond (ps) or femtosecond (fs) better for ultra-precision but costlier; ns sufficient for contamination removal. Source: Laser physics research in Applied Surface Science (2019); avoids reflectivity issues at 1064 nm (~35% for Silicon)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1000,
+        "unit": "mm/s",
+        "description": "Effective range for 1064 nm cleaning; 1000 mm/s optimal for uniform contaminant removal on Silicon without excessive heat buildup due to its high thermal conductivity (~150 W/m·K). Light contamination: 2000-5000 mm/s; heavy: 100-500 mm/s. Source: Industry standards from Laserline GmbH manuals; case studies in Journal of Applied Physics (2020)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "1-5 passes typical for complete removal; 2 passes recommended for Silicon to ensure thorough cleaning of industrial contaminants without overexposure. Single pass for light layers; multi-pass for heavy or uneven. Source: Industry practice in semiconductor processing case studies, e.g., SPIE Proceedings (2019)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "30-80% overlap for uniform coverage; 60% recommended for Silicon cleaning to avoid gaps or streaks while minimizing total energy input and heat. Higher (70-80%) for fine uniformity; lower (30-50%) for speed on large areas. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -739,7 +691,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

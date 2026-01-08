@@ -320,14 +320,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -337,18 +329,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -377,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -392,39 +376,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -432,34 +384,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 1000
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Frequency",
       "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 200,
-      "minValue": 50,
-      "maxValue": 1000,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -473,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -489,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -505,7 +457,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -700,11 +652,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 1000,
-        "value": 200,
+        "description": "Optimal average power for Manganese oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial 1064 nm laser cleaning of reflective metals like manganese; starting at 200 W for contamination removal without excessive heat input. Max safe before substrate melting (Mn melting point ~1246°C) is ~1000 W with proper scanning. Source: Manufacturer specs from IPG Photonics and Coherent for metal cleaning systems; academic review in Optics and Lasers in Engineering (2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for optimal absorption in Manganese oxides",
@@ -714,52 +666,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning control",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for industrial cleaning; smaller (50-200 μm) for fine surface prep on manganese, larger (200-500 μm) for broad area decontamination. 200 μm recommended for uniform energy distribution on Mn's surface. Source: Equipment specifications from Trumpf and SPI Lasers for 1064 nm cleaning heads."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical 10-100 kHz for pulsed cleaning applications; 50 kHz recommended for manganese to achieve fast processing without excessive heat buildup (high freq increases accumulation on low-conductivity metals like Mn). Trade-off: higher rates speed up cleaning but risk thermal damage. Source: Academic literature in Journal of Applied Physics (2019) on pulse repetition effects in laser ablation of alloys."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient oxide layer ablation",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime (5-100 ns) preferred for cost-effective cleaning of manganese; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but higher cost. 20 ns recommended to reduce heat-affected zone on reflective Mn surfaces while ablating contaminants. Source: Laser physics research in Applied Surface Science (2020) on metal ablation thresholds at 1064 nm."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 500,
+        "unit": "mm/s",
+        "description": "Effective range for removing light to heavy contamination on manganese; slower speeds (100-500 mm/s) for heavy oxides, faster (500-2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal balance of efficiency and minimal thermal accumulation given Mn's moderate thermal conductivity (~7.8 W/m·K). Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals from Adapt Laser Systems."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete oxide removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "1-5 passes typical for complete removal of contaminants; single pass for light rust/oxides on manganese, multi-pass for heavy buildup. 2 passes recommended to ensure thorough cleaning without risking Mn substrate damage. Source: Industry practice in case studies from Laser Institute of America reports on metal surface preparation."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "30-80% overlap for uniform coverage in scanning; 50% recommended for manganese to avoid gaps in cleaning while minimizing over-processing and heat input. Higher overlap for heavy contamination. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2021) on scan strategies for metallic substrates."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -835,7 +787,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

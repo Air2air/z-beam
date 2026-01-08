@@ -184,14 +184,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "30",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -201,18 +193,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "20",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -225,7 +209,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -233,7 +217,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "800",
+      "value": "2000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -249,70 +233,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "30",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "30",
-      "unitText": "W",
-      "minValue": 10,
-      "maxValue": 100
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "2000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "20",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "70",
       "unitText": "%",
       "minValue": 10,
@@ -320,10 +240,34 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "30",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "30",
+      "unitText": "W",
+      "minValue": 10,
+      "maxValue": 100
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "20",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 30,
-      "minValue": 10,
-      "maxValue": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -337,7 +281,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -353,7 +297,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -361,7 +305,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 800,
+      "value": 2000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -377,7 +321,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 30,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -462,94 +406,94 @@
         "value": 1.8,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Physics A: Materials Science & Processing",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Physics A: Materials Science & Processing",
         "citation": "B. W. Smith et al., Applied Physics A 79, 1023-1026 (2004), DOI: 10.1007/s00339-004-2845-7",
         "context": "Commercial-grade clear PMMA (99% purity), 25°C, 532 nm Nd:YAG laser, 10 ns pulse duration, single-shot irradiation in air",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:30:31.076360",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:30:31.076360",
+        "needsValidation": true
       },
       "ablationThreshold": {
         "value": 0.7,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Physics A: Materials Science & Processing",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Physics A: Materials Science & Processing",
         "citation": "Küper, S., Stuke, M. Ablation of polyimide with 193 and 248 nm excimer laser radiation. Appl. Phys. A 44, 199–204 (1987). https://doi.org/10.1007/BF00919310",
         "context": "Pure PMMA (polymethyl methacrylate), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration, vacuum environment",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:30:39.539163",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:30:39.539163",
+        "needsValidation": true
       },
       "thermalDiffusivity": {
         "value": 1.1e-07,
         "unit": "m²/s",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb, LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5b4a0b0a4a4b0e9b0a0b0e9b0a0b0e, accessed 2023",
         "context": "Commercial grade PMMA (density 1.18 g/cm³, 99% purity), 25°C, calculated from thermal conductivity (0.19 W/m·K), density, and specific heat (1.46 J/g·K)",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:30:44.295139",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:30:44.295139",
+        "needsValidation": true
       },
       "thermalExpansion": {
         "value": 8e-05,
         "unit": "1/K",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c07b3d2a1b74c4e9a4b0a4e4b0a4e4b, accessed 2023",
         "context": "Cast PMMA sheet, commercial grade (99% purity), 25°C, linear expansion measured by dilatometry",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:30:51.668519",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:30:51.668519",
+        "needsValidation": true
       },
       "specificHeat": {
         "value": 1460.0,
         "unit": "J/(kg·K)",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton, FL, 2023, ISBN 978-1-138-56163-2",
         "context": "Atactic poly(methyl methacrylate) (PMMA), 99% purity, 25°C, amorphous state, measured under standard atmospheric pressure",
         "confidence": 98,
-        "researched_date": "2025-11-24T12:30:58.489536",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:30:58.489536",
+        "needsValidation": true
       },
       "thermalConductivity": {
         "value": 0.19,
         "unit": "W/m·K",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2",
         "context": "Amorphous PMMA (polymethyl methacrylate), 25°C, steady-state heat flow method under standard atmospheric conditions",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:31:04.956559",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:31:04.956559",
+        "needsValidation": true
       },
       "laserReflectivity": {
         "value": 0.038,
         "unit": "%",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Optical Properties of Polymethyl Methacrylate (PMMA) in the Near-Infrared Region",
+        "sourceType": "journal_article",
+        "sourceName": "Optical Properties of Polymethyl Methacrylate (PMMA) in the Near-Infrared Region",
         "citation": "Sultanova, M., et al., Applied Optics, 2009, DOI: 10.1364/AO.48.000223",
         "context": "Clear PMMA (99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C, vacuum-deposited thin film measurement",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:31:12.656518",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:31:12.656518",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 10,
-        "max": 100,
         "value": 30,
         "unit": "W",
-        "description": "Typical range for pulsed Nd:YAG lasers in polymer cleaning to avoid thermal damage; starting at 30W for PMMA surface preparation. Max safe ~100W before melting (PMMA melting point ~160°C). Source: Manufacturer specs from IPG Photonics and Adapt Laser Systems for delicate substrates."
+        "description": "Low power for thermal-sensitive polymer cleaning",
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "value": 1064,
@@ -559,52 +503,52 @@
         "max": 10640
       },
       "spotSize": {
-        "value": 100,
-        "unit": "μm",
-        "description": "Larger spot for gentle surface treatment",
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for broad areas; 200 μm recommended for uniform PMMA surface prep considering beam reflectivity. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems."
       },
       "frequency": {
+        "min": 1,
+        "max": 200,
         "value": 20,
         "unit": "kHz",
-        "description": "Lower frequency to prevent thermal damage",
-        "min": 1,
-        "max": 200
+        "description": "Standard for cleaning applications; 20 kHz recommended for PMMA to enable fast processing while minimizing heat buildup (higher rates increase accumulation risk). Trade-off: higher freq speeds cleaning but risks substrate damage. Source: Academic literature from Journal of Applied Physics on pulsed laser interactions with polymers."
       },
       "pulseWidth": {
-        "value": 10,
-        "unit": "ns",
-        "description": "Short pulses for minimal thermal impact",
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime typical for industrial 1064 nm cleaning; picosecond (ps) or femtosecond preferred for minimal HAZ but less common. 20 ns recommended to reduce heat accumulation in PMMA. Source: Laser physics research in Optics & Laser Technology (e.g., studies on polymer ablation thresholds)."
       },
       "scanSpeed": {
-        "value": 800,
-        "unit": "mm/s",
-        "description": "Fast scanning to reduce heat accumulation",
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective range for contaminant removal; slower (500-1500 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light. Recommended 2000 mm/s balances speed and control for PMMA's low thermal conductivity. Source: Industry standards from Laserax equipment manuals."
       },
       "passCount": {
+        "min": 1,
+        "max": 10,
         "value": 2,
         "unit": "passes",
-        "description": "Multiple gentle passes for gradual cleaning",
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PMMA cleaning without excessive exposure. Source: Industry case studies from laser cleaning applications in plastics processing (e.g., SPIE proceedings)."
       },
       "overlapRatio": {
-        "value": 30,
-        "unit": "%",
-        "description": "Lower overlap to prevent overheating",
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 70,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 70% recommended for even energy distribution on PMMA to prevent uneven heating or missed spots. Source: Process optimization studies in Laser Cleaning Handbook and academic papers on scan strategies."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -680,7 +624,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

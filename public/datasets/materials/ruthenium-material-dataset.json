@@ -320,14 +320,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "45",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -337,23 +329,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "2.3",
+      "value": "1",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "8",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -392,7 +376,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "45",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "200",
       "unitText": "W",
       "minValue": 50,
@@ -400,23 +392,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -424,42 +400,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 200,
-      "minValue": 50,
-      "maxValue": 500,
+      "value": 45,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -473,7 +417,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -489,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 8,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -700,11 +644,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 200,
+        "description": "Optimal average power for Ruthenium oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial Nd:YAG laser cleaning of reflective metals like Ruthenium; starting at 200 W balances efficiency and heat input to avoid melting (melting point ~2334°C). Source: IPG Photonics YLR series specs and general metal cleaning guidelines (e.g., SPIE proceedings on laser ablation)."
+        "value": 45,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for efficient Ruthenium oxide absorption with minimal substrate interaction",
@@ -714,52 +658,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise Ruthenium surface cleaning",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Smaller spots (50-200 μm) for fine surface prep on Ruthenium components; larger (200-500 μm) for broad areas. 200 μm recommended for uniform energy distribution on small industrial parts. Source: Equipment specs from Coherent and Trumpf lasers for precision cleaning."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning with thermal management",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Standard for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat buildup on Ruthenium's reflective surface (reflectivity ~60% at 1064 nm). 50 kHz balances speed and safety. Trade-off: high freq increases overlap heating. Source: Academic literature (e.g., Optics & Lasers in Engineering on repetition rate effects in metal cleaning)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled Ruthenium oxide ablation",
-        "unit": "ns",
-        "value": 8,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for Ruthenium cleaning to ablate contaminants while minimizing heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for low thermal damage on high-reflectivity surfaces. Source: Laser physics studies (e.g., Applied Surface Science journal on ns vs. ps ablation thresholds for noble metals)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform Ruthenium surface treatment",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 500,
+        "unit": "mm/s",
+        "description": "Effective for contamination removal; slower for heavy contamination (100-500 mm/s), faster for light (500-2000 mm/s). Recommended 500 mm/s for Ruthenium to ensure uniform cleaning without excessive heat accumulation due to its thermal conductivity (~120 W/m·K). Source: Industry standards from Laserax and CleanLaser equipment manuals."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete Ruthenium oxide removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid damage. Recommended 2 passes for Ruthenium to ensure complete removal while respecting thermal properties. Source: Industry case studies (e.g., laser cleaning of catalytic surfaces in chemical engineering reports)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform Ruthenium surface cleaning",
+        "min": 10,
+        "max": 90,
         "unit": "%",
         "value": 50,
-        "min": 10,
-        "max": 90
+        "description": "Ensures uniform coverage without gaps or over-ablation; 50% optimal for Ruthenium to prevent uneven heating on reflective surfaces. Typical range 30-80% based on scan patterns. Source: Process optimization studies (e.g., Journal of Laser Applications on scan overlap for metal surface treatment)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -835,7 +779,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

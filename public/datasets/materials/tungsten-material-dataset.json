@@ -312,14 +312,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -329,18 +321,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -353,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "2000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -369,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -384,39 +368,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 2000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "2000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -424,34 +376,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 2000
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 200,
-      "minValue": 50,
-      "maxValue": 2000,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -465,7 +417,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -473,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -481,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -489,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 2000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -497,7 +449,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -706,11 +658,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 2000,
-        "value": 200,
+        "description": "Optimal average power for Tungsten oxide and contaminant removal",
         "unit": "W",
-        "description": "Typical range for industrial 1064 nm fiber lasers used in metal cleaning; starting at 200 W balances efficiency and safety for reflective Tungsten to avoid excessive reflection losses. Max safe below substrate melting threshold (~3422°C). Source: IPG Photonics YLR series specs and studies on laser cleaning of refractory metals (e.g., J. Laser Appl. 2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for Tungsten absorption and thermal processing",
@@ -720,52 +672,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Focused spot size for precise cleaning resolution",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Typical beam diameter for precise industrial cleaning; 200 μm recommended for Tungsten to focus energy on contaminants while covering large areas efficiently. Smaller for fine details, larger for broad prep. Source: Equipment specs from Coherent and Trumpf laser cleaning systems."
       },
       "frequency": {
-        "description": "High repetition rate for efficient cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Standard for pulsed 1064 nm lasers in cleaning; 30 kHz recommended for Tungsten to achieve fast processing while limiting heat accumulation from its reflectivity. Higher rates increase speed but risk thermal buildup. Source: Academic literature, e.g., Appl. Surf. Sci. (2020) on repetition rate optimization for refractory metals."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 50,
+        "description": "Nanosecond regime typical for industrial cleaning to ablate contaminants without deep penetration; 50 ns recommended for minimal heat-affected zone (HAZ) on Tungsten due to its high thermal conductivity. Picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially. Source: Laser physics research in Opt. Express (2015) on pulse duration effects in metal ablation."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 2000,
+        "unit": "mm/s",
+        "description": "Effective range for contamination removal on high-conductivity metals like Tungsten; 2000 mm/s recommended for optimal balance of cleaning rate and fluence control. Slower for heavy contamination (e.g., oxides), faster for light surface prep. Source: Industry standards from Laserax and Adapt Laser Systems manuals."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Usually 1-3 passes for complete removal on metals; 2 passes recommended for Tungsten to ensure uniform cleaning of stubborn contaminants like tungsten oxides without overexposure. Multi-pass preferred over single high-fluence pass to minimize damage. Source: Industry case studies in laser cleaning of fusion components (e.g., J. Nucl. Mater. 2021)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without thermal damage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Standard for uniform coverage in scanned laser cleaning; 50% recommended for Tungsten to avoid gaps in high-reflectivity surfaces while preventing excessive heat overlap. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surf. Coat. Technol. (2019)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -841,7 +793,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

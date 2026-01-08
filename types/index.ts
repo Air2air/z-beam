@@ -129,4 +129,4 @@ export type {
 // - Badge and UI types (BadgeData, UIBadgeProps, ComponentSize, etc.)
 // - Material & Scientific types (MaterialProperties, ChemicalProperties, MachineSettings)
 // - API types (ApiResponse, SearchApiResponse, PaginationParams, etc.)
-// - Navigation types (NavItem, BreadcrumbItem, FooterNavItem, etc.)
+// - Navigation types (NavItem, BreadcrumbItem, FooterNavItem, etc.)export * from './settings';

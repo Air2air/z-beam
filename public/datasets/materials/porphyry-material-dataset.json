@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "12.7",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -289,70 +273,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
       "value": "2",
       "unitText": "passes",
       "minValue": 1,
@@ -360,7 +280,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Overlapratio",
       "value": "70",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,34 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 50,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +535,22 @@
         "value": 1.15,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Journal of Cultural Heritage",
+        "sourceType": "journal_article",
+        "sourceName": "Journal of Cultural Heritage",
         "citation": "Sanz et al., Laser cleaning of red porphyry: Threshold fluences and surface effects, Journal of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2015.09.006",
         "context": "Red porphyry (Mons Porphyrites quarry, Egypt; composition: alkali feldspar phenocrysts in rhyolitic matrix, ~95% purity from natural sample), 25°C, Nd:YAG laser at 1064 nm wavelength, 10 ns pulse duration, atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:08:17.722257",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:08:17.722257",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
+        "description": "Optimal average power for Porphyry surface cleaning without thermal damage",
         "unit": "W",
         "value": 100,
-        "description": "Typical range for industrial 1064 nm Nd:YAG lasers cleaning stone surfaces like porphyry; starting at 100 W for light contamination to avoid thermal damage given porphyry's low thermal conductivity (~2.5 W/mK); max safe below 500 W to prevent substrate cracking (e.g., IPG Photonics YLR series specs; academic review in J. Cult. Herit. 2018)."
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for Porphyry mineral absorption characteristics",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning of Porphyry surface features",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter for industrial cleaning; 200 μm recommended for porphyry surface preparation, balancing fine detail and large-area coverage; smaller for precision, larger for broad contamination (Laserax equipment specifications)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning with thermal management",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Standard for 1064 nm cleaning; 30 kHz recommended for porphyry to achieve fast processing without excessive heat accumulation; higher rates (>50 kHz) speed up but risk thermal buildup on low-conductivity stones (Opt. Lasers Eng. 2019)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for cost-effective cleaning of porphyry; 20 ns minimizes heat-affected zone (HAZ) due to porphyry's high melting point (~1300°C) and reflectivity; picosecond (ps) or femtosecond (fs) for ultra-precise but less common industrially (Laser Phys. 2015 study on stone ablation)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Effective for contamination removal on hard stones; 500 mm/s recommended for optimal balance of cleaning efficiency and heat dissipation; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; based on industry standards from Adapt Laser Systems manuals."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Typically 1-2 passes for light industrial contamination on durable stones like porphyry; multi-pass for heavy buildup to ensure complete removal without exceeding safe fluence; from case studies in stone restoration (J. Laser Appl. 2020)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 70,
+        "description": "Ensures uniform coverage on irregular porphyry surfaces; 70% recommended for even cleaning without gaps or over-ablation; typical 50-80% in process optimization (Opt. Express 2016 study on scan strategies)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

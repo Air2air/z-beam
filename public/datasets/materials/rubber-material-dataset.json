@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5.1",
+      "value": "0.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "5000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -289,7 +273,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "50",
       "unitText": "W",
       "minValue": 20,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "5000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 50,
-      "minValue": 20,
-      "maxValue": 150,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 5000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -591,22 +535,22 @@
         "value": 0.75,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation of Elastomeric Composites: Threshold Fluence for Rubber Materials",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation of Elastomeric Composites: Threshold Fluence for Rubber Materials",
         "citation": "Dupont, A. et al., Journal of Applied Polymer Science, 2018, DOI: 10.1002/app.46215",
         "context": "Vulcanized natural rubber composite with 30% carbon black filler, 25°C, measured using 1064 nm Nd:YAG laser with 10 ns pulse duration under ambient conditions",
         "confidence": 92,
-        "researched_date": "2025-11-24T12:16:45.985964",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:16:45.985964",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 150,
-        "value": 50,
+        "description": "Optimal average power for rubber cleaning without thermal damage",
         "unit": "W",
-        "description": "Low power to prevent thermal degradation of rubber (low melting point ~100-200°C); typical range from industrial fiber lasers for polymers. Recommended start at 50W for light contamination. Source: IPG Photonics specs for cleaning delicate substrates; academic review in Optics and Lasers in Engineering (2018) on polymer ablation."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength for optimal rubber absorption and minimal substrate damage",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise rubber removal with adequate cleaning area",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Smaller spots for precise cleaning on rubber surfaces; 100-200 μm for fine detail (e.g., molds), larger for broad areas. 200 μm recommended for uniform coverage without overlap issues. Source: Equipment specifications from Trumpf and Adapt Laser Systems; process optimization in Surface and Coatings Technology (2022)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient rubber cleaning with good process control",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Moderate rates for effective contaminant removal without excessive heat buildup in rubber; higher rates (>50 kHz) speed up process but risk accumulation. Trade-off noted in literature. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021); typical for 1064 nm fiber lasers from Coherent specs."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective rubber ablation with controlled thermal effects",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but less common for rubber. 20 ns balances ablation of contaminants with low heat input. Source: Laser physics in Applied Surface Science (2019) on polymer cleaning thresholds; ns pulses avoid melting unlike longer durations."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform rubber removal without excessive heat accumulation",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 5000,
+        "unit": "mm/s",
+        "description": "High speeds minimize heat accumulation on low-thermal-conductivity rubber; slower for heavy contamination (1000-3000 mm/s), faster for light (5000-10000 mm/s). Recommended 5000 mm/s for balance. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for surface prep."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete rubber removal with process control",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass for thorough removal of stubborn contaminants on rubber; single pass for light soiling, 2-3 for typical industrial prep. Recommended 2 passes to ensure completeness without damage. Source: Industry practice in case studies from Rubber & Plastics News (2020); multi-pass approaches in laser cleaning guidelines from SPIE proceedings."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform rubber removal without excessive processing time",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "50% overlap ensures uniform coverage and contaminant removal on irregular rubber surfaces; lower (30%) for speed, higher (70-80%) for heavy contamination. Balances efficiency and evenness. Source: Process optimization studies in Optics and Laser Technology (2019); typical range from manufacturer guidelines like those from CleanLaser."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

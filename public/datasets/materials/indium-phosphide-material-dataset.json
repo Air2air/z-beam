@@ -184,14 +184,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "60",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -201,23 +193,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "30",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "1.5",
+      "value": "0.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -233,38 +217,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "300",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Passcount",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlapratio",
-      "value": "60",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "30",
-      "unitText": "W",
-      "minValue": 10,
-      "maxValue": 100
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
       "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
@@ -272,39 +224,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "10",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "20",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
+      "name": "Machine Settings - Passcount",
       "value": "2",
       "unitText": "passes",
       "minValue": 1,
@@ -312,7 +232,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Overlapratio",
       "value": "50",
       "unitText": "%",
       "minValue": 10,
@@ -320,10 +240,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 30,
+      "name": "Machine Settings - Laserpower",
+      "value": "60",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "30",
+      "unitText": "W",
       "minValue": 10,
-      "maxValue": 100,
+      "maxValue": 100
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "20",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 60,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -337,7 +281,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 30,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -345,7 +289,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 30,
+      "value": 20,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -361,7 +305,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 300,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -369,7 +313,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -377,7 +321,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 60,
+      "value": 50,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -462,94 +406,94 @@
         "value": 1.5,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Optics",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Optics",
         "citation": "Stolz, C. J. et al., Applied Optics, Vol. 24, Issue 15, pp. 2479-2483, 1985, DOI: 10.1364/AO.24.002479",
         "context": "Undoped single-crystal InP (purity >99.99%), room temperature (25°C), measured with 8 ns pulses from Nd:YAG laser at 1064 nm wavelength, 1-on-1 damage testing",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:40:31.120837",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:40:31.120837",
+        "needsValidation": true
       },
       "ablationThreshold": {
         "value": 0.72,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Physics A: Materials Science & Processing",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Physics A: Materials Science & Processing",
         "citation": "B. Hopp, T. Smausz, N. Barna, Cs. Vass, Zs. Divós, F. Ignácz, Femtosecond laser ablation of indium phosphide, Applied Physics A, Volume 77, Issue 7, pp 1017-1020, 2003, DOI: 10.1007/s00339-003-2290-3",
         "context": "Polycrystalline InP (99.99% purity), room temperature (25°C), femtosecond Ti:sapphire laser at 800 nm wavelength, 500 fs pulse duration, measured in air",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:40:39.006291",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:40:39.006291",
+        "needsValidation": true
       },
       "thermalDiffusivity": {
         "value": 4.5e-05,
         "unit": "m²/s",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Thermal Diffusivity of Indium Phosphide Measured by the Laser Flash Method",
+        "sourceType": "journal_article",
+        "sourceName": "Thermal Diffusivity of Indium Phosphide Measured by the Laser Flash Method",
         "citation": "V. G. Tyurina et al., Journal of Applied Physics, 1995, Vol. 78, No. 5, pp. 3400-3403, DOI: 10.1063/1.360592",
         "context": "Single crystal InP (undoped, 99.999% purity), 300 K, measured under vacuum conditions",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:41:02.454313",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:41:02.454313",
+        "needsValidation": true
       },
       "thermalExpansion": {
         "value": 4.56e-06,
         "unit": "K^{-1}",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2",
         "context": "Single-crystal Indium Phosphide (InP, 99.99% purity), 300 K, measured along <110> direction via X-ray dilatometry",
         "confidence": 100,
-        "researched_date": "2025-11-24T12:41:07.983289",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:41:07.983289",
+        "needsValidation": true
       },
       "specificHeat": {
         "value": 310.0,
         "unit": "J/(kg·K)",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
         "context": "Pure single-crystal Indium Phosphide (InP, 99.99% purity), 298 K, measured under standard atmospheric pressure",
         "confidence": 98,
-        "researched_date": "2025-11-24T12:41:12.490136",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:41:12.490136",
+        "needsValidation": true
       },
       "thermalConductivity": {
         "value": 68.0,
         "unit": "W/m·K",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "CRC Handbook of Chemistry and Physics",
+        "sourceType": "reference_handbook",
+        "sourceName": "CRC Handbook of Chemistry and Physics",
         "citation": "CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
         "context": "Undoped single-crystal Indium Phosphide (InP), 300 K, measured via steady-state or laser flash techniques",
         "confidence": 100,
-        "researched_date": "2025-11-24T12:41:17.748728",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:41:17.748728",
+        "needsValidation": true
       },
       "laserReflectivity": {
         "value": 0.28,
         "unit": "dimensionless",
         "source": "scientific_literature",
-        "source_type": "reference_handbook",
-        "source_name": "Handbook of Optical Constants of Solids",
+        "sourceType": "reference_handbook",
+        "sourceName": "Handbook of Optical Constants of Solids",
         "citation": "Edward D. Palik (Editor), Academic Press, 1985, ISBN 0-12-544415-X",
         "context": "Undoped InP (99.99% purity), 300 K, normal incidence reflectivity at 1.06 μm wavelength (Nd:YAG laser), vacuum conditions",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:41:25.596681",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:41:25.596681",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 10,
-        "max": 100,
-        "value": 30,
+        "value": 60,
         "unit": "W",
-        "description": "Typical range for ns-pulsed Nd:YAG lasers in semiconductor cleaning to balance efficiency and avoid thermal damage to InP (melting point ~1062°C, moderate reflectivity at 1064 nm). Recommended starting at 30W for light contamination; max safe below 100W to prevent substrate ablation. Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaners; ablation studies in J. Appl. Phys. (e.g., InP thresholds imply power limits)."
+        "description": "Controlled power for precision semiconductor cleaning",
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "value": 1064,
@@ -559,52 +503,52 @@
         "max": 10640
       },
       "spotSize": {
-        "value": 30,
-        "unit": "μm",
-        "description": "Small spot for high-precision cleaning",
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter range for cleaning: smaller (50-100 μm) for fine surface prep on InP, larger (300-500 μm) for broad areas. Recommended 200 μm for uniform coverage on delicate InP wafers. Source: Equipment specifications from Trumpf and SPI Lasers for 1064 nm systems; optimized for semiconductor applications in industry reports."
       },
       "frequency": {
-        "value": 30,
-        "unit": "kHz",
-        "description": "Moderate frequency for controlled removal",
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 20,
+        "description": "Typical for pulsed cleaning to ensure overlap without excessive heat buildup on InP (high rep rate increases speed but risks thermal accumulation). Recommended 20 kHz for InP to optimize fluence delivery. Trade-off: higher rates (>50 kHz) faster but monitor temperature. Source: Academic literature in Opt. Lasers Eng. (studies on rep rate effects in semiconductor laser processing)."
       },
       "pulseWidth": {
-        "value": 10,
-        "unit": "ns",
-        "description": "Ultra-short pulses for minimal thermal damage",
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 10,
+        "description": "Nanosecond regime preferred for industrial cleaning of InP to achieve ablation of contaminants with minimal heat-affected zone (HAZ <10 μm due to InP's properties). Picosecond (ps) or femtosecond (fs) for ultra-precision but costlier; ns sufficient and common. Recommended 10 ns for low HAZ. Source: Laser physics research in Appl. Surf. Sci. (e.g., ns pulses at 1064 nm for InP show effective cleaning thresholds)."
       },
       "scanSpeed": {
-        "value": 300,
-        "unit": "mm/s",
-        "description": "Careful scanning for uniform treatment",
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Range for effective contaminant removal without excessive heat accumulation on InP's thermally conductive surface. Slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for optimal balance. Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., CleanLaser systems); case studies on III-V semiconductors."
       },
       "passCount": {
-        "value": 3,
-        "unit": "passes",
-        "description": "Multiple passes for complete cleaning",
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on InP to avoid damage in one go. Recommended 2 passes for complete cleaning with fluence control. Source: Industry practice in laser cleaning case studies (e.g., SPIE proceedings on III-V material processing); conservative for InP sensitivity."
       },
       "overlapRatio": {
-        "value": 60,
-        "unit": "%",
-        "description": "High overlap for thorough coverage",
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Standard range for uniform scan coverage in laser cleaning; 30-50% for large areas, 60-80% for detailed InP surface prep to ensure no gaps while minimizing overexposure. Recommended 50% for balanced uniformity on InP. Source: Process optimization studies in J. Laser Appl. (overlap effects on cleaning efficiency for reflective materials like InP)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -680,7 +624,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5.1",
+      "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "2000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -297,70 +281,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "150",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "2000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 150,
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "150",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 500,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 2000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -602,11 +546,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 150,
+        "description": "Optimal average power for Tungsten Carbide oxide layer removal",
         "unit": "W",
-        "description": "Typical range for industrial cleaning of hard materials like Tungsten Carbide to remove contaminants without ablation; starting at 100-200W to balance efficiency and safety. Max limited to avoid thermal damage given WC's high melting point (~2870°C) and reflectivity at 1064 nm. Source: IPG Photonics YLR series specs for cleaning applications; academic review in Optics and Lasers in Engineering (2018) on metal cleaning thresholds."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength for optimal Tungsten Carbide absorption",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning resolution",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 200,
+        "description": "Beam diameter range for cleaning; smaller (50-200 μm) for fine detail on WC tools, larger (200-500 μm) for broad surface prep. 200 μm recommended for uniform coverage on hard, reflective surfaces. Source: Equipment specifications from Adapt Laser Systems; process optimization in Surface and Coatings Technology (2022)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning without thermal damage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Typical 10-100 kHz for pulsed cleaning; higher rates increase speed but risk heat accumulation on WC's moderate thermal conductivity (~80 W/m·K). 30 kHz recommended for controlled overlap without overheating. Trade-off: high freq faster but monitor for substrate damage. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021); Coherent Armonia series specs."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of surface contaminants",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime (5-200 ns) preferred for industrial cleaning of WC to ablate contaminants while minimizing heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier. 50 ns balances energy deposition on reflective WC. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects for ceramics; avoids fs due to WC's thermal properties."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform surface treatment",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Effective range for 1064 nm cleaning; slower speeds (500-1500 mm/s) for heavy contamination like oxides, faster (2000-5000 mm/s) for light surface prep. Recommended 2000 mm/s optimizes fluence delivery on WC's conductive surface. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for carbide tool cleaning."
       },
       "passCount": {
-        "description": "Number of cleaning passes for thorough contaminant removal",
+        "min": 1,
+        "max": 10,
         "unit": "passes",
         "value": 3,
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light contamination, multi-pass (2-5) for complete removal of heavy layers on WC; up to 10 for thick coatings. 3 passes recommended for industrial prep to ensure uniformity without excessive exposure. Source: Industry practice in case studies from Journal of Manufacturing Processes (2019); avoids over-processing WC's durable surface."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for complete surface coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Typical 30-80% for uniform scan coverage; 50-70% optimal for WC to prevent gaps in contaminant removal while minimizing heat buildup. 60% balances efficiency and even fluence distribution. Source: Process optimization studies in Optics and Laser Technology (2020); standard in scanning software like those from CleanLaser GmbH."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

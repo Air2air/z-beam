@@ -312,14 +312,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -329,23 +321,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "100",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5.1",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -353,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -377,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
+      "value": "70",
       "unitText": "%",
       "minValue": 10,
       "maxValue": 90
@@ -392,7 +376,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "150",
       "unitText": "W",
       "minValue": 50,
@@ -400,23 +392,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "30",
       "unitText": "kHz",
       "minValue": 1,
@@ -424,42 +400,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "70",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 150,
-      "minValue": 50,
-      "maxValue": 500,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -473,7 +417,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -481,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 100,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -489,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -497,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -513,7 +457,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -714,11 +658,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 150,
+        "description": "Optimal average power for Zirconium oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for pulsed fiber lasers cleaning reflective metals like zirconium; starting at 150 W balances efficiency and avoids overheating due to Zr's high reflectivity (~90% at 1064 nm). Max safe before damage ~500 W based on thermal conductivity (21 W/mK). Source: IPG Photonics specs and studies on metal decontamination (e.g., J. Laser Appl. 2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for Zirconium's moderate absorption and thermal processing",
@@ -728,52 +672,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam diameter for balancing cleaning efficiency and processing speed",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller spots (100-200 μm) for fine detail on Zr components (e.g., nuclear cladding); larger (300-500 μm) for broad areas. 200 μm recommended for uniform energy distribution on reflective surfaces. Source: Equipment specs (e.g., Coherent lasers) and industrial case studies."
       },
       "frequency": {
-        "description": "High repetition rate for efficient surface coverage while maintaining thermal control",
-        "unit": "kHz",
-        "value": 100,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for 1064 nm cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation on low-conductivity Zr. 30 kHz balances throughput and safety. Trade-off: faster cleaning vs. potential subsurface heating. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2021)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient oxide layer ablation with minimal heat affected zone",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for industrial cleaning of Zr to ablate contaminants with minimal HAZ; picosecond (5-50 ps) for ultra-low thermal effects but costlier. 20 ns recommended to limit plasma shielding on reflective surfaces. Source: Laser physics reviews (Opt. Lasers Eng. 2019) and ablation studies on Zr alloys."
       },
       "scanSpeed": {
-        "description": "Scanning speed providing effective oxide removal with controlled thermal input",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective for light contamination (e.g., oxides) at higher speeds; slower (500-1000 mm/s) for heavy buildup. Recommended 1500 mm/s optimizes cleaning rate while minimizing heat input on Zr's melting point (1855°C). Source: Industry manuals (e.g., CleanLaser systems) and process optimization in Nucl. Eng. Des. 2020."
       },
       "passCount": {
-        "description": "Number of cleaning passes for thorough oxide removal with minimal substrate impact",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination; multi-pass (2-3) for heavy layers to avoid damage. Recommended 2 passes for complete Zr oxide removal without excessive heat. Source: Industry practice in nuclear decontamination (e.g., IAEA reports) and case studies on Zr alloys."
       },
       "overlapRatio": {
-        "description": "Beam overlap percentage ensuring complete surface coverage without excessive thermal buildup",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 70,
+        "unit": "%",
+        "description": "Ensures uniform coverage on irregular Zr surfaces; 50% for speed, 80% for thoroughness. 70% recommended to prevent gaps while minimizing over-processing and heat buildup. Source: Process optimization studies (Opt. Laser Technol. 2022) for metal cleaning."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -849,7 +793,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

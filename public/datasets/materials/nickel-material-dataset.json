@@ -320,14 +320,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -337,18 +329,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "100",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -369,38 +353,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Passcount",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 300
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
       "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
@@ -408,39 +360,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
+      "name": "Machine Settings - Passcount",
       "value": "2",
       "unitText": "passes",
       "minValue": 1,
@@ -448,7 +368,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Overlapratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -456,10 +376,42 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Machine Settings - Energydensity",
+      "value": "1.5",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 300
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 20,
-      "maxValue": 300,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -473,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -481,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 100,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -489,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -497,7 +449,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -505,7 +457,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -513,7 +465,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -700,11 +652,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 300,
-        "value": 100,
+        "description": "Optimal average power for Nickel oxide and contaminant removal",
         "unit": "W",
-        "description": "Typical range for pulsed fiber lasers at 1064 nm used in industrial cleaning of reflective metals like nickel; starting at 100 W balances efficiency and safety to avoid thermal damage due to nickel's high reflectivity (~60% at 1064 nm) and thermal conductivity (90 W/m·K). Max safe before substrate melting (1455°C) is ~300 W with short pulses. Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on metal surface cleaning."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for efficient Nickel processing with good absorption",
@@ -714,52 +666,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam diameter for precision cleaning",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for cleaning; smaller (50-100 μm) for fine details, larger (300-500 μm) for broad areas. Recommended 200 μm for nickel to achieve uniform fluence distribution and control heat input on reflective surfaces. Source: Equipment specifications from Coherent and Trumpf laser systems, per industrial cleaning guidelines."
       },
       "frequency": {
-        "description": "High repetition rate for efficient cleaning coverage",
-        "unit": "kHz",
-        "value": 100,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical 10-100 kHz for pulsed cleaning; higher rates (>50 kHz) speed up process but increase heat accumulation on nickel due to its conductivity, risking subsurface damage. Recommended 30 kHz for nickel to optimize energy delivery without overheating. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on frequency effects in metal ablation."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant ablation without substrate damage",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime (10-200 ns) is typical and cost-effective for nickel cleaning at 1064 nm; picosecond (ps) or femtosecond (fs) reduces heat-affected zone (HAZ <1 μm) but is unnecessary for most industrial apps. Recommended 50 ns for minimal HAZ (~5-10 μm) on nickel's reflective surface. Source: Laser physics research in Applied Surface Science (2019) comparing pulse regimes for metals."
       },
       "scanSpeed": {
-        "description": "Scanning speed for efficient area coverage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective range for contamination removal on nickel; slower for heavy oxides (500-1000 mm/s) to ensure ablation, faster for light contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance of throughput and uniform cleaning without excessive heat buildup. Source: Industry standards from Laserax equipment manuals and Journal of Laser Applications (2020) case study on nickel alloys."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers to ensure complete removal without exceeding damage thresholds. Recommended 2 passes for nickel in industrial prep to minimize thermal stress. Source: Industry practice in case studies from Surface and Coatings Technology (2019) on nickel oxide removal."
       },
       "overlapRatio": {
-        "description": "Optimal overlap between adjacent scan lines for uniform cleaning",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Typical 30-80% for uniform coverage; higher overlap ensures no gaps but increases heat exposure on nickel. Recommended 60% for balanced uniformity and efficiency in scan line coverage. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2020) for laser cleaning of metals."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -835,7 +787,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

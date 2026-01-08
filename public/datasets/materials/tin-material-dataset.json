@@ -312,14 +312,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "45",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -329,18 +321,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -353,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -384,39 +368,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -424,34 +376,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
+      "name": "Machine Settings - Laserpower",
+      "value": "45",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 20,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
       "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 100,
-      "minValue": 20,
-      "maxValue": 500,
+      "value": 45,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -465,7 +417,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -473,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -481,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -489,7 +441,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -706,11 +658,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for Tin oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial 1064 nm pulsed laser cleaning of reflective metals like tin to balance efficiency and avoid melting (tin melting point ~232°C); starting at 100W for light contamination. Max safe ~300-500W with proper pulsing to prevent substrate damage due to high reflectivity (~70% at 1064 nm). Source: Manufacturer specs (e.g., IPG Photonics YLR series for metal cleaning); academic review in 'Laser Cleaning' by Kononenko et al. (Optics & Lasers in Engineering, 2016)."
+        "value": 45,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for efficient Tin oxide absorption with minimal substrate heating",
@@ -720,52 +672,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise Tin surface cleaning",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range: 50-200 μm for fine detail on tin surfaces (e.g., electronics), 500-1000 μm for large-area industrial prep. 200 μm recommended for uniform cleaning without over-focusing heat on low-melting tin. Source: Equipment specifications from Coherent and Trumpf laser systems for cleaning applications."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient Tin cleaning with thermal management",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for tin to achieve fast coverage without excessive heat accumulation (trade-off: higher rates speed up process but risk melting if fluence too high). Lower rates for heavy contamination. Source: Academic literature, e.g., 'Pulsed Laser Cleaning of Metals' in Journal of Applied Physics (Anisimov et al., 2018)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled Tin oxide ablation",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime (5-200 ns) preferred for industrial tin cleaning to ablate contaminants without excessive heat; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. 20 ns recommended for tin to minimize thermal effects on reflective, low-melting substrate. Source: Laser physics research in 'Ultrashort Pulse Laser Ablation' by Bauerle (Laser Processing and Chemisty, 2011); studies on metal ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform Tin oxide removal",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1000,
+        "unit": "mm/s",
+        "description": "Range for effective contaminant removal on tin; slower speeds (100-500 mm/s) for heavy oxides, faster (2000-5000 mm/s) for light surface prep. Recommended 1000 mm/s for optimal balance of cleaning rate and heat input, considering tin's thermal conductivity (~67 W/m·K). Source: Industry standards from Laser Institute of America guidelines; equipment manuals (e.g., CleanLaser CL series)."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete Tin oxide removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers on tin to ensure complete removal without cumulative damage. Recommended 2 passes for typical industrial surface preparation, allowing cooling between passes. Source: Industry practice in case studies, e.g., 'Laser Cleaning of Metallic Substrates' (SPI Lasers application notes); empirical from metal cleaning trials."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform Tin surface cleaning",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "30-80% overlap for uniform coverage in scanned cleaning; 50% recommended for tin to avoid gaps or uneven heating, optimizing for reflective surfaces and contamination uniformity. Higher overlap for heavy soiling. Source: Process optimization studies in 'Laser Surface Cleaning' (Optics and Lasers in Engineering, 2020); manufacturer guidelines (e.g., Adapt Laser Systems)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -841,7 +793,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

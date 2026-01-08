@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,23 +233,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "2000",
       "unitText": "μm",
       "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
+      "maxValue": 2400
     },
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "12",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,70 +265,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "2000",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 2400
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
       "value": "2",
       "unitText": "passes",
       "minValue": 1,
@@ -352,7 +272,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Overlapratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -360,10 +280,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 200,
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "200",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 1000,
+      "maxValue": 1000
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -377,15 +321,15 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 2000,
       "minValue": 0.1,
-      "maxValue": 500,
+      "maxValue": 2400,
       "unitText": "μm"
     },
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -577,22 +521,22 @@
         "value": 1.15,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser cleaning of soot from brick masonry: Ablation thresholds and surface effects",
+        "sourceType": "journal_article",
+        "sourceName": "Laser cleaning of soot from brick masonry: Ablation thresholds and surface effects",
         "citation": "Sanz, M., et al., Journal of Cultural Heritage, 2013, DOI: 10.1016/j.culher.2012.10.005",
         "context": "Fired clay brick (common red brick, SiO2-Al2O3 based composition), room temperature (20°C), Nd:YAG laser at 1064 nm wavelength, measured under atmospheric pressure",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:52:49.880552",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:52:49.880552",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 1000,
-        "value": 200,
+        "description": "Optimal average power for brick surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for 1064 nm Nd:YAG lasers in stone/brick cleaning to remove contaminants without thermal damage; starting at 200W balances efficiency and safety. Max avoids cracking due to brick's low thermal conductivity (~0.8 W/mK). Source: Manufacturer specs from IPG Photonics (e.g., YLR series for restoration); academic review in 'Laser Cleaning of Stone Surfaces' (Optics & Lasers in Engineering, 2015)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength for optimal brick absorption and minimal substrate damage",
@@ -602,52 +546,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for effective cleaning resolution on brick surface texture",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 2400,
+        "value": 2000,
+        "unit": "μm",
+        "description": "Beam diameter range for industrial cleaning; smaller (0.5-1 mm) for detailed work, larger (2-5 mm) for broad brick surfaces. Recommended 2 mm for uniform coverage on rough brick texture. Source: Equipment specifications from Coherent and Trumpf laser systems for surface preparation; optimized in process studies (Lasers in Engineering, 2019)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning to control energy delivery; 10-50 kHz for brick prevents heat accumulation in low-conductivity material, while higher rates speed up process but risk thermal stress. Recommended 30 kHz for optimal throughput. Source: Academic literature in Optics Express (2014) on pulse repetition effects in cultural heritage cleaning; trade-off noted in manufacturer manuals (e.g., Adapt Laser Systems)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime (5-100 ns) preferred for brick to ablate contaminants via photothermal effects with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 20 ns for balance. Source: Laser physics research in Applied Surface Science (2017) on stone ablation thresholds; avoids fs due to brick's high damage risk from shockwaves."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage and process efficiency",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contaminant removal on porous brick; slower (100-500 mm/s) for heavy soiling like soot, faster (500-2000 mm/s) for light dust. Recommended 500 mm/s optimizes cleaning rate while minimizing heat buildup. Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cultural Heritage (2018) on brick restoration."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal from porous brick surface",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers to ensure complete removal without excessive energy. Recommended 2 passes for brick to achieve uniform results while staying below damage threshold. Source: Industry practice in restoration case studies (e.g., European Commission reports on laser cleaning of masonry, 2020); avoids overexposure on porous surfaces."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap percentage for uniform cleaning without excessive thermal accumulation",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Overlap ensures uniform coverage on uneven brick; 30-50% for speed, 60-80% for thorough cleaning of pores. Recommended 60% for optimal uniformity without redundancy. Source: Process optimization studies in Applied Optics (2015) on scan strategies for stone; standard in manufacturer guidelines (e.g., Laserax equipment manuals)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -723,7 +667,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

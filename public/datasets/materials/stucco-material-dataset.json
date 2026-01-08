@@ -216,14 +216,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -233,23 +225,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "0.2",
-      "unitText": "mm",
+      "value": "300",
+      "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "3.2",
+      "value": "1.2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -257,7 +241,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "30",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -281,70 +265,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "30",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "300",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -352,10 +272,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 200,
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "200",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 500,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -369,10 +313,10 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 0.2,
+      "value": 300,
       "minValue": 0.1,
       "maxValue": 500,
-      "unitText": "mm"
+      "unitText": "μm"
     },
     {
       "@type": "PropertyValue",
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 30,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -569,22 +513,22 @@
         "value": 1.8,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser cleaning of calcareous stone surfaces: Evaluation of damage threshold",
+        "sourceType": "journal_article",
+        "sourceName": "Laser cleaning of calcareous stone surfaces: Evaluation of damage threshold",
         "citation": "Sanz et al., Applied Surface Science, 2013, DOI: 10.1016/j.apsusc.2013.05.123",
         "context": "Traditional lime-based stucco (calcium carbonate matrix with sand aggregates, 80% CaCO3 purity equivalent), 20°C, 1064 nm Nd:YAG laser, pulse duration 10 ns",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:20:28.338605",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:20:28.338605",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 200,
+        "description": "Optimal average power for Stucco surface cleaning without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial cleaning of porous, low-conductivity materials like stucco to avoid thermal damage; starting at 200W for controlled ablation. Max limited to prevent cracking. Based on manufacturer specs from IPG Photonics and Adapt Laser Systems for 1064 nm systems on stone-like surfaces (similar to stucco)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction",
@@ -594,52 +538,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for balanced cleaning efficiency and resolution",
-        "unit": "mm",
-        "value": 0.2,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 300,
+        "description": "Beam diameter range for uniform coverage on rough stucco surfaces; smaller for detail work, larger for broad areas. 300 μm recommended for industrial contamination removal. From equipment specifications of systems like Laserax or CleanLASER for architectural applications."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage and process speed",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Typical for pulsed cleaning to ensure overlap without excessive heat buildup on low-conductivity stucco; higher rates speed up process but risk accumulation. 50 kHz recommended for optimal balance. From academic literature on 1064 nm cleaning of stone (e.g., Journal of Cultural Heritage papers on facade restoration)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal effects",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 30,
+        "description": "Nanosecond regime preferred for stucco to achieve ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-sensitive cases but less common industrially due to cost. 30 ns recommended for 1064 nm on plaster-like materials. Supported by laser physics research in Optics & Laser Technology (e.g., studies on pulsed laser ablation of cementitious materials)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning without thermal accumulation",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1500,
+        "description": "Effective range for contamination removal on stucco; slower for heavy soiling (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s balances efficiency and safety. From industry standards in laser cleaning of building materials (e.g., EU project reports on historical stone cleaning)."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
+        "min": 1,
+        "max": 10,
         "unit": "passes",
         "value": 2,
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light cleaning, multi-pass for heavy contamination on porous stucco; 2 passes recommended to ensure complete removal without overexposure. Drawn from industry case studies on building restoration (e.g., reports from the International Centre for the Study of the Preservation and Restoration of Cultural Property)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 60,
+        "description": "Ensures uniform coverage on irregular stucco textures; 60% recommended for even cleaning without gaps or excessive overlap heat. Typical range from process optimization studies in laser surface treatment (e.g., Industrial Laser Solutions magazine articles on scan strategies for non-metals)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -715,7 +659,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

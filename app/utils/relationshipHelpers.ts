@@ -361,8 +361,11 @@ export function validateRelationshipSection(
 export function getContaminatedBy(metadata: any): any {
   const relationships = metadata?.relationships;
   return (
+    relationships?.interactions?.contaminatedBy ||
     relationships?.interactions?.contaminated_by ||
+    relationships?.technical?.contaminatedBy ||
     relationships?.technical?.contaminated_by ||
+    relationships?.contaminatedBy ||
     relationships?.contaminated_by ||
     {}
   );

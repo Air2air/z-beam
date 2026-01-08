@@ -7,7 +7,7 @@ import { getContentConfig } from '@/app/config/contentTypes';
 import { CollectionPage } from '@/app/components/CollectionPage/CollectionPage';
 
 export const dynamic = 'force-static';
-export const revalidate = false;
+export const revalidate = process.env.NODE_ENV === 'production' ? 3600 : false; // 1 hour ISR in production
 
 const config = getContentConfig('compounds');
 

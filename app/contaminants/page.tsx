@@ -7,7 +7,7 @@ import { getAllCategories } from '@/app/utils/contaminantCategories';
 import { CollectionPage } from '@/app/components/CollectionPage/CollectionPage';
 
 export const dynamic = 'force-static';
-export const revalidate = false;
+export const revalidate = process.env.NODE_ENV === 'production' ? 3600 : false; // 1 hour ISR in production
 
 // SEO metadata generation
 export async function generateMetadata() {

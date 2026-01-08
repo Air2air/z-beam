@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "300",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "1.2",
+      "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -304,7 +288,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "50",
       "unitText": "W",
       "minValue": 10,
@@ -312,23 +304,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "20",
       "unitText": "kHz",
       "minValue": 1,
@@ -336,42 +312,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "300",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 50,
-      "minValue": 10,
-      "maxValue": 200,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 300,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 20,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -591,22 +535,22 @@
         "value": 1.2,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation of Wood: Threshold Fluence for Different Species",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation of Wood: Threshold Fluence for Different Species",
         "citation": "Yilbas, B.S. et al., Optics and Lasers in Engineering, 2015, DOI: 10.1016/j.optlaseng.2014.10.012",
         "context": "Dry hickory wood (Carya spp., density 0.82 g/cm³, moisture content <5%), room temperature (25°C), 1064 nm Nd:YAG laser, pulse duration 10 ns",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:00:00.480148",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:00:00.480148",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 10,
-        "max": 200,
-        "value": 50,
+        "description": "Optimal average power for Hickory surface cleaning without charring",
         "unit": "W",
-        "description": "Typical range for 1064 nm pulsed lasers on wood; starting at 50W balances cleaning efficiency and heat input to prevent charring on low-conductivity hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer specs from IPG Photonics YLR series and studies on wood laser ablation (e.g., Journal of Cultural Heritage, 2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for Hickory absorption and minimal penetration",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Optimal beam diameter for precision cleaning resolution",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 300,
+        "unit": "μm",
+        "description": "300 μm recommended for Hickory surface preparation, balancing fine detail and large-area coverage. Smaller (100-200 μm) for precision, larger (500-1000 μm) for broad cleaning. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial cleaning."
       },
       "frequency": {
-        "description": "High repetition rate for efficient cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 20,
+        "unit": "kHz",
+        "description": "20 kHz recommended for Hickory to achieve fast cleaning while limiting heat accumulation due to wood's low thermal conductivity. Higher rates (>50 kHz) speed up process but increase risk of charring; lower for delicate control. Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser cleaning of organics."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for wood cleaning to minimize heat-affected zone (HAZ); 50 ns typical for Hickory to enable precise ablation without thermal damage. Picosecond (ps) or femtosecond for ultra-fine work but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on wood substrates."
       },
       "scanSpeed": {
-        "description": "Scanning speed for efficient area coverage without thermal damage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective speeds for contamination removal; 1000 mm/s recommended for optimal balance on Hickory to avoid overheating. Slower (100-500 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards from Laserax equipment manuals and process optimization in Optics and Lasers in Engineering (2020)."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "2 passes typical for complete removal on Hickory; single pass for light contamination, multi-pass (up to 5) for heavy layers to ensure uniformity without excessive heat. Source: Industry case studies in restoration of wooden artifacts (e.g., Studies in Conservation, 2022)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without over-processing",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "50% overlap recommended for uniform coverage on Hickory, preventing gaps in cleaning while minimizing overexposure. Range 30-80% based on contamination density. Source: Process optimization studies in Laser Cleaning Journal (2020)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

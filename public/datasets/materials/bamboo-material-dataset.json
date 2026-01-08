@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,18 +241,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -304,39 +288,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "50",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -344,34 +296,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 50,
-      "minValue": 20,
-      "maxValue": 200,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -591,22 +543,22 @@
         "value": 1.85,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Threshold fluence for laser ablation of bamboo",
+        "sourceType": "journal_article",
+        "sourceName": "Threshold fluence for laser ablation of bamboo",
         "citation": "Li, Y. et al., Journal of Applied Physics, 2019, DOI: 10.1063/1.5092623",
         "context": "Natural bamboo (Phyllostachys edulis, 70% moisture content adjusted to 12%), 25°C, 1064 nm Nd:YAG laser, 8 ns pulse duration, measured in air at 1 atm",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:50:57.430395",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:50:57.430395",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 200,
-        "value": 50,
+        "description": "Optimal average power for bamboo surface cleaning without charring",
         "unit": "W",
-        "description": "Typical range for delicate organic materials like bamboo to remove surface contaminants without charring; starting at 50 W for controlled ablation. Max safe to avoid substrate damage based on thermal sensitivity of lignocellulosic fibers. Source: Studies on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018, adapted for bamboo)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength for optimal absorption in bamboo contaminants with minimal substrate damage",
@@ -616,52 +568,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning resolution on bamboo surface features",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for precise cleaning; smaller (100-200 μm) for fine details on bamboo texture, larger (300-500 μm) for broad areas. Recommended 200 μm for uniform coverage on fibrous surfaces. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage with thermal management",
+        "min": 1,
+        "max": 200,
         "unit": "kHz",
         "value": 50,
-        "min": 1,
-        "max": 200
+        "description": "Typical for cleaning organics; 20-50 kHz recommended for bamboo to enable fast processing while limiting heat accumulation due to low thermal conductivity. Higher rates (>100 kHz) increase speed but risk overheating. Source: Academic literature, e.g., Applied Surface Science (2019) on pulse repetition effects in laser ablation of natural fibers."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient contaminant removal with controlled thermal penetration",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for bamboo to achieve ablation with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduce HAZ further but are costlier and less common for industrial cleaning at 1064 nm. Avoid longer pulses to prevent burning. Source: Laser physics research in Optics and Lasers in Engineering (2020) on pulsed laser interactions with biopolymers."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for efficient area coverage while maintaining cleaning effectiveness",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1000,
+        "unit": "mm/s",
+        "description": "Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1000 mm/s for bamboo to minimize thermal damage. Source: Industry manuals from IPG Photonics and Laserax equipment guidelines for organic surfaces."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal without substrate damage",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; recommended 2 passes for bamboo to ensure complete removal while monitoring for thermal effects. Source: Industry case studies on laser surface preparation for natural materials (e.g., SPIE Proceedings, 2021)."
       },
       "overlapRatio": {
-        "description": "Beam overlap percentage for uniform cleaning coverage across bamboo surface",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage without excessive overlap-induced heat; 50% recommended for bamboo to achieve even cleaning on irregular surfaces while avoiding hotspots. Typical range from process optimization. Source: Optimization studies in Lasers in Manufacturing and Materials Processing (2022)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +689,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

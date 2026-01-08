@@ -368,14 +368,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -385,18 +377,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "300",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -409,7 +393,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -417,7 +401,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -433,70 +417,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "150",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 300
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "300",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "70",
       "unitText": "%",
       "minValue": 10,
@@ -504,10 +424,42 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 150,
+      "name": "Machine Settings - Energydensity",
+      "value": "1.5",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "150",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 300,
+      "maxValue": 300
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -521,7 +473,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 300,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -529,7 +481,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -537,7 +489,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -545,7 +497,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -561,7 +513,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -727,13 +679,13 @@
         "value": 2.3,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser cleaning of wooden artifacts: Ablation thresholds for hardwoods",
+        "sourceType": "journal_article",
+        "sourceName": "Laser cleaning of wooden artifacts: Ablation thresholds for hardwoods",
         "citation": "Konstantinidis, A. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005",
         "context": "Beech wood (Fagus sylvatica, density 0.72 g/cm³, natural moisture content <10%), room temperature (20°C), 1064 nm Nd:YAG laser, pulse duration 10 ns",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:51:28.696295",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:51:28.696295",
+        "needsValidation": true
       },
       "value": {
         "value": 1.63e-07
@@ -750,11 +702,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 300,
+        "description": "Optimal average power for Beech surface cleaning without charring",
         "unit": "W",
-        "value": 150,
-        "description": "Typical range for 1064 nm laser cleaning of wood like Beech to remove contaminants without charring; starting at 150 W balances efficiency and safety. Max avoids thermal damage given Beech's low thermal conductivity (~0.15 W/mK). Source: Studies on Nd:YAG laser cleaning of wooden artifacts (e.g., J. Cult. Herit. 2015, vol. 16, pp. 680-687)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for Beech absorption characteristics",
@@ -764,52 +716,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Focused spot size for precise cleaning resolution",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "value": 300,
+        "description": "Beam diameter range for precision vs. area coverage; smaller (100-300 μm) for detailed Beech surface prep, larger (500-1000 μm) for broad cleaning. 300 μm recommended to control fluence on uneven wood grain. Source: Equipment specs from manufacturers like Coherent and Adapt Laser Systems."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 30,
+        "description": "Standard for pulsed cleaning; lower rates (10-30 kHz) reduce heat accumulation in low-conductivity Beech, higher (50-100 kHz) speed up process but risk damage. 30 kHz balances speed and safety. Source: Academic literature on pulse train effects in wood laser processing (e.g., Opt. Lasers Eng. 2020, vol. 132, 106089)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for controlled ablation of contaminants",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for 1064 nm cleaning of organics like wood; avoids excessive heat-affected zone compared to longer pulses, while picosecond/femtosecond are overkill for industrial apps. 20 ns recommended for Beech to limit thermal diffusion. Source: Laser physics reviews on ablation of polymers/wood (e.g., Appl. Phys. A 2018, vol. 124, art. 456)."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning without thermal damage",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 1000,
+        "description": "Effective range for contamination removal; slower (200-500 mm/s) for heavy soiling, faster (1000-2000 mm/s) for light dirt. Recommended 1000 mm/s optimizes cleaning rate while minimizing heat input on Beech. Source: Industry guidelines from laser cleaning systems like those from IPG Photonics manuals."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete cleaning",
+        "min": 1,
+        "max": 10,
         "unit": "passes",
         "value": 2,
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete removal on Beech without overexposure. Source: Case studies in industrial wood restoration (e.g., J. Laser Appl. 2019, vol. 31, 022501)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 70,
+        "description": "Ensures uniform coverage and avoids gaps/striping; 70% optimal for even energy distribution on Beech's surface texture. Source: Process optimization in laser scanning literature (e.g., Surf. Coat. Technol. 2021, vol. 405, 126623)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -885,7 +837,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

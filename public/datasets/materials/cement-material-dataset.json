@@ -224,14 +224,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -241,23 +233,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "0.2",
-      "unitText": "mm",
+      "value": "200",
+      "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "3.2",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -265,7 +249,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -296,7 +280,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "100",
       "unitText": "W",
       "minValue": 50,
@@ -304,23 +296,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "30",
       "unitText": "kHz",
       "minValue": 1,
@@ -328,42 +304,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 50,
-      "maxValue": 500,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -377,15 +321,15 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 0.2,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
-      "unitText": "mm"
+      "unitText": "μm"
     },
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -577,22 +521,22 @@
         "value": 2.1,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Cleaning of Cement-Based Historical Buildings: Ablation Thresholds and Surface Effects",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Cleaning of Cement-Based Historical Buildings: Ablation Thresholds and Surface Effects",
         "citation": "Vergès-Belmin, V., et al., Studies in Conservation, 2015, DOI: 10.1179/2047058415Y.0000000007",
         "context": "Portland cement mortar (standard composition with 20% lime, 80% cement), room temperature (25°C), measured using Q-switched Nd:YAG laser at 1064 nm wavelength",
         "confidence": 95,
-        "researched_date": "2025-11-24T11:54:06.181358",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T11:54:06.181358",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for cement surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for industrial laser cleaning of cementitious materials like concrete to remove contaminants without thermal damage; starting at 100W balances efficiency and safety. Max safe below 500W to avoid cracking porous substrate. Source: Manufacturer specs from IPG Photonics YLR series for stone/concrete cleaning; academic paper by Marczak et al. (2012) on laser cleaning of historical concrete."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for cement absorption and minimal substrate damage",
@@ -602,52 +546,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for effective cleaning resolution",
-        "unit": "mm",
-        "value": 0.2,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter for uniform cleaning; smaller (100-200 μm) for fine surface prep, larger (300-500 μm) for broad areas. Recommended 200 μm for cement to achieve good resolution on rough surfaces. Source: Equipment specifications from Adapt Laser Systems scanners for industrial cleaning; process studies in Lasers in Manufacturing (2019)."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "Typical for pulsed cleaning to control heat accumulation in low-thermal-conductivity cement; higher rates (>50 kHz) speed up process but risk overheating/cracking. Recommended 30 kHz balances speed and safety. Source: Academic literature in Optics and Lasers in Engineering (2020) by Pou et al. on repetition rate trade-offs for stone materials."
       },
       "pulseWidth": {
-        "description": "Short pulse duration for efficient contaminant removal with minimal heat diffusion",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for cement due to cost-effectiveness and sufficient ablation; picosecond (ps) or femtosecond reduces heat-affected zone (HAZ) but unnecessary for porous, low-conductivity cement. Recommended 20 ns minimizes thermal damage. Source: Laser physics research in Applied Surface Science (2018) by Anisimov et al. on pulse duration effects for dielectrics like cement."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning efficiency",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective speeds for 1064 nm cleaning of cement; slower (500-1000 mm/s) for heavy contamination like oil/graffiti, faster (2000-3000 mm/s) for light dust. Recommended 1500 mm/s for optimal removal with minimal passes. Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cultural Heritage (2015) on concrete surface preparation."
       },
       "passCount": {
-        "description": "Number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers on cement to avoid excessive energy input. Recommended 2 passes for complete removal with uniform results. Source: Industry practice from case studies in Construction and Building Materials (2017) on laser-prepared cement surfaces."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage on irregular cement surfaces; 30-50% for large areas, 60-80% for detailed cleaning. Recommended 50% prevents gaps while minimizing overexposure. Source: Process optimization studies in Optics Express (2014) by Lorenz et al. on scan overlap for ablation uniformity."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -723,7 +667,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

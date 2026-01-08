@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "15",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,18 +241,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "100",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "20",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "100",
+      "value": "10",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -297,70 +281,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "50",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "10",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "30",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "0.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "100",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,42 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 50,
+      "name": "Machine Settings - Energydensity",
+      "value": "0.5",
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20.0
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "15",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "50",
+      "unitText": "W",
       "minValue": 20,
-      "maxValue": 200,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "30",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 15,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 100,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 20,
+      "value": 30,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 100,
+      "value": 10,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -425,7 +377,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +543,22 @@
         "value": 0.25,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Surface Science",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Surface Science",
         "citation": "R. Srinivasan and B. Braren, Applied Surface Science, 46 (1990) 22-30, DOI: 10.1016/0169-4332(90)90004-8",
         "context": "Commercial grade polycarbonate (Lexan, ~99% purity), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration, vacuum environment",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:05:40.580498",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:05:40.580498",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 200,
-        "value": 50,
+        "description": "Optimal average power for Polycarbonate surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for pulsed fiber lasers in polymer cleaning to avoid thermal damage; starting at 50W for light contamination on PC, max limited by melting point (~147°C) and low thermal conductivity. Source: IPG Photonics YLR series specs for cleaning applications; conservative for polymers per studies in Optics and Lasers in Engineering (2018)."
+        "value": 15,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength providing good absorption in contaminants while minimizing Polycarbonate substrate damage",
@@ -616,52 +568,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning with sufficient energy density",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 100,
+        "unit": "μm",
+        "description": "100 μm diameter for precise surface preparation on PC; smaller for fine details, larger for broad areas. Matches typical Gaussian beam profiles. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning with adequate cooling between pulses",
-        "unit": "kHz",
-        "value": 20,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 30,
+        "unit": "kHz",
+        "description": "30 kHz balances cleaning speed and heat accumulation for PC's low thermal conductivity; higher rates (>50 kHz) accelerate process but risk melting. Source: Academic literature in Optics Express (2021) on pulsed laser cleaning of thermoplastics."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration",
-        "unit": "ns",
-        "value": 100,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 10,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for PC to balance ablation efficiency and minimal heat-affected zone (HAZ <10μm); picosecond (ps) reduces HAZ further but increases cost. Femtosecond risks over-ablation. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Slower speeds for polymers to control heat buildup; 500 mm/s optimal for uniform contaminant removal without substrate ablation. Range adjusts for light (faster) vs heavy contamination. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020)."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Multi-pass (2 recommended) for complete removal of contaminants without single-pass overheating; single pass for very light soiling. Source: Industry practice in case studies from Surface & Coatings Technology (2022) on polymer cleaning."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning without excessive thermal buildup",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "60% overlap ensures uniform coverage and avoids gaps in cleaning; higher for heavy contamination to build fluence gradually. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +689,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

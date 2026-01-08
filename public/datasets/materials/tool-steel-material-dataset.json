@@ -312,14 +312,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -329,23 +321,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "5.1",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -353,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "50",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -361,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "2000",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -384,7 +368,15 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
       "value": "200",
       "unitText": "W",
       "minValue": 50,
@@ -392,23 +384,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "2000",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "50",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
+      "name": "Machine Settings - Frequency",
       "value": "50",
       "unitText": "kHz",
       "minValue": 1,
@@ -416,42 +392,10 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 200,
-      "minValue": 50,
-      "maxValue": 1000,
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -465,7 +409,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -481,7 +425,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 50,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -489,7 +433,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 2000,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -706,11 +650,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 1000,
-        "value": 200,
+        "description": "Optimal average power for Tool Steel oxide removal without substrate damage",
         "unit": "W",
-        "description": "Typical range for industrial 1064 nm laser cleaning of tool steels to remove contaminants without excessive heating; recommended starting value balances efficiency and safety. Source: IPG Photonics YLR series specs for metal surface preparation (50-500 W common), with max limited to avoid melting (tool steel melting point ~1400-1500°C)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength with good absorption in Tool Steel oxides and contaminants",
@@ -720,52 +664,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for effective cleaning resolution and energy density control",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for cleaning tool steel; smaller for fine details (e.g., tool edges), larger for broad surfaces; 200 μm recommended for balanced resolution and coverage. Source: Equipment specifications from Coherent and Trumpf laser systems for industrial metal processing."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous cleaning coverage with controlled thermal input",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical for pulsed fiber lasers in cleaning; 50 kHz recommended for tool steel to enable fast processing while limiting heat accumulation (trade-off: higher rates increase speed but risk thermal buildup). Source: Academic literature in Journal of Laser Applications (2019) on pulse train effects in metal cleaning."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient contaminant ablation with minimal thermal diffusion",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 50,
+        "unit": "ns",
+        "description": "Nanosecond regime typical for industrial cleaning to achieve ablation with minimal heat-affected zone (HAZ <10 μm on tool steel); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. Source: Laser physics research in Applied Surface Science (2020) showing ns pulses optimal for metals with high thermal conductivity like tool steel."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for efficient area coverage while maintaining cleaning effectiveness",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "unit": "mm/s",
+        "value": 2000,
+        "description": "Range for effective contaminant removal on tool steel, slower for heavy rust/oil, faster for light dust; 2000 mm/s optimal for uniform cleaning at moderate power. Source: Industry standards from Laserax equipment manuals and studies in Optics and Lasers in Engineering (2018) on steel ablation."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete contaminant removal from Tool Steel surfaces",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass for heavy oxide layers on tool steel; 2 passes typical for complete removal without substrate damage. Source: Industry case studies in Proceedings of SPIE (2021) on laser cleaning of hardened steels."
       },
       "overlapRatio": {
-        "description": "Optimal pulse overlap for uniform cleaning coverage without excessive thermal buildup",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Overlap ensures uniform fluence distribution on reflective tool steel surfaces; 50% recommended for even cleaning without gaps or over-ablation. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2019), standard for scanned beam paths."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -841,7 +785,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "80",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "2.5",
+      "value": "1.5",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "12",
+      "value": "30",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -281,7 +265,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "500",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -297,70 +281,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "200",
-      "unitText": "W",
-      "minValue": 50,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "30",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1.5",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 200,
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "200",
+      "unitText": "W",
       "minValue": 50,
-      "maxValue": 500,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 100,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 80,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 12,
+      "value": 30,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -409,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 500,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +535,22 @@
         "value": 1.25,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser Ablation of Sedimentary Rocks: Threshold Fluences for Shale and Sandstone",
+        "sourceType": "journal_article",
+        "sourceName": "Laser Ablation of Sedimentary Rocks: Threshold Fluences for Shale and Sandstone",
         "citation": "Johnson, R. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123",
         "context": "Natural shale (70% clay minerals, 20% quartz, 10% carbonates), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration, measured under vacuum conditions",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:18:16.525598",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:18:16.525598",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 50,
-        "max": 500,
-        "value": 200,
+        "description": "Optimal average power for Shale surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for industrial ns-pulsed fiber lasers at 1064 nm cleaning soft rocks like shale; starting at 200 W balances efficiency and avoids thermal cracking due to shale's low thermal conductivity (~1-2 W/m·K). Max safe before damage ~500 W to prevent substrate ablation. Source: Manufacturer specs (e.g., IPG Photonics YLR series) and studies on laser cleaning of stone (Optics and Lasers in Engineering, 2018)."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength optimized for Shale mineral absorption characteristics",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for effective Shale cleaning resolution",
-        "unit": "μm",
-        "value": 80,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Beam diameter range for industrial cleaning; smaller (100-200 μm) for fine detail on shale surfaces, larger (300-500 μm) for broad area prep. Recommended 200 μm for uniform energy distribution on irregular shale textures. Source: Equipment specifications (e.g., Coherent Armoni series) and process optimization for stone cleaning."
       },
       "frequency": {
-        "description": "Optimal repetition rate for continuous Shale surface processing",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical for efficient cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation in low-conductivity shale, leading to thermal stress. Recommended 50 kHz balances speed and safety. Trade-off: low freq for heavy contamination to allow cooling. Source: Academic literature on pulsed laser cleaning (Journal of Laser Applications, 2019)."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for efficient Shale ablation with minimal heat diffusion",
-        "unit": "ns",
-        "value": 12,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 30,
+        "description": "Nanosecond regime preferred for 1064 nm cleaning of shale to achieve ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but less common industrially due to cost. Avoid fs for shale to prevent micro-cracking from shock waves. Recommended 30 ns for low reflectivity materials. Source: Laser physics research (Applied Surface Science, 2020) on pulsed laser ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform Shale surface treatment",
-        "unit": "mm/s",
-        "value": 500,
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective speeds for contamination removal on shale; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal fluence delivery without overheating. Source: Industry standards from laser cleaning equipment manuals (e.g., Laserax systems) and case studies on rock surface preparation."
       },
       "passCount": {
-        "description": "Recommended number of passes for complete Shale surface cleaning",
-        "unit": "passes",
-        "value": 2,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-5) for heavy layers on shale to ensure complete removal without excessive energy input. Recommended 2 passes for industrial surface preparation, allowing incremental cleaning to minimize damage risk. Source: Industry practice and case studies (e.g., laser cleaning of geological samples in Applied Optics, 2021)."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform Shale surface cleaning",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage; 30-50% for large areas, 60-80% for detailed shale cleaning to avoid gaps in irregular surfaces. Recommended 60% for optimal uniformity without overexposure. Source: Process optimization studies (Lasers in Engineering, 2016) on scan strategies for rock substrates."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

@@ -184,14 +184,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "70",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -201,23 +193,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "60",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "40",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "1.8",
+      "value": "2",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -225,7 +209,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -233,7 +217,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Scanspeed",
-      "value": "600",
+      "value": "1500",
       "unitText": "mm/s",
       "minValue": 10,
       "maxValue": 5000
@@ -249,70 +233,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Overlapratio",
-      "value": "40",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "1500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "2",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
       "value": "60",
       "unitText": "%",
       "minValue": 10,
@@ -320,10 +240,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Laser Power",
-      "value": 100,
+      "name": "Machine Settings - Laserpower",
+      "value": "70",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
       "minValue": 20,
-      "maxValue": 500,
+      "maxValue": 500
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "50",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Laser Power",
+      "value": 70,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -337,7 +281,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 60,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -345,7 +289,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 40,
+      "value": 50,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -353,7 +297,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -361,7 +305,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser scanSpeed",
-      "value": 600,
+      "value": 1500,
       "minValue": 10,
       "maxValue": 5000,
       "unitText": "mm/s"
@@ -377,7 +321,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 40,
+      "value": 60,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -462,94 +406,94 @@
         "value": 8.5,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Laser damage thresholds of optical materials for 1064 nm irradiation",
+        "sourceType": "journal_article",
+        "sourceName": "Laser damage thresholds of optical materials for 1064 nm irradiation",
         "citation": "Carr, C. W. et al., Applied Optics, 2009, DOI: 10.1364/AO.48.002081, URL: https://opg.optica.org/ao/abstract.cfm?uri=ao-48-14-2081",
         "context": "High-purity aluminosilicate glass (SiO2-Al2O3-Na2O-K2O composition, 99.9% purity), 25°C, 1064 nm Nd:YAG laser, 10 ns pulse duration, single-shot measurement",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:31:22.014274",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:31:22.014274",
+        "needsValidation": true
       },
       "ablationThreshold": {
         "value": 2.8,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Optics Express",
+        "sourceType": "journal_article",
+        "sourceName": "Optics Express",
         "citation": "A. Rublack et al., Femtosecond laser processing of alkali aluminosilicate glass: ablation threshold and surface morphology, Optics Express, 2018, DOI: 10.1364/OE.26.013456",
         "context": "Alkali aluminosilicate glass (Corning Gorilla Glass composition, ~62% SiO2, 18% Al2O3, 14% Na2O, 6% others), room temperature (25°C), 515 nm wavelength, 400 fs pulse duration, measured in air",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:31:35.288251",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:31:35.288251",
+        "needsValidation": true
       },
       "thermalDiffusivity": {
         "value": 5.34e-07,
         "unit": "m²/s",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb - Online Materials Information Resource",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb - Online Materials Information Resource",
         "citation": "MatWeb, Corning Inc. - 1737 Aluminosilicate Glass, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b5e4a5d2f4a4b0e9a4b0e9a4b0e9a, accessed October 2023",
         "context": "Commercial aluminosilicate glass (Corning 1737, ~70% SiO2, 15% Al2O3, 10% Na2O, 5% others), 25°C, properties measured under standard conditions",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:31:44.196167",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:31:44.196167",
+        "needsValidation": true
       },
       "thermalExpansion": {
         "value": 3.8e-06,
         "unit": "1/K",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb, LLC, Aluminosilicate Glass (generic), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e4f8a5b0e6b4a, accessed 2023",
         "context": "Commercial aluminosilicate glass (e.g., ~60% SiO2, 20% Al2O3, balance alkali oxides), 25-300°C, dilatometry measurement",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:31:50.035918",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:31:50.035918",
+        "needsValidation": true
       },
       "specificHeat": {
         "value": 740.0,
         "unit": "J/(kg·K)",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb, LLC, Aluminosilicate Glass, Generic, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e6b4a5b0e6b4a, accessed October 2023",
         "context": "Commercial aluminosilicate glass (typical composition: ~60% SiO2, 18-20% Al2O3, 10% Na2O/K2O, balance others), 25°C, differential scanning calorimetry (DSC) measurement",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:31:58.429479",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:31:58.429479",
+        "needsValidation": true
       },
       "thermalConductivity": {
         "value": 1.05,
         "unit": "W/(m·K)",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "MatWeb Materials Database",
+        "sourceType": "materials_database",
+        "sourceName": "MatWeb Materials Database",
         "citation": "MatWeb Materials Database, Aluminosilicate Glass - General Properties, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e4f8a5b0e6b4a, accessed 2024",
         "context": "Commercial aluminosilicate glass (e.g., similar to Gorilla Glass composition: ~60% SiO2, ~20% Al2O3, ~10% Na2O/K2O, 99% purity), 25°C, measured via laser flash method",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:32:06.619825",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:32:06.619825",
+        "needsValidation": true
       },
       "laserReflectivity": {
         "value": 0.042,
         "unit": "%",
         "source": "scientific_literature",
-        "source_type": "materials_database",
-        "source_name": "RefractiveIndex.INFO",
+        "sourceType": "materials_database",
+        "sourceName": "RefractiveIndex.INFO",
         "citation": "Polyanskiy, M. N., Refractive index database, https://refractiveindex.info/?shelf=glass&book=alkali-aluminosilicate&page=MAL-2, accessed October 2024",
         "context": "Alkali aluminosilicate glass (approx. composition: 65% SiO2, 18% Al2O3, 10% Na2O, 5% MgO, 2% others; commercial grade similar to display glass substrates), 25°C, normal incidence, 1064 nm wavelength (Nd:YAG laser relevant for cleaning applications)",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:32:24.756410",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:32:24.756410",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 500,
-        "value": 100,
+        "value": 70,
         "unit": "W",
-        "description": "Typical range for delicate glass substrates to avoid thermal damage; starting at 100W for initial tests on light contaminants. Max safe below 500W to prevent cracking (based on IPG Photonics specs for fiber lasers and studies in Optics and Lasers in Engineering, 2018)."
+        "description": "Controlled power for glass cleaning",
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "value": 1064,
@@ -559,52 +503,52 @@
         "max": 10640
       },
       "spotSize": {
-        "value": 60,
-        "unit": "μm",
-        "description": "Spot size for effective glass treatment",
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 200,
+        "unit": "μm",
+        "description": "Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for area coverage. 200 μm recommended for uniform treatment on flat glass surfaces without hotspots (equipment specs from Coherent Inc. laser systems)."
       },
       "frequency": {
-        "value": 40,
-        "unit": "kHz",
-        "description": "Moderate frequency for glass cleaning",
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Balances cleaning speed and heat accumulation; higher rates (>50 kHz) risk substrate heating in reflective glass. 50 kHz optimal for aluminosilicate to avoid cumulative damage (academic literature in Applied Surface Science, 2020)."
       },
       "pulseWidth": {
-        "value": 10,
-        "unit": "ns",
-        "description": "Short pulses to prevent cracking",
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred for cost-effective cleaning with minimal HAZ; picosecond (ps) or femtosecond for ultra-precision but higher cost. 20 ns recommended to limit thermal diffusion in low-conductivity glass (Laser & Particle Beams journal, 2015)."
       },
       "scanSpeed": {
-        "value": 600,
-        "unit": "mm/s",
-        "description": "Faster scanning for thermal management",
         "min": 10,
-        "max": 5000
+        "max": 5000,
+        "value": 1500,
+        "unit": "mm/s",
+        "description": "Effective for contaminant removal without excessive heat buildup; slower (500-1000 mm/s) for heavy contamination, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for balance on aluminosilicate glass (industry standards from Laserax equipment manuals)."
       },
       "passCount": {
+        "min": 1,
+        "max": 10,
         "value": 2,
         "unit": "passes",
-        "description": "Careful passes for complete cleaning",
-        "min": 1,
-        "max": 10
+        "description": "Single pass for light contamination; multi-pass (2-5) for stubborn residues. 2 passes typical for complete removal on aluminosilicate glass to minimize risk (industry case studies in Laser Cleaning Handbook, SPIE, 2019)."
       },
       "overlapRatio": {
-        "value": 40,
-        "unit": "%",
-        "description": "Moderate overlap for glass surfaces",
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 60,
+        "unit": "%",
+        "description": "Ensures uniform coverage without gaps or overexposure; 30-50% for speed, 60-80% for thoroughness. 60% recommended for even cleaning on smooth glass (process optimization in Optics Express, 2016)."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -680,7 +624,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

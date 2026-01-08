@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,23 +241,15 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "100",
+      "value": "200",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Energydensity",
-      "value": "2.5",
+      "value": "1",
       "unitText": "J/cm²",
       "minValue": 0.1,
       "maxValue": 20.0
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "10",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -289,70 +273,6 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlapratio",
-      "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 300
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "20",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
-      "value": "1",
-      "unitText": "J/cm²",
-      "minValue": 0.1,
-      "maxValue": 20.0
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "200",
-      "unitText": "μm",
-      "minValue": 0.1,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
       "value": "2",
       "unitText": "passes",
       "minValue": 1,
@@ -360,7 +280,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Overlapratio",
       "value": "70",
       "unitText": "%",
       "minValue": 10,
@@ -368,10 +288,34 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpower",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 20,
+      "maxValue": 300
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Frequency",
+      "value": "20",
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
+    },
+    {
+      "@type": "PropertyValue",
       "name": "Laser Power",
       "value": 100,
-      "minValue": 20,
-      "maxValue": 300,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +329,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 100,
+      "value": 200,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -393,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser frequency",
-      "value": 50,
+      "value": 20,
       "minValue": 1,
       "maxValue": 200,
       "unitText": "kHz"
@@ -401,7 +345,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 10,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -417,7 +361,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -425,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser overlapRatio",
-      "value": 50,
+      "value": 70,
       "minValue": 10,
       "maxValue": 90,
       "unitText": "%"
@@ -591,22 +535,22 @@
         "value": 1.2,
         "unit": "J/cm²",
         "source": "scientific_literature",
-        "source_type": "journal_article",
-        "source_name": "Applied Surface Science",
+        "sourceType": "journal_article",
+        "sourceName": "Applied Surface Science",
         "citation": "J. Pou, B. Arias, F. Quintero, F. Lusquiños, M. Pérez-Amor, C. Riveiro, R. Souto, J.C. Fernández, M. Boutinguiza, F. López de Silanes, Ablation thresholds of carbonated stones for laser cleaning, Applied Surface Science 197–198 (2002) 896–900, DOI: 10.1016/S0169-4332(02)00123-4",
         "context": "Carrara marble (primarily calcite, 98% CaCO3), room temperature (25°C), 1064 nm Nd:YAG laser, single-pulse irradiation in air",
         "confidence": 95,
-        "researched_date": "2025-11-24T12:02:15.400512",
-        "needs_validation": true
+        "researchedDate": "2025-11-24T12:02:15.400512",
+        "needsValidation": true
       }
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 300,
-        "value": 100,
+        "description": "Optimal average power for Marble surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for Nd:YAG lasers in stone cleaning to balance efficiency and heat control; starting at 100 W avoids thermal cracking in marble (CaCO3, low thermal conductivity ~2.5 W/mK); max limited to prevent decomposition above 800°C. Source: Adapt Laser Systems specs and Verho et al. (2007) in J. Cult. Herit."
+        "value": 100,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-infrared wavelength optimized for Marble absorption and minimal subsurface damage",
@@ -616,52 +560,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning control on Marble surfaces",
-        "unit": "μm",
-        "value": 100,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "unit": "μm",
+        "description": "Smaller spots for fine details on marble sculptures; larger for industrial surface prep; 200 μm recommended for even energy distribution on irregular surfaces. Source: Equipment specs from Coherent Inc. and process opt. in Lasers Manuf. Mater. Process. (2018).",
+        "value": 200
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "unit": "kHz",
+        "value": 20,
+        "description": "20 kHz balances cleaning speed and heat accumulation (marble reflectivity ~0.3 at 1064 nm leads to ~70% absorption); higher rates risk cumulative heating/cracking. Source: Academic lit. in J. Appl. Phys. (2012) and IPG Photonics guidelines."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal effects",
-        "unit": "ns",
-        "value": 10,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "unit": "ns",
+        "value": 20,
+        "description": "Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ <10 μm) on heat-sensitive marble; avoids plasma shielding issues in fs. Source: Laser physics in Pouli et al. (2010), Appl. Phys. A."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning without excessive thermal buildup",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Slower speeds for heavy contamination (e.g., soot) ensure complete removal without residue; faster for light dirt; 500 mm/s optimal for uniform cleaning on porous marble surfaces. Source: Industry manuals from Laser Photonics and case studies in Opt. Lasers Eng. (2015)."
       },
       "passCount": {
-        "description": "Recommended number of passes for thorough cleaning with progressive contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "unit": "passes",
+        "value": 2,
+        "description": "Multi-pass for layered contamination (e.g., 2 passes for heavy industrial grime); single pass sufficient for light cleaning; minimizes total exposure time on thermally fragile marble. Source: Industry case studies in J. Cult. Herit. (2014) and practical guidelines from Laser Cleaning Europe."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap for uniform cleaning coverage and processing efficiency",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "unit": "%",
+        "value": 70,
+        "description": "70% overlap ensures uniform fluence coverage without gaps on marble's textured surface; higher for heavy soiling to avoid streaking. Source: Process optimization in Opt. Express (2016) and scanning system manuals from scanning galvo providers like Scanlab."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -737,7 +681,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {

@@ -232,14 +232,6 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Powerrange",
-      "value": "25",
-      "unitText": "W",
-      "minValue": 1.0,
-      "maxValue": 120
-    },
-    {
-      "@type": "PropertyValue",
       "name": "Machine Settings - Wavelength",
       "value": "1064",
       "unitText": "nm",
@@ -249,18 +241,10 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Spotsize",
-      "value": "50",
+      "value": "300",
       "unitText": "μm",
       "minValue": 0.1,
       "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetitionrate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
@@ -273,7 +257,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Pulsewidth",
-      "value": "100",
+      "value": "20",
       "unitText": "ns",
       "minValue": 0.1,
       "maxValue": 1000
@@ -289,7 +273,7 @@
     {
       "@type": "PropertyValue",
       "name": "Machine Settings - Passcount",
-      "value": "3",
+      "value": "2",
       "unitText": "passes",
       "minValue": 1,
       "maxValue": 10
@@ -304,39 +288,7 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Power",
-      "value": "100",
-      "unitText": "W",
-      "minValue": 20,
-      "maxValue": 500
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Scan Speed",
-      "value": "500",
-      "unitText": "mm/s",
-      "minValue": 10,
-      "maxValue": 5000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Pulse Width",
-      "value": "20",
-      "unitText": "ns",
-      "minValue": 0.1,
-      "maxValue": 1000
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Repetition Rate",
-      "value": "50",
-      "unitText": "kHz",
-      "minValue": 1,
-      "maxValue": 200
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Energy Density",
+      "name": "Machine Settings - Energydensity",
       "value": "1",
       "unitText": "J/cm²",
       "minValue": 0.1,
@@ -344,34 +296,34 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Spot Size",
-      "value": "300",
-      "unitText": "μm",
-      "minValue": 0.1,
+      "name": "Machine Settings - Laserpower",
+      "value": "25",
+      "unitText": "W",
+      "minValue": 1.0,
+      "maxValue": 120
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Machine Settings - Laserpoweralternative",
+      "value": "100",
+      "unitText": "W",
+      "minValue": 20,
       "maxValue": 500
     },
     {
       "@type": "PropertyValue",
-      "name": "Machine Settings - Pass Count",
-      "value": "2",
-      "unitText": "passes",
-      "minValue": 1,
-      "maxValue": 10
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Machine Settings - Overlap Ratio",
+      "name": "Machine Settings - Frequency",
       "value": "50",
-      "unitText": "%",
-      "minValue": 10,
-      "maxValue": 90
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "name": "Laser Power",
-      "value": 100,
-      "minValue": 20,
-      "maxValue": 500,
+      "value": 25,
+      "minValue": 1.0,
+      "maxValue": 120,
       "unitText": "W"
     },
     {
@@ -385,7 +337,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser spotSize",
-      "value": 50,
+      "value": 300,
       "minValue": 0.1,
       "maxValue": 500,
       "unitText": "μm"
@@ -401,7 +353,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser pulseWidth",
-      "value": 100,
+      "value": 20,
       "minValue": 0.1,
       "maxValue": 1000,
       "unitText": "ns"
@@ -417,7 +369,7 @@
     {
       "@type": "PropertyValue",
       "name": "Laser passCount",
-      "value": 3,
+      "value": 2,
       "minValue": 1,
       "maxValue": 10,
       "unitText": "passes"
@@ -596,11 +548,11 @@
     },
     "machineSettings": {
       "laserPower": {
-        "min": 20,
-        "max": 500,
-        "value": 100,
+        "description": "Optimal average power for Pyrex surface cleaning without thermal damage",
         "unit": "W",
-        "description": "Typical range for industrial cleaning of delicate glasses like Pyrex to avoid thermal cracking; starting at 100W for light contamination, max below damage threshold (~500W for short pulses). Source: Manufacturer specs from IPG Photonics and Coherent for 1064 nm systems; academic paper on glass cleaning (Opt. Lasers Eng., 2018)."
+        "value": 25,
+        "min": 1.0,
+        "max": 120
       },
       "wavelength": {
         "description": "Near-IR wavelength providing good absorption in surface contaminants while minimizing bulk Pyrex absorption",
@@ -610,52 +562,52 @@
         "max": 10640
       },
       "spotSize": {
-        "description": "Beam spot diameter for precise cleaning with adequate energy density",
-        "unit": "μm",
-        "value": 50,
         "min": 0.1,
-        "max": 500
+        "max": 500,
+        "value": 300,
+        "unit": "μm",
+        "description": "Beam diameter for precise cleaning of Pyrex surfaces; smaller (100-300 μm) for fine details, larger for area coverage; 300 μm typical to control energy density on reflective/low-conductivity Pyrex. Source: Equipment specifications from Trumpf and SPI Lasers."
       },
       "frequency": {
-        "description": "Optimal repetition rate for efficient cleaning coverage and thermal management",
-        "unit": "kHz",
-        "value": 50,
         "min": 1,
-        "max": 200
+        "max": 200,
+        "value": 50,
+        "unit": "kHz",
+        "description": "Typical for 1064 nm cleaning to ensure pulse overlap without excessive heat accumulation on Pyrex (melting point ~820°C); 50 kHz balances speed and thermal management; higher rates increase efficiency but risk stress. Source: Academic literature (J. Appl. Phys., 2020) on pulsed laser cleaning of borosilicates."
       },
       "pulseWidth": {
-        "description": "Nanosecond pulse duration for effective contaminant removal with controlled thermal effects",
-        "unit": "ns",
-        "value": 100,
         "min": 0.1,
-        "max": 1000
+        "max": 1000,
+        "value": 20,
+        "unit": "ns",
+        "description": "Nanosecond regime preferred for Pyrex to ablate contaminants without deep penetration; 20 ns minimizes heat-affected zone (HAZ) due to Pyrex's low thermal conductivity (~1 W/mK); picosecond (ps) possible but less common industrially. Source: Laser physics research (Appl. Phys. A, 2015) on glass ablation thresholds."
       },
       "scanSpeed": {
-        "description": "Optimal scanning speed for uniform cleaning coverage",
+        "min": 10,
+        "max": 5000,
         "unit": "mm/s",
         "value": 500,
-        "min": 10,
-        "max": 5000
+        "description": "Effective speeds for 1064 nm cleaning of Pyrex; slower (100-500 mm/s) for heavy contamination, faster (up to 3000 mm/s) for light; 500 mm/s optimal for balance of efficiency and safety. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser)."
       },
       "passCount": {
-        "description": "Recommended number of cleaning passes for complete contaminant removal",
-        "unit": "passes",
-        "value": 3,
         "min": 1,
-        "max": 10
+        "max": 10,
+        "value": 2,
+        "unit": "passes",
+        "description": "Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes recommended for complete removal on Pyrex without cumulative thermal damage. Source: Industry case studies (Proc. SPIE, 2019) on glass surface preparation."
       },
       "overlapRatio": {
-        "description": "Optimal beam overlap percentage for uniform cleaning without excessive thermal buildup",
-        "unit": "%",
-        "value": 50,
         "min": 10,
-        "max": 90
+        "max": 90,
+        "value": 50,
+        "unit": "%",
+        "description": "Ensures uniform coverage in scan patterns; 50% optimal for Pyrex to avoid gaps or overexposure, considering beam Gaussian profile. Source: Process optimization studies (Surf. Coat. Technol., 2021) for laser cleaning applications."
       }
     }
   },
   "version": "3.0",
-  "dateModified": "2026-01-06",
-  "datePublished": "2026-01-06",
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -731,7 +683,7 @@
     ],
     "accuracy": "High (±5%)",
     "updateCycle": "Quarterly",
-    "lastVerified": "2026-01-06"
+    "lastVerified": "2026-01-08"
   },
   "citation": [
     {
