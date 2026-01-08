@@ -4,7 +4,7 @@ displayName: Cherry Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:42.102768+00:00'
+dateModified: '2026-01-08T03:29:04.477244+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/cherry-settings
@@ -39,7 +39,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,9 +93,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -109,9 +116,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: cherry-laser-cleaning
@@ -123,25 +135,38 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Cherry surface cleaning without thermal damage
     unit: W
@@ -155,47 +180,61 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning control
-    unit: μm
-    value: 80
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter for precise cleaning; 200 μm recommended for cherry surface preparation to cover details without
+      overexposure. Smaller for fine work, larger for broad areas. Source: Equipment specs from Coherent and Trumpf laser
+      cleaning systems.'
   repetitionRate:
-    description: Optimal repetition rate for continuous cleaning process
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for pulsed cleaning of organics; 30 kHz balances speed and heat accumulation on cherry wood (reflectivity
+      ~40% at 1064 nm, melting point N/A but charring >200°C). Higher rates increase speed but risk buildup. Source: Academic
+      literature, e.g., Applied Surface Science (2019) on wood laser processing.'
   energyDensity:
-    description: Fluence threshold for effective contaminant removal
-    unit: J/cm²
-    value: 1.8
     min: 0.1
     max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for safe contaminant removal; cherry wood damage threshold ~8-12 J/cm² at 1064 nm due to low
+      thermal conductivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies
+      in Journal of Applied Physics (2017) for hardwoods.'
   pulseWidth:
-    description: Nanosecond pulse duration for efficient ablation of contaminants
-    unit: ns
-    value: 12
     min: 0.1
     max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for wood to ablate contaminants with minimal heat-affected zone; 20 ns recommended
+      for cherry to reduce thermal diffusion given wood''s low conductivity (~0.16 W/m·K). Picosecond (ps) or femtosecond
+      optional for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering
+      (2020).'
   scanSpeed:
-    description: Optimal scanning speed for efficient area coverage
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    unit: mm/s
+    value: 500
+    description: 'Effective speeds for contaminant removal on wood; 500 mm/s recommended for optimal balance of cleaning efficiency
+      and heat control on cherry wood. Slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Source:
+      Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   passCount:
-    description: Number of cleaning passes for complete surface treatment
-    unit: passes
-    value: 2
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Multi-pass for thorough removal on wood; 2 passes recommended for cherry to ensure complete contamination
+      clearance while monitoring for discoloration. Single pass for light soils. Source: Industry case studies in restoration
+      (e.g., ICALEO proceedings, 2021).'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage
-    unit: '%'
-    value: 30
     min: 10
     max: 90
+    value: 60
+    unit: '%'
+    description: 'Ensures uniform coverage; 60% recommended for cherry to avoid gaps or excessive overlap heating, given wood''s
+      sensitivity. Source: Process optimization in Laser & Photonics Reviews (2016).'
   dwellTime:
     description: Effective dwell time per spot for contaminant removal
     unit: μs
@@ -210,61 +249,5 @@ machine_settings:
     description: 'Typical range for wood cleaning at 1064 nm to remove contaminants without charring; starting at 50 W for
       delicate hardwoods like cherry to minimize thermal damage. Max safe ~200 W to avoid substrate ablation. Source: Studies
       on laser cleaning of wood (e.g., Journal of Cultural Heritage, 2018); IPG Photonics YLR series specs for cleaning applications.'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 500
-    description: 'Effective speeds for contaminant removal on wood; 500 mm/s recommended for optimal balance of cleaning efficiency
-      and heat control on cherry wood. Slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light. Source:
-      Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for wood to ablate contaminants with minimal heat-affected zone; 20 ns recommended
-      for cherry to reduce thermal diffusion given wood''s low conductivity (~0.16 W/m·K). Picosecond (ps) or femtosecond
-      optional for ultra-precision but less common industrially. Source: Laser physics research in Optics and Lasers in Engineering
-      (2020).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for pulsed cleaning of organics; 30 kHz balances speed and heat accumulation on cherry wood (reflectivity
-      ~40% at 1064 nm, melting point N/A but charring >200°C). Higher rates increase speed but risk buildup. Source: Academic
-      literature, e.g., Applied Surface Science (2019) on wood laser processing.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for safe contaminant removal; cherry wood damage threshold ~8-12 J/cm² at 1064 nm due to low
-      thermal conductivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold studies
-      in Journal of Applied Physics (2017) for hardwoods.'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter for precise cleaning; 200 μm recommended for cherry surface preparation to cover details without
-      overexposure. Smaller for fine work, larger for broad areas. Source: Equipment specs from Coherent and Trumpf laser
-      cleaning systems.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Multi-pass for thorough removal on wood; 2 passes recommended for cherry to ensure complete contamination
-      clearance while monitoring for discoloration. Single pass for light soils. Source: Industry case studies in restoration
-      (e.g., ICALEO proceedings, 2021).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: 'Ensures uniform coverage; 60% recommended for cherry to avoid gaps or excessive overlap heating, given wood''s
-      sensitivity. Source: Process optimization in Laser & Photonics Reviews (2016).'
-component_summary: The 50 W power, 1064 nm wavelength, and 12 ns pulse width enable precise, low-heat ablation for cleaning
+componentSummary: The 50 W power, 1064 nm wavelength, and 12 ns pulse width enable precise, low-heat ablation for cleaning
   Cherry wood, effectively removing contaminants while preserving its delicate grain and color.

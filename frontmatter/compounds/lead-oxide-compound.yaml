@@ -3,9 +3,8 @@ name: Lead Oxide
 displayName: Lead Oxide (PbO)
 category: particulate
 subcategory: metal-oxide
-hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:14.172457+00:00'
+dateModified: '2026-01-08T03:28:14.255969+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/lead-oxide-compound
@@ -22,10 +21,162 @@ pageTitle: Lead Oxide
 pageDescription: Lead Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Lead Oxide laser cleaning guide. Technical specifications and applications.
-chemical_formula: PbO
-cas_number: 1317-36-8
-molecular_weight: 223.2
-health_effects: 'When handling lead-oxide-compound particulates during industrial cleanup or processing, you''ll want to prioritize
+images:
+  hero:
+    url: /images/compound/lead-oxide-compound-hero.jpg
+    alt: Lead Oxide laser cleaning visualization showing process effects
+    width: 1200
+    height: 630
+  micro:
+    url: /images/compound/lead-oxide-compound-micro.jpg
+    alt: Lead Oxide microscopic detail view showing surface characteristics
+    width: 800
+    height: 600
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+card:
+  default:
+    heading: Lead Oxide
+    subtitle: particulate / metal-oxide
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: flask
+  contaminationContext:
+    heading: Lead Oxide
+    subtitle: Emission Product
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: alert-triangle
+relationships:
+  interactions:
+    producedFromContaminants:
+      presentation: card
+      items:
+      - id: lead-paint-contamination
+        frequency: unknown
+        severity: high
+        typicalContext: Laser removal of Lead-Based Paint Removal
+      - id: lead-paint-contamination
+        frequency: unknown
+        severity: high
+        typicalContext: Laser removal of Lead-Based Paint Removal
+      - id: lead-paint-contamination
+        frequency: unknown
+        severity: high
+        typicalContext: Laser removal of Lead-Based Paint Removal
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
+          notes: Links to contaminant pages
+    producedFromMaterials:
+      presentation: card
+      items:
+      - id: aluminum-bronze-laser-cleaning
+      - id: bronze-laser-cleaning
+      - id: lead-crystal-laser-cleaning
+      - id: lead-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: producedFromMaterials
+          group: interactions
+          domain: compounds
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Links to material pages
+  safety:
+    healthEffects:
+      items:
+      - route: inhalation
+        effect: Respiratory irritation and systemic lead poisoning affecting nervous system, kidneys, and blood (e.g., anemia,
+          neurological impairment)
+        severity: severe
+        onset: short-term
+      - route: skin_contact
+        effect: Skin irritation or dermatitis; minimal systemic absorption
+        severity: moderate
+        onset: immediate
+      - route: eye_contact
+        effect: Severe eye irritation, conjunctivitis, and potential corneal damage
+        severity: high
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal distress, abdominal pain, and chronic lead toxicity (e.g., cognitive deficits, hypertension)
+        severity: severe
+        onset: short-term
+      presentation: card
+      _section:
+        icon: heart-pulse
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+hazardClass: toxic
+chemicalFormula: PbO
+casNumber: 1317-36-8
+molecularWeight: 223.2
+healthEffects: 'When handling lead-oxide-compound particulates during industrial cleanup or processing, you''ll want to prioritize
   respiratory protection right from the start, because these fine particles can become airborne easily and pose serious inhalation
   risks that linger long after the job''s done. I''ve seen teams overlook this in the past, leading to unnecessary exposure,
   so make sure everyone on site wears properly fitted masks with high-efficiency filters designed for toxic dusts—nothing
@@ -48,12 +199,16 @@ health_effects: 'When handling lead-oxide-compound particulates during industria
   digestive upset that signal early buildup, and rotate shifts to keep exposure levels low overall. This not only safeguards
   the team but ensures the industrial applications—like refining or surface restoration—proceed without long-term health setbacks
   that could halt operations.'
-exposure_guidelines: 'Handle lead oxide particulates with gloves and masks. Dust kicks up easily during mixing. Seal containers
+healthEffectsKeywords:
+- neurotoxicity
+- reproductive_toxicity
+- kidney_damage
+exposureGuidelines: 'Handle lead oxide particulates with gloves and masks. Dust kicks up easily during mixing. Seal containers
   tight to block spills. In battery production, ventilate workspaces well—inhalation irritates lungs fast. For glass making,
   avoid skin contact; it absorbs slowly but builds up. Laser cleaning shines here: pulses vaporize residues without spreading
   particles. Wear respirators during beams. Test air quality often. Store in cool, dry spots—moisture clumps it worse. Train
   teams on quick rinses for exposure. Skip open flames nearby; it heats unevenly.'
-detection_methods: "Detecting lead oxide compounds in particulate form often starts with sampling the material from industrial\
+detectionMethods: "Detecting lead oxide compounds in particulate form often starts with sampling the material from industrial\
   \ sites or environmental dust, where you carefully collect airborne particles onto filters before analysis. Spectroscopic\
   \ techniques shine here, as they reveal the compound's distinctive absorption patterns without needing to dissolve the sample—think\
   \ infrared spectroscopy picking up vibrational signatures tied to the oxide's dense, crystalline structure. \n\nRaman spectroscopy\
@@ -68,7 +223,7 @@ detection_methods: "Detecting lead oxide compounds in particulate form often sta
   \ where spotting even trace amounts prevents buildup in ventilation systems or recycled materials. Chemical spot tests offer\
   \ a simple backup, reacting with the compound to produce color changes that underscore its reactivity in acidic environments,\
   \ all while keeping the process straightforward and non-destructive."
-first_aid: 'While other dusts might just irritate the skin briefly, lead oxide particulates cling stubbornly and seep deeper,
+firstAid: 'While other dusts might just irritate the skin briefly, lead oxide particulates cling stubbornly and seep deeper,
   demanding swift, thorough action to limit harm. Inhaling these fine particles calls for immediate relocation to fresh air,
   keeping the person calm and monitoring for any breathing distress that could worsen without delay—professional medical evaluation
   follows without exception, as lingering effects on the respiratory system aren''t something to gamble with. Skin exposure
@@ -81,149 +236,7 @@ first_aid: 'While other dusts might just irritate the skin briefly, lead oxide p
   underscore lead oxide''s insidious persistence in industrial settings like battery production or pigment manufacturing—prompt
   first aid not only eases immediate symptoms but safeguards long-term health against its cumulative toxicity, especially
   when laser cleaning tools dislodge particulates into the air during surface treatments.'
-images:
-  hero:
-    url: /images/compound/lead-oxide-compound-hero.jpg
-    alt: Lead Oxide laser cleaning visualization showing process effects
-    width: 1200
-    height: 630
-  micro:
-    url: /images/compound/lead-oxide-compound-micro.jpg
-    alt: Lead Oxide microscopic detail view showing surface characteristics
-    width: 800
-    height: 600
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-  slug: todd-dunning
-health_effects_keywords:
-- neurotoxicity
-- reproductive_toxicity
-- kidney_damage
-monitoring_required: true
-typical_concentration_range: 0.001-0.05 mg/m³
-sources_in_laser_cleaning:
-- lead_paint_removal
-- lead_coating_ablation
-- pewter_patina_removal
-card:
-  default:
-    heading: Lead Oxide
-    subtitle: particulate / metal-oxide
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: flask
-  contamination_context:
-    heading: Lead Oxide
-    subtitle: Emission Product
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: alert-triangle
-relationships:
-  interactions:
-    produced_from_contaminants:
-      presentation: card
-      items:
-      - id: lead-paint-contamination
-        frequency: unknown
-        severity: high
-        typical_context: Laser removal of Lead-Based Paint Removal
-      - id: lead-paint-contamination
-        frequency: unknown
-        severity: high
-        typical_context: Laser removal of Lead-Based Paint Removal
-      - id: lead-paint-contamination
-        frequency: unknown
-        severity: high
-        typical_context: Laser removal of Lead-Based Paint Removal
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          notes: Links to contaminant pages
-          relationship_type: produced_from
-    produced_from_materials:
-      presentation: card
-      items:
-      - id: aluminum-bronze-laser-cleaning
-      - id: bronze-laser-cleaning
-      - id: lead-crystal-laser-cleaning
-      - id: lead-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          notes: Links to material pages
-          relationship_type: produced_from
-  safety:
-    health_effects:
-      items:
-      - route: inhalation
-        effect: Respiratory irritation and systemic lead poisoning affecting nervous system, kidneys, and blood (e.g., anemia,
-          neurological impairment)
-        severity: severe
-        onset: short-term
-      - route: skin_contact
-        effect: Skin irritation or dermatitis; minimal systemic absorption
-        severity: moderate
-        onset: immediate
-      - route: eye_contact
-        effect: Severe eye irritation, conjunctivitis, and potential corneal damage
-        severity: high
-        onset: immediate
-      - route: ingestion
-        effect: Gastrointestinal distress, abdominal pain, and chronic lead toxicity (e.g., cognitive deficits, hypertension)
-        severity: severe
-        onset: short-term
-      presentation: card
-      _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
-        icon: heart-pulse
-ppe_requirements: "Handling lead oxide compounds in particulate form demands careful protection, especially during industrial\
+ppeRequirements: "Handling lead oxide compounds in particulate form demands careful protection, especially during industrial\
   \ mixing or laser-based surface treatments. Start by suiting up in full-body coveralls to shield skin from any dust settling.\
   \ \n\nRespiratory gear tops the list—opt for a powered air-purifying respirator that filters out fine particles effectively,\
   \ keeping lungs clear while you work on applications like battery production. Goggles with side shields prevent eye irritation\
@@ -231,6 +244,12 @@ ppe_requirements: "Handling lead oxide compounds in particulate form demands car
   \ prolonged contact. In laser cleaning setups, add flame-resistant aprons to handle the heat involved in removing oxide\
   \ layers from metals. \n\nFootwear should be closed-toe boots with non-slip soles for safe movement around dusty workspaces.\
   \ Always include hearing protection if machinery noise accompanies the process, ensuring overall comfort and safety."
+monitoringRequired: true
+typicalConcentrationRange: 0.001-0.05 mg/m³
+sourcesInLaserCleaning:
+- lead_paint_removal
+- lead_coating_ablation
+- pewter_patina_removal
 faq:
   presentation: collapsible
   items:

@@ -2,7 +2,7 @@ id: water-stain-contamination
 name: Water Staining and Marks
 category: organic-residue
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:46.376746+00:00'
+dateModified: '2026-01-08T03:27:35.226752+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/organic-residue/other/water-stain-contamination
@@ -39,14 +39,35 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
+  jobTitle: Materials Engineer
   expertise:
   - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -59,102 +80,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: none
-        description: No significant fire or explosion risk identified
-        mitigation: Standard workplace fire safety protocols
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Water Vapor
-        concentration_mg_m3: 50.0
-        exposure_limit_mg_m3: N/A
-        hazard_class: irritant
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.8
-        size_range_um:
-        - 0.1
-        - 10.0
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: dust_mask
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: none
-        primary_hazards: []
-        description: No significant toxic gas generation
-        mitigation: Standard respiratory protection for particulate control
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 10
-        rationale: Standard industrial ventilation (10 ACH) for particulate control
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: low
-        description: Light haze (20-40% reduction), minimal impact on sight lines
-        source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-        mitigation: Standard visibility precautions, adequate lighting
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Laser cleaning of water-stained surfaces may cause thermal stress or discoloration on sensitive materials
-    - Rapid heating of trapped moisture can cause micro-fracturing in porous materials
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items:
       - id: water-vapor-compound
@@ -165,7 +229,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -204,11 +275,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: Water staining on ceramic surfaces shows as dull, discolored patches or white crusty deposits, often
               altering the glaze and feeling rough or chalky.
@@ -306,99 +384,152 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.2
+            minJCm2: 0.3
+            recommendedJCm2: 0.8
+          overlapPercentage: 50
           polarization: any
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 10
-            recommended_ns: 50
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 200
+            minNs: 10
+            recommendedNs: 50
+          repetitionRateKhz:
             max: 200
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.1
             min: 0.02
             recommended: 0.05
-          wavelength_preference:
+          wavelengthPreference:
           - 1064
           - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 150
-            wavelength_355nm: 3200
-            wavelength_532nm: 850
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 150
+            wavelength355Nm: 3200
+            wavelength532Nm: 850
           reflectivity:
-            wavelength_1064nm: 0.05
-            wavelength_355nm: 0.02
-            wavelength_532nm: 0.03
-          refractive_index:
-            imaginary_part: 0.001
-            real_part: 1.33
-          transmission_depth: 66.7
-        removal_characteristics:
+            wavelength1064Nm: 0.05
+            wavelength355Nm: 0.02
+            wavelength532Nm: 0.03
+          refractiveIndex:
+            imaginaryPart: 0.001
+            realPart: 1.33
+          transmissionDepth: 66.7
+        removalCharacteristics:
           byproducts:
           - compound: water-vapor
-            hazard_level: low
+            hazardLevel: low
             phase: gas
           - compound: carbon-dioxide
-            hazard_level: low
+            hazardLevel: low
             phase: gas
           - compound: mineral dust
-            hazard_level: low
+            hazardLevel: low
             phase: solid
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 3
-            optimal_passes: 2
-            single_pass: 0.7
-          secondary_mechanisms:
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 240
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 3
+            optimalPasses: 2
+            singlePass: 0.7
+          secondaryMechanisms:
           - photochemical
           - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 1.2
-            pulse_duration_10ns: 0.6
-            wavelength_1064nm: 0.8
-          decomposition_temperature: 100
-          heat_affected_zone_depth: 15
-          melting_point: 0
-          specific_heat: 4180
-          thermal_conductivity: 0.6
-          thermal_diffusivity: 0.14
-          vaporization_temperature: 100
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: compressive
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: none
+            description: No significant fire or explosion risk identified
+            mitigation: Standard workplace fire safety protocols
+          fumesGenerated:
+          - compound: Water Vapor
+            concentrationMgM3: 50.0
+            exposureLimitMgM3: N/A
+            hazardClass: irritant
+          particulateGeneration:
+            respirableFraction: 0.8
+            sizeRangeUm:
+            - 0.1
+            - 10.0
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: dust_mask
+            skinProtection: gloves
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser cleaning of water-stained surfaces may cause thermal stress or discoloration on sensitive materials
+          - Rapid heating of trapped moisture can cause micro-fracturing in porous materials
+          toxicGasRisk:
+            severity: none
+            primaryHazards: []
+            description: No significant toxic gas generation
+            mitigation: Standard respiratory protection for particulate control
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: HEPA
+            minimumAirChangesPerHour: 10
+            rationale: Standard industrial ventilation (10 ACH) for particulate control
+          visibilityHazard:
+            severity: low
+            description: Light haze (20-40% reduction), minimal impact on sight lines
+            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+            mitigation: Standard visibility precautions, adequate lighting
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 1.2
+            pulseDuration10Ns: 0.6
+            wavelength1064Nm: 0.8
+          decompositionTemperature: 100
+          heatAffectedZoneDepth: 15
+          meltingPoint: 0
+          specificHeat: 4180
+          thermalConductivity: 0.6
+          thermalDiffusivity: 0.14
+          vaporizationTemperature: 100
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Water Staining and Marks
 subcategory: other
-valid_materials:
+validMaterials:
 - aluminosilicate-glass-laser-cleaning
 - aluminum-laser-cleaning
 - basalt-laser-cleaning
@@ -435,6 +566,6 @@ composition:
 - CaCO₃
 - Fe₂O₃
 - Organic Matter
-prohibited_materials:
+prohibitedMaterials:
 - Electronics
 - Wood

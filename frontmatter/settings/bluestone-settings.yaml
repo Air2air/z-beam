@@ -4,7 +4,7 @@ displayName: Bluestone Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:41.520799+00:00'
+dateModified: '2026-01-08T03:29:02.604596+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/sedimentary/bluestone-settings
@@ -38,7 +38,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,9 +93,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -109,9 +116,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: bluestone-laser-cleaning
@@ -123,16 +135,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and microcracking
           severity: critical
-          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
           impact: Natural stone contains microfissures that propagate under thermal stress
           solutions:
           - Use pulse mode with 8-12 second cooling between passes
@@ -142,7 +159,7 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Moisture-induced spalling
           severity: high
-          threshold_temperature: Steam formation >100°C with trapped moisture
+          thresholdTemperature: Steam formation >100°C with trapped moisture
           impact: Porous stone traps moisture that explosively converts to steam
           solutions:
           - Test moisture content before cleaning (>3% requires drying)
@@ -150,14 +167,22 @@ relationships:
           - Reduce power by 50% for damp stone
           - Use pulse mode with extended cooling (15-20 seconds)
           - Heritage stone requires especially gentle approach
-        contamination_challenges:
+        contaminationChallenges:
         - id: biological-growth
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Bluestone cleaning without thermal damage
     unit: W
@@ -171,47 +196,62 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning control
-    unit: μm
-    value: 100
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for cleaning; smaller (100-200 μm) for fine details on textured Bluestone, larger (300-500
+      μm) for broad areas. 200 μm recommended for uniform coverage in surface preparation. Source: Equipment specifications
+      from CleanLaser CL series and process optimization in Lasers Manuf. Mater. Process. (2022).'
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical for pulsed cleaning to control energy delivery; higher rates (>50 kHz) speed up process but risk
+      heat accumulation on low-conductivity Bluestone. 50 kHz balances speed and safety. Trade-off: high freq increases throughput
+      but requires monitoring for substrate heating. Source: Academic literature in J. Appl. Phys. (2021) on pulse repetition
+      in heritage cleaning.'
   energyDensity:
-    description: Fluence threshold for effective contaminant removal
-    unit: J/cm²
-    value: 5
     min: 0.1
     max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for safe removal of contaminants like soot or oxides; Bluestone damage threshold ~4-5 J/cm²
+      due to moderate reflectivity (~20-30% at 1064 nm). Recommended 1.5 J/cm² avoids ablation of substrate while effective
+      for industrial prep. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) for sandstones.'
   pulseWidth:
-    description: Nanosecond pulse width for controlled ablation of contaminants
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    value: 50
+    unit: ns
+    description: 'Nanosecond regime (10-200 ns) preferred for cost-effective cleaning of stones; picosecond (ps) or femtosecond
+      reduces heat-affected zone (HAZ) but increases cost. 50 ns recommended for Bluestone to minimize thermal diffusion given
+      its melting point ~1200-1400°C. Source: Laser physics research in Appl. Phys. A (2019) on stone ablation thresholds.'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective speeds for contamination removal on stone; slower (500-1000 mm/s) for heavy rust/graffiti, faster
+      (2000-3000 mm/s) for light dust. Recommended 1500 mm/s for optimal balance on Bluestone to ensure uniform cleaning without
+      overheating. Source: Industry standards from Adapt Laser Systems manuals and case studies in Opt. Lasers Eng. (2020).'
   passCount:
-    description: Recommended number of passes for complete cleaning
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers to build fluence gradually and prevent
+      damage. 2 passes recommended for Bluestone to ensure complete removal without excessive heat exposure. Source: Industry
+      practice in case studies from Laser Cleaning Europe consortium and Opt. Express (2019).'
   overlapRatio:
-    description: Optimal beam overlap for uniform coverage
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    value: 60
+    unit: '%'
+    description: 'Overlap ensures uniform fluence distribution; 30-50% for fast large-area cleaning, 60-80% for detailed work
+      on irregular Bluestone surfaces. 60% recommended for even coverage in contamination removal. Source: Process optimization
+      studies in J. Laser Appl. (2020) for stone substrates.'
   power:
     min: 50
     max: 300
@@ -221,62 +261,5 @@ machine_settings:
       at 100W balances efficiency and safety to avoid thermal damage to porous substrate. Max limited by Bluestone''s low
       thermal conductivity (~1-2 W/m·K) to prevent cracking. Source: Manufacturer specs from IPG Photonics YLR series and
       academic review in ''Laser Cleaning of Stone Surfaces'' (J. Cult. Herit., 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective speeds for contamination removal on stone; slower (500-1000 mm/s) for heavy rust/graffiti, faster
-      (2000-3000 mm/s) for light dust. Recommended 1500 mm/s for optimal balance on Bluestone to ensure uniform cleaning without
-      overheating. Source: Industry standards from Adapt Laser Systems manuals and case studies in Opt. Lasers Eng. (2020).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 50
-    unit: ns
-    description: 'Nanosecond regime (10-200 ns) preferred for cost-effective cleaning of stones; picosecond (ps) or femtosecond
-      reduces heat-affected zone (HAZ) but increases cost. 50 ns recommended for Bluestone to minimize thermal diffusion given
-      its melting point ~1200-1400°C. Source: Laser physics research in Appl. Phys. A (2019) on stone ablation thresholds.'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical for pulsed cleaning to control energy delivery; higher rates (>50 kHz) speed up process but risk
-      heat accumulation on low-conductivity Bluestone. 50 kHz balances speed and safety. Trade-off: high freq increases throughput
-      but requires monitoring for substrate heating. Source: Academic literature in J. Appl. Phys. (2021) on pulse repetition
-      in heritage cleaning.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for safe removal of contaminants like soot or oxides; Bluestone damage threshold ~4-5 J/cm²
-      due to moderate reflectivity (~20-30% at 1064 nm). Recommended 1.5 J/cm² avoids ablation of substrate while effective
-      for industrial prep. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) for sandstones.'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for cleaning; smaller (100-200 μm) for fine details on textured Bluestone, larger (300-500
-      μm) for broad areas. 200 μm recommended for uniform coverage in surface preparation. Source: Equipment specifications
-      from CleanLaser CL series and process optimization in Lasers Manuf. Mater. Process. (2022).'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers to build fluence gradually and prevent
-      damage. 2 passes recommended for Bluestone to ensure complete removal without excessive heat exposure. Source: Industry
-      practice in case studies from Laser Cleaning Europe consortium and Opt. Express (2019).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: 'Overlap ensures uniform fluence distribution; 30-50% for fast large-area cleaning, 60-80% for detailed work
-      on irregular Bluestone surfaces. 60% recommended for even coverage in contamination removal. Source: Process optimization
-      studies in J. Laser Appl. (2020) for stone substrates.'
-component_summary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise contaminant ablation
+componentSummary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise contaminant ablation
   on Bluestone, minimizing thermal damage to its porous sandstone structure while preserving surface integrity.

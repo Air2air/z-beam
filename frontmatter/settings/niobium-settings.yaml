@@ -4,7 +4,7 @@ displayName: Niobium Laser Cleaning Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:43.965675+00:00'
+dateModified: '2026-01-08T03:29:10.668663+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/niobium-settings
@@ -44,7 +44,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -67,8 +67,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -85,7 +85,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -99,9 +99,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -115,9 +122,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -133,27 +145,40 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: high-thermal-conductivity
           type: challenge
         - id: melting-haz
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: rust-oxide-removal
           type: challenge
         - id: oil-grease-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Niobium oxide removal without substrate damage
     unit: W
@@ -167,17 +192,21 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise oxide removal with adequate cleaning efficiency
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
+    unit: μm
+    value: 200
+    description: 'Smaller spots (100-200 μm) for precision on Niobium components, larger (300-500 μm) for broad areas; 200
+      μm balances resolution and efficiency for industrial prep. Source: Equipment specs from Coherent Armonia lasers and
+      cleaning case studies in Surf. Coat. Technol. 405, 126623 (2021).'
   repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage with thermal management
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    unit: kHz
+    value: 30
+    description: '20-50 kHz optimal for cleaning speed without excessive heat accumulation in high-melting-point metals like
+      Niobium (mp 2477°C); higher rates increase throughput but risk oxidation. Source: Academic study in Opt. Lasers Eng.
+      128, 106004 (2020) on pulse train effects.'
   fluenceThreshold:
     description: Minimum fluence required for effective Niobium oxide ablation
     unit: J/cm²
@@ -185,29 +214,37 @@ machine_settings:
     min: 0.3
     max: 4.5
   pulseWidth:
-    description: Nanosecond pulse duration for efficient oxide ablation with minimal thermal penetration
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond reduces HAZ but
+      unnecessary for Niobium contaminants. 20 ns minimizes thermal effects while ablating oxides. Source: Laser physics review
+      in Appl. Phys. A 126, 123 (2020), noting ns pulses for refractory metals.'
   scanSpeed:
-    description: Optimal scanning speed for uniform oxide removal and process efficiency
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective speeds balance ablation and heat dissipation; slower for heavy contamination (500-1500 mm/s),
+      faster for light (2000-5000 mm/s). Recommended 2000 mm/s for Niobium surface prep to minimize HAZ given its thermal
+      conductivity (54 W/m·K). Source: Industry guidelines from Laserax and Opt Lasers manuals.'
   passCount:
-    description: Recommended number of passes for complete oxide removal
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    unit: passes
+    value: 2
+    description: 'Single pass for light contamination, multi-pass (2-3) for heavy layers on Niobium to ensure complete removal
+      without cumulative damage; recommended 2 passes for uniform results. Source: Industry case studies in J. Clean. Prod.
+      278, 123456 (2021) on refractory metal processing.'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive heat accumulation
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    unit: '%'
+    value: 60
+    description: '50-70% overlap ensures uniform coverage and prevents striping; higher for fine Niobium surfaces to avoid
+      inconsistencies due to reflectivity. Source: Process optimization in Laser Ablation and Its Applications (Springer,
+      2007) and practical guidelines from Adapt Laser Systems.'
   power:
     min: 50
     max: 500
@@ -216,31 +253,7 @@ machine_settings:
     description: 'Typical range for 1064 nm pulsed lasers in metal cleaning to avoid thermal damage; Niobium''s high reflectivity
       (~70% at 1064 nm) requires moderate power to prevent overheating. Recommended starting at 150 W for light contamination.
       Source: IPG Photonics YLR series specs and study in J. Laser Appl. 32, 022057 (2020).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: 'Effective speeds balance ablation and heat dissipation; slower for heavy contamination (500-1500 mm/s),
-      faster for light (2000-5000 mm/s). Recommended 2000 mm/s for Niobium surface prep to minimize HAZ given its thermal
-      conductivity (54 W/m·K). Source: Industry guidelines from Laserax and Opt Lasers manuals.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond reduces HAZ but
-      unnecessary for Niobium contaminants. 20 ns minimizes thermal effects while ablating oxides. Source: Laser physics review
-      in Appl. Phys. A 126, 123 (2020), noting ns pulses for refractory metals.'
-  repetition_rate:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 30
-    description: '20-50 kHz optimal for cleaning speed without excessive heat accumulation in high-melting-point metals like
-      Niobium (mp 2477°C); higher rates increase throughput but risk oxidation. Source: Academic study in Opt. Lasers Eng.
-      128, 106004 (2020) on pulse train effects.'
-  energy_density:
+  energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
@@ -248,29 +261,5 @@ machine_settings:
     description: 'Fluence below Niobium''s ablation threshold (~1.5-2.5 J/cm² at 1064 nm) for safe contaminant removal; 0.2-0.8
       J/cm² for light cleaning, up to 1.5 for heavy. Recommended 0.8 J/cm² to avoid substrate damage. Source: Ablation threshold
       data from Phys. Rev. B 85, 195130 (2012).'
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Smaller spots (100-200 μm) for precision on Niobium components, larger (300-500 μm) for broad areas; 200
-      μm balances resolution and efficiency for industrial prep. Source: Equipment specs from Coherent Armonia lasers and
-      cleaning case studies in Surf. Coat. Technol. 405, 126623 (2021).'
-  pass_count:
-    min: 1
-    max: 10
-    unit: passes
-    value: 2
-    description: 'Single pass for light contamination, multi-pass (2-3) for heavy layers on Niobium to ensure complete removal
-      without cumulative damage; recommended 2 passes for uniform results. Source: Industry case studies in J. Clean. Prod.
-      278, 123456 (2021) on refractory metal processing.'
-  overlap_ratio:
-    min: 10
-    max: 90
-    unit: '%'
-    value: 60
-    description: '50-70% overlap ensures uniform coverage and prevents striping; higher for fine Niobium surfaces to avoid
-      inconsistencies due to reflectivity. Source: Process optimization in Laser Ablation and Its Applications (Springer,
-      2007) and practical guidelines from Adapt Laser Systems.'
-component_summary: The 1064 nm wavelength ensures strong absorption by Niobium, while 10 ns pulses at 150 W power enable precise
+componentSummary: The 1064 nm wavelength ensures strong absorption by Niobium, while 10 ns pulses at 150 W power enable precise
   contaminant removal without inducing thermal damage to its sensitive, oxidation-prone surface.

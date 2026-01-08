@@ -4,7 +4,7 @@ displayName: Float Glass Laser Cleaning Settings
 category: glass
 subcategory: soda-lime
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:42.625687+00:00'
+dateModified: '2026-01-08T03:29:06.314484+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/soda-lime/float-glass-settings
@@ -41,7 +41,7 @@ author:
   id: 3
   name: Ikmanda Roswati
   country: Indonesia
-  country_display: Indonesia
+  countryDisplay: Indonesia
   title: Ph.D.
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
@@ -65,8 +65,8 @@ author:
   sameAs:
   - https://linkedin.com/in/ikmanda-roswati-physicist
   - https://www.academia.edu/profile/IkmandaRoswati
-  persona_file: indonesia_persona.yaml
-  formatting_file: indonesia_formatting.yaml
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
 card:
   default:
@@ -83,7 +83,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -97,9 +97,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -113,9 +120,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -131,16 +143,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and catastrophic failure
           severity: critical
-          threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+          thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
           impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
           solutions:
           - Use pulse mode with 5-8 second cooling between passes
@@ -150,21 +167,29 @@ relationships:
           - Monitor for stress fractures; stop immediately if cracks appear
         - challenge: Low thermal diffusivity
           severity: high
-          property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+          propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
           impact: Heat accumulates in localized zones creating thermal gradients
           solutions:
           - Reduce power by 30-40% compared to metals
           - Increase scan speed to distribute heat (1000-2000 mm/s)
           - Use defocused beam to spread energy over larger area
           - Optical-grade glass (fused silica) tolerates higher power
-        contamination_challenges:
+        contaminationChallenges:
         - id: adhesive-paint-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Float Glass surface cleaning without thermal damage
     unit: W
@@ -178,47 +203,61 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning with adequate energy density
-    unit: μm
-    value: 100
     min: 0.1
     max: 500
+    value: 300
+    unit: μm
+    description: 'Beam diameter range for precision (100-300 μm) vs. large-area cleaning (up to 1000 μm); 300 μm recommended
+      for uniform coverage on float glass surfaces without excessive energy concentration. Source: Equipment specs from Coherent
+      Inc. and industry manuals.'
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat buildup on reflective
+      float glass. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases overlap heating.
+      Source: Academic literature in Optics Express (2017).'
   energyDensity:
-    description: Fluence threshold for effective contaminant removal below glass damage threshold
-    unit: J/cm²
-    value: 2.5
     min: 0.1
     max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: 'Fluence range for safe cleaning below float glass damage threshold (~3 J/cm² at 1064 nm due to partial IR
+      absorption). 0.5 J/cm² recommended for contaminant removal without substrate ablation or cracking. Source: Ablation
+      threshold studies in Journal of Applied Physics (2021).'
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal without glass damage
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for float glass to enable selective ablation of contaminants with minimal heat-affected
+      zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended to limit thermal
+      diffusion in low-conductivity glass. Source: Laser physics research in Applied Surface Science (2019).'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective speeds for 1064 nm cleaning; slower (500-1000 mm/s) for heavy contamination, faster (up to 5000
+      mm/s) for light residues. Recommended 2000 mm/s for optimal contaminant removal on float glass while minimizing heat
+      accumulation. Source: Industry standards from Laser Cleaning Europe guidelines and J. Cleaner Production (2020).'
   passCount:
-    description: Number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
+      removal on float glass to ensure uniformity without cumulative damage. Source: Industry case studies in Surface and
+      Coatings Technology (2022).'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage; 50% recommended for float glass to avoid gaps or overexposure, balancing efficiency
+      and preventing thermal gradients. Typical 30-80% in optimization. Source: Process studies in Lasers in Manufacturing
+      and Materials Processing (2019).'
   dwellTime:
     description: Effective dwell time per spot for contaminant ablation
     unit: μs
@@ -233,61 +272,5 @@ machine_settings:
     description: 'Typical range for industrial 1064 nm fiber lasers in glass cleaning to balance efficiency and safety; starting
       at 200 W for contamination removal without overheating. Max safe below 500 W to avoid thermal stress on float glass
       (melting point ~500°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: 'Effective speeds for 1064 nm cleaning; slower (500-1000 mm/s) for heavy contamination, faster (up to 5000
-      mm/s) for light residues. Recommended 2000 mm/s for optimal contaminant removal on float glass while minimizing heat
-      accumulation. Source: Industry standards from Laser Cleaning Europe guidelines and J. Cleaner Production (2020).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for float glass to enable selective ablation of contaminants with minimal heat-affected
-      zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns recommended to limit thermal
-      diffusion in low-conductivity glass. Source: Laser physics research in Applied Surface Science (2019).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat buildup on reflective
-      float glass. 50 kHz balances speed and safety for contamination removal. Trade-off: High freq increases overlap heating.
-      Source: Academic literature in Optics Express (2017).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.5
-    unit: J/cm²
-    description: 'Fluence range for safe cleaning below float glass damage threshold (~3 J/cm² at 1064 nm due to partial IR
-      absorption). 0.5 J/cm² recommended for contaminant removal without substrate ablation or cracking. Source: Ablation
-      threshold studies in Journal of Applied Physics (2021).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 300
-    unit: μm
-    description: 'Beam diameter range for precision (100-300 μm) vs. large-area cleaning (up to 1000 μm); 300 μm recommended
-      for uniform coverage on float glass surfaces without excessive energy concentration. Source: Equipment specs from Coherent
-      Inc. and industry manuals.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
-      removal on float glass to ensure uniformity without cumulative damage. Source: Industry case studies in Surface and
-      Coatings Technology (2022).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage; 50% recommended for float glass to avoid gaps or overexposure, balancing efficiency
-      and preventing thermal gradients. Typical 30-80% in optimization. Source: Process studies in Lasers in Manufacturing
-      and Materials Processing (2019).'
-component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
+componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
   from float glass while minimizing thermal stress on its fragile, heat-sensitive surface.

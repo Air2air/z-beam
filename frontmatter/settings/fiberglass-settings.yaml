@@ -4,7 +4,7 @@ displayName: Fiberglass Laser Cleaning Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:42.541105+00:00'
+dateModified: '2026-01-08T03:29:06.038749+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/fiberglass-settings
@@ -40,7 +40,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -62,8 +62,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -80,7 +80,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -94,9 +94,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -110,9 +117,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: fiberglass-laser-cleaning
@@ -124,25 +136,38 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: matrix-degradation
           type: challenge
         - id: anisotropic-thermal
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: resin-contaminant-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Fiberglass surface cleaning without thermal damage
     unit: W
@@ -156,47 +181,55 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Optimal spot diameter for precision cleaning resolution
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
+    unit: μm
+    value: 300
+    description: Smaller spots for precision on fiberglass textures, larger for broad areas; 300 μm balances resolution and
+      efficiency (equipment specs from Coherent and Trumpf laser cleaners for industrial surface prep).
   repetitionRate:
-    description: High repetition rate for efficient cleaning coverage
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    unit: kHz
+    value: 50
+    description: Moderate rates prevent heat accumulation in thermally sensitive fiberglass; higher rates speed cleaning but
+      risk delamination (trade-off noted in Applied Surface Science, 2020, for composite applications).
   energyDensity:
-    description: Fluence threshold for effective contaminant removal
-    unit: J/cm²
-    value: 5
     min: 0.1
     max: 20.0
+    unit: J/cm²
+    value: 1.5
+    description: Fluence below fiberglass damage threshold (~2-4 J/cm² for polymers, higher for glass fibers); safe for contaminant
+      ablation without substrate melting (ablation studies in Journal of Applied Physics, 2019, on epoxy composites).
   pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of contaminants
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    unit: ns
+    value: 30
+    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning of organics on fiberglass; 30 ns minimizes
+      HAZ in low-conductivity composites (laser physics studies in Optics & Lasers in Engineering, 2018, on polymer ablation).
   scanSpeed:
-    description: Scanning speed for efficient area coverage without thermal buildup
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    unit: mm/s
+    value: 1500
+    description: Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 500-1000
+      mm/s), faster for light (2000-3000 mm/s); recommended for uniform fiberglass surface prep (industry standards from Laserax
+      and Adapt Laser manuals).
   passCount:
-    description: Number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    unit: passes
+    value: 2
+    description: Multi-pass for layered contamination removal without excessive heat; 1-2 passes typical for light industrial
+      cleaning on fiberglass (case studies in Composites Part B, 2021, on laser surface preparation).
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    unit: '%'
+    value: 50
+    description: Ensures uniform coverage and avoids gaps/striping on uneven fiberglass surfaces; 50% optimal for energy overlap
+      without redundancy (process optimization in International Journal of Advanced Manufacturing Technology, 2017).
   dwellTime:
     description: Effective dwell time per spot for contaminant ablation
     unit: μs
@@ -211,55 +244,5 @@ machine_settings:
     description: Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage to polymer matrix; starting
       at 100W for light contamination (IPG Photonics specs for CL series cleaners; conservative for fiberglass melting point
       ~200-300°C).
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1500
-    description: Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., 500-1000
-      mm/s), faster for light (2000-3000 mm/s); recommended for uniform fiberglass surface prep (industry standards from Laserax
-      and Adapt Laser manuals).
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 30
-    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning of organics on fiberglass; 30 ns minimizes
-      HAZ in low-conductivity composites (laser physics studies in Optics & Lasers in Engineering, 2018, on polymer ablation).
-  repetition_rate:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 50
-    description: Moderate rates prevent heat accumulation in thermally sensitive fiberglass; higher rates speed cleaning but
-      risk delamination (trade-off noted in Applied Surface Science, 2020, for composite applications).
-  energy_density:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    value: 1.5
-    description: Fluence below fiberglass damage threshold (~2-4 J/cm² for polymers, higher for glass fibers); safe for contaminant
-      ablation without substrate melting (ablation studies in Journal of Applied Physics, 2019, on epoxy composites).
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 300
-    description: Smaller spots for precision on fiberglass textures, larger for broad areas; 300 μm balances resolution and
-      efficiency (equipment specs from Coherent and Trumpf laser cleaners for industrial surface prep).
-  pass_count:
-    min: 1
-    max: 10
-    unit: passes
-    value: 2
-    description: Multi-pass for layered contamination removal without excessive heat; 1-2 passes typical for light industrial
-      cleaning on fiberglass (case studies in Composites Part B, 2021, on laser surface preparation).
-  overlap_ratio:
-    min: 10
-    max: 90
-    unit: '%'
-    value: 50
-    description: Ensures uniform coverage and avoids gaps/striping on uneven fiberglass surfaces; 50% optimal for energy overlap
-      without redundancy (process optimization in International Journal of Advanced Manufacturing Technology, 2017).
-component_summary: These settings use moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
-  from heat-sensitive fiberglass without causing thermal degradation or fiber damage.
+componentSummary: These settings use moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants from
+  heat-sensitive fiberglass without causing thermal degradation or fiber damage.

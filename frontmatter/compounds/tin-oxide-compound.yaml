@@ -3,9 +3,8 @@ name: Tin Oxide
 displayName: Tin Oxide (SnO₂)
 category: particulate
 subcategory: metal-oxide
-hazard_class: nuisance_dust
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:14.125036+00:00'
+dateModified: '2026-01-08T03:28:14.154518+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/tin-oxide-compound
@@ -22,10 +21,167 @@ pageTitle: Tin Oxide
 pageDescription: Tin Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Tin Oxide laser cleaning guide. Technical specifications and applications.
-chemical_formula: SnO₂
-cas_number: 18282-10-5
-molecular_weight: 150.71
-health_effects: 'When handling tin oxide particulates, always prioritize dust control right away. Inhalation risks kick in
+images:
+  hero:
+    url: /images/compound/tin-oxide-compound-hero.jpg
+    alt: Tin Oxide laser cleaning visualization showing process effects
+    width: 1200
+    height: 630
+  micro:
+    url: /images/compound/tin-oxide-compound-micro.jpg
+    alt: Tin Oxide microscopic detail view showing surface characteristics
+    width: 800
+    height: 600
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+card:
+  default:
+    heading: Tin Oxide
+    subtitle: particulate / metal-oxide
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: flask
+  contaminationContext:
+    heading: Tin Oxide
+    subtitle: Emission Product
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: alert-triangle
+relationships:
+  interactions:
+    producedFromContaminants:
+      presentation: card
+      items:
+      - id: bronze-patina-contamination
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Bronze Patina and Corrosion
+      - id: tin-plating-contamination
+        frequency: unknown
+        severity: low
+        typicalContext: Laser removal of Tin Plating Residue
+      - id: tin-plating-contamination
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Tin Plating Residue
+      - id: tin-plating-contamination
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Tin Plating Residue
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
+          notes: Links to contaminant pages
+    producedFromMaterials:
+      presentation: card
+      items:
+      - id: aluminum-bronze-laser-cleaning
+      - id: bronze-laser-cleaning
+      - id: platinum-laser-cleaning
+      - id: serpentine-laser-cleaning
+      - id: tin-laser-cleaning
+      - id: travertine-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: producedFromMaterials
+          group: interactions
+          domain: compounds
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Links to material pages
+  safety:
+    healthEffects:
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation and potential for stannosis (benign pneumoconiosis) with chronic exposure
+        severity: low
+        onset: immediate
+      - route: skin_contact
+        effect: Mild mechanical irritation or dryness
+        severity: low
+        onset: immediate
+      - route: eye_contact
+        effect: Mechanical irritation and redness
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Low toxicity, possible gastrointestinal discomfort
+        severity: low
+        onset: short-term
+      presentation: card
+      _section:
+        icon: heart-pulse
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+hazardClass: nuisance_dust
+chemicalFormula: SnO₂
+casNumber: 18282-10-5
+molecularWeight: 150.71
+healthEffects: 'When handling tin oxide particulates, always prioritize dust control right away. Inhalation risks kick in
   fast during mixing or grinding. Wear a fitted respirator from the start to block fine particles.
 
 
@@ -47,7 +203,9 @@ health_effects: 'When handling tin oxide particulates, always prioritize dust co
 
   Rinse hands thoroughly after use. This prevents skin dryness from its abrasive quality, which polishes surfaces well but
   rubs raw if ignored.'
-exposure_guidelines: 'When handling tin oxide compounds in particulate form, prioritize awareness of their fine, powdery nature
+healthEffectsKeywords:
+- respiratory_irritation
+exposureGuidelines: 'When handling tin oxide compounds in particulate form, prioritize awareness of their fine, powdery nature
   that can easily become airborne during processing or mixing. Dust particles linger in the air, posing risks through inhalation
   if workspaces lack proper airflow. Workers often encounter these materials in ceramics production or glass coating lines,
   where grinding or spraying generates clouds of residue that settle slowly.
@@ -70,10 +228,10 @@ exposure_guidelines: 'When handling tin oxide compounds in particulate form, pri
   and steer clear of eating in contaminated areas. Storage in sealed containers minimizes unintended release, and regular
   cleanup with wet methods reduces resuspension of dust. Overall, these steps foster safer environments in applications from
   conductive coatings to catalyst manufacturing, ensuring durability without health trade-offs.'
-detection_methods: 'Spotting tin oxide compounds in particulate form starts with simple visual checks under bright light,
-  where their fine, powdery texture often stands out against smoother surfaces. These particles tend to scatter light in ways
-  that reveal their presence during routine inspections in workshops handling electronics or ceramics. For deeper analysis,
-  basic microscopy lets you examine how they clump or disperse, highlighting their durable, non-reactive nature without needing
+detectionMethods: 'Spotting tin oxide compounds in particulate form starts with simple visual checks under bright light, where
+  their fine, powdery texture often stands out against smoother surfaces. These particles tend to scatter light in ways that
+  reveal their presence during routine inspections in workshops handling electronics or ceramics. For deeper analysis, basic
+  microscopy lets you examine how they clump or disperse, highlighting their durable, non-reactive nature without needing
   fancy gear.
 
 
@@ -83,7 +241,7 @@ detection_methods: 'Spotting tin oxide compounds in particulate form starts with
   parts—the process itself can expose hidden layers of these compounds, as they absorb energy differently and either vaporize
   cleanly or show up as stubborn spots that require adjusted beam passes. That contrast makes detection straightforward during
   maintenance routines, keeping equipment running smoothly without downtime.'
-first_aid: 'Handling tin oxide particles demands quick action if exposure happens, especially since fine dust can irritate
+firstAid: 'Handling tin oxide particles demands quick action if exposure happens, especially since fine dust can irritate
   sensitive areas. Inhalation poses the biggest risk during industrial mixing or grinding, where airborne specks might settle
   in lungs and cause discomfort. Get the affected person to fresh air right away, encouraging slow, deep breaths to clear
   out any lingering particles—avoid forcing coughs that could spread the issue.
@@ -105,152 +263,7 @@ first_aid: 'Handling tin oxide particles demands quick action if exposure happen
   under beam intensity. Always don protective gear beforehand, but if contact occurs, follow the same steps while ensuring
   no heat-related burns complicate things. This material shines in tough environments, yet safe handling keeps operations
   smooth.'
-images:
-  hero:
-    url: /images/compound/tin-oxide-compound-hero.jpg
-    alt: Tin Oxide laser cleaning visualization showing process effects
-    width: 1200
-    height: 630
-  micro:
-    url: /images/compound/tin-oxide-compound-micro.jpg
-    alt: Tin Oxide microscopic detail view showing surface characteristics
-    width: 800
-    height: 600
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-  slug: todd-dunning
-health_effects_keywords:
-- respiratory_irritation
-monitoring_required: true
-typical_concentration_range: 2-10 mg/m³
-sources_in_laser_cleaning:
-- tin_coating_ablation
-- bronze_patina_removal
-- solder_residue
-card:
-  default:
-    heading: Tin Oxide
-    subtitle: particulate / metal-oxide
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: flask
-  contamination_context:
-    heading: Tin Oxide
-    subtitle: Emission Product
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: alert-triangle
-relationships:
-  interactions:
-    produced_from_contaminants:
-      presentation: card
-      items:
-      - id: bronze-patina-contamination
-        frequency: unknown
-        severity: moderate
-        typical_context: Laser removal of Bronze Patina and Corrosion
-      - id: tin-plating-contamination
-        frequency: unknown
-        severity: low
-        typical_context: Laser removal of Tin Plating Residue
-      - id: tin-plating-contamination
-        frequency: unknown
-        severity: moderate
-        typical_context: Laser removal of Tin Plating Residue
-      - id: tin-plating-contamination
-        frequency: unknown
-        severity: moderate
-        typical_context: Laser removal of Tin Plating Residue
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          notes: Links to contaminant pages
-          relationship_type: produced_from
-    produced_from_materials:
-      presentation: card
-      items:
-      - id: aluminum-bronze-laser-cleaning
-      - id: bronze-laser-cleaning
-      - id: platinum-laser-cleaning
-      - id: serpentine-laser-cleaning
-      - id: tin-laser-cleaning
-      - id: travertine-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          notes: Links to material pages
-          relationship_type: produced_from
-  safety:
-    health_effects:
-      items:
-      - route: inhalation
-        effect: Respiratory tract irritation and potential for stannosis (benign pneumoconiosis) with chronic exposure
-        severity: low
-        onset: immediate
-      - route: skin_contact
-        effect: Mild mechanical irritation or dryness
-        severity: low
-        onset: immediate
-      - route: eye_contact
-        effect: Mechanical irritation and redness
-        severity: moderate
-        onset: immediate
-      - route: ingestion
-        effect: Low toxicity, possible gastrointestinal discomfort
-        severity: low
-        onset: short-term
-      presentation: card
-      _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
-        icon: heart-pulse
-ppe_requirements: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—
+ppeRequirements: Handling tin oxide particulates demands a sharp eye on safety, unlike bulkier compounds that settle quickly—
   these fine particles linger in the air, raising risks during industrial mixing or laser-based surface prep. Workers mixing
   them into ceramics or coatings should slip on nitrile gloves to shield skin from mild irritation, especially in dusty workshops
   where sparks from tools could ignite nearby flammables. Eye protection stands out as crucial; goggles prevent specks from
@@ -261,6 +274,12 @@ ppe_requirements: Handling tin oxide particulates demands a sharp eye on safety,
   coveralls and face shields to counter heat flashes and reflections. Ventilation hoods or fans keep the workspace clearer,
   cutting down on buildup during high-volume production like electronics glazing. Overall, layering this gear turns potential
   hazards into manageable routines, keeping teams sharp and productive.
+monitoringRequired: true
+typicalConcentrationRange: 2-10 mg/m³
+sourcesInLaserCleaning:
+- tin_coating_ablation
+- bronze_patina_removal
+- solder_residue
 faq:
   presentation: collapsible
   items:

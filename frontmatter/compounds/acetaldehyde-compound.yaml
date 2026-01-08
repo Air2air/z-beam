@@ -3,9 +3,8 @@ name: Acetaldehyde
 displayName: Acetaldehyde (C₂H₄O)
 category: irritant
 subcategory: aldehyde
-hazard_class: irritant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:12.757726+00:00'
+dateModified: '2026-01-08T03:28:09.902901+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/aldehyde/acetaldehyde-compound
@@ -22,39 +21,6 @@ pageTitle: Acetaldehyde
 pageDescription: Acetaldehyde Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Acetaldehyde laser cleaning guide. Technical specifications and applications.
-chemical_formula: C₂H₄O
-cas_number: 75-07-0
-molecular_weight: 44.05
-health_effects: When handling acetaldehyde in industrial setups, start by ensuring good ventilation right away. This compound
-  acts as a strong irritant, so you must prioritize protective gear to avoid direct skin or eye contact during mixing or application
-  processes. As you proceed with storage or transfer, keep in mind its volatile nature tends to release vapors that can inflame
-  respiratory passages quickly. We've found that even brief exposure leads to headaches or nausea, making enclosed areas risky
-  without airflow controls. Always monitor for prolonged effects like throat irritation midway through operations, and end
-  shifts with thorough decontamination to prevent lingering sensitivities.
-exposure_guidelines: Handle acetaldehyde with care. It's a sharp irritant. Eyes sting on contact. Skin reddens fast. Inhale
-  vapors? Throat burns quick. Set up ventilated workspaces first. Wear goggles always. Use gloves that resist vapors. Limit
-  time near open sources. In factories, it mixes resins. Builds plastics strong. Watch for buildup during shifts. Laser cleaning?
-  Wipes residues clean. Sparks fly if not controlled. Keep exposures brief. Train teams on signs. Flush skin right away. Seek
-  air if vapors hit. Store sealed cool. Spill? Evacuate zone fast.
-detection_methods: "Spotting acetaldehyde in a mix stands out from chasing down heavier industrial solvents, mainly because\
-  \ its sharp, fruity whiff gives early clues during handling, yet that alone won't cut it for precise checks in busy labs.\
-  \ Workers often turn to simple color-changing tests first, where a reagent shifts hue upon contact, making invisible traces\
-  \ pop visually without fancy gear. This approach shines in quick spot-checks on factory floors, dodging the hassle of bulky\
-  \ setups. \n\nFor deeper dives, spectroscopic tools pick up its unique light absorption patterns, revealing presence even\
-  \ in diluted samples—far more reliable than relying on smell, which fades fast in ventilated spaces. These methods suit\
-  \ quality control in plastics production, where acetaldehyde sneaks in as a byproduct, ensuring batches stay pure. \n\n\
-  Electrochemical sensors offer another route, detecting it through subtle electrical shifts in a probe, ideal for ongoing\
-  \ monitoring in chemical plants to flag irritant buildup before it spreads. Unlike broad air samplers that snag everything,\
-  \ these zero in on acetaldehyde's signature, cutting false alarms during laser cleaning ops on contaminated surfaces. Overall,\
-  \ blending these tactics keeps operations smooth, balancing speed with accuracy in material handling."
-first_aid: "If acetaldehyde splashes onto skin, rinse the area immediately under running water for at least fifteen minutes\
-  \ while removing contaminated clothing to prevent further irritation. Seek medical attention if redness or burning persists.\n\
-  \nEyes exposed? Flush them gently with lukewarm water, keeping eyelids open, and continue for several minutes—stop only\
-  \ if it causes more discomfort, then get professional help right away.\n\nBreathing it in feels harsh? Move the person to\
-  \ fresh air quickly, loosen tight clothing, and monitor breathing; if symptoms like coughing worsen, call emergency services\
-  \ without delay.\n\nSwallowed by accident? Never force vomiting, as it could lead to worse harm—instead, rinse the mouth\
-  \ with water and contact poison control or a doctor immediately for guidance. \n\nAlways have safety data sheets handy in\
-  \ work areas handling this compound, and wear protective gear to avoid these issues altogether."
 images:
   hero:
     url: /images/compound/acetaldehyde-compound-hero.jpg
@@ -70,7 +36,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -92,20 +58,9 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
-health_effects_keywords:
-- respiratory_irritation
-- eye_irritation
-- suspected_carcinogen
-- narcotic_effects
-monitoring_required: true
-typical_concentration_range: 5-25 mg/m³
-sources_in_laser_cleaning:
-- alcohol_oxidation
-- polymer_decomposition
-- organic_solvent_breakdown
 card:
   default:
     heading: Acetaldehyde
@@ -119,7 +74,7 @@ card:
       legend: OSHA PEL
     severity: low
     icon: flask
-  contamination_context:
+  contaminationContext:
     heading: Acetaldehyde
     subtitle: Emission Product
     badge:
@@ -133,7 +88,7 @@ card:
     icon: alert-triangle
 relationships:
   identity:
-    chemical_properties:
+    chemicalProperties:
       presentation: descriptive
       items:
       - type: chemical_properties
@@ -146,26 +101,41 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: chemicalProperties
+          group: identity
+          domain: compounds
+          icon: flask
+          order: 70
+          variant: default
+          schemaDescription: Chemical composition and properties
           notes: Core chemical identity data from Compounds.yaml
-          source_field: chemical_properties
-    physical_properties:
+          sourceField: chemical_properties
+    physicalProperties:
       presentation: descriptive
       items:
-      - boiling_point: 20.2°C (68.4°F)
-        melting_point: -123.5°C (-190.3°F)
-        vapor_pressure: 740 mmHg @ 20°C
-        vapor_density: 1.52 (Air=1)
-        specific_gravity: 0.788 @ 20°C
-        flash_point: -39°C (-38°F)
-        autoignition_temp: 175°C (347°F)
-        explosive_limits: 'LEL: 4%, UEL: 60%'
+      - boilingPoint: 20.2°C (68.4°F)
+        meltingPoint: -123.5°C (-190.3°F)
+        vaporPressure: 740 mmHg @ 20°C
+        vaporDensity: 1.52 (Air=1)
+        specificGravity: 0.788 @ 20°C
+        flashPoint: -39°C (-38°F)
+        autoignitionTemp: 175°C (347°F)
+        explosiveLimits: 'LEL: 4%, UEL: 60%'
         appearance: Colorless liquid, colorless gas >20°C
         odor: Pungent, fruity odor @ 0.05-1 ppm
       _section:
-        section_title: Physical Properties
-        description: Chemical and physical characteristics
         icon: flask
-    synonyms_identifiers:
+        sectionMetadata:
+          relationshipType: physicalProperties
+          group: identity
+          domain: compounds
+          icon: thermometer
+          order: 71
+          variant: default
+          schemaDescription: Physical characteristics and behavior
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+    synonymsIdentifiers:
       presentation: descriptive
       items:
       - synonyms:
@@ -173,17 +143,25 @@ relationships:
         - Ethanal
         - Ethyl aldehyde
         - CH3CHO
-        common_trade_names: []
-        other_identifiers:
-          rtecs_number: AB1925000
-          ec_number: 200-836-8
-          pubchem_cid: '177'
+        commonTradeNames: []
+        otherIdentifiers:
+          rtecsNumber: AB1925000
+          ecNumber: 200-836-8
+          pubchemCid: '177'
       _section:
-        section_title: Alternative Names
-        description: Synonyms and chemical identifiers
         icon: tag
+        sectionMetadata:
+          relationshipType: synonymsIdentifiers
+          group: identity
+          domain: compounds
+          icon: tag
+          order: 72
+          variant: default
+          schemaDescription: Alternative names and identifiers
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
   safety:
-    health_effects:
+    healthEffects:
       presentation: card
       items:
       - route: inhalation
@@ -203,72 +181,104 @@ relationships:
         severity: moderate
         onset: immediate
       _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
         icon: heart-pulse
-    ppe_requirements:
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+    ppeRequirements:
       presentation: descriptive
       items:
       - respiratory: NIOSH-approved organic vapor respirator for <25 ppm. SCBA for >25 ppm or unknown concentrations.
         skin: Nitrile or butyl rubber gloves. Chemical-resistant clothing for liquid contact.
         eye: Chemical safety goggles, face shield for splash hazard.
-        minimum_level: Level C for <25 ppm, Level B for >25 ppm
-        special_notes: Probable human carcinogen (IARC Group 2B). Extremely flammable. Irritating vapor. May polymerize explosively.
+        minimumLevel: Level C for <25 ppm, Level B for >25 ppm
+        specialNotes: Probable human carcinogen (IARC Group 2B). Extremely flammable. Irritating vapor. May polymerize explosively.
       _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
         icon: shield-check
-    emergency_response:
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: compounds
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+    emergencyResponse:
       presentation: descriptive
       items:
-      - fire_hazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May
-          polymerize explosively in fire.
-        fire_suppression: EVACUATE - explosion hazard. Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water
+      - fireHazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
+          explosively in fire.
+        fireSuppression: EVACUATE - explosion hazard. Stop flow if safe. Use dry chemical, CO2, alcohol-resistant foam. Water
           spray to cool containers. Do not use water jet directly on liquid.
-        spill_procedures: EVACUATE. Eliminate ignition sources. Ventilate area. SCBA for large spills. Contain with dry sand
+        spillProcedures: EVACUATE. Eliminate ignition sources. Ventilate area. SCBA for large spills. Contain with dry sand
           or earth. Neutralize with sodium bisulfite. Absorb with vermiculite.
-        exposure_immediate_actions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
+        exposureImmediateActions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. Remove contaminated
           clothing. Wash skin with soap and water. Seek medical attention - irritation and carcinogen exposure concern.'
-        environmental_hazards: Toxic to aquatic life. Rapidly volatilizes from water. Biodegrades quickly. Report spills.
-        special_hazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). Respiratory tract carcinogen in animals. Extremely flammable.
+        environmentalHazards: Toxic to aquatic life. Rapidly volatilizes from water. Biodegrades quickly. Report spills.
+        specialHazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). Respiratory tract carcinogen in animals. Extremely flammable.
           May polymerize violently when contaminated. Narcotic at high concentrations. Irritating to eyes and respiratory
           tract.
       _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
-    exposure_limits:
+        sectionMetadata:
+          relationshipType: emergencyResponse
+          group: safety
+          domain: compounds
+          icon: ambulance
+          order: 23
+          variant: danger
+          schemaDescription: Emergency procedures and first aid
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+    exposureLimits:
       presentation: descriptive
       items:
-      - osha_pel_ppm: 200
-        osha_pel_mg_m3: 360
-        niosh_rel_ppm: null
-        niosh_rel_mg_m3: null
-        acgih_tlv_ppm: 25
-        acgih_tlv_mg_m3: 45
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 200 ppm
-            stel_15min: null
+      - oshaPelPpm: 200
+        oshaPelMgM3: 360
+        nioshRelPpm: null
+        nioshRelMgM3: null
+        acgihTlvPpm: 25
+        acgihTlvMgM3: 45
+        workplaceExposure:
+          oshaPel:
+            twa8Hr: 200 ppm
+            stel15Min: null
             ceiling: null
-          niosh_rel:
-            twa_8hr: 25 ppm
-            stel_15min: null
+          nioshRel:
+            twa8Hr: 25 ppm
+            stel15Min: null
             ceiling: 37 ppm
             idlh: 2000 ppm
-          acgih_tlv:
-            twa_8hr: 25 ppm
-            stel_15min: 37 ppm
+          acgihTlv:
+            twa8Hr: 25 ppm
+            stel15Min: 37 ppm
             ceiling: null
-          biological_exposure_indices: []
+          biologicalExposureIndices: []
       _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-    storage_requirements:
+        sectionMetadata:
+          relationshipType: exposureLimits
+          group: safety
+          domain: compounds
+          icon: gauge
+          order: 24
+          variant: warning
+          schemaDescription: Occupational exposure limits
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+    storageRequirements:
       presentation: descriptive
       items:
-      - temperature_range: Store below 20°C, refrigerate. Keep away from heat.
+      - temperatureRange: Store below 20°C, refrigerate. Keep away from heat.
         ventilation: 'Outdoor storage strongly preferred. Indoor: explosion-proof ventilation. Gas detection mandatory.'
         incompatibilities:
         - Acids
@@ -279,102 +289,134 @@ relationships:
         - Oxidizers
         - Phenols
         - Hydrogen cyanide
-        container_material: Stainless steel or aluminum. Must be stabilized. Never use copper or iron containers.
+        containerMaterial: Stainless steel or aluminum. Must be stabilized. Never use copper or iron containers.
         segregation: Separate from oxidizers and incompatibles by 20 feet. Flammable liquid storage cabinet.
-        quantity_limits: Minimize quantities. Many facilities limit to <10 gallons.
-        special_requirements: 'CRITICAL: Store with stabilizer. Check stabilizer regularly. Refrigerated storage required.
+        quantityLimits: Minimize quantities. Many facilities limit to <10 gallons.
+        specialRequirements: 'CRITICAL: Store with stabilizer. Check stabilizer regularly. Refrigerated storage required.
           Inert gas blanketing (nitrogen). Post "EXTREMELY FLAMMABLE" and "CANCER HAZARD" signs.'
       _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
         icon: warehouse
-    regulatory_classification:
+        sectionMetadata:
+          relationshipType: storageRequirements
+          group: safety
+          domain: compounds
+          icon: warehouse
+          order: 25
+          variant: default
+          schemaDescription: Safe storage conditions
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+    regulatoryClassification:
       presentation: descriptive
       items:
-      - un_number: UN1089
-        dot_hazard_class: 3 (Flammable liquid)
-        dot_label: Flammable Liquid
-        nfpa_codes:
+      - unNumber: UN1089
+        dotHazardClass: 3 (Flammable liquid)
+        dotLabel: Flammable Liquid
+        nfpaCodes:
           health: 2
           flammability: 4
           reactivity: 2
           special: null
           instability: 2
-        epa_hazard_categories:
+        epaHazardCategories:
         - Flammability
         - Acute toxicity
         - Carcinogenicity (probable)
         - Eye irritation
-        sara_title_iii: true
-        cercla_rq: 1000 pounds (454 kg)
-        rcra_code: U001
+        saraTitleIii: true
+        cerclaRq: 1000 pounds (454 kg)
+        rcraCode: U001
       _section:
-        section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
+        sectionMetadata:
+          relationshipType: regulatoryClassification
+          group: safety
+          domain: compounds
+          icon: file-badge
+          order: 26
+          variant: default
+          schemaDescription: Regulatory classification and hazard codes
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
   environmental:
-    environmental_impact:
+    environmentalImpact:
       presentation: descriptive
       items:
-      - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 50-150 mg/L.'
+      - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 50-150 mg/L.'
         biodegradability: Readily biodegradable (>70% in 28 days). Oxidizes to acetic acid.
         bioaccumulation: 'Does not bioaccumulate. Log Kow: -0.34.'
-        soil_mobility: High mobility. Volatilizes rapidly from soil.
-        atmospheric_fate: 'Photolyzes rapidly. Forms peroxyacetyl nitrate (PAN). Atmospheric half-life: 9 hours.'
-        ozone_depletion: false
-        global_warming_potential: null
-        reportable_releases:
+        soilMobility: High mobility. Volatilizes rapidly from soil.
+        atmosphericFate: 'Photolyzes rapidly. Forms peroxyacetyl nitrate (PAN). Atmospheric half-life: 9 hours.'
+        ozoneDepletion: false
+        globalWarmingPotential: null
+        reportableReleases:
           water: 1000 lbs to navigable waters
           air: 1000 lbs/day (CERCLA RQ)
       _section:
-        section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-  detection_monitoring:
-    detection_monitoring:
+        sectionMetadata:
+          relationshipType: environmentalImpact
+          group: environmental
+          domain: compounds
+          icon: leaf
+          order: 50
+          variant: default
+          schemaDescription: Environmental effects and disposal considerations
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+  detectionMonitoring:
+    detectionMonitoring:
       presentation: descriptive
       items:
-      - sensor_types:
+      - sensorTypes:
         - Photoionization detector (PID)
         - Electrochemical
         - Infrared
         - Metal oxide
-        detection_range: 0-100 ppm typical
-        alarm_setpoints:
+        detectionRange: 0-100 ppm typical
+        alarmSetpoints:
           low: 10 ppm (NIOSH ceiling)
           high: 25 ppm (ACGIH ceiling)
           evacuate: 2000 ppm (NIOSH IDLH)
-        colorimetric_tubes:
+        colorimetricTubes:
         - Dräger Acetaldehyde 100/a
         - Gastec 92
-        analytical_methods:
+        analyticalMethods:
         - method: NIOSH 2538
           technique: GC-FID
-          detection_limit: 0.01 ppm
+          detectionLimit: 0.01 ppm
         - method: OSHA Method 68
           technique: HPLC
-          detection_limit: 0.02 ppm
-        odor_threshold: 0.05-1 ppm - provides early warning
+          detectionLimit: 0.02 ppm
+        odorThreshold: 0.05-1 ppm - provides early warning
       _section:
-        section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
         icon: radar
+        sectionMetadata:
+          relationshipType: detectionMonitoring
+          group: detectionMonitoring
+          domain: compounds
+          icon: radar
+          order: 80
+          variant: default
+          schemaDescription: Detection and monitoring methods
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
   interactions:
-    produced_from_contaminants:
+    producedFromContaminants:
       presentation: card
       items:
       - id: plastic-residue-contamination
         frequency: common
         severity: moderate
-        typical_context: PET and PVC thermal degradation
+        typicalContext: PET and PVC thermal degradation
       - id: adhesive-residue-contamination
         frequency: common
         severity: moderate
-        typical_context: EVA and acrylic adhesive breakdown
+        typicalContext: EVA and acrylic adhesive breakdown
       - id: paint-residue-contamination
         frequency: occasional
         severity: low
-        typical_context: Acrylic paint thermal degradation
+        typicalContext: Acrylic paint thermal degradation
       _section:
         sectionTitle: Source Contaminants
         sectionDescription: Contaminants that generate this compound during laser cleaning
@@ -382,9 +424,15 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
           notes: Links to contaminant pages
-          relationship_type: produced_from
-    produced_from_materials:
+    producedFromMaterials:
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -400,14 +448,19 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: producedFromMaterials
+          group: interactions
+          domain: compounds
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Links to material pages
-          relationship_type: produced_from
     reactivity:
       presentation: descriptive
       items:
       - stability: UNSTABLE. Polymerizes readily. Must be stabilized. Oxidizes in air.
         polymerization: Violent exothermic polymerization with acids, bases, or contaminants. Stabilizer required.
-        incompatible_materials:
+        incompatibleMaterials:
         - Strong acids
         - Strong bases
         - Oxidizers
@@ -417,12 +470,12 @@ relationships:
         - Hydrogen cyanide
         - Phenols
         - Hydrogen sulfide
-        hazardous_decomposition:
+        hazardousDecomposition:
         - Carbon monoxide
         - Carbon dioxide
         - Acetic acid
         - Acetaldehyde vapors
-        conditions_to_avoid:
+        conditionsToAvoid:
         - Heat
         - Light
         - Air
@@ -431,13 +484,60 @@ relationships:
         - Sparks
         - Flames
         - Contamination
-        reactivity_hazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Forms explosive peroxides
+        reactivityHazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Forms explosive peroxides
           with air. May self-heat and ignite.
       _section:
-        section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
         icon: atom
-ppe_requirements: Handling acetaldehyde demands careful protection against its irritating vapors and potential skin contact,
+        sectionMetadata:
+          relationshipType: reactivity
+          group: interactions
+          domain: compounds
+          icon: zap
+          order: 15
+          variant: default
+          schemaDescription: Chemical reactivity and interactions
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+hazardClass: irritant
+chemicalFormula: C₂H₄O
+casNumber: 75-07-0
+molecularWeight: 44.05
+healthEffects: When handling acetaldehyde in industrial setups, start by ensuring good ventilation right away. This compound
+  acts as a strong irritant, so you must prioritize protective gear to avoid direct skin or eye contact during mixing or application
+  processes. As you proceed with storage or transfer, keep in mind its volatile nature tends to release vapors that can inflame
+  respiratory passages quickly. We've found that even brief exposure leads to headaches or nausea, making enclosed areas risky
+  without airflow controls. Always monitor for prolonged effects like throat irritation midway through operations, and end
+  shifts with thorough decontamination to prevent lingering sensitivities.
+healthEffectsKeywords:
+- respiratory_irritation
+- eye_irritation
+- suspected_carcinogen
+- narcotic_effects
+exposureGuidelines: Handle acetaldehyde with care. It's a sharp irritant. Eyes sting on contact. Skin reddens fast. Inhale
+  vapors? Throat burns quick. Set up ventilated workspaces first. Wear goggles always. Use gloves that resist vapors. Limit
+  time near open sources. In factories, it mixes resins. Builds plastics strong. Watch for buildup during shifts. Laser cleaning?
+  Wipes residues clean. Sparks fly if not controlled. Keep exposures brief. Train teams on signs. Flush skin right away. Seek
+  air if vapors hit. Store sealed cool. Spill? Evacuate zone fast.
+detectionMethods: "Spotting acetaldehyde in a mix stands out from chasing down heavier industrial solvents, mainly because\
+  \ its sharp, fruity whiff gives early clues during handling, yet that alone won't cut it for precise checks in busy labs.\
+  \ Workers often turn to simple color-changing tests first, where a reagent shifts hue upon contact, making invisible traces\
+  \ pop visually without fancy gear. This approach shines in quick spot-checks on factory floors, dodging the hassle of bulky\
+  \ setups. \n\nFor deeper dives, spectroscopic tools pick up its unique light absorption patterns, revealing presence even\
+  \ in diluted samples—far more reliable than relying on smell, which fades fast in ventilated spaces. These methods suit\
+  \ quality control in plastics production, where acetaldehyde sneaks in as a byproduct, ensuring batches stay pure. \n\n\
+  Electrochemical sensors offer another route, detecting it through subtle electrical shifts in a probe, ideal for ongoing\
+  \ monitoring in chemical plants to flag irritant buildup before it spreads. Unlike broad air samplers that snag everything,\
+  \ these zero in on acetaldehyde's signature, cutting false alarms during laser cleaning ops on contaminated surfaces. Overall,\
+  \ blending these tactics keeps operations smooth, balancing speed with accuracy in material handling."
+firstAid: "If acetaldehyde splashes onto skin, rinse the area immediately under running water for at least fifteen minutes\
+  \ while removing contaminated clothing to prevent further irritation. Seek medical attention if redness or burning persists.\n\
+  \nEyes exposed? Flush them gently with lukewarm water, keeping eyelids open, and continue for several minutes—stop only\
+  \ if it causes more discomfort, then get professional help right away.\n\nBreathing it in feels harsh? Move the person to\
+  \ fresh air quickly, loosen tight clothing, and monitor breathing; if symptoms like coughing worsen, call emergency services\
+  \ without delay.\n\nSwallowed by accident? Never force vomiting, as it could lead to worse harm—instead, rinse the mouth\
+  \ with water and contact poison control or a doctor immediately for guidance. \n\nAlways have safety data sheets handy in\
+  \ work areas handling this compound, and wear protective gear to avoid these issues altogether."
+ppeRequirements: Handling acetaldehyde demands careful protection against its irritating vapors and potential skin contact,
   especially in industrial settings where it's used for synthesizing resins or as a precursor in chemical processes. Workers
   often face exposure during production or storage, so equipping with chemical-resistant gloves shields hands from direct
   splashes, while full-face shields or goggles guard eyes from fumes that could cause burning sensations. In confined areas,
@@ -445,6 +545,12 @@ ppe_requirements: Handling acetaldehyde demands careful protection against its i
   preventing respiratory discomfort. For broader safety in laser cleaning operations involving acetaldehyde-based coatings,
   disposable coveralls and boot covers help contain any residue, keeping contamination minimal and allowing for thorough decontamination
   afterward. Always pair this gear with well-ventilated environments to reduce overall risks.
+monitoringRequired: true
+typicalConcentrationRange: 5-25 mg/m³
+sourcesInLaserCleaning:
+- alcohol_oxidation
+- polymer_decomposition
+- organic_solvent_breakdown
 faq:
   presentation: collapsible
   items:

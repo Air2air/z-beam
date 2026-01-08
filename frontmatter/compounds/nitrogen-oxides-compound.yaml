@@ -3,9 +3,8 @@ name: Nitrogen Oxides
 displayName: NOₓ
 category: toxic_gas
 subcategory: oxidizing_gas
-hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:13.208894+00:00'
+dateModified: '2026-01-08T03:28:11.563907+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/oxidizing_gas/nitrogen-oxides-compound
@@ -22,54 +21,6 @@ pageTitle: Nitrogen Oxides
 pageDescription: Nitrogen Oxides Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Nitrogen Oxides laser cleaning guide. Technical specifications and applications.
-chemical_formula: NOx
-cas_number: Various
-molecular_weight: 46.01
-health_effects: When dealing with nitrogen oxides in industrial setups, always prioritize ventilation right from the start—
-  these compounds are notorious for their irritant effects on the respiratory system, and even brief exposure can leave you
-  coughing and short of breath. I've handled them plenty in chemical processing plants, where they form as byproducts during
-  high-heat reactions, and what works best is suiting up with full respiratory protection before entering any confined space.
-  The reason? Their gaseous nature means they spread quickly and deeply penetrate lung tissues, causing inflammation that
-  builds up over time if you're not careful. Stick to enclosed systems with scrubbers to capture them, because letting them
-  vent freely turns a routine operation into a health hazard fast. In applications like nitric acid production, we've avoided
-  major issues by monitoring air quality constantly and rotating shifts to limit personal exposure, but skip that and you
-  risk chronic irritation or worse. Just keep exposures minimal, and they'll stay manageable without derailing your workflow.
-exposure_guidelines: 'While nitrogen oxides might seem innocuous in trace amounts from everyday combustion, their true danger
-  emerges in confined or industrial settings where they build up as a sharp, irritating toxic gas. Workers handling welding
-  torches or combustion engines often face the brunt, coughing and feeling throat burns from even brief whiffs that linger
-  in poorly ventilated spaces. To stay safe, always prioritize strong airflow systems that whisk away these fumes before they
-  concentrate, and layer on protective gear like fitted respirators designed to filter out gaseous irritants—think full-face
-  masks over basic coverings for heavier exposure risks. If someone starts wheezing, clutching their chest, or showing bluish
-  skin tones after being near sources like nitric acid reactions, get them to fresh air immediately and seek medical help
-  without delay, as delayed effects can inflame lungs deeply. In laser cleaning operations, where these compounds might arise
-  from material vaporization, extra caution shines through: isolate the workspace with enclosures that capture vapors, monitor
-  air quality qualitatively through routine checks for that telltale acrid odor, and train teams to recognize early signs
-  like eye watering or headaches that signal it''s time to pause and reassess. Overall, embedding these habits into daily
-  routines turns potential hazards into manageable routines, safeguarding health amid the grit of industrial applications.'
-detection_methods: 'Spotting nitrogen oxides in the air demands smart, straightforward techniques that catch these sneaky
-  toxic gases without much fuss. Electrochemical sensors top my list because they react directly with the compounds, shifting
-  electrical signals in a way that''s quick and dependable for everyday checks in workshops or labs—though you steer clear
-  of humid spots where false readings creep in. Infrared spectroscopy works wonders too, absorbing specific light wavelengths
-  to pinpoint the gases amid other vapors, ideal for monitoring industrial exhausts where buildup could turn hazardous; just
-  avoid dusty environments that scatter the beams and muddy results.
-
-
-  For tougher setups, like cleaning grimy surfaces laced with residues, laser-based methods shine by zapping tiny samples
-  to spark detectable glows from the oxides'' unique signatures—effective for precise industrial applications without spreading
-  contaminants. Photoacoustic detection adds another layer, turning gas absorption into audible pulses that sensors pick up
-  cleanly in enclosed spaces, but it''s best skipped in noisy factories to prevent interference. Overall, combining these
-  keeps things safe and efficient, focusing on real-world reliability over fancy gear that might fail under pressure.'
-first_aid: Dealing with nitrogen oxide exposure hits hard because these compounds act fast as irritants, turning a simple
-  mishap into a real ordeal if not addressed right away. Get the person out of the contaminated area immediately—fresh air
-  is your first line of defense, and it works by diluting the gas quickly, preventing deeper lung damage that could linger
-  for days. Why rush this step? These gases cling to the respiratory system, causing swelling and burns that worsen without
-  oxygen flow, so never delay hauling them to a clear space, even if they seem okay at first. Avoid giving them anything by
-  mouth, like water or food, since it might trigger vomiting and pull more toxins downward; instead, loosen tight clothing
-  around the neck and chest to ease breathing without forcing anything. If coughing or choking kicks in, keep them calm and
-  upright—propping against something stable helps circulation without straining the body further. Call for medical pros right
-  off; they handle the rest with oxygen support or monitoring, because self-treatment falls short against the sneaky buildup
-  of effects like fluid in the lungs. What to steer clear of? Don't play hero by sticking around the source yourself, and
-  skip home remedies like milk, which do nothing but waste time in the face of such a potent irritant.
 images:
   hero:
     url: /images/compound/nitrogen-oxides-compound-hero.jpg
@@ -85,7 +36,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -107,20 +58,9 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
-health_effects_keywords:
-- respiratory_irritation
-- pulmonary_edema
-- bronchitis
-- delayed_effects
-monitoring_required: true
-typical_concentration_range: 1-10 mg/m³
-sources_in_laser_cleaning:
-- high_energy_laser_interaction
-- nitrogen_compound_oxidation
-- atmospheric_nitrogen_fixation
 card:
   default:
     heading: Nitrogen Oxides
@@ -134,7 +74,7 @@ card:
       legend: OSHA PEL
     severity: low
     icon: flask
-  contamination_context:
+  contaminationContext:
     heading: Nitrogen Oxides
     subtitle: Emission Product
     badge:
@@ -148,7 +88,7 @@ card:
     icon: alert-triangle
 relationships:
   identity:
-    chemical_properties:
+    chemicalProperties:
       presentation: descriptive
       items:
       - type: chemical_properties
@@ -160,26 +100,41 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: chemicalProperties
+          group: identity
+          domain: compounds
+          icon: flask
+          order: 70
+          variant: default
+          schemaDescription: Chemical composition and properties
           notes: Core chemical identity data from Compounds.yaml
-          source_field: chemical_properties
-    physical_properties:
+          sourceField: chemical_properties
+    physicalProperties:
       presentation: descriptive
       items:
-      - boiling_point: 'NO: -151.7°C, NO2: 21.2°C, N2O4: 21.2°C'
-        melting_point: 'NO: -163.6°C, NO2: -11.2°C'
-        vapor_pressure: 'NO: >760 mmHg @ 20°C (gas), NO2: 760 mmHg @ 21°C'
-        vapor_density: 'NO: 1.04 (Air=1), NO2: 1.58 (Air=1)'
-        specific_gravity: 'NO2: 1.45 (liquid @ 21°C)'
-        flash_point: Not applicable (non-flammable)
-        autoignition_temp: Not applicable
-        explosive_limits: Not applicable (supports combustion)
+      - boilingPoint: 'NO: -151.7°C, NO2: 21.2°C, N2O4: 21.2°C'
+        meltingPoint: 'NO: -163.6°C, NO2: -11.2°C'
+        vaporPressure: 'NO: >760 mmHg @ 20°C (gas), NO2: 760 mmHg @ 21°C'
+        vaporDensity: 'NO: 1.04 (Air=1), NO2: 1.58 (Air=1)'
+        specificGravity: 'NO2: 1.45 (liquid @ 21°C)'
+        flashPoint: Not applicable (non-flammable)
+        autoignitionTemp: Not applicable
+        explosiveLimits: Not applicable (supports combustion)
         appearance: 'NO: colorless gas, NO2: reddish-brown gas, N2O4: colorless liquid/gas'
         odor: 'NO2: pungent, irritating odor @ 0.1-1 ppm. NO: odorless'
       _section:
-        section_title: Physical Properties
-        description: Chemical and physical characteristics
         icon: flask
-    synonyms_identifiers:
+        sectionMetadata:
+          relationshipType: physicalProperties
+          group: identity
+          domain: compounds
+          icon: thermometer
+          order: 71
+          variant: default
+          schemaDescription: Physical characteristics and behavior
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+    synonymsIdentifiers:
       presentation: descriptive
       items:
       - synonyms:
@@ -188,17 +143,25 @@ relationships:
         - Nitric oxide (NO)
         - Dinitrogen tetroxide (N2O4)
         - Nitrogen peroxide
-        common_trade_names: []
-        other_identifiers:
-          rtecs_number: QW9800000 (NO2)
-          ec_number: 233-272-6 (NO2)
-          pubchem_cid: 3032552 (NOx)
+        commonTradeNames: []
+        otherIdentifiers:
+          rtecsNumber: QW9800000 (NO2)
+          ecNumber: 233-272-6 (NO2)
+          pubchemCid: 3032552 (NOx)
       _section:
-        section_title: Alternative Names
-        description: Synonyms and chemical identifiers
         icon: tag
+        sectionMetadata:
+          relationshipType: synonymsIdentifiers
+          group: identity
+          domain: compounds
+          icon: tag
+          order: 72
+          variant: default
+          schemaDescription: Alternative names and identifiers
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
   safety:
-    health_effects:
+    healthEffects:
       presentation: card
       items:
       - route: inhalation
@@ -218,81 +181,113 @@ relationships:
         severity: moderate
         onset: immediate
       _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
         icon: heart-pulse
-    ppe_requirements:
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+    ppeRequirements:
       presentation: descriptive
       items:
       - respiratory: SCBA or positive-pressure supplied-air respirator for >1 ppm NO2 or unknown concentrations. Air-purifying
           with acid gas cartridge acceptable for ≤1 ppm NO2 only.
         skin: Nitrile or butyl rubber gloves for liquid contact. Chemical-resistant clothing if high concentrations.
         eye: Chemical safety goggles, face shield for high concentrations
-        minimum_level: Level C for known <1 ppm NO2, Level B for >1 ppm or NO/NO2 mixtures
-        special_notes: NO2 is brown gas, NO is colorless. Both highly toxic. Delayed pulmonary edema possible 6-72 hours after
+        minimumLevel: Level C for known <1 ppm NO2, Level B for >1 ppm or NO/NO2 mixtures
+        specialNotes: NO2 is brown gas, NO is colorless. Both highly toxic. Delayed pulmonary edema possible 6-72 hours after
           exposure. STEL critical - short exposures very dangerous.
       _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
         icon: shield-check
-    emergency_response:
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: compounds
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+    emergencyResponse:
       presentation: descriptive
       items:
-      - fire_hazard: Non-flammable but supports combustion. Strong oxidizer. Increases fire intensity. May explode when heated.
-        fire_suppression: Do not fight fire if gas cylinder involved - extreme explosion risk. Evacuate. Cool cylinders with
+      - fireHazard: Non-flammable but supports combustion. Strong oxidizer. Increases fire intensity. May explode when heated.
+        fireSuppression: Do not fight fire if gas cylinder involved - extreme explosion risk. Evacuate. Cool cylinders with
           water spray from safe distance. Let fire burn out.
-        spill_procedures: 'EVACUATE. Liquid NO2/N2O4: extreme hazard. Ventilate area. SCBA mandatory. Contain with soda ash
+        spillProcedures: 'EVACUATE. Liquid NO2/N2O4: extreme hazard. Ventilate area. SCBA mandatory. Contain with soda ash
           or lime neutralization. Never use water directly on liquid NOx.'
-        exposure_immediate_actions: Remove to fresh air immediately. Administer 100% oxygen. Severe respiratory irritation
-          likely. Monitor for delayed pulmonary edema (6-72 hours). Seek immediate medical attention - hospitalize for observation
+        exposureImmediateActions: Remove to fresh air immediately. Administer 100% oxygen. Severe respiratory irritation likely.
+          Monitor for delayed pulmonary edema (6-72 hours). Seek immediate medical attention - hospitalize for observation
           even if asymptomatic.
-        environmental_hazards: Contributes to acid rain, smog, ozone formation. Toxic to vegetation. Report significant releases.
-        special_hazards: DELAYED PULMONARY EDEMA - asymptomatic period 6-72 hours then sudden respiratory failure. NO converts
+        environmentalHazards: Contributes to acid rain, smog, ozone formation. Toxic to vegetation. Report significant releases.
+        specialHazards: DELAYED PULMONARY EDEMA - asymptomatic period 6-72 hours then sudden respiratory failure. NO converts
           to NO2 in air (more toxic). Strong oxidizer. Corrosive to respiratory tract. May explode under pressure.
       _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
-    exposure_limits:
+        sectionMetadata:
+          relationshipType: emergencyResponse
+          group: safety
+          domain: compounds
+          icon: ambulance
+          order: 23
+          variant: danger
+          schemaDescription: Emergency procedures and first aid
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+    exposureLimits:
       presentation: descriptive
       items:
-      - osha_pel_ppm: 25
-        osha_pel_mg_m3: 9
-        niosh_rel_ppm: null
-        niosh_rel_mg_m3: 1.8
-        acgih_tlv_ppm: 3
-        acgih_tlv_mg_m3: 5.6
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 5 ppm
-            stel_15min: null
+      - oshaPelPpm: 25
+        oshaPelMgM3: 9
+        nioshRelPpm: null
+        nioshRelMgM3: 1.8
+        acgihTlvPpm: 3
+        acgihTlvMgM3: 5.6
+        workplaceExposure:
+          oshaPel:
+            twa8Hr: 5 ppm
+            stel15Min: null
             ceiling: null
-          niosh_rel:
-            twa_8hr: 2 ppm
-            stel_15min: 5 ppm
+          nioshRel:
+            twa8Hr: 2 ppm
+            stel15Min: 5 ppm
             ceiling: null
             idlh: 20 ppm (NO2), 100 ppm (NO)
-          acgih_tlv:
-            twa_8hr: 0.2 ppm
-            stel_15min: 1 ppm
+          acgihTlv:
+            twa8Hr: 0.2 ppm
+            stel15Min: 1 ppm
             ceiling: null
-          biological_exposure_indices:
+          biologicalExposureIndices:
           - metabolite: Methemoglobin
             specimen: Blood
             timing: During or end of shift
-            bei_value: <1.5% of hemoglobin (NO exposure)
+            beiValue: <1.5% of hemoglobin (NO exposure)
           - metabolite: Nitrate/Nitrite
             specimen: Urine
             timing: End of shift
-            bei_value: Establish baseline
+            beiValue: Establish baseline
       _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-    storage_requirements:
+        sectionMetadata:
+          relationshipType: exposureLimits
+          group: safety
+          domain: compounds
+          icon: gauge
+          order: 24
+          variant: warning
+          schemaDescription: Occupational exposure limits
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+    storageRequirements:
       presentation: descriptive
       items:
-      - temperature_range: Store cylinders <52°C. Keep away from heat.
+      - temperatureRange: Store cylinders <52°C. Keep away from heat.
         ventilation: 'Outdoor storage strongly preferred. Indoor: mechanical ventilation with emergency backup. NOx gas detection
           mandatory.'
         incompatibilities:
@@ -303,122 +298,154 @@ relationships:
         - Carbon disulfide
         - Hydrogen sulfide
         - Petroleum products
-        container_material: Steel cylinders for compressed gas. Stainless steel or glass for liquid.
+        containerMaterial: Steel cylinders for compressed gas. Stainless steel or glass for liquid.
         segregation: Separate from flammables and combustibles by 20 feet or firewall. Oxidizer storage area.
-        quantity_limits: 'Per fire code: limit cylinders in buildings. Many facilities store outdoors only.'
-        special_requirements: Cylinder restraints mandatory. Leak detection system required. Post "OXIDIZER" and "POISON GAS"
+        quantityLimits: 'Per fire code: limit cylinders in buildings. Many facilities store outdoors only.'
+        specialRequirements: Cylinder restraints mandatory. Leak detection system required. Post "OXIDIZER" and "POISON GAS"
           signs. Emergency procedures posted. Monitor cylinder integrity regularly.
       _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
         icon: warehouse
-    regulatory_classification:
+        sectionMetadata:
+          relationshipType: storageRequirements
+          group: safety
+          domain: compounds
+          icon: warehouse
+          order: 25
+          variant: default
+          schemaDescription: Safe storage conditions
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+    regulatoryClassification:
       presentation: descriptive
       items:
-      - un_number: UN1067 (nitrogen dioxide/dinitrogen tetroxide), UN2201 (nitrous oxide)
-        dot_hazard_class: 2.3 (Toxic gas), 5.1 (Oxidizer)
-        dot_label: Poison Gas, Oxidizer
-        nfpa_codes:
+      - unNumber: UN1067 (nitrogen dioxide/dinitrogen tetroxide), UN2201 (nitrous oxide)
+        dotHazardClass: 2.3 (Toxic gas), 5.1 (Oxidizer)
+        dotLabel: Poison Gas, Oxidizer
+        nfpaCodes:
           health: 3
           flammability: 0
           reactivity: 0
           special: OX (Oxidizer)
-        epa_hazard_categories:
+        epaHazardCategories:
         - Acute toxicity (inhalation)
         - Oxidizing gas
         - Corrosive
-        sara_title_iii: true
-        cercla_rq: 10 pounds (4.54 kg) for NO2
-        rcra_code: P078 (nitrogen dioxide)
+        saraTitleIii: true
+        cerclaRq: 10 pounds (4.54 kg) for NO2
+        rcraCode: P078 (nitrogen dioxide)
       _section:
-        section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
+        sectionMetadata:
+          relationshipType: regulatoryClassification
+          group: safety
+          domain: compounds
+          icon: file-badge
+          order: 26
+          variant: default
+          schemaDescription: Regulatory classification and hazard codes
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
   environmental:
-    environmental_impact:
+    environmentalImpact:
       presentation: descriptive
       items:
-      - aquatic_toxicity: 'Toxic to aquatic life. LC50 (fish, 96h): varies by species and form. Forms acidic solutions.'
+      - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): varies by species and form. Forms acidic solutions.'
         biodegradability: Reacts in atmosphere. Converts to nitric acid. Not biodegradable.
         bioaccumulation: Does not bioaccumulate.
-        soil_mobility: High mobility as gas. Deposits as nitrates. Contributes to soil acidification.
-        atmospheric_fate: 'Photochemical reactions produce ozone. Forms nitric acid with water vapor. Contributes to acid
-          rain. Residence time: hours to days.'
-        ozone_depletion: true
-        global_warming_potential: 'N2O: 298 (CO2=1)'
-        reportable_releases:
+        soilMobility: High mobility as gas. Deposits as nitrates. Contributes to soil acidification.
+        atmosphericFate: 'Photochemical reactions produce ozone. Forms nitric acid with water vapor. Contributes to acid rain.
+          Residence time: hours to days.'
+        ozoneDepletion: true
+        globalWarmingPotential: 'N2O: 298 (CO2=1)'
+        reportableReleases:
           water: 10 lbs NO2 to navigable waters
           air: 10 lbs/day NO2 (CERCLA RQ)
       _section:
-        section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-  detection_monitoring:
-    detection_monitoring:
+        sectionMetadata:
+          relationshipType: environmentalImpact
+          group: environmental
+          domain: compounds
+          icon: leaf
+          order: 50
+          variant: default
+          schemaDescription: Environmental effects and disposal considerations
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+  detectionMonitoring:
+    detectionMonitoring:
       presentation: descriptive
       items:
-      - sensor_types:
+      - sensorTypes:
         - Electrochemical
         - Chemiluminescence
         - NDIR
         - Metal oxide
-        detection_range: 0-50 ppm typical
-        alarm_setpoints:
+        detectionRange: 0-50 ppm typical
+        alarmSetpoints:
           low: 1 ppm (NIOSH STEL for NO2)
           high: 5 ppm (OSHA ceiling for NO2)
           evacuate: 20 ppm (NIOSH IDLH for NO2)
-        colorimetric_tubes:
+        colorimetricTubes:
         - Dräger NO2 0.5/a
         - Gastec 9L
         - Kitagawa 175
-        analytical_methods:
+        analyticalMethods:
         - method: NIOSH 6014
           technique: Spectrophotometry
-          detection_limit: 0.01 ppm (NO2)
+          detectionLimit: 0.01 ppm (NO2)
         - method: OSHA ID-182
           technique: Ion chromatography
-          detection_limit: 0.007 ppm
-        odor_threshold: 'NO2: 0.1-1 ppm (provides warning but overlaps toxic range). NO: odorless (NO WARNING).'
+          detectionLimit: 0.007 ppm
+        odorThreshold: 'NO2: 0.1-1 ppm (provides warning but overlaps toxic range). NO: odorless (NO WARNING).'
       _section:
-        section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
         icon: radar
+        sectionMetadata:
+          relationshipType: detectionMonitoring
+          group: detectionMonitoring
+          domain: compounds
+          icon: radar
+          order: 80
+          variant: default
+          schemaDescription: Detection and monitoring methods
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
   interactions:
-    produced_from_contaminants:
+    producedFromContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
         frequency: common
         severity: low
-        typical_context: High-temperature iron oxide reactions with nitrogen
+        typicalContext: High-temperature iron oxide reactions with nitrogen
       - id: algae-growth-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Algae and Lichen Growth
+        typicalContext: Laser removal of Algae and Lichen Growth
       - id: blood-residue-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Biological Blood Residue
+        typicalContext: Laser removal of Biological Blood Residue
       - id: electroplating-residue-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Electroplating Solution Residue
+        typicalContext: Laser removal of Electroplating Solution Residue
       - id: fertilizer-residue-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Fertilizer Salt Deposits
+        typicalContext: Laser removal of Fertilizer Salt Deposits
       - id: insect-residue-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Insect Impact Residue
+        typicalContext: Laser removal of Insect Impact Residue
       - id: pesticide-residue-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Pesticide Chemical Residue
+        typicalContext: Laser removal of Pesticide Chemical Residue
       - id: pharmaceutical-residue-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Pharmaceutical Drug Residue
+        typicalContext: Laser removal of Pharmaceutical Drug Residue
       _section:
         sectionTitle: Source Contaminants
         sectionDescription: Contaminants that generate this compound during laser cleaning
@@ -426,14 +453,20 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
           notes: Links to contaminant pages
-          relationship_type: produced_from
     reactivity:
       presentation: descriptive
       items:
       - stability: NO2/N2O4 equilibrium temperature-dependent. May decompose under heat/pressure.
         polymerization: Will not polymerize
-        incompatible_materials:
+        incompatibleMaterials:
         - Reducing agents
         - Flammable materials
         - Organic materials
@@ -442,22 +475,84 @@ relationships:
         - Hydrogen sulfide
         - Petroleum
         - Alcohols
-        hazardous_decomposition:
+        hazardousDecomposition:
         - Nitrogen
         - Oxygen
         - Toxic nitrogen oxides
-        conditions_to_avoid:
+        conditionsToAvoid:
         - Heat
         - Pressure
         - Incompatible materials
         - Moisture (forms corrosive acids)
-        reactivity_hazard: Strong oxidizer. Reacts violently with reducing agents and combustibles. Forms nitric acid with
+        reactivityHazard: Strong oxidizer. Reacts violently with reducing agents and combustibles. Forms nitric acid with
           water. May explode under heat/pressure.
       _section:
-        section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
         icon: atom
-ppe_requirements: 'Handling nitrogen oxides demands solid PPE setups. I''ve dealt with similar toxic gases before—proper gear
+        sectionMetadata:
+          relationshipType: reactivity
+          group: interactions
+          domain: compounds
+          icon: zap
+          order: 15
+          variant: default
+          schemaDescription: Chemical reactivity and interactions
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+hazardClass: toxic
+chemicalFormula: NOx
+casNumber: Various
+molecularWeight: 46.01
+healthEffects: When dealing with nitrogen oxides in industrial setups, always prioritize ventilation right from the start—
+  these compounds are notorious for their irritant effects on the respiratory system, and even brief exposure can leave you
+  coughing and short of breath. I've handled them plenty in chemical processing plants, where they form as byproducts during
+  high-heat reactions, and what works best is suiting up with full respiratory protection before entering any confined space.
+  The reason? Their gaseous nature means they spread quickly and deeply penetrate lung tissues, causing inflammation that
+  builds up over time if you're not careful. Stick to enclosed systems with scrubbers to capture them, because letting them
+  vent freely turns a routine operation into a health hazard fast. In applications like nitric acid production, we've avoided
+  major issues by monitoring air quality constantly and rotating shifts to limit personal exposure, but skip that and you
+  risk chronic irritation or worse. Just keep exposures minimal, and they'll stay manageable without derailing your workflow.
+healthEffectsKeywords:
+- respiratory_irritation
+- pulmonary_edema
+- bronchitis
+- delayed_effects
+exposureGuidelines: 'While nitrogen oxides might seem innocuous in trace amounts from everyday combustion, their true danger
+  emerges in confined or industrial settings where they build up as a sharp, irritating toxic gas. Workers handling welding
+  torches or combustion engines often face the brunt, coughing and feeling throat burns from even brief whiffs that linger
+  in poorly ventilated spaces. To stay safe, always prioritize strong airflow systems that whisk away these fumes before they
+  concentrate, and layer on protective gear like fitted respirators designed to filter out gaseous irritants—think full-face
+  masks over basic coverings for heavier exposure risks. If someone starts wheezing, clutching their chest, or showing bluish
+  skin tones after being near sources like nitric acid reactions, get them to fresh air immediately and seek medical help
+  without delay, as delayed effects can inflame lungs deeply. In laser cleaning operations, where these compounds might arise
+  from material vaporization, extra caution shines through: isolate the workspace with enclosures that capture vapors, monitor
+  air quality qualitatively through routine checks for that telltale acrid odor, and train teams to recognize early signs
+  like eye watering or headaches that signal it''s time to pause and reassess. Overall, embedding these habits into daily
+  routines turns potential hazards into manageable routines, safeguarding health amid the grit of industrial applications.'
+detectionMethods: 'Spotting nitrogen oxides in the air demands smart, straightforward techniques that catch these sneaky toxic
+  gases without much fuss. Electrochemical sensors top my list because they react directly with the compounds, shifting electrical
+  signals in a way that''s quick and dependable for everyday checks in workshops or labs—though you steer clear of humid spots
+  where false readings creep in. Infrared spectroscopy works wonders too, absorbing specific light wavelengths to pinpoint
+  the gases amid other vapors, ideal for monitoring industrial exhausts where buildup could turn hazardous; just avoid dusty
+  environments that scatter the beams and muddy results.
+
+
+  For tougher setups, like cleaning grimy surfaces laced with residues, laser-based methods shine by zapping tiny samples
+  to spark detectable glows from the oxides'' unique signatures—effective for precise industrial applications without spreading
+  contaminants. Photoacoustic detection adds another layer, turning gas absorption into audible pulses that sensors pick up
+  cleanly in enclosed spaces, but it''s best skipped in noisy factories to prevent interference. Overall, combining these
+  keeps things safe and efficient, focusing on real-world reliability over fancy gear that might fail under pressure.'
+firstAid: Dealing with nitrogen oxide exposure hits hard because these compounds act fast as irritants, turning a simple mishap
+  into a real ordeal if not addressed right away. Get the person out of the contaminated area immediately—fresh air is your
+  first line of defense, and it works by diluting the gas quickly, preventing deeper lung damage that could linger for days.
+  Why rush this step? These gases cling to the respiratory system, causing swelling and burns that worsen without oxygen flow,
+  so never delay hauling them to a clear space, even if they seem okay at first. Avoid giving them anything by mouth, like
+  water or food, since it might trigger vomiting and pull more toxins downward; instead, loosen tight clothing around the
+  neck and chest to ease breathing without forcing anything. If coughing or choking kicks in, keep them calm and upright—propping
+  against something stable helps circulation without straining the body further. Call for medical pros right off; they handle
+  the rest with oxygen support or monitoring, because self-treatment falls short against the sneaky buildup of effects like
+  fluid in the lungs. What to steer clear of? Don't play hero by sticking around the source yourself, and skip home remedies
+  like milk, which do nothing but waste time in the face of such a potent irritant.
+ppeRequirements: 'Handling nitrogen oxides demands solid PPE setups. I''ve dealt with similar toxic gases before—proper gear
   prevents nasty burns or lung hits. Start with a full-face respirator fitted tight; it blocks inhalation of those irritants
   right away. Why? These compounds corrode airways fast if breathed in. Avoid cheap masks—they leak and fail under exposure.
 
@@ -474,6 +569,12 @@ ppe_requirements: 'Handling nitrogen oxides demands solid PPE setups. I''ve deal
 
   Ventilation hoods help too, but PPE stays primary. Train up—fit tests save lives. Skip shortcuts; one slip turns a shift
   sour.'
+monitoringRequired: true
+typicalConcentrationRange: 1-10 mg/m³
+sourcesInLaserCleaning:
+- high_energy_laser_interaction
+- nitrogen_compound_oxidation
+- atmospheric_nitrogen_fixation
 faq:
   presentation: collapsible
   items:

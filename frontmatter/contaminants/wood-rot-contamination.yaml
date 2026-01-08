@@ -2,7 +2,7 @@ id: wood-rot-contamination
 name: Wood Rot / Fungal Biodegradation
 category: biological
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:46.474604+00:00'
+dateModified: '2026-01-08T03:27:35.358407+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/biological/growth/wood-rot-contamination
@@ -43,14 +43,34 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
+  jobTitle: Laser Processing Engineer
   expertise:
   - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -63,140 +83,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Carbon Monoxide
-        concentration_mg_m3: 50-200
-        exposure_limit_mg_m3: 29
-        hazard_class: toxic
-      - compound: Carbon Dioxide
-        concentration_mg_m3: 500-2000
-        exposure_limit_mg_m3: 9000
-        hazard_class: toxic
-      - compound: Formaldehyde
-        concentration_mg_m3: 5-25
-        exposure_limit_mg_m3: 0.37
-        hazard_class: carcinogenic
-      - compound: Acetaldehyde
-        concentration_mg_m3: 2-15
-        exposure_limit_mg_m3: 45
-        hazard_class: carcinogenic
-      - compound: Acetic Acid
-        concentration_mg_m3: 10-50
-        exposure_limit_mg_m3: 25
-        hazard_class: irritant
-      - compound: Methanol
-        concentration_mg_m3: 5-30
-        exposure_limit_mg_m3: 260
-        hazard_class: toxic
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: full_face
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: moderate
-        primary_hazards:
-        - compound: Carbon Monoxide
-          concentration_mg_m3: 50-200
-          hazard_class: toxic
-        - compound: Carbon Dioxide
-          concentration_mg_m3: 500-2000
-          hazard_class: toxic
-        - compound: Formaldehyde
-          concentration_mg_m3: 5-25
-          hazard_class: carcinogenic
-        - compound: Acetaldehyde
-          concentration_mg_m3: 2-15
-          hazard_class: carcinogenic
-        - compound: Methanol
-          concentration_mg_m3: 5-30
-          hazard_class: toxic
-        description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
-          protection'
-        mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation. WARNING:
-          Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: carbon
-        minimum_air_changes_per_hour: 10
-        rationale: Standard industrial ventilation (10 ACH) for particulate control
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Laser cleaning may not penetrate deep fungal hyphae, leaving active biodegradation
-    - Heat-affected zone may create favorable conditions for future fungal growth
-    - Charred surface may require additional cleaning to remove carbon residue
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items:
       - id: carbon-dioxide-compound
@@ -209,7 +234,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -248,11 +280,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: Discolored patches in green, black, or brown, with a gritty or slimy texture on glazed or unglazed
               surfaces.
@@ -312,7 +351,7 @@ relationships:
               visible fungal growth.
             coverage: Can range from small spots to extensive areas, varying with moisture levels and wood type.
             pattern: Patches or streaks that follow the wood grain, often starting in damp, unsealed sections.
-        color_range:
+        colorRange:
         - brown
         - yellow
         - white
@@ -326,102 +365,193 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.2
-            min_j_cm2: 0.3
-            recommended_j_cm2: 0.8
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.2
+            minJCm2: 0.3
+            recommendedJCm2: 0.8
+          overlapPercentage: 50
           polarization: circular
-          pulse_duration_range:
-            max_ns: 200
-            min_ns: 10
-            recommended_ns: 100
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 200
+            minNs: 10
+            recommendedNs: 100
+          repetitionRateKhz:
             max: 200
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.5
             min: 0.05
             recommended: 0.2
-          wavelength_preference:
+          wavelengthPreference:
           - 1064
           - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 120
-            wavelength_355nm: 2800
-            wavelength_532nm: 450
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 120
+            wavelength355Nm: 2800
+            wavelength532Nm: 450
           reflectivity:
-            wavelength_1064nm: 0.15
-            wavelength_355nm: 0.03
-            wavelength_532nm: 0.08
-          refractive_index:
-            imaginary_part: 0.012
-            real_part: 1.55
-          transmission_depth: 83.3
-        removal_characteristics:
+            wavelength1064Nm: 0.15
+            wavelength355Nm: 0.03
+            wavelength532Nm: 0.08
+          refractiveIndex:
+            imaginaryPart: 0.012
+            realPart: 1.55
+          transmissionDepth: 83.3
+        removalCharacteristics:
           byproducts:
           - compound: carbon-dioxide
-            hazard_level: low
+            hazardLevel: low
             phase: gas
           - compound: water-vapor
-            hazard_level: low
+            hazardLevel: low
             phase: gas
           - compound: carbon-ash
-            hazard_level: moderate
+            hazardLevel: moderate
             phase: solid
           - compound: vocs
-            hazard_level: moderate
+            hazardLevel: moderate
             phase: gas
-          damage_risk_to_substrate: low
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 480
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 5
-            optimal_passes: 3
-            single_pass: 0.7
-          secondary_mechanisms:
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 480
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 5
+            optimalPasses: 3
+            singlePass: 0.7
+          secondaryMechanisms:
           - photochemical
           - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'yes'
-            residual_stress: none
-            roughness_increase: minimal
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 2.5
-            pulse_duration_10ns: 1.2
-            wavelength_1064nm: 1.8
-          decomposition_temperature: 300
-          heat_affected_zone_depth: 80
-          melting_point: N/A
-          specific_heat: 1500
-          thermal_conductivity: 0.15
-          thermal_diffusivity: 0.1
-          vaporization_temperature: 450
+          surfaceQualityAfterRemoval:
+            colorChange: 'yes'
+            residualStress: none
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Carbon Monoxide
+            concentrationMgM3: 50-200
+            exposureLimitMgM3: 29
+            hazardClass: toxic
+          - compound: Carbon Dioxide
+            concentrationMgM3: 500-2000
+            exposureLimitMgM3: 9000
+            hazardClass: toxic
+          - compound: Formaldehyde
+            concentrationMgM3: 5-25
+            exposureLimitMgM3: 0.37
+            hazardClass: carcinogenic
+          - compound: Acetaldehyde
+            concentrationMgM3: 2-15
+            exposureLimitMgM3: 45
+            hazardClass: carcinogenic
+          - compound: Acetic Acid
+            concentrationMgM3: 10-50
+            exposureLimitMgM3: 25
+            hazardClass: irritant
+          - compound: Methanol
+            concentrationMgM3: 5-30
+            exposureLimitMgM3: 260
+            hazardClass: toxic
+          particulateGeneration:
+            respirableFraction: 0.7
+            sizeRangeUm:
+            - 0.1
+            - 10
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: full_face
+            skinProtection: gloves
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser cleaning may not penetrate deep fungal hyphae, leaving active biodegradation
+          - Heat-affected zone may create favorable conditions for future fungal growth
+          - Charred surface may require additional cleaning to remove carbon residue
+          toxicGasRisk:
+            severity: moderate
+            primaryHazards:
+            - compound: Carbon Monoxide
+              concentrationMgM3: 50-200
+              hazardClass: toxic
+            - compound: Carbon Dioxide
+              concentrationMgM3: 500-2000
+              hazardClass: toxic
+            - compound: Formaldehyde
+              concentrationMgM3: 5-25
+              hazardClass: carcinogenic
+            - compound: Acetaldehyde
+              concentrationMgM3: 2-15
+              hazardClass: carcinogenic
+            - compound: Methanol
+              concentrationMgM3: 5-30
+              hazardClass: toxic
+            description: 'Multiple toxic compounds detected: Carbon Monoxide, Carbon Dioxide, Formaldehyde - requires enhanced
+              protection'
+            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+              WARNING: Formaldehyde, Acetaldehyde - known carcinogen(s), minimize exposure'
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: carbon
+            minimumAirChangesPerHour: 10
+            rationale: Standard industrial ventilation (10 ACH) for particulate control
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 2.5
+            pulseDuration10Ns: 1.2
+            wavelength1064Nm: 1.8
+          decompositionTemperature: 300
+          heatAffectedZoneDepth: 80
+          meltingPoint: N/A
+          specificHeat: 1500
+          thermalConductivity: 0.15
+          thermalDiffusivity: 0.1
+          vaporizationTemperature: 450
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Wood Rot / Fungal Biodegradation Laser Cleaning
 subcategory: growth
-valid_materials:
+validMaterials:
 - cedar-laser-cleaning
 - cherry-laser-cleaning
 - maple-laser-cleaning
@@ -432,22 +562,22 @@ valid_materials:
 - redwood-laser-cleaning
 - walnut-laser-cleaning
 title: Wood Rot / Fungal Biodegradation Laser Cleaning
-realism_notes: Wood rot ONLY occurs in organic wood materials. Metals and plastics cannot rot.
-formation_conditions:
+realismNotes: Wood rot ONLY occurs in organic wood materials. Metals and plastics cannot rot.
+formationConditions:
 - moisture
 - fungal_spores
 - warmth
 - poor_ventilation
-required_elements:
+requiredElements:
 - cellulose
 - lignin
 - organic_matter
-scientific_name: Fungal decomposition of cellulose and lignin
-valid_material_categories:
+scientificName: Fungal decomposition of cellulose and lignin
+validMaterialCategories:
 - wood_hardwood
 - wood_softwood
 - wood_engineered
-caution_materials:
+cautionMaterials:
 - Metals
 - Plastics
 - Ceramics

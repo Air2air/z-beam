@@ -4,7 +4,7 @@ displayName: Manganese Laser Cleaning Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:43.617485+00:00'
+dateModified: '2026-01-08T03:29:09.630856+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/manganese-settings
@@ -43,7 +43,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -65,8 +65,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -83,7 +83,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -97,9 +97,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -113,9 +120,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -131,27 +143,40 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: high-thermal-conductivity
           type: challenge
         - id: melting-haz
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: rust-oxide-removal
           type: challenge
         - id: oil-grease-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Manganese oxide removal without substrate damage
     unit: W
@@ -165,17 +190,22 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning control
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for industrial cleaning; smaller (50-200 μm) for fine surface prep on manganese, larger
+      (200-500 μm) for broad area decontamination. 200 μm recommended for uniform energy distribution on Mn''s surface. Source:
+      Equipment specifications from Trumpf and SPI Lasers for 1064 nm cleaning heads.'
   repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical 10-100 kHz for pulsed cleaning applications; 50 kHz recommended for manganese to achieve fast processing
+      without excessive heat buildup (high freq increases accumulation on low-conductivity metals like Mn). Trade-off: higher
+      rates speed up cleaning but risk thermal damage. Source: Academic literature in Journal of Applied Physics (2019) on
+      pulse repetition effects in laser ablation of alloys.'
   fluenceThreshold:
     description: Minimum fluence required for Manganese oxide removal
     unit: J/cm²
@@ -183,29 +213,39 @@ machine_settings:
     min: 0.3
     max: 4.5
   pulseWidth:
-    description: Nanosecond pulse duration for efficient oxide layer ablation
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime (5-100 ns) preferred for cost-effective cleaning of manganese; picosecond (ps) or femtosecond
+      (fs) for ultra-minimal HAZ but higher cost. 20 ns recommended to reduce heat-affected zone on reflective Mn surfaces
+      while ablating contaminants. Source: Laser physics research in Applied Surface Science (2020) on metal ablation thresholds
+      at 1064 nm.'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    value: 500
+    unit: mm/s
+    description: 'Effective range for removing light to heavy contamination on manganese; slower speeds (100-500 mm/s) for
+      heavy oxides, faster (500-2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal balance of efficiency
+      and minimal thermal accumulation given Mn''s moderate thermal conductivity (~7.8 W/m·K). Source: Industry standards
+      from Laser Cleaning Association guidelines and equipment manuals from Adapt Laser Systems.'
   passCount:
-    description: Recommended number of passes for complete oxide removal
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: '1-5 passes typical for complete removal of contaminants; single pass for light rust/oxides on manganese,
+      multi-pass for heavy buildup. 2 passes recommended to ensure thorough cleaning without risking Mn substrate damage.
+      Source: Industry practice in case studies from Laser Institute of America reports on metal surface preparation.'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    value: 50
+    unit: '%'
+    description: '30-80% overlap for uniform coverage in scanning; 50% recommended for manganese to avoid gaps in cleaning
+      while minimizing over-processing and heat input. Higher overlap for heavy contamination. Source: Process optimization
+      studies in Lasers in Manufacturing and Materials Processing (2021) on scan strategies for metallic substrates.'
   power:
     min: 50
     max: 1000
@@ -215,34 +255,7 @@ machine_settings:
       W for contamination removal without excessive heat input. Max safe before substrate melting (Mn melting point ~1246°C)
       is ~1000 W with proper scanning. Source: Manufacturer specs from IPG Photonics and Coherent for metal cleaning systems;
       academic review in Optics and Lasers in Engineering (2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 500
-    unit: mm/s
-    description: 'Effective range for removing light to heavy contamination on manganese; slower speeds (100-500 mm/s) for
-      heavy oxides, faster (500-2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal balance of efficiency
-      and minimal thermal accumulation given Mn''s moderate thermal conductivity (~7.8 W/m·K). Source: Industry standards
-      from Laser Cleaning Association guidelines and equipment manuals from Adapt Laser Systems.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime (5-100 ns) preferred for cost-effective cleaning of manganese; picosecond (ps) or femtosecond
-      (fs) for ultra-minimal HAZ but higher cost. 20 ns recommended to reduce heat-affected zone on reflective Mn surfaces
-      while ablating contaminants. Source: Laser physics research in Applied Surface Science (2020) on metal ablation thresholds
-      at 1064 nm.'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning applications; 50 kHz recommended for manganese to achieve fast processing
-      without excessive heat buildup (high freq increases accumulation on low-conductivity metals like Mn). Trade-off: higher
-      rates speed up cleaning but risk thermal damage. Source: Academic literature in Journal of Applied Physics (2019) on
-      pulse repetition effects in laser ablation of alloys.'
-  energy_density:
+  energyDensity:
     min: 0.1
     max: 20.0
     value: 2
@@ -250,30 +263,6 @@ machine_settings:
     description: 'Fluence range for contaminant removal on manganese; damage threshold ~4-5 J/cm² due to high reflectivity
       (~60% at 1064 nm) and melting point. 2 J/cm² recommended for safe cleaning of oxides without substrate ablation. Source:
       Ablation threshold studies in Surface and Coatings Technology (2017) for transition metals like Mn.'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for industrial cleaning; smaller (50-200 μm) for fine surface prep on manganese, larger
-      (200-500 μm) for broad area decontamination. 200 μm recommended for uniform energy distribution on Mn''s surface. Source:
-      Equipment specifications from Trumpf and SPI Lasers for 1064 nm cleaning heads.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: '1-5 passes typical for complete removal of contaminants; single pass for light rust/oxides on manganese,
-      multi-pass for heavy buildup. 2 passes recommended to ensure thorough cleaning without risking Mn substrate damage.
-      Source: Industry practice in case studies from Laser Institute of America reports on metal surface preparation.'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: '30-80% overlap for uniform coverage in scanning; 50% recommended for manganese to avoid gaps in cleaning
-      while minimizing over-processing and heat input. Higher overlap for heavy contamination. Source: Process optimization
-      studies in Lasers in Manufacturing and Materials Processing (2021) on scan strategies for metallic substrates.'
-component_summary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width settings are ideal for manganese, leveraging
+componentSummary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width settings are ideal for manganese, leveraging
   its strong absorption at this wavelength for efficient ablation while short pulses minimize thermal distortion on this reactive
   metal.

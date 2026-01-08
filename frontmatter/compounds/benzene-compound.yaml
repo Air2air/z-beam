@@ -3,9 +3,8 @@ name: Benzene
 displayName: Benzene (C₆H₆)
 category: carcinogen
 subcategory: aromatic_hydrocarbon
-hazard_class: carcinogenic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:12.592353+00:00'
+dateModified: '2026-01-08T03:28:09.184621+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic_hydrocarbon/benzene-compound
@@ -22,46 +21,6 @@ pageTitle: Benzene
 pageDescription: Benzene Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
   requirements.
 metaDescription: Benzene laser cleaning guide. Technical specifications and applications.
-chemical_formula: C₆H₆
-cas_number: 71-43-2
-molecular_weight: 78.11
-health_effects: When dealing with benzene in industrial settings, you'll want to prioritize its volatility since that drives
-  most exposure risks right from the start. It evaporates quickly under normal conditions, so vapors can build up in poorly
-  ventilated areas, leading to immediate irritation in the eyes, nose, and throat—think of it as a sharp, chemical sting that
-  hits fast. We've found that prolonged skin contact turns problematic too, as it absorbs easily and can cause dryness or
-  even dermatitis over time, especially if you're handling it without proper barriers. The real concern ramps up with repeated
-  inhalation, where it starts messing with the central nervous system, bringing on headaches, dizziness, or confusion during
-  shifts; that's why monitoring air quality becomes non-negotiable in applications like solvent use or chemical manufacturing.
-  Deeper exposure links to blood disorders, suppressing production of healthy cells and increasing chances for anemia or worse,
-  immune weaknesses that linger. Since it's classified as a carcinogen, long-term occupational handling—say, in petrochemical
-  plants or rubber production—heightens leukemia risks, so always layer in protective gear and regular health checks to catch
-  any early signs before they escalate.
-exposure_guidelines: Unlike many common solvents that fade into the background of daily handling, benzene stands out for its
-  hidden dangers as a potent carcinogen, quietly raising the stakes for anyone working with it in industrial setups or material
-  processing. Short bursts of exposure might slip by unnoticed, but over time, they build up risks that demand constant vigilance.
-  Workers should always prioritize sealed systems and protective gear to keep vapors at bay, especially during blending or
-  refining tasks where fumes linger heaviest. In places like chemical plants or fuel production, good airflow turns into a
-  lifesaver, pulling away those invisible threats before they settle in. For cleanup jobs—think laser methods stripping residues
-  from surfaces—extra caution rules the day, with full-body coverings and immediate rinsing to dodge skin contact that could
-  seep deep. Health checks become routine lifelines, catching early whispers of trouble from this sneaky compound, while swapping
-  it out for milder alternatives whenever possible keeps the whole operation safer and smoother.
-detection_methods: Spotting benzene in a lab setting taught me early on to rely on straightforward tools that pick up its
-  telltale vapors without much fuss. Simple sniff tests won't cut it—too risky with this sneaky carcinogen lurking around
-  industrial sites or old solvents. Instead, portable gas sensors shine here, alerting you to faint whiffs in the air before
-  they build up, especially in places like refineries where benzene sneaks into fuels. For deeper checks, infrared devices
-  work wonders by catching how it absorbs light in unique patterns, making them handy for quick scans during cleanup jobs.
-  I've steered clear of overly complicated setups that demand constant calibration; they just slow you down when you're trying
-  to keep things safe. Laser-based detectors, surprisingly, offer a clean edge in grimy environments, zapping through residues
-  without stirring up dust—perfect for verifying surfaces after industrial mishaps. Stick to these reliable picks, and you'll
-  avoid the headaches of false alarms or overlooked traces.
-first_aid: Skin contact demands immediate action—flush the area thoroughly with plenty of water and mild soap to remove any
-  residue before it soaks in deeper. Eyes exposed? Rinse them gently under running water for several minutes, holding the
-  lids open wide to ensure full coverage, and keep going until help arrives. If someone inhales fumes in a confined space,
-  get them to fresh air right away, loosen tight clothing around the neck and chest, and watch closely for breathing issues
-  that might call for rescue breaths or other support if trained. Swallowing even a small amount spells trouble, so never
-  try to make the person vomit; instead, offer sips of water if they're alert and conscious, then rush to medical professionals
-  who handle such poisons. Benzene lingers as a serious health threat over time, acting as a carcinogen that builds up risks
-  with repeated exposure, so always report incidents to experts for follow-up care and monitoring.
 images:
   hero:
     url: /images/compound/benzene-compound-hero.jpg
@@ -77,7 +36,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -100,21 +59,9 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
-health_effects_keywords:
-- leukemia
-- bone_marrow_damage
-- blood_disorders
-- dizziness
-- drowsiness
-monitoring_required: true
-typical_concentration_range: 0.5-5 mg/m³
-sources_in_laser_cleaning:
-- aromatic_polymer_decomposition
-- solvent_residue_vaporization
-- plastic_pyrolysis
 card:
   default:
     heading: Benzene
@@ -128,7 +75,7 @@ card:
       legend: OSHA PEL
     severity: low
     icon: flask
-  contamination_context:
+  contaminationContext:
     heading: Benzene
     subtitle: Emission Product
     badge:
@@ -142,7 +89,7 @@ card:
     icon: alert-triangle
 relationships:
   identity:
-    chemical_properties:
+    chemicalProperties:
       presentation: descriptive
       items:
       - type: chemical_properties
@@ -154,26 +101,41 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: chemicalProperties
+          group: identity
+          domain: compounds
+          icon: flask
+          order: 70
+          variant: default
+          schemaDescription: Chemical composition and properties
           notes: Core chemical identity data from Compounds.yaml
-          source_field: chemical_properties
-    physical_properties:
+          sourceField: chemical_properties
+    physicalProperties:
       presentation: descriptive
       items:
-      - boiling_point: 80.1°C (176°F)
-        melting_point: 5.5°C (42°F)
-        vapor_pressure: 95 mmHg @ 25°C
-        vapor_density: 2.77 (Air=1)
-        specific_gravity: 0.8765 @ 20°C
-        flash_point: -11°C (12°F) closed cup
-        autoignition_temp: 498°C (928°F)
-        explosive_limits: 'LEL: 1.2%, UEL: 7.8%'
+      - boilingPoint: 80.1°C (176°F)
+        meltingPoint: 5.5°C (42°F)
+        vaporPressure: 95 mmHg @ 25°C
+        vaporDensity: 2.77 (Air=1)
+        specificGravity: 0.8765 @ 20°C
+        flashPoint: -11°C (12°F) closed cup
+        autoignitionTemp: 498°C (928°F)
+        explosiveLimits: 'LEL: 1.2%, UEL: 7.8%'
         appearance: Clear, colorless to pale yellow liquid
         odor: 'Sweet, aromatic odor; Odor threshold: 1.5-4.7 ppm (variable, not reliable)'
       _section:
-        section_title: Physical Properties
-        description: Chemical and physical characteristics
         icon: flask
-    synonyms_identifiers:
+        sectionMetadata:
+          relationshipType: physicalProperties
+          group: identity
+          domain: compounds
+          icon: thermometer
+          order: 71
+          variant: default
+          schemaDescription: Physical characteristics and behavior
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+    synonymsIdentifiers:
       presentation: descriptive
       items:
       - synonyms:
@@ -184,19 +146,27 @@ relationships:
         - Pyrobenzol
         - Coal naphtha
         - Mineral naphtha
-        common_trade_names:
+        commonTradeNames:
         - Benzol
         - Motor benzol
-        other_identifiers:
-          rtecs_number: CY1400000
-          ec_number: 200-753-7
-          pubchem_cid: '241'
+        otherIdentifiers:
+          rtecsNumber: CY1400000
+          ecNumber: 200-753-7
+          pubchemCid: '241'
       _section:
-        section_title: Alternative Names
-        description: Synonyms and chemical identifiers
         icon: tag
+        sectionMetadata:
+          relationshipType: synonymsIdentifiers
+          group: identity
+          domain: compounds
+          icon: tag
+          order: 72
+          variant: default
+          schemaDescription: Alternative names and identifiers
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
   safety:
-    health_effects:
+    healthEffects:
       presentation: card
       items:
       - route: inhalation
@@ -216,82 +186,114 @@ relationships:
         severity: low
         onset: immediate
       _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
         icon: heart-pulse
-    ppe_requirements:
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+    ppeRequirements:
       presentation: descriptive
       items:
       - respiratory: NIOSH-approved organic vapor respirator with full facepiece for >10 ppm, SCBA or supplied-air for >50
           ppm or unknown concentrations
         skin: Nitrile gloves (>0.5mm), butyl rubber gloves, chemical-resistant clothing, impervious suit for spill response
         eye: Chemical safety goggles and face shield for splash potential
-        minimum_level: Level B for spill response, Level C for operations <50 ppm
-        special_notes: Benzene is absorbed through skin - full body protection required. Change contaminated clothing immediately,
+        minimumLevel: Level B for spill response, Level C for operations <50 ppm
+        specialNotes: Benzene is absorbed through skin - full body protection required. Change contaminated clothing immediately,
           do not reuse without decontamination.
       _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
         icon: shield-check
-    emergency_response:
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: compounds
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+    emergencyResponse:
       presentation: descriptive
       items:
-      - fire_hazard: Highly flammable liquid. Vapors heavier than air, may travel to ignition source. Forms explosive mixtures
+      - fireHazard: Highly flammable liquid. Vapors heavier than air, may travel to ignition source. Forms explosive mixtures
           with air.
-        fire_suppression: Dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers and disperse vapors. Do
+        fireSuppression: Dry chemical, CO2, alcohol-resistant foam. Water spray to cool containers and disperse vapors. Do
           not use direct water stream.
-        spill_procedures: Evacuate area, eliminate ignition sources, ventilate confined spaces, contain with absorbent (sand,
+        spillProcedures: Evacuate area, eliminate ignition sources, ventilate confined spaces, contain with absorbent (sand,
           vermiculite), prevent entry to waterways, collect in sealed containers
-        exposure_immediate_actions: Remove to fresh air immediately. Remove contaminated clothing. Wash skin with soap and
-          water for 15+ minutes. Flush eyes for 15+ minutes. Seek immediate medical attention - benzene poisoning can be delayed.
-        environmental_hazards: Toxic to aquatic life. Floats on water. Volatile - evaporates rapidly. Report spills >10 lbs
+        exposureImmediateActions: Remove to fresh air immediately. Remove contaminated clothing. Wash skin with soap and water
+          for 15+ minutes. Flush eyes for 15+ minutes. Seek immediate medical attention - benzene poisoning can be delayed.
+        environmentalHazards: Toxic to aquatic life. Floats on water. Volatile - evaporates rapidly. Report spills >10 lbs
           to CERCLA.
-        special_hazards: Carcinogen - causes leukemia. May cause bone marrow depression with chronic exposure. Decomposes
-          producing toxic carbon monoxide and carbon dioxide.
+        specialHazards: Carcinogen - causes leukemia. May cause bone marrow depression with chronic exposure. Decomposes producing
+          toxic carbon monoxide and carbon dioxide.
       _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
-    exposure_limits:
+        sectionMetadata:
+          relationshipType: emergencyResponse
+          group: safety
+          domain: compounds
+          icon: ambulance
+          order: 23
+          variant: danger
+          schemaDescription: Emergency procedures and first aid
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+    exposureLimits:
       presentation: descriptive
       items:
-      - osha_pel_ppm: 1
-        osha_pel_mg_m3: 3.2
-        niosh_rel_ppm: 0.1
-        niosh_rel_mg_m3: 0.32
-        acgih_tlv_ppm: 0.5
-        acgih_tlv_mg_m3: 1.6
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 1 ppm
-            stel_15min: null
+      - oshaPelPpm: 1
+        oshaPelMgM3: 3.2
+        nioshRelPpm: 0.1
+        nioshRelMgM3: 0.32
+        acgihTlvPpm: 0.5
+        acgihTlvMgM3: 1.6
+        workplaceExposure:
+          oshaPel:
+            twa8Hr: 1 ppm
+            stel15Min: null
             ceiling: 5 ppm
-          niosh_rel:
-            twa_8hr: 0.1 ppm
-            stel_15min: 1 ppm
+          nioshRel:
+            twa8Hr: 0.1 ppm
+            stel15Min: 1 ppm
             ceiling: null
             idlh: 500 ppm
-          acgih_tlv:
-            twa_8hr: 0.5 ppm
-            stel_15min: 2.5 ppm
+          acgihTlv:
+            twa8Hr: 0.5 ppm
+            stel15Min: 2.5 ppm
             ceiling: null
-          biological_exposure_indices:
+          biologicalExposureIndices:
           - metabolite: s-Phenylmercapturic acid (SPMA)
             specimen: Urine
             timing: End of shift
-            bei_value: 25 µg/g creatinine
+            beiValue: 25 µg/g creatinine
           - metabolite: t,t-Muconic acid
             specimen: Urine
             timing: End of shift
-            bei_value: 500 µg/g creatinine
+            beiValue: 500 µg/g creatinine
       _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-    storage_requirements:
+        sectionMetadata:
+          relationshipType: exposureLimits
+          group: safety
+          domain: compounds
+          icon: gauge
+          order: 24
+          variant: warning
+          schemaDescription: Occupational exposure limits
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+    storageRequirements:
       presentation: descriptive
       items:
-      - temperature_range: Store below 25°C (77°F) in cool area
+      - temperatureRange: Store below 25°C (77°F) in cool area
         ventilation: Local exhaust ventilation required, explosion-proof equipment, minimum 100 ft/min face velocity
         incompatibilities:
         - Strong oxidizers
@@ -301,30 +303,38 @@ relationships:
         - Perchlorates
         - Permanganates
         - Peroxides
-        container_material: Steel, stainless steel, or aluminum containers. Avoid plastics that dissolve in benzene.
+        containerMaterial: Steel, stainless steel, or aluminum containers. Avoid plastics that dissolve in benzene.
         segregation: Separate from oxidizers, acids, halogens. Store in approved flammable liquid storage cabinet. Keep away
           from heat, sparks, open flames.
-        quantity_limits: 'Flammable liquid storage per 29 CFR 1910.106: Maximum 10 gallons outside approved cabinet, 60 gallons
+        quantityLimits: 'Flammable liquid storage per 29 CFR 1910.106: Maximum 10 gallons outside approved cabinet, 60 gallons
           inside safety cabinet'
-        special_requirements: Store in tightly sealed containers in cool, dry, well-ventilated area. Ground and bond containers
+        specialRequirements: Store in tightly sealed containers in cool, dry, well-ventilated area. Ground and bond containers
           during transfer. Use explosion-proof electrical equipment.
       _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
         icon: warehouse
-    regulatory_classification:
+        sectionMetadata:
+          relationshipType: storageRequirements
+          group: safety
+          domain: compounds
+          icon: warehouse
+          order: 25
+          variant: default
+          schemaDescription: Safe storage conditions
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+    regulatoryClassification:
       presentation: descriptive
       items:
-      - un_number: UN1114
-        dot_hazard_class: 3 (Flammable liquid)
-        dot_label: Flammable Liquid
-        nfpa_codes:
+      - unNumber: UN1114
+        dotHazardClass: 3 (Flammable liquid)
+        dotLabel: Flammable Liquid
+        nfpaCodes:
           health: 2
           flammability: 3
           reactivity: 0
           special: null
           instability: 0
-        epa_hazard_categories:
+        epaHazardCategories:
         - Acute toxicity
         - Flammability
         - Carcinogenicity
@@ -332,87 +342,110 @@ relationships:
         - Reproductive toxicity
         - Specific target organ toxicity (repeated exposure)
         - Aspiration hazard
-        sara_title_iii: true
-        cercla_rq: 10 pounds (4.54 kg)
-        rcra_code: U019
+        saraTitleIii: true
+        cerclaRq: 10 pounds (4.54 kg)
+        rcraCode: U019
       _section:
-        section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
+        sectionMetadata:
+          relationshipType: regulatoryClassification
+          group: safety
+          domain: compounds
+          icon: file-badge
+          order: 26
+          variant: default
+          schemaDescription: Regulatory classification and hazard codes
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
   environmental:
-    environmental_impact:
+    environmentalImpact:
       presentation: descriptive
       items:
-      - aquatic_toxicity: 'Toxic to aquatic organisms. LC50 (fish, 96h): 5.3-5.9 mg/L (rainbow trout). Toxic to algae and
-          invertebrates.'
+      - aquaticToxicity: 'Toxic to aquatic organisms. LC50 (fish, 96h): 5.3-5.9 mg/L (rainbow trout). Toxic to algae and invertebrates.'
         biodegradability: Readily biodegradable under aerobic conditions. >60% degradation in 28 days.
         bioaccumulation: 'Low potential. Log Kow: 2.13 (does not bioaccumulate significantly)'
-        soil_mobility: High mobility. Low soil adsorption. May leach to groundwater.
-        atmospheric_fate: 'Photooxidation half-life: 4-17 days. Reacts with hydroxyl radicals. Does not undergo direct photolysis.'
-        ozone_depletion: false
-        global_warming_potential: null
-        reportable_releases:
+        soilMobility: High mobility. Low soil adsorption. May leach to groundwater.
+        atmosphericFate: 'Photooxidation half-life: 4-17 days. Reacts with hydroxyl radicals. Does not undergo direct photolysis.'
+        ozoneDepletion: false
+        globalWarmingPotential: null
+        reportableReleases:
           water: 10 lbs (4.54 kg) to navigable waters (CWA Section 311)
           air: 10 lbs/day (CERCLA RQ)
       _section:
-        section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-  detection_monitoring:
-    detection_monitoring:
+        sectionMetadata:
+          relationshipType: environmentalImpact
+          group: environmental
+          domain: compounds
+          icon: leaf
+          order: 50
+          variant: default
+          schemaDescription: Environmental effects and disposal considerations
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+  detectionMonitoring:
+    detectionMonitoring:
       presentation: descriptive
       items:
-      - sensor_types:
+      - sensorTypes:
         - Photoionization detector (PID)
         - Infrared
         - Flame ionization detector (FID)
         - Colorimetric tubes
-        detection_range: 0-10 ppm typical, 0-100 ppm extended
-        alarm_setpoints:
+        detectionRange: 0-10 ppm typical, 0-100 ppm extended
+        alarmSetpoints:
           low: 1 ppm (OSHA PEL)
           high: 5 ppm (OSHA STEL)
           evacuate: 500 ppm (NIOSH IDLH)
-        colorimetric_tubes:
+        colorimetricTubes:
         - Dräger CH25801
         - Gastec 121
         - Kitagawa 118
-        analytical_methods:
+        analyticalMethods:
         - method: NIOSH 1501
           technique: GC-FID (Gas Chromatography - Flame Ionization)
-          detection_limit: 0.01 ppm
+          detectionLimit: 0.01 ppm
         - method: OSHA 12
           technique: GC-FID with charcoal tube
-          detection_limit: 0.01 ppm
-        odor_threshold: NOT reliable indicator. Odor threshold (1.5-4.7 ppm) is above safe exposure levels and varies greatly.
+          detectionLimit: 0.01 ppm
+        odorThreshold: NOT reliable indicator. Odor threshold (1.5-4.7 ppm) is above safe exposure levels and varies greatly.
           Do not rely on odor - use monitoring equipment.
       _section:
-        section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
         icon: radar
+        sectionMetadata:
+          relationshipType: detectionMonitoring
+          group: detectionMonitoring
+          domain: compounds
+          icon: radar
+          order: 80
+          variant: default
+          schemaDescription: Detection and monitoring methods
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
   interactions:
-    produced_from_contaminants:
+    producedFromContaminants:
       presentation: card
       items:
       - id: paint-residue-contamination
         frequency: common
         severity: high
-        typical_context: Thermal breakdown of aromatic paint solvents
+        typicalContext: Thermal breakdown of aromatic paint solvents
       - id: rubber-residue-contamination
         frequency: common
         severity: high
-        typical_context: Pyrolysis of styrene-butadiene rubber
+        typicalContext: Pyrolysis of styrene-butadiene rubber
       - id: plastic-residue-contamination
         frequency: common
         severity: high
-        typical_context: Thermal decomposition of polystyrene and aromatic polymers
+        typicalContext: Thermal decomposition of polystyrene and aromatic polymers
       - id: industrial-oil-contamination
         frequency: occasional
         severity: moderate
-        typical_context: Thermal breakdown of aromatic hydrocarbons
+        typicalContext: Thermal breakdown of aromatic hydrocarbons
       - id: cutting-fluid-contamination
         frequency: occasional
         severity: moderate
-        typical_context: Decomposition of aromatic additives
+        typicalContext: Decomposition of aromatic additives
       _section:
         sectionTitle: Source Contaminants
         sectionDescription: Contaminants that generate this compound during laser cleaning
@@ -420,14 +453,20 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
           notes: Links to contaminant pages
-          relationship_type: produced_from
     reactivity:
       presentation: descriptive
       items:
       - stability: Stable under normal conditions. May polymerize with aluminum chloride catalyst.
         polymerization: Will not occur under normal conditions.
-        incompatible_materials:
+        incompatibleMaterials:
         - Strong oxidizers
         - Halogens
         - Nitric acid
@@ -436,24 +475,79 @@ relationships:
         - Permanganates
         - Peroxides
         - Aluminum chloride (catalyst)
-        hazardous_decomposition:
+        hazardousDecomposition:
         - Carbon monoxide
         - Carbon dioxide
         - Irritating and toxic fumes
-        conditions_to_avoid:
+        conditionsToAvoid:
         - Heat
         - Flames
         - Sparks
         - Static discharge
         - Oxidizers
         - High temperatures
-        reactivity_hazard: Reacts violently with strong oxidizers causing fire and explosion hazard. Attacks some forms of
+        reactivityHazard: Reacts violently with strong oxidizers causing fire and explosion hazard. Attacks some forms of
           plastics, rubber, and coatings.
       _section:
-        section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
         icon: atom
-ppe_requirements: Dealing with benzene in industrial settings calls for robust skin barriers first off, like chemical-resistant
+        sectionMetadata:
+          relationshipType: reactivity
+          group: interactions
+          domain: compounds
+          icon: zap
+          order: 15
+          variant: default
+          schemaDescription: Chemical reactivity and interactions
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+hazardClass: carcinogenic
+chemicalFormula: C₆H₆
+casNumber: 71-43-2
+molecularWeight: 78.11
+healthEffects: When dealing with benzene in industrial settings, you'll want to prioritize its volatility since that drives
+  most exposure risks right from the start. It evaporates quickly under normal conditions, so vapors can build up in poorly
+  ventilated areas, leading to immediate irritation in the eyes, nose, and throat—think of it as a sharp, chemical sting that
+  hits fast. We've found that prolonged skin contact turns problematic too, as it absorbs easily and can cause dryness or
+  even dermatitis over time, especially if you're handling it without proper barriers. The real concern ramps up with repeated
+  inhalation, where it starts messing with the central nervous system, bringing on headaches, dizziness, or confusion during
+  shifts; that's why monitoring air quality becomes non-negotiable in applications like solvent use or chemical manufacturing.
+  Deeper exposure links to blood disorders, suppressing production of healthy cells and increasing chances for anemia or worse,
+  immune weaknesses that linger. Since it's classified as a carcinogen, long-term occupational handling—say, in petrochemical
+  plants or rubber production—heightens leukemia risks, so always layer in protective gear and regular health checks to catch
+  any early signs before they escalate.
+healthEffectsKeywords:
+- leukemia
+- bone_marrow_damage
+- blood_disorders
+- dizziness
+- drowsiness
+exposureGuidelines: Unlike many common solvents that fade into the background of daily handling, benzene stands out for its
+  hidden dangers as a potent carcinogen, quietly raising the stakes for anyone working with it in industrial setups or material
+  processing. Short bursts of exposure might slip by unnoticed, but over time, they build up risks that demand constant vigilance.
+  Workers should always prioritize sealed systems and protective gear to keep vapors at bay, especially during blending or
+  refining tasks where fumes linger heaviest. In places like chemical plants or fuel production, good airflow turns into a
+  lifesaver, pulling away those invisible threats before they settle in. For cleanup jobs—think laser methods stripping residues
+  from surfaces—extra caution rules the day, with full-body coverings and immediate rinsing to dodge skin contact that could
+  seep deep. Health checks become routine lifelines, catching early whispers of trouble from this sneaky compound, while swapping
+  it out for milder alternatives whenever possible keeps the whole operation safer and smoother.
+detectionMethods: Spotting benzene in a lab setting taught me early on to rely on straightforward tools that pick up its telltale
+  vapors without much fuss. Simple sniff tests won't cut it—too risky with this sneaky carcinogen lurking around industrial
+  sites or old solvents. Instead, portable gas sensors shine here, alerting you to faint whiffs in the air before they build
+  up, especially in places like refineries where benzene sneaks into fuels. For deeper checks, infrared devices work wonders
+  by catching how it absorbs light in unique patterns, making them handy for quick scans during cleanup jobs. I've steered
+  clear of overly complicated setups that demand constant calibration; they just slow you down when you're trying to keep
+  things safe. Laser-based detectors, surprisingly, offer a clean edge in grimy environments, zapping through residues without
+  stirring up dust—perfect for verifying surfaces after industrial mishaps. Stick to these reliable picks, and you'll avoid
+  the headaches of false alarms or overlooked traces.
+firstAid: Skin contact demands immediate action—flush the area thoroughly with plenty of water and mild soap to remove any
+  residue before it soaks in deeper. Eyes exposed? Rinse them gently under running water for several minutes, holding the
+  lids open wide to ensure full coverage, and keep going until help arrives. If someone inhales fumes in a confined space,
+  get them to fresh air right away, loosen tight clothing around the neck and chest, and watch closely for breathing issues
+  that might call for rescue breaths or other support if trained. Swallowing even a small amount spells trouble, so never
+  try to make the person vomit; instead, offer sips of water if they're alert and conscious, then rush to medical professionals
+  who handle such poisons. Benzene lingers as a serious health threat over time, acting as a carcinogen that builds up risks
+  with repeated exposure, so always report incidents to experts for follow-up care and monitoring.
+ppeRequirements: Dealing with benzene in industrial settings calls for robust skin barriers first off, like chemical-resistant
   gloves that keep the liquid from seeping through during handling or spills. Eye protection gets priority too, since vapors
   can irritate harshly—goggles or face shields seal out those fumes effectively. For breathing safety, especially in enclosed
   areas where evaporation ramps up, a full respirator with organic vapor cartridges blocks inhalation risks tied to its carcinogenic
@@ -462,6 +556,12 @@ ppe_requirements: Dealing with benzene in industrial settings calls for robust s
   add flame-retardant layers to the gear, guarding against any ignition sparks while maintaining that vapor-tight seal. Ventilation
   hoods or powered air systems amp up protection in high-exposure tasks, ensuring workers stay shielded without compromising
   mobility.
+monitoringRequired: true
+typicalConcentrationRange: 0.5-5 mg/m³
+sourcesInLaserCleaning:
+- aromatic_polymer_decomposition
+- solvent_residue_vaporization
+- plastic_pyrolysis
 faq:
   presentation: collapsible
   items:

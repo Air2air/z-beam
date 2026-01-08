@@ -4,7 +4,7 @@ displayName: Praseodymium Laser Cleaning Settings
 category: rare-earth
 subcategory: lanthanide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.800360+00:00'
+dateModified: '2026-01-08T03:29:13.622574+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/rare-earth/lanthanide/praseodymium-settings
@@ -43,7 +43,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -65,8 +65,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -83,7 +83,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -97,9 +97,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -113,9 +120,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -131,16 +143,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Rapid oxidation and pyrophoricity
           severity: critical
-          threshold_temperature: Above 150-300°C causes spontaneous ignition in air
+          thresholdTemperature: Above 150-300°C causes spontaneous ignition in air
           impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
           solutions:
           - Process in inert atmosphere (argon or nitrogen) or high vacuum
@@ -150,14 +167,14 @@ relationships:
           - Immediate passivation after cleaning to prevent further oxidation
         - challenge: Variable thermal properties across series
           severity: medium
-          property_value: 3-8 mm²/s thermal diffusivity (2.7x variation)
+          propertyValue: 3-8 mm²/s thermal diffusivity (2.7x variation)
           impact: Different lanthanides require different cooling strategies
           solutions:
           - Light lanthanides (La, Ce, Pr) require more cooling time
           - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
           - Adjust parameters by specific element, not just category
           - Test on small area to determine optimal cooling requirements
-        contamination_challenges:
+        contaminationChallenges:
         - challenge: High-value material recovery
           severity: medium
           impact: Rare-earth elements extremely valuable; contamination removal must preserve material
@@ -177,10 +194,18 @@ relationships:
           - Follow applicable export control regulations
           - Chain of custody documentation for high-value materials
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Praseodymium oxide removal
     unit: W
@@ -194,17 +219,21 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Optimal beam spot diameter for Praseodymium surface processing
-    unit: μm
-    value: 80
     min: 0.1
     max: 500
+    value: 100
+    unit: μm
+    description: Beam diameter for precise cleaning; 100 μm recommended for uniform coverage on Praseodymium surfaces, suitable
+      for fine detail or large areas. Smaller for intricate work, larger for broad preparation. Equipment specifications from
+      Coherent Inc. laser systems; tailored for reflective metals to optimize energy delivery.
   repetitionRate:
-    description: Optimal repetition rate for efficient Praseodymium cleaning
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 30
+    unit: kHz
+    description: Typical for pulsed cleaning to balance speed and heat management; 30 kHz recommended to avoid accumulation
+      on heat-sensitive Praseodymium. Higher rates (>50 kHz) increase speed but risk overheating. Trade-off noted in academic
+      literature (Journal of Laser Applications, 2020); based on Nd:YAG systems for metallic surfaces.
   fluenceThreshold:
     description: Minimum fluence required for effective Praseodymium surface cleaning
     unit: J/cm²
@@ -212,35 +241,47 @@ machine_settings:
     min: 0.3
     max: 4.5
   energyDensity:
-    description: Optimal energy density for controlled Praseodymium ablation
-    unit: J/cm²
-    value: 3.2
     min: 0.1
     max: 20.0
+    value: 1.0
+    unit: J/cm²
+    description: Fluence range for contaminant removal below ablation threshold; Praseodymium damage threshold estimated ~4
+      J/cm² at 1064 nm due to high reflectivity. 1.0 J/cm² safe for cleaning. From ablation threshold studies on similar rare
+      earth metals (Surface and Coatings Technology, 2019); conservative estimate as specific Praseodymium data scarce.
   pulseWidth:
-    description: Optimal pulse duration for Praseodymium thermal management
-    unit: ns
-    value: 12
     min: 0.1
     max: 1000
+    value: 20
+    unit: ns
+    description: Nanosecond regime preferred for cleaning to ablate contaminants while minimizing heat-affected zone (HAZ);
+      picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for Praseodymium
+      to limit thermal diffusion due to low conductivity. From laser physics research on metal ablation thresholds (Applied
+      Surface Science, 2015); ns pulses common for industrial cleaning.
   scanSpeed:
-    description: Optimal scanning speed for uniform Praseodymium cleaning
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    value: 1500
+    unit: mm/s
+    description: Effective speeds for contamination removal without excessive heat buildup; recommended 1500 mm/s for balanced
+      cleaning rate on light contaminants. Slower for heavy contamination (500-1000 mm/s). Industry standards from laser cleaning
+      equipment manuals (e.g., Adapt Laser Systems); adjusted for Praseodymium's reflectivity at 1064 nm to minimize absorption
+      issues.
   passCount:
-    description: Optimal number of passes for complete Praseodymium surface cleaning
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Praseodymium
+      without risking damage. Industry practice from case studies on metal surface preparation (Laser Cleaning Handbook, 2021);
+      multi-pass ensures thoroughness on soft substrates.
   overlapRatio:
-    description: Optimal beam overlap for uniform Praseodymium processing
-    unit: '%'
-    value: 40
     min: 10
     max: 90
+    value: 50
+    unit: '%'
+    description: Ensures uniform coverage; 50% recommended for even cleaning on Praseodymium, avoiding gaps or overexposure.
+      Typical 30-80% range from process optimization studies (Procedia Manufacturing, 2017); higher overlap for heavy contaminants
+      to compensate for reflectivity.
   dwellTime:
     description: Optimal dwell time per spot for Praseodymium material interaction
     unit: μs
@@ -256,63 +297,5 @@ machine_settings:
       damage given Praseodymium's low melting point (931°C) and moderate thermal conductivity (~17 W/m·K). Conservative max
       to prevent substrate melting. Based on manufacturer specs from IPG Photonics for metal cleaning systems; no Praseodymium-specific
       studies found, generalized from aluminum cleaning (Optics & Laser Technology, 2018).
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: Effective speeds for contamination removal without excessive heat buildup; recommended 1500 mm/s for balanced
-      cleaning rate on light contaminants. Slower for heavy contamination (500-1000 mm/s). Industry standards from laser cleaning
-      equipment manuals (e.g., Adapt Laser Systems); adjusted for Praseodymium's reflectivity at 1064 nm to minimize absorption
-      issues.
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: Nanosecond regime preferred for cleaning to ablate contaminants while minimizing heat-affected zone (HAZ);
-      picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for Praseodymium
-      to limit thermal diffusion due to low conductivity. From laser physics research on metal ablation thresholds (Applied
-      Surface Science, 2015); ns pulses common for industrial cleaning.
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: Typical for pulsed cleaning to balance speed and heat management; 30 kHz recommended to avoid accumulation
-      on heat-sensitive Praseodymium. Higher rates (>50 kHz) increase speed but risk overheating. Trade-off noted in academic
-      literature (Journal of Laser Applications, 2020); based on Nd:YAG systems for metallic surfaces.
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.0
-    unit: J/cm²
-    description: Fluence range for contaminant removal below ablation threshold; Praseodymium damage threshold estimated ~4
-      J/cm² at 1064 nm due to high reflectivity. 1.0 J/cm² safe for cleaning. From ablation threshold studies on similar rare
-      earth metals (Surface and Coatings Technology, 2019); conservative estimate as specific Praseodymium data scarce.
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 100
-    unit: μm
-    description: Beam diameter for precise cleaning; 100 μm recommended for uniform coverage on Praseodymium surfaces, suitable
-      for fine detail or large areas. Smaller for intricate work, larger for broad preparation. Equipment specifications from
-      Coherent Inc. laser systems; tailored for reflective metals to optimize energy delivery.
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Praseodymium
-      without risking damage. Industry practice from case studies on metal surface preparation (Laser Cleaning Handbook, 2021);
-      multi-pass ensures thoroughness on soft substrates.
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: Ensures uniform coverage; 50% recommended for even cleaning on Praseodymium, avoiding gaps or overexposure.
-      Typical 30-80% range from process optimization studies (Procedia Manufacturing, 2017); higher overlap for heavy contaminants
-      to compensate for reflectivity.
-component_summary: Moderate 50 W power at 1064 nm with 12 ns pulses enables precise cleaning of Praseodymium by promoting
-  strong absorption and selective ablation of oxides without damaging its soft, reactive surface.
+componentSummary: Moderate 50 W power at 1064 nm with 12 ns pulses enables precise cleaning of Praseodymium by promoting strong
+  absorption and selective ablation of oxides without damaging its soft, reactive surface.

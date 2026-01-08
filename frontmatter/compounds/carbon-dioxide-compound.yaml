@@ -3,9 +3,8 @@ name: Carbon Dioxide
 displayName: Carbon Dioxide (CO₂)
 category: asphyxiant
 subcategory: simple_asphyxiant
-hazard_class: asphyxiant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:13.432844+00:00'
+dateModified: '2026-01-08T03:28:12.101275+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/asphyxiant/simple_asphyxiant/carbon-dioxide-compound
@@ -22,36 +21,6 @@ pageTitle: Carbon Dioxide
 pageDescription: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Carbon Dioxide laser cleaning guide. Technical specifications and applications.
-chemical_formula: CO₂
-cas_number: 124-38-9
-molecular_weight: 44.01
-health_effects: When dealing with carbon dioxide compounds in industrial settings, the standout trait is its role as an asphyxiant,
-  meaning it quietly pushes out breathable air without you noticing right away. This makes enclosed spaces tricky, so we always
-  prioritize ventilation setups before starting any process. You'll feel headaches or dizziness creep in first if levels build
-  up, leading to confusion and worse if not caught early. Keep monitoring tools handy—simple detectors work wonders to avoid
-  that foggy disorientation. In applications like welding or material handling, this property demands respect, ensuring teams
-  stay alert and equipped with escape plans.
-exposure_guidelines: Stay alert around carbon dioxide compounds. They act as asphyxiants. Oxygen levels drop fast in enclosed
-  spots. Fresh air flows matter most. Set up strong ventilation early. Check spaces before entry. Wear breathing gear if needed.
-  Spot dizziness or headaches quick—get out immediately. In industrial setups, like cleaning tasks, limit time inside. Train
-  teams on escape routes. Handle solid forms with gloves to avoid cold burns. Keep areas clear of buildup. Regular air checks
-  prevent trouble. For laser cleaning jobs, seal off zones tightly. Move slowly in hazy conditions. Recovery happens with
-  open air. Build habits for safe routines.
-detection_methods: Dry ice stands out from everyday solids because it vanishes without a trace, turning straight into gas
-  and leaving no mess behind. Spotting it in a workshop demands sharp eyes or simple tools. Workers often rely on frosty buildup
-  or sudden cold spots as first clues, especially in tight spaces where the air grows heavy and hard to breathe. For safer
-  checks, handheld devices pick up the invisible gas release, alerting with beeps or lights when levels climb too high. Chemical
-  strips change color in its presence, offering a quick visual cue without fancy gear. In busy factories handling shipments,
-  these methods blend routine scans with ventilation tweaks to keep things running smooth, preventing silent buildup that
-  could stifle operations.
-first_aid: If you've ever dealt with a confined space mishap where the air turns heavy and folks start gasping, knowing quick
-  steps for carbon dioxide exposure can make all the difference—it's that invisible thief that chokes out oxygen without warning.
-  Get the person away from the source immediately, hauling them into open, fresh air where they can breathe easy again, and
-  loosen any tight clothing around the neck or chest to help airflow. Watch closely for signs like confusion or shallow breaths;
-  if they're unresponsive and not breathing normally, start rescue breaths or chest compressions right away to keep oxygen
-  circulating until help arrives. While waiting for professionals, keep them comfortable and warm, avoiding any stimulants
-  that might rev things up too fast. Once stabilized, medical follow-up is crucial because lingering effects from this sneaky
-  gas can sneak back in, turning a close call into something worse if ignored.
 images:
   hero:
     url: /images/compound/carbon-dioxide-compound-hero.jpg
@@ -67,7 +36,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -89,20 +58,9 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
-health_effects_keywords:
-- asphyxiation_at_high_concentration
-- respiratory_stimulation
-- narcosis
-- generally_non_toxic
-monitoring_required: false
-typical_concentration_range: 50-200 mg/m³
-sources_in_laser_cleaning:
-- complete_organic_combustion
-- universal_organic_decomposition
-- carbon_oxidation
 card:
   default:
     heading: Carbon Dioxide
@@ -116,7 +74,7 @@ card:
       legend: OSHA PEL
     severity: low
     icon: flask
-  contamination_context:
+  contaminationContext:
     heading: Carbon Dioxide
     subtitle: Emission Product
     badge:
@@ -130,7 +88,7 @@ card:
     icon: alert-triangle
 relationships:
   identity:
-    chemical_properties:
+    chemicalProperties:
       presentation: descriptive
       items:
       - type: chemical_properties
@@ -142,26 +100,41 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: chemicalProperties
+          group: identity
+          domain: compounds
+          icon: flask
+          order: 70
+          variant: default
+          schemaDescription: Chemical composition and properties
           notes: Core chemical identity data from Compounds.yaml
-          source_field: chemical_properties
-    physical_properties:
+          sourceField: chemical_properties
+    physicalProperties:
       presentation: descriptive
       items:
-      - boiling_point: -78.5°C (-109.3°F) sublimes at 1 atm
-        melting_point: -56.6°C (-69.9°F) @ 5.1 atm
-        vapor_pressure: 830 psi @ 20°C
-        vapor_density: 1.52 (Air=1)
-        specific_gravity: 1.56 (solid @ -79°C), 0.77 (liquid @ 0°C)
-        flash_point: Not applicable (non-flammable)
-        autoignition_temp: Not applicable
-        explosive_limits: Not applicable (does not burn)
+      - boilingPoint: -78.5°C (-109.3°F) sublimes at 1 atm
+        meltingPoint: -56.6°C (-69.9°F) @ 5.1 atm
+        vaporPressure: 830 psi @ 20°C
+        vaporDensity: 1.52 (Air=1)
+        specificGravity: 1.56 (solid @ -79°C), 0.77 (liquid @ 0°C)
+        flashPoint: Not applicable (non-flammable)
+        autoignitionTemp: Not applicable
+        explosiveLimits: Not applicable (does not burn)
         appearance: Colorless gas, white solid (dry ice)
         odor: Odorless
       _section:
-        section_title: Physical Properties
-        description: Chemical and physical characteristics
         icon: flask
-    synonyms_identifiers:
+        sectionMetadata:
+          relationshipType: physicalProperties
+          group: identity
+          domain: compounds
+          icon: thermometer
+          order: 71
+          variant: default
+          schemaDescription: Physical characteristics and behavior
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+    synonymsIdentifiers:
       presentation: descriptive
       items:
       - synonyms:
@@ -169,18 +142,26 @@ relationships:
         - Carbonic anhydride
         - Carbonic acid gas
         - Dry ice (solid)
-        common_trade_names:
+        commonTradeNames:
         - Dry ice
-        other_identifiers:
-          rtecs_number: FF6400000
-          ec_number: 204-696-9
-          pubchem_cid: '280'
+        otherIdentifiers:
+          rtecsNumber: FF6400000
+          ecNumber: 204-696-9
+          pubchemCid: '280'
       _section:
-        section_title: Alternative Names
-        description: Synonyms and chemical identifiers
         icon: tag
+        sectionMetadata:
+          relationshipType: synonymsIdentifiers
+          group: identity
+          domain: compounds
+          icon: tag
+          order: 72
+          variant: default
+          schemaDescription: Alternative names and identifiers
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
   safety:
-    health_effects:
+    healthEffects:
       presentation: card
       items:
       - route: inhalation
@@ -205,447 +186,511 @@ relationships:
         severity: moderate
         onset: immediate
       _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
         icon: heart-pulse
-    ppe_requirements:
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+    ppeRequirements:
       presentation: descriptive
       items:
       - respiratory: SCBA for >5% (50,000 ppm) or oxygen-deficient atmospheres. Not required for normal ambient levels.
         skin: Insulated gloves for liquid/solid CO2 (dry ice) - cryogenic hazard. No protection needed for gas at normal levels.
         eye: Safety glasses for dry ice handling. No protection needed for gas.
-        minimum_level: Level D for normal operations, Level B for confined spaces or high concentrations
-        special_notes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates in low areas. Dry ice causes frostbite.
+        minimumLevel: Level D for normal operations, Level B for confined spaces or high concentrations
+        specialNotes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates in low areas. Dry ice causes frostbite.
           Physiological effects >1% concentration.
       _section:
-        section_title: Personal Protective Equipment
-        description: Required safety equipment for handling this compound
         icon: shield-check
-    emergency_response:
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: compounds
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+    emergencyResponse:
       presentation: descriptive
       items:
-      - fire_hazard: Non-flammable. Used as fire suppressant. Cylinders may explode when heated.
-        fire_suppression: Not applicable. CO2 extinguishes fires. If cylinder in fire, cool with water spray from maximum
-          distance or evacuate - explosion hazard.
-        spill_procedures: 'Liquid/dry ice release: Ventilate area immediately. Evacuate low-lying areas - CO2 heavier than
+      - fireHazard: Non-flammable. Used as fire suppressant. Cylinders may explode when heated.
+        fireSuppression: Not applicable. CO2 extinguishes fires. If cylinder in fire, cool with water spray from maximum distance
+          or evacuate - explosion hazard.
+        spillProcedures: 'Liquid/dry ice release: Ventilate area immediately. Evacuate low-lying areas - CO2 heavier than
           air. Monitor oxygen levels. Do not touch dry ice - frostbite.'
-        exposure_immediate_actions: 'Remove to fresh air immediately. If not breathing, give artificial respiration. Administer
+        exposureImmediateActions: 'Remove to fresh air immediately. If not breathing, give artificial respiration. Administer
           100% oxygen. Seek medical attention if symptoms persist. For dry ice contact: treat as frostbite - warm affected
           area gradually.'
-        environmental_hazards: Greenhouse gas. Contributes to ocean acidification. Generally non-toxic to wildlife at normal
+        environmentalHazards: Greenhouse gas. Contributes to ocean acidification. Generally non-toxic to wildlife at normal
           atmospheric levels.
-        special_hazards: 'SIMPLE ASPHYXIANT - displaces oxygen. Heavier than air - accumulates in pits, tanks, confined spaces.
+        specialHazards: 'SIMPLE ASPHYXIANT - displaces oxygen. Heavier than air - accumulates in pits, tanks, confined spaces.
           Physiological effects: >1% increased respiration, >5% headache/dizziness, >10% unconsciousness, >20-30% death. ODORLESS
           - no warning. Dry ice causes severe frostbite.'
       _section:
-        section_title: Emergency Response
-        description: Procedures for spills, exposure, and incidents
         icon: exclamation-triangle
-    exposure_limits:
+        sectionMetadata:
+          relationshipType: emergencyResponse
+          group: safety
+          domain: compounds
+          icon: ambulance
+          order: 23
+          variant: danger
+          schemaDescription: Emergency procedures and first aid
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+    exposureLimits:
       presentation: descriptive
       items:
-      - osha_pel_ppm: 5000
-        osha_pel_mg_m3: 9000
-        niosh_rel_ppm: 5000
-        niosh_rel_mg_m3: 9000
-        acgih_tlv_ppm: 5000
-        acgih_tlv_mg_m3: 9000
-        workplace_exposure:
-          osha_pel:
-            twa_8hr: 5000 ppm
-            stel_15min: null
+      - oshaPelPpm: 5000
+        oshaPelMgM3: 9000
+        nioshRelPpm: 5000
+        nioshRelMgM3: 9000
+        acgihTlvPpm: 5000
+        acgihTlvMgM3: 9000
+        workplaceExposure:
+          oshaPel:
+            twa8Hr: 5000 ppm
+            stel15Min: null
             ceiling: 30000 ppm
-          niosh_rel:
-            twa_8hr: 5000 ppm
-            stel_15min: 30000 ppm
+          nioshRel:
+            twa8Hr: 5000 ppm
+            stel15Min: 30000 ppm
             ceiling: null
             idlh: 40,000 ppm (4%)
-          acgih_tlv:
-            twa_8hr: 5000 ppm
-            stel_15min: 30000 ppm
+          acgihTlv:
+            twa8Hr: 5000 ppm
+            stel15Min: 30000 ppm
             ceiling: null
-          biological_exposure_indices: []
+          biologicalExposureIndices: []
       _section:
-        section_title: Exposure Limits
-        description: OSHA, NIOSH, and ACGIH exposure thresholds
         icon: gauge
-    storage_requirements:
+        sectionMetadata:
+          relationshipType: exposureLimits
+          group: safety
+          domain: compounds
+          icon: gauge
+          order: 24
+          variant: warning
+          schemaDescription: Occupational exposure limits
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+    storageRequirements:
       presentation: descriptive
       items:
-      - temperature_range: Store cylinders <52°C. Dry ice requires insulated storage <-78°C.
+      - temperatureRange: Store cylinders <52°C. Dry ice requires insulated storage <-78°C.
         ventilation: Good ventilation essential. Outdoor storage preferred for large quantities. Monitor oxygen levels in
           storage areas.
         incompatibilities:
         - Reactive metals (cesium, sodium, potassium)
         - Metal acetylides
         - Bases (reacts forming carbonates)
-        container_material: Steel cylinders for compressed gas. Insulated containers for dry ice.
+        containerMaterial: Steel cylinders for compressed gas. Insulated containers for dry ice.
         segregation: None required. Keep away from reactive metals.
-        quantity_limits: Cylinders per fire code. Dry ice quantities limited by storage capacity.
-        special_requirements: Cylinder restraints mandatory. Oxygen monitoring in storage areas. Post "SIMPLE ASPHYXIANT"
-          signs. Adequate ventilation critical. Never store in confined spaces without ventilation and O2 monitoring.
+        quantityLimits: Cylinders per fire code. Dry ice quantities limited by storage capacity.
+        specialRequirements: Cylinder restraints mandatory. Oxygen monitoring in storage areas. Post "SIMPLE ASPHYXIANT" signs.
+          Adequate ventilation critical. Never store in confined spaces without ventilation and O2 monitoring.
       _section:
-        section_title: Storage Requirements
-        description: Safe storage conditions and compatibility
         icon: warehouse
-    regulatory_classification:
+        sectionMetadata:
+          relationshipType: storageRequirements
+          group: safety
+          domain: compounds
+          icon: warehouse
+          order: 25
+          variant: default
+          schemaDescription: Safe storage conditions
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+    regulatoryClassification:
       presentation: descriptive
       items:
-      - un_number: UN1013 (compressed gas), UN1845 (solid/dry ice)
-        dot_hazard_class: 2.2 (Non-flammable gas)
-        dot_label: Non-flammable Gas
-        nfpa_codes:
+      - unNumber: UN1013 (compressed gas), UN1845 (solid/dry ice)
+        dotHazardClass: 2.2 (Non-flammable gas)
+        dotLabel: Non-flammable Gas
+        nfpaCodes:
           health: 1
           flammability: 0
           reactivity: 0
           special: SA (Simple Asphyxiant)
-        epa_hazard_categories:
+        epaHazardCategories:
         - Simple asphyxiant
         - Cryogenic hazard (dry ice)
-        sara_title_iii: false
-        cercla_rq: null
-        rcra_code: null
+        saraTitleIii: false
+        cerclaRq: null
+        rcraCode: null
       _section:
-        section_title: Regulatory Classification
-        description: DOT, UN, and NFPA hazard classifications
         icon: book-law
+        sectionMetadata:
+          relationshipType: regulatoryClassification
+          group: safety
+          domain: compounds
+          icon: file-badge
+          order: 26
+          variant: default
+          schemaDescription: Regulatory classification and hazard codes
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
   environmental:
-    environmental_impact:
+    environmentalImpact:
       presentation: descriptive
       items:
-      - aquatic_toxicity: 'Low direct toxicity. LC50 (fish): >100 mg/L. Acidifies water (forms carbonic acid). High levels
+      - aquaticToxicity: 'Low direct toxicity. LC50 (fish): >100 mg/L. Acidifies water (forms carbonic acid). High levels
           suffocate aquatic life.'
         biodegradability: Not applicable (natural component of carbon cycle).
         bioaccumulation: Does not bioaccumulate.
-        soil_mobility: High mobility as gas. Absorbed by alkaline soils forming carbonates.
-        atmospheric_fate: 'Major greenhouse gas. Atmospheric residence: 30-95 years. Essential for photosynthesis. Removed
+        soilMobility: High mobility as gas. Absorbed by alkaline soils forming carbonates.
+        atmosphericFate: 'Major greenhouse gas. Atmospheric residence: 30-95 years. Essential for photosynthesis. Removed
           by plants and ocean absorption.'
-        ozone_depletion: false
-        global_warming_potential: 1 (reference gas)
-        reportable_releases:
+        ozoneDepletion: false
+        globalWarmingPotential: 1 (reference gas)
+        reportableReleases:
           water: Not reportable
           air: Not reportable (natural atmospheric component)
       _section:
-        section_title: Environmental Impact
-        description: Toxicity, biodegradability, and environmental fate
         icon: leaf
-  detection_monitoring:
-    detection_monitoring:
+        sectionMetadata:
+          relationshipType: environmentalImpact
+          group: environmental
+          domain: compounds
+          icon: leaf
+          order: 50
+          variant: default
+          schemaDescription: Environmental effects and disposal considerations
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+  detectionMonitoring:
+    detectionMonitoring:
       presentation: descriptive
       items:
-      - sensor_types:
+      - sensorTypes:
         - Infrared (NDIR)
         - Electrochemical
         - Thermal conductivity
-        detection_range: 0-50,000 ppm typical (0-5%)
-        alarm_setpoints:
+        detectionRange: 0-50,000 ppm typical (0-5%)
+        alarmSetpoints:
           low: 5000 ppm (0.5%) - OSHA TWA/NIOSH REL
           high: 10,000 ppm (1%) - physiological effects begin
           evacuate: 40,000 ppm (4%) - NIOSH IDLH
-        colorimetric_tubes:
+        colorimetricTubes:
         - Dräger CO2 0.01%/a
         - Gastec 2L
         - Kitagawa 126
-        analytical_methods:
+        analyticalMethods:
         - method: NIOSH 6603
           technique: NDIR (Non-dispersive infrared)
-          detection_limit: 50 ppm
+          detectionLimit: 50 ppm
         - method: Detector tubes
           technique: Colorimetric
-          detection_limit: 0.01%
-        odor_threshold: Not applicable - odorless at all concentrations. No warning property. MUST use instruments.
+          detectionLimit: 0.01%
+        odorThreshold: Not applicable - odorless at all concentrations. No warning property. MUST use instruments.
       _section:
-        section_title: Detection & Monitoring
-        description: Methods for detecting and measuring this compound
         icon: radar
+        sectionMetadata:
+          relationshipType: detectionMonitoring
+          group: detectionMonitoring
+          domain: compounds
+          icon: radar
+          order: 80
+          variant: default
+          schemaDescription: Detection and monitoring methods
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
   interactions:
-    produced_from_contaminants:
+    producedFromContaminants:
       presentation: card
       items:
       - id: paint-residue-contamination
         frequency: very_common
         severity: low
-        typical_context: Complete combustion of organic paint
+        typicalContext: Complete combustion of organic paint
       - id: plastic-residue-contamination
         frequency: very_common
         severity: low
-        typical_context: Complete combustion of polymers
+        typicalContext: Complete combustion of polymers
       - id: rubber-residue-contamination
         frequency: very_common
         severity: low
-        typical_context: Complete combustion of rubber
+        typicalContext: Complete combustion of rubber
       - id: adhesive-residue-contamination
         frequency: very_common
         severity: low
-        typical_context: Complete combustion of adhesives
+        typicalContext: Complete combustion of adhesives
       - id: industrial-oil-contamination
         frequency: very_common
         severity: low
-        typical_context: Complete combustion of hydrocarbons
+        typicalContext: Complete combustion of hydrocarbons
       - id: algae-growth-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Algae and Lichen Growth
+        typicalContext: Laser removal of Algae and Lichen Growth
       - id: anti-seize-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Anti-Seize Compound
+        typicalContext: Laser removal of Anti-Seize Compound
       - id: aviation-sealant-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Aerospace Sealant Residue
+        typicalContext: Laser removal of Aerospace Sealant Residue
       - id: biological-stains-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Organic Biofilm Deposits
+        typicalContext: Laser removal of Organic Biofilm Deposits
       - id: bitumen-tar-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Bitumen and Tar Coatings
+        typicalContext: Laser removal of Bitumen and Tar Coatings
       - id: blood-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Biological Blood Residue
+        typicalContext: Laser removal of Biological Blood Residue
       - id: bronze-patina-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Bronze Patina and Corrosion
+        typicalContext: Laser removal of Bronze Patina and Corrosion
       - id: carbon-buildup-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Carbon Deposit Buildup
+        typicalContext: Laser removal of Carbon Deposit Buildup
       - id: carbon-soot-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Carbon Soot Deposits
+        typicalContext: Laser removal of Carbon Soot Deposits
       - id: chemical-stains-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Chemical Stains / Acid Etching
+        typicalContext: Laser removal of Chemical Stains / Acid Etching
       - id: concrete-dust-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Concrete Dust Deposits
+        typicalContext: Laser removal of Concrete Dust Deposits
       - id: conversion-coating-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Chemical Conversion Coating
+        typicalContext: Laser removal of Chemical Conversion Coating
       - id: coolant-scale-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Engine Coolant Scale
+        typicalContext: Laser removal of Engine Coolant Scale
       - id: copper-patina-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Copper Patina / Verdigris
+        typicalContext: Laser removal of Copper Patina / Verdigris
       - id: corrosion-inhibitor-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Corrosion Inhibitor Coating
+        typicalContext: Laser removal of Corrosion Inhibitor Coating
       - id: cutting-fluid-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Machining Coolant Residue
+        typicalContext: Laser removal of Machining Coolant Residue
       - id: diamond-coating-contamination
         frequency: unknown
         severity: moderate
-        typical_context: Laser removal of Diamond-Like Carbon Removal
+        typicalContext: Laser removal of Diamond-Like Carbon Removal
       - id: efflorescence-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Concrete Efflorescence
+        typicalContext: Laser removal of Concrete Efflorescence
       - id: electroplating-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Electroplating Solution Residue
+        typicalContext: Laser removal of Electroplating Solution Residue
       - id: environmental-dust-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Environmental Dust Layer
+        typicalContext: Laser removal of Environmental Dust Layer
       - id: epoxy-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Epoxy Resin Deposits
+        typicalContext: Laser removal of Epoxy Resin Deposits
       - id: exhaust-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Exhaust System Deposits
+        typicalContext: Laser removal of Exhaust System Deposits
       - id: fire-damage-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Fire and Smoke Damage
+        typicalContext: Laser removal of Fire and Smoke Damage
       - id: forging-scale-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Forging Mill Scale
+        typicalContext: Laser removal of Forging Mill Scale
       - id: fuel-varnish-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Fuel System Varnish
+        typicalContext: Laser removal of Fuel System Varnish
       - id: galvanize-corrosion-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of White Rust on Galvanized Steel
+        typicalContext: Laser removal of White Rust on Galvanized Steel
       - id: gasket-material-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Gasket Material Residue
+        typicalContext: Laser removal of Gasket Material Residue
       - id: graffiti-paint-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Graffiti and Spray Paint
+        typicalContext: Laser removal of Graffiti and Spray Paint
       - id: graphite-marks-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Graphite Deposit Traces
+        typicalContext: Laser removal of Graphite Deposit Traces
       - id: grease-deposits-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Heavy Machinery Grease
+        typicalContext: Laser removal of Heavy Machinery Grease
       - id: hydraulic-fluid-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Hydraulic Fluid Contamination
+        typicalContext: Laser removal of Hydraulic Fluid Contamination
       - id: ink-stains-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Printing Ink Residue
+        typicalContext: Laser removal of Printing Ink Residue
       - id: insect-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Insect Impact Residue
+        typicalContext: Laser removal of Insect Impact Residue
       - id: laser-marking-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Laser Marking Discoloration
+        typicalContext: Laser removal of Laser Marking Discoloration
       - id: lead-paint-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Lead-Based Paint Removal
+        typicalContext: Laser removal of Lead-Based Paint Removal
       - id: lime-scale-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Limescale Deposits
+        typicalContext: Laser removal of Limescale Deposits
       - id: medical-disinfectant-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Medical Disinfectant Residue
+        typicalContext: Laser removal of Medical Disinfectant Residue
       - id: metal-polish-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Metal Polish Residue
+        typicalContext: Laser removal of Metal Polish Residue
       - id: mineral-deposits-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Hard Water Mineral Scale
+        typicalContext: Laser removal of Hard Water Mineral Scale
       - id: mineral-stain-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Mineral Staining
+        typicalContext: Laser removal of Mineral Staining
       - id: mold-mildew-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Mold and Mildew Growth
+        typicalContext: Laser removal of Mold and Mildew Growth
       - id: pcb-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of PCB Oil Contamination
+        typicalContext: Laser removal of PCB Oil Contamination
       - id: pesticide-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Pesticide Chemical Residue
+        typicalContext: Laser removal of Pesticide Chemical Residue
       - id: pharmaceutical-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Pharmaceutical Drug Residue
+        typicalContext: Laser removal of Pharmaceutical Drug Residue
       - id: pickling-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Acid Pickling Stains
+        typicalContext: Laser removal of Acid Pickling Stains
       - id: pollen-deposit-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Pollen Accumulation
+        typicalContext: Laser removal of Pollen Accumulation
       - id: powder-coating-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Powder Coating Buildup
+        typicalContext: Laser removal of Powder Coating Buildup
       - id: primer-coating-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Paint Primer Layers
+        typicalContext: Laser removal of Paint Primer Layers
       - id: quench-oil-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Quenching Oil Residue
+        typicalContext: Laser removal of Quenching Oil Residue
       - id: radioactive-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Surface Radioactive Contamination
+        typicalContext: Laser removal of Surface Radioactive Contamination
       - id: road-grime-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Automotive Road Grime
+        typicalContext: Laser removal of Automotive Road Grime
       - id: scale-buildup-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Mineral Scale / Hard Water Deposits
+        typicalContext: Laser removal of Mineral Scale / Hard Water Deposits
       - id: semiconductor-residue-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Semiconductor Processing Residue
+        typicalContext: Laser removal of Semiconductor Processing Residue
       - id: silicone-buildup-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Silicone Sealant Buildup
+        typicalContext: Laser removal of Silicone Sealant Buildup
       - id: soap-scum-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Soap Scum Buildup
+        typicalContext: Laser removal of Soap Scum Buildup
       - id: solder-flux-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Soldering Flux Residue
+        typicalContext: Laser removal of Soldering Flux Residue
       - id: steel-corrosion-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Steel Surface Corrosion
+        typicalContext: Laser removal of Steel Surface Corrosion
       - id: surgical-marking-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Surgical Ink Markings
+        typicalContext: Laser removal of Surgical Ink Markings
       - id: thermal-paste-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Thermal Compound Deposits
+        typicalContext: Laser removal of Thermal Compound Deposits
       - id: thread-locker-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Threadlocker Adhesive
+        typicalContext: Laser removal of Threadlocker Adhesive
       - id: tree-sap-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Tree Sap and Resin
+        typicalContext: Laser removal of Tree Sap and Resin
       - id: undercoating-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Automotive Undercoating
+        typicalContext: Laser removal of Automotive Undercoating
       - id: uv-chalking-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of UV Photodegradation / Polymer Chalking
+        typicalContext: Laser removal of UV Photodegradation / Polymer Chalking
       - id: water-stain-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Water Staining and Marks
+        typicalContext: Laser removal of Water Staining and Marks
       - id: wax-buildup-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Wax Coating Buildup
+        typicalContext: Laser removal of Wax Coating Buildup
       - id: wood-rot-contamination
         frequency: unknown
         severity: low
-        typical_context: Laser removal of Wood Rot / Fungal Biodegradation
+        typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
       _section:
         sectionTitle: Source Contaminants
         sectionDescription: Contaminants that generate this compound during laser cleaning
@@ -653,32 +698,82 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
           notes: Links to contaminant pages
-          relationship_type: produced_from
     reactivity:
       presentation: descriptive
       items:
       - stability: Stable under normal conditions.
         polymerization: Will not polymerize
-        incompatible_materials:
+        incompatibleMaterials:
         - Reactive metals (cesium, sodium, potassium)
         - Metal acetylides
         - Strong bases (forms carbonates)
         - Ammonia (forms ammonium carbamate)
-        hazardous_decomposition:
+        hazardousDecomposition:
         - Carbon dioxide (already stable)
         - Carbon monoxide (only at very high temperatures)
-        conditions_to_avoid:
+        conditionsToAvoid:
         - High heat (cylinder explosion)
         - Reactive metals
-        reactivity_hazard: Generally non-reactive. Reacts with strong bases. May react with reactive metals. Solid CO2 causes
+        reactivityHazard: Generally non-reactive. Reacts with strong bases. May react with reactive metals. Solid CO2 causes
           embrittlement of some materials.
       _section:
-        section_title: Reactivity
-        description: Chemical reactivity and incompatibilities
         icon: atom
-ppe_requirements: "Handling carbon dioxide in its solid form demands careful gear to counter the biting cold and the risk\
-  \ of suffocating vapors building up unnoticed. Workers often reach for insulated gloves first, thick enough to shield hands\
+        sectionMetadata:
+          relationshipType: reactivity
+          group: interactions
+          domain: compounds
+          icon: zap
+          order: 15
+          variant: default
+          schemaDescription: Chemical reactivity and interactions
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+hazardClass: asphyxiant
+chemicalFormula: CO₂
+casNumber: 124-38-9
+molecularWeight: 44.01
+healthEffects: When dealing with carbon dioxide compounds in industrial settings, the standout trait is its role as an asphyxiant,
+  meaning it quietly pushes out breathable air without you noticing right away. This makes enclosed spaces tricky, so we always
+  prioritize ventilation setups before starting any process. You'll feel headaches or dizziness creep in first if levels build
+  up, leading to confusion and worse if not caught early. Keep monitoring tools handy—simple detectors work wonders to avoid
+  that foggy disorientation. In applications like welding or material handling, this property demands respect, ensuring teams
+  stay alert and equipped with escape plans.
+healthEffectsKeywords:
+- asphyxiation_at_high_concentration
+- respiratory_stimulation
+- narcosis
+- generally_non_toxic
+exposureGuidelines: Stay alert around carbon dioxide compounds. They act as asphyxiants. Oxygen levels drop fast in enclosed
+  spots. Fresh air flows matter most. Set up strong ventilation early. Check spaces before entry. Wear breathing gear if needed.
+  Spot dizziness or headaches quick—get out immediately. In industrial setups, like cleaning tasks, limit time inside. Train
+  teams on escape routes. Handle solid forms with gloves to avoid cold burns. Keep areas clear of buildup. Regular air checks
+  prevent trouble. For laser cleaning jobs, seal off zones tightly. Move slowly in hazy conditions. Recovery happens with
+  open air. Build habits for safe routines.
+detectionMethods: Dry ice stands out from everyday solids because it vanishes without a trace, turning straight into gas and
+  leaving no mess behind. Spotting it in a workshop demands sharp eyes or simple tools. Workers often rely on frosty buildup
+  or sudden cold spots as first clues, especially in tight spaces where the air grows heavy and hard to breathe. For safer
+  checks, handheld devices pick up the invisible gas release, alerting with beeps or lights when levels climb too high. Chemical
+  strips change color in its presence, offering a quick visual cue without fancy gear. In busy factories handling shipments,
+  these methods blend routine scans with ventilation tweaks to keep things running smooth, preventing silent buildup that
+  could stifle operations.
+firstAid: If you've ever dealt with a confined space mishap where the air turns heavy and folks start gasping, knowing quick
+  steps for carbon dioxide exposure can make all the difference—it's that invisible thief that chokes out oxygen without warning.
+  Get the person away from the source immediately, hauling them into open, fresh air where they can breathe easy again, and
+  loosen any tight clothing around the neck or chest to help airflow. Watch closely for signs like confusion or shallow breaths;
+  if they're unresponsive and not breathing normally, start rescue breaths or chest compressions right away to keep oxygen
+  circulating until help arrives. While waiting for professionals, keep them comfortable and warm, avoiding any stimulants
+  that might rev things up too fast. Once stabilized, medical follow-up is crucial because lingering effects from this sneaky
+  gas can sneak back in, turning a close call into something worse if ignored.
+ppeRequirements: "Handling carbon dioxide in its solid form demands careful gear to counter the biting cold and the risk of\
+  \ suffocating vapors building up unnoticed. Workers often reach for insulated gloves first, thick enough to shield hands\
   \ from frostbite during direct contact or packing tasks. Eye shields come next, sealing out any flying particles or sudden\
   \ cold bursts that could irritate or harm vision. Full-body coverings like aprons or suits help ward off skin chills in\
   \ prolonged exposure spots, such as storage areas or transport lines. \n\nIn tighter spaces where vapors linger, breathing\
@@ -687,6 +782,12 @@ ppe_requirements: "Handling carbon dioxide in its solid form demands careful gea
   \ face shields tuned to block intense light flashes, ensuring operators stay protected amid the precise, high-energy blasts\
   \ that vaporize residues without scratching surfaces. Regular checks on all gear prevent slips, turning routine industrial\
   \ uses—from cooling processes to safe stripping of contaminants—into smoother, safer operations."
+monitoringRequired: false
+typicalConcentrationRange: 50-200 mg/m³
+sourcesInLaserCleaning:
+- complete_organic_combustion
+- universal_organic_decomposition
+- carbon_oxidation
 faq:
   presentation: collapsible
   items:

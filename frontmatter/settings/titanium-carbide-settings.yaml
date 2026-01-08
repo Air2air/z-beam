@@ -4,7 +4,7 @@ displayName: Titanium Carbide Laser Cleaning Settings
 category: ceramic
 subcategory: carbide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:46.373312+00:00'
+dateModified: '2026-01-08T03:29:18.089420+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/carbide/titanium-carbide-settings
@@ -38,7 +38,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,9 +93,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -109,9 +116,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: titanium-laser-cleaning
@@ -123,16 +135,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and cracking
           severity: critical
-          threshold_temperature: ΔT > 200-300°C rapid cooling
+          thresholdTemperature: ΔT > 200-300°C rapid cooling
           impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
           solutions:
           - Use pulse mode with 3-5 second cooling between passes
@@ -141,20 +158,28 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Variable thermal conductivity
           severity: medium
-          property_value: 0.8-120 W/m·K (150x variation between materials)
+          propertyValue: 0.8-120 W/m·K (150x variation between materials)
           impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
           solutions:
           - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
           - High conductivity ceramics (SiC, WC) tolerate higher power
           - Test on scrap to determine cooling requirements
-        contamination_challenges:
+        contaminationChallenges:
         - id: coating-residue-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Titanium Carbide surface cleaning without substrate damage
     unit: W
@@ -168,17 +193,21 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning of Titanium Carbide surfaces
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter for precise surface prep on TiC; smaller (50-100 μm) for fine details, larger (200-500 μm)
+      for broad areas. 200 μm optimal for uniform cleaning without excessive overlap heating. Source: Equipment specs from
+      Coherent and Trumpf laser systems for industrial cleaning.'
   repetitionRate:
-    description: Optimal repetition rate for continuous cleaning coverage with thermal management
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical for 1064 nm cleaning to achieve uniform energy delivery on TiC; 50 kHz balances speed and heat management—higher
+      rates risk accumulation on low-reflectivity TiC (~0.3-0.5 at 1064 nm). Trade-off: faster processing vs. potential overheating.
+      Source: Academic literature in Optics Express (2017) on carbide ablation.'
   fluenceThreshold:
     description: Minimum fluence required for effective Titanium Carbide contaminant removal
     unit: J/cm²
@@ -186,29 +215,36 @@ machine_settings:
     min: 0.3
     max: 4.5
   pulseWidth:
-    description: Nanosecond pulse duration for efficient ablation of Titanium Carbide contaminants
-    unit: ns
-    value: 15
     min: 0.1
     max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning of TiC with minimal HAZ due to its high thermal
+      conductivity (~20-30 W/m·K); picosecond (ps) or femtosecond for ultra-precise but less common industrially. Avoids excessive
+      heat accumulation. Source: Laser physics in ''Pulsed Laser Ablation of Ceramics'' (Applied Surface Science, 2019).'
   scanSpeed:
-    description: Optimal scanning speed for efficient cleaning coverage
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    value: 2000
+    unit: mm/s
+    description: 'Effective speeds for contamination removal on reflective/high-conductivity materials like TiC; higher for
+      light contamination (up to 5000 mm/s), lower for heavy (500-1000 mm/s). Optimal balances fluence and coverage. Source:
+      Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).'
   passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-3) for heavy layers on TiC to ensure complete removal
+      without substrate erosion. Recommended 2 passes for industrial prep. Source: Industry case studies in Surface and Coatings
+      Technology (2019) for carbide tools.'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning without excessive thermal buildup
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    value: 60
+    unit: '%'
+    description: 'Ensures uniform coverage on TiC surfaces; 60% typical for even fluence distribution and minimal striping,
+      adjustable 30% for speed vs. 80% for thoroughness. Source: Process optimization in Laser & Photonics Reviews (2020).'
   power:
     min: 50
     max: 300
@@ -218,31 +254,7 @@ machine_settings:
       starting at 100 W for light contamination. Max limited by substrate melting point (~3067°C). Source: IPG Photonics YLR
       series specs for 1064 nm cleaning heads; academic review in ''Laser Cleaning of Metals'' (Optics & Lasers in Engineering,
       2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 2000
-    unit: mm/s
-    description: 'Effective speeds for contamination removal on reflective/high-conductivity materials like TiC; higher for
-      light contamination (up to 5000 mm/s), lower for heavy (500-1000 mm/s). Optimal balances fluence and coverage. Source:
-      Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning of TiC with minimal HAZ due to its high thermal
-      conductivity (~20-30 W/m·K); picosecond (ps) or femtosecond for ultra-precise but less common industrially. Avoids excessive
-      heat accumulation. Source: Laser physics in ''Pulsed Laser Ablation of Ceramics'' (Applied Surface Science, 2019).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical for 1064 nm cleaning to achieve uniform energy delivery on TiC; 50 kHz balances speed and heat management—higher
-      rates risk accumulation on low-reflectivity TiC (~0.3-0.5 at 1064 nm). Trade-off: faster processing vs. potential overheating.
-      Source: Academic literature in Optics Express (2017) on carbide ablation.'
-  energy_density:
+  energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
@@ -250,28 +262,5 @@ machine_settings:
     description: 'Fluence range for contaminant removal without damaging TiC; damage threshold ~4-5 J/cm² for ns pulses due
       to high melting point. Recommended conservative for safe cleaning of oxides or oils. Source: Ablation threshold studies
       in Journal of Applied Physics (2021) for TiC at 1064 nm.'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter for precise surface prep on TiC; smaller (50-100 μm) for fine details, larger (200-500 μm)
-      for broad areas. 200 μm optimal for uniform cleaning without excessive overlap heating. Source: Equipment specs from
-      Coherent and Trumpf laser systems for industrial cleaning.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-3) for heavy layers on TiC to ensure complete removal
-      without substrate erosion. Recommended 2 passes for industrial prep. Source: Industry case studies in Surface and Coatings
-      Technology (2019) for carbide tools.'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: 'Ensures uniform coverage on TiC surfaces; 60% typical for even fluence distribution and minimal striping,
-      adjustable 30% for speed vs. 80% for thoroughness. Source: Process optimization in Laser & Photonics Reviews (2020).'
-component_summary: These settings utilize a 1064 nm wavelength and 15 ns pulses at 100 W to enable precise ablation of contaminants
+componentSummary: These settings utilize a 1064 nm wavelength and 15 ns pulses at 100 W to enable precise ablation of contaminants
   from Titanium Carbide's hard, refractory surface without inducing thermal cracking or subsurface damage.

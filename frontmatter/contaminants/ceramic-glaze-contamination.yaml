@@ -2,7 +2,7 @@ id: ceramic-glaze-contamination
 name: Ceramic Glaze Deposits
 category: inorganic-coating
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:58:42.354687+00:00'
+dateModified: '2026-01-08T03:27:30.011666+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination
@@ -44,14 +44,34 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
+  jobTitle: Laser Processing Engineer
   expertise:
   - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -64,117 +84,145 @@ relationships:
         icon: shield-check
         order: 20
         variant: default
-    fire_explosion_risk:
-      presentation: card
-      items:
-      - severity: low
-        description: Minimal fire risk with standard precautions and adequate ventilation
-        mitigation: Standard fire safety precautions, extinguisher available within 15m
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: contaminants
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
         icon: flame
         order: 21
         variant: warning
-    fumes_generated:
-      presentation: table
-      items:
-      - compound: Silicon Dioxide (crystalline silica)
-        concentration_mg_m3: 5.0
-        exposure_limit_mg_m3: 0.025
-        hazard_class: toxic
-      - compound: Lead Oxide
-        concentration_mg_m3: 0.5
-        exposure_limit_mg_m3: 0.05
-        hazard_class: toxic
-      - compound: Metal Oxides (various)
-        concentration_mg_m3: 2.0
-        exposure_limit_mg_m3: 5.0
-        hazard_class: irritant
+        sectionMetadata:
+          relationshipType: fireExplosionRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    fumesGenerated:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
         icon: cloud
         order: 22
         variant: warning
-    particulate_generation:
-      presentation: table
-      items:
-      - respirable_fraction: 0.7
-        size_range_um:
-        - 0.1
-        - 10.0
+        sectionMetadata:
+          relationshipType: fumesGenerated
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    particulateGeneration:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
         icon: wind
         order: 23
         variant: warning
-    ppe_requirements:
-      presentation: descriptive
-      items:
-      - eye_protection: goggles
-        respiratory: PAPR
-        skin_protection: gloves
-        rationale: Standard protection against workplace hazards
+        sectionMetadata:
+          relationshipType: particulateGeneration
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ppeRequirements:
+      presentation: card
+      items: []
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
         icon: shield
         order: 24
         variant: default
-    toxic_gas_risk:
-      presentation: card
-      items:
-      - severity: low
-        primary_hazards:
-        - compound: Silicon Dioxide (crystalline silica)
-          concentration_mg_m3: 5.0
-          hazard_class: toxic
-        - compound: Lead Oxide
-          concentration_mg_m3: 0.5
-          hazard_class: toxic
-        description: Silicon Dioxide (crystalline silica) and Lead Oxide generation - multiple toxic compounds
-        mitigation: N95 or P100 respirator for particulate control, standard ventilation
+        sectionMetadata:
+          relationshipType: ppeRequirements
+          group: safety
+          domain: contaminants
+          icon: hard-hat
+          order: 22
+          variant: default
+          schemaDescription: Personal protective equipment needed
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilation_requirements:
+        sectionMetadata:
+          relationshipType: toxicGasRisk
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    ventilationRequirements:
       presentation: descriptive
-      items:
-      - exhaust_velocity_m_s: 0.5
-        filtration_type: HEPA
-        minimum_air_changes_per_hour: 12
-        rationale: Standard industrial ventilation (12 ACH) for particulate control
+      items: []
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
         icon: wind
         order: 26
         variant: default
-    visibility_hazard:
-      presentation: card
-      items:
-      - severity: moderate
-        description: Moderate visibility reduction (40-60%), significant particulate haze
-        source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-        mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-        related_field: particulate_generation.respirable_fraction
+        sectionMetadata:
+          relationshipType: ventilationRequirements
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
         icon: eye-off
         order: 27
         variant: warning
-    substrate_compatibility_warnings:
-    - Thermal shock may cause substrate damage or fragmentation
-    - Incomplete removal may create respirable dust during cleanup
-    - Potential for reflective surfaces to redirect laser energy
+        sectionMetadata:
+          relationshipType: visibilityHazard
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+        sectionMetadata:
+          relationshipType: substrateCompatibilityWarnings
+          group: safety
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   interactions:
-    produces_compounds:
+    producesCompounds:
       presentation: card
       items:
       - id: nanoparticulates-compound
@@ -184,7 +232,14 @@ relationships:
         icon: flask-conical
         order: 10
         variant: warning
-    affects_materials:
+        sectionMetadata:
+          relationshipType: producesCompounds
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
+    affectsMaterials:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -223,11 +278,18 @@ relationships:
         icon: layers
         order: 11
         variant: default
+        sectionMetadata:
+          relationshipType: affectsMaterials
+          group: interactions
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   visual:
-    appearance_on_categories:
+    appearanceOnCategories:
       presentation: descriptive
       items:
-      - appearance_on_categories:
+      - appearanceOnCategories:
           ceramic:
             appearance: As the intended surface, ceramic glaze appears as a vitrified, glossy coating that bonds seamlessly,
               displaying consistent colors and a smooth, hard texture.
@@ -325,99 +387,167 @@ relationships:
         icon: eye
         order: 50
         variant: default
+        sectionMetadata:
+          relationshipType: appearanceOnCategories
+          group: visual
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
   operational:
-    laser_properties:
+    laserProperties:
       presentation: descriptive
       items:
-      - laser_parameters:
-          beam_profile: flat_top
-          fluence_range:
-            max_j_cm2: 1.5
-            min_j_cm2: 0.8
-            recommended_j_cm2: 1.1
-          overlap_percentage: 50
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.5
+            minJCm2: 0.8
+            recommendedJCm2: 1.1
+          overlapPercentage: 50
           polarization: circular
-          pulse_duration_range:
-            max_ns: 100
-            min_ns: 10
-            recommended_ns: 30
-          repetition_rate_khz:
+          pulseDurationRange:
+            maxNs: 100
+            minNs: 10
+            recommendedNs: 30
+          repetitionRateKhz:
             max: 200
             min: 20
             recommended: 50
-          safety_margin_factor: 0.7
-          scan_speed_mm_s:
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
             max: 2000
             min: 500
             recommended: 1000
-          spot_size_mm:
+          spotSizeMm:
             max: 0.1
             min: 0.03
             recommended: 0.05
-          wavelength_preference:
+          wavelengthPreference:
           - 1064
           - 532
-        optical_properties:
-          absorption_coefficient:
-            wavelength_1064nm: 1200
-            wavelength_355nm: 28000
-            wavelength_532nm: 4500
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 1200
+            wavelength355Nm: 28000
+            wavelength532Nm: 4500
           reflectivity:
-            wavelength_1064nm: 0.25
-            wavelength_355nm: 0.08
-            wavelength_532nm: 0.15
-          refractive_index:
-            imaginary_part: 0.012
-            real_part: 1.65
-          transmission_depth: 8.3
-        removal_characteristics:
+            wavelength1064Nm: 0.25
+            wavelength355Nm: 0.08
+            wavelength532Nm: 0.15
+          refractiveIndex:
+            imaginaryPart: 0.012
+            realPart: 1.65
+          transmissionDepth: 8.3
+        removalCharacteristics:
           byproducts:
           - compound: nanoparticulates
-            hazard_level: moderate
+            hazardLevel: moderate
             phase: solid
           - compound: Metal oxide vapors
-            hazard_level: moderate
+            hazardLevel: moderate
             phase: gas
           - compound: Glaze fragments
-            hazard_level: low
+            hazardLevel: low
             phase: solid
-          damage_risk_to_substrate: medium
-          primary_mechanism: thermal_ablation
-          process_speed:
-            area_coverage_rate_cm2_min: 240
-            typical_scan_speed_mm_s: 800
-          removal_efficiency:
-            diminishing_returns_after: 6
-            optimal_passes: 4
-            single_pass: 0.3
-          secondary_mechanisms:
+          damageRiskToSubstrate: medium
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 240
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 6
+            optimalPasses: 4
+            singlePass: 0.3
+          secondaryMechanisms:
           - thermal_stress_fracturing
           - mechanical_spallation
-          surface_quality_after_removal:
-            color_change: 'no'
-            residual_stress: compressive
-            roughness_increase: moderate
-        thermal_properties:
-          ablation_threshold:
-            pulse_duration_100ns: 4.5
-            pulse_duration_10ns: 3.2
-            wavelength_1064nm: 2.8
-          decomposition_temperature: 1200
-          heat_affected_zone_depth: 25
-          melting_point: 1100
-          specific_heat: 850
-          thermal_conductivity: 1.2
-          thermal_diffusivity: 0.8
-          vaporization_temperature: 1800
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: compressive
+            roughnessIncrease: moderate
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Silicon Dioxide (crystalline silica)
+            concentrationMgM3: 5.0
+            exposureLimitMgM3: 0.025
+            hazardClass: toxic
+          - compound: Lead Oxide
+            concentrationMgM3: 0.5
+            exposureLimitMgM3: 0.05
+            hazardClass: toxic
+          - compound: Metal Oxides (various)
+            concentrationMgM3: 2.0
+            exposureLimitMgM3: 5.0
+            hazardClass: irritant
+          particulateGeneration:
+            respirableFraction: 0.7
+            sizeRangeUm:
+            - 0.1
+            - 10.0
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: gloves
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Thermal shock may cause substrate damage or fragmentation
+          - Incomplete removal may create respirable dust during cleanup
+          - Potential for reflective surfaces to redirect laser energy
+          toxicGasRisk:
+            severity: low
+            primaryHazards:
+            - compound: Silicon Dioxide (crystalline silica)
+              concentrationMgM3: 5.0
+              hazardClass: toxic
+            - compound: Lead Oxide
+              concentrationMgM3: 0.5
+              hazardClass: toxic
+            description: Silicon Dioxide (crystalline silica) and Lead Oxide generation - multiple toxic compounds
+            mitigation: N95 or P100 respirator for particulate control, standard ventilation
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: HEPA
+            minimumAirChangesPerHour: 12
+            rationale: Standard industrial ventilation (12 ACH) for particulate control
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 4.5
+            pulseDuration10Ns: 3.2
+            wavelength1064Nm: 2.8
+          decompositionTemperature: 1200
+          heatAffectedZoneDepth: 25
+          meltingPoint: 1100
+          specificHeat: 850
+          thermalConductivity: 1.2
+          thermalDiffusivity: 0.8
+          vaporizationTemperature: 1800
       _section:
         sectionTitle: Laser Removal Properties
         sectionDescription: Laser parameters and removal characteristics
         icon: zap
         order: 40
         variant: default
+        sectionMetadata:
+          relationshipType: laserProperties
+          group: operational
+          domain: contaminants
+          icon: circle-help
+          order: 999
+          variant: default
 displayName: Ceramic Glaze Deposits
 subcategory: ceramic
-valid_materials:
+validMaterials:
 - alumina-laser-cleaning
 - aluminum-nitride-laser-cleaning
 - basalt-laser-cleaning
@@ -440,6 +570,6 @@ composition:
 - SiO₂
 - Al₂O₃
 - Fluxes
-prohibited_materials:
+prohibitedMaterials:
 - Glass
 - Metal

@@ -4,7 +4,7 @@ displayName: Travertine Laser Cleaning Settings
 category: stone
 subcategory: natural
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:46.466692+00:00'
+dateModified: '2026-01-08T03:29:18.292794+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/natural/travertine-settings
@@ -42,7 +42,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -64,8 +64,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -82,7 +82,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -96,9 +96,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -112,9 +119,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: travertine-laser-cleaning
@@ -126,16 +138,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and microcracking
           severity: critical
-          threshold_temperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
           impact: Natural stone contains microfissures that propagate under thermal stress
           solutions:
           - Use pulse mode with 8-12 second cooling between passes
@@ -145,7 +162,7 @@ relationships:
           - Monitor for surface crazing; stop immediately if cracks appear
         - challenge: Moisture-induced spalling
           severity: high
-          threshold_temperature: Steam formation >100°C with trapped moisture
+          thresholdTemperature: Steam formation >100°C with trapped moisture
           impact: Porous stone traps moisture that explosively converts to steam
           solutions:
           - Test moisture content before cleaning (>3% requires drying)
@@ -153,14 +170,22 @@ relationships:
           - Reduce power by 50% for damp stone
           - Use pulse mode with extended cooling (15-20 seconds)
           - Heritage stone requires especially gentle approach
-        contamination_challenges:
+        contaminationChallenges:
         - id: biological-growth
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Travertine surface cleaning without thermal damage
     unit: W
@@ -174,47 +199,61 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for balanced cleaning efficiency and resolution
-    unit: μm
-    value: 100
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter for effective energy distribution; 200 μm recommended for travertine to cover pores without
+      pinpoint damage, smaller for fine details, larger for broad areas (source: Equipment specs from manufacturers like Raycus
+      and Coherent laser systems).'
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and process speed
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for industrial cleaning to achieve pulse overlap without excessive heat buildup in low-conductivity
+      travertine; 30 kHz recommended for faster processing vs. heat risks at higher rates (source: Academic literature, e.g.,
+      Appl. Surf. Sci. 2019 on pulsed laser parameters for carbonates).'
   energyDensity:
-    description: Fluence level sufficient for contaminant removal below Travertine damage threshold
-    unit: J/cm²
-    value: 1.5
     min: 0.1
     max: 20.0
+    value: 1.0
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal (e.g., soot, oxides) on travertine; damage threshold ~2-3 J/cm² for
+      CaCO3-based stone, so 1.0 J/cm² safe starting point to avoid spalling (source: Ablation threshold studies in J. Appl.
+      Phys. 2017 and heritage conservation papers).'
   pulseWidth:
-    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal penetration
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal heat-affected zone on heat-sensitive
+      travertine; 20 ns balances ablation efficiency and reduced thermal diffusion (picosecond/fs for ultra-precision but
+      overkill; source: Laser physics research in Opt. Lasers Eng. 2020 on stone heritage cleaning).'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning without overlapping damage
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    value: 1000
+    unit: mm/s
+    description: 'Effective speeds balance fluence and coverage; 1000 mm/s optimal for uniform cleaning on travertine, slower
+      (500 mm/s) for heavy contamination, faster (up to 3000 mm/s) for light dust (source: Industry standards from Laser Cleaning
+      Europe and equipment manuals like those from CleanLaser).'
   passCount:
-    description: Number of cleaning passes for complete contaminant removal
-    unit: passes
-    value: 2
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Multi-pass approach ensures complete removal without exceeding fluence limits on delicate travertine; 2
+      passes typical for industrial surface prep (single pass for very light contamination; source: Industry case studies
+      in stone restoration, e.g., Restaurators 2021).'
   overlapRatio:
-    description: Optimal beam overlap for complete coverage without excessive energy deposition
-    unit: '%'
-    value: 30
     min: 10
     max: 90
+    value: 70
+    unit: '%'
+    description: 'Ensures uniform coverage and prevents stripe patterns on uneven travertine surfaces; 70% optimal for balance
+      between efficiency and overlap-induced heating (source: Process optimization in laser scanning studies, e.g., Opt. Express
+      2016).'
   power:
     min: 20
     max: 200
@@ -223,61 +262,5 @@ machine_settings:
     description: 'Typical range for pulsed Nd:YAG lasers (1064 nm) on porous stones like travertine to remove contaminants
       without thermal damage; starting at 50 W for light soiling, max 200 W risks microcracking (source: IPG Photonics laser
       cleaning guidelines and studies on limestone ablation, e.g., J. Cult. Herit. 2018).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1000
-    unit: mm/s
-    description: 'Effective speeds balance fluence and coverage; 1000 mm/s optimal for uniform cleaning on travertine, slower
-      (500 mm/s) for heavy contamination, faster (up to 3000 mm/s) for light dust (source: Industry standards from Laser Cleaning
-      Europe and equipment manuals like those from CleanLaser).'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal heat-affected zone on heat-sensitive
-      travertine; 20 ns balances ablation efficiency and reduced thermal diffusion (picosecond/fs for ultra-precision but
-      overkill; source: Laser physics research in Opt. Lasers Eng. 2020 on stone heritage cleaning).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for industrial cleaning to achieve pulse overlap without excessive heat buildup in low-conductivity
-      travertine; 30 kHz recommended for faster processing vs. heat risks at higher rates (source: Academic literature, e.g.,
-      Appl. Surf. Sci. 2019 on pulsed laser parameters for carbonates).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.0
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal (e.g., soot, oxides) on travertine; damage threshold ~2-3 J/cm² for
-      CaCO3-based stone, so 1.0 J/cm² safe starting point to avoid spalling (source: Ablation threshold studies in J. Appl.
-      Phys. 2017 and heritage conservation papers).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter for effective energy distribution; 200 μm recommended for travertine to cover pores without
-      pinpoint damage, smaller for fine details, larger for broad areas (source: Equipment specs from manufacturers like Raycus
-      and Coherent laser systems).'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Multi-pass approach ensures complete removal without exceeding fluence limits on delicate travertine; 2
-      passes typical for industrial surface prep (single pass for very light contamination; source: Industry case studies
-      in stone restoration, e.g., Restaurators 2021).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 70
-    unit: '%'
-    description: 'Ensures uniform coverage and prevents stripe patterns on uneven travertine surfaces; 70% optimal for balance
-      between efficiency and overlap-induced heating (source: Process optimization in laser scanning studies, e.g., Opt. Express
-      2016).'
-component_summary: The 50 W power, 1064 nm wavelength, and 10 ns pulse width settings enable gentle, non-ablative cleaning
+componentSummary: The 50 W power, 1064 nm wavelength, and 10 ns pulse width settings enable gentle, non-ablative cleaning
   of Travertine's porous limestone structure, minimizing heat-induced cracking while effectively removing surface contaminants.

@@ -4,7 +4,7 @@ displayName: Aluminosilicate Glass Laser Cleaning Settings
 category: glass
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:46.986467+00:00'
+dateModified: '2026-01-08T03:29:19.448779+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/specialty/aluminosilicate-glass-settings
@@ -36,7 +36,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -59,8 +59,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -77,7 +77,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -91,9 +91,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -107,9 +114,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -125,20 +137,33 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     value: 70
     unit: W
@@ -152,47 +177,58 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    value: 60
-    unit: μm
-    description: Spot size for effective glass treatment
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for area coverage. 200 μm recommended
+      for uniform treatment on flat glass surfaces without hotspots (equipment specs from Coherent Inc. laser systems).
   repetitionRate:
-    value: 40
-    unit: kHz
-    description: Moderate frequency for glass cleaning
     min: 1
     max: 200
+    value: 50
+    unit: kHz
+    description: Balances cleaning speed and heat accumulation; higher rates (>50 kHz) risk substrate heating in reflective
+      glass. 50 kHz optimal for aluminosilicate to avoid cumulative damage (academic literature in Applied Surface Science,
+      2020).
   energyDensity:
-    value: 1.8
-    unit: J/cm²
-    description: Controlled energy for surface treatment
     min: 0.1
     max: 20.0
+    value: 2
+    unit: J/cm²
+    description: Fluence below glass damage threshold (~10 J/cm² at 1064 nm for ns pulses); 0.5-2 J/cm² for light contaminants,
+      up to 5 for heavy. Recommended 2 J/cm² for safe ablation of surface layers (ablation studies in Journal of Applied Physics,
+      2017).
   pulseWidth:
-    value: 10
-    unit: ns
-    description: Short pulses to prevent cracking
     min: 0.1
     max: 1000
+    unit: ns
+    value: 20
+    description: Nanosecond regime preferred for cost-effective cleaning with minimal HAZ; picosecond (ps) or femtosecond
+      for ultra-precision but higher cost. 20 ns recommended to limit thermal diffusion in low-conductivity glass (Laser &
+      Particle Beams journal, 2015).
   scanSpeed:
-    value: 600
-    unit: mm/s
-    description: Faster scanning for thermal management
     min: 10
     max: 5000
+    value: 1500
+    unit: mm/s
+    description: Effective for contaminant removal without excessive heat buildup; slower (500-1000 mm/s) for heavy contamination,
+      faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for balance on aluminosilicate glass (industry standards from
+      Laserax equipment manuals).
   passCount:
-    value: 2
-    unit: passes
-    description: Careful passes for complete cleaning
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: Single pass for light contamination; multi-pass (2-5) for stubborn residues. 2 passes typical for complete
+      removal on aluminosilicate glass to minimize risk (industry case studies in Laser Cleaning Handbook, SPIE, 2019).
   overlapRatio:
-    value: 40
-    unit: '%'
-    description: Moderate overlap for glass surfaces
     min: 10
     max: 90
+    value: 60
+    unit: '%'
+    description: Ensures uniform coverage without gaps or overexposure; 30-50% for speed, 60-80% for thoroughness. 60% recommended
+      for even cleaning on smooth glass (process optimization in Optics Express, 2016).
   power:
     min: 20
     max: 500
@@ -201,58 +237,5 @@ machine_settings:
     description: Typical range for delicate glass substrates to avoid thermal damage; starting at 100W for initial tests on
       light contaminants. Max safe below 500W to prevent cracking (based on IPG Photonics specs for fiber lasers and studies
       in Optics and Lasers in Engineering, 2018).
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: Effective for contaminant removal without excessive heat buildup; slower (500-1000 mm/s) for heavy contamination,
-      faster (2000-3000 mm/s) for light. Recommended 1500 mm/s for balance on aluminosilicate glass (industry standards from
-      Laserax equipment manuals).
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: Nanosecond regime preferred for cost-effective cleaning with minimal HAZ; picosecond (ps) or femtosecond
-      for ultra-precision but higher cost. 20 ns recommended to limit thermal diffusion in low-conductivity glass (Laser &
-      Particle Beams journal, 2015).
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: Balances cleaning speed and heat accumulation; higher rates (>50 kHz) risk substrate heating in reflective
-      glass. 50 kHz optimal for aluminosilicate to avoid cumulative damage (academic literature in Applied Surface Science,
-      2020).
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 2
-    unit: J/cm²
-    description: Fluence below glass damage threshold (~10 J/cm² at 1064 nm for ns pulses); 0.5-2 J/cm² for light contaminants,
-      up to 5 for heavy. Recommended 2 J/cm² for safe ablation of surface layers (ablation studies in Journal of Applied Physics,
-      2017).
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for area coverage. 200 μm recommended
-      for uniform treatment on flat glass surfaces without hotspots (equipment specs from Coherent Inc. laser systems).
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: Single pass for light contamination; multi-pass (2-5) for stubborn residues. 2 passes typical for complete
-      removal on aluminosilicate glass to minimize risk (industry case studies in Laser Cleaning Handbook, SPIE, 2019).
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: Ensures uniform coverage without gaps or overexposure; 30-50% for speed, 60-80% for thoroughness. 60% recommended
-      for even cleaning on smooth glass (process optimization in Optics Express, 2016).
-component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to selectively ablate contaminants
+componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to selectively ablate contaminants
   from aluminosilicate glass while minimizing thermal stress and preventing surface cracking.

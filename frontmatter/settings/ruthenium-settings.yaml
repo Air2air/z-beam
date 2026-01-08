@@ -4,7 +4,7 @@ displayName: Ruthenium Laser Cleaning Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:45.231785+00:00'
+dateModified: '2026-01-08T03:29:15.191532+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/ruthenium-settings
@@ -45,7 +45,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -67,8 +67,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -85,7 +85,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -99,9 +99,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -115,9 +122,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -133,27 +145,40 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: high-thermal-conductivity
           type: challenge
         - id: melting-haz
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: rust-oxide-removal
           type: challenge
         - id: oil-grease-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Ruthenium oxide removal without substrate damage
     unit: W
@@ -167,73 +192,14 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise Ruthenium surface cleaning
+    min: 0.1
+    max: 500
     unit: μm
-    value: 50
-    min: 0.1
-    max: 500
-  repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 50
-    min: 1
-    max: 200
-  energyDensity:
-    description: Fluence threshold for Ruthenium oxide removal without bulk material damage
-    unit: J/cm²
-    value: 2.3
-    min: 0.1
-    max: 20.0
-  pulseWidth:
-    description: Nanosecond pulse duration for controlled Ruthenium oxide ablation
-    unit: ns
-    value: 8
-    min: 0.1
-    max: 1000
-  scanSpeed:
-    description: Optimal scanning speed for uniform Ruthenium surface treatment
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete Ruthenium oxide removal
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform Ruthenium surface cleaning
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 500
     value: 200
-    unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning of reflective metals like Ruthenium; starting at 200
-      W balances efficiency and heat input to avoid melting (melting point ~2334°C). Source: IPG Photonics YLR series specs
-      and general metal cleaning guidelines (e.g., SPIE proceedings on laser ablation).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 500
-    unit: mm/s
-    description: 'Effective for contamination removal; slower for heavy contamination (100-500 mm/s), faster for light (500-2000
-      mm/s). Recommended 500 mm/s for Ruthenium to ensure uniform cleaning without excessive heat accumulation due to its
-      thermal conductivity (~120 W/m·K). Source: Industry standards from Laserax and CleanLaser equipment manuals.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for Ruthenium cleaning to ablate contaminants while minimizing heat-affected
-      zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for low
-      thermal damage on high-reflectivity surfaces. Source: Laser physics studies (e.g., Applied Surface Science journal on
-      ns vs. ps ablation thresholds for noble metals).'
-  repetition_rate:
+    description: 'Smaller spots (50-200 μm) for fine surface prep on Ruthenium components; larger (200-500 μm) for broad areas.
+      200 μm recommended for uniform energy distribution on small industrial parts. Source: Equipment specs from Coherent
+      and Trumpf lasers for precision cleaning.'
+  repetitionRate:
     min: 1
     max: 200
     value: 50
@@ -242,7 +208,7 @@ machine_settings:
       reflective surface (reflectivity ~60% at 1064 nm). 50 kHz balances speed and safety. Trade-off: high freq increases
       overlap heating. Source: Academic literature (e.g., Optics & Lasers in Engineering on repetition rate effects in metal
       cleaning).'
-  energy_density:
+  energyDensity:
     min: 0.1
     max: 20.0
     value: 1
@@ -250,15 +216,24 @@ machine_settings:
     description: 'Fluence range for contaminant ablation without substrate damage; Ruthenium damage threshold ~4-5 J/cm² at
       1064 nm due to high melting point. Recommended 1 J/cm² for safe cleaning of light contaminants. Source: Ablation threshold
       studies (e.g., Journal of Applied Physics on noble metal thresholds; conservative estimate for Ru similar to Pt/Rh).'
-  spot_size:
+  pulseWidth:
     min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Smaller spots (50-200 μm) for fine surface prep on Ruthenium components; larger (200-500 μm) for broad areas.
-      200 μm recommended for uniform energy distribution on small industrial parts. Source: Equipment specs from Coherent
-      and Trumpf lasers for precision cleaning.'
-  pass_count:
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for Ruthenium cleaning to ablate contaminants while minimizing heat-affected
+      zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for low
+      thermal damage on high-reflectivity surfaces. Source: Laser physics studies (e.g., Applied Surface Science journal on
+      ns vs. ps ablation thresholds for noble metals).'
+  scanSpeed:
+    min: 10
+    max: 5000
+    value: 500
+    unit: mm/s
+    description: 'Effective for contamination removal; slower for heavy contamination (100-500 mm/s), faster for light (500-2000
+      mm/s). Recommended 500 mm/s for Ruthenium to ensure uniform cleaning without excessive heat accumulation due to its
+      thermal conductivity (~120 W/m·K). Source: Industry standards from Laserax and CleanLaser equipment manuals.'
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -266,7 +241,7 @@ machine_settings:
     description: 'Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid damage. Recommended 2 passes
       for Ruthenium to ensure complete removal while respecting thermal properties. Source: Industry case studies (e.g., laser
       cleaning of catalytic surfaces in chemical engineering reports).'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     unit: '%'
@@ -274,5 +249,13 @@ machine_settings:
     description: 'Ensures uniform coverage without gaps or over-ablation; 50% optimal for Ruthenium to prevent uneven heating
       on reflective surfaces. Typical range 30-80% based on scan patterns. Source: Process optimization studies (e.g., Journal
       of Laser Applications on scan overlap for metal surface treatment).'
-component_summary: These settings leverage 1064 nm wavelength for strong Ruthenium absorption, with 200 W power and 8 ns pulses
+  power:
+    min: 50
+    max: 500
+    value: 200
+    unit: W
+    description: 'Typical range for industrial Nd:YAG laser cleaning of reflective metals like Ruthenium; starting at 200
+      W balances efficiency and heat input to avoid melting (melting point ~2334°C). Source: IPG Photonics YLR series specs
+      and general metal cleaning guidelines (e.g., SPIE proceedings on laser ablation).'
+componentSummary: These settings leverage 1064 nm wavelength for strong Ruthenium absorption, with 200 W power and 8 ns pulses
   to precisely ablate surface contaminants without inducing thermal oxidation or substrate damage.

@@ -4,7 +4,7 @@ displayName: Polyethylene Laser Cleaning Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.442086+00:00'
+dateModified: '2026-01-08T03:29:12.176805+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/polyethylene-settings
@@ -38,7 +38,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -61,8 +61,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -79,7 +79,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -93,9 +93,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -109,9 +116,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -127,16 +139,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Low melting/degradation temperatures
           severity: high
-          threshold_range: 80-300°C depending on polymer type
+          thresholdRange: 80-300°C depending on polymer type
           impact: Melting, warping, or chemical degradation at low temperatures
           solutions:
           - Use lowest power settings (20-40W)
@@ -149,7 +166,7 @@ relationships:
           - Mandatory fume extraction system
           - Work in well-ventilated areas
           - Monitor for smoke/discoloration
-        contamination_challenges:
+        contaminationChallenges:
         - challenge: Coating and label removal
           severity: medium
           impact: Adhesives melt and smear rather than ablate cleanly
@@ -157,10 +174,18 @@ relationships:
           - Use UV wavelength (355nm) for better photochemical ablation
           - Multiple gentle passes instead of single high-power pass
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Polyethylene surface cleaning without thermal damage
     unit: W
@@ -174,56 +199,38 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning control
-    unit: μm
-    value: 50
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for 1064 nm cleaning; 50-200 μm for fine surface prep on polyethylene, 200-500 μm for
+      large areas. 200 μm recommended for uniform energy distribution without hotspots on reflective PE. Source: Equipment
+      specs from Trumpf and SPI Lasers, application notes for polymer processing.'
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical 10-100 kHz for pulsed fiber lasers in cleaning; 30 kHz recommended for polyethylene to achieve fast
+      coverage while minimizing heat accumulation (trade-off: higher rates speed up process but risk melting). Source: Academic
+      literature on ns-laser cleaning of plastics (e.g., Lasers Med. Sci. 2017).'
   energyDensity:
-    description: Fluence threshold for effective Polyethylene removal
-    unit: J/cm²
-    value: 5.1
     min: 0.1
     max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal on polyethylene; damage threshold ~1.2-1.5 J/cm² at 1064 nm due to
+      PE''s reflectivity (~90% at IR) and low melting point. 0.5 J/cm² recommended for safe cleaning of organics. Source:
+      Ablation threshold studies in J. Phys. D: Appl. Phys. (2015) and Opt. Express (2021).'
   pulseWidth:
-    description: Nanosecond pulse duration for controlled material removal
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime (5-100 ns) preferred for industrial cleaning of polyethylene to ablate contaminants without
+      excessive heat; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. 20 ns recommended to limit thermal
+      diffusion in low-conductivity PE. Source: Laser physics reviews in Appl. Phys. A (2019) on polymer ablation thresholds.'
   scanSpeed:
-    description: Optimal scanning speed for uniform surface treatment
-    unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
-  passCount:
-    description: Recommended number of passes for complete contaminant removal
-    unit: passes
-    value: 2
-    min: 1
-    max: 10
-  overlapRatio:
-    description: Optimal beam overlap for uniform cleaning coverage
-    unit: '%'
-    value: 50
-    min: 10
-    max: 90
-  power:
-    min: 50
-    max: 500
-    value: 150
-    unit: W
-    description: 'Typical range for industrial fiber lasers cleaning polymers like polyethylene to avoid melting (melting
-      point ~110-130°C); starting at 150W for light contamination. Max safe ~500W to prevent substrate damage. Source: IPG
-      Photonics YLR series specs and studies on polymer ablation (e.g., Opt. Lasers Eng. 2018).'
-  scan_speed:
     min: 10
     max: 5000
     value: 500
@@ -232,39 +239,7 @@ machine_settings:
       oils, faster (500-2000 mm/s) for light dust. Recommended 500 mm/s balances efficiency and heat control given PE''s low
       thermal conductivity (~0.3 W/mK). Source: Industry manuals from Laserax and Coherent, process optimization in J. Clean.
       Prod. 2020.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime (5-100 ns) preferred for industrial cleaning of polyethylene to ablate contaminants without
-      excessive heat; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but costlier. 20 ns recommended to limit thermal
-      diffusion in low-conductivity PE. Source: Laser physics reviews in Appl. Phys. A (2019) on polymer ablation thresholds.'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical 10-100 kHz for pulsed fiber lasers in cleaning; 30 kHz recommended for polyethylene to achieve fast
-      coverage while minimizing heat accumulation (trade-off: higher rates speed up process but risk melting). Source: Academic
-      literature on ns-laser cleaning of plastics (e.g., Lasers Med. Sci. 2017).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.5
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal on polyethylene; damage threshold ~1.2-1.5 J/cm² at 1064 nm due to
-      PE''s reflectivity (~90% at IR) and low melting point. 0.5 J/cm² recommended for safe cleaning of organics. Source:
-      Ablation threshold studies in J. Phys. D: Appl. Phys. (2015) and Opt. Express (2021).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for 1064 nm cleaning; 50-200 μm for fine surface prep on polyethylene, 200-500 μm for
-      large areas. 200 μm recommended for uniform energy distribution without hotspots on reflective PE. Source: Equipment
-      specs from Trumpf and SPI Lasers, application notes for polymer processing.'
-  pass_count:
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -272,7 +247,7 @@ machine_settings:
     description: '1-3 passes for light contamination removal, up to 5 for heavy layers; multi-pass preferred over single high-energy
       pass to avoid PE damage. 2 passes recommended for industrial prep. Source: Case studies in Surf. Coat. Technol. (2019)
       and industry practices from Adapt Laser Systems.'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 50
@@ -280,5 +255,13 @@ machine_settings:
     description: '30-80% overlap ensures uniform coverage in scan patterns; 50% recommended for polyethylene to prevent gaps
       or overexposure, optimizing for even cleaning on irregular surfaces. Source: Process optimization in Int. J. Adv. Manuf.
       Technol. (2022) and laser scanning guidelines from scanning head manufacturers like Scanlab.'
-component_summary: These settings employ a 1064 nm wavelength for selective contaminant absorption, moderate 150 W power,
-  and 10 ns pulses to gently remove surface dirt from heat-sensitive Polyethylene without causing melting or deformation.
+  power:
+    min: 50
+    max: 500
+    value: 150
+    unit: W
+    description: 'Typical range for industrial fiber lasers cleaning polymers like polyethylene to avoid melting (melting
+      point ~110-130°C); starting at 150W for light contamination. Max safe ~500W to prevent substrate damage. Source: IPG
+      Photonics YLR series specs and studies on polymer ablation (e.g., Opt. Lasers Eng. 2018).'
+componentSummary: These settings employ a 1064 nm wavelength for selective contaminant absorption, moderate 150 W power, and
+  10 ns pulses to gently remove surface dirt from heat-sensitive Polyethylene without causing melting or deformation.

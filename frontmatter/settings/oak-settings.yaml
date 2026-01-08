@@ -4,7 +4,7 @@ displayName: Oak Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:44.008477+00:00'
+dateModified: '2026-01-08T03:29:10.775997+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/oak-settings
@@ -37,7 +37,7 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  country_display: Italy
+  countryDisplay: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
@@ -60,8 +60,8 @@ author:
   sameAs:
   - https://scholar.google.com/citations?user=def456
   - https://linkedin.com/in/alessandro-moretti-engineer
-  persona_file: italy_persona.yaml
-  formatting_file: italy_formatting.yaml
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 card:
   default:
@@ -78,7 +78,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -92,9 +92,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -108,9 +115,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -122,25 +134,38 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - id: charring-carbonization
           type: challenge
         - id: slow-thermal-diffusivity
           type: challenge
-        contamination_challenges:
+        contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Oak surface cleaning without charring
     unit: W
@@ -154,47 +179,60 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning resolution
-    unit: μm
-    value: 100
     min: 0.1
     max: 500
+    unit: μm
+    value: 200
+    description: 'Beam diameter for precise industrial cleaning; smaller for fine details on oak surfaces (e.g., engravings),
+      larger for broad areas; 200 μm recommended for uniform contaminant removal without excessive overlap heating. Source:
+      Equipment specs from Coherent and Trumpf lasers.'
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for 1064 nm cleaning; 30 kHz recommended for oak to achieve fast coverage without excessive heat
+      accumulation, as higher rates (>50 kHz) risk charring due to oak''s low reflectivity (~10-20% at 1064 nm). Trade-off:
+      higher freq speeds process but increases thermal load. Source: Academic literature, Applied Surface Science (2020).'
   energyDensity:
-    description: Fluence threshold for effective contaminant removal without wood damage
-    unit: J/cm²
-    value: 2.5
     min: 0.1
     max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal on wood; oak damage threshold ~3-5 J/cm² (ablation starts at ~1 J/cm²
+      for organics); 1.5 J/cm² safe for cleaning without degrading cellulose structure. Conservative due to oak''s melting/decomposition
+      point ~200-300°C. Source: Ablation threshold studies in Journal of Applied Physics (2017).'
   pulseWidth:
-    description: Nanosecond pulse duration for controlled ablation of contaminants
-    unit: ns
-    value: 10
     min: 0.1
     max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for industrial cleaning of oak to minimize heat-affected zone (HAZ <50 μm);
+      picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; 20 ns balances ablation of contaminants
+      with oak''s sensitivity to thermal damage. Source: Laser physics research in Optics & Lasers in Engineering (2018).'
   scanSpeed:
-    description: Optimal scanning speed for uniform cleaning coverage
-    unit: mm/s
-    value: 500
     min: 10
     max: 5000
+    unit: mm/s
+    value: 500
+    description: 'Effective speeds for 1064 nm cleaning of oak; slower for heavy contamination (e.g., mold or grease) to ensure
+      removal, faster for light dust; 500 mm/s optimal for balancing efficiency and heat control. Source: Industry manuals
+      from IPG Photonics and Adapt Laser Systems.'
   passCount:
-    description: Recommended number of passes for complete surface cleaning
-    unit: passes
-    value: 3
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for oak to ensure complete
+      removal while monitoring for discoloration. Source: Industry case studies on wood restoration (e.g., Laser Cleaning
+      Conference proceedings, 2019).'
   overlapRatio:
-    description: Optimal beam overlap for uniform cleaning pattern
-    unit: '%'
-    value: 50
     min: 10
     max: 90
+    value: 50
+    unit: '%'
+    description: 'Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing
+      over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021).'
   dwellTime:
     description: Optimal dwell time per cleaning spot
     unit: μs
@@ -209,60 +247,5 @@ machine_settings:
     description: 'Typical range for pulsed Nd:YAG lasers in wood cleaning to remove contaminants without charring; starting
       at 50 W for light soiling on oak, max limited by oak''s low thermal conductivity (~0.17 W/m·K) to avoid substrate damage.
       Source: Studies on laser cleaning of wooden artifacts (e.g., Journal of Cultural Heritage, 2015).'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 500
-    description: 'Effective speeds for 1064 nm cleaning of oak; slower for heavy contamination (e.g., mold or grease) to ensure
-      removal, faster for light dust; 500 mm/s optimal for balancing efficiency and heat control. Source: Industry manuals
-      from IPG Photonics and Adapt Laser Systems.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning of oak to minimize heat-affected zone (HAZ <50 μm);
-      picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; 20 ns balances ablation of contaminants
-      with oak''s sensitivity to thermal damage. Source: Laser physics research in Optics & Lasers in Engineering (2018).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for 1064 nm cleaning; 30 kHz recommended for oak to achieve fast coverage without excessive heat
-      accumulation, as higher rates (>50 kHz) risk charring due to oak''s low reflectivity (~10-20% at 1064 nm). Trade-off:
-      higher freq speeds process but increases thermal load. Source: Academic literature, Applied Surface Science (2020).'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal on wood; oak damage threshold ~3-5 J/cm² (ablation starts at ~1 J/cm²
-      for organics); 1.5 J/cm² safe for cleaning without degrading cellulose structure. Conservative due to oak''s melting/decomposition
-      point ~200-300°C. Source: Ablation threshold studies in Journal of Applied Physics (2017).'
-  spot_size:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Beam diameter for precise industrial cleaning; smaller for fine details on oak surfaces (e.g., engravings),
-      larger for broad areas; 200 μm recommended for uniform contaminant removal without excessive overlap heating. Source:
-      Equipment specs from Coherent and Trumpf lasers.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for oak to ensure complete
-      removal while monitoring for discoloration. Source: Industry case studies on wood restoration (e.g., Laser Cleaning
-      Conference proceedings, 2019).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing
-      over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021).'
-component_summary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants
+componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants
   from oak without causing charring or thermal degradation of the wood's delicate fibers.

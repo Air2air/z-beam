@@ -3,9 +3,8 @@ name: Cadmium Oxide
 displayName: Cadmium Oxide (CdO)
 category: particulate
 subcategory: metal-oxide
-hazard_class: toxic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:14.217655+00:00'
+dateModified: '2026-01-08T03:28:14.361943+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/cadmium-oxide-compound
@@ -22,10 +21,163 @@ pageTitle: Cadmium Oxide
 pageDescription: Cadmium Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
 metaDescription: Cadmium Oxide laser cleaning guide. Technical specifications and applications.
-chemical_formula: CdO
-cas_number: 1306-19-0
-molecular_weight: 128.41
-health_effects: 'When handling cadmium oxide particulates in industrial settings, you''ll want to prioritize its high toxicity
+images:
+  hero:
+    url: /images/compound/cadmium-oxide-compound-hero.jpg
+    alt: Cadmium Oxide laser cleaning visualization showing process effects
+    width: 1200
+    height: 630
+  micro:
+    url: /images/compound/cadmium-oxide-compound-micro.jpg
+    alt: Cadmium Oxide microscopic detail view showing surface characteristics
+    width: 800
+    height: 600
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+card:
+  default:
+    heading: Cadmium Oxide
+    subtitle: particulate / metal-oxide
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: flask
+  contaminationContext:
+    heading: Cadmium Oxide
+    subtitle: Emission Product
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: alert-triangle
+relationships:
+  interactions:
+    producedFromContaminants:
+      presentation: card
+      items:
+      - id: cadmium-plating-contamination
+        frequency: unknown
+        severity: high
+        typicalContext: Laser removal of Cadmium Plating Removal
+      - id: cadmium-plating-contamination
+        frequency: unknown
+        severity: high
+        typicalContext: Laser removal of Cadmium Plating Removal
+      - id: cadmium-plating-contamination
+        frequency: unknown
+        severity: high
+        typicalContext: Laser removal of Cadmium Plating Removal
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: producedFromContaminants
+          group: interactions
+          domain: compounds
+          icon: box
+          order: 12
+          variant: default
+          schemaDescription: Contaminants that produce this compound
+          notes: Links to contaminant pages
+    producedFromMaterials:
+      presentation: card
+      items:
+      - id: cast-iron-laser-cleaning
+      - id: iron-laser-cleaning
+      - id: stainless-steel-laser-cleaning
+      - id: steel-laser-cleaning
+      - id: tool-steel-laser-cleaning
+      - id: stainless-steel-316-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: producedFromMaterials
+          group: interactions
+          domain: compounds
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Links to material pages
+  safety:
+    healthEffects:
+      items:
+      - route: inhalation
+        effect: Acute respiratory irritation and pulmonary edema
+        severity: severe
+        onset: immediate
+      - route: inhalation
+        effect: Chronic lung damage including emphysema and increased risk of lung cancer
+        severity: severe
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation and possible burns
+        severity: moderate
+        onset: immediate
+      - route: eye_contact
+        effect: Severe eye irritation and conjunctivitis
+        severity: high
+        onset: immediate
+      presentation: card
+      _section:
+        icon: heart-pulse
+        sectionMetadata:
+          relationshipType: healthEffects
+          group: safety
+          domain: compounds
+          icon: heart-pulse
+          order: 21
+          variant: warning
+          schemaDescription: Health hazards and exposure effects
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+hazardClass: toxic
+chemicalFormula: CdO
+casNumber: 1306-19-0
+molecularWeight: 128.41
+healthEffects: 'When handling cadmium oxide particulates in industrial settings, you''ll want to prioritize its high toxicity
   right from the start. This compound, often encountered in ceramics, pigments, or battery production, releases fine particles
   that can easily become airborne during processes like laser cleaning. Because it''s so reactive in dust form, even brief
   exposure tends to irritate the respiratory system immediately, leading to coughing or shortness of breath if you''re not
@@ -50,7 +202,11 @@ health_effects: 'When handling cadmium oxide particulates in industrial settings
   Finally, always treat cadmium oxide as a non-negotiable health threat—prolonged contact, whether through skin absorption
   or ingestion from contaminated hands, can lead to severe neurological effects or even long-term organ damage, so consult
   safety data sheets and rotate shifts to limit exposure in any application.'
-exposure_guidelines: 'Handling cadmium oxide particles requires careful attention to avoid health risks from their toxic nature.
+healthEffectsKeywords:
+- carcinogenic
+- kidney_damage
+- pulmonary_edema
+exposureGuidelines: 'Handling cadmium oxide particles requires careful attention to avoid health risks from their toxic nature.
   Workers often face challenges in dusty environments where these fine particulates can linger in the air. Proper ventilation
   setups help mitigate this by keeping exposure levels low during industrial tasks like ceramics production or electronics
   manufacturing.
@@ -66,7 +222,7 @@ exposure_guidelines: 'Handling cadmium oxide particles requires careful attentio
   occurs. Training on these protocols builds confidence in managing the compound''s reactive properties safely over time.
   Spills call for immediate containment with absorbent materials, followed by thorough disposal in sealed containers to avoid
   environmental spread.'
-detection_methods: Spotting cadmium oxide particles in a mix of materials often proves tricky because they blend into surroundings
+detectionMethods: Spotting cadmium oxide particles in a mix of materials often proves tricky because they blend into surroundings
   without clear visual cues, yet tackling this head-on through targeted techniques reveals their presence reliably. Researchers
   turn to optical spectroscopy, where light absorption patterns highlight the compound's distinct yellowish hue and reflective
   qualities, making it stand out against other particulates without invasive steps. In industrial settings, like monitoring
@@ -75,7 +231,7 @@ detection_methods: Spotting cadmium oxide particles in a mix of materials often 
   heat-resistant surface, causing selective vaporization that exposes underlying layers while scattering signals confirm the
   compound's removal—ideal for restoring metal surfaces in manufacturing. These approaches leverage the material's durable
   nature and opacity, ensuring safe handling in applications from electronics to ceramics without relying on harsh chemicals.
-first_aid: 'Accidents happen fast with cadmium oxide dust. Inhalation irritates lungs right away. Get fresh air immediately.
+firstAid: 'Accidents happen fast with cadmium oxide dust. Inhalation irritates lungs right away. Get fresh air immediately.
   Move the person outside or to a ventilated spot. If breathing stops, start rescue breaths— but only if trained.
 
 
@@ -89,150 +245,7 @@ first_aid: 'Accidents happen fast with cadmium oxide dust. Inhalation irritates 
 
   Always seek professional medical care after any exposure. Cadmium builds up in the body over time. Early treatment prevents
   worse harm. Wear protective gear in handling areas to avoid repeats.'
-images:
-  hero:
-    url: /images/compound/cadmium-oxide-compound-hero.jpg
-    alt: Cadmium Oxide laser cleaning visualization showing process effects
-    width: 1200
-    height: 630
-  micro:
-    url: /images/compound/cadmium-oxide-compound-micro.jpg
-    alt: Cadmium Oxide microscopic detail view showing surface characteristics
-    width: 800
-    height: 600
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-  slug: todd-dunning
-health_effects_keywords:
-- carcinogenic
-- kidney_damage
-- pulmonary_edema
-monitoring_required: true
-typical_concentration_range: 0.001-0.005 mg/m³
-sources_in_laser_cleaning:
-- cadmium_plating_removal
-- yellow_pigment_removal
-- aerospace_coating_ablation
-card:
-  default:
-    heading: Cadmium Oxide
-    subtitle: particulate / metal-oxide
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: flask
-  contamination_context:
-    heading: Cadmium Oxide
-    subtitle: Emission Product
-    badge:
-      text: Low Hazard
-      variant: info
-    metric:
-      value: N/A
-      unit: ppm
-      legend: Exposure Limit
-    severity: low
-    icon: alert-triangle
-relationships:
-  interactions:
-    produced_from_contaminants:
-      presentation: card
-      items:
-      - id: cadmium-plating-contamination
-        frequency: unknown
-        severity: high
-        typical_context: Laser removal of Cadmium Plating Removal
-      - id: cadmium-plating-contamination
-        frequency: unknown
-        severity: high
-        typical_context: Laser removal of Cadmium Plating Removal
-      - id: cadmium-plating-contamination
-        frequency: unknown
-        severity: high
-        typical_context: Laser removal of Cadmium Plating Removal
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          notes: Links to contaminant pages
-          relationship_type: produced_from
-    produced_from_materials:
-      presentation: card
-      items:
-      - id: cast-iron-laser-cleaning
-      - id: iron-laser-cleaning
-      - id: stainless-steel-laser-cleaning
-      - id: steel-laser-cleaning
-      - id: tool-steel-laser-cleaning
-      - id: stainless-steel-316-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          notes: Links to material pages
-          relationship_type: produced_from
-  safety:
-    health_effects:
-      items:
-      - route: inhalation
-        effect: Acute respiratory irritation and pulmonary edema
-        severity: severe
-        onset: immediate
-      - route: inhalation
-        effect: Chronic lung damage including emphysema and increased risk of lung cancer
-        severity: severe
-        onset: long-term
-      - route: skin_contact
-        effect: Skin irritation and possible burns
-        severity: moderate
-        onset: immediate
-      - route: eye_contact
-        effect: Severe eye irritation and conjunctivitis
-        severity: high
-        onset: immediate
-      presentation: card
-      _section:
-        section_title: Health Effects
-        description: Adverse health impacts from exposure to this compound
-        icon: heart-pulse
-ppe_requirements: 'Handling cadmium oxide as a fine particulate in industrial settings demands careful protection from inhalation
+ppeRequirements: 'Handling cadmium oxide as a fine particulate in industrial settings demands careful protection from inhalation
   and skin contact. Start by assessing the workspace setup—ensure good ventilation before diving into tasks like mixing or
   laser cleaning processes. Workers need full-face respirators fitted with particulate filters to block airborne dust effectively.
   Pair that with chemical-resistant gloves made from nitrile or similar materials, covering hands completely during handling
@@ -249,6 +262,12 @@ ppe_requirements: 'Handling cadmium oxide as a fine particulate in industrial se
   oxide layer. Always include hearing protection if machinery noise ramps up, and prioritize washing stations nearby for quick
   decontamination after shifts. Training on proper donning and doffing keeps everyone safe, turning routine operations into
   low-risk routines.'
+monitoringRequired: true
+typicalConcentrationRange: 0.001-0.005 mg/m³
+sourcesInLaserCleaning:
+- cadmium_plating_removal
+- yellow_pigment_removal
+- aerospace_coating_ablation
 faq:
   presentation: collapsible
   items:

@@ -4,7 +4,7 @@ displayName: Soda-Lime Glass Laser Cleaning Settings
 category: glass
 subcategory: specialty-glass
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:45.808330+00:00'
+dateModified: '2026-01-08T03:29:16.660426+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/specialty-glass/soda-lime-glass-settings
@@ -38,7 +38,7 @@ author:
   id: 1
   name: Yi-Chun Lin
   country: Taiwan
-  country_display: Taiwan
+  countryDisplay: Taiwan
   title: Ph.D.
   sex: f
   jobTitle: Laser Processing Engineer
@@ -60,8 +60,8 @@ author:
   - https://scholar.google.com/citations?user=ghi789
   - https://linkedin.com/in/yi-chun-lin-engineer
   - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  persona_file: taiwan_persona.yaml
-  formatting_file: taiwan_formatting.yaml
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
 card:
   default:
@@ -78,7 +78,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -92,9 +92,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -108,9 +115,14 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
-    works_on_materials:
+    worksOnMaterials:
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -126,16 +138,21 @@ relationships:
         order: 2
         variant: default
         sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to material pages
-          relationship_type: works_on_materials
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
-      - thermal_management:
+      - thermalManagement:
         - challenge: Thermal shock and catastrophic failure
           severity: critical
-          threshold_temperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+          thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
           impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
           solutions:
           - Use pulse mode with 5-8 second cooling between passes
@@ -145,21 +162,29 @@ relationships:
           - Monitor for stress fractures; stop immediately if cracks appear
         - challenge: Low thermal diffusivity
           severity: high
-          property_value: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+          propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
           impact: Heat accumulates in localized zones creating thermal gradients
           solutions:
           - Reduce power by 30-40% compared to metals
           - Increase scan speed to distribute heat (1000-2000 mm/s)
           - Use defocused beam to spread energy over larger area
           - Optical-grade glass (fused silica) tolerates higher power
-        contamination_challenges:
+        contaminationChallenges:
         - id: adhesive-paint-removal
           type: challenge
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     description: Optimal average power for Soda-Lime Glass surface cleaning without thermal damage
     unit: W
@@ -173,23 +198,31 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    description: Beam spot diameter for precise cleaning with adequate energy density
-    unit: μm
-    value: 100
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for precision cleaning; smaller spots (100 μm) for fine details on glass, larger (500
+      μm) for broad areas. Recommended 200 μm suits industrial surface preparation on soda-lime glass to ensure uniform fluence.
+      Source: Equipment specifications from Trumpf and CleanLaser systems; process studies in Applied Optics (2020).'
   repetitionRate:
-    description: Optimal repetition rate for efficient cleaning coverage and thermal management
-    unit: kHz
-    value: 50
     min: 1
     max: 200
+    unit: kHz
+    value: 50
+    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates speed up process but risk heat accumulation on low-conductivity
+      glass (reflectivity ~4% at 1064 nm). Recommended 50 kHz for optimal balance in contaminant removal without substrate
+      heating. Source: Academic literature in Optics Express (e.g., Anisimov et al., 2015) on repetition rate effects in laser
+      ablation of glasses.'
   scanSpeed:
-    description: Scan velocity for effective cleaning with controlled thermal input
-    unit: mm/s
-    value: 1150
     min: 10
     max: 5000
+    value: 1500
+    unit: mm/s
+    description: 'Effective range for contaminant removal on glass surfaces; slower speeds (e.g., 500 mm/s) for heavy contamination
+      like oils/paints, faster (up to 3000 mm/s) for light dust. Recommended 1500 mm/s balances efficiency and minimal heat
+      input. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems);
+      case studies in Journal of Cultural Heritage (2018) for glass artifacts.'
   power:
     min: 50
     max: 500
@@ -199,16 +232,7 @@ machine_settings:
       to remove contaminants without thermal damage; starting at 100 W for controlled ablation. Max limited to avoid heat
       accumulation given glass''s low thermal conductivity (~1 W/m·K). Source: Manufacturer specs from IPG Photonics and Coherent
       for YAG lasers; academic review in ''Laser Cleaning'' by Kononenko et al. (Optics and Lasers in Engineering, 2016).'
-  scan_speed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective range for contaminant removal on glass surfaces; slower speeds (e.g., 500 mm/s) for heavy contamination
-      like oils/paints, faster (up to 3000 mm/s) for light dust. Recommended 1500 mm/s balances efficiency and minimal heat
-      input. Source: Industry standards from Laser Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems);
-      case studies in Journal of Cultural Heritage (2018) for glass artifacts.'
-  pulse_width:
+  pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
@@ -217,16 +241,7 @@ machine_settings:
       ejection; picosecond (ps) or femtosecond (fs) reduce heat-affected zone (HAZ) but are overkill for most industrial glass
       cleaning due to transparency at 1064 nm. Recommended 20 ns minimizes thermal diffusion in glass (melting point ~500°C).
       Source: Laser physics research in Applied Surface Science (e.g., Palmieri et al., 2019) on ns vs. ps for dielectrics.'
-  repetition_rate:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 50
-    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates speed up process but risk heat accumulation on low-conductivity
-      glass (reflectivity ~4% at 1064 nm). Recommended 50 kHz for optimal balance in contaminant removal without substrate
-      heating. Source: Academic literature in Optics Express (e.g., Anisimov et al., 2015) on repetition rate effects in laser
-      ablation of glasses.'
-  energy_density:
+  energyDensity:
     min: 0.1
     max: 20.0
     value: 0.5
@@ -235,15 +250,7 @@ machine_settings:
       is ~10-15 J/cm², so stay below 2 J/cm². Recommended 0.5 J/cm² for effective removal of industrial contaminants like
       rust/oils without cracking. Source: Ablation threshold studies in Journal of Applied Physics (e.g., Stuart et al., 1996)
       and Laser & Particle Beams (2017) for IR cleaning of dielectrics.'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for precision cleaning; smaller spots (100 μm) for fine details on glass, larger (500
-      μm) for broad areas. Recommended 200 μm suits industrial surface preparation on soda-lime glass to ensure uniform fluence.
-      Source: Equipment specifications from Trumpf and CleanLaser systems; process studies in Applied Optics (2020).'
-  pass_count:
+  passCount:
     min: 1
     max: 10
     value: 2
@@ -252,7 +259,7 @@ machine_settings:
       energy and avoid damage. Recommended 2 passes for complete removal in industrial settings. Source: Industry practice
       from case studies in Surface and Coatings Technology (e.g., 2014 paper on glass cleaning) and manufacturer guidelines
       (e.g., Lasertec).'
-  overlap_ratio:
+  overlapRatio:
     min: 10
     max: 90
     value: 50
@@ -261,5 +268,5 @@ machine_settings:
       ensure even cleaning while minimizing total energy input and potential thermal stress. Source: Process optimization
       studies in Lasers in Manufacturing and Materials Processing (2019) and industry standards from SPIE proceedings on scan
       strategies.'
-component_summary: The 100 W power and 1064 nm wavelength effectively clean Soda Lime Glass by minimizing absorption in its
+componentSummary: The 100 W power and 1064 nm wavelength effectively clean Soda Lime Glass by minimizing absorption in its
   transparent matrix, removing surface contaminants without risking thermal cracking or damage.

@@ -4,7 +4,7 @@ displayName: Acrylic (PMMA) Laser Cleaning Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T00:59:46.945809+00:00'
+dateModified: '2026-01-08T03:29:19.355979+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/acrylic-pmma-settings
@@ -36,7 +36,7 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  country_display: United States
+  countryDisplay: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
@@ -58,8 +58,8 @@ author:
   sameAs:
   - https://linkedin.com/in/todd-dunning-optics
   - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
   slug: todd-dunning
 card:
   default:
@@ -76,7 +76,7 @@ card:
     icon: settings
 relationships:
   safety:
-    regulatory_standards:
+    regulatoryStandards:
       presentation: card
       items:
       - type: regulatory_standards
@@ -90,9 +90,16 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
           notes: Compliance requirements
   interactions:
-    removes_contaminants:
+    removesContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
@@ -106,20 +113,33 @@ relationships:
         order: 1
         variant: default
         sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
           notes: Cross-references to contaminant pages
-          relationship_type: removes_contaminants
   operational:
-    common_challenges:
+    commonChallenges:
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
       _section:
-        section_title: Common Challenges
-        description: Technical challenges and optimization strategies for these settings
         icon: triangle-exclamation
-machine_settings:
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+machineSettings:
   powerRange:
     value: 30
     unit: W
@@ -133,47 +153,60 @@ machine_settings:
     min: 355
     max: 10640
   spotSize:
-    value: 100
-    unit: μm
-    description: Larger spot for gentle surface treatment
     min: 0.1
     max: 500
+    value: 200
+    unit: μm
+    description: 'Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for broad areas; 200 μm recommended
+      for uniform PMMA surface prep considering beam reflectivity. Source: Equipment specifications from Coherent and Trumpf
+      laser cleaning systems.'
   repetitionRate:
-    value: 20
-    unit: kHz
-    description: Lower frequency to prevent thermal damage
     min: 1
     max: 200
+    value: 20
+    unit: kHz
+    description: 'Standard for cleaning applications; 20 kHz recommended for PMMA to enable fast processing while minimizing
+      heat buildup (higher rates increase accumulation risk). Trade-off: higher freq speeds cleaning but risks substrate damage.
+      Source: Academic literature from Journal of Applied Physics on pulsed laser interactions with polymers.'
   energyDensity:
-    value: 0.5
-    unit: J/cm²
-    description: Low energy density to avoid melting
     min: 0.1
     max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: 'Fluence below PMMA damage threshold (~1.5-2 J/cm² at 1064 nm for ns pulses) for safe contaminant removal;
+      0.5 J/cm² optimal to ablate surface layers without substrate melting. Source: Ablation threshold studies in Applied
+      Surface Science (e.g., PMMA IR laser interactions).'
   pulseWidth:
-    value: 10
-    unit: ns
-    description: Short pulses for minimal thermal impact
     min: 0.1
     max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime typical for industrial 1064 nm cleaning; picosecond (ps) or femtosecond preferred for
+      minimal HAZ but less common. 20 ns recommended to reduce heat accumulation in PMMA. Source: Laser physics research in
+      Optics & Laser Technology (e.g., studies on polymer ablation thresholds).'
   scanSpeed:
-    value: 800
-    unit: mm/s
-    description: Fast scanning to reduce heat accumulation
     min: 10
     max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective range for contaminant removal; slower (500-1500 mm/s) for heavy contamination, faster (2000-5000
+      mm/s) for light. Recommended 2000 mm/s balances speed and control for PMMA''s low thermal conductivity. Source: Industry
+      standards from Laserax equipment manuals.'
   passCount:
-    value: 2
-    unit: passes
-    description: Multiple gentle passes for gradual cleaning
     min: 1
     max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PMMA
+      cleaning without excessive exposure. Source: Industry case studies from laser cleaning applications in plastics processing
+      (e.g., SPIE proceedings).'
   overlapRatio:
-    value: 30
-    unit: '%'
-    description: Lower overlap to prevent overheating
     min: 10
     max: 90
+    value: 70
+    unit: '%'
+    description: 'Ensures uniform coverage; 70% recommended for even energy distribution on PMMA to prevent uneven heating
+      or missed spots. Source: Process optimization studies in Laser Cleaning Handbook and academic papers on scan strategies.'
   power:
     min: 10
     max: 100
@@ -182,60 +215,5 @@ machine_settings:
     description: 'Typical range for pulsed Nd:YAG lasers in polymer cleaning to avoid thermal damage; starting at 30W for
       PMMA surface preparation. Max safe ~100W before melting (PMMA melting point ~160°C). Source: Manufacturer specs from
       IPG Photonics and Adapt Laser Systems for delicate substrates.'
-  scan_speed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: 'Effective range for contaminant removal; slower (500-1500 mm/s) for heavy contamination, faster (2000-5000
-      mm/s) for light. Recommended 2000 mm/s balances speed and control for PMMA''s low thermal conductivity. Source: Industry
-      standards from Laserax equipment manuals.'
-  pulse_width:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime typical for industrial 1064 nm cleaning; picosecond (ps) or femtosecond preferred for
-      minimal HAZ but less common. 20 ns recommended to reduce heat accumulation in PMMA. Source: Laser physics research in
-      Optics & Laser Technology (e.g., studies on polymer ablation thresholds).'
-  repetition_rate:
-    min: 1
-    max: 200
-    value: 20
-    unit: kHz
-    description: 'Standard for cleaning applications; 20 kHz recommended for PMMA to enable fast processing while minimizing
-      heat buildup (higher rates increase accumulation risk). Trade-off: higher freq speeds cleaning but risks substrate damage.
-      Source: Academic literature from Journal of Applied Physics on pulsed laser interactions with polymers.'
-  energy_density:
-    min: 0.1
-    max: 20.0
-    value: 0.5
-    unit: J/cm²
-    description: 'Fluence below PMMA damage threshold (~1.5-2 J/cm² at 1064 nm for ns pulses) for safe contaminant removal;
-      0.5 J/cm² optimal to ablate surface layers without substrate melting. Source: Ablation threshold studies in Applied
-      Surface Science (e.g., PMMA IR laser interactions).'
-  spot_size:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Smaller spots (50-200 μm) for fine detail cleaning, larger (200-500 μm) for broad areas; 200 μm recommended
-      for uniform PMMA surface prep considering beam reflectivity. Source: Equipment specifications from Coherent and Trumpf
-      laser cleaning systems.'
-  pass_count:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PMMA
-      cleaning without excessive exposure. Source: Industry case studies from laser cleaning applications in plastics processing
-      (e.g., SPIE proceedings).'
-  overlap_ratio:
-    min: 10
-    max: 90
-    value: 70
-    unit: '%'
-    description: 'Ensures uniform coverage; 70% recommended for even energy distribution on PMMA to prevent uneven heating
-      or missed spots. Source: Process optimization studies in Laser Cleaning Handbook and academic papers on scan strategies.'
-component_summary: These settings employ moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from
+componentSummary: These settings employ moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from
   heat-sensitive Acrylic PMMA without causing melting or surface deformation.
