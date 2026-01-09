@@ -4,7 +4,7 @@ displayName: PAHs
 category: carcinogen
 subcategory: aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:11:59.977327+00:00'
+dateModified: '2026-01-09T05:26:35.506904+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic_hydrocarbon/pahs-compound
@@ -143,6 +143,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 5
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -163,6 +165,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 10
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -182,6 +186,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for handling emergencies involving this compound
+        order: 15
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -203,6 +209,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 20
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -252,34 +260,90 @@ relationships:
       presentation: card
       items:
       - id: carbon-buildup-contamination
+        name: Carbon Deposit Buildup
+        title: Carbon Deposit Buildup
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-buildup-contamination
+        image: /images/contaminant/carbon-buildup-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Vaporization and reformation of existing PAHs
       - id: carbon-soot-contamination
+        name: Carbon Soot Deposits
+        title: Carbon Soot Deposits
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-soot-contamination
+        image: /images/contaminant/carbon-soot-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Pre-existing PAHs from incomplete combustion
       - id: fire-damage-contamination
+        name: Fire and Smoke Damage
+        title: Fire and Smoke Damage
+        category: thermal-damage
+        subcategory: fire
+        url: /contaminants/thermal-damage/fire/fire-damage-contamination
+        image: /images/contaminant/fire-damage-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Pre-existing PAHs from fire events
       - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Pyrolysis produces PAHs
       - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: moderate
         typicalContext: Incomplete combustion of organic binders
       - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        title: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: moderate
         typicalContext: Thermal degradation of aromatic polymers
       - id: bitumen-tar-contamination
+        name: Bitumen and Tar Coatings
+        title: Bitumen and Tar Coatings
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+        image: /images/contaminant/bitumen-tar-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Bitumen is rich in PAHs
       - id: exhaust-residue-contamination
+        name: Exhaust System Deposits
+        title: Exhaust System Deposits
+        category: thermal-damage
+        subcategory: fire
+        url: /contaminants/thermal-damage/fire/exhaust-residue-contamination
+        image: /images/contaminant/exhaust-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: high
         typicalContext: Laser removal of Exhaust System Deposits
@@ -409,3 +473,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Polycyclic Aromatic Hydrocarbons

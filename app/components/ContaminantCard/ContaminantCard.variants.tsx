@@ -23,7 +23,7 @@ export interface ContaminantCardProps extends Omit<CardProps, 'variant'> {
 // ================================
 export function ContaminantCardDefault({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ') || '';
+  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ');
   const description = frontmatter?.description || '';
   
   return (
@@ -57,7 +57,7 @@ export function ContaminantCardDefault({ frontmatter, href, className = "" }: Co
 // ================================
 export function ContaminantCardStacked({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ') || '';
+  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ') || '';
   const description = frontmatter?.description || '';
   
   return (
@@ -89,7 +89,7 @@ export function ContaminantCardStacked({ frontmatter, href, className = "" }: Co
 // ================================
 export function ContaminantCardBadge({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ') || '';
+  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ') || '';
   const description = frontmatter?.description || '';
   
   return (
@@ -117,7 +117,7 @@ export function ContaminantCardBadge({ frontmatter, href, className = "" }: Cont
 // ================================
 export function ContaminantCardMinimal({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ') || '';
+  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ') || '';
   const description = frontmatter?.description || '';
   
   return (
@@ -142,7 +142,7 @@ export function ContaminantCardMinimal({ frontmatter, href, className = "" }: Co
 // ================================
 export function ContaminantCardSplit({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ') || '';
+  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ') || '';
   const description = frontmatter?.description || '';
   
   return (
@@ -172,7 +172,7 @@ export function ContaminantCardSplit({ frontmatter, href, className = "" }: Cont
 // ================================
 export function ContaminantCardGradient({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ') || '';
+  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ') || '';
   const description = frontmatter?.description || '';
   
   return (
@@ -204,7 +204,7 @@ export function ContaminantCardGradient({ frontmatter, href, className = "" }: C
 // ================================
 export function ContaminantCardIconBased({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ') || '';
+  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ') || '';
   const description = frontmatter?.description || '';
   
   // Simple icon placeholder based on category

@@ -44,7 +44,7 @@ export function SectionTitle({
           aria-label={ariaLabel}
           aria-describedby={ariaDescribedby}
         >
-          {icon && <span aria-hidden="true">{icon}</span>}
+          {icon && <span className="pr-2" aria-hidden="true">{icon}</span>}
           {title}
         </h2>
         

@@ -12,11 +12,42 @@ import { Collapsible } from '../Collapsible';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { sortByFrequency } from '@/app/utils/gridSorters';
-import { convertCitationsToStandards } from '@/app/utils/layoutHelpers';
-import { getCompoundArticle, getContaminantArticle, getArticle } from '@/app/utils/contentAPI';
 import { getRelationshipSection } from '@/app/utils/relationshipHelpers';
 import ContaminantDatasetDownloader from '../Dataset/ContaminantDatasetDownloader';
 import type { LayoutProps, ContaminantsLayoutProps, SectionConfig } from '@/types';
+
+/**
+ * Denormalized compound item structure
+ * After backend denormalization, each compound will have all required fields
+ */
+interface DenormalizedCompoundItem {
+  id: string;
+  title: string;
+  name: string;
+  category: string;
+  subcategory: string;
+  url: string;
+  image: string;
+  description: string;
+  phase: string;
+  hazardLevel: string;
+}
+
+/**
+ * Denormalized material item structure (Phase 2)
+ * After backend denormalization, each material will have all 8 required fields
+ */
+interface DenormalizedMaterialItem {
+  id: string;
+  name: string;
+  category: string;
+  subcategory: string;
+  url: string;
+  image: string;
+  description: string;
+  frequency: string;
+  difficulty: string;
+}
 
 // Re-export for convenience
 export type { ContaminantsLayoutProps };
@@ -29,112 +60,26 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   const thumbnailLink = `/contaminants/${category}/${subcategory}/${slug}`;
   const heroImage = metadata?.images?.hero?.url;
   
-  // Access data from relationships using type-safe helper
+  // All data comes directly from frontmatter - no transformation needed
   const relationships = (metadata as any)?.relationships || {};
-  const industryApplications = relationships?.operational?.industry_applications || (metadata as any)?.applications;
+  const industryApplications = relationships?.operational?.industryApplications?.items || [];
+  const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items || [];
+  const safetyData = relationships?.safety || {};
   
-  // Convert citations using utility
-  const regulatoryStandards = convertCitationsToStandards(metadata);
-  
-  /**
-   * Safety data location (normalized structure):
-   * - PREFERRED: relationships.safety.* (normalized location)
-   * - FALLBACK: relationships.operational.laser_properties.items[0].safety_data (legacy contaminants)
-   * - FALLBACK: relationships.laser_properties.items[0].safety_data (legacy alternative)
-   * - FALLBACK: relationships.technical.laser_properties.items[0].safety_data (legacy technical)
-   * 
-   * After full migration, only relationships.safety will be needed.
-   */
-  
-  // Check normalized location first
-  let safetyData = relationships.safety;
-  
-  // If not found, try legacy locations for backward compatibility
-  if (!safetyData) {
-    const laserPropertiesSection = getRelationshipSection(relationships, 'operational.laser_properties') 
-      || getRelationshipSection(relationships, 'laser_properties')
-      || getRelationshipSection(relationships, 'technical.laser_properties');
-    
-    safetyData = laserPropertiesSection?.items?.[0]?.safety_data;
-  }
-  
-  // Default to empty object if no safety data found
-  safetyData = safetyData || {};
-
-  // Use helper to safely access relationship sections
-  // New structure: interactions.produces_compounds, fallback: technical.produces_compounds
-  const producesCompoundsSection = getRelationshipSection(
-    relationships, 
-    'interactions.produces_compounds'
-  ) || getRelationshipSection(
-    relationships,
-    'technical.produces_compounds'
-  ) || getRelationshipSection(relationships, 'produces_compounds');
-  
-  // Enrich minimal references with full compound data
-  const producesCompounds = producesCompoundsSection?.items || [];
-  const enrichedCompounds = await Promise.all(
-    producesCompounds.map(async (ref: { id: string; phase?: string; hazard_level?: string }) => {
-      const article = await getCompoundArticle(ref.id);
-      if (!article) return null;
-      
-      const metadata = article.metadata as any;
-      return {
-        id: ref.id,
-        title: metadata.name || metadata.title,
-        category: metadata.category,
-        description: metadata.description,
-        url: metadata.fullPath,
-        phase: ref.phase,
-        hazard_level: ref.hazard_level,
-        image: metadata.images?.hero?.url,
-      };
-    })
-  ).then(items => items.filter(Boolean));
-
-  // Use helper to safely access materials section
-  // New structure: interactions.affects_materials, fallback: technical.affects_materials
-  const affectsMaterialsSection = getRelationshipSection(
-    relationships, 
-    'interactions.affects_materials'
-  ) || getRelationshipSection(
-    relationships,
-    'technical.affects_materials'
-  ) || getRelationshipSection(relationships, 'found_on_materials');
-  
-  // Enrich minimal references with full material data
-  const foundOnMaterials = (affectsMaterialsSection?.items || []).filter(item => item != null);
-  const enrichedMaterials = await Promise.all(
-    foundOnMaterials.map(async (ref: any) => {
-      if (!ref || !ref.id) return null;
-      
-      const article = await getArticle(ref.id);
-      if (!article) return null;
-      
-      const metadata = article.metadata as any;
-      return {
-        id: ref.id,
-        title: metadata.name || metadata.title,
-        category: metadata.category,
-        description: metadata.description,
-        url: metadata.fullPath,
-        image: metadata.images?.hero?.url,
-      };
-    })
-  ).then(items => items.filter(Boolean));
-
-  // Use helper for descriptive data sections
-  const visualCharacteristics = getRelationshipSection(relationships, 'visual_characteristics');
-  const laserProperties = getRelationshipSection(relationships, 'laser_properties');
+  // Relationship data - complete from frontmatter
+  const producesCompounds = relationships?.interactions?.producesCompounds?.items || [];
+  const affectsMaterials = relationships?.interactions?.affectsMaterials?.items || [];
+  const visualCharacteristics = relationships?.descriptive?.visualCharacteristics || {};
+  const laserProperties = relationships?.technical?.laserProperties || {};
 
   // Configure sections for BaseContentLayout
   const sections: SectionConfig[] = [
     // Relationship cards for produces_compounds (interactions.produces_compounds or technical.produces_compounds)
     {
       component: CardGrid,
-      condition: enrichedCompounds.length > 0,
+      condition: producesCompounds.length > 0,
       props: {
-        items: enrichedCompounds.filter((c): c is NonNullable<typeof c> => c != null).map(c => ({
+        items: (producesCompounds as DenormalizedCompoundItem[]).map(c => ({
           slug: c.id,
           href: c.url,
           title: c.title,
@@ -143,11 +88,11 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
           category: c.category,
           metadata: {
             phase: c.phase,
-            hazard_level: c.hazard_level,
+            hazard_level: c.hazardLevel,
           },
         })),
         title: `Compounds produced by ${contaminantName}`,
-        description: producesCompoundsSection?.metadata?.sectionDescription,
+        description: undefined,
         variant: 'relationship' as const,
       }
     },
@@ -156,7 +101,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
       condition: !!safetyData,
       props: { 
         safetyData,
-        compounds: enrichedCompounds,
+        compounds: [], // Compounds now rendered by dedicated CardGrid section above
         collapsible: true,
         entityName: contaminantName
       }
@@ -173,18 +118,22 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
     // Relationship cards for found_on_materials
     {
       component: CardGrid,
-      condition: enrichedMaterials.length > 0,
+      condition: affectsMaterials.length > 0,
       props: {
-        items: enrichedMaterials.filter((m): m is NonNullable<typeof m> => m != null).map(m => ({
+        items: (affectsMaterials as DenormalizedMaterialItem[]).map(m => ({
           slug: m.id,
           href: m.url,
-          title: m.title,
+          title: m.name,
           imageUrl: m.image,
-          imageAlt: m.title,
+          imageAlt: m.name,
           category: m.category,
+          metadata: {
+            frequency: m.frequency,
+            difficulty: m.difficulty,
+          },
         })),
         title: `Materials affected by ${contaminantName}`,
-        description: affectsMaterialsSection?.metadata?.sectionDescription,
+        description: undefined,
         variant: 'relationship' as const,
       }
     },

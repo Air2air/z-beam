@@ -4,7 +4,7 @@ displayName: Iron Oxide (Fe₂O₃)
 category: metal_fume
 subcategory: metal-oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:12:00.676003+00:00'
+dateModified: '2026-01-09T05:26:36.032077+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/metal_fume/metal-oxide/iron-oxide-compound
@@ -136,6 +136,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -164,6 +166,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -196,6 +200,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -218,6 +224,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -242,6 +250,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -278,6 +288,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -303,6 +315,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -332,6 +346,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -358,6 +374,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -394,39 +412,97 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
+        name: Rust / Iron Oxide Formation
+        title: Rust / Iron Oxide Formation
+        category: oxidation
+        subcategory: ferrous
+        url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+        image: /images/contaminant/rust-oxidation-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Vaporization of iron oxide
       - id: annealing-scale-contamination
+        name: Heat Treatment Scale
+        title: Heat Treatment Scale
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/annealing-scale-contamination
+        image: /images/contaminant/annealing-scale-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Iron oxide layer from heat treatment
       - id: forging-scale-contamination
+        name: Forging Mill Scale
+        title: Forging Mill Scale
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/forging-scale-contamination
+        image: /images/contaminant/forging-scale-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Iron oxide scale from forging operations
       - id: brake-dust-contamination
+        name: Brake Pad Dust Deposits
+        title: Brake Pad Dust Deposits
+        category: inorganic-coating
+        subcategory: mineral
+        url: /contaminants/inorganic-coating/mineral/brake-dust-contamination
+        image: /images/contaminant/brake-dust-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Brake Pad Dust Deposits
       - id: mineral-stain-contamination
+        name: Mineral Staining
+        title: Mineral Staining
+        category: inorganic-coating
+        subcategory: mineral
+        url: /contaminants/inorganic-coating/mineral/mineral-stain-contamination
+        image: /images/contaminant/mineral-stain-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: low
         typicalContext: Laser removal of Mineral Staining
       - id: pickling-residue-contamination
+        name: Acid Pickling Stains
+        title: Acid Pickling Stains
+        category: inorganic-coating
+        subcategory: coating
+        url: /contaminants/inorganic-coating/coating/pickling-residue-contamination
+        image: /images/contaminant/pickling-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Acid Pickling Stains
       - id: steel-corrosion-contamination
+        name: Steel Surface Corrosion
+        title: Steel Surface Corrosion
+        category: oxidation
+        subcategory: ferrous
+        url: /contaminants/oxidation/ferrous/steel-corrosion-contamination
+        image: /images/contaminant/steel-corrosion-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Steel Surface Corrosion
       - id: steel-corrosion-contamination
+        name: Steel Surface Corrosion
+        title: Steel Surface Corrosion
+        category: oxidation
+        subcategory: ferrous
+        url: /contaminants/oxidation/ferrous/steel-corrosion-contamination
+        image: /images/contaminant/steel-corrosion-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: low
         typicalContext: Laser removal of Steel Surface Corrosion
@@ -476,6 +552,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: irritant
 chemicalFormula: Fe₂O₃
 casNumber: 1309-37-1
@@ -599,3 +677,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Iron Oxide Fume

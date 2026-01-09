@@ -4139,17 +4139,21 @@ export interface EnhancedCompound {
 
 /**
  * Domain linkage interface (from related_* top-level fields)
+ * Phase 2 Complete: All fields now guaranteed present (3,280 items fully denormalized)
+ * @updated Jan 8, 2026 - Removed all optional markers after Phase 2 completion
  */
 export interface Relationship {
   id: string;
-  title: string;
-  url: string;
-  image: string;
-  category: string;
-  subcategory: string;
+  name: string;              // Required - guaranteed by Phase 2
+  title: string;             // Required - guaranteed by Phase 2
+  category: string;          // Required - guaranteed by Phase 2
+  subcategory: string;       // Required - guaranteed by Phase 2
+  url: string;               // Required - guaranteed by Phase 2
+  image: string;             // Required - guaranteed by Phase 2
+  description: string;       // Required - guaranteed by Phase 2
   frequency: 'very_common' | 'common' | 'occasional' | 'rare';
   severity: 'severe' | 'high' | 'moderate' | 'low';
-  typical_context: string;
+  typicalContext: string;    // Changed from typical_context for camelCase consistency
 }
 
 /**

@@ -22,13 +22,13 @@ export function ScheduleCards() {
         <article className="absolute-inset" role="article">
           <div className={`${styles.cardContainer} ${styles.scheduleCard}`}>
             {/* Foreground Logo - Calendar Icon */}
-            <div className={styles.logoContainer}>
+            <div className={`${styles.logoContainer} md:-mt-4 lg:-mt-6`}>
               <Image
                 src="/images/calendar-logo.svg"
                 alt=""
                 width={144}
                 height={144}
-                className="w-28 h-28 md:w-40 md:h-40 lg:w-44 lg:h-44"
+                className="w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36"
                 aria-hidden="true"
               />
             </div>
@@ -74,13 +74,13 @@ export function ScheduleCards() {
         <article className="absolute-inset" role="article">
           <div className={`${styles.cardContainer} ${styles.contactCard}`}>
             {/* Foreground Logo - Email/Phone Icons */}
-            <div className={styles.logoContainer}>
+            <div className={`${styles.logoContainer} md:-mt-4 lg:-mt-6`}>
               <Image
                 src="/images/contact-logo.svg"
                 alt=""
                 width={144}
                 height={144}
-                className="w-28 h-28 md:w-40 md:h-40 lg:w-44 lg:h-44"
+                className="w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36"
                 aria-hidden="true"
               />
             </div>

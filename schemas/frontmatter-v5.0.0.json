@@ -210,19 +210,19 @@ properties:
       operational:
         type: object
         properties:
-          industry_applications:
+          industryApplications:
             $ref: '#/definitions/relationship_section'
             description: "Industries using this material/contaminant"
-          laser_properties:
+          laserProperties:
             $ref: '#/definitions/relationship_section'
             description: "Laser-material interaction data"
-          removal_difficulty:
+          removalDifficulty:
             $ref: '#/definitions/relationship_section'
             description: "Difficulty ratings for contaminant removal"
-          compatible_materials:
+          compatibleMaterials:
             $ref: '#/definitions/relationship_section'
             description: "Materials compatible with this setting"
-          application_scenarios:
+          applicationScenarios:
             $ref: '#/definitions/relationship_section'
             description: "Use cases and application scenarios"
       
@@ -230,16 +230,16 @@ properties:
       safety:
         type: object
         properties:
-          regulatory_standards:
+          regulatoryStandards:
             $ref: '#/definitions/relationship_section'
             description: "Applicable safety and compliance standards"
-          exposure_limits:
+          exposureLimits:
             $ref: '#/definitions/relationship_section'
             description: "Safety exposure thresholds (OSHA, NIOSH)"
-          ppe_requirements:
+          ppeRequirements:
             $ref: '#/definitions/relationship_section'
             description: "Required protective equipment"
-          health_hazards:
+          healthHazards:
             $ref: '#/definitions/relationship_section'
             description: "Health risks from exposure"
       
@@ -247,13 +247,13 @@ properties:
       interactions:
         type: object
         properties:
-          contaminated_by:
+          contaminatedBy:
             $ref: '#/definitions/relationship_section'
             description: "Contaminants affecting this material"
-          produces_compounds:
+          producesCompounds:
             $ref: '#/definitions/relationship_section'
             description: "Hazardous compounds created during cleaning"
-          found_on_materials:
+          foundOnMaterials:
             $ref: '#/definitions/relationship_section'
             description: "Materials where this contaminant appears"
       

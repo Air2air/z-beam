@@ -29,7 +29,7 @@ interface MaterialCharacteristicsProps {
  */
 export function MaterialCharacteristics({ materialProperties, materialName, category, subcategory, slug }: MaterialCharacteristicsProps) {
   // Check for actual property data (not just 'label' or 'percentage' metadata fields)
-  const materialChars = materialProperties?.material_characteristics || {};
+  const materialChars = materialProperties?.materialCharacteristics || {};
   const hasActualProperties = Object.keys(materialChars).some(
     key => key !== 'label' && key !== 'percentage' && 
            materialChars[key]?.value !== undefined
@@ -57,7 +57,7 @@ export function MaterialCharacteristics({ materialProperties, materialName, cate
     title: materialName,
     description: '',
     materialProperties: {
-      material_characteristics: materialChars
+      materialCharacteristics: materialChars
     }
   };
 
@@ -68,7 +68,7 @@ export function MaterialCharacteristics({ materialProperties, materialName, cate
       title={title}
       icon={getSectionIcon('material-properties')}
       description="Core physical properties including density, hardness, and thermal characteristics"
-      actionText={settingsUrl && materialName ? `${materialName} machine settings` : undefined}
+      actionText={settingsUrl ? 'Machine settings' : undefined}
       actionUrl={settingsUrl}
       columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
       height={70}

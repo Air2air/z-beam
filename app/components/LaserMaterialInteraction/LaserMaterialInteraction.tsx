@@ -31,7 +31,7 @@ export function LaserMaterialInteraction({
   className = ''
 }: LaserMaterialInteractionProps) {
   // Extract only laser-material interaction section
-  const laserInteractionData = materialProperties?.laser_material_interaction || {};
+  const laserInteractionData = materialProperties?.laserMaterialInteraction || {};
   
   // Check for actual property data (not just 'label' or 'percentage' metadata fields)
   const hasActualProperties = Object.keys(laserInteractionData).some(
@@ -52,7 +52,7 @@ export function LaserMaterialInteraction({
     title: materialName,
     description: '',
     materialProperties: {
-      laser_material_interaction: laserInteractionData
+      laserMaterialInteraction: laserInteractionData
     }
   };
 
@@ -68,7 +68,7 @@ export function LaserMaterialInteraction({
       title={`${materialName} Laser-Material Interaction`}
       icon={<Zap className="w-5 h-5 text-orange-500" />}
       description="Energy transfer properties and laser absorption characteristics"
-      actionText={settingsUrl ? `${materialName} machine settings` : undefined}
+      actionText={settingsUrl ? 'Machine settings' : undefined}
       actionUrl={settingsUrl}
       className={`mb-8 ${className}`}
     />

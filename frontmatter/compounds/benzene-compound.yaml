@@ -4,7 +4,7 @@ displayName: Benzene (C₆H₆)
 category: carcinogen
 subcategory: aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:11:59.909953+00:00'
+dateModified: '2026-01-09T05:26:35.442826+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic_hydrocarbon/benzene-compound
@@ -135,6 +135,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -165,6 +167,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -197,6 +201,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -219,6 +225,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -246,6 +254,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -290,6 +300,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -322,6 +334,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -357,6 +371,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -383,6 +399,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -422,27 +440,64 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Thermal breakdown of aromatic paint solvents
       - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Pyrolysis of styrene-butadiene rubber
       - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        title: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Thermal decomposition of polystyrene and aromatic polymers
       - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        title: Industrial Oil / Grease Buildup Laser Cleaning
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: ''
         frequency: occasional
         severity: moderate
         typicalContext: Thermal breakdown of aromatic hydrocarbons
       - id: cutting-fluid-contamination
+        name: Machining Coolant Residue
+        title: Machining Coolant Residue
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
+        image: /images/contaminant/cutting-fluid-contamination-hero.jpg
+        description: ''
         frequency: occasional
         severity: moderate
         typicalContext: Decomposition of aromatic additives
@@ -500,6 +555,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: carcinogenic
 chemicalFormula: C₆H₆
 casNumber: 71-43-2
@@ -589,3 +646,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Benzene

@@ -16,8 +16,8 @@ import { Collapsible } from '../Collapsible';
 import type { RelationshipSection } from '@/types/card-schema';
 
 interface FAQItem {
-  question: string;
-  answer: string;
+  title: string;
+  content: string;
   severity?: 'low' | 'medium' | 'high';
 }
 
@@ -32,7 +32,7 @@ interface FAQPanelProps {
  * Convert simple Markdown bold syntax (**text**) to HTML
  */
 function parseSimpleMarkdown(text: string): string {
-  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return (text || '').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 }
 
 /**
@@ -48,11 +48,11 @@ export function FAQPanel({
   if (!faq || faq.length === 0) return null;
 
   // Transform FAQ data for Collapsible component
-  // Use question as the collapsible title, put answer as direct value with empty key to hide label
+  // Use title as the collapsible title, put content as direct value with empty key to hide label
   const collapsibleItems = faq.map((item, index) => {
     return {
-      [parseSimpleMarkdown(item.question)]: {
-        '': parseSimpleMarkdown(item.answer)
+      [parseSimpleMarkdown(item.title)]: {
+        '': parseSimpleMarkdown(item.content)
       }
     };
   });

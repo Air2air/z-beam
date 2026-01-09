@@ -122,11 +122,11 @@ export function RelationshipCard({
         {/* Relationship metadata (if present) */}
         {(item.frequency || item.severity) && (
           <div className="mt-3 flex gap-2 text-xs text-white/60">
-            {item.frequency && (
+            {item.frequency && typeof item.frequency === 'string' && (
               <span className="capitalize">{item.frequency.replace('_', ' ')}</span>
             )}
             {item.frequency && item.severity && <span>•</span>}
-            {item.severity && (
+            {item.severity && typeof item.severity === 'string' && (
               <span className="capitalize">{item.severity} severity</span>
             )}
           </div>

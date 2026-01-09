@@ -4,7 +4,7 @@ displayName: Formaldehyde (CH₂O)
 category: carcinogen
 subcategory: aldehyde
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:11:59.837511+00:00'
+dateModified: '2026-01-09T05:26:35.376680+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aldehyde/formaldehyde-compound
@@ -134,6 +134,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -163,6 +165,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -196,6 +200,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -219,6 +225,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -247,6 +255,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -287,6 +297,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -318,6 +330,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -351,6 +365,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -377,6 +393,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -417,23 +435,63 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        name: Adhesive Residue / Tape Marks
+        title: Adhesive Residue / Tape Marks Laser Cleaning
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+        description: 'Adhesive-residue-contamination, it sticks firmly to surfaces during removal processes. This organic
+          residue forms uneven patches because adhesives break down and leave behind sticky films. In observations, formation
+          happens quickly after peeling, so layers build up irregularly on metals and plastics. During exposure to handling,
+          contamination spreads and adheres tightly, creating patterns that vary by material.
+
+
+          Treatment with laser cleaning faces distinct challenges here. Residue resists ablation because it chars easily and
+          smokes, so complete removal requires careful pulses to avoid damaging the base. On metals, this contamination, it
+          bonds strongly and needs multiple passes for clearance, while on plastics, it softens first and then lifts away.
+          After application of laser, surfaces show cleaner states, but traces still remain in crevices from the data. Process
+          achieves better results on smooth areas, so preparation helps in tackling these patterns.'
         frequency: common
         severity: moderate
         typicalContext: Thermal breakdown of formaldehyde-based adhesives
       - id: wood-rot-contamination
+        name: Wood Rot / Fungal Biodegradation
+        title: Wood Rot / Fungal Biodegradation Laser Cleaning
+        category: biological
+        subcategory: growth
+        url: /contaminants/biological/growth/wood-rot-contamination
+        image: /images/contaminant/wood-rot-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: moderate
         typicalContext: Decomposition of wood compounds
       - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
         frequency: occasional
         severity: moderate
         typicalContext: Breakdown of melamine or urea-formaldehyde resins
       - id: epoxy-residue-contamination
+        name: Epoxy Resin Deposits
+        title: Epoxy Resin Deposits
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+        image: /images/contaminant/epoxy-residue-contamination-hero.jpg
+        description: ''
         frequency: occasional
         severity: low
         typicalContext: Thermal degradation of certain epoxy formulations
@@ -515,6 +573,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: carcinogenic
 chemicalFormula: CH₂O
 casNumber: 50-00-0
@@ -638,3 +698,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Formaldehyde

@@ -111,30 +111,34 @@ export function mapMaterialLinkageToGrid(linkage: Relationship): GridItem {
 /**
  * Transform contaminant linkage (related_contaminants) to GridItem
  * Uses relationship variant (colored borders, no images)
+ * Handles both complete denormalized data and incomplete linkage data
  */
 export function mapContaminantLinkageToGrid(linkage: Relationship): GridItem {
+  // Handle incomplete data (only id, frequency, severity, typicalContext)
+  const formattedTitle = linkage.title || linkage.id?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || 'Unknown';
+  
   return {
     slug: linkage.id,
-    href: linkage.url, // URL must come from enriched data with fullPath
-    title: linkage.title,
-    imageUrl: linkage.image,
-    imageAlt: linkage.title,
-    category: linkage.category,
+    href: linkage.url || `/contaminants/${linkage.id}`, // Fallback to basic URL if not enriched
+    title: formattedTitle,
+    imageUrl: linkage.image || undefined, // Don't provide fallback - let Card component handle it
+    imageAlt: formattedTitle,
+    category: linkage.category || 'contaminants',
     metadata: {
-      title: linkage.title,
+      title: formattedTitle,
       slug: linkage.id,
-      category: linkage.category,
-      description: linkage.typical_context,
-      images: {
+      category: linkage.category || 'contaminants',
+      description: linkage.typical_context || linkage.typicalContext,
+      images: linkage.image ? {
         hero: {
           url: linkage.image,
-          alt: linkage.title
+          alt: formattedTitle
         }
-      },
+      } : undefined,
       severity: linkage.severity,
-      subject: linkage.title,
+      subject: formattedTitle,
       frequency: linkage.frequency,
-      typical_context: linkage.typical_context,
+      typical_context: linkage.typical_context || linkage.typicalContext,
     },
   };
 }

@@ -14,7 +14,7 @@ import { CardGrid } from '../CardGrid';
 import { Micro } from '../Micro/Micro';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
-import { getRegulatoryStandards, getHeroImageUrl } from '@/app/utils/relationshipHelpers';
+import { getHeroImageUrl } from '@/app/utils/relationshipHelpers';
 import type { LayoutProps } from '@/types';
 import type { SectionConfig } from '../BaseContentLayout';
 
@@ -30,24 +30,13 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const thumbnailLink = `/materials/${category}/${subcategory}/${slug}`;
   const heroImage = getHeroImageUrl(metadata);
   
-  // Configure sections for BaseContentLayout
-  // Access data from relationships using standardized helpers
+  // All data comes directly from frontmatter - no enrichment or transformation
   const relationships = (metadata as any)?.relationships || {};
-  const materialProperties = relationships?.materialProperties || (metadata as any)?.properties;
-  const regulatoryStandards = getRegulatoryStandards(metadata);
-  const industryApplications = relationships?.operational?.industry_applications || (metadata as any)?.applications;
-
-  // DEFENSIVE: Ensure all arrays are actually arrays to prevent e.map errors
-  const safeFaq = Array.isArray(metadata?.faq) ? metadata.faq : [];
-  const safeRegulatoryStandards = Array.isArray(regulatoryStandards) ? regulatoryStandards : [];
-  const safeRelationshipsRegulatoryStandards = Array.isArray(relationships?.regulatory_standards) 
-    ? relationships.regulatory_standards 
-    : Array.isArray((metadata as any)?.regulatoryStandards) 
-      ? (metadata as any).regulatoryStandards 
-      : [];
-
-  // Contaminant enrichment removed - was causing build errors with e.map undefined
-  // TODO: Re-add when frontmatter structure is confirmed
+  const materialProperties = (metadata as any)?.properties || {};
+  const faq = (metadata as any)?.faq?.items || [];
+  const industryApplications = relationships?.operational?.industryApplications || {};
+  const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items || [];
+  const contaminatedBy = relationships?.interactions?.contaminatedBy?.items || [];
 
   const sections: SectionConfig[] = [
     {
@@ -88,7 +77,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     {
       component: RegulatoryStandards,
       props: {
-        standards: safeRegulatoryStandards,
+        standards: regulatoryStandards,
         heroImage,
         thumbnailLink,
       }
@@ -105,7 +94,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     {
       component: FAQPanel,
       props: {
-        faq: safeFaq,
+        faq: faq,
         entityName: materialName,
         variant: 'faq' as const,
       }
@@ -119,8 +108,27 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         maxItems: 6,
       }
     },
-    // Contaminant cards removed temporarily - causing build errors
-    // TODO: Re-add when frontmatter structure is confirmed
+    // Contaminant cards - complete data from frontmatter denormalization
+    {
+      component: CardGrid,
+      condition: contaminatedBy.length > 0,
+      props: {
+        items: contaminatedBy.map((item: any) => ({
+          href: item.url,
+          slug: item.id,
+          imageUrl: item.image,
+          title: item.name,
+          category: item.category,
+          subcategory: item.subcategory,
+          frequency: item.frequency,
+          severity: item.severity,
+        })),
+        title: 'Common Contaminants',
+        description: `Typical contaminants found on ${materialName} that require laser cleaning`,
+        variant: 'relationship' as const,
+        columns: 3,
+      }
+    },
     // Dataset downloader at bottom
     {
       component: MaterialDatasetDownloader,
@@ -131,8 +139,8 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         subcategory,
         machineSettings: (metadata as any)?.machine_settings || relationships?.machine_settings || {},
         materialProperties: (metadata as any)?.properties || relationships?.materialProperties || {},
-        faq: safeFaq,
-        regulatoryStandards: safeRelationshipsRegulatoryStandards,
+        faq: faq,
+        regulatoryStandards: regulatoryStandards,
         showFullDataset: true,
       }
     },

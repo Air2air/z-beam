@@ -2,7 +2,7 @@ id: forging-scale-contamination
 name: Forging Mill Scale
 category: thermal-damage
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:11:08.415116+00:00'
+dateModified: '2026-01-09T05:21:05.755017+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/thermal-damage/scale/forging-scale-contamination
@@ -223,8 +223,38 @@ relationships:
       presentation: card
       items:
       - id: iron-oxide-compound
+        title: Iron Oxide Fume
+        name: Iron Oxide Fume
+        category: metal_fume
+        subcategory: metal-oxide
+        url: /compounds/metal_fume/metal-oxide/iron-oxide-compound
+        image: /images/compound/iron-oxide-compound-hero.jpg
+        description: Iron Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
       - id: iron-oxide-compound
+        title: Iron Oxide Fume
+        name: Iron Oxide Fume
+        category: metal_fume
+        subcategory: metal-oxide
+        url: /compounds/metal_fume/metal-oxide/iron-oxide-compound
+        image: /images/compound/iron-oxide-compound-hero.jpg
+        description: Iron Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
       - id: carbon-dioxide-compound
+        title: Carbon Dioxide
+        name: Carbon Dioxide
+        category: asphyxiant
+        subcategory: simple_asphyxiant
+        url: /compounds/asphyxiant/simple_asphyxiant/carbon-dioxide-compound
+        image: /images/compound/carbon-dioxide-compound-hero.jpg
+        description: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
       _section:
         sectionTitle: Produced Compounds
         sectionDescription: Hazardous compounds produced during laser cleaning
@@ -242,43 +272,384 @@ relationships:
       presentation: card
       items:
       - id: aluminum-laser-cleaning
+        name: Aluminum
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+        image: /images/material/aluminum-laser-cleaning-hero.jpg
+        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
+        frequency: moderate
+        difficulty: moderate
       - id: borosilicate-glass-laser-cleaning
+        name: Borosilicate Glass
+        category: glass
+        subcategory: soda-lime
+        url: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
+        image: /images/material/borosilicate-glass-laser-cleaning-hero.jpg
+        description: When laser cleaning borosilicate glass, I've seen how its remarkable resistance to thermal shock allows
+          steady energy pulses from the outset to gently remove residues and buildup, all without the r...
+        frequency: moderate
+        difficulty: moderate
       - id: brass-laser-cleaning
+        name: Brass
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/brass-laser-cleaning
+        image: /images/material/brass-laser-cleaning-hero.jpg
+        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
+          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
+        frequency: moderate
+        difficulty: moderate
       - id: bronze-laser-cleaning
+        name: Bronze
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/bronze-laser-cleaning
+        image: /images/material/bronze-laser-cleaning-hero.jpg
+        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
+          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
+        frequency: moderate
+        difficulty: moderate
       - id: cast-iron-laser-cleaning
+        name: Cast Iron
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/cast-iron-laser-cleaning
+        image: /images/material/cast-iron-laser-cleaning-hero.jpg
+        description: When cleaning cast iron, we've found its inherent porosity serves as a natural benefit, pulling in laser
+          energy to break loose tough rust and scale on heavy industrial components, but you need to b...
+        frequency: moderate
+        difficulty: moderate
       - id: concrete-laser-cleaning
+        name: Concrete
+        category: masonry
+        subcategory: general
+        url: /materials/masonry/general/concrete-laser-cleaning
+        image: /images/material/concrete-laser-cleaning-hero.jpg
+        description: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and
+          restore durability, all while preserving its structural integrity.
+        frequency: moderate
+        difficulty: moderate
       - id: copper-laser-cleaning
+        name: Copper
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/copper-laser-cleaning
+        image: /images/material/copper-laser-cleaning-hero.jpg
+        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
+          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
+        frequency: moderate
+        difficulty: moderate
       - id: crown-glass-laser-cleaning
+        name: Crown Glass
+        category: glass
+        subcategory: soda-lime
+        url: /materials/glass/soda-lime/crown-glass-laser-cleaning
+        image: /images/material/crown-glass-laser-cleaning-hero.jpg
+        description: In our experience, crown glass stands out from denser flint types by remaining dimensionally stable under
+          heat stress, letting us preserve delicate structures in aerospace and medical uses without ...
+        frequency: moderate
+        difficulty: moderate
       - id: fiberglass-laser-cleaning
+        name: Fiberglass
+        category: composite
+        subcategory: fiber-reinforced
+        url: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
+        image: /images/material/fiberglass-laser-cleaning-hero.jpg
+        description: I've seen fiberglass excel in marine and aerospace applications because it combines impressive strength
+          with lightweight durability and resists corrosion far better than metals, so you avoid heavy ...
+        frequency: moderate
+        difficulty: moderate
       - id: float-glass-laser-cleaning
+        name: Float Glass
+        category: glass
+        subcategory: soda-lime
+        url: /materials/glass/soda-lime/float-glass-laser-cleaning
+        image: /images/material/float-glass-laser-cleaning-hero.jpg
+        description: What makes float glass special is its exceptionally smooth and uniform surface from the floating process,
+          which gives distortion-free clarity ideal for architectural windows and automotive uses—so ...
+        frequency: moderate
+        difficulty: moderate
       - id: glass-fiber-reinforced-polymers-gfrp-laser-cleaning
+        name: Glass Fiber Reinforced Polymers GFRP
+        category: composite
+        subcategory: fiber-reinforced
+        url: /materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning
+        image: /images/material/glass-fiber-reinforced-polymers-gfrp-laser-cleaning-hero.jpg
+        description: I've seen corrosion eat away at metal structures in harsh marine environments, but GFRP resists it with
+          its built-in corrosion resistance and lightweight strength that maintains structural integrit...
+        frequency: moderate
+        difficulty: moderate
       - id: gorilla-glass-laser-cleaning
+        name: Gorilla Glass
+        category: glass
+        subcategory: soda-lime
+        url: /materials/glass/soda-lime/gorilla-glass-laser-cleaning
+        image: /images/material/gorilla-glass-laser-cleaning-hero.jpg
+        description: When laser cleaning Gorilla Glass, start by setting the power low to avoid any risk of micro-cracks from
+          its high thermal sensitivity, then gradually increase as its inherent toughness removes cont...
+        frequency: moderate
+        difficulty: moderate
       - id: granite-laser-cleaning
+        name: Granite
+        category: stone
+        subcategory: igneous
+        url: /materials/stone/igneous/granite-laser-cleaning
+        image: /images/material/granite-laser-cleaning-hero.jpg
+        description: When laser cleaning granite surfaces in architectural restoration, we typically adjust the scan speed
+          to match its dense and heat-resistant composition, which exposes underlying details without com...
+        frequency: moderate
+        difficulty: moderate
       - id: iron-laser-cleaning
+        name: Iron
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/iron-laser-cleaning
+        image: /images/material/iron-laser-cleaning-hero.jpg
+        description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid
+          strength and heat tolerance that keeps the base material intact while removing rust or grime, b...
+        frequency: moderate
+        difficulty: moderate
       - id: lead-crystal-laser-cleaning
+        name: Lead Crystal
+        category: glass
+        subcategory: soda-lime
+        url: /materials/glass/soda-lime/lead-crystal-laser-cleaning
+        image: /images/material/lead-crystal-laser-cleaning-hero.jpg
+        description: When preserving lead crystal in cultural heritage pieces through laser cleaning, we've found its exceptional
+          density and clarity set it apart from ordinary glass by holding shape under targeted hea...
+        frequency: moderate
+        difficulty: moderate
       - id: limestone-laser-cleaning
+        name: Limestone
+        category: stone
+        subcategory: sedimentary
+        url: /materials/stone/sedimentary/limestone-laser-cleaning
+        image: /images/material/limestone-laser-cleaning-hero.jpg
+        description: Compared to denser granites, limestone's porous structure absorbs contaminants more readily during laser
+          cleaning and resists cracking from heat buildup, so you'll preserve surface details without ...
+        frequency: moderate
+        difficulty: moderate
       - id: magnesium-laser-cleaning
+        name: Magnesium
+        category: metal
+        subcategory: specialty
+        url: /materials/metal/specialty/magnesium-laser-cleaning
+        image: /images/material/magnesium-laser-cleaning-hero.jpg
+        description: When laser cleaning magnesium, I've found it works best to start with lower power settings, as its lightweight
+          nature and high reflectivity set it apart from denser metals like steel. This allows q...
+        frequency: moderate
+        difficulty: moderate
       - id: marble-laser-cleaning
+        name: Marble
+        category: stone
+        subcategory: metamorphic
+        url: /materials/stone/metamorphic/marble-laser-cleaning
+        image: /images/material/marble-laser-cleaning-hero.jpg
+        description: When laser cleaning marble, I've found it keeps its elegant veins steady through low-energy passes that
+          strip away grime mid-process, all without risking cracks from excess heat buildup.
+        frequency: moderate
+        difficulty: moderate
       - id: nickel-laser-cleaning
+        name: Nickel
+        category: metal
+        subcategory: specialty
+        url: /materials/metal/specialty/nickel-laser-cleaning
+        image: /images/material/nickel-laser-cleaning-hero.jpg
+        description: Nickel stands out in laser cleaning applications thanks to its solid balance of reflectivity and absorptivity,
+          which lets operators dial in precise energy absorption without excessive heat buildup....
+        frequency: moderate
+        difficulty: moderate
       - id: quartz-glass-laser-cleaning
+        name: Quartz Glass
+        category: glass
+        subcategory: soda-lime
+        url: /materials/glass/soda-lime/quartz-glass-laser-cleaning
+        image: /images/material/quartz-glass-laser-cleaning-hero.jpg
+        description: Quartz glass shows transparency and heat resistance in laser cleaning. This material resists damage from
+          beams, thus enables precise removal of contaminants on surfaces. Challenges arise from britt...
+        frequency: moderate
+        difficulty: moderate
       - id: sandstone-laser-cleaning
+        name: Sandstone
+        category: stone
+        subcategory: sedimentary
+        url: /materials/stone/sedimentary/sandstone-laser-cleaning
+        image: /images/material/sandstone-laser-cleaning-hero.jpg
+        description: When restoring sandstone in cultural heritage projects, we typically start with low-power laser passes
+          to gently remove surface buildup from its porous structure, ensuring the stone's natural integ...
+        frequency: moderate
+        difficulty: moderate
       - id: sapphire-glass-laser-cleaning
+        name: Sapphire Glass
+        category: glass
+        subcategory: soda-lime
+        url: /materials/glass/soda-lime/sapphire-glass-laser-cleaning
+        image: /images/material/sapphire-glass-laser-cleaning-hero.jpg
+        description: Sapphire glass provides exceptional scratch resistance that protects sensitive surfaces in watches and
+          devices much better than regular glass, maintaining clear visibility and durability even with ...
+        frequency: moderate
+        difficulty: moderate
       - id: slate-laser-cleaning
+        name: Slate
+        category: stone
+        subcategory: metamorphic
+        url: /materials/stone/metamorphic/slate-laser-cleaning
+        image: /images/material/slate-laser-cleaning-hero.jpg
+        description: In restoring delicate slate artifacts for cultural heritage projects, the biggest hurdle is clearing
+          away grime without splitting its layered makeup, but I've noticed how its natural thermal stabil...
+        frequency: moderate
+        difficulty: moderate
       - id: soda-lime-glass-laser-cleaning
+        name: Soda-Lime Glass
+        category: glass
+        subcategory: specialty-glass
+        url: /materials/glass/specialty-glass/soda-lime-glass-laser-cleaning
+        image: /images/material/soda-lime-glass-laser-cleaning-hero.jpg
+        description: Soda-lime glass exhibits moderate stiffness and low density. Oxidation resists fully on surface. Laser
+          cleaning removes contaminants effectively because material absorbs heat sparingly. Brittleness...
+        frequency: moderate
+        difficulty: moderate
       - id: stainless-steel-laser-cleaning
+        name: Stainless Steel
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/stainless-steel-laser-cleaning
+        image: /images/material/stainless-steel-laser-cleaning-hero.jpg
+        description: When laser cleaning stainless steel, start by adjusting the power to manage its natural resistance to
+          oxidation, which preserves surfaces in harsh marine or chemical environments. Be sure to avoid ...
+        frequency: moderate
+        difficulty: moderate
       - id: steel-laser-cleaning
+        name: Steel
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/steel-laser-cleaning
+        image: /images/material/steel-laser-cleaning-hero.jpg
+        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
+          substrate during contaminant removal, which leads to efficient restoration without structural co...
+        frequency: moderate
+        difficulty: moderate
       - id: tempered-glass-laser-cleaning
+        name: Tempered Glass
+        category: glass
+        subcategory: specialty-glass
+        url: /materials/glass/specialty-glass/tempered-glass-laser-cleaning
+        image: /images/material/tempered-glass-laser-cleaning-hero.jpg
+        description: When laser cleaning tempered glass, ensure you utilize its excellent thermal shock resistance to remove
+          contaminants safely, without risking fractures.
+        frequency: moderate
+        difficulty: moderate
       - id: titanium-laser-cleaning
+        name: Titanium
+        category: metal
+        subcategory: specialty
+        url: /materials/metal/specialty/titanium-laser-cleaning
+        image: /images/material/titanium-laser-cleaning-hero.jpg
+        description: Titanium excels in laser cleaning applications because of its exceptional corrosion resistance and lightweight
+          structure, which set it apart from denser metals prone to rapid degradation. After tre...
+        frequency: moderate
+        difficulty: moderate
       - id: titanium-carbide-laser-cleaning
+        name: Titanium Carbide
+        category: ceramic
+        subcategory: carbide
+        url: /materials/ceramic/carbide/titanium-carbide-laser-cleaning
+        image: /images/material/titanium-carbide-laser-cleaning-hero.jpg
+        description: When laser cleaning Titanium Carbide components, we typically begin by precisely calibrating the setup
+          to accommodate its remarkable heat resistance and low thermal expansion, ensuring no warping o...
+        frequency: moderate
+        difficulty: moderate
       - id: tool-steel-laser-cleaning
+        name: Tool Steel
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/tool-steel-laser-cleaning
+        image: /images/material/tool-steel-laser-cleaning-hero.jpg
+        description: Tool steel excels with its exceptional hardness and heat resistance, allowing tools to keep sharp edges
+          intact during intense machining operations without deforming or weakening.
+        frequency: moderate
+        difficulty: moderate
       - id: zinc-laser-cleaning
+        name: Zinc
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/zinc-laser-cleaning
+        image: /images/material/zinc-laser-cleaning-hero.jpg
+        description: Zinc for laser cleaning, high reflectivity of material protects substrate from thermal damage. Contaminants
+          absorb energy and vaporize easily, thus process yields clean surface without affecting un...
+        frequency: moderate
+        difficulty: moderate
       - id: aluminosilicate-glass-laser-cleaning
+        name: Aluminosilicate Glass
+        category: glass
+        subcategory: specialty
+        url: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+        image: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+        description: Aluminosilicate glass demonstrates exceptional durability and corrosion resistance. This material, it
+          withstands laser exposure tenaciously, enabling precise contaminant removal from surfaces. Its ...
+        frequency: moderate
+        difficulty: moderate
       - id: titanium-alloy-ti-6al-4v-laser-cleaning
+        name: Titanium Alloy (Ti-6Al-4V)
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
+        image: /images/material/titanium-alloy-ti-6al-4v-laser-cleaning-hero.jpg
+        description: Titanium alloy Ti-6Al-4V shows superior corrosion resistance and high strength, so laser cleaning removes
+          surface contaminants effectively while surface maintains durability for industrial uses.
+        frequency: moderate
+        difficulty: moderate
       - id: stainless-steel-316-laser-cleaning
+        name: Stainless Steel 316
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+        image: /images/material/stainless-steel-316-laser-cleaning-hero.jpg
+        description: When laser cleaning Stainless Steel 316, rely on its superior corrosion resistance to keep surfaces intact
+          in salty or chemical environments, and always adjust the power to avoid unnecessary heat b...
+        frequency: moderate
+        difficulty: moderate
       - id: stainless-steel-304-laser-cleaning
+        name: Stainless Steel 304
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
+        image: /images/material/stainless-steel-304-laser-cleaning-hero.jpg
+        description: When laser cleaning stainless steel 304, watch out for how it holds heat longer than carbon steels. I've
+          seen that cause uneven surfaces if you push too hard. But its strong corrosion resistance re...
+        frequency: moderate
+        difficulty: moderate
       - id: aluminum-bronze-laser-cleaning
+        name: Aluminum Bronze
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
+        image: /images/material/aluminum-bronze-laser-cleaning-hero.jpg
+        description: Aluminum Bronze acts as strong, corrosion-resistant alloy for laser cleaning. Its durability withstands
+          heat during treatment, so contaminants remove easily from surface. Hardness poses challenge, ...
+        frequency: moderate
+        difficulty: moderate
       - id: aluminum-nitride-laser-cleaning
+        name: Aluminum Nitride
+        category: ceramic
+        subcategory: technical
+        url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
+        image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
+        description: When laser cleaning Aluminum Nitride, I've seen it hold up remarkably well under intense heat, thanks
+          to its superior thermal stability and insulating qualities—just watch for any potential surface...
+        frequency: moderate
+        difficulty: moderate
       - id: titanium-nitride-laser-cleaning
+        name: Titanium Nitride
+        category: ceramic
+        subcategory: coating
+        url: /materials/ceramic/coating/titanium-nitride-laser-cleaning
+        image: /images/material/titanium-nitride-laser-cleaning-hero.jpg
+        description: In our experience, the main challenge for titanium nitride in high-wear applications stems from routine
+          abrasion and exposure to tough conditions, but its exceptional hardness and corrosion resista...
+        frequency: moderate
+        difficulty: moderate
       _section:
         sectionTitle: Affected Materials
         sectionDescription: Materials where this contaminant commonly appears

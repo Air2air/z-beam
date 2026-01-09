@@ -4,7 +4,7 @@ displayName: VOCs
 category: irritant
 subcategory: organic_vapor
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:12:01.190743+00:00'
+dateModified: '2026-01-09T05:26:36.563693+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/organic_vapor/vocs-compound
@@ -135,6 +135,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -163,6 +165,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -199,6 +203,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -221,6 +227,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -249,6 +257,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -289,6 +299,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -313,6 +325,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -341,6 +355,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -368,6 +384,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -410,99 +428,272 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: moderate
         typicalContext: Vaporization of paint solvents and binders
       - id: graffiti-paint-contamination
+        name: Graffiti and Spray Paint
+        title: Graffiti and Spray Paint
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+        image: /images/contaminant/graffiti-paint-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: moderate
         typicalContext: Release of spray paint solvents
       - id: adhesive-residue-contamination
+        name: Adhesive Residue / Tape Marks
+        title: Adhesive Residue / Tape Marks Laser Cleaning
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+        description: 'Adhesive-residue-contamination, it sticks firmly to surfaces during removal processes. This organic
+          residue forms uneven patches because adhesives break down and leave behind sticky films. In observations, formation
+          happens quickly after peeling, so layers build up irregularly on metals and plastics. During exposure to handling,
+          contamination spreads and adheres tightly, creating patterns that vary by material.
+
+
+          Treatment with laser cleaning faces distinct challenges here. Residue resists ablation because it chars easily and
+          smokes, so complete removal requires careful pulses to avoid damaging the base. On metals, this contamination, it
+          bonds strongly and needs multiple passes for clearance, while on plastics, it softens first and then lifts away.
+          After application of laser, surfaces show cleaner states, but traces still remain in crevices from the data. Process
+          achieves better results on smooth areas, so preparation helps in tackling these patterns.'
         frequency: very_common
         severity: moderate
         typicalContext: Release of adhesive solvents
       - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        title: Industrial Oil / Grease Buildup Laser Cleaning
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: moderate
         typicalContext: Vaporization of hydrocarbon compounds
       - id: silicone-buildup-contamination
+        name: Silicone Sealant Buildup
+        title: Silicone Sealant Buildup
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+        image: /images/contaminant/silicone-buildup-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: moderate
         typicalContext: Thermal breakdown of silicone polymers
       - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: moderate
         typicalContext: Pyrolysis products
       - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        title: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: moderate
         typicalContext: Thermal decomposition products
       - id: anti-seize-contamination
+        name: Anti-Seize Compound
+        title: Anti-Seize Compound
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/anti-seize-contamination
+        image: /images/contaminant/anti-seize-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Anti-Seize Compound
       - id: biological-stains-contamination
+        name: Organic Biofilm Deposits
+        title: Organic Biofilm Deposits
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/biological-stains-contamination
+        image: /images/contaminant/biological-stains-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Organic Biofilm Deposits
       - id: cutting-fluid-contamination
+        name: Machining Coolant Residue
+        title: Machining Coolant Residue
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
+        image: /images/contaminant/cutting-fluid-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Machining Coolant Residue
       - id: epoxy-residue-contamination
+        name: Epoxy Resin Deposits
+        title: Epoxy Resin Deposits
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+        image: /images/contaminant/epoxy-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Epoxy Resin Deposits
       - id: fuel-varnish-contamination
+        name: Fuel System Varnish
+        title: Fuel System Varnish
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/fuel-varnish-contamination
+        image: /images/contaminant/fuel-varnish-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Fuel System Varnish
       - id: gasket-material-contamination
+        name: Gasket Material Residue
+        title: Gasket Material Residue
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/gasket-material-contamination
+        image: /images/contaminant/gasket-material-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Gasket Material Residue
       - id: grease-deposits-contamination
+        name: Heavy Machinery Grease
+        title: Heavy Machinery Grease
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/grease-deposits-contamination
+        image: /images/contaminant/grease-deposits-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Heavy Machinery Grease
       - id: ink-stains-contamination
+        name: Printing Ink Residue
+        title: Printing Ink Residue
+        category: organic-residue
+        subcategory: marking
+        url: /contaminants/organic-residue/marking/ink-stains-contamination
+        image: /images/contaminant/ink-stains-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Printing Ink Residue
       - id: pcb-contamination
+        name: PCB Oil Contamination
+        title: PCB Oil Contamination
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pcb-contamination
+        image: /images/contaminant/pcb-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of PCB Oil Contamination
       - id: powder-coating-contamination
+        name: Powder Coating Buildup
+        title: Powder Coating Buildup
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/powder-coating-contamination
+        image: /images/contaminant/powder-coating-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Powder Coating Buildup
       - id: primer-coating-contamination
+        name: Paint Primer Layers
+        title: Paint Primer Layers
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/primer-coating-contamination
+        image: /images/contaminant/primer-coating-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Paint Primer Layers
       - id: quench-oil-contamination
+        name: Quenching Oil Residue
+        title: Quenching Oil Residue
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/quench-oil-contamination
+        image: /images/contaminant/quench-oil-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Quenching Oil Residue
       - id: solder-flux-contamination
+        name: Soldering Flux Residue
+        title: Soldering Flux Residue
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/solder-flux-contamination
+        image: /images/contaminant/solder-flux-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Soldering Flux Residue
       - id: tree-sap-contamination
+        name: Tree Sap and Resin
+        title: Tree Sap and Resin
+        category: organic-residue
+        subcategory: natural
+        url: /contaminants/organic-residue/natural/tree-sap-contamination
+        image: /images/contaminant/tree-sap-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Tree Sap and Resin
       - id: uv-chalking-contamination
+        name: UV Photodegradation / Polymer Chalking
+        title: UV Photodegradation / Polymer Chalking Laser Cleaning
+        category: aging
+        subcategory: photodegradation
+        url: /contaminants/aging/photodegradation/uv-chalking-contamination
+        image: /images/contaminant/uv-chalking-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of UV Photodegradation / Polymer Chalking
       - id: wood-rot-contamination
+        name: Wood Rot / Fungal Biodegradation
+        title: Wood Rot / Fungal Biodegradation Laser Cleaning
+        category: biological
+        subcategory: growth
+        url: /contaminants/biological/growth/wood-rot-contamination
+        image: /images/contaminant/wood-rot-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
@@ -551,6 +742,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: irritant
 chemicalFormula: Various
 casNumber: N/A
@@ -653,3 +846,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Volatile Organic Compounds

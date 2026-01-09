@@ -4,7 +4,7 @@ displayName: Carbon Monoxide (CO)
 category: toxic_gas
 subcategory: asphyxiant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:11:59.747642+00:00'
+dateModified: '2026-01-09T05:26:35.219985+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/asphyxiant/carbon-monoxide-compound
@@ -134,6 +134,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -160,6 +162,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -196,6 +200,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -220,6 +226,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -248,6 +256,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -288,6 +298,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -319,6 +331,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -352,6 +366,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -380,6 +396,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -419,63 +437,173 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: adhesive-residue-contamination
+        name: Adhesive Residue / Tape Marks
+        title: Adhesive Residue / Tape Marks Laser Cleaning
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+        description: 'Adhesive-residue-contamination, it sticks firmly to surfaces during removal processes. This organic
+          residue forms uneven patches because adhesives break down and leave behind sticky films. In observations, formation
+          happens quickly after peeling, so layers build up irregularly on metals and plastics. During exposure to handling,
+          contamination spreads and adheres tightly, creating patterns that vary by material.
+
+
+          Treatment with laser cleaning faces distinct challenges here. Residue resists ablation because it chars easily and
+          smokes, so complete removal requires careful pulses to avoid damaging the base. On metals, this contamination, it
+          bonds strongly and needs multiple passes for clearance, while on plastics, it softens first and then lifts away.
+          After application of laser, surfaces show cleaner states, but traces still remain in crevices from the data. Process
+          achieves better results on smooth areas, so preparation helps in tackling these patterns.'
         frequency: very_common
         severity: high
         typicalContext: Incomplete combustion of organic adhesives
       - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Combustion of paint binders and solvents
       - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Pyrolysis of rubber polymers
       - id: annealing-scale-contamination
+        name: Heat Treatment Scale
+        title: Heat Treatment Scale
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/annealing-scale-contamination
+        image: /images/contaminant/annealing-scale-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: low
         typicalContext: Laser removal of Heat Treatment Scale
       - id: bitumen-tar-contamination
+        name: Bitumen and Tar Coatings
+        title: Bitumen and Tar Coatings
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+        image: /images/contaminant/bitumen-tar-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Bitumen and Tar Coatings
       - id: carbon-buildup-contamination
+        name: Carbon Deposit Buildup
+        title: Carbon Deposit Buildup
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-buildup-contamination
+        image: /images/contaminant/carbon-buildup-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Carbon Deposit Buildup
       - id: carbon-soot-contamination
+        name: Carbon Soot Deposits
+        title: Carbon Soot Deposits
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-soot-contamination
+        image: /images/contaminant/carbon-soot-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Carbon Soot Deposits
       - id: diamond-coating-contamination
+        name: Diamond-Like Carbon Removal
+        title: Diamond-Like Carbon Removal
+        category: inorganic-coating
+        subcategory: coating
+        url: /contaminants/inorganic-coating/coating/diamond-coating-contamination
+        image: /images/contaminant/diamond-coating-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: high
         typicalContext: Laser removal of Diamond-Like Carbon Removal
       - id: epoxy-residue-contamination
+        name: Epoxy Resin Deposits
+        title: Epoxy Resin Deposits
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+        image: /images/contaminant/epoxy-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Epoxy Resin Deposits
       - id: graphite-marks-contamination
+        name: Graphite Deposit Traces
+        title: Graphite Deposit Traces
+        category: organic-residue
+        subcategory: marking
+        url: /contaminants/organic-residue/marking/graphite-marks-contamination
+        image: /images/contaminant/graphite-marks-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Graphite Deposit Traces
       - id: hydraulic-fluid-contamination
+        name: Hydraulic Fluid Contamination
+        title: Hydraulic Fluid Contamination
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
+        image: /images/contaminant/hydraulic-fluid-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: high
         typicalContext: Laser removal of Hydraulic Fluid Contamination
       - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        title: Industrial Oil / Grease Buildup Laser Cleaning
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Industrial Oil / Grease Buildup
       - id: pcb-contamination
+        name: PCB Oil Contamination
+        title: PCB Oil Contamination
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pcb-contamination
+        image: /images/contaminant/pcb-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of PCB Oil Contamination
       - id: quench-oil-contamination
+        name: Quenching Oil Residue
+        title: Quenching Oil Residue
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/quench-oil-contamination
+        image: /images/contaminant/quench-oil-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Quenching Oil Residue
@@ -529,6 +657,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: toxic
 chemicalFormula: CO
 casNumber: 630-08-0
@@ -621,3 +751,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Carbon Monoxide

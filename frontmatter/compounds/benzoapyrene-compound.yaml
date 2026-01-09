@@ -4,7 +4,7 @@ displayName: Benzo[a]pyrene (C₂₀H₁₂)
 category: carcinogen
 subcategory: polycyclic_aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:12:01.261475+00:00'
+dateModified: '2026-01-09T05:26:36.634947+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/polycyclic_aromatic_hydrocarbon/benzoapyrene-compound
@@ -136,6 +136,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -162,6 +164,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -194,6 +198,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -217,6 +223,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -242,6 +250,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -286,6 +296,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -312,6 +324,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -344,6 +358,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -372,6 +388,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -409,27 +427,64 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: carbon-buildup-contamination
+        name: Carbon Deposit Buildup
+        title: Carbon Deposit Buildup
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-buildup-contamination
+        image: /images/contaminant/carbon-buildup-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Pre-existing from incomplete combustion
       - id: carbon-soot-contamination
+        name: Carbon Soot Deposits
+        title: Carbon Soot Deposits
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-soot-contamination
+        image: /images/contaminant/carbon-soot-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Formed during original combustion event
       - id: fire-damage-contamination
+        name: Fire and Smoke Damage
+        title: Fire and Smoke Damage
+        category: thermal-damage
+        subcategory: fire
+        url: /contaminants/thermal-damage/fire/fire-damage-contamination
+        image: /images/contaminant/fire-damage-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Formed during fire events
       - id: bitumen-tar-contamination
+        name: Bitumen and Tar Coatings
+        title: Bitumen and Tar Coatings
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+        image: /images/contaminant/bitumen-tar-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Naturally present in bitumen/asphalt
       - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
         frequency: occasional
         severity: moderate
         typicalContext: Formed during high-temperature pyrolysis
@@ -480,6 +535,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: carcinogenic
 chemicalFormula: C₂₀H₁₂
 casNumber: 50-32-8
@@ -605,3 +662,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Benzo[a]pyrene

@@ -4,7 +4,7 @@ displayName: Chromium(VI)
 category: carcinogen
 subcategory: heavy_metal
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:12:00.746177+00:00'
+dateModified: '2026-01-09T05:26:36.095137+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/heavy_metal/chromium-vi-compound
@@ -134,6 +134,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -163,6 +165,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -195,6 +199,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -218,6 +224,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -247,6 +255,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -291,6 +301,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -322,6 +334,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -354,6 +368,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -381,6 +397,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -421,23 +439,53 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: chrome-pitting-contamination
+        name: Chromium Oxide Pitting
+        title: Chromium Oxide Pitting
+        category: oxidation
+        subcategory: non-ferrous
+        url: /contaminants/oxidation/non-ferrous/chrome-pitting-contamination
+        image: /images/contaminant/chrome-pitting-contamination-hero.jpg
+        description: ''
         frequency: very_common
         severity: high
         typicalContext: Oxidation of chromium creates Cr(VI)
       - id: steel-corrosion-contamination
+        name: Steel Surface Corrosion
+        title: Steel Surface Corrosion
+        category: oxidation
+        subcategory: ferrous
+        url: /contaminants/oxidation/ferrous/steel-corrosion-contamination
+        image: /images/contaminant/steel-corrosion-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Oxidation of chromium in stainless steel
       - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
         frequency: occasional
         severity: high
         typicalContext: Chromate pigments in some paints
       - id: conversion-coating-contamination
+        name: Chemical Conversion Coating
+        title: Chemical Conversion Coating
+        category: inorganic-coating
+        subcategory: coating
+        url: /contaminants/inorganic-coating/coating/conversion-coating-contamination
+        image: /images/contaminant/conversion-coating-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: high
         typicalContext: Laser removal of Chemical Conversion Coating
@@ -514,6 +562,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: carcinogenic
 chemicalFormula: Cr(VI)
 casNumber: 18540-29-9
@@ -616,3 +666,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Hexavalent Chromium

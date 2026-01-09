@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { SITE_CONFIG } from '@/app/config/site';
+import { DIMENSION_CLASSES } from '@/app/config/dimensions';
 
 interface MicroImageProps {
   imageSource?: string;
@@ -26,7 +27,7 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
 
   if (!imageSource) {
     return (
-      <div className="flex items-center justify-center bg-tertiary h-[450px] rounded-md">
+      <div className={`flex items-center justify-center bg-tertiary ${DIMENSION_CLASSES.micro.image} rounded-md`}>
         <Image
           src="/images/logo/logo-zbeam.png"
           alt={`${SITE_CONFIG.shortName} logo`}

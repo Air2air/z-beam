@@ -4,7 +4,7 @@ displayName: Acrolein (C₃H₄O)
 category: toxic_gas
 subcategory: aldehyde
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:12:00.194549+00:00'
+dateModified: '2026-01-09T05:26:35.710528+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/aldehyde/acrolein-compound
@@ -135,6 +135,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -163,6 +165,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -196,6 +200,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -218,6 +224,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -247,6 +255,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -283,6 +293,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -316,6 +328,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -349,6 +363,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -376,6 +392,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -413,23 +431,53 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        title: Industrial Oil / Grease Buildup Laser Cleaning
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Thermal decomposition of fats and oils
       - id: quench-oil-contamination
+        name: Quenching Oil Residue
+        title: Quenching Oil Residue
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/quench-oil-contamination
+        image: /images/contaminant/quench-oil-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Thermal decomposition of quenching oils
       - id: cutting-fluid-contamination
+        name: Machining Coolant Residue
+        title: Machining Coolant Residue
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
+        image: /images/contaminant/cutting-fluid-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: high
         typicalContext: Thermal breakdown of oil-based cutting fluids
       - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        title: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: ''
         frequency: occasional
         severity: moderate
         typicalContext: Pyrolysis of certain polymers
@@ -517,6 +565,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: toxic
 chemicalFormula: C₃H₄O
 casNumber: 107-02-8
@@ -650,3 +700,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Acrolein

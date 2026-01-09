@@ -4,7 +4,7 @@ displayName: NOₓ
 category: toxic_gas
 subcategory: oxidizing_gas
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-08T05:12:00.816061+00:00'
+dateModified: '2026-01-09T05:26:36.152859+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic_gas/oxidizing_gas/nitrogen-oxides-compound
@@ -134,6 +134,8 @@ relationships:
           schemaDescription: Physical characteristics and behavior
         sectionTitle: Physical Properties
         sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
     synonymsIdentifiers:
       presentation: descriptive
       items:
@@ -160,6 +162,8 @@ relationships:
           schemaDescription: Alternative names and identifiers
         sectionTitle: Alternative Names
         sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
   safety:
     healthEffects:
       presentation: card
@@ -192,6 +196,8 @@ relationships:
           schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
     ppeRequirements:
       presentation: descriptive
       items:
@@ -214,6 +220,8 @@ relationships:
           schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
     emergencyResponse:
       presentation: descriptive
       items:
@@ -240,6 +248,8 @@ relationships:
           schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
     exposureLimits:
       presentation: descriptive
       items:
@@ -284,6 +294,8 @@ relationships:
           schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
     storageRequirements:
       presentation: descriptive
       items:
@@ -315,6 +327,8 @@ relationships:
           schemaDescription: Safe storage conditions
         sectionTitle: Storage Requirements
         sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
     regulatoryClassification:
       presentation: descriptive
       items:
@@ -345,6 +359,8 @@ relationships:
           schemaDescription: Regulatory classification and hazard codes
         sectionTitle: Regulatory Classification
         sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
   environmental:
     environmentalImpact:
       presentation: descriptive
@@ -372,6 +388,8 @@ relationships:
           schemaDescription: Environmental effects and disposal considerations
         sectionTitle: Environmental Impact
         sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -410,39 +428,97 @@ relationships:
           schemaDescription: Detection and monitoring methods
         sectionTitle: Detection & Monitoring
         sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
   interactions:
     producedFromContaminants:
       presentation: card
       items:
       - id: rust-oxidation-contamination
+        name: Rust / Iron Oxide Formation
+        title: Rust / Iron Oxide Formation
+        category: oxidation
+        subcategory: ferrous
+        url: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+        image: /images/contaminant/rust-oxidation-contamination-hero.jpg
+        description: ''
         frequency: common
         severity: low
         typicalContext: High-temperature iron oxide reactions with nitrogen
       - id: algae-growth-contamination
+        name: Algae and Lichen Growth
+        title: Algae and Lichen Growth
+        category: biological
+        subcategory: growth
+        url: /contaminants/biological/growth/algae-growth-contamination
+        image: /images/contaminant/algae-growth-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Algae and Lichen Growth
       - id: blood-residue-contamination
+        name: Biological Blood Residue
+        title: Biological Blood Residue
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/blood-residue-contamination
+        image: /images/contaminant/blood-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Biological Blood Residue
       - id: electroplating-residue-contamination
+        name: Electroplating Solution Residue
+        title: Electroplating Solution Residue
+        category: metallic-coating
+        subcategory: plating
+        url: /contaminants/metallic-coating/plating/electroplating-residue-contamination
+        image: /images/contaminant/electroplating-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Electroplating Solution Residue
       - id: fertilizer-residue-contamination
+        name: Fertilizer Salt Deposits
+        title: Fertilizer Salt Deposits
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
+        image: /images/contaminant/fertilizer-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Fertilizer Salt Deposits
       - id: insect-residue-contamination
+        name: Insect Impact Residue
+        title: Insect Impact Residue
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/insect-residue-contamination
+        image: /images/contaminant/insect-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Insect Impact Residue
       - id: pesticide-residue-contamination
+        name: Pesticide Chemical Residue
+        title: Pesticide Chemical Residue
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
+        image: /images/contaminant/pesticide-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Pesticide Chemical Residue
       - id: pharmaceutical-residue-contamination
+        name: Pharmaceutical Drug Residue
+        title: Pharmaceutical Drug Residue
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination
+        image: /images/contaminant/pharmaceutical-residue-contamination-hero.jpg
+        description: ''
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Pharmaceutical Drug Residue
@@ -498,6 +574,8 @@ relationships:
           schemaDescription: Chemical reactivity and interactions
         sectionTitle: Reactivity
         sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
 hazardClass: toxic
 chemicalFormula: NOx
 casNumber: Various
@@ -601,3 +679,4 @@ faq:
   options:
     autoOpenFirst: true
     sortBy: severity
+title: Nitrogen Oxides

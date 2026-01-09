@@ -191,14 +191,15 @@ export function SafetyDataPanel({
     }
   }
 
-  if (collapsible && collapsibleItems.length > 0) {
+  if (collapsible) {
+    // If in collapsible mode but no items, don't render anything
+    if (collapsibleItems.length === 0) {
+      return null;
+    }
+    
     return (
       <Collapsible
         items={collapsibleItems}
-        sectionMetadata={{
-          sectionTitle: entityName ? `${entityName} safety information` : "Safety Information",
-          sectionDescription: isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"
-        }}
       />
     );
   }

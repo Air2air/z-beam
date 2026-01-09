@@ -51,7 +51,7 @@ export function ContaminantCard({
   const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href || ''}`;
   
   // Format category for display
-  const formattedCategory = category.replace(/_/g, ' ').replace(/-/g, ' ');
+  const formattedCategory = (category || '').replace(/_/g, ' ').replace(/-/g, ' ');
   
   // Get category icon based on category type
   const getCategoryIcon = (cat: string) => {

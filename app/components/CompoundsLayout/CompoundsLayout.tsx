@@ -13,9 +13,8 @@ import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
-import { contaminantLinkageToGridItem, materialLinkageToGridItem } from '@/app/utils/gridMappers';
 import { sortByFrequency } from '@/app/utils/gridSorters';
-import { getContaminantArticle, getArticle } from '@/app/utils/contentAPI';
+import { contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { getRelationshipSection } from '@/app/utils/relationshipHelpers';
 import { Beaker, Thermometer, Activity, FileText } from 'lucide-react';
 import type { LayoutProps, SectionConfig, CompoundsLayoutProps } from '@/types';
@@ -29,72 +28,17 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   // Extract compound name for display
   const compoundName = (metadata?.title as string) || metadata?.name || slug;
   
-  // Access data from relationships (supports both new and old structure)
+  // All data comes directly from frontmatter - fully denormalized (Phase 2 complete)
   const relationships = (metadata as any)?.relationships || {};
-  const industryApplications = relationships?.operational?.industry_applications || (metadata as any)?.applications;
+  const industryApplications = relationships?.operational?.industryApplications?.items || [];
   
-  // Source contaminants that produce this compound
-  // New structure: interactions.produced_from_contaminants, fallback: operational.produced_from_contaminants
-  const sourceContaminantsRaw = relationships?.interactions?.produced_from_contaminants || relationships?.operational?.produced_from_contaminants || relationships?.technical?.produced_from_contaminants || relationships?.produced_from_contaminants || relationships?.produced_by_contaminants || relationships?.source_contaminants;
-  const sourceContaminants = (Array.isArray(sourceContaminantsRaw) 
-    ? sourceContaminantsRaw 
-    : (sourceContaminantsRaw?.items || [])).filter((item: any) => item != null);
-
-  // Source materials that produce this compound
-  // New structure: interactions.produced_from_materials, fallback: operational.produced_from_materials
-  const sourceMaterialsRaw = relationships?.interactions?.produced_from_materials || relationships?.operational?.produced_from_materials || relationships?.technical?.produced_from_materials || relationships?.produced_from_materials;
-  const sourceMaterials = (Array.isArray(sourceMaterialsRaw)
-    ? sourceMaterialsRaw
-    : (sourceMaterialsRaw?.items || [])).filter((item: any) => item != null);
-
-  // Enrich minimal references with full contaminant data
-  const enrichedContaminants = await Promise.all(
-    sourceContaminants.map(async (ref: any) => {
-      // Skip if ref is invalid or missing id
-      if (!ref || !ref.id) return null;
-      
-      // Fetch full article data to get title and other metadata
-      const article = await getContaminantArticle(ref.id);
-      if (!article) return null;
-      
-      const metadata = article.metadata as any;
-      return {
-        id: ref.id,
-        title: metadata.name || metadata.title,
-        category: metadata.category || '',
-        subcategory: metadata.subcategory || '',
-        description: ref.typical_context || metadata.description || '',
-        url: ref.url || metadata.fullPath, // Prefer relationship URL, then fullPath
-        frequency: ref.frequency,
-        severity: ref.severity,
-        typical_context: ref.typical_context,
-        image: metadata.images?.hero?.url || '',
-      };
-    })
-  ).then(items => items.filter(Boolean));
-
-  // Enrich minimal references with full material data
-  const enrichedMaterials = await Promise.all(
-    sourceMaterials.map(async (ref: any) => {
-      // Skip if ref is invalid or missing id
-      if (!ref || !ref.id) return null;
-      
-      // Fetch full article data to get title and other metadata
-      const article = await getArticle(ref.id);
-      if (!article) return null;
-      
-      const metadata = article.metadata as any;
-      return {
-        id: ref.id,
-        title: metadata.name || metadata.title,
-        category: metadata.category || '',
-        subcategory: metadata.subcategory || '',
-        description: metadata.description || '',
-        url: metadata.fullPath, // Must have fullPath in metadata
-        image: metadata.images?.hero?.url || '',
-      };
-    })
-  ).then(items => items.filter(Boolean));
+  // Source contaminants - complete data from frontmatter (all 9 fields guaranteed)
+  const sourceContaminantsRaw = relationships?.interactions?.producedFromContaminants || {};
+  const sourceContaminants = sourceContaminantsRaw?.items || [];
+  
+  // Source materials - complete data from frontmatter
+  const sourceMaterialsRaw = relationships?.interactions?.producedFromMaterials || {};
+  const sourceMaterials = sourceMaterialsRaw?.items || [];
 
   // Prepare safety data from relationships (structured data) and metadata (legacy)
   /**
@@ -122,18 +66,18 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   const hasSafetyData = Object.values(safetyData).some(value => value !== undefined && value !== null);
 
   // Extract additional compound data for new InfoCard sections
-  const physicalProperties = (metadata as any)?.physical_properties;
+  const physicalProperties = (metadata as any)?.physical_properties || (metadata as any)?.physicalProperties;
   
   // Read exposure_limits from new hierarchical location: relationships.safety.exposure_limits.items[0]
   // Filter out null items and get the first valid exposure limit object
   const exposureLimitsItems = (safetyRelationships?.exposure_limits?.items || []).filter((item: any) => item != null);
-  const exposureLimits = exposureLimitsItems[0] || (metadata as any)?.exposure_limits; // Fallback to legacy location
+  const exposureLimits = exposureLimitsItems[0] || (metadata as any)?.exposure_limits || (metadata as any)?.exposureLimits; // Fallback to legacy location
   
-  const healthEffects = (metadata as any)?.health_effects_keywords;
-  const synonyms = (metadata as any)?.synonyms_identifiers;
-  const casNumber = (metadata as any)?.cas_number;
-  const molecularWeight = (metadata as any)?.molecular_weight;
-  const chemicalFormula = (metadata as any)?.chemical_formula;
+  const healthEffects = (metadata as any)?.health_effects_keywords || (metadata as any)?.healthEffectsKeywords;
+  const synonyms = (metadata as any)?.synonyms_identifiers || (metadata as any)?.synonymsIdentifiers;
+  const casNumber = (metadata as any)?.cas_number || (metadata as any)?.casNumber;
+  const molecularWeight = (metadata as any)?.molecular_weight || (metadata as any)?.molecularWeight;
+  const chemicalFormula = (metadata as any)?.chemical_formula || (metadata as any)?.chemicalFormula;
 
   // Configure sections for BaseContentLayout
   const sections: SectionConfig[] = [
@@ -231,9 +175,9 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
     },
     {
       component: CardGrid,
-      condition: enrichedContaminants.length > 0,
+      condition: sourceContaminants.length > 0,
       props: {
-        items: enrichedContaminants
+        items: sourceContaminants
           .sort(sortByFrequency)
           .map(contaminantLinkageToGridItem),
         title: sourceContaminantsRaw?._section?.sectionTitle,
@@ -243,9 +187,9 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
     },
     {
       component: CardGrid,
-      condition: enrichedMaterials.length > 0,
+      condition: sourceMaterials.length > 0,
       props: {
-        items: enrichedMaterials.map(materialLinkageToGridItem),
+        items: sourceMaterials,
         title: sourceMaterialsRaw?._section?.sectionTitle,
         description: sourceMaterialsRaw?._section?.sectionDescription,
         variant: 'relationship' as const,
