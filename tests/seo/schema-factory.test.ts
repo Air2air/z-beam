@@ -23,9 +23,12 @@ import {
 const baseMaterialData = {
   frontmatter: {
     title: 'Aluminum Laser Cleaning',
+    name: 'Aluminum',
     description: 'Professional guide to laser cleaning aluminum surfaces',
     category: 'metal',
     subcategory: 'non-ferrous',
+    datePublished: '2024-01-15',
+    dateModified: '2024-12-06',
     author: {
       name: 'Dr. Sarah Chen',
       title: 'Ph.D. Materials Science',
@@ -177,12 +180,17 @@ describe('SchemaFactory', () => {
       expect(service).toBeDefined();
     });
 
-    it('generates VideoObject schema for material pages', () => {
-      const factory = new SchemaFactory(baseMaterialData, 'materials/aluminum');
+    it('generates VideoObject schema when video data provided', () => {
+      const dataWithVideo = {
+        ...baseMaterialData,
+        video: 't8fB3tJCfQw' // YouTube video ID
+      };
+      const factory = new SchemaFactory(dataWithVideo, 'materials/aluminum');
       const result = factory.generate();
       
       const video = result['@graph'].find((s: any) => s['@type'] === 'VideoObject');
       expect(video).toBeDefined();
+      expect(video?.contentUrl).toContain('youtube');
     });
   });
 

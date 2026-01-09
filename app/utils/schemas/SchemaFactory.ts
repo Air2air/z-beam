@@ -380,9 +380,11 @@ function generateWebPageSchema(data: any, context: SchemaContext): SchemaOrgBase
   const { pageUrl, baseUrl } = context;
   
   // Extract frontmatter from various possible locations with type guards
-  const metadata = (data.frontmatter || data.pageConfig || {}) as Record<string, unknown>;
-  const title = (metadata.title as string) || (typeof data.title === 'string' ? data.title : '') || 'Z-Beam';
-  const description = (metadata.description as string) || (typeof data.description === 'string' ? data.description : '') || '';
+  const metadata = getMetadata(data);
+  const title = (metadata.title as string) || (typeof data.title === "string" ? data.title : "");
+  const description = (metadata.description as string) || (metadata.pageDescription as string) || (typeof data.description === "string" ? data.description : "");
+  
+  if (!title) return null;
   
   return {
     '@context': 'https://schema.org',
@@ -539,10 +541,10 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
   const frontmatter = getMetadata(data);
   const { pageUrl, baseUrl, currentDate } = context;
   
-  const title = frontmatter.title || data.title || '';
-  const description = frontmatter.description || data.description || '';
+  const title = frontmatter.title || data.title;
+  const description = frontmatter.description || frontmatter.pageDescription || data.description;
   
-  if (!title) return null;
+  if (!title || !description) return null;
 
   // Check if author exists
   const authorData = frontmatter.author || data.author;
@@ -737,8 +739,8 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       '@type': 'Product',
       '@id': `${pageUrl}#product-${key}`,
       'name': productData.name || key,
-      'description': productData.description || `Laser cleaning equipment: ${key}`,
-      'category': productData.category || 'Laser Cleaning Equipment',
+      'description': productData.description,
+      'category': productData.category,
       'brand': {
         '@type': 'Brand',
         'name': 'Netalux'
@@ -776,7 +778,8 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
 
   // Contaminant-specific removal services
   if (isContaminantPage(slug)) {
-    const contaminantName = meta.name || data.title || 'Contaminant';
+    const contaminantName = meta.name || data.title;
+    if (!contaminantName) return null;
     const composition = (meta as any).composition;
     const safetyData = (meta as any).safety_data || (data.frontmatter as any)?.safety_data;
     
@@ -978,8 +981,9 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
 
   // Material-specific service products
   if (meta.materialProperties) {
-    const materialName = meta.name || data.title || 'Material';
-    const materialCategory = meta.category || 'Material';
+    const materialName = meta.name || data.title;
+    const materialCategory = meta.category;
+    if (!materialName || !materialCategory) return null;
     
     // Extract safety data from frontmatter/metadata
     const safetyData = (meta as any).safety_data || (meta as any).safetyData || (data.frontmatter as any)?.safety_data;
@@ -1224,7 +1228,8 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
     
     // Build service description with contaminants
     const contaminants = materialSpecific.targetContaminants || [];
-    const materialName = (meta.title || data.title || 'Material') as string;
+    const materialName = (meta.title || data.title) as string;
+    if (!materialName) return null;
     const contaminantText = contaminants.length > 0 
       ? ` Removes: ${contaminants.slice(0, 3).join(', ')}.`
       : '';
@@ -1242,7 +1247,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
       },
       'areaServed': {
         '@type': 'Place',
-        'name': 'North America'
+        name: data.serviceArea
       },
       'serviceType': 'Laser Cleaning',
       'offers': {
@@ -1301,17 +1306,19 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
     return {
       '@type': 'Service',
       '@id': `${pageUrl}#service`,
-      'name': (data.title as string) || 'Laser Cleaning Service',
-      'description': (data.description as string) || '',
+      'name': (data.title as string),
+      'description': (data.description as string),
       'provider': {
         '@type': 'Organization',
         'name': SITE_CONFIG.name,
         'url': baseUrl
       },
-      'areaServed': {
-        '@type': 'Place',
-        'name': (data.serviceArea as string) || 'North America'
-      },
+      ...((data.serviceArea as string) && {
+        'areaServed': {
+          '@type': 'Place',
+          'name': (data.serviceArea as string)
+        }
+      }),
       'serviceType': 'Laser Cleaning',
       ...imageData
     };
@@ -1323,7 +1330,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
   return {
     '@type': 'Service',
     '@id': `${pageUrl}#service-1`,
-    'name': firstService.name || firstService.title || 'Laser Cleaning Service',
+    'name': firstService.name || firstService.title,
     'description': firstService.description || '',
     'provider': {
       '@type': 'Organization',
@@ -1462,7 +1469,8 @@ function generateHowToSchema(data: any, context: SchemaContext): SchemaOrgBase |
   if (!machineSettings || Object.keys(machineSettings).length === 0) return null;
 
   const { pageUrl } = context;
-  const materialName = frontmatter.name || data.title || 'material';
+  const materialName = frontmatter.name || data.title;
+  if (!materialName) return null;
 
   // Extract power and pulse settings for optimal range tips
   const powerRange = machineSettings.powerRange;
@@ -1732,7 +1740,8 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
   
   // Check for explicit video URL or use default YouTube video
   const videoUrl = data.video || data.youtubeUrl || frontmatter.video;
-  const youtubeId = videoUrl || 't8fB3tJCfQw'; // Default demo video
+  const youtubeId = videoUrl;
+  if (!youtubeId) return null;
   
   // Always include video schema for material pages
   const isMaterialPage = frontmatter.materialProperties || frontmatter.category;
@@ -1748,7 +1757,8 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
     : `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
 
   // Enhanced material-specific video title and description
-  const materialName = frontmatter.name || frontmatter.subject || data.title || 'this material';
+  const materialName = frontmatter.name || frontmatter.subject || data.title;
+  if (!materialName) return null;
   const videoTitle = `${materialName} Laser Cleaning - Professional Demonstration`;
   const materialDesc = frontmatter.description;
   const videoDescription = materialDesc
@@ -1829,10 +1839,10 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
   // @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
   
   // License URL (required for full license metadata)
-  imageObject.license = mainImage.license || 'https://creativecommons.org/licenses/by/4.0/';
+  imageObject.license = mainImage.license || SITE_CONFIG.imageLicense.license;
   
   // Page where users can acquire/request license
-  imageObject.acquireLicensePage = mainImage.acquireLicensePage || `${context.baseUrl}/contact`;
+  imageObject.acquireLicensePage = mainImage.acquireLicensePage || SITE_CONFIG.imageLicense.acquireLicensePage;
   
   // Credit text - use image-specific, micro description, or default
   if (mainImage.creditText) {
@@ -1840,12 +1850,11 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
   } else if (mainImage.isMicro && (data.frontmatter?.micro?.description || data.micro?.description)) {
     imageObject.creditText = data.frontmatter?.micro?.description || data.micro?.description;
   } else {
-    imageObject.creditText = 'Z-Beam Laser Cleaning';
+    imageObject.creditText = SITE_CONFIG.imageLicense.creditText;
   }
   
-  // Copyright notice - use image-specific or generate default
-  imageObject.copyrightNotice = mainImage.copyrightNotice 
-    || `© ${new Date().getFullYear()} Z-Beam Laser Cleaning. All rights reserved.`;
+  // Copyright notice - use image-specific or site default
+  imageObject.copyrightNotice = mainImage.copyrightNotice || SITE_CONFIG.imageLicense.copyrightNotice;
   
   // Use image creator if specified, otherwise fall back to page author
   if (mainImage.creator) {
@@ -1918,11 +1927,11 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
  */
 function generateSoftwareApplicationSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
-  const materialName = frontmatter.name || 'Material';
+  const materialName = frontmatter.name || data.title;
   const { pageUrl, baseUrl } = context;
   
-  // Only generate for settings pages with machine settings (they have the interactive tools)
-  if (!frontmatter.machineSettings) return null;
+  // Only generate for settings pages with machine settings
+  if (!frontmatter.machineSettings || !materialName) return null;
 
   // Main heat buildup simulator application
   const heatSimulator: SchemaOrgBase = {
@@ -2271,9 +2280,12 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   const hasMaterialPropsData = !!(materialProps && Object.keys(materialProps).length > 0);
   const hasContaminantDataMeasurements = isContaminant && (composition || safetyData || laserProps);
   
+  const itemName = frontmatter.name || data.title;
+  if (!itemName) return null;
+  
   let datasetDescription = isContaminant 
-    ? `Comprehensive contamination dataset for ${frontmatter.name || 'contaminant'}.`
-    : `Comprehensive laser cleaning dataset for ${frontmatter.name || 'material'}.`;
+    ? `Comprehensive contamination dataset for ${itemName}.`
+    : `Comprehensive laser cleaning dataset for ${itemName}.`;
     
   if (isContaminant && hasContaminantDataMeasurements) {
     datasetDescription += ' Includes chemical composition, safety metrics, PPE requirements, and laser removal parameters for effective contamination removal.';
@@ -2289,8 +2301,8 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     '@type': 'Dataset',
     '@id': `${canonicalUrl}#dataset`,
     'name': isContaminant 
-      ? `${frontmatter.name || 'Contaminant'} Removal Dataset`
-      : `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
+      ? `${itemName} Removal Dataset`
+      : `${itemName} Laser Cleaning Dataset`,
     'description': datasetDescription,
     'version': '1.0',
     'license': enhancedFields?.license || {
@@ -2678,7 +2690,7 @@ function generateItemListSchema(data: any, context: SchemaContext): SchemaOrgBas
   return {
     '@type': 'ItemList',
     '@id': `${pageUrl}#itemlist`,
-    'name': `${data.title || 'Items'} - Complete List`,
+    'name': `${data.title} - Complete List`,
     'numberOfItems': items.length,
     'itemListElement': items.map((item: any, index: number) => ({
       '@type': 'ListItem',
@@ -2773,7 +2785,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}/images/material/${slug}-hero.jpg`,
       'width': 1200,
       'height': 630,
-      'micro': data.title || data.frontmatter?.title || 'Laser cleaning process'
+      'micro': data.title || data.frontmatter?.title
     };
   }
 
@@ -2791,7 +2803,7 @@ function generatePersonObject(author: any, _baseUrl: string): any {
   if (!author) {
     return {
       '@type': 'Person',
-      'name': SITE_CONFIG.author || 'Z-Beam Expert'
+      'name': SITE_CONFIG.author
     };
   }
 
@@ -2804,7 +2816,7 @@ function generatePersonObject(author: any, _baseUrl: string): any {
 
   const personObj: any = {
     '@type': 'Person',
-    'name': author.name || 'Expert',
+    'name': author.name,
     // E-E-A-T: Add professional credentials
     ...(author.jobTitle && { 'jobTitle': author.jobTitle }),
     ...(author.title && !author.jobTitle && { 'jobTitle': author.title }), // Use title as jobTitle if jobTitle not set
