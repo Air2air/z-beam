@@ -29,7 +29,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         materialName: 'Aluminum',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         }
       });
       
@@ -101,7 +101,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         materialDescription: 'Aluminum features exceptional reflectivity that bounces most energy away',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         },
         materialProperties: {
           material_characteristics: {
@@ -155,7 +155,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         materialName: 'Titanium',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 150, unit: 'W' }
+          laserPower: { value: 150, unit: 'W' }
         }
       });
       
@@ -213,7 +213,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         materialName: 'Aluminum',
         machineSettings: {
           passCount: { value: 3, unit: 'passes' },
-          powerRange: { value: 100, unit: 'W' },
+          laserPower: { value: 100, unit: 'W' },
           wavelength: { value: 1064, unit: 'nm' }
         }
       });
@@ -229,7 +229,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         pageType: 'settings',
         materialName: 'Steel',
         machineSettings: {
-          powerRange: { value: 100, unit: 'W' },
+          laserPower: { value: 100, unit: 'W' },
           wavelength: { value: 1064, unit: 'nm' }
         }
       });
@@ -259,7 +259,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         pageType: 'settings',
         materialName: 'Aluminum',
         machineSettings: {
-          powerRange: { value: 100, unit: 'W' },
+          laserPower: { value: 100, unit: 'W' },
           wavelength: { value: 1064, unit: 'nm' },
           scanSpeed: { value: 500, unit: 'mm/s' },
           passCount: { value: 3, unit: 'passes' }
@@ -279,7 +279,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         materialName: 'Steel',
         settingsDescription: 'Start by selecting moderate power to counter high reflectivity. Gradual removal prevents warping.',
         machineSettings: {
-          powerRange: { value: 100, unit: 'W' },
+          laserPower: { value: 100, unit: 'W' },
           wavelength: { value: 1064, unit: 'nm' }
         }
       });
@@ -293,7 +293,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         pageType: 'settings',
         materialName: 'Copper',
         machineSettings: {
-          powerRange: { value: 80, unit: 'W' },
+          laserPower: { value: 80, unit: 'W' },
           wavelength: { value: 1064, unit: 'nm' },
           passCount: { value: 2, unit: 'passes' }
         }
@@ -309,7 +309,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         materialName: 'Titanium',
         settingsDescription: 'Titanium requires careful power control to prevent overheating and maintain structural integrity throughout the cleaning process',
         machineSettings: {
-          powerRange: { value: 150, unit: 'W' },
+          laserPower: { value: 150, unit: 'W' },
           wavelength: { value: 1064, unit: 'nm' },
           scanSpeed: { value: 300, unit: 'mm/s' }
         }
@@ -390,7 +390,7 @@ describe('SEO Infrastructure - Metadata Formatter', () => {
         materialName: 'Aluminum',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         },
         materialProperties: {
           material_characteristics: {
