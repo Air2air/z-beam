@@ -65,12 +65,14 @@ const mockFrontmatterData = {
       complexityFactors: ['Surface oxidation level', 'Part geometry']
     }
   },
-  faq: [
-    {
-      question: 'What wavelength is best for aluminum?',
-      answer: '1064nm wavelength provides optimal energy absorption for aluminum oxide removal without substrate damage.'
-    }
-  ]
+  faq: {
+    items: [
+      {
+        question: 'What wavelength is best for aluminum?',
+        answer: '1064nm wavelength provides optimal energy absorption for aluminum oxide removal without substrate damage.'
+      }
+    ]
+  }
 };
 
 describe('SEO Pipeline E2E Integration', () => {

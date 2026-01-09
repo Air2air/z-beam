@@ -214,13 +214,13 @@ export class SchemaFactory {
     this.register('Article', generateArticleSchema, { 
       priority: 80,
       condition: (data, context) => {
-        // Article for material/contaminant pages with category (NOT settings pages)
+        // Article for material/contaminant/compound pages (NOT settings pages)
         const meta = getMetadata(data);
-        const hasCategory = !!(meta.category);
-        const isMaterialOrContaminant = isMaterialPage(context.slug) || isContaminantPage(context.slug);
+        const hasBasicMetadata = !!(meta.title || meta.name) && !!(meta.description || meta.pageDescription);
+        const isContentPage = isMaterialPage(context.slug) || isContaminantPage(context.slug) || isCompoundPage(context.slug);
         const isSettings = isSettingsPage(context.slug);
-        // Include material/contaminant pages with category, but NOT settings pages
-        return !isSettings && hasCategory && isMaterialOrContaminant;
+        // Include content pages with metadata, but NOT settings pages
+        return !isSettings && hasBasicMetadata && isContentPage;
       }
     });
     this.register('TechArticle', generateTechArticleSchema, { 
@@ -257,7 +257,12 @@ export class SchemaFactory {
     });
     this.register('FAQ', generateFAQSchema, {
       priority: 55,
-      condition: (data) => hasFAQData(data)
+      condition: (data) => {
+        const fm = getMetadata(data);
+        // Check for faq.items array (materials, contaminants, compounds)
+        const faq = fm?.faq as any;
+        return !!(faq?.items && Array.isArray(faq.items) && faq.items.length > 0);
+      }
     });
     this.register('QAPage', generateQAPageSchema, {
       priority: 54,
@@ -1551,17 +1556,22 @@ function generateFAQSchema(data: any, context: SchemaContext): SchemaOrgBase | n
   const frontmatter = getMetadata(data);
   const faqs: any[] = [];
 
-  // Custom FAQs - check frontmatter locations
-  const faqData = frontmatter.faq || data.faq;
+  // Custom FAQs - check frontmatter.faq.items structure (used in materials, contaminants, compounds)
+  const faq = frontmatter.faq as any;
+  const faqData = faq?.items || frontmatter.faq || data.faq;
   if (faqData && Array.isArray(faqData) && faqData.length > 0) {
     faqData.forEach((item: any) => {
-      if (item.question && item.answer) {
+      // Support both question/answer and title/content structures
+      const question = item.question || item.title;
+      const answer = item.answer || item.content;
+      
+      if (question && answer) {
         faqs.push({
           '@type': 'Question',
-          'name': item.question,
+          'name': question,
           'acceptedAnswer': {
             '@type': 'Answer',
-            'text': item.answer
+            'text': answer
           }
         });
       }

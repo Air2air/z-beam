@@ -95,6 +95,36 @@ export default async function HomePage() {
             SITE_CONFIG.social.youtube
           ].filter(Boolean)
         },
+        // Product - Professional Cleaning Service
+        {
+          '@type': 'Product',
+          '@id': `${SITE_CONFIG.url}/#product-laser-cleaning`,
+          name: 'Professional Laser Cleaning Service',
+          description: SITE_CONFIG.pricing.professionalCleaning.description,
+          brand: {
+            '@type': 'Brand',
+            name: SITE_CONFIG.name
+          },
+          offers: {
+            '@type': 'Offer',
+            price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+            priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
+            priceValidUntil: '2026-12-31',
+            availability: 'https://schema.org/InStock',
+            url: `${SITE_CONFIG.url}/services`,
+            seller: {
+              '@type': 'Organization',
+              '@id': `${SITE_CONFIG.url}/#organization`
+            },
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+              priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
+              unitText: SITE_CONFIG.pricing.professionalCleaning.unit
+            }
+          },
+          category: 'Industrial Cleaning Services'
+        },
         // BreadcrumbList
         {
           '@type': 'BreadcrumbList',

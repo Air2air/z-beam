@@ -83,16 +83,19 @@ describe('SettingsJsonLD Component - Merged Schema Generation', () => {
       const settingsWithFAQ = {
         ...baseSettings,
         // This would be merged from material file in actual page
-        faq: [
-          {
-            question: 'How do I remove charring from oak?',
-            answer: 'Use multi-pass low fluence ablation keeping fluence under 2.5 J/cm²'
-          },
-          {
-            question: 'What wavelength is best for oak?',
-            answer: '1064nm is optimal for oak laser cleaning'
-          }
-        ]
+        // Using the correct structure: faq.items array (matches SchemaFactory condition)
+        faq: {
+          items: [
+            {
+              question: 'How do I remove charring from oak?',
+              answer: 'Use multi-pass low fluence ablation keeping fluence under 2.5 J/cm²'
+            },
+            {
+              question: 'What wavelength is best for oak?',
+              answer: '1064nm is optimal for oak laser cleaning'
+            }
+          ]
+        }
       };
 
       const { container } = render(
@@ -315,13 +318,14 @@ describe('SettingsJsonLD Component - Merged Schema Generation', () => {
       
       expect(schemas['@graph']).toBeInstanceOf(Array);
       
-      // Should have TechArticle, HowTo, FAQPage, and Dataset
+      // Should have TechArticle, HowTo, and Dataset
+      // Note: FAQPage only generated when faq.items exists in frontmatter
       const schemaTypes = schemas['@graph'].map((s: any) => s['@type']);
       // SchemaFactory generates 'TechArticle' type for settings pages (technical specifications)
       expect(schemaTypes.some((t: string) => t === 'Article' || t === 'TechArticle')).toBe(true);
       expect(schemaTypes).toContain('HowTo');
-      expect(schemaTypes).toContain('FAQPage');
       expect(schemaTypes).toContain('Dataset');
+      // FAQ schema only generated when faq.items data exists - not all settings have FAQs
     });
   });
 });
