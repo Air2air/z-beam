@@ -44,7 +44,7 @@ const mockFrontmatterData = {
   },
   machineSettings: {
     wavelength: { value: 1064, unit: 'nm' },
-    powerRange: { value: 200, unit: 'W' },
+    laserPower: { value: 200, unit: 'W' },
     passCount: { value: 3, unit: 'passes' },
     scanSpeed: { value: 1500, unit: 'mm/s' },
     frequency: { value: 80, unit: 'kHz' }
@@ -442,7 +442,7 @@ describe('SEO Pipeline E2E Integration', () => {
 
     it('should provide Expertise signals through technical specifications', () => {
       expect(mockFrontmatterData.machineSettings.wavelength.value).toBe(1064);
-      expect(mockFrontmatterData.machineSettings.powerRange.value).toBe(200);
+      expect(mockFrontmatterData.machineSettings.laserPower.value).toBe(200);
       expect(mockFrontmatterData.materialProperties.material_characteristics.density.value).toBe(2.7);
     });
 

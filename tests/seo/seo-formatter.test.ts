@@ -28,7 +28,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Aluminum',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         }
       });
       
@@ -55,7 +55,7 @@ describe('SEO Metadata Formatter', () => {
         pageType: 'material',
         materialName: 'Copper',
         machineSettings: {
-          powerRange: { value: 200, unit: 'W' }
+          laserPower: { value: 200, unit: 'W' }
         }
       });
       
@@ -80,7 +80,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Very Long Material Name That Exceeds Normal Length',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         }
       });
       
@@ -105,7 +105,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Aluminum',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' },
+          laserPower: { value: 100, unit: 'W' },
           passCount: { value: 3, unit: 'passes' }
         }
       });
@@ -121,7 +121,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Steel',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 150, unit: 'W' }
+          laserPower: { value: 150, unit: 'W' }
         }
       });
       
@@ -161,7 +161,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Extremely Long Material Name For Testing Purposes',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' },
+          laserPower: { value: 100, unit: 'W' },
           passCount: { value: 5, unit: 'passes' }
         }
       });
@@ -225,7 +225,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Steel',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 150, unit: 'W' }
+          laserPower: { value: 150, unit: 'W' }
         }
       });
       
@@ -309,7 +309,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Copper',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         }
       });
       
@@ -324,7 +324,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Bronze',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 80, unit: 'W' },
+          laserPower: { value: 80, unit: 'W' },
           passCount: { value: 4, unit: 'passes' }
         }
       });
@@ -377,7 +377,7 @@ describe('SEO Metadata Formatter', () => {
           materialName: material,
           machineSettings: {
             wavelength: { value: 1064, unit: 'nm' },
-            powerRange: { value: 150, unit: 'W' }
+            laserPower: { value: 150, unit: 'W' }
           }
         });
         
@@ -398,7 +398,7 @@ describe('SEO Metadata Formatter', () => {
           materialDescription: `${material} is a common material used in industrial applications.`,
           machineSettings: {
             wavelength: { value: 1064, unit: 'nm' },
-            powerRange: { value: 100, unit: 'W' }
+            laserPower: { value: 100, unit: 'W' }
           },
           materialProperties: {
             material_characteristics: {
@@ -439,7 +439,7 @@ describe('SEO Metadata Formatter', () => {
         materialName: 'Test',
         machineSettings: {
           wavelength: undefined,
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         }
       });
       

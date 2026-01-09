@@ -43,10 +43,10 @@ const { execSync } = require('child_process');
 
 // Dataset validation constants (inline to avoid TypeScript module issues)
 const TIER1_REQUIRED_PARAMETERS = [
-  'powerRange',
+  'laserPower',
   'wavelength',
   'spotSize',
-  'repetitionRate',
+  'frequency',
   'pulseWidth',
   'scanSpeed',
   'passCount',

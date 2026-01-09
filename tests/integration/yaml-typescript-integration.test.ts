@@ -68,10 +68,10 @@ describe('YAML → TypeScript Integration', () => {
 
     it('should have valid machineSettings structure', () => {
       const requiredParams = [
-        'powerRange',
+        'laserPower',
         'wavelength',
         'spotSize',
-        'repetitionRate',
+        'frequency',
         'energyDensity',
         'pulseWidth',
         'scanSpeed',

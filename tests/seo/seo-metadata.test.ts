@@ -86,7 +86,7 @@ describe('SEO Metadata Generation', () => {
         materialName: 'Aluminum',
         machineSettings: {
           wavelength: { value: 1064, unit: 'nm' },
-          powerRange: { value: 100, unit: 'W' }
+          laserPower: { value: 100, unit: 'W' }
         }
       });
       
@@ -153,7 +153,7 @@ describe('SEO Metadata Generation', () => {
         pageType: 'settings',
         materialName: 'Aluminum',
         machineSettings: {
-          powerRange: { value: 100, unit: 'W' },
+          laserPower: { value: 100, unit: 'W' },
           scanSpeed: { value: 500, unit: 'mm/s' }
         }
       });

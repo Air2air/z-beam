@@ -132,7 +132,7 @@ describe('SEO Schema Generators', () => {
       name: 'How to Clean Aluminum with Laser',
       description: 'Step-by-step guide for laser cleaning aluminum',
       machineSettings: {
-        powerRange: { value: '200', unit: 'W', description: 'Optimal power setting' },
+        laserPower: { value: '200', unit: 'W', description: 'Optimal power setting' },
         wavelength: { value: '1064', unit: 'nm', description: 'Laser wavelength' }
       }
     };
@@ -233,7 +233,7 @@ describe('SEO Schema Generators', () => {
         context: createTestContext('aluminum-settings'),
         name: 'Aluminum Laser Settings',
         machineSettings: {
-          powerRange: { value: '200-300', unit: 'W' },
+          laserPower: { value: '200-300', unit: 'W' },
           wavelength: { value: '1064', unit: 'nm' }
         }
       };

@@ -39,7 +39,7 @@ const baseMaterialData = {
     },
     machineSettings: {
       wavelength: { value: 1064, unit: 'nm' },
-      powerRange: { min: 50, max: 200, unit: 'W' },
+      laserPower: { min: 50, max: 200, unit: 'W' },
       pulseFrequency: { min: 20, max: 100, unit: 'kHz' }
     }
   }
@@ -52,7 +52,7 @@ const settingsPageData = {
     name: 'Aluminum',
     machineSettings: {
       wavelength: { value: 1064, unit: 'nm' },
-      powerRange: { min: 50, max: 200, unit: 'W' }
+      laserPower: { min: 50, max: 200, unit: 'W' }
     }
   }
 };

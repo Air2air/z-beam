@@ -86,10 +86,10 @@ describe('ItemPage → Dataset Schema Integration', () => {
 
   const settingsWithMachineSettings = createMockSettings({
     machineSettings: {
-      powerRange: { value: 200, unit: 'W', min: 100, max: 300 },
+      laserPower: { value: 200, unit: 'W', min: 100, max: 300 },
       wavelength: { value: 1064, unit: 'nm', min: 532, max: 1064 },
       spotSize: { value: 50, unit: 'μm', min: 25, max: 100 },
-      repetitionRate: { value: 50, unit: 'kHz', min: 20, max: 200 },
+      frequency: { value: 50, unit: 'kHz', min: 20, max: 200 },
       pulseWidth: { value: 100, unit: 'ns', min: 50, max: 500 },
       scanSpeed: { value: 1000, unit: 'mm/s', min: 100, max: 5000 },
       passCount: { value: 3, unit: 'passes', min: 1, max: 10 },
