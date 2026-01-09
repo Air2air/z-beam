@@ -4118,7 +4118,7 @@ export interface EnhancedCompound {
   subcategory: string;
   frequency: 'very_common' | 'common' | 'occasional' | 'rare';
   severity: 'severe' | 'high' | 'moderate' | 'low';
-  typical_context: string;
+  typicalContext: string;
   exposure_risk: 'high' | 'moderate' | 'low';
   concentration_range: string;
   hazard_class: 'carcinogenic' | 'toxic' | 'irritant' | 'corrosive' | 'asphyxiant' | 'flammable';

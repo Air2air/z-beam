@@ -28,7 +28,7 @@ interface MetadataConfig {
   settingsDescription?: string;
   contaminationDescription?: string;
   machineSettings?: {
-    powerRange?: { value: number; unit: string };
+    laserPower?: { value: number; unit: string };
     wavelength?: { value: number; unit: string };
     passCount?: { value: number; unit: string };
     scanSpeed?: { value: number; unit: string };
@@ -56,7 +56,7 @@ export function formatMaterialTitle(config: MetadataConfig): string {
   
   // Extract key specs
   const wavelength = machineSettings?.wavelength?.value;
-  const power = machineSettings?.powerRange?.value;
+  const power = machineSettings?.laserPower?.value;
   
   // Build title with value prop - what user gets
   if (wavelength && power) {
@@ -93,7 +93,7 @@ export function formatSettingsTitle(config: MetadataConfig): string {
   
   // Extract key specs
   const wavelength = machineSettings?.wavelength?.value;
-  const power = machineSettings?.powerRange?.value;
+  const power = machineSettings?.laserPower?.value;
   const passes = machineSettings?.passCount?.value;
   
   // Build title with specs and value prop
@@ -134,7 +134,7 @@ export function formatMaterialDescription(config: MetadataConfig): string {
   
   // Extract technical specs for challenge-solution format
   const wavelength = machineSettings?.wavelength?.value;
-  const power = machineSettings?.powerRange?.value;
+  const power = machineSettings?.laserPower?.value;
   const passes = machineSettings?.passCount?.value;
   
   // Get material-specific challenge descriptor
@@ -180,7 +180,7 @@ export function formatSettingsDescription(config: MetadataConfig): string {
   } = config;
   
   // Extract machine settings
-  const power = machineSettings?.powerRange?.value;
+  const power = machineSettings?.laserPower?.value;
   const wavelength = machineSettings?.wavelength?.value;
   const _scanSpeed = machineSettings?.scanSpeed?.value;
   const _passes = machineSettings?.passCount?.value;

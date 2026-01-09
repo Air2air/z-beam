@@ -74,7 +74,7 @@ export function mapCompoundToGrid(compound: EnhancedCompound): GridItem {
       exposureRisk: compound.exposure_risk,
       severity: compound.severity,
       frequency: compound.frequency,
-      typical_context: compound.typical_context,
+      typicalContext: compound.typicalContext,
     },
   };
 }
@@ -103,7 +103,7 @@ export function mapMaterialLinkageToGrid(linkage: Relationship): GridItem {
       severity: linkage.severity,
       subject: linkage.severity,
       frequency: linkage.frequency,
-      typical_context: linkage.typical_context,
+      typicalContext: linkage.typicalContext,
     },
   };
 }
@@ -128,7 +128,7 @@ export function mapContaminantLinkageToGrid(linkage: Relationship): GridItem {
       title: formattedTitle,
       slug: linkage.id,
       category: linkage.category || 'contaminants',
-      description: linkage.typical_context || linkage.typicalContext,
+      description: linkage.typicalContext || linkage.typicalContext,
       images: linkage.image ? {
         hero: {
           url: linkage.image,
@@ -138,7 +138,7 @@ export function mapContaminantLinkageToGrid(linkage: Relationship): GridItem {
       severity: linkage.severity,
       subject: formattedTitle,
       frequency: linkage.frequency,
-      typical_context: linkage.typical_context || linkage.typicalContext,
+      typicalContext: linkage.typicalContext || linkage.typicalContext,
     },
   };
 }
@@ -167,7 +167,7 @@ export function mapCompoundLinkageToGrid(linkage: Relationship): GridItem {
       severity: linkage.severity,
       subject: linkage.severity,  // Show severity as subject
       frequency: linkage.frequency,
-      typical_context: linkage.typical_context,
+      typicalContext: linkage.typicalContext,
     },
   };
 }
@@ -194,7 +194,7 @@ export function mapSettingsLinkageToGrid(linkage: Relationship): GridItem {
       },
       category: linkage.category,
       frequency: linkage.frequency,
-      typical_context: linkage.typical_context,
+      typicalContext: linkage.typicalContext,
     },
   };
 }

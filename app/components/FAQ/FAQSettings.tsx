@@ -123,8 +123,8 @@ export function FAQSettings({
   // Flatten items from all sections for FAQPanel
   const allItems = settingsSections.flatMap(section => 
     section.items.map(item => ({
-      question: item.question,
-      answer: item.answer,
+      title: item.question,
+      content: item.answer,
       severity: item.severity
     }))
   );
