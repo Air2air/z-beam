@@ -65,19 +65,20 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
       condition: () => !!metadata?.images?.micro?.url,
       props: {}
     },
-    // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only)
-    {
-      component: RelationshipsDump,
-      condition: () => process.env.NODE_ENV === 'development',
-      props: {
-        relationships,
-        entityName: materialName,
-      }
-    },
+    // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only) - DISABLED
+    // {
+    //   component: RelationshipsDump,
+    //   condition: () => process.env.NODE_ENV === 'development',
+    //   props: {
+    //     relationships,
+    //     entityName: materialName,
+    //   }
+    // },
     {
       component: RegulatoryStandards,
       props: {
         standards: regulatoryStandards,
+        sectionDescription: relationships?.safety?.regulatoryStandards?._section?.sectionDescription,
         heroImage,
         thumbnailLink,
       }
@@ -124,7 +125,8 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
           severity: item.severity,
         })),
         title: 'Common Contaminants',
-        description: `Typical contaminants found on ${materialName} that require laser cleaning`,
+        description: relationships?.interactions?.contaminatedBy?._section?.sectionDescription || 
+                     `Typical contaminants found on ${materialName} that require laser cleaning`,
         variant: 'relationship' as const,
         columns: 3,
       }

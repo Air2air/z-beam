@@ -1,7 +1,7 @@
 // app/contact/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from "../components/JsonLD/JsonLD";
-import { CONTACT_DATA } from '@/app/utils/staticPageData';
+import { loadStaticPage } from '@/app/utils/staticPageLoader';
 import { ArticleMetadata } from "@/types";
 import dynamicImport from "next/dynamic";
 import Link from "next/link";
@@ -60,7 +60,7 @@ export const metadata = {
 
 // Default export - the page component
 export default function ContactPage() {
-  const pageMetadata = CONTACT_DATA as unknown as ArticleMetadata;
+  const pageMetadata = loadStaticPage<ArticleMetadata>('contact.yaml');
 
   // Generate ContactPage schema
   const contactSchema = {

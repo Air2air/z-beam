@@ -44,19 +44,19 @@ module.exports = {
       // All sizes use em units to scale RELATIVE to base
       // To change base: Update fonts.ts, then sync 'base' here
       fontSize: {
-        'xs': ['0.714em', { lineHeight: '1.4' }],        // ~10px (0.714 × 14)
-        'sm': ['0.857em', { lineHeight: '1.5' }],        // ~12px (0.857 × 14)
-        'base': ['0.875rem', { lineHeight: '1.5' }],     // 14px - BASE (rem, not em)
-        'lg': ['1.143em', { lineHeight: '1.6' }],        // ~16px (1.143 × 14)
-        'xl': ['1.286em', { lineHeight: '1.5' }],        // ~18px (1.286 × 14)
-        '2xl': ['1.429em', { lineHeight: '1.4' }],       // ~20px (1.429 × 14)
-        '3xl': ['1.714em', { lineHeight: '1.35' }],      // ~24px (1.714 × 14)
-        '4xl': ['2.143em', { lineHeight: '1.3' }],       // ~30px (2.143 × 14)
-        '5xl': ['2.571em', { lineHeight: '1.2' }],       // ~36px (2.571 × 14)
-        '6xl': ['3.143em', { lineHeight: '1.1' }],       // ~44px (3.143 × 14)
-        '7xl': ['4em', { lineHeight: '1' }],             // ~56px (4 × 14)
-        '8xl': ['5.143em', { lineHeight: '1' }],         // ~72px (5.143 × 14)
-        '9xl': ['6.857em', { lineHeight: '1' }],         // ~96px (6.857 × 14)
+        'xs': ['0.714em', { lineHeight: '1.6' }],        // ~10px (0.714 × 14)
+        'sm': ['0.857em', { lineHeight: '1.7' }],        // ~12px (0.857 × 14)
+        'base': ['0.875rem', { lineHeight: '1.8' }],     // 14px - BASE (rem, not em)
+        'lg': ['1.143em', { lineHeight: '1.8' }],        // ~16px (1.143 × 14)
+        'xl': ['1.286em', { lineHeight: '1.7' }],        // ~18px (1.286 × 14)
+        '2xl': ['1.429em', { lineHeight: '1.6' }],       // ~20px (1.429 × 14)
+        '3xl': ['1.714em', { lineHeight: '1.5' }],       // ~24px (1.714 × 14)
+        '4xl': ['2.143em', { lineHeight: '1.4' }],       // ~30px (2.143 × 14)
+        '5xl': ['2.571em', { lineHeight: '1.3' }],       // ~36px (2.571 × 14)
+        '6xl': ['3.143em', { lineHeight: '1.2' }],       // ~44px (3.143 × 14)
+        '7xl': ['4em', { lineHeight: '1.1' }],           // ~56px (4 × 14)
+        '8xl': ['5.143em', { lineHeight: '1.1' }],       // ~72px (5.143 × 14)
+        '9xl': ['6.857em', { lineHeight: '1.1' }],       // ~96px (6.857 × 14)
       },
       // ============================================
       // CENTRALIZED FONT FAMILY CONFIGURATION

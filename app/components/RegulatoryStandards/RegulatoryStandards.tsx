@@ -23,9 +23,10 @@ export function RegulatoryStandards({
   className: _className = '',
   showTitle: _showTitle = true,
   title = 'Regulatory Standards & Compliance',
+  sectionDescription,
   heroImage,
   thumbnailLink,
-}: RegulatoryStandardsProps & { heroImage?: string; thumbnailLink?: string }) {
+}: RegulatoryStandardsProps & { heroImage?: string; thumbnailLink?: string; sectionDescription?: string }) {
   if (!standards || standards.length === 0) return null;
   
   // Filter to only show object/dict standards, not strings
@@ -44,7 +45,7 @@ export function RegulatoryStandards({
       <SectionTitle 
         title={title}
         icon={getSectionIcon('regulatory')}
-        sectionDescription="Industry standards and compliance requirements for safe laser cleaning operations"
+        sectionDescription={sectionDescription || "Industry standards and compliance requirements for safe laser cleaning operations"}
       />
       <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
         {validStandards.map((standard, index) => (

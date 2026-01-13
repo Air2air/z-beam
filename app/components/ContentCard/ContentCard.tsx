@@ -54,7 +54,7 @@ export function ContentCard({
   // Extract website URL from details if it exists
   const websiteUrl = useMemo(() => {
     if (!details) return null;
-    const websiteDetail = details.find(d => d.match(/^Website:\s*(.+)$/i));
+    const websiteDetail = details.find(d => typeof d === 'string' && d.match(/^Website:\s*(.+)$/i));
     if (!websiteDetail) return null;
     const match = websiteDetail.match(/^Website:\s*(.+)$/i);
     const url = match ? match[1].trim() : '';
@@ -114,7 +114,7 @@ export function ContentCard({
         <header className="flex items-center gap-4 mb-6">
           {/* Order Number Badge */}
           <div 
-            className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl text-primary bg-primary rounded-full"
+            className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl font-bold text-gray-100 bg-gray-800 rounded-full shadow-lg"
             role="status"
             aria-label={`Step ${order}`}
           >
@@ -146,11 +146,11 @@ export function ContentCard({
 
       {/* Content Grid - Text and Image side by side */}
       <div
-        className={`grid grid-cols-1 ${
-          image ? 'md:grid-cols-3' : 'md:grid-cols-1'
+        className={`flex flex-col ${
+          image ? 'md:grid md:grid-cols-3' : ''
         } gap-6 md:gap-12 items-start`}
       >
-      {/* Image - Left Side */}
+      {/* Image - Left Side (but always first on mobile) */}
       {image && isImageLeft && (
         <figure 
           role="img" 
@@ -158,13 +158,13 @@ export function ContentCard({
           aria-describedby={imageId}
           itemScope
           itemType="https://schema.org/ImageObject"
-          className="flex items-center"
+          className="w-full flex items-center order-1 md:order-none"
         >
           {websiteUrl ? (
             <a 
               href={websiteUrl}
               target="_blank"
-              className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden"
+              className="card-enhanced-hover block relative w-full aspect-video rounded-md overflow-hidden"
               aria-label={`Visit website (opens in new tab)`}
             >
               <Image
@@ -177,7 +177,7 @@ export function ContentCard({
               />
             </a>
           ) : (
-            <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden">
+            <div className="relative w-full aspect-video rounded-md overflow-hidden">
               <Image
                 src={image.url}
                 alt={image.alt || `Visual illustration for ${heading}`}
@@ -196,7 +196,7 @@ export function ContentCard({
 
         {/* Content Area */}
         <div 
-          className={image ? 'md:col-span-2' : !hasOrder ? 'text-center max-w-4xl mx-auto' : ''}
+          className={`${image ? 'md:col-span-2 order-2 md:order-none' : !hasOrder ? 'text-center max-w-4xl mx-auto' : ''}`}
           aria-labelledby={titleId}
         >
           {/* Heading - Only show here if no order number */}
@@ -227,6 +227,12 @@ export function ContentCard({
               itemType="https://schema.org/ItemList"
             >
               {details!.map((detail, idx) => {
+                // Skip non-string items
+                if (typeof detail !== 'string') return null;
+                
+                // Convert markdown bold (**text**) to HTML <strong>
+                const processedDetail = detail.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                
                 // Check if this detail contains a link
                 // Matches patterns like "Website: url", "Equipment Specifications: /path", etc.
                 const linkMatch = detail.match(/^([^:]+):\s*(.+)$/);
@@ -235,6 +241,9 @@ export function ContentCard({
                 const linkUrl = linkMatch ? linkMatch[2].trim() : '';
                 const isInternalLink = linkUrl.startsWith('/');
                 const isExternalLink = linkUrl.match(/^https?:\/\//) || (!isInternalLink && linkUrl.includes('.'));
+                
+                // Process link label for bold syntax too
+                const processedLinkLabel = linkLabel.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
                 
                 return (
                   <li 
@@ -245,15 +254,16 @@ export function ContentCard({
                     itemScope
                     itemType="https://schema.org/ListItem"
                   >
-                    <span 
-                      className="text-primary mt-1 flex-shrink-0"
+                    <img 
+                      src="/images/logo/bullet.svg"
+                      alt=""
+                      className="w-4 h-4 mt-1 flex-shrink-0 object-contain"
                       role="presentation"
-                    >
-                      ✓
-                    </span>
+                      aria-hidden="true"
+                    />
                     {hasLink && (isInternalLink || isExternalLink) ? (
-                      <span itemProp="name">
-                        {linkLabel}:{' '}
+                      <span itemProp="name" className="text-base">
+                        <span dangerouslySetInnerHTML={{ __html: processedLinkLabel }} />:{' '}
                         {isInternalLink ? (
                           <Link 
                             href={linkUrl}
@@ -274,7 +284,11 @@ export function ContentCard({
                         )}
                       </span>
                     ) : (
-                      <span itemProp="name">{detail}</span>
+                      <span 
+                        itemProp="name"
+                        className="text-base"
+                        dangerouslySetInnerHTML={{ __html: processedDetail }}
+                      />
                     )}
                     <meta itemProp="position" content={String(idx + 1)} />
                   </li>
@@ -284,7 +298,7 @@ export function ContentCard({
           )}
         </div>
 
-        {/* Image - Right Side */}
+        {/* Image - Right Side (but always first on mobile) */}
         {image && !isImageLeft && (
           <figure 
             role="img" 
@@ -292,13 +306,13 @@ export function ContentCard({
             aria-describedby={imageId}
             itemScope
             itemType="https://schema.org/ImageObject"
-            className="flex items-center"
+            className="w-full flex items-center order-1 md:order-none"
           >
             {websiteUrl ? (
               <a 
                 href={websiteUrl}
                 target="_blank"
-                className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden"
+                className="card-enhanced-hover block relative w-full aspect-video rounded-md overflow-hidden"
                 aria-label={`Visit website (opens in new tab)`}
               >
                 <Image
@@ -311,7 +325,7 @@ export function ContentCard({
                 />
               </a>
             ) : (
-              <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-md overflow-hidden">
+              <div className="relative w-full aspect-video rounded-md overflow-hidden">
                 <Image
                   src={image.url}
                   alt={image.alt || `Visual illustration for ${heading}`}

@@ -3,8 +3,7 @@ import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
-import { RENTAL_DATA } from '@/app/utils/staticPageData';
-import type { StaticPageWithCards } from '@/app/utils/staticPageLoader';
+import { loadStaticPage, type StaticPageWithCards } from '@/app/utils/staticPageLoader';
 
 export const metadata = {
   title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
@@ -20,7 +19,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_CONFIG.url}/images/og-rental.jpg`,
+        url: `${SITE_CONFIG.url}/images/pages/rental.png`,
         width: 1200,
         height: 630,
         alt: 'Laser Cleaning Equipment Rental',
@@ -37,8 +36,8 @@ export const metadata = {
 export default function RentalPage() {
   const pricing = SITE_CONFIG.pricing.equipmentRental;
   
-  // Load rental page configuration from pre-loaded static data
-  const pageConfig = RENTAL_DATA as unknown as StaticPageWithCards;
+  // Load rental page configuration directly from YAML
+  const pageConfig = loadStaticPage<StaticPageWithCards>('rental.yaml');
   
   // Equipment Rental Service JSON-LD Schema
   const rentalSchema = {

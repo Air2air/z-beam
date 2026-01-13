@@ -21,6 +21,7 @@ import { getGridClasses } from "../../utils/gridConfig";
 import { getContentType } from '@/app/utils/relationshipHelpers';
 import { Title } from '../Title/Title';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { renderMarkdown } from '@/app/utils/markdown';
 
 // Unified item interface that handles all data sources - now imported from @/types
 
@@ -42,6 +43,7 @@ export function CardGrid({
   slugs = [],
   searchResults = [],
   title,
+  description,
   heading,
   columns = 3,
   gap = "md",
@@ -202,6 +204,13 @@ export function CardGrid({
   if (mode === 'category-grouped') {
     const groupedContent = (
       <>
+        {/* Section Description */}
+        {description && (
+          <div className="mb-8 prose prose-orange max-w-none">
+            <div dangerouslySetInnerHTML={{ __html: renderMarkdown(description) }} />
+          </div>
+        )}
+        
         {/* Search and Filter Controls */}
         {(showSearch || showCategoryFilter) && (
           <div className="mb-8 space-y-4">
@@ -461,6 +470,13 @@ export function CardGrid({
   // Simple grid mode (default)
   const content = (
     <>
+      {/* Section Description */}
+      {description && (
+        <div className="mb-8 prose prose-orange max-w-none">
+          <div dangerouslySetInnerHTML={{ __html: renderMarkdown(description) }} />
+        </div>
+      )}
+      
       {/* Simple Grid */}
       <div className={getGridClasses({ columns, gap })}>
         {filteredItems.map((item, index) => (

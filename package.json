@@ -9,7 +9,7 @@
     "dev:bg": "npm run dev > /tmp/z-beam-dev.log 2>&1 & echo $! > /tmp/z-beam-dev.pid && echo 'Dev server starting in background (PID saved to /tmp/z-beam-dev.pid)'",
     "dev:stop": "[ -f /tmp/z-beam-dev.pid ] && kill $(cat /tmp/z-beam-dev.pid) && rm /tmp/z-beam-dev.pid && echo 'Dev server stopped' || echo 'No dev server PID file found'",
     "dev:status": "lsof -ti:3000 > /dev/null && echo '✅ Dev server is running on port 3000' || echo '❌ Dev server is not running'",
-    "prebuild": "node app/utils/generateStaticData.js && npm run test:all",
+    "prebuild": "npm run validate:content && npm run validate:naming:semantic && npm run validate:types && npm run verify:sitemap:links && npm run test:ci",
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next node_modules/.cache tsconfig.tsbuildinfo .vercel .validation-cache",
@@ -50,7 +50,6 @@
     "validate:seo:advanced": "npm run seo:entity-map && npm run seo:featured-snippets && npm run seo:core-web-vitals",
     "validate:jsonld:syntax": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
     "validate:jsonld:rendering": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
-    "prebuild": "npm run validate:content && npm run validate:naming:semantic && npm run validate:types && npm run verify:sitemap:links && npm run test:ci",
     "postbuild": "npm run generate:image-sitemap && npm run validate:urls && npm run validate:seo:advanced",
     "postdeploy": "node scripts/validation/post-deployment/run-all-validations.js",
     "build:analyze": "ANALYZE=true npm run build",
@@ -81,6 +80,7 @@
     "status": "vercel ls"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.10.3",
     "@jest/globals": "^30.2.0",
     "@next/third-parties": "^16.0.1",
     "@tailwindcss/typography": "^0.5.16",

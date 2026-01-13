@@ -4,6 +4,7 @@ import { primaryFont } from "./config/fonts";
 import { getNonce } from "./utils/csp";
 import { Navbar } from "./components/Navigation/nav";
 import dynamic from 'next/dynamic';
+import { Partytown } from '@builder.io/partytown/react';
 
 // Defer ALL non-critical components to reduce initial JS bundle
 // Load after page interactive to not impact LCP
@@ -13,11 +14,6 @@ const SpeedInsights = dynamic(() => import("@vercel/speed-insights/next").then(m
 });
 
 const Analytics = dynamic(() => import("@vercel/analytics/react").then(mod => ({ default: mod.Analytics })), {
-  ssr: false,
-  loading: () => null,
-});
-
-const GoogleAnalytics = dynamic(() => import("@next/third-parties/google").then(mod => ({ default: mod.GoogleAnalytics })), {
   ssr: false,
   loading: () => null,
 });
@@ -44,6 +40,8 @@ const CookieConsent = dynamic(() => import("./components/CookieConsent").then(mo
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { schemaRegistry } from "./utils/schemas/registry";
+import { Suspense } from 'react';
+import GoogleAnalyticsWrapper from './components/GoogleAnalyticsWrapper';
 
 // Generate the business schema using centralized registry
 const organizationSchema = schemaRegistry.business();
@@ -223,6 +221,11 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${primaryFont.className} antialiased flex flex-col min-h-screen bg-gray-700 overflow-x-hidden`} style={{ color: 'var(--text-primary)' }}>
+        {/* Partytown for offloading third-party scripts to web worker */}
+        <Partytown
+          debug={false}
+          forward={['dataLayer.push']}
+        />
         <ErrorBoundary componentName="Layout">
           <Navbar />
           <main className="flex-grow w-full max-w-full py-0 pb-32 md:pb-0 overflow-x-hidden" id="main-content">
@@ -234,10 +237,15 @@ export default async function RootLayout({
           <Footer />
         </ErrorBoundary>
         <CookieConsent />
+        <Suspense fallback={null}>
+          <GoogleAnalyticsWrapper gaId="G-TZF55CB5XC" />
+        </Suspense>
         <WebVitalsReporter />
-        <GoogleAnalytics gaId="G-TZF55CB5XC" />
-        <SpeedInsights />
-        <Analytics />
+        {/* Defer Vercel analytics until after page interactive */}
+        <Suspense fallback={null}>
+          <SpeedInsights />
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );

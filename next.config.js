@@ -47,11 +47,30 @@ const nextConfig = {
 
   experimental: {
     // Optimize package imports to reduce bundle size
-    optimizePackageImports: ['@vercel/analytics', '@vercel/speed-insights', 'react', 'react-dom'],
+    optimizePackageImports: [
+      '@vercel/analytics', 
+      '@vercel/speed-insights', 
+      'react', 
+      'react-dom',
+      'next',
+      '@next/third-parties'
+    ],
     // Enable CSS optimization
     optimizeCss: true,
     // Modern JavaScript output - no unnecessary transpilation for modern browsers
     forceSwcTransforms: true,
+    // More aggressive code splitting
+    workerThreads: false,
+    esmExternals: true,
+    // Tree-shake icon libraries and large packages
+    modularizeImports: {
+      'lucide-react': {
+        transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+      },
+      '@heroicons/react': {
+        transform: '@heroicons/react/{{member}}',
+      },
+    },
   },
 
   // Development server configuration
@@ -83,8 +102,8 @@ const nextConfig = {
         headers: [
           {
             key: 'Link',
-            // Preload critical resources to break dependency chains
-            value: '</images/logo/logo-zbeam.png>; rel=preload; as=image; fetchpriority=high'
+            // Preload critical resources and preconnect to external domains
+            value: '</images/logo/logo-zbeam.png>; rel=preload; as=image; fetchpriority=high, <https://www.googletagmanager.com>; rel=preconnect; crossorigin'
           }
         ]
       },

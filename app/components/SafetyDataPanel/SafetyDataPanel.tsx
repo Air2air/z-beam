@@ -42,6 +42,7 @@ interface SafetyDataPanelProps {
   className?: string;
   collapsible?: boolean;  // Enable collapsible mode for risk cards
   entityName?: string;  // Name of contaminant/compound for title
+  sectionDescription?: string;
 }
 
 /**
@@ -64,7 +65,8 @@ export function SafetyDataPanel({
   compounds = [],  // Enhanced compound data from produces_compounds top-level field
   className = '',
   collapsible = false,  // Default to false for backward compatibility
-  entityName  // Name of contaminant/compound for title
+  entityName,  // Name of contaminant/compound for title
+  sectionDescription
 }: SafetyDataPanelProps) {
   if (!safetyData) return null;
 
@@ -209,7 +211,7 @@ export function SafetyDataPanel({
       <div className="container-custom px-4">
         <SectionTitle 
           title="Safety Information"
-          sectionDescription={isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations"}
+          sectionDescription={sectionDescription || (isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations")}
           alignment="left"
           className="mb-8"
         />

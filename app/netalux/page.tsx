@@ -2,8 +2,7 @@
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config/site";
-import { NETALUX_DATA } from '@/app/utils/staticPageData';
-import type { NetaluxPageConfig } from '@/app/utils/staticPageLoader';
+import { loadStaticPage, type NetaluxPageConfig } from '@/app/utils/staticPageLoader';
 
 export const metadata = {
   title: 'Netalux Needle & Jango Laser Systems | Belgian Tech | Z-Beam',
@@ -65,8 +64,8 @@ export const metadata = {
 };
 
 export default function NetaluxPage() {
-  // Load netalux page configuration from pre-loaded static data
-  const pageConfig = NETALUX_DATA as unknown as NetaluxPageConfig;
+  // Load netalux page configuration directly from YAML
+  const pageConfig = loadStaticPage<NetaluxPageConfig>('netalux.yaml');
   
   // Split content cards for specific sections
   const contentCards = pageConfig.contentCards || [];

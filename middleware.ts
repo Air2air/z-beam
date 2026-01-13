@@ -31,6 +31,7 @@ export function middleware(request: NextRequest) {
     "form-action 'self'",
     "base-uri 'self'",
     "object-src 'none'",
+    "worker-src 'self' blob:", // Allow Partytown web workers
     "upgrade-insecure-requests",
   ].join('; ');
 

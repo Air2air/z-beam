@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { SECTION_HEADER_CLASSES } from '@/app/config/site';
+import { renderMarkdown } from '@/app/utils/markdown';
 
 export interface SectionTitleProps {
   title: string;
@@ -49,9 +50,10 @@ export function SectionTitle({
         </h2>
         
         {sectionDescription && (
-          <div className={`text-base text-primary mt-2 ${alignmentClasses[alignment]}`}>
-            {sectionDescription}
-          </div>
+          <div 
+            className={`text-base text-primary mt-2 prose prose-sm max-w-none ${alignmentClasses[alignment]}`}
+            dangerouslySetInnerHTML={{ __html: renderMarkdown(sectionDescription) }}
+          />
         )}
       </div>
     </div>
