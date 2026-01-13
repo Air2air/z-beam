@@ -53,13 +53,10 @@ const nextConfig = {
   },
 
   experimental: {
-    // Optimize package imports to reduce bundle size
+    // Optimize package imports to reduce bundle size (exclude React/React-DOM)
     optimizePackageImports: [
       '@vercel/analytics', 
       '@vercel/speed-insights', 
-      'react', 
-      'react-dom',
-      'next',
       '@next/third-parties'
     ],
     // Enable CSS optimization
