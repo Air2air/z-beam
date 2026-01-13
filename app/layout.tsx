@@ -183,9 +183,6 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         
-        {/* Preload critical hero images for faster LCP */}
-        <link rel="preload" as="image" href="/images/hero-laser-cleaning.webp" type="image/webp" />
-        
         {/* Inline critical CSS for faster FCP */}
         <style dangerouslySetInnerHTML={{
           __html: `
