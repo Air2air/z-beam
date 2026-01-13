@@ -45,6 +45,13 @@ const nextConfig = {
     loader: 'default',
   },
 
+  // Tree-shake icon libraries at root level
+  modularizeImports: {
+    'lucide-react': {
+      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+    },
+  },
+
   experimental: {
     // Optimize package imports to reduce bundle size
     optimizePackageImports: [
@@ -62,15 +69,6 @@ const nextConfig = {
     // More aggressive code splitting
     workerThreads: false,
     esmExternals: true,
-    // Tree-shake icon libraries and large packages
-    modularizeImports: {
-      'lucide-react': {
-        transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
-      },
-      '@heroicons/react': {
-        transform: '@heroicons/react/{{member}}',
-      },
-    },
   },
 
   // Development server configuration
