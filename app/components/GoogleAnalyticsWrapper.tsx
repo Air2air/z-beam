@@ -1,24 +1,22 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Script from 'next/script';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 interface GoogleAnalyticsWrapperProps {
   gaId: string;
 }
 
 /**
- * Deferred Google Analytics Loader with Partytown
+ * Deferred Google Analytics Loader
  * 
  * Delays loading Google Analytics (436 KB) until 3 seconds after page load
  * or until user interacts with the page, whichever comes first.
  * 
- * Uses Partytown to offload GA execution to a web worker, removing
- * 400ms+ of main thread blocking time.
- * 
  * Performance Impact:
- * - Before: Desktop TTI 8.29s (3 long tasks: 123ms, 99ms, 76ms)
- * - After: Desktop TTI ~6.8s (estimated)
+ * - Removes GA from critical rendering path
+ * - Reduces initial JavaScript bundle by ~400KB
+ * - Improves Time to Interactive (TTI)
  */
 export default function GoogleAnalyticsWrapper({ gaId }: GoogleAnalyticsWrapperProps) {
   const [shouldLoad, setShouldLoad] = useState(false);

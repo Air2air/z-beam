@@ -4,7 +4,6 @@ import { primaryFont } from "./config/fonts";
 import { getNonce } from "./utils/csp";
 import { Navbar } from "./components/Navigation/nav";
 import dynamic from 'next/dynamic';
-import { Partytown } from '@builder.io/partytown/react';
 
 // Defer ALL non-critical components to reduce initial JS bundle
 // Load after page interactive to not impact LCP
@@ -221,11 +220,6 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${primaryFont.className} antialiased flex flex-col min-h-screen bg-gray-700 overflow-x-hidden`} style={{ color: 'var(--text-primary)' }}>
-        {/* Partytown for offloading third-party scripts to web worker */}
-        <Partytown
-          debug={false}
-          forward={['dataLayer.push']}
-        />
         <ErrorBoundary componentName="Layout">
           <Navbar />
           <main className="flex-grow w-full max-w-full py-0 pb-32 md:pb-0 overflow-x-hidden" id="main-content">
