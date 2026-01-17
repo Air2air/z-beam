@@ -120,8 +120,12 @@ export async function generateItemMetadata(
       }
     } else {
       // Fallback to explicit fields (shouldn't happen in production)
-      articleCategory = articleMeta.category ? normalizeForUrl(articleMeta.category) : undefined;
-      articleSubcategory = articleMeta.subcategory ? normalizeForUrl(articleMeta.subcategory) : undefined;
+      articleCategory = (articleMeta.category && typeof articleMeta.category === 'string') 
+        ? normalizeForUrl(articleMeta.category) 
+        : undefined;
+      articleSubcategory = (articleMeta.subcategory && typeof articleMeta.subcategory === 'string') 
+        ? normalizeForUrl(articleMeta.subcategory) 
+        : undefined;
     }
     
     if (articleCategory !== categorySlug || articleSubcategory !== subcategorySlug) {

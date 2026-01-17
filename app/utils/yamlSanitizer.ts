@@ -53,7 +53,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
     return {
       data: result.data,
       content: result.content,
-      pageDescription: result.pageDescription || '',
+      pageDescription: (result.data as any).pageDescription || '',
       orig: String(result.orig || content)
     };
   } catch (error) {
@@ -66,7 +66,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
       return {
         data: result.data,
         content: result.content,
-        pageDescription: result.pageDescription || '',
+        pageDescription: (result.data as any).pageDescription || '',
         orig: String(result.orig || content)
       };
     } catch (sanitizationError) {

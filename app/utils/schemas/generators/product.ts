@@ -186,12 +186,12 @@ function extractSafetyData(options: any): PropertyValue[] {
     const item = relationships.fireExplosionRisk.items[0];
     if (item.riskLevel) {
       safetyProps.push({
-        '@type': 'PropertyValue',
+        '@type': 'PropertyValue' as const,
         propertyID: 'fireExplosionRisk',
         name: 'Fire & Explosion Risk',
         value: item.riskLevel,
         description: item.hazardDescription || item.specificHazards
-      });
+      } as any); // Schema.org PropertyValue with @type
     }
   }
   
@@ -200,12 +200,12 @@ function extractSafetyData(options: any): PropertyValue[] {
     const item = relationships.toxicGasRisk.items[0];
     if (item.riskLevel || item.compoundsProduced?.length > 0) {
       safetyProps.push({
-        '@type': 'PropertyValue',
+        '@type': 'PropertyValue' as const,
         propertyID: 'toxicGasRisk',
         name: 'Toxic Gas Risk',
         value: item.riskLevel || 'Present',
         description: item.compoundsProduced?.join(', ') || item.specificHazards
-      });
+      } as any);
     }
   }
   
@@ -214,12 +214,12 @@ function extractSafetyData(options: any): PropertyValue[] {
     const item = relationships.visibilityHazard.items[0];
     if (item.severity) {
       safetyProps.push({
-        '@type': 'PropertyValue',
+        '@type': 'PropertyValue' as const,
         propertyID: 'visibilityHazard',
         name: 'Visibility Hazard',
         value: item.severity,
         description: item.hazardDescription
-      });
+      } as any);
     }
   }
   
@@ -235,12 +235,12 @@ function extractSafetyData(options: any): PropertyValue[] {
     
     if (ppeTypes.length > 0) {
       safetyProps.push({
-        '@type': 'PropertyValue',
+        '@type': 'PropertyValue' as const,
         propertyID: 'ppeRequirements',
         name: 'PPE Requirements',
         value: ppeTypes.join(' | '),
         description: item.specialNotes
-      });
+      } as any);
     }
   }
   
@@ -255,12 +255,12 @@ function extractSafetyData(options: any): PropertyValue[] {
     
     if (ventSpecs.length > 0) {
       safetyProps.push({
-        '@type': 'PropertyValue',
+        '@type': 'PropertyValue' as const,
         propertyID: 'ventilationRequirements',
         name: 'Ventilation Requirements',
         value: ventSpecs.join(' | '),
         description: item.specialNotes
-      });
+      } as any);
     }
   }
   
@@ -269,12 +269,12 @@ function extractSafetyData(options: any): PropertyValue[] {
     const item = relationships.particulateGeneration.items[0];
     if (item.particleSize || item.respirableFraction) {
       safetyProps.push({
-        '@type': 'PropertyValue',
+        '@type': 'PropertyValue' as const,
         propertyID: 'particulateGeneration',
         name: 'Particulate Generation',
         value: item.particleSize || 'Various sizes',
         description: item.respirableFraction ? `Respirable fraction: ${item.respirableFraction}` : undefined
-      });
+      } as any);
     }
   }
   
