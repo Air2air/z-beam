@@ -15,7 +15,7 @@ import Image from 'next/image';
 import { useMicroParsing } from './useMicroParsing';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { MicroDataStructure, MicroProps } from '@/types';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { SITE_CONFIG } from '@/app/config/site';
 import { capitalizeFirst } from '@/app/utils/formatting';
@@ -39,7 +39,7 @@ function emphasizeFirstSentence(text: string): string {
 }
 
 export function Micro({ frontmatter, config }: MicroProps) {
-  const microContent = frontmatter?.micro;
+  const microContent = frontmatter?.micro || (frontmatter as any)?.components?.micro;
   
   // Call hooks unconditionally - MUST be before any early returns
   const parsedMicro = useMicroParsing(microContent as any);
@@ -105,8 +105,9 @@ export function Micro({ frontmatter, config }: MicroProps) {
   const capitalizedMaterial = capitalizeFirst(materialName);
 
   return (
-    <SectionContainer 
+    <BaseSection 
       title={`${capitalizedMaterial} 500-1000x surface magnification`}
+      description="Microscopic surface analysis and contamination details"
       bgColor="transparent"
       radius={false}
     >
@@ -196,6 +197,6 @@ export function Micro({ frontmatter, config }: MicroProps) {
             )}
           </div>
         )}
-    </SectionContainer>
+    </BaseSection>
   );
 }

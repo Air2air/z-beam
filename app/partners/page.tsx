@@ -2,7 +2,7 @@
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config/site";
-import { loadStaticPage, type StaticPageWithCards } from '@/app/utils/staticPageLoader';
+import { PARTNERS_DATA } from '@/app/utils/staticPageData.generated';
 
 export const metadata = {
   title: 'Laser Cleaning Partners | North America & Europe | Z-Beam',
@@ -64,8 +64,8 @@ export const metadata = {
 };
 
 export default function PartnersPage() {
-  // Load partners page configuration directly from YAML
-  const pageConfig = loadStaticPage<StaticPageWithCards>('partners.yaml');
+  // Load partners page configuration from pre-loaded static data
+  const pageConfig = PARTNERS_DATA;
   
   return (
     <Layout

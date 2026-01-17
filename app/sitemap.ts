@@ -40,16 +40,36 @@ export default function sitemap(): SitemapEntry[] {
   const baseUrl = SITE_CONFIG.url;
   
   // Helper to generate alternates for a URL
+  // Expanded international SEO coverage: 16 locales for global reach
   const getAlternates = (url: string) => ({
     languages: {
+      // English variants
       'en-US': url,
       'en-GB': url,
       'en-CA': url,
       'en-AU': url,
+      // Spanish variants
       'es-MX': url,
+      'es-ES': url, // Spain Spanish (NEW)
+      // French
       'fr-CA': url,
+      // German
       'de-DE': url,
+      // Chinese
       'zh-CN': url,
+      // Portuguese
+      'pt-BR': url, // Brazilian Portuguese (NEW)
+      // Japanese
+      'ja-JP': url, // Japan (NEW)
+      // Korean
+      'ko-KR': url, // South Korea (NEW)
+      // Italian
+      'it-IT': url, // Italy (NEW)
+      // Polish
+      'pl-PL': url, // Poland (NEW)
+      // Dutch
+      'nl-NL': url, // Netherlands (NEW)
+      // Default fallback
       'x-default': url,
     },
   });

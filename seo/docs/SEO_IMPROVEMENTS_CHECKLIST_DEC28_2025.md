@@ -69,14 +69,14 @@ PAGESPEED_API_KEY=$(grep PAGESPEED_API_KEY .env.production | cut -d '=' -f2) \
 - [x] Created `scripts/seo/generate-image-sitemap.js`
 - [x] Scanned 684 images from `public/images/`
 - [x] Generated `public/image-sitemap.xml` (178KB)
-- [x] Added image metadata (title, caption, URL)
+- [x] Added image metadata (title, micro, URL)
 - [x] Grouped images by content category
 
 ### Image Sitemap Features:
 - **Total Images**: 684
 - **File Size**: 178KB
 - **Format**: XML with Google Image Sitemap schema
-- **Metadata**: Title, caption, location for each image
+- **Metadata**: Title, micro, location for each image
 - **Categories**: Automatic categorization from path structure
 
 ### NPM Scripts Added:
@@ -93,7 +93,7 @@ npm run generate:sitemaps         # Generate both
   <image:image>
     <image:loc>https://www.z-beam.com/images/application/...</image:loc>
     <image:title>Application Acoustic Aerospace</image:title>
-    <image:caption>Z-Beam industrial laser cleaning technology</image:caption>
+    <image:micro>Z-Beam industrial laser cleaning technology</image:micro>
   </image:image>
 </url>
 ```

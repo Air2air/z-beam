@@ -30,9 +30,12 @@ jest.mock('@/app/components/InfoCard/InfoCard', () => ({
   ),
 }));
 
-jest.mock('@/app/components/SectionContainer/SectionContainer', () => ({
-  SectionContainer: ({ children }: { children: React.ReactNode }) => (
-    <section data-testid="section-container">{children}</section>
+jest.mock('@/app/components/BaseSection/BaseSection', () => ({
+  BaseSection: ({ children, title }: { children: React.ReactNode; title?: string }) => (
+    <section role="region" aria-label={title || 'Section'}>
+      {title && <h2>{title}</h2>}
+      {children}
+    </section>
   ),
 }));
 
@@ -83,13 +86,13 @@ describe('SafetyDataPanel', () => {
       expect(container.firstChild).toBeNull();
     });
 
-    it('renders section container when safetyData provided', () => {
+    it('renders section when safetyData provided', () => {
       const safetyData = {
         fire_explosion_risk: 'moderate'
       };
 
       render(<SafetyDataPanel safetyData={safetyData} />);
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region', { name: 'Safety Information' })).toBeInTheDocument();
     });
 
     it('renders Safety Information title', () => {
@@ -110,9 +113,8 @@ describe('SafetyDataPanel', () => {
         <SafetyDataPanel safetyData={safetyData} className="custom-class" />
       );
 
-      // The custom-class is applied to the outermost SectionContainer
-      // Since we mock SectionContainer, just verify component renders
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      // Verify component renders (className is applied to BaseSection which is mocked)
+      expect(screen.getByRole('region', { name: 'Safety Information' })).toBeInTheDocument();
     });
   });
 
@@ -493,7 +495,7 @@ describe('SafetyDataPanel', () => {
       render(<SafetyDataPanel safetyData={safetyData} collapsible={false} />);
       
       expect(screen.queryByTestId('collapsible')).not.toBeInTheDocument();
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region', { name: 'Safety Information' })).toBeInTheDocument();
     });
 
     it('uses entityName in Collapsible mode', () => {

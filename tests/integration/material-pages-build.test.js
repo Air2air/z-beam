@@ -89,8 +89,8 @@ describe('Material Pages Build Validation', () => {
             const article = await getArticle(material.slug);
             
             expect(article).not.toBeNull();
-            expect(article.metadata.category).toBe(category.slug);
-            expect(article.metadata.subcategory).toBe(subcategory.slug);
+            expect(article.frontmatter.category).toBe(category.slug);
+            expect(article.frontmatter.subcategory).toBe(subcategory.slug);
             
             testCount++;
             if (testCount >= 20) break;
@@ -116,8 +116,8 @@ describe('Material Pages Build Validation', () => {
         const article = await getArticle(testCase.slug);
         
         expect(article).not.toBeNull();
-        expect(article.metadata.category).toBe(testCase.expectedCategory);
-        expect(article.metadata.subcategory).toBe(testCase.expectedSubcategory);
+        expect(article.frontmatter.category).toBe(testCase.expectedCategory);
+        expect(article.frontmatter.subcategory).toBe(testCase.expectedSubcategory);
       }
     });
 
@@ -131,11 +131,11 @@ describe('Material Pages Build Validation', () => {
             const article = await getArticle(material.slug);
             
             if (article) {
-              if (article.metadata.category !== category.slug) {
-                errors.push(`${material.slug}: category mismatch - expected ${category.slug}, got ${article.metadata.category}`);
+              if (article.frontmatter.category !== category.slug) {
+                errors.push(`${material.slug}: category mismatch - expected ${category.slug}, got ${article.frontmatter.category}`);
               }
-              if (article.metadata.subcategory !== subcategory.slug) {
-                errors.push(`${material.slug}: subcategory mismatch - expected ${subcategory.slug}, got ${article.metadata.subcategory}`);
+              if (article.frontmatter.subcategory !== subcategory.slug) {
+                errors.push(`${material.slug}: subcategory mismatch - expected ${subcategory.slug}, got ${article.frontmatter.subcategory}`);
               }
             }
           }
@@ -172,7 +172,7 @@ describe('Material Pages Build Validation', () => {
 
     (shouldSkip ? test.skip : test)('specific material pages exist after build', () => {
       const testPages = [
-        path.join(process.cwd(), '.next', 'server', 'app', 'materials', 'stone', 'igneous', 'granite-laser-cleaning.html'),
+        path.join(process.cwd(), '.next', 'server', 'app', 'materials', 'metal', 'ferrous', 'steel-laser-cleaning.html'),
         path.join(process.cwd(), '.next', 'server', 'app', 'materials', 'metal', 'non-ferrous', 'aluminum-laser-cleaning.html'),
       ];
 
@@ -190,13 +190,13 @@ describe('Material Pages Build Validation', () => {
     });
 
     (shouldSkip ? test.skip : test)('generated HTML pages contain material title, not 404', () => {
-      const granitePage = path.join(process.cwd(), '.next', 'server', 'app', 'materials', 'stone', 'igneous', 'granite-laser-cleaning.html');
+      const steelPage = path.join(process.cwd(), '.next', 'server', 'app', 'materials', 'metal', 'ferrous', 'steel-laser-cleaning.html');
       
-      if (fs.existsSync(granitePage)) {
-        const content = fs.readFileSync(granitePage, 'utf8');
+      if (fs.existsSync(steelPage)) {
+        const content = fs.readFileSync(steelPage, 'utf8');
         
         // Should contain material title
-        expect(content).toContain('Granite Laser Cleaning');
+        expect(content).toContain('Steel Laser Cleaning');
         
         // Should NOT be 404 page
         expect(content).not.toContain('Page Not Found');
@@ -241,7 +241,7 @@ describe('Material Pages Build Validation', () => {
             
             const required = ['pageTitle', 'name', 'category', 'subcategory', 'pageDescription'];
             required.forEach(field => {
-              if (!article.metadata[field]) {
+              if (!article.frontmatter[field]) {
                 errors.push(`${material.slug}: missing ${field}`);
               }
             });

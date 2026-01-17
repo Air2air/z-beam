@@ -97,8 +97,8 @@ const nextConfig = {
         headers: [
           {
             key: 'Link',
-            // Preload critical resources and preconnect to external domains
-            value: '</images/logo/logo-zbeam.png>; rel=preload; as=image; fetchpriority=high, <https://www.googletagmanager.com>; rel=preconnect; crossorigin'
+            // Preconnect to external domains for faster third-party resource loading
+            value: '<https://www.googletagmanager.com>; rel=preconnect; crossorigin'
           }
         ]
       },

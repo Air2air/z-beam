@@ -184,20 +184,20 @@ describe('Postdeploy Validation - Image Sitemap', () => {
         <image:image>
           <image:loc>https://z-beam.com/images/aluminum-hero.jpg</image:loc>
           <image:title>Aluminum Laser Cleaning</image:title>
-          <image:caption>Professional laser cleaning for aluminum surfaces</image:caption>
+          <image:micro>Professional laser cleaning for aluminum surfaces</image:micro>
         </image:image>
       `;
       
       expect(imageEntry).toContain('<image:loc>');
       expect(imageEntry).toContain('<image:title>');
-      expect(imageEntry).toContain('<image:caption>');
+      expect(imageEntry).toContain('<image:micro>');
     });
 
     test('should detect missing title', () => {
       const imageEntry = `
         <image:image>
           <image:loc>https://z-beam.com/images/aluminum-hero.jpg</image:loc>
-          <image:caption>Professional laser cleaning</image:caption>
+          <image:micro>Professional laser cleaning</image:micro>
         </image:image>
       `;
       

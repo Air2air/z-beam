@@ -95,7 +95,7 @@ describe('Contaminant SEO Implementation', () => {
 
   describe('JSON-LD Schema Generation', () => {
     const mockContaminantArticle = {
-      metadata: {
+      frontmatter: {
         title: 'Rust Oxidation Contamination',
         name: 'Rust Oxidation',
         description: 'Rust contamination forms through iron oxidation.',
@@ -112,7 +112,13 @@ describe('Contaminant SEO Implementation', () => {
             url: '/images/contamination/rust-hero.jpg',
             alt: 'Rust contamination'
           }
-        }
+        },
+        breadcrumb: [
+          { label: 'Home', href: '/' },
+          { label: 'Contaminants', href: '/contaminants' },
+          { label: 'Oxidation', href: '/contaminants/oxidation' },
+          { label: 'Rust Oxidation', href: '/contaminants/oxidation/ferrous/rust-contamination' }
+        ]
       }
     };
 

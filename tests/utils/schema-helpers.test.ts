@@ -18,8 +18,8 @@ import {
 
 describe('Schema Helpers', () => {
   describe('getMetadata', () => {
-    it('should return metadata from data.metadata', () => {
-      const data = { metadata: { title: 'Test' } };
+    it('should return metadata from data.frontmatter', () => {
+      const data = { frontmatter: { title: 'Test' } };
       expect(getMetadata(data)).toEqual({ title: 'Test' });
     });
 
@@ -43,7 +43,7 @@ describe('Schema Helpers', () => {
     describe('New frontmatter format (serviceOffering)', () => {
       it('should detect serviceOffering.enabled = true in metadata', () => {
         const data = {
-          metadata: {
+          frontmatter: {
             serviceOffering: {
               enabled: true,
               type: 'professionalCleaning',
@@ -75,7 +75,7 @@ describe('Schema Helpers', () => {
 
       it('should return false for serviceOffering.enabled = false', () => {
         const data = {
-          metadata: {
+          frontmatter: {
             serviceOffering: {
               enabled: false,
               type: 'professionalCleaning'
@@ -86,7 +86,7 @@ describe('Schema Helpers', () => {
       });
 
       it('should return false for missing serviceOffering', () => {
-        const data = { metadata: { title: 'Test Material' } };
+        const data = { frontmatter: { title: 'Test Material' } };
         expect(hasServiceData(data)).toBe(false);
       });
     });
@@ -108,7 +108,7 @@ describe('Schema Helpers', () => {
 
       it('should detect serviceOfferings in metadata', () => {
         const data = {
-          metadata: {
+          frontmatter: {
             serviceOfferings: [{ name: 'Service' }]
           }
         };
@@ -128,7 +128,7 @@ describe('Schema Helpers', () => {
   describe('hasMultipleServices', () => {
     it('should return false for single serviceOffering', () => {
       const data = {
-        metadata: {
+        frontmatter: {
           serviceOffering: {
             enabled: true,
             type: 'professionalCleaning'
@@ -174,7 +174,7 @@ describe('Schema Helpers', () => {
 
     it('should detect materialProperties in metadata', () => {
       const data = {
-        metadata: {
+        frontmatter: {
           materialProperties: { density: { value: 7.8 } }
         }
       };
@@ -195,7 +195,7 @@ describe('Schema Helpers', () => {
   describe('hasMachineSettings', () => {
     it('should detect machineSettings in metadata', () => {
       const data = {
-        metadata: { machineSettings: { power: 200 } }
+        frontmatter: { machineSettings: { power: 200 } }
       };
       expect(hasMachineSettings(data)).toBe(true);
     });
@@ -214,7 +214,7 @@ describe('Schema Helpers', () => {
   describe('hasMaterialProperties', () => {
     it('should detect materialProperties in metadata', () => {
       const data = {
-        metadata: {
+        frontmatter: {
           materialProperties: {
             physical: { density: 2.7 }
           }
@@ -224,7 +224,7 @@ describe('Schema Helpers', () => {
     });
 
     it('should return false for no material properties', () => {
-      const data = { metadata: { title: 'Test' } };
+      const data = { frontmatter: { title: 'Test' } };
       expect(hasMaterialProperties(data)).toBe(false);
     });
   });
@@ -232,7 +232,7 @@ describe('Schema Helpers', () => {
   describe('hasAuthor', () => {
     it('should detect author in metadata', () => {
       const data = {
-        metadata: { author: { name: 'John Doe' } }
+        frontmatter: { author: { name: 'John Doe' } }
       };
       expect(hasAuthor(data)).toBe(true);
     });
@@ -256,28 +256,28 @@ describe('Schema Helpers', () => {
 
     it('should detect faq in metadata', () => {
       const data = {
-        metadata: { faq: [{ question: 'Q1', answer: 'A1' }] }
+        frontmatter: { faq: [{ question: 'Q1', answer: 'A1' }] }
       };
       expect(hasFAQData(data)).toBe(true);
     });
 
     it('should detect outcomeMetrics (FAQ-generating frontmatter)', () => {
       const data = {
-        metadata: { outcomeMetrics: { cleaningRate: 95 } }
+        frontmatter: { outcomeMetrics: { cleaningRate: 95 } }
       };
       expect(hasFAQData(data)).toBe(true);
     });
 
     it('should detect applications (FAQ-generating frontmatter)', () => {
       const data = {
-        metadata: { applications: ['Aerospace', 'Automotive'] }
+        frontmatter: { applications: ['Aerospace', 'Automotive'] }
       };
       expect(hasFAQData(data)).toBe(true);
     });
 
     it('should detect environmentalImpact (FAQ-generating frontmatter)', () => {
       const data = {
-        metadata: { environmentalImpact: { co2Reduction: '50%' } }
+        frontmatter: { environmentalImpact: { co2Reduction: '50%' } }
       };
       expect(hasFAQData(data)).toBe(true);
     });

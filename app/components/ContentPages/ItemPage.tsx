@@ -39,7 +39,7 @@ export async function ItemPage({
     // SETTINGS PAGES: Use SettingsLayout with standardized metadata extraction
     if (config.type === 'settings') {
       // Extract metadata consistently with other content types
-      const metadata = article.metadata || article as any;
+      const metadata = article.frontmatter || article as any;
       
       // Verify category/subcategory match for settings
       const settingsCategory = metadata.category ? normalizeForUrl(metadata.category) : undefined;
@@ -70,7 +70,7 @@ export async function ItemPage({
     
     // MATERIALS & CONTAMINANTS: Standard article structure with metadata and components
     // Extract metadata from article
-    const metadata = article.metadata as any;
+    const metadata = article.frontmatter as any;
     const articleCategory = metadata?.category ? normalizeForUrl(metadata.category) : undefined;
     const articleSubcategory = metadata?.subcategory ? normalizeForUrl(metadata.subcategory) : undefined;
     
@@ -93,12 +93,12 @@ export async function ItemPage({
         const machineSettings = (settings as any)?.machineSettings;
         
         if (machineSettings) {
-          // Merge machineSettings at TOP LEVEL of article.metadata for Dataset schema
+          // Merge machineSettings at TOP LEVEL of article.frontmatter for Dataset schema
           // SchemaFactory checks frontmatter.machineSettings, not nested in relationships
-          if (!article.metadata) {
-            article.metadata = {};
+          if (!article.frontmatter) {
+            article.frontmatter = {};
           }
-          (article.metadata as any).machineSettings = machineSettings;
+          (article.frontmatter as any).machineSettings = machineSettings;
         }
       } catch (_error) {
         // Settings file doesn't exist - continue without machine settings

@@ -28,6 +28,13 @@ const mockFrontmatterData = {
   slug: 'aluminum-laser-cleaning',
   datePublished: '2024-01-15',
   dateModified: '2024-12-06',
+  breadcrumb: [
+    { label: 'Home', href: '/' },
+    { label: 'Materials', href: '/materials' },
+    { label: 'Metal', href: '/materials/metal' },
+    { label: 'Non-Ferrous', href: '/materials/metal/non-ferrous' },
+    { label: 'Aluminum Laser Cleaning', href: '/materials/metal/non-ferrous/aluminum-laser-cleaning' }
+  ],
   author: {
     name: 'Dr. Sarah Chen',
     email: 'sarah.chen@z-beam.com',

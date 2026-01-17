@@ -51,7 +51,7 @@ export default async function SearchPage() {
       articles.map(async (article) => {
         // Extract chemical data from article metadata
         // Extract values with type safety
-        const safeMetadata = article.metadata && typeof article.metadata === 'object' ? article.metadata : {};
+        const safeMetadata = article.frontmatter && typeof article.frontmatter === 'object' ? article.frontmatter : {};
         
         let chemicalSymbol = 'chemicalSymbol' in safeMetadata && typeof safeMetadata.chemicalSymbol === 'string'
           ? safeMetadata.chemicalSymbol
@@ -80,7 +80,7 @@ export default async function SearchPage() {
           const match = safeMatch(formulaString, /([A-Z][a-z]?)/);
           chemicalSymbol = match
             ? match[0]
-            : extractSafeValue(article.metadata?.subject).substring(0, 2) || "";
+            : extractSafeValue(article.frontmatter?.subject).substring(0, 2) || "";
         }
 
         // Load BadgeSymbol data from content/components/badgesymbol/

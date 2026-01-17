@@ -43,6 +43,9 @@ export function generateProductSchema(options: ProductSchemaOptions) {
   
   const { baseUrl, pageUrl } = context;
   
+  // Extract safety data from frontmatter relationships
+  const safetyData = extractSafetyData(options as any);
+  
   // Build product images
   const productImages: any[] = [];
   if (images?.hero?.url) {
@@ -120,8 +123,19 @@ export function generateProductSchema(options: ProductSchemaOptions) {
       ratingCount: '47'
     },
     
-    // Material properties
-    ...(properties.length > 0 && { additionalProperty: properties }),
+    // Material properties + Safety data
+    ...(properties.length > 0 || safetyData.length > 0) && { 
+      additionalProperty: [...properties, ...safetyData] 
+    },
+    
+    // Safety warning (if critical hazards present)
+    ...(safetyData.some(prop => 
+      ['High', 'Severe', 'Critical'].some(level => 
+        String(prop.value).includes(level)
+      )
+    ) && {
+      warning: 'This material may present safety hazards during laser cleaning. Review all safety data and ensure proper PPE, ventilation, and emergency procedures are in place.'
+    }),
     
     // SKU
     sku: productSku,
@@ -157,4 +171,112 @@ export function generateProductSchema(options: ProductSchemaOptions) {
       description: `${SITE_CONFIG.pricing.professionalCleaning.description} for ${name}. Starting at $${SITE_CONFIG.pricing.professionalCleaning.hourlyRate}/${SITE_CONFIG.pricing.professionalCleaning.unit}. Contact for custom quote.`
     }
   };
+}
+
+/**
+ * Extract safety data from frontmatter relationships for schema inclusion
+ * Exposes fire/explosion risk, toxic gas hazards, PPE requirements, and ventilation needs
+ */
+function extractSafetyData(options: any): PropertyValue[] {
+  const safetyProps: PropertyValue[] = [];
+  const relationships = options.relationships?.safety || {};
+  
+  // Fire & Explosion Risk
+  if (relationships.fireExplosionRisk?.items?.length > 0) {
+    const item = relationships.fireExplosionRisk.items[0];
+    if (item.riskLevel) {
+      safetyProps.push({
+        '@type': 'PropertyValue',
+        propertyID: 'fireExplosionRisk',
+        name: 'Fire & Explosion Risk',
+        value: item.riskLevel,
+        description: item.hazardDescription || item.specificHazards
+      });
+    }
+  }
+  
+  // Toxic Gas Risk
+  if (relationships.toxicGasRisk?.items?.length > 0) {
+    const item = relationships.toxicGasRisk.items[0];
+    if (item.riskLevel || item.compoundsProduced?.length > 0) {
+      safetyProps.push({
+        '@type': 'PropertyValue',
+        propertyID: 'toxicGasRisk',
+        name: 'Toxic Gas Risk',
+        value: item.riskLevel || 'Present',
+        description: item.compoundsProduced?.join(', ') || item.specificHazards
+      });
+    }
+  }
+  
+  // Visibility Hazard
+  if (relationships.visibilityHazard?.items?.length > 0) {
+    const item = relationships.visibilityHazard.items[0];
+    if (item.severity) {
+      safetyProps.push({
+        '@type': 'PropertyValue',
+        propertyID: 'visibilityHazard',
+        name: 'Visibility Hazard',
+        value: item.severity,
+        description: item.hazardDescription
+      });
+    }
+  }
+  
+  // PPE Requirements
+  if (relationships.ppeRequirements?.items?.length > 0) {
+    const item = relationships.ppeRequirements.items[0];
+    const ppeTypes: string[] = [];
+    
+    if (item.respiratory) ppeTypes.push(`Respiratory: ${item.respiratory}`);
+    if (item.eye) ppeTypes.push(`Eye: ${item.eye}`);
+    if (item.skin) ppeTypes.push(`Skin: ${item.skin}`);
+    if (item.minimumLevel) ppeTypes.push(`Minimum Level: ${item.minimumLevel}`);
+    
+    if (ppeTypes.length > 0) {
+      safetyProps.push({
+        '@type': 'PropertyValue',
+        propertyID: 'ppeRequirements',
+        name: 'PPE Requirements',
+        value: ppeTypes.join(' | '),
+        description: item.specialNotes
+      });
+    }
+  }
+  
+  // Ventilation Requirements
+  if (relationships.ventilationRequirements?.items?.length > 0) {
+    const item = relationships.ventilationRequirements.items[0];
+    const ventSpecs: string[] = [];
+    
+    if (item.airChangesPerHour) ventSpecs.push(`${item.airChangesPerHour} ACH`);
+    if (item.exhaustVelocity) ventSpecs.push(`${item.exhaustVelocity} velocity`);
+    if (item.filtrationRequired) ventSpecs.push(`Filtration: ${item.filtrationRequired}`);
+    
+    if (ventSpecs.length > 0) {
+      safetyProps.push({
+        '@type': 'PropertyValue',
+        propertyID: 'ventilationRequirements',
+        name: 'Ventilation Requirements',
+        value: ventSpecs.join(' | '),
+        description: item.specialNotes
+      });
+    }
+  }
+  
+  // Particulate Generation
+  if (relationships.particulateGeneration?.items?.length > 0) {
+    const item = relationships.particulateGeneration.items[0];
+    if (item.particleSize || item.respirableFraction) {
+      safetyProps.push({
+        '@type': 'PropertyValue',
+        propertyID: 'particulateGeneration',
+        name: 'Particulate Generation',
+        value: item.particleSize || 'Various sizes',
+        description: item.respirableFraction ? `Respirable fraction: ${item.respirableFraction}` : undefined
+      });
+    }
+  }
+  
+  return safetyProps;
 }

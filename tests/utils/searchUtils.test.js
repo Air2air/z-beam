@@ -91,7 +91,7 @@ describe('Search Utils', () => {
       const item = {
         name: 'Primary Name',
         title: 'Secondary Title',
-        metadata: { name: 'Metadata Name', title: 'Metadata Title' },
+        frontmatter: { name: 'Metadata Name', title: 'Metadata Title' },
         slug: 'test-slug'
       };
 
@@ -101,7 +101,7 @@ describe('Search Utils', () => {
     test('should fallback to metadata name', () => {
       const item = {
         title: 'Secondary Title',
-        metadata: { name: 'Metadata Name', title: 'Metadata Title' },
+        frontmatter: { name: 'Metadata Name', title: 'Metadata Title' },
         slug: 'test-slug'
       };
 
@@ -111,7 +111,7 @@ describe('Search Utils', () => {
     test('should fallback to metadata title', () => {
       const item = {
         title: 'Secondary Title',
-        metadata: { title: 'Metadata Title' },
+        frontmatter: { title: 'Metadata Title' },
         slug: 'test-slug'
       };
 
@@ -160,7 +160,7 @@ describe('Search Utils', () => {
 
     test('should create badge for alumina', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           subject: 'alumina',
           category: 'ceramic'
         }
@@ -178,7 +178,7 @@ describe('Search Utils', () => {
 
     test('should create badge for silicon nitride', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           subject: 'silicon nitride',
           category: 'ceramic'
         }
@@ -196,7 +196,7 @@ describe('Search Utils', () => {
 
     test('should handle commentMetadata subject', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           commentMetadata: {
             Subject: 'Alumina'
           },
@@ -216,7 +216,7 @@ describe('Search Utils', () => {
 
     test('should create generic badge from category', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           category: 'polymer'
         }
       };
@@ -257,7 +257,7 @@ describe('Search Utils', () => {
       };
 
       const item = {
-        metadata: {
+        frontmatter: {
           chemicalProperties: existingProps
         }
       };
@@ -273,7 +273,7 @@ describe('Search Utils', () => {
       };
 
       const item = {
-        metadata: {
+        frontmatter: {
           chemicalProperties: metadataProps
         }
       };
@@ -283,7 +283,7 @@ describe('Search Utils', () => {
 
     test('should construct properties from individual metadata fields', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           chemicalSymbol: 'Cu',
           chemicalFormula: 'CuO',
           materialType: 'compound'
@@ -301,7 +301,7 @@ describe('Search Utils', () => {
 
     test('should use formula as fallback for chemicalFormula', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           chemicalSymbol: 'Fe',
           formula: 'Fe₂O₃',
           category: 'compound'
@@ -319,7 +319,7 @@ describe('Search Utils', () => {
 
     test('should infer properties for known materials', () => {
       const aluminaItem = {
-        metadata: {
+        frontmatter: {
           subject: 'alumina',
           category: 'ceramic'
         }
@@ -336,7 +336,7 @@ describe('Search Utils', () => {
 
     test('should infer properties for silicon nitride', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           subject: 'Silicon Nitride',
           category: 'ceramic'
         }
@@ -353,7 +353,7 @@ describe('Search Utils', () => {
 
     test('should return null for items without chemical information', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           title: 'Some Article'
         }
       };
@@ -363,7 +363,7 @@ describe('Search Utils', () => {
 
     test('should handle case insensitive subject matching', () => {
       const item = {
-        metadata: {
+        frontmatter: {
           subject: 'ALUMINA',
           category: 'ceramic'
         }
@@ -381,19 +381,19 @@ describe('Search Utils', () => {
 
   describe('material type mapping', () => {
     test('should map metal to alloy', () => {
-      const item = { metadata: { category: 'metal' } };
+      const item = { frontmatter: { category: 'metal' } };
       const badge = getBadgeFromItem(item);
       expect(badge.materialType).toBe('alloy');
     });
 
     test('should map plastic to polymer', () => {
-      const item = { metadata: { category: 'plastic' } };
+      const item = { frontmatter: { category: 'plastic' } };
       const badge = getBadgeFromItem(item);
       expect(badge.materialType).toBe('polymer');
     });
 
     test('should map unknown types to other', () => {
-      const item = { metadata: { category: 'unknown-material' } };
+      const item = { frontmatter: { category: 'unknown-material' } };
       const badge = getBadgeFromItem(item);
       expect(badge.materialType).toBe('other');
     });

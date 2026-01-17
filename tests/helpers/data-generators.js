@@ -6,7 +6,7 @@
 
 export const generateMockArticle = (overrides = {}) => ({
   slug: 'test-article',
-  metadata: {
+  frontmatter: {
     title: 'Test Article',
     description: 'Test description',
     author: 'Test Author',

@@ -153,7 +153,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
       props: {
         items: visualCharacteristics?.items || [],
         sectionMetadata: {
-          ...visualCharacteristics?.metadata,
+          ...visualCharacteristics?.frontmatter,
           title: `Visual characteristics of ${contaminantName}`,
         },
       }
@@ -163,7 +163,7 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
       condition: !!laserProperties,
       props: {
         items: laserProperties?.items || [],
-        sectionMetadata: laserProperties?.metadata,
+        sectionMetadata: laserProperties?.frontmatter,
       }
     },
     // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only)

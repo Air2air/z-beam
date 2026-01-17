@@ -1,15 +1,95 @@
 id: aluminosilicate-glass-laser-cleaning
 name: Aluminosilicate Glass
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Glass
+    href: /materials/glass
+  - label: Specialty
+    href: /materials/glass/specialty
+  - label: Aluminosilicate Glass
+    href: /materials/glass/specialty/aluminosilicate-glass
 displayName: Aluminosilicate Glass Laser Cleaning
 category: glass
 subcategory: specialty
-pageDescription: Aluminosilicate glass demonstrates exceptional durability and corrosion resistance. This material, it withstands
-  laser exposure tenaciously, enabling precise contaminant removal from surfaces. Its smooth texture aids efficiency, though
-  toughness demands careful energy control to avoid microcracks.
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:48.269456+00:00'
+fullPath: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
+pageTitle: Aluminosilicate Glass
+metaDescription: >-
+  At high microscopic magnification, the contaminated aluminosilicate glass surface reveals tenacious layers of debris,
+  which manifest as irregular, clustered ...
+card:
+  default:
+    heading: Aluminosilicate Glass
+    subtitle: glass / specialty
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 2
+  name: Alessandro Moretti
+  country: Italy
+  countryDisplay: Italy
+  title: Ph.D.
+  sex: m
+  jobTitle: Materials Engineer
+  expertise:
+    - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+    - Ph.D. Materials Science, TU Milano, 2015
+    - 5+ years industrial ceramics experience
+    - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+    - https://scholar.google.com/citations?user=def456
+    - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
+images:
+  hero:
+    url: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
+    alt: Aluminosilicate Glass surface during precision laser cleaning process removing contamination layer
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/aluminosilicate-glass-laser-cleaning-micro.jpg
+    alt: Aluminosilicate Glass surface at 500x magnification showing laser cleaning results
+    width: 800
+    height: 600
+components:
+  micro:
+    before: >-
+      When examining the contaminated aluminosilicate glass surface at 1000x magnification, you notice irregular clumps
+      of debris scattered across it, dulling the overall texture. Fine particles adhere stubbornly, creating a bumpy and
+      hazy layer that obscures the underlying material. This buildup makes the surface look worn and inconsistent under
+      close inspection.
+    after: >-
+      After laser treatment, you observe a remarkably even and polished surface emerging clearly at the same
+      magnification. The debris vanishes completely, leaving behind a sleek, reflective finish without any remnants.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    description: Intrinsic physical and mechanical properties affecting laser cleaning outcomes
     density:
       value: 2.53
       unit: g/cm³
@@ -55,14 +135,23 @@ properties:
       unit: MPa m^{1/2}
       confidence: 85
     electricalResistivity:
-      value: 100000000000000.0
+      value: 100000000000000
       unit: Ω·m
       confidence: 90
-    percentage: 60.0
+    percentage: 60
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     thermalDestruction:
       value: 1473
       unit: K
@@ -77,8 +166,11 @@ properties:
       source: scientific_literature
       sourceType: journal_article
       sourceName: Laser damage thresholds of optical materials for 1064 nm irradiation
-      citation: 'Carr, C. W. et al., Applied Optics, 2009, DOI: 10.1364/AO.48.002081, URL: https://opg.optica.org/ao/abstract.cfm?uri=ao-48-14-2081'
-      context: High-purity aluminosilicate glass (SiO2-Al2O3-Na2O-K2O composition, 99.9% purity), 25°C, 1064 nm Nd:YAG laser,
+      citation: >-
+        Carr, C. W. et al., Applied Optics, 2009, DOI: 10.1364/AO.48.002081, URL:
+        https://opg.optica.org/ao/abstract.cfm?uri=ao-48-14-2081
+      context: >-
+        High-purity aluminosilicate glass (SiO2-Al2O3-Na2O-K2O composition, 99.9% purity), 25°C, 1064 nm Nd:YAG laser,
         10 ns pulse duration, single-shot measurement
       confidence: 95
       researchedDate: '2025-11-24T12:31:22.014274'
@@ -89,49 +181,57 @@ properties:
       source: scientific_literature
       sourceType: journal_article
       sourceName: Optics Express
-      citation: 'A. Rublack et al., Femtosecond laser processing of alkali aluminosilicate glass: ablation threshold and surface
-        morphology, Optics Express, 2018, DOI: 10.1364/OE.26.013456'
-      context: Alkali aluminosilicate glass (Corning Gorilla Glass composition, ~62% SiO2, 18% Al2O3, 14% Na2O, 6% others),
+      citation: >-
+        A. Rublack et al., Femtosecond laser processing of alkali aluminosilicate glass: ablation threshold and surface
+        morphology, Optics Express, 2018, DOI: 10.1364/OE.26.013456
+      context: >-
+        Alkali aluminosilicate glass (Corning Gorilla Glass composition, ~62% SiO2, 18% Al2O3, 14% Na2O, 6% others),
         room temperature (25°C), 515 nm wavelength, 400 fs pulse duration, measured in air
       confidence: 95
       researchedDate: '2025-11-24T12:31:35.288251'
       needsValidation: true
     thermalDiffusivity:
-      value: 5.34e-07
+      value: 5.34e-7
       unit: m²/s
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb - Online Materials Information Resource
-      citation: MatWeb, Corning Inc. - 1737 Aluminosilicate Glass, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b5e4a5d2f4a4b0e9a4b0e9a4b0e9a,
-        accessed October 2023
-      context: Commercial aluminosilicate glass (Corning 1737, ~70% SiO2, 15% Al2O3, 10% Na2O, 5% others), 25°C, properties
+      citation: >-
+        MatWeb, Corning Inc. - 1737 Aluminosilicate Glass,
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b5e4a5d2f4a4b0e9a4b0e9a4b0e9a, accessed October 2023
+      context: >-
+        Commercial aluminosilicate glass (Corning 1737, ~70% SiO2, 15% Al2O3, 10% Na2O, 5% others), 25°C, properties
         measured under standard conditions
       confidence: 95
       researchedDate: '2025-11-24T12:31:44.196167'
       needsValidation: true
     thermalExpansion:
-      value: 3.8e-06
+      value: 0.0000038
       unit: 1/K
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb, LLC, Aluminosilicate Glass (generic), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e4f8a5b0e6b4a,
-        accessed 2023
-      context: Commercial aluminosilicate glass (e.g., ~60% SiO2, 20% Al2O3, balance alkali oxides), 25-300°C, dilatometry
+      citation: >-
+        MatWeb, LLC, Aluminosilicate Glass (generic),
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e4f8a5b0e6b4a, accessed 2023
+      context: >-
+        Commercial aluminosilicate glass (e.g., ~60% SiO2, 20% Al2O3, balance alkali oxides), 25-300°C, dilatometry
         measurement
       confidence: 95
       researchedDate: '2025-11-24T12:31:50.035918'
       needsValidation: true
     specificHeat:
-      value: 740.0
+      value: 740
       unit: J/(kg·K)
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb, LLC, Aluminosilicate Glass, Generic, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e6b4a5b0e6b4a,
-        accessed October 2023
-      context: 'Commercial aluminosilicate glass (typical composition: ~60% SiO2, 18-20% Al2O3, 10% Na2O/K2O, balance others),
-        25°C, differential scanning calorimetry (DSC) measurement'
+      citation: >-
+        MatWeb, LLC, Aluminosilicate Glass, Generic,
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e6b4a5b0e6b4a, accessed October 2023
+      context: >-
+        Commercial aluminosilicate glass (typical composition: ~60% SiO2, 18-20% Al2O3, 10% Na2O/K2O, balance others),
+        25°C, differential scanning calorimetry (DSC) measurement
       confidence: 95
       researchedDate: '2025-11-24T12:31:58.429479'
       needsValidation: true
@@ -141,10 +241,12 @@ properties:
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb Materials Database, Aluminosilicate Glass - General Properties, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e4f8a5b0e6b4a,
-        accessed 2024
-      context: 'Commercial aluminosilicate glass (e.g., similar to Gorilla Glass composition: ~60% SiO2, ~20% Al2O3, ~10%
-        Na2O/K2O, 99% purity), 25°C, measured via laser flash method'
+      citation: >-
+        MatWeb Materials Database, Aluminosilicate Glass - General Properties,
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e6b4a4b0e8b0e4f8a5b0e6b4a, accessed 2024
+      context: >-
+        Commercial aluminosilicate glass (e.g., similar to Gorilla Glass composition: ~60% SiO2, ~20% Al2O3, ~10%
+        Na2O/K2O, 99% purity), 25°C, measured via laser flash method
       confidence: 95
       researchedDate: '2025-11-24T12:32:06.619825'
       needsValidation: true
@@ -154,408 +256,344 @@ properties:
       source: scientific_literature
       sourceType: materials_database
       sourceName: RefractiveIndex.INFO
-      citation: Polyanskiy, M. N., Refractive index database, https://refractiveindex.info/?shelf=glass&book=alkali-aluminosilicate&page=MAL-2,
-        accessed October 2024
-      context: 'Alkali aluminosilicate glass (approx. composition: 65% SiO2, 18% Al2O3, 10% Na2O, 5% MgO, 2% others; commercial
-        grade similar to display glass substrates), 25°C, normal incidence, 1064 nm wavelength (Nd:YAG laser relevant for
-        cleaning applications)'
+      citation: >-
+        Polyanskiy, M. N., Refractive index database,
+        https://refractiveindex.info/?shelf=glass&book=alkali-aluminosilicate&page=MAL-2, accessed October 2024
+      context: >-
+        Alkali aluminosilicate glass (approx. composition: 65% SiO2, 18% Al2O3, 10% Na2O, 5% MgO, 2% others; commercial
+        grade similar to display glass substrates), 25°C, normal incidence, 1064 nm wavelength (Nd:YAG laser relevant
+        for cleaning applications)
       confidence: 95
       researchedDate: '2025-11-24T12:32:24.756410'
       needsValidation: true
-micro:
-  before: At high microscopic magnification, the contaminated aluminosilicate glass surface reveals tenacious layers of debris,
-    which manifest as irregular, clustered patterns that adhere persistently to the material's fine-grained structure. This
-    contamination, it exhibits unique visual features, such as shadowy encrustations influenced from environmental exposure,
-    that obscure the inherent smoothness of the glass. The process of laser cleaning, it removes these layers effectively,
-    yielding a restored surface where cleanliness is noted through the absence of such adhesions.
-  after: In contrast, the cleaned surface shows a uniform, polished appearance, with the glass's natural translucency emerging
-    clearly. These oxides, they resist less under the laser's action, which leads to a manifestation of pristine characteristics.
-    It seems that the removal enhances the material's durability, as confirmed by the even texture that persists afterward.
-    The laser, it targets the contaminants selectively, that demonstrates the technique's precision for specialty glass applications.
-images:
-  hero:
-    url: /images/material/aluminosilicate-glass-laser-cleaning-hero.jpg
-    alt: Aluminosilicate Glass surface during precision laser cleaning process removing contamination layer
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/aluminosilicate-glass-laser-cleaning-micro.jpg
-    alt: Aluminosilicate Glass surface at 500x magnification showing laser cleaning results
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: how-can-i-safely-laser-clean
+      title: How can I safely laser clean Aluminosilicate Glass without causing cracks?
+      content: >-
+        We've found that Aluminosilicate Glass holds up much better than standard soda-lime glass during laser cleaning
+        because of its superior toughness and resistance to thermal shock. In our experience, you start with lower pulse
+        energies to gently remove contaminants, allowing the material's inherent strength to prevent micro-fractures
+        that plague softer glasses. This approach keeps the surface intact while contrasting sharply with how regular
+        glass might shatter under similar heat buildup. Just watch the dwell time closely to avoid any localized
+        overheating at the end.
+      metadata:
+        topic: i safely laser clean aluminosilicate
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: true
+        order: 1
+    - id: whats-the-best-way-to-remove
+      title: What's the best way to remove stubborn stains from Aluminosilicate Glass using lasers?
+      content: >-
+        When tackling tough stains on Aluminosilicate Glass, we typically contrast it with borosilicate types, where
+        higher absorption leads to quicker but riskier ablation. Aluminosilicate's lower light uptake means you need
+        steady, focused passes to build enough energy without overwhelming the surface, ensuring clean removal every
+        time. We've seen great results by adjusting beam overlap slightly
+      metadata:
+        topic: '''s the best way to'
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: adhesive-residue-contamination
-        name: Adhesive Residue / Tape Marks
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
-        description: Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape
-          or stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
-        frequency: moderate
-        severity: moderate
-      - id: biological-stains-contamination
-        name: Organic Biofilm Deposits
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/biological-stains-contamination
-        image: /images/contaminant/biological-stains-contamination-hero.jpg
-        description: Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
-          Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
-        frequency: moderate
-        severity: moderate
-      - id: blood-residue-contamination
-        name: Biological Blood Residue
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/blood-residue-contamination
-        image: /images/contaminant/blood-residue-contamination-hero.jpg
-        description: Blood-residue contamination, it forms through biological adhesion on surfaces. Proteins and cells bind
-          tightly, creating layered patterns that vary by substrate. On metals, residue spreads unevenly...
-        frequency: moderate
-        severity: moderate
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
-      - id: insect-residue-contamination
-        name: Insect Impact Residue
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/insect-residue-contamination
-        image: /images/contaminant/insect-residue-contamination-hero.jpg
-        description: Insect-residue contamination, it arises from biological impacts on surfaces. Collisions cause splattering,
-          and residue adheres irregularly. Organic matter like chitin and proteins forms patchy laye...
-        frequency: moderate
-        severity: moderate
-      - id: lime-scale-contamination
-        name: Limescale Deposits
-        category: thermal-damage
-        subcategory: scale
-        url: /contaminants/thermal-damage/scale/lime-scale-contamination
-        image: /images/contaminant/lime-scale-contamination-hero.jpg
-        description: Lime scale contamination builds up as hard, chalky deposits from mineral-rich water, forming irregular
-          layers on metal and stone surfaces in humid environments. These patterns often show flaky, une...
-        frequency: moderate
-        severity: moderate
-      - id: medical-disinfectant-contamination
-        name: Medical Disinfectant Residue
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/medical-disinfectant-contamination
-        image: /images/contaminant/medical-disinfectant-contamination-hero.jpg
-        description: Medical disinfectant contamination forms stubborn, film-like residues that cling tightly to surfaces
-          in healthcare settings. These contaminants arise when cleaning agents like quaternary ammonium c...
-        frequency: moderate
-        severity: moderate
-      - id: mineral-deposits-contamination
-        name: Hard Water Mineral Scale
-        category: thermal-damage
-        subcategory: scale
-        url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
-        image: /images/contaminant/mineral-deposits-contamination-hero.jpg
-        description: Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
-          thin on stones, and this difference affects cleaning outcomes. After exposure to moisture...
-        frequency: moderate
-        severity: moderate
-      - id: pesticide-residue-contamination
-        name: Pesticide Chemical Residue
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
-        image: /images/contaminant/pesticide-residue-contamination-hero.jpg
-        description: Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
-          layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
-        frequency: moderate
-        severity: moderate
-      - id: pharmaceutical-residue-contamination
-        name: Pharmaceutical Drug Residue
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination
-        image: /images/contaminant/pharmaceutical-residue-contamination-hero.jpg
-        description: Pharmaceutical-residue-contamination, it arises from sticky organic layers in drug production environments.
-          This contamination forms unique patterns, such as bio-adhesive films on metal tools and c...
-        frequency: moderate
-        severity: moderate
-      - id: plastic-residue-contamination
-        name: Degraded Polymer Deposits
-        category: organic-residue
-        subcategory: polymer
-        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-        image: /images/contaminant/plastic-residue-contamination-hero.jpg
-        description: Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
-          films that adhere tenaciously to substrates. This contamination, derived from organic re...
-        frequency: moderate
-        severity: moderate
-      - id: pollen-deposit-contamination
-        name: Pollen Accumulation
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/pollen-deposit-contamination
-        image: /images/contaminant/pollen-deposit-contamination-hero.jpg
-        description: Pollen-deposit-contamination, it manifests as irregular organic layers, formed from airborne pollen adhering
-          to surfaces in humid environments. These deposits, they exhibit unique patterns influenc...
-        frequency: moderate
-        severity: moderate
-      - id: scale-buildup-contamination
-        name: Mineral Scale / Hard Water Deposits
-        category: thermal-damage
-        subcategory: scale
-        url: /contaminants/thermal-damage/scale/scale-buildup-contamination
-        image: /images/contaminant/scale-buildup-contamination-hero.jpg
-        description: Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary.
-          On steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
-        frequency: moderate
-        severity: moderate
-      - id: silicone-buildup-contamination
-        name: Silicone Sealant Buildup
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
-        image: /images/contaminant/silicone-buildup-contamination-hero.jpg
-        description: Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors
-          and residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
-        frequency: moderate
-        severity: moderate
-      - id: soap-scum-contamination
-        name: Soap Scum Buildup
-        category: organic-residue
-        subcategory: cleaning-agent
-        url: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
-        image: /images/contaminant/soap-scum-contamination-hero.jpg
-        description: Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of
-          soap residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
-        frequency: moderate
-        severity: moderate
-      - id: tree-sap-contamination
-        name: Tree Sap and Resin
-        category: organic-residue
-        subcategory: natural
-        url: /contaminants/organic-residue/natural/tree-sap-contamination
-        image: /images/contaminant/tree-sap-contamination-hero.jpg
-        description: Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
-          elements. This organic residue hardens over time, creating irregular patterns like drips a...
-        frequency: moderate
-        severity: moderate
-      - id: water-stain-contamination
-        name: Water Staining and Marks
-        category: organic-residue
-        subcategory: other
-        url: /contaminants/organic-residue/other/water-stain-contamination
-        image: /images/contaminant/water-stain-contamination-hero.jpg
-        description: Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios.
-          On porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
-        frequency: moderate
-        severity: moderate
+        - id: adhesive-residue-contamination
+          name: Adhesive Residue / Tape Marks
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+          description: >-
+            Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape or
+            stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
+          frequency: moderate
+          severity: moderate
+        - id: biological-stains-contamination
+          name: Organic Biofilm Deposits
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/biological-stains-contamination
+          image: /images/contaminant/biological-stains-contamination-hero.jpg
+          description: >-
+            Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
+            Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
+          frequency: moderate
+          severity: moderate
+        - id: blood-residue-contamination
+          name: Biological Blood Residue
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/blood-residue-contamination
+          image: /images/contaminant/blood-residue-contamination-hero.jpg
+          description: >-
+            Blood-residue contamination, it forms through biological adhesion on surfaces. Proteins and cells bind
+            tightly, creating layered patterns that vary by substrate. On metals, residue spreads unevenly...
+          frequency: moderate
+          severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
+        - id: insect-residue-contamination
+          name: Insect Impact Residue
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/insect-residue-contamination
+          image: /images/contaminant/insect-residue-contamination-hero.jpg
+          description: >-
+            Insect-residue contamination, it arises from biological impacts on surfaces. Collisions cause splattering,
+            and residue adheres irregularly. Organic matter like chitin and proteins forms patchy laye...
+          frequency: moderate
+          severity: moderate
+        - id: lime-scale-contamination
+          name: Limescale Deposits
+          category: thermal-damage
+          subcategory: scale
+          url: /contaminants/thermal-damage/scale/lime-scale-contamination
+          image: /images/contaminant/lime-scale-contamination-hero.jpg
+          description: >-
+            Lime scale contamination builds up as hard, chalky deposits from mineral-rich water, forming irregular
+            layers on metal and stone surfaces in humid environments. These patterns often show flaky, une...
+          frequency: moderate
+          severity: moderate
+        - id: medical-disinfectant-contamination
+          name: Medical Disinfectant Residue
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/medical-disinfectant-contamination
+          image: /images/contaminant/medical-disinfectant-contamination-hero.jpg
+          description: >-
+            Medical disinfectant contamination forms stubborn, film-like residues that cling tightly to surfaces in
+            healthcare settings. These contaminants arise when cleaning agents like quaternary ammonium c...
+          frequency: moderate
+          severity: moderate
+        - id: mineral-deposits-contamination
+          name: Hard Water Mineral Scale
+          category: thermal-damage
+          subcategory: scale
+          url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
+          image: /images/contaminant/mineral-deposits-contamination-hero.jpg
+          description: >-
+            Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
+            thin on stones, and this difference affects cleaning outcomes. After exposure to moisture...
+          frequency: moderate
+          severity: moderate
+        - id: pesticide-residue-contamination
+          name: Pesticide Chemical Residue
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
+          image: /images/contaminant/pesticide-residue-contamination-hero.jpg
+          description: >-
+            Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
+            layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
+          frequency: moderate
+          severity: moderate
+        - id: pharmaceutical-residue-contamination
+          name: Pharmaceutical Drug Residue
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination
+          image: /images/contaminant/pharmaceutical-residue-contamination-hero.jpg
+          description: >-
+            Pharmaceutical-residue-contamination, it arises from sticky organic layers in drug production environments.
+            This contamination forms unique patterns, such as bio-adhesive films on metal tools and c...
+          frequency: moderate
+          severity: moderate
+        - id: plastic-residue-contamination
+          name: Degraded Polymer Deposits
+          category: organic-residue
+          subcategory: polymer
+          url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+          image: /images/contaminant/plastic-residue-contamination-hero.jpg
+          description: >-
+            Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
+            films that adhere tenaciously to substrates. This contamination, derived from organic re...
+          frequency: moderate
+          severity: moderate
+        - id: pollen-deposit-contamination
+          name: Pollen Accumulation
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/pollen-deposit-contamination
+          image: /images/contaminant/pollen-deposit-contamination-hero.jpg
+          description: >-
+            Pollen-deposit-contamination, it manifests as irregular organic layers, formed from airborne pollen adhering
+            to surfaces in humid environments. These deposits, they exhibit unique patterns influenc...
+          frequency: moderate
+          severity: moderate
+        - id: scale-buildup-contamination
+          name: Mineral Scale / Hard Water Deposits
+          category: thermal-damage
+          subcategory: scale
+          url: /contaminants/thermal-damage/scale/scale-buildup-contamination
+          image: /images/contaminant/scale-buildup-contamination-hero.jpg
+          description: >-
+            Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary. On
+            steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
+          frequency: moderate
+          severity: moderate
+        - id: silicone-buildup-contamination
+          name: Silicone Sealant Buildup
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+          image: /images/contaminant/silicone-buildup-contamination-hero.jpg
+          description: >-
+            Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors and
+            residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
+          frequency: moderate
+          severity: moderate
+        - id: soap-scum-contamination
+          name: Soap Scum Buildup
+          category: organic-residue
+          subcategory: cleaning-agent
+          url: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
+          image: /images/contaminant/soap-scum-contamination-hero.jpg
+          description: >-
+            Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of soap
+            residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
+          frequency: moderate
+          severity: moderate
+        - id: tree-sap-contamination
+          name: Tree Sap and Resin
+          category: organic-residue
+          subcategory: natural
+          url: /contaminants/organic-residue/natural/tree-sap-contamination
+          image: /images/contaminant/tree-sap-contamination-hero.jpg
+          description: >-
+            Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
+            elements. This organic residue hardens over time, creating irregular patterns like drips a...
+          frequency: moderate
+          severity: moderate
+        - id: water-stain-contamination
+          name: Water Staining and Marks
+          category: organic-residue
+          subcategory: other
+          url: /contaminants/organic-residue/other/water-stain-contamination
+          image: /images/contaminant/water-stain-contamination-hero.jpg
+          description: >-
+            Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios. On
+            porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: aerospace
-        name: Aerospace
-      - id: display-technology
-        name: Display Technology
-      - id: laboratory-equipment
-        name: Laboratory Equipment
-      - id: electronics-manufacturing
-        name: Electronics Manufacturing
-      - id: optical-systems
-        name: Optical Systems
-      - id: medical-devices
-        name: Medical Devices
-      - id: research-and-development
-        name: Research and Development
-      - id: high-temperature-applications
-        name: High-Temperature Applications
+        - id: aerospace
+          name: Aerospace
+        - id: display-technology
+          name: Display Technology
+        - id: laboratory-equipment
+          name: Laboratory Equipment
+        - id: electronics-manufacturing
+          name: Electronics Manufacturing
+        - id: optical-systems
+          name: Optical Systems
+        - id: medical-devices
+          name: Medical Devices
+        - id: research-and-development
+          name: Research and Development
+        - id: high-temperature-applications
+          name: High-Temperature Applications
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
-        icon: briefcase
-        order: 41
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
-author:
-  id: 2
-  name: Alessandro Moretti
-  country: Italy
-  countryDisplay: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
-  slug: alessandro-moretti
-card:
-  default:
-    heading: Aluminosilicate Glass
-    subtitle: glass / specialty
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-10T04:11:39.178087+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - environmental_dust
-  - scale_buildup
-  - chemical_stains
-  - paint_residue
+    - environmental_dust
+    - scale_buildup
+    - chemical_stains
+    - paint_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
-  - uv_chalking
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
+    - uv_chalking
   conditional: {}
-components:
-  micro:
-    before: When examining the contaminated aluminosilicate glass surface at 1000x magnification, you notice irregular clumps
-      of debris scattered across it, dulling the overall texture. Fine particles adhere stubbornly, creating a bumpy and hazy
-      layer that obscures the underlying material. This buildup makes the surface look worn and inconsistent under close inspection.
-    after: After laser treatment, you observe a remarkably even and polished surface emerging clearly at the same magnification.
-      The debris vanishes completely, leaving behind a sleek, reflective finish without any remnants.
-faq:
-  presentation: collapsible
-  items:
-  - id: how-can-i-safely-laser-clean
-    title: How can I safely laser clean Aluminosilicate Glass without causing cracks?
-    content: We've found that Aluminosilicate Glass holds up much better than standard soda-lime glass during laser cleaning
-      because of its superior toughness and resistance to thermal shock. In our experience, you start with lower pulse energies
-      to gently remove contaminants, allowing the material's inherent strength to prevent micro-fractures that plague softer
-      glasses. This approach keeps the surface intact while contrasting sharply with how regular glass might shatter under
-      similar heat buildup. Just watch the dwell time closely to avoid any localized overheating at the end.
-    metadata:
-      topic: i safely laser clean aluminosilicate
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: true
-      order: 1
-  - id: whats-the-best-way-to-remove
-    title: What's the best way to remove stubborn stains from Aluminosilicate Glass using lasers?
-    content: When tackling tough stains on Aluminosilicate Glass, we typically contrast it with borosilicate types, where
-      higher absorption leads to quicker but riskier ablation. Aluminosilicate's lower light uptake means you need steady,
-      focused passes to build enough energy without overwhelming the surface, ensuring clean removal every time. We've seen
-      great results by adjusting beam overlap slightly
-    metadata:
-      topic: '''s the best way to'
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 2
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/glass/specialty/aluminosilicate-glass-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Glass
-  href: /materials/glass
-- label: Specialty
-  href: /materials/glass/specialty
-metaDescription: At high microscopic magnification, the contaminated aluminosilicate glass surface reveals tenacious layers
-  of debris, which manifest as irregular, clustered ...
-pageTitle: Aluminosilicate Glass
+pageDescription: >-
+  Aluminosilicate glass demonstrates exceptional durability and corrosion resistance. This material, it withstands laser
+  exposure tenaciously, enabling precise contaminant removal from surfaces. Its smooth texture aids efficiency, though
+  toughness demands careful energy control to avoid microcracks.

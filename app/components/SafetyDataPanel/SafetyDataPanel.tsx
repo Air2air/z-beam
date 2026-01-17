@@ -24,8 +24,8 @@
  * @see docs/SAFETY_DATA_NORMALIZATION_E2E.md
  */
 
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { BaseSection } from '../BaseSection/BaseSection';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import { Title } from '../Title/Title';
 import { CompoundSafetyGrid } from '../CompoundSafetyGrid';
 import { Collapsible } from '../Collapsible';
@@ -207,14 +207,15 @@ export function SafetyDataPanel({
   }
 
   return (
-    <SectionContainer variant="default" className={`py-12 ${className}`}>
+    <BaseSection 
+      variant="default" 
+      spacing="loose"
+      className={className}
+      title="Safety Information"
+      description={sectionDescription || (isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations")}
+      icon={getSectionIcon('shield')}
+    >
       <div className="container-custom px-4">
-        <SectionTitle 
-          title="Safety Information"
-          sectionDescription={sectionDescription || (isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations")}
-          alignment="left"
-          className="mb-8"
-        />
 
         {/* Unified Safety & Control Measures Grid */}
         <div className={`${getGridClasses({ columns: 3, gap: 'md' })} mb-8`}>
@@ -474,9 +475,10 @@ export function SafetyDataPanel({
         {/* Hazardous Compounds Grid - Enhanced Safety Display */}
         {compounds && compounds.length > 0 && (
           <>
-            <SectionTitle
+            <Title
               title="Hazardous Compounds Generated"
-              sectionDescription="Critical compound safety information with exposure limits and control measures"
+              pageDescription="Critical compound safety information with exposure limits and control measures"
+              level="section"
               alignment="left"
               className="mb-8"
             />
@@ -508,7 +510,7 @@ export function SafetyDataPanel({
           </div>
         )}
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }
 

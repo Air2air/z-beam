@@ -254,14 +254,14 @@ npm run generate:image-sitemap
    - Input: `aluminum-laser-cleaning-hero.jpg`
    - Output: `Aluminum Laser Cleaning Hero`
 
-2. **Context-Aware Captions**: Based on image path
+2. **Context-Aware Micro Text**: Based on image path
    ```javascript
    if (path.includes('/materials')) {
-     caption = 'Laser cleaning solution for industrial materials';
+     micro = 'Laser cleaning solution for industrial materials';
    } else if (path.includes('/contaminants')) {
-     caption = 'Contamination removal using laser technology';
+     micro = 'Contamination removal using laser technology';
    } else if (path.includes('/equipment')) {
-     caption = 'Industrial laser cleaning equipment';
+     micro = 'Industrial laser cleaning equipment';
    }
    ```
 

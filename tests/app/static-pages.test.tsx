@@ -14,12 +14,12 @@ describe('Static Pages Content Loading', () => {
     it.skip('should load services metadata from YAML', async () => {
       // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
       // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { metadata } = await loadPageData('services');
+      const { frontmatter } = await loadPageData('services');
       
-      expect(metadata).toBeDefined();
-      expect(metadata.title).toBeDefined();
-      expect(metadata.description).toBeDefined();
-      expect(metadata.slug).toBe('services');
+      expect(frontmatter).toBeDefined();
+      expect(frontmatter.title).toBeDefined();
+      expect(frontmatter.description).toBeDefined();
+      expect(frontmatter.slug).toBe('services');
     });
 
     it('should load services content component', async () => {
@@ -40,12 +40,12 @@ describe('Static Pages Content Loading', () => {
     it.skip('should load rental metadata from YAML', async () => {
       // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
       // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { metadata } = await loadPageData('rental');
+      const { frontmatter } = await loadPageData('rental');
       
-      expect(metadata).toBeDefined();
-      expect(metadata.title).toBe('Equipment Rental');
-      expect(metadata.description).toContain('Professional laser cleaning equipment rental');
-      expect(metadata.slug).toBe('rental');
+      expect(frontmatter).toBeDefined();
+      expect(frontmatter.title).toBe('Equipment Rental');
+      expect(frontmatter.description).toContain('Professional laser cleaning equipment rental');
+      expect(frontmatter.slug).toBe('rental');
     });
 
     it('should load rental content component', async () => {
@@ -65,11 +65,11 @@ describe('Static Pages Content Loading', () => {
     it.skip('should load partners metadata from YAML', async () => {
       // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
       // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { metadata } = await loadPageData('partners');
+      const { frontmatter } = await loadPageData('partners');
       
-      expect(metadata).toBeDefined();
-      expect(metadata.title).toContain('Partners');
-      expect(metadata.slug).toBe('partners');
+      expect(frontmatter).toBeDefined();
+      expect(frontmatter.title).toContain('Partners');
+      expect(frontmatter.slug).toBe('partners');
     });
 
     it('should have partners YAML file', () => {
@@ -78,12 +78,12 @@ describe('Static Pages Content Loading', () => {
     });
 
     it('should have partner entries with logo and url fields', async () => {
-      const { metadata } = await loadPageData('partners');
+      const { frontmatter } = await loadPageData('partners');
       
-      if (metadata.partners && Array.isArray(metadata.partners)) {
-        expect(metadata.partners.length).toBeGreaterThan(0);
+      if (frontmatter.partners && Array.isArray(frontmatter.partners)) {
+        expect(frontmatter.partners.length).toBeGreaterThan(0);
         
-        const firstPartner = metadata.partners[0];
+        const firstPartner = frontmatter.partners[0];
         expect(firstPartner).toHaveProperty('name');
         expect(firstPartner).toHaveProperty('logo');
         expect(firstPartner).toHaveProperty('url');
@@ -93,11 +93,11 @@ describe('Static Pages Content Loading', () => {
 
   describe('About Page', () => {
     it('should load about page data', async () => {
-      const { metadata } = await loadPageData('about');
+      const { frontmatter } = await loadPageData('about');
       
       // About page should return metadata even if empty
-      expect(metadata).toBeDefined();
-      expect(typeof metadata).toBe('object');
+      expect(frontmatter).toBeDefined();
+      expect(typeof frontmatter).toBe('object');
     });
 
     it('should handle about page with or without content', async () => {
@@ -118,18 +118,18 @@ describe('Static Pages Content Loading', () => {
     });
 
     it('should return consistent data structure', async () => {
-      const { metadata, components } = await loadPageData('services');
+      const { frontmatter, components } = await loadPageData('services');
       
-      expect(metadata).toBeDefined();
-      expect(typeof metadata).toBe('object');
+      expect(frontmatter).toBeDefined();
+      expect(typeof frontmatter).toBe('object');
       expect(components).toBeDefined();
       expect(typeof components).toBe('object');
     });
 
     it('should handle non-existent pages gracefully', async () => {
-      const { metadata, components } = await loadPageData('non-existent-page');
+      const { frontmatter, components } = await loadPageData('non-existent-page');
       
-      expect(metadata).toBeDefined();
+      expect(frontmatter).toBeDefined();
       expect(components).toBeDefined();
       expect(Object.keys(components)).toHaveLength(0);
     });
@@ -201,11 +201,11 @@ describe('Static Pages Content Loading', () => {
     it.skip('should load metadata for static pages', async () => {
       // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
       // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { metadata } = await loadPageData('services');
+      const { frontmatter } = await loadPageData('services');
       
       // Static pages should at least have metadata
-      expect(metadata).toBeDefined();
-      expect(metadata.title || metadata.slug).toBeTruthy();
+      expect(frontmatter).toBeDefined();
+      expect(frontmatter.title || frontmatter.slug).toBeTruthy();
     });
 
     it.skip('should have text component for all static pages', async () => {

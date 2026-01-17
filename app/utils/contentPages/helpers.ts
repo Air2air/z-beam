@@ -5,6 +5,7 @@ import { ContentTypeConfig } from '@/app/config/contentTypes';
 import { SITE_CONFIG } from '@/app/config';
 import { createMetadata } from '@/app/utils/metadata';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
+import { getMetadata } from '@/app/utils/schemas/helpers';
 
 /**
  * Generate metadata for category pages
@@ -91,8 +92,8 @@ export async function generateItemMetadata(
     }
     
     // All domains use consistent metadata structure (normalized)
-    // Settings returns flat structure but other domains wrap in .metadata
-    const articleMeta = config.type === 'settings' ? article : (article.metadata as any);
+    // Use backward compatibility helper to access frontmatter/metadata
+    const articleMeta = getMetadata(article);
     
     // Debug: Check if metaDescription exists
     console.log(`[METADATA] ${itemSlug}:`, {
@@ -139,7 +140,7 @@ export async function generateItemMetadata(
     // Note: 'description' field is DEPRECATED - do not use
     const metadataWithTitle = {
       ...articleMeta,
-      title: articleMeta.title || articleMeta.name,
+      title: articleMeta.pageTitle || articleMeta.displayName || articleMeta.title || articleMeta.name,
       description: articleMeta.metaDescription || articleMeta.pageDescription || '',
       canonical: canonicalUrl
     };

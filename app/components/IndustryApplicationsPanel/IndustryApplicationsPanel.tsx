@@ -1,7 +1,7 @@
 /**
  * @component IndustryApplicationsPanel
- * @purpose Display industry applications using CardListPanel base component
- * @extends CardListPanel
+ * @purpose Display industry applications using BaseSection component
+ * @architecture Uses BaseSection for consistent section rendering
  * 
  * Supports:
  * - relationships.operational.industry_applications structure
@@ -13,7 +13,7 @@
  */
 
 import { Collapsible } from '../Collapsible';
-import { createCardListPanel } from '../CardListPanel/CardListPanel';
+import { BaseSection } from '../BaseSection';
 import type { RelationshipSection } from '@/types/card-schema';
 import type { CardListItem } from '../CardListPanel/CardListPanel';
 import { toCategorySlug } from '@/app/utils/formatting';
@@ -27,6 +27,7 @@ interface IndustryApplicationsPanelProps {
   entityName?: string;  // Material/Contaminant/Compound name
   variant?: 'materials' | 'contaminants' | 'compounds' | 'settings';
   className?: string;
+  sectionMetadata?: any;  // Pass _section metadata directly
 }
 
 /**
@@ -37,7 +38,8 @@ export function IndustryApplicationsPanel({
   applications,
   entityName,
   variant = 'materials',
-  className = ''
+  className = '',
+  sectionMetadata
 }: IndustryApplicationsPanelProps) {
   if (!applications) return null;
 
@@ -52,41 +54,38 @@ export function IndustryApplicationsPanel({
 
   if (items.length === 0) return null;
 
-  // Get section metadata (REQUIRED)
-  const sectionMetadata = applications._section || applications.sectionMetadata;
-  
-  if (!sectionMetadata) {
-    throw new Error(
-      `Missing required _section metadata for industry_applications. ` +
-      `All sections MUST have explicit _section metadata with sectionTitle and sectionDescription.`
-    );
-  }
+  // Get section metadata - prefer prop over nested structure (use fallbacks if missing)
+  const finalMetadata = sectionMetadata || applications._section || applications.sectionMetadata || {
+    sectionTitle: 'Industry Applications',
+    sectionDescription: `Common industrial applications for ${variant}`,
+    icon: 'industry'
+  };
 
   // Check presentation type (default to 'card' for simple list display)
   const presentationType = applications.presentation || 'card';
 
-  // Card presentation: Use CardListPanel base component
+  // Card presentation: Use BaseSection wrapper for consistency
   if (presentationType === 'card') {
-    // Create custom card list panel with industry icon
-    const IndustryCardPanel = createCardListPanel('industry', (item: CardListItem) => (
-      <li className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200">
-        <h3 className="text-lg text-secondary font-semibold mb-1">
-          {item.title || item.name}
-        </h3>
-        {(item.content || item.description) && (
-          <p className="text-sm text-secondary mb-3">
-            {item.content || item.description}
-          </p>
-        )}
-      </li>
-    ));
-
     return (
-      <IndustryCardPanel
-        items={items}
-        sectionMetadata={sectionMetadata}
+      <BaseSection
+        section={finalMetadata}
         className={className}
-      />
+      >
+        <ul className="grid-2col gap-2 sm:gap-3 md:gap-4 lg:gap-6 list-none">
+          {items.map((item: CardListItem) => (
+            <li key={item.id} className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+              <h3 className="text-lg text-secondary font-semibold mb-1">
+                {item.title || item.name}
+              </h3>
+              {(item.content || item.description) && (
+                <p className="text-sm text-secondary mb-3">
+                  {item.content || item.description}
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </BaseSection>
     );
   }
 
@@ -106,7 +105,7 @@ export function IndustryApplicationsPanel({
   return (
     <Collapsible
       items={collapsibleItems}
-      sectionMetadata={sectionMetadata}
+      sectionMetadata={finalMetadata}
       className={className}
     />
   );

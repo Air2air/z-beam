@@ -44,7 +44,7 @@ export function sanitizeYamlContent(content: string): string {
 export function safeMatterParse(content: string, options?: Record<string, unknown>): {
   data: { [key: string]: unknown };
   content: string;
-  excerpt: string;
+  pageDescription: string;
   orig: string;
 } {
   try {
@@ -53,7 +53,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
     return {
       data: result.data,
       content: result.content,
-      excerpt: result.excerpt || '',
+      pageDescription: result.pageDescription || '',
       orig: String(result.orig || content)
     };
   } catch (error) {
@@ -66,7 +66,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
       return {
         data: result.data,
         content: result.content,
-        excerpt: result.excerpt || '',
+        pageDescription: result.pageDescription || '',
         orig: String(result.orig || content)
       };
     } catch (sanitizationError) {
@@ -82,7 +82,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
         return {
           data: {},
           content: markdownContent,
-          excerpt: '',
+          pageDescription: '',
           orig: content
         };
       } catch (fallbackError) {
@@ -92,7 +92,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
         return {
           data: {},
           content: content,
-          excerpt: '',
+          pageDescription: '',
           orig: content
         };
       }

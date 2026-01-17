@@ -47,7 +47,7 @@ describe.skip('Universal Templates + Layout System Integration', () => {
     });
     marked.mockReturnValue('<h1>Test Content</h1>');
     loadPageData.mockResolvedValue({
-      metadata: { title: 'API Content', layout: 'article' },
+      frontmatter: { title: 'API Content', layout: 'article' },
       components: { hero: { type: 'hero', data: { title: 'Test' } } }
     });
   });
@@ -137,7 +137,7 @@ describe.skip('Universal Templates + Layout System Integration', () => {
   describe('Content Strategy Integration', () => {
     test('contentAPI strategy with article layout', async () => {
       const mockData = {
-        metadata: { 
+        frontmatter: { 
           title: 'API Article',
           description: 'API description',
           layout: 'article'
@@ -153,7 +153,7 @@ describe.skip('Universal Templates + Layout System Integration', () => {
         <UniversalLayout 
           variant="article" 
           components={mockData.components}
-          metadata={mockData.metadata}
+          metadata={mockData.frontmatter}
         >
           <div>API article content</div>
         </UniversalLayout>
@@ -267,7 +267,7 @@ debugInfo: true
 
     test('preserves content during layout transitions', async () => {
       const mockData = {
-        metadata: { title: 'Persistent Page', layout: 'default' },
+        frontmatter: { title: 'Persistent Page', layout: 'default' },
         components: { hero: { type: 'hero', data: { title: 'Persistent' } } }
       };
 
@@ -389,7 +389,7 @@ debugInfo: true
 
     test('multi-strategy content handling', async () => {
       loadPageData.mockResolvedValue({
-        metadata: { title: 'Multi Strategy', layout: 'default' },
+        frontmatter: { title: 'Multi Strategy', layout: 'default' },
         components: { hero: { type: 'hero', data: { title: 'Multi' } } }
       });
 

@@ -28,7 +28,8 @@ describe('relationshipHelpers', () => {
           order: 1,
           variant: 'default',
           icon: 'shield-check'
-        }
+        },
+        frontmatter: { order: 1 }
       },
       ppe_requirements: {
         presentation: 'card' as const,
@@ -42,7 +43,8 @@ describe('relationshipHelpers', () => {
           order: 2,
           variant: 'warning',
           icon: 'alert-triangle'
-        }
+        },
+        frontmatter: { order: 2 }
       },
       empty_section: {
         presentation: 'card' as const,
@@ -52,7 +54,8 @@ describe('relationshipHelpers', () => {
           sectionDescription: 'An empty test section',
           order: 3,
           icon: 'circle'
-        }
+        },
+        frontmatter: { order: 3 }
       }
     },
     visual_characteristics: {
@@ -65,7 +68,8 @@ describe('relationshipHelpers', () => {
         sectionDescription: 'Visual properties',
         order: 10,
         icon: 'eye'
-      }
+      },
+      frontmatter: { order: 10 }
     },
     missing_metadata: {
       presentation: 'card' as const,
@@ -75,7 +79,8 @@ describe('relationshipHelpers', () => {
         sectionDescription: 'Test section for validation',
         order: 99,
         icon: 'test'
-      }
+      },
+      frontmatter: { order: 99 }
     }
   };
 

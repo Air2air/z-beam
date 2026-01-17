@@ -5,9 +5,9 @@
  */
 'use client';
 
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import { getGridClasses } from '@/app/utils/gridConfig';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { Badge } from '../Badge/Badge';
 
 interface Industry {
@@ -32,14 +32,14 @@ export function IndustriesGrid({ industries }: IndustriesGridProps) {
   };
 
   return (
-    <SectionContainer variant="dark" className="py-12">
+    <BaseSection 
+      variant="dark" 
+      spacing="loose"
+      title="Industries Served"
+      description="Primary applications for contamination removal"
+      icon={getSectionIcon('building')}
+    >
       <div className="container-custom px-4">
-        <SectionTitle 
-          title="Industries Served"
-          sectionDescription="Primary applications for contamination removal"
-          alignment="left"
-          className="mb-8"
-        />
         
         <div className={getGridClasses({ columns: 1, gap: 'md' })}>
           {industries.map((industry, i) => (
@@ -80,6 +80,6 @@ export function IndustriesGrid({ industries }: IndustriesGridProps) {
           ))}
         </div>
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }

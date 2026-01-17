@@ -78,7 +78,96 @@ export function generateChemicalSubstanceSchema(data: any, context: SchemaContex
     schema.chemicalRole = 'contaminant requiring laser ablation removal';
   }
   
-  // Extract safety/hazard data
+  // Extract safety/hazard data from relationships
+  const relationships = compoundData.relationships?.safety || {};
+  const safetyProperties: any[] = [];
+  
+  // Fire & Explosion Risk
+  if (relationships.fireExplosionRisk?.items?.length > 0) {
+    const item = relationships.fireExplosionRisk.items[0];
+    if (item.riskLevel) {
+      safetyProperties.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'fireExplosionRisk',
+        'name': 'Fire & Explosion Risk',
+        'value': item.riskLevel,
+        'description': item.hazardDescription || item.specificHazards
+      });
+    }
+  }
+  
+  // Toxic Gas Risk
+  if (relationships.toxicGasRisk?.items?.length > 0) {
+    const item = relationships.toxicGasRisk.items[0];
+    if (item.riskLevel || item.compoundsProduced?.length > 0) {
+      safetyProperties.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'toxicGasRisk',
+        'name': 'Toxic Gas Risk',
+        'value': item.riskLevel || 'Present',
+        'description': item.compoundsProduced?.join(', ') || item.specificHazards
+      });
+    }
+  }
+  
+  // PPE Requirements (compound-specific)
+  if (relationships.ppeRequirements?.items?.length > 0) {
+    const item = relationships.ppeRequirements.items[0];
+    const ppeTypes: string[] = [];
+    
+    if (item.respiratory) ppeTypes.push(`Respiratory: ${item.respiratory}`);
+    if (item.eye) ppeTypes.push(`Eye: ${item.eye}`);
+    if (item.skin) ppeTypes.push(`Skin: ${item.skin}`);
+    if (item.minimumLevel) ppeTypes.push(`Minimum Level: ${item.minimumLevel}`);
+    
+    if (ppeTypes.length > 0) {
+      safetyProperties.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'ppeRequirements',
+        'name': 'PPE Requirements',
+        'value': ppeTypes.join(' | '),
+        'description': item.specialNotes
+      });
+    }
+  }
+  
+  // Exposure Limits (compound-specific)
+  if (relationships.exposureLimits?.items?.length > 0) {
+    const item = relationships.exposureLimits.items[0];
+    const limits: string[] = [];
+    
+    if (item.oshaPelPpm) limits.push(`OSHA PEL: ${item.oshaPelPpm} ppm`);
+    if (item.nioshRelPpm) limits.push(`NIOSH REL: ${item.nioshRelPpm} ppm`);
+    if (item.acgihTlvPpm) limits.push(`ACGIH TLV: ${item.acgihTlvPpm} ppm`);
+    
+    if (limits.length > 0) {
+      safetyProperties.push({
+        '@type': 'PropertyValue',
+        'propertyID': 'exposureLimits',
+        'name': 'Exposure Limits',
+        'value': limits.join(' | '),
+        'description': 'Occupational exposure thresholds'
+      });
+    }
+  }
+  
+  // Add safety properties to schema
+  if (safetyProperties.length > 0) {
+    schema.additionalProperty = [...(schema.additionalProperty || []), ...safetyProperties];
+    
+    // Add safety warning if critical hazards present
+    const hasCriticalHazards = safetyProperties.some(prop => 
+      ['High', 'Severe', 'Critical'].some(level => 
+        String(prop.value).includes(level)
+      )
+    );
+    
+    if (hasCriticalHazards) {
+      schema.warning = 'This chemical substance presents significant safety hazards. Professional handling with appropriate PPE, ventilation, and emergency procedures is mandatory.';
+    }
+  }
+  
+  // Legacy safety data (fallback)
   const safetyData = compoundData.safety_data || compoundData.safetyData;
   if (safetyData) {
     const hazards: string[] = [];

@@ -213,7 +213,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
         condition: !!section,
         props: {
           items: section?.items || [],
-          sectionMetadata: section?.metadata,
+          sectionMetadata: section?.frontmatter,
         }
       };
     }),

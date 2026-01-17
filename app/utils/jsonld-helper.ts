@@ -43,7 +43,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
       return null;
     }
     
-    const metadata = articleData.metadata || articleData;
+    const metadata = articleData.frontmatter || articleData;
     
     // Extract data
     const materialProperties = metadata.materialProperties || {};
@@ -544,8 +544,8 @@ function createDatasetSchema(data: any) {
               value: propData.value,
               unitText: propData.unit,
               // E-E-A-T: Trustworthiness - verification metadata
-              ...(propData.metadata?.last_verified && {
-                dateModified: propData.metadata.last_verified
+              ...(propData.frontmatter?.last_verified && {
+                dateModified: propData.frontmatter.last_verified
               })
             });
           }

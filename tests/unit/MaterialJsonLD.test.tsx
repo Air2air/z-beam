@@ -18,7 +18,7 @@ jest.mock('@/app/utils/schemas/datasetLoader', () => ({
 
 describe('MaterialJsonLD Component', () => {
   const baseArticle = {
-    metadata: {
+    frontmatter: {
       title: 'Test Material Laser Processing',
       description: 'Test material description',
       category: 'metal',
@@ -35,6 +35,12 @@ describe('MaterialJsonLD Component', () => {
         expertise: 'Laser Materials Science',
         image: '/images/authors/test-scientist.jpg'
       },
+      breadcrumb: [
+        { label: 'Home', href: '/' },
+        { label: 'Materials', href: '/materials' },
+        { label: 'Metal', href: '/materials/metal' },
+        { label: 'Test Material', href: '' }
+      ],
       images: {
         hero: {
           url: '/images/test-material.jpg',
@@ -224,8 +230,8 @@ describe('MaterialJsonLD Component', () => {
   it('should include Dataset schema with both material properties and machine settings', () => {
     const articleWithBothData = {
       ...baseArticle,
-      metadata: {
-        ...baseArticle.metadata,
+      frontmatter: {
+        ...baseArticle.frontmatter,
         materialProperties: {
           thermal: {
             density: { value: 2.7, unit: 'g/cm³' },

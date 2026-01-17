@@ -19,7 +19,7 @@ import { getContaminantArticle, getCompoundArticle, getArticle } from './content
  */
 export const batchGetContaminantArticles = cache(async (
   slugs: string[]
-): Promise<Record<string, { metadata: Record<string, unknown>; components: Record<string, any> } | null>> => {
+): Promise<Record<string, { frontmatter: Record<string, unknown>; components: Record<string, any> } | null>> => {
   try {
     // Use Promise.allSettled to handle individual failures gracefully
     const results = await Promise.allSettled(
@@ -53,7 +53,7 @@ export const batchGetContaminantArticles = cache(async (
  */
 export const batchGetCompoundArticles = cache(async (
   slugs: string[]
-): Promise<Record<string, { metadata: Record<string, unknown>; components: Record<string, any> } | null>> => {
+): Promise<Record<string, { frontmatter: Record<string, unknown>; components: Record<string, any> } | null>> => {
   try {
     const results = await Promise.allSettled(
       slugs.map(async (slug) => ({ slug, data: await getCompoundArticle(slug) }))
@@ -84,7 +84,7 @@ export const batchGetCompoundArticles = cache(async (
  */
 export const batchGetMaterialArticles = cache(async (
   slugs: string[]
-): Promise<Record<string, { metadata: Record<string, unknown>; components: Record<string, any> } | null>> => {
+): Promise<Record<string, { frontmatter: Record<string, unknown>; components: Record<string, any> } | null>> => {
   try {
     const results = await Promise.allSettled(
       slugs.map(async (slug) => ({ slug, data: await getArticle(slug) }))
@@ -161,9 +161,9 @@ export const batchEnrichReferences = cache(async (
     // Enrich references with article metadata
     const enrichedRefs = refs.map(ref => {
       const article = articlesMap[ref.id];
-      if (!article || !article.metadata) return null;
+      if (!article || !article.frontmatter) return null;
       
-      const metadata = article.metadata as any;
+      const metadata = article.frontmatter as any;
       const category = metadata.category || '';
       const subcategory = metadata.subcategory || '';
       

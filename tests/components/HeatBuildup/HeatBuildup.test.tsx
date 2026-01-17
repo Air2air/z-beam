@@ -4,19 +4,14 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { HeatBuildup } from '@/app/components/HeatBuildup';
 
-// Mock SectionContainer and SectionTitle
-jest.mock('@/app/components/SectionContainer/SectionContainer', () => ({
-  SectionContainer: ({ children, className }: { children: React.ReactNode; className?: string }) => (
-    <div data-testid="section-container" className={className}>{children}</div>
-  ),
-}));
-
-jest.mock('@/app/components/SectionTitle/SectionTitle', () => ({
-  SectionTitle: ({ title, sectionDescription }: { title: string; sectionDescription?: string }) => (
-    <div data-testid="section-title">
-      <h2>{title}</h2>
-      {sectionDescription && <p>{sectionDescription}</p>}
-    </div>
+// Mock BaseSection
+jest.mock('@/app/components/BaseSection/BaseSection', () => ({
+  BaseSection: ({ children, title, description }: { children: React.ReactNode; title?: string; description?: string; className?: string }) => (
+    <section role="region" aria-label={title || 'Section'}>
+      {title && <h2>{title}</h2>}
+      {description && <p>{description}</p>}
+      {children}
+    </section>
   ),
 }));
 
@@ -47,7 +42,7 @@ describe('HeatBuildup Component', () => {
     it('should render the component container', () => {
       render(<HeatBuildup {...defaultProps} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should render the title', () => {
@@ -78,7 +73,7 @@ describe('HeatBuildup Component', () => {
       // Low thermal diffusivity (plastic-like)
       render(<HeatBuildup {...defaultProps} thermalDiffusivity={0.1} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should use default thermal diffusivity when not provided', () => {
@@ -92,7 +87,7 @@ describe('HeatBuildup Component', () => {
       
       render(<HeatBuildup {...propsWithoutDiffusivity} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
   });
 
@@ -100,25 +95,25 @@ describe('HeatBuildup Component', () => {
     it('should accept power parameter', () => {
       render(<HeatBuildup {...defaultProps} power={150} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should accept repetition rate parameter', () => {
       render(<HeatBuildup {...defaultProps} repRate={100} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should accept scan speed parameter', () => {
       render(<HeatBuildup {...defaultProps} scanSpeed={1000} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should accept pass count parameter', () => {
       render(<HeatBuildup {...defaultProps} passCount={6} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
   });
 
@@ -131,7 +126,7 @@ describe('HeatBuildup Component', () => {
         />
       );
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should accept materialLink prop', () => {
@@ -142,7 +137,7 @@ describe('HeatBuildup Component', () => {
         />
       );
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
   });
 
@@ -150,25 +145,25 @@ describe('HeatBuildup Component', () => {
     it('should handle zero power', () => {
       render(<HeatBuildup {...defaultProps} power={0} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should handle high repetition rates', () => {
       render(<HeatBuildup {...defaultProps} repRate={200} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should handle single pass', () => {
       render(<HeatBuildup {...defaultProps} passCount={1} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should handle many passes', () => {
       render(<HeatBuildup {...defaultProps} passCount={10} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
   });
 });

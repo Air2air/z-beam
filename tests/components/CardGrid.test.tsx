@@ -63,31 +63,31 @@ describe('CardGrid - Unified Grid System', () => {
 
   describe('Basic Rendering', () => {
     test('renders with items prop', () => {
-      render(<CardGrid items={mockItems} />);
+      render(<CardGrid items={mockItems} title="Test Items" description="Test items grid" />);
       expect(screen.getByText('Test Item 1')).toBeDefined();
       expect(screen.getByText('Test Item 2')).toBeDefined();
     });
 
     test('renders with slugs prop', () => {
-      render(<CardGrid slugs={['test-slug-1', 'test-slug-2']} />);
+      render(<CardGrid slugs={['test-slug-1', 'test-slug-2']} title="Test Slugs" description="Test slugs grid" />);
       expect(screen.getByText('Test Slug 1')).toBeDefined();
       expect(screen.getByText('Test Slug 2')).toBeDefined();
     });
 
     test('renders with searchResults prop', () => {
-      render(<CardGrid searchResults={mockSearchResults} />);
+      render(<CardGrid searchResults={mockSearchResults} title="Search Results" description="Search results grid" />);
       expect(screen.getByText('Search Result 1')).toBeDefined();
     });
 
     test('renders with title', () => {
-      render(<CardGrid items={mockItems} title="Test Grid Title" />);
+      render(<CardGrid items={mockItems} title="Test Grid Title" description="Test grid description" />);
       expect(screen.getByText('Test Grid Title')).toBeDefined();
     });
   });
 
   describe('Grid Modes', () => {
     test('simple mode renders basic grid', () => {
-      render(<CardGrid items={mockItems} mode="simple" />);
+      render(<CardGrid items={mockItems} mode="simple" title="Simple Grid" description="Simple grid mode" />);
       const cards = screen.getAllByTestId('card');
       expect(cards).toHaveLength(2);
     });
@@ -97,6 +97,8 @@ describe('CardGrid - Unified Grid System', () => {
         <CardGrid 
           searchResults={mockSearchResults} 
           mode="search-results"
+          title="Search Results"
+          description="Search results mode"
         />
       );
       expect(screen.getByText('Search Result 1')).toBeDefined();
@@ -106,7 +108,7 @@ describe('CardGrid - Unified Grid System', () => {
   describe('Grid Configuration', () => {
     test('applies correct column configuration', () => {
       const { container } = render(
-        <CardGrid items={mockItems} columns={4} />
+        <CardGrid items={mockItems} columns={4} title="Column Test" description="Column configuration test" />
       );
       const gridElement = container.querySelector('.grid-cols-4');
       expect(gridElement).toBeTruthy();
@@ -114,7 +116,7 @@ describe('CardGrid - Unified Grid System', () => {
 
     test('applies correct gap configuration', () => {
       const { container } = render(
-        <CardGrid items={mockItems} gap="lg" />
+        <CardGrid items={mockItems} gap="lg" title="Gap Test" description="Gap configuration test" />
       );
       const gridElement = container.querySelector('.gap-lg');
       expect(gridElement).toBeTruthy();
@@ -134,6 +136,8 @@ describe('CardGrid - Unified Grid System', () => {
         <CardGrid 
           items={itemsWithBadges} 
           showBadgeSymbols={true}
+          title="Badge Test"
+          description="Badge support test"
         />
       );
       
@@ -153,6 +157,8 @@ describe('CardGrid - Unified Grid System', () => {
         <CardGrid 
           items={itemsWithBadges} 
           showBadgeSymbols={false}
+          title="Badge Test"
+          description="Badge support test"
         />
       );
       
@@ -171,20 +177,20 @@ describe('CardGrid - Unified Grid System', () => {
 
     test('works as UnifiedCardGrid', () => {
       const { UnifiedCardGrid } = require('../../app/components/CardGrid');
-      render(<UnifiedCardGrid items={mockItems} />);
+      render(<UnifiedCardGrid items={mockItems} title="Unified Test" description="Unified grid test" />);
       expect(screen.getByText('Test Item 1')).toBeDefined();
     });
 
     test('works as CategoryGroupedGrid', () => {
       const { CategoryGroupedGrid } = require('../../app/components/CardGrid');
-      render(<CategoryGroupedGrid items={mockItems} mode="category-grouped" />);
+      render(<CategoryGroupedGrid items={mockItems} mode="category-grouped" title="Category Test" description="Category grouped test" />);
       expect(screen.getByText('Test Item 1')).toBeDefined();
     });
   });
 
   describe('Error Handling', () => {
     test('handles empty items gracefully', () => {
-      render(<CardGrid items={[]} />);
+      render(<CardGrid items={[]} title="Empty Test" description="Empty items test" />);
       expect(screen.queryByTestId('card')).toBeNull();
     });
 
@@ -196,7 +202,7 @@ describe('CardGrid - Unified Grid System', () => {
         }
       ];
       
-      render(<CardGrid items={itemsWithoutTitles} />);
+      render(<CardGrid items={itemsWithoutTitles} title="Missing Titles" description="Missing titles test" />);
       expect(screen.getByText('No Title Item')).toBeDefined();
     });
   });
@@ -210,7 +216,7 @@ describe('CardGrid - Unified Grid System', () => {
       }));
       
       const startTime = performance.now();
-      render(<CardGrid items={largeItemList} />);
+      render(<CardGrid items={largeItemList} title="Performance Test" description="Large list test" />);
       const endTime = performance.now();
       
       // Should render 100 items in reasonable time (< 150ms to account for CI/slower systems)

@@ -22,7 +22,7 @@ export default function GoogleAnalyticsWrapper({ gaId }: GoogleAnalyticsWrapperP
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: NodeJS.Timeout;  // Must be let - assigned later (line ~44)
     let loaded = false;
 
     // Function to trigger loading
@@ -40,7 +40,7 @@ export default function GoogleAnalyticsWrapper({ gaId }: GoogleAnalyticsWrapperP
     };
 
     // Strategy 1: Load after 3 seconds (fallback)
-    timer = setTimeout(triggerLoad, 3000);
+    timer = setTimeout(triggerLoad, 3000);  // eslint-disable-line prefer-const
 
     // Strategy 2: Load on first user interaction (faster for engaged users)
     window.addEventListener('scroll', triggerLoad, { once: true, passive: true });

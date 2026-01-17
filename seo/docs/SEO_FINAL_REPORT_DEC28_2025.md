@@ -97,7 +97,7 @@ npm run generate:sitemaps         # Generate both
 ```typescript
 Priority 1: frontmatter.images.hero.alt (explicit, detailed)
 Priority 2: "Professional laser cleaning for [name] - [category] [subcategory] surface treatment"
-Priority 3: "[title] - [description excerpt]"
+Priority 3: "[title] - [pageDescription]"
 Priority 4: "[title] hero image" (minimum fallback)
 ```
 
@@ -110,7 +110,7 @@ Priority 4: "[title] hero image" (minimum fallback)
 #### Micro Component (4-Tier Fallback)
 ```typescript
 Priority 1: frontmatter.images.micro.alt (explicit)
-Priority 2: "[Material] microscopic surface analysis showing [micro.before excerpt]"
+Priority 2: "[Material] microscopic surface analysis showing [micro.before description]"
 Priority 3: "[Material] [category] surface treatment - laser cleaning at microscopic level"
 Priority 4: "[Material] surface analysis - laser cleaning results"
 ```

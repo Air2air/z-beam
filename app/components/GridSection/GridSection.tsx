@@ -10,6 +10,8 @@
  * - Optional description text below title for context
  * - Variant support for different visual themes
  * 
+ * @note Now uses BaseSection internally for consistency
+ * 
  * @example
  * ```tsx
  * <GridSection 
@@ -20,8 +22,7 @@
  * ```
  */
 import React from 'react';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { BaseSection } from '../BaseSection/BaseSection';
 
 interface GridSectionProps {
   title: string;
@@ -41,16 +42,15 @@ export function GridSection({
   alignment = 'left',
 }: GridSectionProps) {
   return (
-    <SectionContainer variant={variant}>
-      <div className="container-custom px-4">
-          <SectionTitle
-            title={title}
-            sectionDescription={description}
-            alignment={alignment}
-            className="mb-2"
-          />
-          {children}
-        </div>
-      </SectionContainer>
+    <BaseSection
+      title={title}
+      description={description}
+      variant={variant}
+      alignment={alignment}
+      spacing="loose"
+      className={className}
+    >
+      {children}
+    </BaseSection>
   );
 }

@@ -275,7 +275,7 @@ Precision laser removal of electroplating, anodizing, and metallic coatings with
   "image": {
     "@type": "ImageObject",
     "url": "...",
-    "caption": "Lead(II) Oxide compound structure"
+    "micro": "Lead(II) Oxide compound structure"
   }
 }
 ```

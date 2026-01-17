@@ -9,21 +9,16 @@ contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/oxide/zirconia-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Ceramic
-  href: /settings/ceramic
-- label: Oxide
-  href: /settings/ceramic/oxide
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Ceramic
+    href: /settings/ceramic
+  - label: Oxide
+    href: /settings/ceramic/oxide
 pageTitle: Zirconia
-pageDescription: The key with Zirconia is its strong laser absorption. We've found this makes cleaning efficient without much
-  reflection loss. It removes contaminants quickly while preserving the surface. Unlike metals, its low thermal conductivity
-  traps heat locally. We typically start with moderate power to prevent buildup. This approach reduces cracking risks in such
-  a hard ceramic. Zirconia stands out for high toughness under stress. Adjust scan speeds higher for even exposure. In our
-  experience, multiple light passes restore it fully. Watch for thermal gradients at the end, though, and cool between runs
-  to avoid micro-fractures.
+pageDescription: The key with Zirconia is its strong laser absorption. We've found this makes cleaning efficient without much reflection loss. It removes contaminants quickly while preserving the surface. Unlike metals, its low thermal conductivity traps heat locally. We typically start with moderate power to prevent buildup. This approach reduces cracking risks in such a hard ceramic. Zirconia stands out for high toughness under stress. Adjust scan speeds higher for even exposure. In our experience, multiple light passes restore it fully. Watch for thermal gradients at the end, though, and cool between runs to avoid micro-fractures.
 metaDescription: Zirconia laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -45,23 +40,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-  - Optical Materials for Laser Systems
+    - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
   slug: todd-dunning
@@ -83,109 +78,93 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: settings
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: removesContaminants
+        group: interactions
+        domain: settings
+        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: worksOnMaterials
+        group: interactions
+        domain: settings
+        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-      - thermalManagement:
-        - challenge: Thermal shock and cracking
-          severity: critical
-          thresholdTemperature: ΔT > 200-300°C rapid cooling
-          impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
-          solutions:
-          - Use pulse mode with 3-5 second cooling between passes
-          - Gradual power ramping (start 50W, increase 10W per pass)
-          - Preheat substrate to reduce thermal gradients
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Variable thermal conductivity
-          severity: medium
-          propertyValue: 0.8-120 W/m·K (150x variation between materials)
-          impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
-          solutions:
-          - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
-          - High conductivity ceramics (SiC, WC) tolerate higher power
-          - Test on scrap to determine cooling requirements
-        contaminationChallenges:
-        - id: coating-residue-removal
-          type: challenge
+        - thermalManagement:
+            - challenge: Thermal shock and cracking
+              severity: critical
+              thresholdTemperature: ΔT > 200-300°C rapid cooling
+              impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
+              solutions:
+                - Use pulse mode with 3-5 second cooling between passes
+                - Gradual power ramping (start 50W, increase 10W per pass)
+                - Preheat substrate to reduce thermal gradients
+                - Monitor for surface crazing; stop immediately if cracks appear
+            - challenge: Variable thermal conductivity
+              severity: medium
+              propertyValue: 0.8-120 W/m·K (150x variation between materials)
+              impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
+              solutions:
+                - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
+                - High conductivity ceramics (SiC, WC) tolerate higher power
+                - Test on scrap to determine cooling requirements
+          contaminationChallenges:
+            - id: coating-residue-removal
+              type: challenge
       _section:
-        icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
+        icon: alert-triangle
+        order: 41
+        variant: default
+        relationshipType: commonChallenges
+        group: operational
+        domain: settings
+        schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength with good absorption in Zirconia for efficient cleaning
@@ -198,70 +177,53 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for precise industrial cleaning; smaller (100-200 μm) for fine surface prep, larger (300-500
-      μm) for broad areas. 200 μm recommended for Zirconia to ensure uniform energy distribution and avoid localized overheating.
-      Source: Manufacturer specs from Coherent and Trumpf laser systems.'
+    description: 'Beam diameter for precise industrial cleaning; smaller (100-200 μm) for fine surface prep, larger (300-500 μm) for broad areas. 200 μm recommended for Zirconia to ensure uniform energy distribution and avoid localized overheating. Source: Manufacturer specs from Coherent and Trumpf laser systems.'
   energyDensity:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal on Zirconia; damage threshold ~4 J/cm² at 1064 nm due to reflectivity
-      and absorption properties. 1.5 J/cm² recommended for safe cleaning without substrate ablation. Source: Ablation threshold
-      studies in Optics and Lasers in Engineering (2017).'
+    description: 'Fluence range for contaminant removal on Zirconia; damage threshold ~4 J/cm² at 1064 nm due to reflectivity and absorption properties. 1.5 J/cm² recommended for safe cleaning without substrate ablation. Source: Ablation threshold studies in Optics and Lasers in Engineering (2017).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning of Zirconia to balance efficiency and minimal HAZ; picosecond
-      (ps) or femtosecond (fs) for ultra-precise but costlier applications. 50 ns recommended to limit thermal diffusion in
-      low-conductivity Zirconia. Source: Laser physics review in Applied Surface Science (2019).'
+    description: 'Nanosecond regime preferred for industrial cleaning of Zirconia to balance efficiency and minimal HAZ; picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 50 ns recommended to limit thermal diffusion in low-conductivity Zirconia. Source: Laser physics review in Applied Surface Science (2019).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective speeds for 1064 nm cleaning of Zirconia; slower for heavy contamination (200-800 mm/s), faster
-      for light (1500-3000 mm/s) to minimize heat input. Recommended 1000 mm/s for balanced removal and surface integrity.
-      Source: Industry standards from Laserax equipment manuals and Optics Express (2021).'
+    description: 'Effective speeds for 1064 nm cleaning of Zirconia; slower for heavy contamination (200-800 mm/s), faster for light (1500-3000 mm/s) to minimize heat input. Recommended 1000 mm/s for balanced removal and surface integrity. Source: Industry standards from Laserax equipment manuals and Optics Express (2021).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete Zirconia
-      cleaning while preserving integrity, based on iterative removal without cumulative damage. Source: Industry case studies
-      in Surface and Coatings Technology (2022).'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete Zirconia cleaning while preserving integrity, based on iterative removal without cumulative damage. Source: Industry case studies in Surface and Coatings Technology (2022).'
   overlapRatio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform coverage in scan patterns; 70% recommended for Zirconia to achieve even cleaning without
-      gaps or overexposure, optimizing for its brittle nature. Typical range 50-80% in pulsed laser processes. Source: Process
-      optimization in International Journal of Advanced Manufacturing Technology (2019).'
+    description: 'Ensures uniform coverage in scan patterns; 70% recommended for Zirconia to achieve even cleaning without gaps or overexposure, optimizing for its brittle nature. Typical range 50-80% in pulsed laser processes. Source: Process optimization in International Journal of Advanced Manufacturing Technology (2019).'
   laserPower:
     description: Optimal average power for Zirconia surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   laserPowerAlternative:
     min: 50
     max: 500
     value: 150
     unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning of ceramics like Zirconia to remove contaminants without
-      thermal damage; starting at 150 W for controlled ablation. Max safe ~500 W to avoid cracking due to low thermal conductivity.
-      Source: IPG Photonics YLR series specs and study in Journal of Laser Applications (2018).'
+    description: 'Typical range for industrial Nd:YAG laser cleaning of ceramics like Zirconia to remove contaminants without thermal damage; starting at 150 W for controlled ablation. Max safe ~500 W to avoid cracking due to low thermal conductivity. Source: IPG Photonics YLR series specs and study in Journal of Laser Applications (2018).'
   frequency:
     min: 1
     max: 200
     value: 40
     unit: kHz
-    description: 'Typical for pulsed cleaning; 40 kHz recommended for Zirconia to achieve fast processing without excessive
-      heat accumulation, given its high melting point but low thermal conductivity. Higher rates (>80 kHz) risk overheating.
-      Source: Academic literature in Journal of Applied Physics (2020).'
-componentSummary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for zirconia cleaning,
-  as short pulses minimize thermal cracking in the brittle ceramic while the wavelength targets contaminants effectively.
+    description: 'Typical for pulsed cleaning; 40 kHz recommended for Zirconia to achieve fast processing without excessive heat accumulation, given its high melting point but low thermal conductivity. Higher rates (>80 kHz) risk overheating. Source: Academic literature in Journal of Applied Physics (2020).'
+componentSummary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for zirconia cleaning, as short pulses minimize thermal cracking in the brittle ceramic while the wavelength targets contaminants effectively.

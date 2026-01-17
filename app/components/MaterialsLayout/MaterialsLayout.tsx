@@ -26,17 +26,30 @@ interface MaterialsLayoutProps extends LayoutProps {
 
 export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
-  const materialName = metadata?.name || (metadata?.title as string) || slug;
+  const materialName = metadata?.name;
   const thumbnailLink = `/materials/${category}/${subcategory}/${slug}`;
   const heroImage = getHeroImageUrl(metadata);
   
   // All data comes directly from frontmatter - no enrichment or transformation
-  const relationships = (metadata as any)?.relationships || {};
-  const materialProperties = (metadata as any)?.properties || {};
-  const faq = (metadata as any)?.faq?.items || [];
-  const industryApplications = relationships?.operational?.industryApplications || {};
-  const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items || [];
-  const contaminatedBy = relationships?.interactions?.contaminatedBy?.items || [];
+  const relationships = (metadata as any)?.relationships;
+  
+  const materialProperties = (metadata as any)?.properties || {
+    materialCharacteristics: (metadata as any)?.materialCharacteristics,
+    laserMaterialInteraction: (metadata as any)?.laserMaterialInteraction
+  };
+  
+  // 🔥 FIX: Ensure _section metadata is included in materialCharacteristics
+  // The AI-generated properties data doesn't include _section, so we need to merge it from frontmatter
+  if (materialProperties?.materialCharacteristics && (metadata as any)?.properties?.materialCharacteristics?._section) {
+    materialProperties.materialCharacteristics._section = (metadata as any).properties.materialCharacteristics._section;
+  }
+
+  // Handle FAQ - can be string, array, or object with items array
+  const rawFaq = (metadata as any)?.faq;
+  const faq = Array.isArray(rawFaq) ? rawFaq : (typeof rawFaq === 'string' ? rawFaq : rawFaq?.items);
+  const industryApplications = relationships?.operational?.industryApplications;
+  const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items;
+  const contaminatedBy = relationships?.interactions?.contaminatedBy?.items;
 
   const sections: SectionConfig[] = [
     {
@@ -61,24 +74,18 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     },
     // Micro section - positioned after Material Characteristics
     {
-      component: () => <Micro frontmatter={metadata as any} config={{}} />,
+      component: Micro,
       condition: () => !!metadata?.images?.micro?.url,
-      props: {}
+      props: {
+        frontmatter: metadata as any,
+        config: {}
+      }
     },
-    // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only) - DISABLED
-    // {
-    //   component: RelationshipsDump,
-    //   condition: () => process.env.NODE_ENV === 'development',
-    //   props: {
-    //     relationships,
-    //     entityName: materialName,
-    //   }
-    // },
     {
       component: RegulatoryStandards,
       props: {
         standards: regulatoryStandards,
-        sectionDescription: relationships?.safety?.regulatoryStandards?._section?.sectionDescription,
+        sectionMetadata: relationships?.safety?.regulatoryStandards?._section,
         heroImage,
         thumbnailLink,
       }
@@ -90,14 +97,18 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         applications: industryApplications,
         entityName: materialName,
         variant: 'materials' as const,
+        sectionMetadata: industryApplications?._section,
       }
     },
     {
       component: FAQPanel,
+      condition: !!faq && (typeof faq === 'string' ? faq.length > 0 : faq.length > 0),
       props: {
         faq: faq,
         entityName: materialName,
         variant: 'faq' as const,
+        sectionTitle: (metadata as any)?.faq?._section?.sectionTitle,
+        sectionDescription: (metadata as any)?.faq?._section?.sectionDescription,
       }
     },
     {
@@ -107,6 +118,8 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         category,
         subcategory,
         maxItems: 6,
+        sectionTitle: relationships?.discovery?.relatedMaterials?._section?.sectionTitle,
+        sectionDescription: relationships?.discovery?.relatedMaterials?._section?.sectionDescription,
       }
     },
     // Contaminant cards - complete data from frontmatter denormalization
@@ -124,9 +137,9 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
           frequency: item.frequency,
           severity: item.severity,
         })),
-        title: 'Common Contaminants',
-        description: relationships?.interactions?.contaminatedBy?._section?.sectionDescription || 
-                     `Typical contaminants found on ${materialName} that require laser cleaning`,
+        title: relationships?.interactions?.contaminatedBy?._section?.sectionTitle,
+        description: relationships?.interactions?.contaminatedBy?._section?.sectionDescription,
+        icon: relationships?.interactions?.contaminatedBy?._section?.icon,
         variant: 'relationship' as const,
         columns: 3,
       }
@@ -139,8 +152,8 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         slug,
         category,
         subcategory,
-        machineSettings: (metadata as any)?.machine_settings || relationships?.machine_settings || {},
-        materialProperties: (metadata as any)?.properties || relationships?.materialProperties || {},
+        machineSettings: (metadata as any)?.machine_settings,
+        materialProperties: (metadata as any)?.properties,
         faq: faq,
         regulatoryStandards: regulatoryStandards,
         showFullDataset: true,

@@ -6,8 +6,8 @@
  */
 'use client';
 
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { BaseSection } from '../BaseSection/BaseSection';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface SettingValue {
   min: number;
@@ -22,14 +22,14 @@ interface TechnicalSpecsTableProps {
 
 export function TechnicalSpecsTable({ settings }: TechnicalSpecsTableProps) {
   return (
-    <SectionContainer variant="default" className="py-12">
+    <BaseSection 
+      variant="default" 
+      spacing="loose"
+      title="Technical Specifications"
+      description="Recommended machine settings for contamination removal"
+      icon={getSectionIcon('settings')}
+    >
       <div className="container-custom px-4">
-        <SectionTitle 
-          title="Technical Specifications"
-          sectionDescription="Recommended machine settings for contamination removal"
-          alignment="left"
-          className="mb-8"
-        />
         
         <div className="bg-gray-800 rounded-md overflow-hidden">
           <table className="w-full">
@@ -62,6 +62,6 @@ export function TechnicalSpecsTable({ settings }: TechnicalSpecsTableProps) {
           </table>
         </div>
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }

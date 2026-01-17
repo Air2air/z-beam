@@ -244,7 +244,7 @@ export function getBadgeData(
   options: { showBadge?: boolean; forceBadge?: boolean } = {}
 ): BadgeData | MaterialBadgeData | null {
   const { showBadge = true, forceBadge = false } = options;
-  const metadata = item.metadata || {};
+  const metadata = item.frontmatter || {};
   const slug = item.slug || '';
   
   // If showBadge is false and we're not forcing, don't show a badge

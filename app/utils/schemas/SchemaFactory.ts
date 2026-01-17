@@ -416,7 +416,7 @@ function generateWebPageSchema(data: any, context: SchemaContext): SchemaOrgBase
  * BreadcrumbList Schema
  * Uses the centralized generateBreadcrumbs utility for consistency
  */
-function generateBreadcrumbSchema(data: any, context: SchemaContext): SchemaOrgBase {
+function generateBreadcrumbSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl, baseUrl, slug } = context;
   
   // Construct pathname from slug
@@ -427,6 +427,11 @@ function generateBreadcrumbSchema(data: any, context: SchemaContext): SchemaOrgB
   
   // Use the centralized breadcrumb generation utility
   const breadcrumbItems = generateBreadcrumbs(frontmatter, pathname);
+  
+  // If no breadcrumbs generated (returns null), skip schema
+  if (!breadcrumbItems || breadcrumbItems.length === 0) {
+    return null;
+  }
   
   // Convert to Schema.org format
   const itemListElement = breadcrumbItems.map((item, index) => ({
@@ -1862,8 +1867,9 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
       ? { '@type': 'Person', 'name': mainImage.creator }
       : mainImage.creator;
   } else {
-    // Use page author as creator if available
-    const author = data.metadata?.author || data.frontmatter?.author || data.author;
+    // Use page author as creator if available (check all wrapper structures)
+    const meta = getMetadata(data);
+    const author = meta.author || data.author;
     if (author && author.name) {
       imageObject.creator = {
         '@type': 'Person',
@@ -1875,7 +1881,7 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
 
   // Add VisualArtwork schema for contaminants with appearance data
   // Leverages visual_characteristics.appearance_on_categories from metadata/frontmatter
-  const frontmatter = data.metadata || data.frontmatter || data;
+  const frontmatter = data.frontmatter || data;
   const visualChars = frontmatter.visual_characteristics;
   
   if (visualChars?.appearance_on_categories) {
@@ -2194,13 +2200,13 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
               'value': propData.value,
               'unitText': propData.unit || '',
               // E-E-A-T: Trustworthiness - verification metadata
-              ...(propData.metadata?.last_verified && {
-                'dateModified': propData.metadata.last_verified
+              ...(propData.frontmatter?.last_verified && {
+                'dateModified': propData.frontmatter.last_verified
               }),
-              ...(propData.metadata?.source && {
+              ...(propData.frontmatter?.source && {
                 'citation': {
                   '@type': 'CreativeWork',
-                  'name': propData.metadata.source
+                  'name': propData.frontmatter.source
                 }
               })
             });

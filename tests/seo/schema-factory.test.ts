@@ -29,6 +29,12 @@ const baseMaterialData = {
     subcategory: 'non-ferrous',
     datePublished: '2024-01-15',
     dateModified: '2024-12-06',
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: 'Materials', href: '/materials' },
+      { label: 'Metals', href: '/materials/metals' },
+      { label: 'Aluminum', href: '/materials/aluminum' }
+    ],
     author: {
       name: 'Dr. Sarah Chen',
       title: 'Ph.D. Materials Science',

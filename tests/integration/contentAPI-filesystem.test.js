@@ -61,39 +61,39 @@ describe('ContentAPI File System Integration', () => {
       
       expect(article).not.toBeNull();
       expect(article).toBeDefined();
-      expect(article.metadata).toBeDefined();
-      expect(article.metadata.pageTitle).toBe('Granite');
-      expect(article.metadata.category).toBe('stone');
-      expect(article.metadata.subcategory).toBe('igneous');
+      expect(article.frontmatter).toBeDefined();
+      expect(article.frontmatter.pageTitle).toBe('Granite');
+      expect(article.frontmatter.category).toBe('stone');
+      expect(article.frontmatter.subcategory).toBe('igneous');
     });
 
     test('can load aluminum-laser-cleaning material', async () => {
       const article = await getArticle('aluminum-laser-cleaning');
       
       expect(article).not.toBeNull();
-      expect(article.metadata).toBeDefined();
-      expect(article.metadata.pageTitle).toBe('Aluminum');
-      expect(article.metadata.category).toBe('metal');
-      expect(article.metadata.subcategory).toBe('non-ferrous');
+      expect(article.frontmatter).toBeDefined();
+      expect(article.frontmatter.pageTitle).toBe('Aluminum');
+      expect(article.frontmatter.category).toBe('metal');
+      expect(article.frontmatter.subcategory).toBe('non-ferrous');
     });
 
     test('can load ceramic material (alumina)', async () => {
       const article = await getArticle('alumina-laser-cleaning');
       
       expect(article).not.toBeNull();
-      expect(article.metadata).toBeDefined();
-      expect(article.metadata.pageTitle).toBe('Alumina');
-      expect(article.metadata.category).toBe('ceramic');
-      expect(article.metadata.subcategory).toBe('oxide');
+      expect(article.frontmatter).toBeDefined();
+      expect(article.frontmatter.pageTitle).toBe('Alumina');
+      expect(article.frontmatter.category).toBe('ceramic');
+      expect(article.frontmatter.subcategory).toBe('oxide');
     });
 
     test('can load composite material', async () => {
       const article = await getArticle('carbon-fiber-reinforced-polymer-laser-cleaning');
       
       expect(article).not.toBeNull();
-      expect(article.metadata).toBeDefined();
-      expect(article.metadata.category).toBe('composite');
-      expect(article.metadata.subcategory).toBe('fiber-reinforced');
+      expect(article.frontmatter).toBeDefined();
+      expect(article.frontmatter.category).toBe('composite');
+      expect(article.frontmatter.subcategory).toBe('fiber-reinforced');
     });
 
     test('returns null for non-existent material', async () => {
@@ -106,9 +106,9 @@ describe('ContentAPI File System Integration', () => {
       const article = await getArticle('granite-laser-cleaning');
       
       // Metadata object contains both camelCase and snake_case during transition
-      expect(article.metadata).toHaveProperty('category');
-      expect(article.metadata).toHaveProperty('subcategory');
-      expect(article.metadata).toHaveProperty('name');
+      expect(article.frontmatter).toHaveProperty('category');
+      expect(article.frontmatter).toHaveProperty('subcategory');
+      expect(article.frontmatter).toHaveProperty('name');
     });
   });
 
@@ -230,12 +230,12 @@ describe('ContentAPI File System Integration', () => {
       const article = await getArticle('granite-laser-cleaning');
       
       // After normalization
-      expect(article.metadata.category).toBe('stone');
-      expect(article.metadata.subcategory).toBe('igneous');
+      expect(article.frontmatter.category).toBe('stone');
+      expect(article.frontmatter.subcategory).toBe('igneous');
       
       // Should not have spaces or uppercase
-      expect(article.metadata.category).not.toMatch(/[A-Z\s]/);
-      expect(article.metadata.subcategory).not.toMatch(/[A-Z\s]/);
+      expect(article.frontmatter.category).not.toMatch(/[A-Z\s]/);
+      expect(article.frontmatter.subcategory).not.toMatch(/[A-Z\s]/);
     });
   });
 
@@ -243,8 +243,8 @@ describe('ContentAPI File System Integration', () => {
     test('material images exist in public/images/material/', async () => {
       const article = await getArticle('granite-laser-cleaning');
       
-      if (article.metadata.images && article.metadata.images.hero) {
-        const imagePath = article.metadata.images.hero.url;
+      if (article.frontmatter.images && article.frontmatter.images.hero) {
+        const imagePath = article.frontmatter.images.hero.url;
         const fullPath = path.join(process.cwd(), 'public', imagePath);
         
         expect(fs.existsSync(fullPath)).toBe(true);
@@ -261,8 +261,8 @@ describe('ContentAPI File System Integration', () => {
       for (const slug of testMaterials) {
         const article = await getArticle(slug);
         
-        if (article && article.metadata.images && article.metadata.images.hero) {
-          const imagePath = article.metadata.images.hero.url;
+        if (article && article.frontmatter.images && article.frontmatter.images.hero) {
+          const imagePath = article.frontmatter.images.hero.url;
           const fullPath = path.join(process.cwd(), 'public', imagePath);
           
           expect(fs.existsSync(fullPath)).toBe(true);

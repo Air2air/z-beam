@@ -47,14 +47,14 @@ jest.mock('../../app/api/search/route', () => ({
       {
         id: '1',
         title: `Result 1 for ${query}`,
-        excerpt: `This is a mock result for query: ${query}`,
+        pageDescription: `This is a mock result for query: ${query}`,
         url: `/page-1`,
         type: 'page'
       },
       {
         id: '2',
         title: `Result 2 for ${query}`,
-        excerpt: `Another mock result for query: ${query}`,
+        pageDescription: `Another mock result for query: ${query}`,
         url: `/page-2`,
         type: 'article'
       }
@@ -99,7 +99,7 @@ describe('API Routes', () => {
       
       const data = await response.json();
       expect(data.results[0].title).toContain('materials');
-      expect(data.results[0].excerpt).toContain('materials');
+      expect(data.results[0].pageDescription).toContain('materials');
     });
 
     test('should return properly structured search results', async () => {
@@ -111,7 +111,7 @@ describe('API Routes', () => {
       
       expect(result).toHaveProperty('id');
       expect(result).toHaveProperty('title');
-      expect(result).toHaveProperty('excerpt');
+      expect(result).toHaveProperty('pageDescription');
       expect(result).toHaveProperty('url');
       expect(result).toHaveProperty('type');
     });

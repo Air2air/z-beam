@@ -8,9 +8,9 @@ import { ArticleMetadata } from '@/types';
 
 describe('Breadcrumbs', () => {
   describe('generateBreadcrumbs', () => {
-    it('should always start with Home', () => {
+    it('should return null when no frontmatter provided', () => {
       const result = generateBreadcrumbs(null, '/');
-      expect(result[0]).toEqual({ label: 'Home', href: '/' });
+      expect(result).toBeNull();
     });
 
     it('should use explicit breadcrumb from frontmatter', () => {
@@ -43,7 +43,7 @@ describe('Breadcrumbs', () => {
       expect(result[1].label).toBe('Valid');
     });
 
-    it('should return Home only when no explicit breadcrumb', () => {
+    it('should return null when no explicit breadcrumb', () => {
       const frontmatter = {
         category: 'metal',
         subcategory: 'ferrous',
@@ -52,13 +52,11 @@ describe('Breadcrumbs', () => {
 
       const result = generateBreadcrumbs(frontmatter, '/materials/metal/ferrous/steel');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only without explicit breadcrumb', () => {
+    it('should return null without explicit breadcrumb', () => {
       const frontmatter = {
         category: 'ceramic',
         name: 'Alumina',
@@ -66,13 +64,11 @@ describe('Breadcrumbs', () => {
 
       const result = generateBreadcrumbs(frontmatter, '/materials/ceramic/alumina');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only without explicit breadcrumb array', () => {
+    it('should return null without explicit breadcrumb array', () => {
       const frontmatter = {
         category: 'metal',
         subcategory: 'ferrous',
@@ -80,13 +76,11 @@ describe('Breadcrumbs', () => {
 
       const result = generateBreadcrumbs(frontmatter, '/materials/metal/ferrous/stainless-steel');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only without explicit breadcrumb', () => {
+    it('should return null without explicit breadcrumb', () => {
       const frontmatter = {
         category: 'Rare Earth',
         subcategory: 'High Strength',
@@ -95,70 +89,59 @@ describe('Breadcrumbs', () => {
 
       const result = generateBreadcrumbs(frontmatter, '/test');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only when no frontmatter', () => {
+    it('should return null when no frontmatter', () => {
       const result = generateBreadcrumbs(null, '/about');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only for multi-segment URLs without frontmatter', () => {
+    it('should return null for multi-segment URLs without frontmatter', () => {
       const result = generateBreadcrumbs(null, '/materials/metal/ferrous');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only for unknown routes', () => {
+    it('should return null for unknown routes', () => {
       const result = generateBreadcrumbs(null, '/some-article');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only for static routes without frontmatter', () => {
+    it('should return null for static routes without frontmatter', () => {
       const staticRoutes = ['about', 'contact', 'services', 'rental', 'partners', 'search'];
       
       staticRoutes.forEach(route => {
         const result = generateBreadcrumbs(null, `/${route}`);
-        // Current implementation only uses explicit breadcrumb from frontmatter
-        expect(result.length).toBe(1);
-        expect(result[0].label).toBe('Home');
+        // Current implementation returns null when no explicit breadcrumb
+        expect(result).toBeNull();
       });
     });
 
-    it('should handle root path', () => {
+    it('should return null for root path', () => {
       const result = generateBreadcrumbs(null, '/');
-      expect(result).toEqual([{ label: 'Home', href: '/' }]);
+      expect(result).toBeNull();
     });
 
-    it('should handle empty pathname', () => {
+    it('should return null for empty pathname', () => {
       const result = generateBreadcrumbs(null, '');
-      expect(result).toEqual([{ label: 'Home', href: '/' }]);
+      expect(result).toBeNull();
     });
 
-    it('should return Home only without frontmatter', () => {
+    it('should return null without frontmatter', () => {
       const result = generateBreadcrumbs(null, '/laser-beam-welding');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
 
-    it('should return Home only without explicit breadcrumb', () => {
+    it('should return null without explicit breadcrumb', () => {
       const frontmatter = {
         category: 'rare earth',
         name: 'Neodymium',
@@ -166,10 +149,8 @@ describe('Breadcrumbs', () => {
 
       const result = generateBreadcrumbs(frontmatter, '/test');
       
-      // Current implementation only uses explicit breadcrumb from frontmatter
-      expect(result).toEqual([
-        { label: 'Home', href: '/' },
-      ]);
+      // Current implementation returns null when no explicit breadcrumb
+      expect(result).toBeNull();
     });
   });
 

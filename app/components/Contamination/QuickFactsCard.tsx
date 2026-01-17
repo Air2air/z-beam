@@ -5,7 +5,8 @@
  */
 'use client';
 
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import { getGridClasses } from '@/app/utils/gridConfig';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
@@ -23,12 +24,16 @@ interface QuickFactsCardProps {
 
 export function QuickFactsCard({ facts }: QuickFactsCardProps) {
   return (
-    <SectionContainer variant="dark" className="py-8 mb-8">
+    <BaseSection 
+      variant="dark" 
+      spacing="tight"
+      title="Quick Facts"
+      description="Key information and important facts"
+      icon={getSectionIcon('zap')}
+      className="mb-8"
+    >
       <div className="container-custom px-4">
         <div className="bg-gray-800/50 border border-orange-500/30 rounded-md p-6">
-          <h2 className="text-xl font-semibold text-orange-400 mb-4 flex items-center gap-2">
-            <span>⚡</span> Quick Facts
-          </h2>
           
           {/* Metrics Grid */}
           <div className={`grid grid-cols-2 md:grid-cols-4 ${GRID_GAP_RESPONSIVE} mb-6`}>
@@ -71,6 +76,6 @@ export function QuickFactsCard({ facts }: QuickFactsCardProps) {
           </div>
         </div>
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }

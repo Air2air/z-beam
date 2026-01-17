@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 // tests/components/Heatmap/ProcessEffectivenessHeatmap.test.tsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';

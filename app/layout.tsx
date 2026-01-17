@@ -179,6 +179,9 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://va.vercel-scripts.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         
+        {/* Hero image preload for better LCP */}
+        <link rel="preload" as="image" href="/images/hero-laser-cleaning.webp" />
+        
         {/* Defer non-critical third-party connections */}
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />

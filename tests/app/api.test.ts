@@ -72,7 +72,7 @@ describe('API Routes Tests', () => {
       response.data.results.forEach((result: any) => {
         const containsQuery = 
           result.title.toLowerCase().includes('laser') ||
-          result.excerpt.toLowerCase().includes('laser');
+          result.pageDescription.toLowerCase().includes('laser');
         expect(containsQuery).toBe(true);
       });
     });
@@ -104,7 +104,7 @@ describe('API Routes Tests', () => {
       response.data.results.forEach((result: any) => {
         expect(result).toHaveProperty('id');
         expect(result).toHaveProperty('title');
-        expect(result).toHaveProperty('excerpt');
+        expect(result).toHaveProperty('pageDescription');
         expect(result).toHaveProperty('url');
         expect(result).toHaveProperty('type');
         expect(result).toHaveProperty('score');

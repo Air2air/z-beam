@@ -28,7 +28,8 @@ describe('frontmatterValidation', () => {
             order: 1,
             variant: 'default',
             icon: 'shield-check'
-          }
+          },
+          frontmatter: { order: 1 }
         },
         ppe_requirements: {
           presentation: 'card',
@@ -42,7 +43,8 @@ describe('frontmatterValidation', () => {
             order: 2,
             variant: 'warning',
             icon: 'alert-triangle'
-          }
+          },
+          frontmatter: { order: 2 }
         }
       }
     }

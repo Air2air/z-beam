@@ -5,19 +5,14 @@ import '@testing-library/jest-dom';
 import { BaseHeatmap } from '@/app/components/Heatmap/BaseHeatmap';
 import type { BaseHeatmapProps } from '@/types/centralized';
 
-// Mock the SectionContainer and SectionTitle components
-jest.mock('@/app/components/SectionContainer/SectionContainer', () => ({
-  SectionContainer: ({ children, className }: { children: React.ReactNode; className?: string }) => (
-    <div data-testid="section-container" className={className}>{children}</div>
-  ),
-}));
-
-jest.mock('@/app/components/SectionTitle/SectionTitle', () => ({
-  SectionTitle: ({ title, sectionDescription }: { title: string; sectionDescription?: string }) => (
-    <div data-testid="section-title">
-      <h2>{title}</h2>
-      {sectionDescription && <p>{sectionDescription}</p>}
-    </div>
+// Mock the BaseSection component
+jest.mock('@/app/components/BaseSection/BaseSection', () => ({
+  BaseSection: ({ children, title, description }: { children: React.ReactNode; title?: string; description?: string; className?: string }) => (
+    <section role="region" aria-label={title || 'Section'}>
+      {title && <h2>{title}</h2>}
+      {description && <p>{description}</p>}
+      {children}
+    </section>
   ),
 }));
 
@@ -88,7 +83,7 @@ describe('BaseHeatmap Component', () => {
     it('should render the heatmap container', () => {
       render(<BaseHeatmap {...defaultProps} />);
       
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region', { name: 'Test Safety Heatmap' })).toBeInTheDocument();
     });
 
     it('should render the title and description', () => {
@@ -274,7 +269,7 @@ describe('BaseHeatmap Component', () => {
       );
       
       // Component should render without errors
-      expect(screen.getByTestId('section-title')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toBeInTheDocument();
     });
 
     it('should support custom score type', () => {

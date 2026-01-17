@@ -1,41 +1,116 @@
 id: rosewood-laser-cleaning
 name: Rosewood
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Wood
+    href: /materials/wood
+  - label: Hardwood
+    href: /materials/wood/hardwood
+  - label: Rosewood
+    href: /materials/wood/hardwood/rosewood
 displayName: Rosewood Laser Cleaning
 category: wood
 subcategory: hardwood
-pageDescription: We've found Rosewood excels in laser cleaning, thanks to its dense structure and strong absorption compared
-  to softer woods. This lets us strip away grime from cultural artifacts or instruments efficiently while preserving the natural
-  oils that resist decay—just ensure controlled passes to avoid surface charring.
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: amorphous crystal structure
-    source: ai_research
-    unit: crystal system
-    value: amorphous
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:45.393377+00:00'
+fullPath: /materials/wood/hardwood/rosewood-laser-cleaning
+pageTitle: Rosewood
+metaDescription: >-
+  Rosewood surface, it shows dense hardwood characteristics at 1000x magnification. Before laser cleaning is applied,
+  contamination forms thick layers on the m...
+card:
+  default:
+    heading: Rosewood
+    subtitle: wood / hardwood
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  countryDisplay: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+    - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    - IEC 60825 - Safety of Laser Products
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+images:
+  hero:
+    url: /images/material/rosewood-laser-cleaning-hero.jpg
+    alt: Rosewood surface undergoing laser cleaning showing precise contamination removal
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/rosewood-laser-cleaning-micro.jpg
+    alt: Rosewood microscopic view of laser cleaning showing detailed precise contamination removal
+    width: 800
+    height: 600
+components:
+  settingsDescription: >-
+    When laser cleaning Rosewood, watch its notable porosity right away—it can trap contaminants deep inside, leading to
+    uneven results if you blast too aggressively. I've seen this hardwood absorb laser energy better than many denser
+    woods like oak, so it heats up quickly without much reflection. This works best when you start with gentler passes
+    to avoid scorching the surface grains. Tends to clean smoothly for cultural artifacts or instruments because of its
+    natural oils that resist charring, unlike softer pines. Just keep scans slow and overlap spots well to pull out
+    embedded dirt without cracking the fibers.
+  micro:
+    before: >-
+      When laser cleaning rosewood, you must first examine the contaminated surface closely at high magnification. Fine
+      particles and grime coat the fibers, creating a dull, uneven layer that hides the wood's texture. Dark residues
+      cling tightly to the pores, making the whole area look patchy and worn.
+    after: >-
+      After the laser treatment, you see the surface transform into something smooth and clear. The fibers emerge
+      vibrant and distinct, free from any clinging dirt or spots. Now the natural grain stands out evenly, revealing
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    percentage: 60.0
-    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-      integrity
+    percentage: 60
     fractureToughness:
       value: 0.42
       unit: MPa√m
       confidence: 95
       source: ai_research
     youngsModulus:
-      value: 11.0
+      value: 11
       unit: GPa
       confidence: 95
       source: ai_research
@@ -45,17 +120,17 @@ properties:
       confidence: 95
       source: ai_research
     density:
-      value: 910.0
+      value: 910
       unit: kg/m³
       confidence: 95
       source: ai_research
     hardness:
-      value: 12000.0
-      unit: N
+      value: 12000
+      unit: 'N'
       confidence: 95
       source: ai_research
     corrosionResistance:
-      value: 1.0
+      value: 1
       unit: durability_class
       confidence: 95
       source: ai_research
@@ -65,12 +140,12 @@ properties:
       confidence: 95
       source: ai_research
     flexuralStrength:
-      value: 110.0
+      value: 110
       unit: MPa
       confidence: 95
       source: ai_research
     tensileStrength:
-      value: 128.0
+      value: 128
       unit: MPa
       confidence: 95
       source: ai_research
@@ -86,15 +161,25 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser Cleaning of Rosewood Artifacts: Threshold Fluence Determination'
       citation: 'Johnson, A. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005'
-      context: Dalbergia nigra rosewood (density 0.95 g/cm³, 8% moisture content), 20°C, Nd:YAG laser at 1064 nm, pulse duration
-        10 ns
+      context: >-
+        Dalbergia nigra rosewood (density 0.95 g/cm³, 8% moisture content), 20°C, Nd:YAG laser at 1064 nm, pulse
+        duration 10 ns
       confidence: 92
       researchedDate: '2025-11-24T12:16:23.193139'
       needsValidation: true
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     absorptivity:
       value: 0.85
       unit: dimensionless
@@ -110,8 +195,8 @@ properties:
     laserDamageThreshold:
       value: 2.5
       unit: J/cm²
-      min: 1.0
-      max: 5.0
+      min: 1
+      max: 5
       source: ai_research
     thermalShockResistance:
       value: 1.2
@@ -138,12 +223,12 @@ properties:
       max: 100
       source: ai_research
     thermalDestruction:
-      value: 553.0
+      value: 553
       unit: K
       confidence: 95
       source: ai_research
     specificHeat:
-      value: 1450.0
+      value: 1450
       unit: J/(kg·K)
       confidence: 95
       source: ai_research
@@ -158,7 +243,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalExpansion:
-      value: 4.2e-06
+      value: 0.0000042
       unit: K^{-1}
       confidence: 95
       source: ai_research
@@ -168,7 +253,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalDiffusivity:
-      value: 1.25e-07
+      value: 1.25e-7
       unit: m²/s
       confidence: 95
       source: ai_research
@@ -179,419 +264,345 @@ properties:
       sourceType: journal_article
       sourceName: Laser Ablation Thresholds for Hardwood Species in Cultural Heritage Conservation
       citation: 'Pérez, M. et al., Journal of Cultural Heritage, 2019, DOI: 10.1016/j.culher.2019.03.005'
-      context: Dry rosewood (Dalbergia nigra, density 0.92 g/cm³), 25°C, 1064 nm Nd:YAG laser, 5 ns pulse duration, atmospheric
+      context: >-
+        Dry rosewood (Dalbergia nigra, density 0.92 g/cm³), 25°C, 1064 nm Nd:YAG laser, 5 ns pulse duration, atmospheric
         pressure
       confidence: 95
       researchedDate: '2025-11-24T12:16:30.504887'
       needsValidation: true
-micro:
-  before: Rosewood surface, it shows dense hardwood characteristics at 1000x magnification. Before laser cleaning is applied,
-    contamination forms thick layers on the material. This contamination, it clogs natural grain patterns and dark streaks
-    unique to rosewood. Dirt and residue buildup appear uneven and irregular, so pores become blocked during exposure to pollutants.
-    In observations, surface exhibits roughness from these layers, and reflectivity reduces because of the covering.
-  after: After treatment is performed, contamination already removed by laser action. Clean surface now reveals fine wood
-    fibers and smooth textures. Natural regional patterns from Indonesia emerge clearly, with no residue still present after
-    cleaning. Laser process achieves complete removal, so uniformity is observed at the surface. From the data, treated area
-    shows enhanced detail in grain, and original color tones restore without damage. This cleaning, it preserves material
-    durability and exposes authentic features effectively.
-images:
-  hero:
-    url: /images/material/rosewood-laser-cleaning-hero.jpg
-    alt: Rosewood surface undergoing laser cleaning showing precise contamination removal
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/rosewood-laser-cleaning-micro.jpg
-    alt: Rosewood microscopic view of laser cleaning showing detailed precise contamination removal
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: what-laser-parameters-like-wavelength-and
+      title: >-
+        What laser parameters, like wavelength and pulse energy, are recommended to safely clean contaminants from
+        rosewood surfaces without causing charring or discoloration?
+      content: >-
+        For rosewood's dense, oil-rich structure that chars easily under heat, particularly when processing, apply a
+        1064 nm wavelength at 4.5 J/cm² fluence to selectively remove contaminants. Combine this with 100 ns pulses of
+        45 W power, scanned at 500 mm/s with 50% overlap over two passes, thus preventing discoloration.
+      metadata:
+        topic: laser parameters, like wavelength and
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: true
+        order: 1
+    - id: how-does-the-natural-oil-in
+      title: >-
+        How does the natural oil in rosewood affect the efficiency of laser ablation during surface cleaning, and what
+        adjustments are needed?
+      content: >-
+        The inherent oils in rosewood particularly shield the underlying lignin and cellulose, reducing laser absorption
+        at 1064 nm and leading to spotty ablation during cleaning. Such inefficiency calls for boosting energy density
+        to 4.5 J/cm² with 50% beam overlap and two passes at 45 W, thus enabling even contaminant removal without
+        charring the wood.
+      metadata:
+        topic: the natural oil in rosewood
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 2
+    - id: is-a-co2-laser-suitable-for
+      title: >-
+        Is a CO2 laser suitable for removing old varnish from antique rosewood furniture, and what risks are involved
+        for the wood grain?
+      content: >-
+        CO2 lasers prove unsuitable for removing old varnish from antique rosewood furniture, particularly due to their
+        10.6 μm wavelength generating excessive heat, which endangers the wood's delicate grain with charring. Notably,
+        restoration experts highlight how vaporization unevenly erodes the fine structure, risking a loss of luster.
+        Thus, select 1064 nm pulses at 4.5 J/cm² to reduce damage.
+      metadata:
+        topic: a co2 laser suitable for
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 3
+    - id: what-safety-precautions-should-be-taken
+      title: >-
+        What safety precautions should be taken when using fiber lasers to clean rosewood musical instruments, such as
+        guitars, to avoid toxic fume release?
+      content: >-
+        For lasering rosewood guitars with a 1064 nm fiber laser at 45 W, particularly prioritize robust local exhaust
+        ventilation to capture volatile organic compounds from the wood's oils during ablation. Specifically, maintain
+        energy density below 4.5 J/cm² while scanning at 500 mm/s to reduce thermal vaporization. Thus, always don N95
+        respirators in a well-sealed workspace.
+      metadata:
+        topic: safety precautions should be taken
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 4
+    - id: in-laser-cleaning-rosewood-artifacts-how
+      title: >-
+        In laser cleaning rosewood artifacts, how can operators prevent fading or color shifts in the wood's
+        reddish-brown hue?
+      content: >-
+        To protect rosewood's reddish-brown pigments in laser cleaning, particularly by setting fluence to 4.5 J/cm² and
+        power near 45 W at 1064 nm wavelength, this curbs heat accumulation that dulls colors. Scan evenly at 500 mm/s
+        for coverage, then seal the surface afterward, thus stabilizing hues against oxidation.
+      metadata:
+        topic: in laser cleaning rosewood artifacts,
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 5
+    - id: what-are-common-challenges-in-using
+      title: >-
+        What are common challenges in using pulsed lasers to remove pollutants from outdoor rosewood sculptures, and how
+        to mitigate humidity effects?
+      content: >-
+        Rosewood's hygroscopic properties particularly absorb ambient humidity, resulting in swelling and variable laser
+        uptake during pulsed cleaning, which may cause uneven pollutant removal or substrate harm. Thus, to counteract
+        this, sustain energy density at 4.5 J/cm² with a 500 mm/s scan speed for even ablation, while pre-drying
+        surfaces to steady moisture levels.
+      metadata:
+        topic: common challenges in using pulsed
+        severity: high
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 6
+    - id: for-smallscale-workshops-which-affordable-laser
+      title: >-
+        For small-scale workshops, which affordable laser cleaning systems are best for treating rosewood veneers
+        without substrate damage?
+      content: >-
+        For small workshops dealing with rosewood veneers, consider portable 1064 nm fiber lasers, particularly IPG or
+        Raycus models under $10,000 that deliver 45 W average power. Adjust energy density to 4.5 J/cm² and scan speed
+        to 500 mm/s, which notably ablates contaminants gently without damaging the delicate lignin structure. Two
+        passes with 50% overlap thus guarantee uniform outcomes.
+      metadata:
+        topic: for small-scale workshops, which affordable
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 7
+    - id: how-does-rosewoods-high-density-compare
+      title: >-
+        How does rosewood's high density compare to other woods in terms of laser cleaning thresholds, and what fluence
+        levels should be avoided?
+      content: >-
+        Notably, rosewood's density—around 950 kg/m³—surpasses that of softer woods like pine by almost double. This
+        elevates its ablation threshold, thus allowing cleaner material removal at fluences up to 4.5 J/cm² without
+        substrate damage. Specifically, steer clear of levels exceeding 6 J/cm² to prevent charring the dense lignin
+        structure.
+      metadata:
+        topic: rosewood's high density comp to
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 8
+    - id: what-regulatory-standards-apply-to-laser
+      title: >-
+        What regulatory standards apply to laser cleaning rosewood in conservation projects, especially regarding
+        endangered species protections?
+      content: >-
+        In rosewood conservation through laser cleaning, CITES Appendix II listings require permits for sourcing
+        endangered species, particularly, along with detailed treatment records to track provenance. Specifically, apply
+        parameters like 4.5 J/cm² fluence at 1064 nm wavelength to remove contaminants gently without damaging the
+        wood's lignin structure, thus ensuring regulatory compliance in cultural heritage projects.
+      metadata:
+        topic: regulatory standards apply to laser
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 9
+    - id: in-laser-surface-treatment-of-rosewood
+      title: >-
+        In laser surface treatment of rosewood, how can pre-cleaning preparation like degreasing improve outcomes and
+        reduce multiple passes?
+      content: >-
+        Rosewood's natural oils particularly block contaminants from laser penetration, thus necessitating degreasing
+        with solvents like acetone to reveal the surface for better absorption. Notably, this preparation improves
+        efficacy at 4.5 J/cm² fluence, usually reducing passes from two to one while avoiding uneven charring in 45 W
+        treatments.
+      metadata:
+        topic: in laser surface treatment of
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: aerospace
-        name: Aerospace
-      - id: automotive
-        name: Automotive
-      - id: marine
-        name: Marine
-      - id: cultural-heritage
-        name: Cultural Heritage
-      - id: musical-instruments
-        name: Musical Instruments
-      - id: medical-equipment
-        name: Medical Equipment
-      - id: luxury-manufacturing
-        name: Luxury Manufacturing
-      - id: energy-sector
-        name: Energy Sector
-      - id: electronics-manufacturing
-        name: Electronics Manufacturing
-      - id: architectural-restoration
-        name: Architectural Restoration
+        - id: aerospace
+          name: Aerospace
+        - id: automotive
+          name: Automotive
+        - id: marine
+          name: Marine
+        - id: cultural-heritage
+          name: Cultural Heritage
+        - id: musical-instruments
+          name: Musical Instruments
+        - id: medical-equipment
+          name: Medical Equipment
+        - id: luxury-manufacturing
+          name: Luxury Manufacturing
+        - id: energy-sector
+          name: Energy Sector
+        - id: electronics-manufacturing
+          name: Electronics Manufacturing
+        - id: architectural-restoration
+          name: Architectural Restoration
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      - description: IEC 60825 - Safety of Laser Products
-        image: /images/logo/logo-org-iec.png
-        longName: International Electrotechnical Commission
-        name: IEC
-        url: https://webstore.iec.ch/publication/3587
-      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-        image: /images/logo/logo-org-osha.png
-        longName: Occupational Safety and Health Administration
-        name: OSHA
-        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: IEC 60825 - Safety of Laser Products
+          image: /images/logo/logo-org-iec.png
+          longName: International Electrotechnical Commission
+          name: IEC
+          url: https://webstore.iec.ch/publication/3587
+        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+          image: /images/logo/logo-org-osha.png
+          longName: Occupational Safety and Health Administration
+          name: OSHA
+          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: Rosewood
-    subtitle: wood / hardwood
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-10T04:11:35.407254+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - wood_rot
-  - environmental_dust
-  - chemical_stains
-  - paint_residue
+    - wood_rot
+    - environmental_dust
+    - chemical_stains
+    - paint_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - uv_chalking
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - uv_chalking
   conditional: {}
-components:
-  settingsDescription: When laser cleaning Rosewood, watch its notable porosity right away—it can trap contaminants deep inside,
-    leading to uneven results if you blast too aggressively. I've seen this hardwood absorb laser energy better than many
-    denser woods like oak, so it heats up quickly without much reflection. This works best when you start with gentler passes
-    to avoid scorching the surface grains. Tends to clean smoothly for cultural artifacts or instruments because of its natural
-    oils that resist charring, unlike softer pines. Just keep scans slow and overlap spots well to pull out embedded dirt
-    without cracking the fibers.
-  micro:
-    before: When laser cleaning rosewood, you must first examine the contaminated surface closely at high magnification. Fine
-      particles and grime coat the fibers, creating a dull, uneven layer that hides the wood's texture. Dark residues cling
-      tightly to the pores, making the whole area look patchy and worn.
-    after: After the laser treatment, you see the surface transform into something smooth and clear. The fibers emerge vibrant
-      and distinct, free from any clinging dirt or spots. Now the natural grain stands out evenly, revealing
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  - IEC 60825 - Safety of Laser Products
-  isBasedOn:
-    name: IEC 60825 - Safety of Laser Products
-    url: https://webstore.iec.ch/publication/3587
-faq:
-  presentation: collapsible
-  items:
-  - id: what-laser-parameters-like-wavelength-and
-    title: What laser parameters, like wavelength and pulse energy, are recommended to safely clean contaminants from rosewood
-      surfaces without causing charring or discoloration?
-    content: For rosewood's dense, oil-rich structure that chars easily under heat, particularly when processing, apply a
-      1064 nm wavelength at 4.5 J/cm² fluence to selectively remove contaminants. Combine this with 100 ns pulses of 45 W
-      power, scanned at 500 mm/s with 50% overlap over two passes, thus preventing discoloration.
-    metadata:
-      topic: laser parameters, like wavelength and
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  - id: how-does-the-natural-oil-in
-    title: How does the natural oil in rosewood affect the efficiency of laser ablation during surface cleaning, and what
-      adjustments are needed?
-    content: The inherent oils in rosewood particularly shield the underlying lignin and cellulose, reducing laser absorption
-      at 1064 nm and leading to spotty ablation during cleaning. Such inefficiency calls for boosting energy density to 4.5
-      J/cm² with 50% beam overlap and two passes at 45 W, thus enabling even contaminant removal without charring the wood.
-    metadata:
-      topic: the natural oil in rosewood
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 2
-  - id: is-a-co2-laser-suitable-for
-    title: Is a CO2 laser suitable for removing old varnish from antique rosewood furniture, and what risks are involved for
-      the wood grain?
-    content: CO2 lasers prove unsuitable for removing old varnish from antique rosewood furniture, particularly due to their
-      10.6 μm wavelength generating excessive heat, which endangers the wood's delicate grain with charring. Notably, restoration
-      experts highlight how vaporization unevenly erodes the fine structure, risking a loss of luster. Thus, select 1064 nm
-      pulses at 4.5 J/cm² to reduce damage.
-    metadata:
-      topic: a co2 laser suitable for
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 3
-  - id: what-safety-precautions-should-be-taken
-    title: What safety precautions should be taken when using fiber lasers to clean rosewood musical instruments, such as
-      guitars, to avoid toxic fume release?
-    content: For lasering rosewood guitars with a 1064 nm fiber laser at 45 W, particularly prioritize robust local exhaust
-      ventilation to capture volatile organic compounds from the wood's oils during ablation. Specifically, maintain energy
-      density below 4.5 J/cm² while scanning at 500 mm/s to reduce thermal vaporization. Thus, always don N95 respirators
-      in a well-sealed workspace.
-    metadata:
-      topic: safety precautions should be taken
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 4
-  - id: in-laser-cleaning-rosewood-artifacts-how
-    title: In laser cleaning rosewood artifacts, how can operators prevent fading or color shifts in the wood's reddish-brown
-      hue?
-    content: To protect rosewood's reddish-brown pigments in laser cleaning, particularly by setting fluence to 4.5 J/cm²
-      and power near 45 W at 1064 nm wavelength, this curbs heat accumulation that dulls colors. Scan evenly at 500 mm/s for
-      coverage, then seal the surface afterward, thus stabilizing hues against oxidation.
-    metadata:
-      topic: in laser cleaning rosewood artifacts,
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 5
-  - id: what-are-common-challenges-in-using
-    title: What are common challenges in using pulsed lasers to remove pollutants from outdoor rosewood sculptures, and how
-      to mitigate humidity effects?
-    content: Rosewood's hygroscopic properties particularly absorb ambient humidity, resulting in swelling and variable laser
-      uptake during pulsed cleaning, which may cause uneven pollutant removal or substrate harm. Thus, to counteract this,
-      sustain energy density at 4.5 J/cm² with a 500 mm/s scan speed for even ablation, while pre-drying surfaces to steady
-      moisture levels.
-    metadata:
-      topic: common challenges in using pulsed
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 6
-  - id: for-smallscale-workshops-which-affordable-laser
-    title: For small-scale workshops, which affordable laser cleaning systems are best for treating rosewood veneers without
-      substrate damage?
-    content: For small workshops dealing with rosewood veneers, consider portable 1064 nm fiber lasers, particularly IPG or
-      Raycus models under $10,000 that deliver 45 W average power. Adjust energy density to 4.5 J/cm² and scan speed to 500
-      mm/s, which notably ablates contaminants gently without damaging the delicate lignin structure. Two passes with 50%
-      overlap thus guarantee uniform outcomes.
-    metadata:
-      topic: for small-scale workshops, which affordable
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 7
-  - id: how-does-rosewoods-high-density-compare
-    title: How does rosewood's high density compare to other woods in terms of laser cleaning thresholds, and what fluence
-      levels should be avoided?
-    content: Notably, rosewood's density—around 950 kg/m³—surpasses that of softer woods like pine by almost double. This
-      elevates its ablation threshold, thus allowing cleaner material removal at fluences up to 4.5 J/cm² without substrate
-      damage. Specifically, steer clear of levels exceeding 6 J/cm² to prevent charring the dense lignin structure.
-    metadata:
-      topic: rosewood's high density comp to
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 8
-  - id: what-regulatory-standards-apply-to-laser
-    title: What regulatory standards apply to laser cleaning rosewood in conservation projects, especially regarding endangered
-      species protections?
-    content: In rosewood conservation through laser cleaning, CITES Appendix II listings require permits for sourcing endangered
-      species, particularly, along with detailed treatment records to track provenance. Specifically, apply parameters like
-      4.5 J/cm² fluence at 1064 nm wavelength to remove contaminants gently without damaging the wood's lignin structure,
-      thus ensuring regulatory compliance in cultural heritage projects.
-    metadata:
-      topic: regulatory standards apply to laser
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 9
-  - id: in-laser-surface-treatment-of-rosewood
-    title: In laser surface treatment of rosewood, how can pre-cleaning preparation like degreasing improve outcomes and reduce
-      multiple passes?
-    content: Rosewood's natural oils particularly block contaminants from laser penetration, thus necessitating degreasing
-      with solvents like acetone to reveal the surface for better absorption. Notably, this preparation improves efficacy
-      at 4.5 J/cm² fluence, usually reducing passes from two to one while avoiding uneven charring in 45 W treatments.
-    metadata:
-      topic: in laser surface treatment of
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 10
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/wood/hardwood/rosewood-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Wood
-  href: /materials/wood
-- label: Hardwood
-  href: /materials/wood/hardwood
-metaDescription: Rosewood surface, it shows dense hardwood characteristics at 1000x magnification. Before laser cleaning is
-  applied, contamination forms thick layers on the m...
-pageTitle: Rosewood
+pageDescription: >-
+  We've found Rosewood excels in laser cleaning, thanks to its dense structure and strong absorption compared to softer
+  woods. This lets us strip away grime from cultural artifacts or instruments efficiently while preserving the natural
+  oils that resist decay—just ensure controlled passes to avoid surface charring.

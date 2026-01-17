@@ -61,7 +61,7 @@ const mockGetSettingsArticle = getSettingsArticle as jest.MockedFunction<typeof 
 
 describe('ItemPage → Dataset Schema Integration', () => {
   const materialArticle = {
-    metadata: createMockMaterial({
+    frontmatter: createMockMaterial({
       name: 'Titanium',
       slug: 'titanium-laser-cleaning',
       category: 'metal',
@@ -109,7 +109,7 @@ describe('ItemPage → Dataset Schema Integration', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     // Create fresh copy of materialArticle to avoid mutation between tests
-    // ItemPage.tsx mutates article.metadata directly, so each test needs a clean copy
+    // ItemPage.tsx mutates article.frontmatter directly, so each test needs a clean copy
     const freshMaterial = JSON.parse(JSON.stringify(materialArticle));
     mockConfig.getArticle = jest.fn().mockResolvedValue(freshMaterial);
   });

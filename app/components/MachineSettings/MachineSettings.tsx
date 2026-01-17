@@ -1,6 +1,7 @@
 // app/components/MachineSettings/MachineSettings.tsx
 import React from 'react';
-import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
+import { BaseSection } from '../BaseSection/BaseSection';
+import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface MachineSettingsProps {
@@ -37,17 +38,18 @@ export function MachineSettings({ metadata, materialName, materialLink }: Machin
     : 'Machine Settings';
 
   return (
-    <PropertyGrid
-      metadata={metadata}
-      dataSource="machineSettings"
+    <BaseSection
       title={title}
-      icon={getSectionIcon('machine-settings')}
       description="Optimal laser parameters and operating ranges for effective cleaning"
-      actionText={materialLink ? "Material" : undefined}
-      actionUrl={materialLink}
-      columns={{ xs: 2, sm: 3, md: 4, lg: 5 }}
-      height={70}
-      className="mb-8"
-    />
+      icon={getSectionIcon('settings')}
+      spacing="loose"
+    >
+      <PropertyBars
+        metadata={metadata}
+        dataSource="machineSettings"
+        columns={{ xs: 2, sm: 3, md: 4, lg: 5 }}
+        height={70}
+      />
+    </BaseSection>
   );
 }

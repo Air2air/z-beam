@@ -28,10 +28,7 @@ import { ArticleMetadata, BreadcrumbItem } from '@/types';
 export function generateBreadcrumbs(
   metadata: Partial<ArticleMetadata> | null,
   _pathname: string
-): BreadcrumbItem[] {
-  // Default fallback: Home only
-  const defaultBreadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
-  
+): BreadcrumbItem[] | null {
   // Use explicit breadcrumb array from metadata
   const breadcrumbArray = metadata?.breadcrumb;
   
@@ -46,8 +43,8 @@ export function generateBreadcrumbs(
     }
   }
   
-  // Return default if no valid breadcrumbs found
-  return defaultBreadcrumbs;
+  // Return null to signal Breadcrumbs component to generate from URL
+  return null;
 }
 
 /**

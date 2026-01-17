@@ -10,7 +10,6 @@ import { PageTitle } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import MicroSkeleton from '../Micro/MicroSkeleton';
-import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Settings } from 'lucide-react';
@@ -50,12 +49,12 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       machineSettings: component.config.machineSettings || {} 
     };
     return (
-      <PropertyGrid
+      <PropertyBars
         key={type}
         metadata={metricsMetadata}
         dataSource="machineSettings"
-        title={component.config.title || 'Machine Settings'}
-        className={`mb-8 ${component.config.className || ''}`}
+        columns={{ xs: 2, sm: 3, md: 4, lg: 5 }}
+        height={70}
       />
     );
   }
@@ -71,12 +70,12 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       properties: properties
     };
     return (
-      <PropertyGrid
+      <PropertyBars
         key={type}
         metadata={propertiesMetadata}
         dataSource="materialProperties"
-        title={component.config.title || 'Material Properties'}
-        className={`mb-8 ${component.config.className || ''}`}
+        columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
+        height={70}
       />
     );
   }
@@ -98,7 +97,7 @@ export function Layout(props: LayoutProps) {
   
   // Common page setup
   const pathname = slug ? `/${slug}` : '/';
-  const breadcrumbData = generateBreadcrumbs(metadata || null, pathname);
+  const breadcrumbData = generateBreadcrumbs(metadata || null, pathname) || undefined;
   const isHomePage = !slug || pathname === '/';
   const showHero = hasHeroContent(metadata);
 
@@ -155,7 +154,6 @@ export function Layout(props: LayoutProps) {
                 ? `/materials/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-settings', '-laser-cleaning')}`
                 : undefined
               }
-              className="mb-8"
             >
               <PropertyBars 
                 metadata={metadata} 
@@ -206,11 +204,7 @@ export function Layout(props: LayoutProps) {
       )}
 
       {/* Children - additional sections or page content */}
-      {props.children && (
-        <div className={components ? "mt-8 space-y-8" : "space-y-6"}>
-          {props.children}
-        </div>
-      )}
+      {props.children}
       
       {/* Safety Warning - disabled temporarily */}
       {/* <SafetyWarning className="mt-12" /> */}

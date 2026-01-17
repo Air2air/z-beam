@@ -20,7 +20,7 @@ import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { getContentType } from '@/app/utils/relationshipHelpers';
 import { Title } from '../Title/Title';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { renderMarkdown } from '@/app/utils/markdown';
 
 // Unified item interface that handles all data sources - now imported from @/types
@@ -45,6 +45,7 @@ export function CardGrid({
   title,
   description,
   heading,
+  icon,
   columns = 3,
   gap = "md",
   mode = 'simple',
@@ -82,7 +83,7 @@ export function CardGrid({
         badge: (result as any).badge,
         tags: result.tags || [],
         category: result.category || 'Other',
-        metadata: result.metadata || {}
+        metadata: result.frontmatter || {}
       }));
     } else if (items.length > 0) {
       processed = items;
@@ -105,7 +106,7 @@ export function CardGrid({
     
     const groups = processedItems.reduce((acc, item) => {
       const category = item.category || 
-                      item.metadata?.category as string ||
+                      item.frontmatter?.category as string ||
                       item.tags?.[0] ||
                       'Other';
       
@@ -139,8 +140,8 @@ export function CardGrid({
     if (filterBy && filterBy !== 'all') {
       filtered = filtered.filter(item => 
         item.category?.toLowerCase() === filterBy.toLowerCase() ||
-        (item.metadata && getContentType(item.metadata)?.toLowerCase() === filterBy.toLowerCase()) ||
-        (typeof item.metadata?.category === 'string' && item.metadata.category.toLowerCase() === filterBy.toLowerCase())
+        (item.frontmatter && getContentType(item.frontmatter)?.toLowerCase() === filterBy.toLowerCase()) ||
+        (typeof item.frontmatter?.category === 'string' && item.frontmatter.category.toLowerCase() === filterBy.toLowerCase())
       );
     }
 
@@ -148,7 +149,7 @@ export function CardGrid({
     if (mode === 'category-grouped' && selectedCategory !== 'all') {
       filtered = filtered.filter(item => {
         const itemCategory = item.category || 
-                           item.metadata?.category as string ||
+                           item.frontmatter?.category as string ||
                            item.tags?.[0] ||
                            'Other';
         return itemCategory === selectedCategory;
@@ -204,13 +205,6 @@ export function CardGrid({
   if (mode === 'category-grouped') {
     const groupedContent = (
       <>
-        {/* Section Description */}
-        {description && (
-          <div className="mb-8 prose prose-orange max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: renderMarkdown(description) }} />
-          </div>
-        )}
-        
         {/* Search and Filter Controls */}
         {(showSearch || showCategoryFilter) && (
           <div className="mb-8 space-y-4">
@@ -382,7 +376,7 @@ export function CardGrid({
                             }
                           },
                           tags: item.tags || [],
-                          ...item.metadata
+                          ...item.frontmatter
                         } as ArticleMetadata}
                         href={item.href || `/${item.slug}`}
                         badge={showBadgeSymbols ? item.badge : undefined}
@@ -427,7 +421,7 @@ export function CardGrid({
                         }
                       },
                       tags: item.tags || [],
-                      ...item.metadata
+                      ...item.frontmatter
                     } as ArticleMetadata}
                     href={item.href || `/${item.slug}`}
                     badge={showBadgeSymbols ? item.badge : undefined}
@@ -456,27 +450,21 @@ export function CardGrid({
       </>
     );
 
-    // Always wrap in SectionContainer
+    // Always wrap in BaseSection
     return (
-      <SectionContainer 
-        title={displayTitle || ''}
+      <BaseSection 
+        title={displayTitle}
+        description={description}
         className={`article-grid article-grid--category-grouped ${className}`}
       >
         {groupedContent}
-      </SectionContainer>
+      </BaseSection>
     );
   }
 
   // Simple grid mode (default)
   const content = (
     <>
-      {/* Section Description */}
-      {description && (
-        <div className="mb-8 prose prose-orange max-w-none">
-          <div dangerouslySetInnerHTML={{ __html: renderMarkdown(description) }} />
-        </div>
-      )}
-      
       {/* Simple Grid */}
       <div className={getGridClasses({ columns, gap })}>
         {filteredItems.map((item, index) => (
@@ -494,7 +482,7 @@ export function CardGrid({
                 }
               },
               tags: item.tags || [],
-              ...item.metadata
+              ...item.frontmatter
             } as ArticleMetadata}
             href={item.href || `/${item.slug}`}
             badge={showBadgeSymbols ? item.badge : undefined}
@@ -506,13 +494,15 @@ export function CardGrid({
     </>
   );
 
-  // Always wrap in SectionContainer
+  // Always wrap in BaseSection
   return (
-    <SectionContainer 
-      title={title || heading || ''}
+    <BaseSection 
+      title={title || heading}
+      description={description}
+      icon={icon}
       className={`article-grid article-grid--simple ${className}`}
     >
       {content}
-    </SectionContainer>
+    </BaseSection>
   );
 }

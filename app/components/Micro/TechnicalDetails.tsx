@@ -13,12 +13,12 @@ interface TechnicalDetailsProps {
     frequency?: number;
     energy_density?: number;
   };
-  show: boolean;
+  isVisible: boolean;
   frontmatter?: FrontmatterType;
 }
 
-export function TechnicalDetails({ laserParams, show, frontmatter }: TechnicalDetailsProps) {
-  if (!show || !laserParams) return null;
+export function TechnicalDetails({ laserParams, isVisible, frontmatter }: TechnicalDetailsProps) {
+  if (!isVisible || !laserParams) return null;
 
   return (
     <div 

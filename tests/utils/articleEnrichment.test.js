@@ -38,7 +38,7 @@ describe('Article Enrichment Utils', () => {
       const article = {
         slug: 'test-article',
         title: 'Test Article',
-        metadata: {
+        frontmatter: {
           tags: ['Industrial', 'Precision'],
           keywords: ['manufacturing', 'automation'],
           category: 'electronics',
@@ -62,7 +62,7 @@ describe('Article Enrichment Utils', () => {
     test('should handle metadata author', () => {
       const article = {
         slug: 'test-article',
-        metadata: {
+        frontmatter: {
           author: 'Jane Doe',
           name: 'Custom Name'
         }
@@ -92,7 +92,7 @@ describe('Article Enrichment Utils', () => {
     test('should handle metadata fields', () => {
       const article = {
         slug: 'test-article',
-        metadata: {
+        frontmatter: {
           category: 'medical',
           subject: 'biocompatible',
           keywords: ['healthcare', 'surgical']
@@ -112,7 +112,7 @@ describe('Article Enrichment Utils', () => {
         slug: 'laser-cleaning',
         title: 'Laser Cleaning',
         author: 'Dr. Smith',
-        metadata: {
+        frontmatter: {
           tags: ['Laser', 'Cleaning'],
           author: 'Dr. Smith'
         }

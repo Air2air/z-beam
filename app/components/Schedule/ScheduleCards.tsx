@@ -11,7 +11,10 @@ import { GRID_GAP_RESPONSIVE, CARD_HEADER_CLASSES } from '@/app/config/site';
 
 export function ScheduleCards() {
   return (
-    <SectionContainer>
+    <SectionContainer
+      title="Get Started"
+      description="Schedule a service or reach out for more information"
+    >
       <div className={`grid grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
       {/* Schedule Service Card */}
       <Link

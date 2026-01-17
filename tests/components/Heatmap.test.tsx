@@ -3,10 +3,14 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-// Mock the SectionContainer to simplify testing
-jest.mock('@/app/components/SectionContainer/SectionContainer', () => ({
-  SectionContainer: ({ children, title }: { children: React.ReactNode; title: string }) => (
-    <div data-testid="section-container" aria-label={title}>{children}</div>
+// Mock the BaseSection to simplify testing
+jest.mock('@/app/components/BaseSection/BaseSection', () => ({
+  BaseSection: ({ children, title, description }: { children: React.ReactNode; title?: string; description?: string }) => (
+    <section role="region" aria-label={title || 'Section'}>
+      {title && <h2>{title}</h2>}
+      {description && <p>{description}</p>}
+      {children}
+    </section>
   ),
 }));
 
@@ -67,7 +71,7 @@ describe('Heatmap Component System', () => {
         />
       );
 
-      expect(screen.getByTestId('section-container')).toBeInTheDocument();
+      expect(screen.getByRole('region', { name: 'Test Heatmap' })).toBeInTheDocument();
       expect(screen.getByRole('grid')).toBeInTheDocument();
     });
 

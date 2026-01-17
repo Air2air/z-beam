@@ -12,6 +12,7 @@
 import Link from "next/link";
 import { resolveCardData, resolveEntityUrl } from "@/app/utils/entityLookup";
 import { SEVERITY_COLORS, type RelationshipItem, type CardVariant } from "@/types";
+import { Circle } from 'lucide-react';
 
 export interface RelationshipCardProps {
   item: RelationshipItem;        // NEW: ID-based relationship item
@@ -89,23 +90,10 @@ export function RelationshipCard({
         {/* Icon (optional) */}
         {cardData.icon && (
           <div className="mb-4 text-white/60">
-            {/* TODO: Integrate lucide icons dynamically */}
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-              className="opacity-60"
+            <Circle 
+              className="w-5 h-5 opacity-60"
               aria-hidden="true"
-            >
-              {/* Placeholder - replace with dynamic icon rendering */}
-              <circle cx="12" cy="12" r="10" />
-            </svg>
+            />
           </div>
         )}
         

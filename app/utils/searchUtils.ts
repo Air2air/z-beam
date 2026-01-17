@@ -59,13 +59,14 @@ export function normalizeTag(tag: string): string {
 export function getDisplayName(item: {
   name?: string;
   metadata?: { name?: string; title?: string };
+  frontmatter?: { name?: string; title?: string };
   title?: string;
   slug?: string;
 }): string {
   // Try to get the name from different sources in priority order
   if (item.name) return item.name;
-  if (item.metadata?.name) return item.metadata.name;
-  if (item.metadata?.title) return item.metadata.title;
+  if (item.frontmatter?.name) return item.frontmatter.name;
+  if (item.frontmatter?.title) return item.frontmatter.title;
   if (item.title) return item.title;
   
   // If no name or title, try to create one from the slug
@@ -84,13 +85,18 @@ export function getBadgeFromItem(item: {
     category?: string;
     commentMetadata?: { Subject?: string };
   };
+  frontmatter?: {
+    subject?: string;
+    category?: string;
+    commentMetadata?: { Subject?: string };
+  };
   category?: string;
 }): BadgeData | null {
   // If the item already has a badge, use it
   if (item.badge) return item.badge;
 
-  // Extract from metadata
-  const fm = item.metadata || {};
+  // Extract from frontmatter (new pattern) or metadata (legacy pattern)
+  const fm = item.frontmatter || item.metadata || {};
   
   // Look for subject in metadata
   const subject = normalizeString(fm.subject);
@@ -166,28 +172,40 @@ export function getChemicalProperties(item: {
     category?: string;
     subject?: string;
   };
+  frontmatter?: { 
+    chemicalProperties?: ChemicalProperties;
+    chemicalSymbol?: string;
+    chemicalFormula?: string;
+    formula?: string;
+    materialType?: MaterialType;
+    category?: string;
+    subject?: string;
+  };
 }): ChemicalProperties | null {
-  // First check if item.metadata already has chemical properties
-  if (item.metadata?.chemicalProperties) {
-    return item.metadata.chemicalProperties;
+  // Extract from frontmatter (new pattern) or metadata (legacy pattern)
+  const fm = item.frontmatter || item.metadata;
+  
+  // First check if fm already has chemical properties
+  if (fm?.chemicalProperties) {
+    return fm.chemicalProperties;
   }
   
-  // Otherwise try to extract from metadata
-  if (item.metadata) {
-    // Try to find chemical properties in metadata
-    if (item.metadata.chemicalProperties) {
-      return item.metadata.chemicalProperties;
+  // Otherwise try to extract from fm
+  if (fm) {
+    // Try to find chemical properties in fm
+    if (fm.chemicalProperties) {
+      return fm.chemicalProperties;
     }
     
     // Try to infer from subject if it's a known material (check this first before individual fields)
-    if (item.metadata.subject) {
-      const subject = normalizeString(item.metadata.subject);
+    if (fm.subject) {
+      const subject = normalizeString(fm.subject);
       
       if (subject === "alumina") {
         return {
           symbol: "Al",
           formula: "Al₂O₃",
-          materialType: item.metadata.materialType || toMaterialType(item.metadata.category) || "ceramic"
+          materialType: fm.materialType || toMaterialType(fm.category) || "ceramic"
         };
       }
       
@@ -195,19 +213,19 @@ export function getChemicalProperties(item: {
         return {
           symbol: "Si",
           formula: "Si₃N₄",
-          materialType: item.metadata.materialType || toMaterialType(item.metadata.category) || "ceramic"
+          materialType: fm.materialType || toMaterialType(fm.category) || "ceramic"
         };
       }
     }
     
-    // Look for individual chemical properties in metadata
-    if (item.metadata.chemicalSymbol || 
-        item.metadata.chemicalFormula || 
-        item.metadata.formula) {
+    // Look for individual chemical properties in fm
+    if (fm.chemicalSymbol || 
+        fm.chemicalFormula || 
+        fm.formula) {
       return {
-        symbol: item.metadata.chemicalSymbol,
-        formula: item.metadata.chemicalFormula || item.metadata.formula,
-        materialType: item.metadata.materialType || toMaterialType(item.metadata.category)
+        symbol: fm.chemicalSymbol,
+        formula: fm.chemicalFormula || fm.formula,
+        materialType: fm.materialType || toMaterialType(fm.category)
       };
     }
   }

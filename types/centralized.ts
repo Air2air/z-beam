@@ -17,6 +17,48 @@ import { ReactNode } from 'react';
 // UNIFIED CONTENT SYSTEM TYPES
 // ===============================
 
+// ===============================
+// RELATIONSHIP SECTION TYPES
+// ===============================
+
+/**
+ * Section metadata for relationship sections in frontmatter
+ * Used in _section objects within relationships
+ */
+export interface SectionMetadata {
+  relationshipType?: string;
+  group?: string;
+  domain?: string;
+  icon?: string;
+  order?: number;
+  variant?: string;
+  schemaDescription?: string;
+  notes?: string;
+}
+
+/**
+ * Section configuration for relationship sections
+ * Contains title, description, presentation details
+ */
+export interface RelationshipSectionConfig {
+  sectionTitle?: string;
+  sectionDescription?: string;
+  icon?: string;
+  order?: number;
+  variant?: string;
+  sectionMetadata?: SectionMetadata;
+}
+
+/**
+ * Complete relationship section structure
+ * Includes items array, presentation mode, and section metadata
+ */
+export interface RelationshipSection {
+  items?: any[];
+  presentation?: 'card' | 'list' | 'grid' | 'table';
+  _section?: RelationshipSectionConfig;
+}
+
 /**
  * Content type constants - single source of truth
  * Use these constants throughout the application instead of string literals
@@ -219,60 +261,38 @@ export interface ArticleMetadata {
   
   // Enhanced frontmatter fields
   chemicalProperties?: ChemicalProperties;
-  properties?: Record<string, PropertyWithUnits>;
+  // Properties can be either structured objects OR plain text descriptions (legacy Steel format)
+  properties?: Record<string, PropertyWithUnits | string>;
   
   // Standardized relationships structure (canonical paths)
   relationships?: {
     interactions?: {
-      contaminated_by?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
-      treated_for?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
-      removed_by?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
-      produces_compounds?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
-      affects_materials?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
+      contaminated_by?: RelationshipSection;
+      contaminatedBy?: RelationshipSection; // camelCase variant
+      treated_for?: RelationshipSection;
+      treatedFor?: RelationshipSection; // camelCase variant
+      removed_by?: RelationshipSection;
+      removedBy?: RelationshipSection; // camelCase variant
+      produces_compounds?: RelationshipSection;
+      producesCompounds?: RelationshipSection; // camelCase variant
+      affects_materials?: RelationshipSection;
+      affectsMaterials?: RelationshipSection; // camelCase variant
+    };
+    operational?: {
+      industryApplications?: RelationshipSection;
+      industry_applications?: RelationshipSection; // snake_case variant
     };
     technical?: {
-      contaminated_by?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
-      treated_for?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
-      removed_by?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
+      contaminated_by?: RelationshipSection;
+      contaminatedBy?: RelationshipSection; // camelCase variant
+      treated_for?: RelationshipSection;
+      treatedFor?: RelationshipSection; // camelCase variant
+      removed_by?: RelationshipSection;
+      removedBy?: RelationshipSection; // camelCase variant
     };
     safety?: {
-      regulatory_standards?: {
-        items?: any[];
-        presentation?: string;
-        _section?: any;
-      };
+      regulatory_standards?: RelationshipSection;
+      regulatoryStandards?: RelationshipSection; // camelCase variant
     };
     // Legacy fallback: direct relationship arrays (deprecated)
     contaminated_by?: any;
@@ -333,8 +353,8 @@ export interface ArticleMetadata {
   // Micro integration - frontmatter.micro support
   micro?: MicroDataStructure;
   
-  // FAQ support for material pages
-  faq?: Array<{question: string; answer: string}> | { questions?: Array<{question: string; answer: string}> };
+  // FAQ support for material pages - supports both structured array and string format (legacy Steel format: "Q: ... A: ...")
+  faq?: Array<{question: string; answer: string}> | { questions?: Array<{question: string; answer: string}> } | string;
   
   // Unified help system (FAQ and troubleshooting)
   help?: HelpSection[];
@@ -928,10 +948,10 @@ export interface ComponentData {
 }
 
 /**
- * Page data structure combining metadata and components
+ * Page data structure combining frontmatter and components
  */
 export interface PageData {
-  metadata: Record<string, unknown>;
+  frontmatter: Record<string, unknown>;
   components: { [componentType: string]: ComponentData };
 }
 
@@ -1137,6 +1157,7 @@ export interface CardGridProps {
   title?: string;
   description?: string;
   heading?: string;
+  icon?: string;
   columns?: GridColumns;
   gap?: GridGap;
   
@@ -1241,6 +1262,8 @@ export interface RelatedMaterialsProps {
   category: string;
   subcategory: string;
   maxItems?: number;
+  sectionTitle?: string;
+  sectionDescription?: string;
 }
 
 /**
@@ -2627,8 +2650,51 @@ export interface MaterialFiltersProps {
 }
 
 /**
+ * BaseSection component props
+ * Unified base component for all section types - consolidates patterns from:
+ * SectionContainer, GridSection, ContentSection, and LinkageSection
+ * 
+ * @property {string} [title] - Section heading text
+ * @property {string} [description] - Optional description below title (supports markdown)
+ * @property {ReactNode | string} [icon] - Icon element or Lucide icon name
+ * @property {ReactNode} [action] - Action button/element for right side of title
+ * @property {'default' | 'dark' | 'card' | 'minimal'} [variant] - Visual theme variant
+ * @property {'left' | 'center' | 'right'} [alignment] - Title alignment
+ * @property {'none' | 'tight' | 'normal' | 'loose'} [spacing] - Bottom margin spacing
+ * @property {string} [bgColor] - Background color preset
+ * @property {boolean} [horizPadding] - Apply horizontal padding
+ * @property {boolean} [radius] - Apply border radius
+ * @property {string} [className] - Additional CSS classes
+ * @property {string} [id] - Custom section ID (auto-generated from title if not provided)
+ * @property {ReactNode} children - Section content
+ */
+export interface BaseSectionProps {
+  title?: string;                   // Optional when using section object
+  description?: string;             // Optional when using section object  
+  icon?: ReactNode | string;
+  action?: ReactNode;
+  children: ReactNode;
+  variant?: 'default' | 'dark' | 'card' | 'minimal';
+  alignment?: 'left' | 'center' | 'right';
+  spacing?: 'none' | 'tight' | 'normal' | 'loose';
+  bgColor?: 'transparent' | 'default' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
+  horizPadding?: boolean;
+  radius?: boolean;
+  className?: string;
+  id?: string;
+  section?: {                       // 🔥 ULTIMATE SIMPLICITY: Pass entire _section object
+    sectionTitle: string;
+    sectionDescription: string;
+    icon?: string;
+    order?: number;
+    variant?: string;
+  };
+}
+
+/**
  * SectionContainer component props
  * Reusable container for sections with integrated title and styling
+ * @deprecated Consider using BaseSectionProps for new components
  */
 export interface SectionContainerProps {
   title?: string;
@@ -2636,7 +2702,7 @@ export interface SectionContainerProps {
   bgColor?: 'transparent' | 'default' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
   horizPadding?: boolean;
   radius?: boolean;
-  icon?: ReactNode;
+  icon?: ReactNode | string; // Support both ReactNode and Lucide icon name strings
   action?: ReactNode; // Optional action button/element on right side of title
   actionText?: string; // Legacy: Text for action button (deprecated, use action prop)
   actionUrl?: string; // Legacy: URL for action button (deprecated, use action prop)

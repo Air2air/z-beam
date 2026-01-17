@@ -1,15 +1,113 @@
 id: cerium-laser-cleaning
 name: Cerium
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Rare Earth
+    href: /materials/rare-earth
+  - label: Lanthanide
+    href: /materials/rare-earth/lanthanide
+  - label: Cerium
+    href: /materials/rare-earth/lanthanide/cerium
 displayName: Cerium Laser Cleaning
 category: rare-earth
 subcategory: lanthanide
-pageDescription: When laser cleaning cerium, watch out for its relative softness that can cause surface deformation, though
-  its strong reflectivity limits heat penetration and restores precision in optical components
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:41.042969+00:00'
+fullPath: /materials/rare-earth/lanthanide/cerium-laser-cleaning
+pageTitle: Cerium
+metaDescription: >-
+  Cerium's dense structure holds up well under laser cleaning, revealing sharp contrasts at 1000x magnification.
+  Contaminated surfaces typically show irregular...
+card:
+  default:
+    heading: Cerium
+    subtitle: rare-earth / lanthanide
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+    - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+    - IEC 60825 - Safety of Laser Products
+    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+images:
+  hero:
+    url: /images/material/cerium-laser-cleaning-hero.jpg
+    alt: Cerium surface undergoing laser cleaning showing precise contamination removal
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/cerium-laser-cleaning-micro.jpg
+    alt: Cerium microscopic view of laser cleaning showing detailed precise contamination removal
+    width: 800
+    height: 600
+components:
+  settingsDescription: >-
+    When laser cleaning cerium, you'll want to address its high reflectivity first, since this property scatters much of
+    the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make sure you start
+    with lower power settings to compensate, allowing the process to gradually expose and restore the underlying metal
+    without excessive scattering that could prolong treatment times. Cerium's low thermal conductivity further
+    complicates this, as localized heat buildup risks damaging the soft structure, so you must control pulse durations
+    carefully to prevent warping or uneven ablation. What sets cerium apart from common metals is its reactive nature as
+    a rare-earth element, which forms a tenacious oxide layer that clings tightly and demands multiple passes for
+    complete removal, while its moderate density aids in precise handling during setup. This combination improves
+    outcomes in applications like optical component cleaning or aerospace parts, where restoring surface integrity
+    matters most. Adjust scan speeds to overlap coverage adequately, ensuring the laser removes residues without
+    compromising the material's ductility. Finally, watch out for overexposure, as cerium's sensitivity to oxidation
+    post-cleaning can lead to rapid recontamination if not sealed promptly.
+  micro:
+    before: >-
+      The contaminated surface appears rough and uneven under magnification. Irregular deposits cover much of the metal,
+      hiding its natural features. Scattered debris clings tightly, creating a dull and patchy overall look.
+    after: >-
+      Laser treatment restores a smooth and uniform surface free of residues. The metal now shows clear grain patterns
+      without any clinging particles. A consistent shine emerges, revealing the underlying clean texture.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-      integrity
     density:
       value: 6.77
       unit: g/cm³
@@ -21,17 +119,17 @@ properties:
       confidence: 100
       source: ai_research
     youngsModulus:
-      value: 33.0
+      value: 33
       unit: GPa
       confidence: 95
       source: ai_research
     hardness:
-      value: 27.0
+      value: 27
       unit: HV
       confidence: 95
       source: ai_research
     boilingPoint:
-      value: 3716.0
+      value: 3716
       unit: K
       confidence: 100
       source: ai_research
@@ -40,17 +138,26 @@ properties:
       unit: dimensionless
       confidence: 95
       source: ai_research
-    percentage: 60.0
+    percentage: 60
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     absorptivity:
       source: ai_research
       unit: dimensionless
       value: 0.62
-    percentage: 40.0
+    percentage: 40
     thermalDestruction:
-      value: 1071.0
+      value: 1071
       unit: K
       confidence: 100
       source: ai_research
@@ -60,7 +167,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalExpansion:
-      value: 6.3e-06
+      value: 0.0000063
       unit: K^{-1}
       confidence: 95
       source: ai_research
@@ -80,7 +187,7 @@ properties:
       confidence: 95
       source: ai_research
     absorptionCoefficient:
-      value: 12500000.0
+      value: 12500000
       unit: m^{-1}
       confidence: 95
       source: ai_research
@@ -96,404 +203,331 @@ properties:
       researchedDate: '2025-11-24T11:54:31.255084'
       needsValidation: true
     thermalDiffusivity:
-      value: 8.67e-06
+      value: 0.00000867
       unit: m²/s
       source: scientific_literature
       sourceType: reference_handbook
       sourceName: CRC Handbook of Chemistry and Physics
-      citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis Group, 2023, ISBN 978-1-138-56163-2
+      citation: >-
+        CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis Group, 2023, ISBN
+        978-1-138-56163-2
       context: Pure elemental Cerium (99.99% purity), 25°C (298 K), calculated from standard properties
       confidence: 99
       researchedDate: '2025-11-24T11:54:52.106504'
       needsValidation: true
-micro:
-  before: Cerium's dense structure holds up well under laser cleaning, revealing sharp contrasts at 1000x magnification. Contaminated
-    surfaces typically show irregular oxide layers and particulate buildup that cling tightly to the metal's grainy texture,
-    creating jagged patterns like scattered rust flecks or embedded debris. These features disrupt the material's natural
-    luster, trapping dirt in microscopic crevices.
-  after: The laser process ramps up energy to vaporize contaminants without damaging the base layer. Clean surfaces emerge
-    smooth and reflective, with the lanthanide's inherent sheen restored across even topography. Unique visual cues include
-    faint ablation traces that fade quickly, leaving a uniform finish free of residues. In practice, this method clears away
-    oxidation patterns effectively, demonstrating cerium's resilience in industrial settings. Overall, the transformation
-    turns out crisp and reliable for maintaining surface integrity.
-images:
-  hero:
-    url: /images/material/cerium-laser-cleaning-hero.jpg
-    alt: Cerium surface undergoing laser cleaning showing precise contamination removal
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/cerium-laser-cleaning-micro.jpg
-    alt: Cerium microscopic view of laser cleaning showing detailed precise contamination removal
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: why-does-cerium-oxide-create-bright
+      title: Why does cerium oxide create bright white sparks during laser cleaning, and is this dangerous?
+      content: >-
+        Those bright white sparks arise from cerium's pyrophoric properties, where fine particles basically combust on
+        contact with oxygen once heated by your 1064 nm laser. This reaction is pretty hazardous, demanding strong fume
+        extraction and spark containment systems—especially given the low ablation threshold of just 1.2 J/cm².
+      metadata:
+        topic: cerium oxide create bright white
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: true
+        order: 1
+    - id: what-is-the-safest-laser-parameter
+      title: >-
+        What is the safest laser parameter (wavelength, power, pulse width) for cleaning cerium or cerium-coated
+        surfaces without damaging the substrate?
+      content: >-
+        For cerium's thermal sensitivity, stick with a 1064nm wavelength and fluence under 1.2 J/cm² to avoid melting.
+        Typically, nanosecond pulses near 10ns keep oxidation risks low below 150°C. Start testing at 50μm spot size
+        with 500mm/s scan speed, checking surface integrity after each pass.
+      metadata:
+        topic: the safest laser parameter (wavelength,
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 2
+    - id: how-do-you-effectively-remove-cerium
+      title: >-
+        How do you effectively remove cerium oxide slurry/polishing compound residues from optical surfaces with a laser
+        without leaving a hazy film?
+      content: >-
+        Typically, begin with a low fluence pass below 1.2 J/cm² to gently dislodge the bulk residue, then follow with
+        one at ~5.1 J/cm² to remove the tenacious film. Basically, this two-step approach prevents laser-induced hazing
+        by managing thermal input.
+      metadata:
+        topic: do you effectively remove cerium
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 3
+    - id: what-are-the-specific-health-risks
+      title: >-
+        What are the specific health risks from the fumes and nanoparticles generated when laser cleaning cerium, and
+        what type of filtration is required?
+      content: >-
+        When laser cleaning cerium, it basically produces highly toxic nanoparticles that demand HEPA/ULPA filtration
+        with spark arrestance, particularly due to its fairly low 1068K melting point. Operators typically require
+        fitted respirators, since the 50 µm spot size at 5.1 J/cm² generates respirable cerium oxide fumes.
+      metadata:
+        topic: the specific health rks from
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 4
+    - id: can-a-fiber-laser-safely-and
+      title: Can a fiber laser safely and effectively clean a cerium-infused thermal barrier coating from a turbine blade?
+      content: >-
+        With cerium's pretty low ablation threshold of 1.2 J/cm², a fiber laser at 1064 nm can basically selectively
+        remove the infused coating. Keeping fluence fairly below 5.1 J/cm² proves critical to avoid damaging the
+        underlying nickel superalloy substrate.
+      metadata:
+        topic: a fiber laser safely and
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 5
+    - id: why-is-cerium-sometimes-added-to
+      title: Why is cerium sometimes added to alloys or coatings specifically to make them *more difficult* to laser clean?
+      content: >-
+        Cerium typically forms a pretty stable CeO₂ layer with an ablation threshold around 1.2 J/cm². This tough oxide
+        remains highly reflective and resists thermal breakdown well, demanding higher laser fluence—often over 5
+        J/cm²—for effective removal versus other metals.
+      metadata:
+        topic: cerium sometimes added to alloys
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 6
+    - id: what-is-the-best-method-for
+      title: >-
+        What is the best method for laser cleaning cerium-contaminated tools or components from the glass polishing
+        industry?
+      content: >-
+        For cerium-contaminated tools, apply a 1064nm laser at 5.1 J/cm² fluence. This basically ablates the dried
+        slurry quite effectively, while fairly minimizing heat transfer to substrates like aluminum or plastics to avoid
+        surface damage.
+      metadata:
+        topic: the best method for laser
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 7
+    - id: does-laser-cleaning-alter-the-catalytic
+      title: Does laser cleaning alter the catalytic properties of a cerium oxide (CeO2) catalyst substrate?
+      content: >-
+        Yes, laser cleaning can fairly alter catalytic properties in a big way. That 5.1 J/cm² fluence typically reduces
+        CeO₂ to Ce₂O₃ while inducing surface roughening. Such phase and morphological shifts basically affect oxygen
+        vacancy concentration, which remains pretty critical for the material's catalytic activity.
+      metadata:
+        topic: laser cleaning alter the catalytic
+        severity: high
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 8
+    - id: how-do-you-prevent-the-redeposition
+      title: >-
+        How do you prevent the re-deposition of vaporized cerium onto adjacent clean areas during the laser cleaning
+        process?
+      content: >-
+        We basically deploy a nitrogen assist gas jet at 45° to actively sweep away the cerium vapor plume and prevent
+        re-deposition. That's pretty critical, considering cerium's high IR absorption and low 1.2 J/cm² ablation
+        threshold. Directing scans away from cleaned areas also helps cut down cross-contamination on adjacent surfaces.
+      metadata:
+        topic: do you prevent the re-deposition
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 9
+    - id: is-wet-laser-cleaning-or-dry
+      title: Is wet laser cleaning or dry laser cleaning more effective for removing thick layers of cerium oxide scale?
+      content: >-
+        Dry laser cleaning at 5.1 J/cm² proves superior for thick cerium oxide scale. Basically, the direct ablation
+        mechanism efficiently removes that tenacious oxide layer, while plasma confinement in wet methods can be fairly
+        less effective against such significant, hard (270 HV) deposits. This approach ensures complete scale removal
+        with excellent post-process cleanliness.
+      metadata:
+        topic: wet laser cleaning or dry
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: electronics-manufacturing
-        name: Electronics Manufacturing
-      - id: permanent-magnet-production
-        name: Permanent Magnet Production
-      - id: optical-component-cleaning
-        name: Optical Component Cleaning
-      - id: research-laboratory
-        name: Research Laboratory
-      - id: precision-manufacturing
-        name: Precision Manufacturing
-      - id: aerospace-components
-        name: Aerospace Components
+        - id: electronics-manufacturing
+          name: Electronics Manufacturing
+        - id: permanent-magnet-production
+          name: Permanent Magnet Production
+        - id: optical-component-cleaning
+          name: Optical Component Cleaning
+        - id: research-laboratory
+          name: Research Laboratory
+        - id: precision-manufacturing
+          name: Precision Manufacturing
+        - id: aerospace-components
+          name: Aerospace Components
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      - description: IEC 60825 - Safety of Laser Products
-        image: /images/logo/logo-org-iec.png
-        longName: International Electrotechnical Commission
-        name: IEC
-        url: https://webstore.iec.ch/publication/3587
-      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-        image: /images/logo/logo-org-osha.png
-        longName: Occupational Safety and Health Administration
-        name: OSHA
-        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: IEC 60825 - Safety of Laser Products
+          image: /images/logo/logo-org-iec.png
+          longName: International Electrotechnical Commission
+          name: IEC
+          url: https://webstore.iec.ch/publication/3587
+        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+          image: /images/logo/logo-org-osha.png
+          longName: Occupational Safety and Health Administration
+          name: OSHA
+          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-  countryDisplay: United States
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
-card:
-  default:
-    heading: Cerium
-    subtitle: rare-earth / lanthanide
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-13T03:48:11.879636+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - environmental_dust
-  - chemical_stains
+    - environmental_dust
+    - chemical_stains
   prohibited: []
   conditional: {}
-  _needs_review: true
-  _note: Category "rare-earth" not recognized - conservative defaults applied
-components:
-  settingsDescription: When laser cleaning cerium, you'll want to address its high reflectivity first, since this property
-    scatters much of the laser energy away from the surface and reduces overall efficiency in removing contaminants. Make
-    sure you start with lower power settings to compensate, allowing the process to gradually expose and restore the underlying
-    metal without excessive scattering that could prolong treatment times. Cerium's low thermal conductivity further complicates
-    this, as localized heat buildup risks damaging the soft structure, so you must control pulse durations carefully to prevent
-    warping or uneven ablation. What sets cerium apart from common metals is its reactive nature as a rare-earth element,
-    which forms a tenacious oxide layer that clings tightly and demands multiple passes for complete removal, while its moderate
-    density aids in precise handling during setup. This combination improves outcomes in applications like optical component
-    cleaning or aerospace parts, where restoring surface integrity matters most. Adjust scan speeds to overlap coverage adequately,
-    ensuring the laser removes residues without compromising the material's ductility. Finally, watch out for overexposure,
-    as cerium's sensitivity to oxidation post-cleaning can lead to rapid recontamination if not sealed promptly.
-  micro:
-    before: The contaminated surface appears rough and uneven under magnification. Irregular deposits cover much of the metal,
-      hiding its natural features. Scattered debris clings tightly, creating a dull and patchy overall look.
-    after: Laser treatment restores a smooth and uniform surface free of residues. The metal now shows clear grain patterns
-      without any clinging particles. A consistent shine emerges, revealing the underlying clean texture.
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - IEC 60825 - Safety of Laser Products
-  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-  isBasedOn:
-    name: IEC 60825 - Safety of Laser Products
-    url: https://webstore.iec.ch/publication/3587
-faq:
-  presentation: collapsible
-  items:
-  - id: why-does-cerium-oxide-create-bright
-    title: Why does cerium oxide create bright white sparks during laser cleaning, and is this dangerous?
-    content: Those bright white sparks arise from cerium's pyrophoric properties, where fine particles basically combust on
-      contact with oxygen once heated by your 1064 nm laser. This reaction is pretty hazardous, demanding strong fume extraction
-      and spark containment systems—especially given the low ablation threshold of just 1.2 J/cm².
-    metadata:
-      topic: cerium oxide create bright white
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  - id: what-is-the-safest-laser-parameter
-    title: What is the safest laser parameter (wavelength, power, pulse width) for cleaning cerium or cerium-coated surfaces
-      without damaging the substrate?
-    content: For cerium's thermal sensitivity, stick with a 1064nm wavelength and fluence under 1.2 J/cm² to avoid melting.
-      Typically, nanosecond pulses near 10ns keep oxidation risks low below 150°C. Start testing at 50μm spot size with 500mm/s
-      scan speed, checking surface integrity after each pass.
-    metadata:
-      topic: the safest laser parameter (wavelength,
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 2
-  - id: how-do-you-effectively-remove-cerium
-    title: How do you effectively remove cerium oxide slurry/polishing compound residues from optical surfaces with a laser
-      without leaving a hazy film?
-    content: Typically, begin with a low fluence pass below 1.2 J/cm² to gently dislodge the bulk residue, then follow with
-      one at ~5.1 J/cm² to remove the tenacious film. Basically, this two-step approach prevents laser-induced hazing by managing
-      thermal input.
-    metadata:
-      topic: do you effectively remove cerium
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 3
-  - id: what-are-the-specific-health-risks
-    title: What are the specific health risks from the fumes and nanoparticles generated when laser cleaning cerium, and what
-      type of filtration is required?
-    content: When laser cleaning cerium, it basically produces highly toxic nanoparticles that demand HEPA/ULPA filtration
-      with spark arrestance, particularly due to its fairly low 1068K melting point. Operators typically require fitted respirators,
-      since the 50 µm spot size at 5.1 J/cm² generates respirable cerium oxide fumes.
-    metadata:
-      topic: the specific health rks from
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 4
-  - id: can-a-fiber-laser-safely-and
-    title: Can a fiber laser safely and effectively clean a cerium-infused thermal barrier coating from a turbine blade?
-    content: With cerium's pretty low ablation threshold of 1.2 J/cm², a fiber laser at 1064 nm can basically selectively
-      remove the infused coating. Keeping fluence fairly below 5.1 J/cm² proves critical to avoid damaging the underlying
-      nickel superalloy substrate.
-    metadata:
-      topic: a fiber laser safely and
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 5
-  - id: why-is-cerium-sometimes-added-to
-    title: Why is cerium sometimes added to alloys or coatings specifically to make them *more difficult* to laser clean?
-    content: Cerium typically forms a pretty stable CeO₂ layer with an ablation threshold around 1.2 J/cm². This tough oxide
-      remains highly reflective and resists thermal breakdown well, demanding higher laser fluence—often over 5 J/cm²—for
-      effective removal versus other metals.
-    metadata:
-      topic: cerium sometimes added to alloys
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 6
-  - id: what-is-the-best-method-for
-    title: What is the best method for laser cleaning cerium-contaminated tools or components from the glass polishing industry?
-    content: For cerium-contaminated tools, apply a 1064nm laser at 5.1 J/cm² fluence. This basically ablates the dried slurry
-      quite effectively, while fairly minimizing heat transfer to substrates like aluminum or plastics to avoid surface damage.
-    metadata:
-      topic: the best method for laser
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 7
-  - id: does-laser-cleaning-alter-the-catalytic
-    title: Does laser cleaning alter the catalytic properties of a cerium oxide (CeO2) catalyst substrate?
-    content: Yes, laser cleaning can fairly alter catalytic properties in a big way. That 5.1 J/cm² fluence typically reduces
-      CeO₂ to Ce₂O₃ while inducing surface roughening. Such phase and morphological shifts basically affect oxygen vacancy
-      concentration, which remains pretty critical for the material's catalytic activity.
-    metadata:
-      topic: laser cleaning alter the catalytic
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 8
-  - id: how-do-you-prevent-the-redeposition
-    title: How do you prevent the re-deposition of vaporized cerium onto adjacent clean areas during the laser cleaning process?
-    content: We basically deploy a nitrogen assist gas jet at 45° to actively sweep away the cerium vapor plume and prevent
-      re-deposition. That's pretty critical, considering cerium's high IR absorption and low 1.2 J/cm² ablation threshold.
-      Directing scans away from cleaned areas also helps cut down cross-contamination on adjacent surfaces.
-    metadata:
-      topic: do you prevent the re-deposition
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 9
-  - id: is-wet-laser-cleaning-or-dry
-    title: Is wet laser cleaning or dry laser cleaning more effective for removing thick layers of cerium oxide scale?
-    content: Dry laser cleaning at 5.1 J/cm² proves superior for thick cerium oxide scale. Basically, the direct ablation
-      mechanism efficiently removes that tenacious oxide layer, while plasma confinement in wet methods can be fairly less
-      effective against such significant, hard (270 HV) deposits. This approach ensures complete scale removal with excellent
-      post-process cleanliness.
-    metadata:
-      topic: wet laser cleaning or dry
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 10
-  options:
-    autoOpenFirst: true
-    sortBy: severity
+  NeedsReview: true
+  Note: Category "rare-earth" not recognized - conservative defaults applied
+pageDescription: >-
+  When laser cleaning cerium, watch out for its relative softness that can cause surface deformation, though its strong
+  reflectivity limits heat penetration and restores precision in optical components
 industryTags:
-- Electronics Manufacturing
-- Permanent Magnet Production
-- Optical Component Cleaning
-- Research Laboratory
-- Precision Manufacturing
-- Aerospace Components
+  - Electronics Manufacturing
+  - Permanent Magnet Production
+  - Optical Component Cleaning
+  - Research Laboratory
+  - Precision Manufacturing
+  - Aerospace Components
 ranges:
   absorptionCoefficient:
     max: 0.9
@@ -508,7 +542,7 @@ ranges:
     min: 250
     unit: HV
   laserDamageThreshold:
-    max: 1.0
+    max: 1
     min: 0.6
     unit: J/cm²
   meltingPoint:
@@ -520,22 +554,6 @@ ranges:
     min: 10.8
     unit: W/(m·K)
   youngModulus:
-    max: 35.0
-    min: 32.0
+    max: 35
+    min: 32
     unit: GPa
-fullPath: /materials/rare-earth/lanthanide/cerium-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Rare Earth
-  href: /materials/rare-earth
-- label: Lanthanide
-  href: /materials/rare-earth/lanthanide
-metaDescription: Cerium's dense structure holds up well under laser cleaning, revealing sharp contrasts at 1000x magnification.
-  Contaminated surfaces typically show irregular...
-pageTitle: Cerium
-excerpt: When laser cleaning cerium, we typically set up the system to target surface contaminants precisely. This approach
-  removes oxides and residues without damaging the underlying rare-earth structure, and it preserves cerium's natural oxidation
-  resistance for better longevity in alloys. In practice, technicians apply it to clean catalytic components or precision.

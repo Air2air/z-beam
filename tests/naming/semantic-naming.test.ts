@@ -44,7 +44,7 @@ function readFile(filePath: string): string {
 
 describe('Semantic Naming Conventions', () => {
   describe('Metadata vs Frontmatter Terminology', () => {
-    test('production code should use .metadata not .frontmatter', () => {
+    test('production code should use .frontmatter not .metadata wrapper', () => {
       const files = findFiles('**/*.{ts,tsx}');
       const violations: Array<{file: string; line: number; code: string}> = [];
       
@@ -53,10 +53,10 @@ describe('Semantic Naming Conventions', () => {
         const lines = content.split('\n');
         
         lines.forEach((line, index) => {
-          // Check for .frontmatter. but allow in comments
-          if (/\.frontmatter\./.test(line) && 
-              !/\/\/.*\.frontmatter/.test(line) &&
-              !/\*.*\.frontmatter/.test(line)) {
+          // Check for deprecated .metadata. wrapper but allow in comments
+          if (/\.metadata\./.test(line) && 
+              !/\/\/.*\.metadata/.test(line) &&
+              !/\*.*\.metadata/.test(line)) {
             violations.push({
               file: path.relative(ROOT_DIR, file),
               line: index + 1,

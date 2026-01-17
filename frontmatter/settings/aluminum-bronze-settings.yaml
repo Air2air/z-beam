@@ -9,17 +9,16 @@ contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/alloy/aluminum-bronze-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Alloy
-  href: /settings/metal/alloy
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Metal
+    href: /settings/metal
+  - label: Alloy
+    href: /settings/metal/alloy
 pageTitle: Aluminum Bronze
-pageDescription: Before laser cleaning, Aluminum Bronze surfaces require careful parameter selection After cleaning, Aluminum
-  Bronze surfaces show restored appearance with controlled parameters
+pageDescription: Before laser cleaning, Aluminum Bronze surfaces require careful parameter selection After cleaning, Aluminum Bronze surfaces show restored appearance with controlled parameters
 metaDescription: Aluminum Bronze laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -41,23 +40,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-  - Laser Materials Processing
+    - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   personaFile: taiwan_persona.yaml
   formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
@@ -79,89 +78,73 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: settings
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: removesContaminants
+        group: interactions
+        domain: settings
+        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-      - id: aluminum-laser-cleaning
-        effectiveness: high
-      - id: bronze-laser-cleaning
-        effectiveness: high
+        - id: aluminum-laser-cleaning
+          effectiveness: high
+        - id: bronze-laser-cleaning
+          effectiveness: high
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: worksOnMaterials
+        group: interactions
+        domain: settings
+        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-      - - Requires careful power calibration to prevent material damage
-        - Monitor surface temperature during processing
-        - Verify cleaning effectiveness through inspection
+        - - Requires careful power calibration to prevent material damage
+          - Monitor surface temperature during processing
+          - Verify cleaning effectiveness through inspection
       _section:
-        icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
+        icon: alert-triangle
+        order: 41
+        variant: default
+        relationshipType: commonChallenges
+        group: operational
+        domain: settings
+        schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 machineSettings:
   wavelength:
     value: 1064
@@ -174,72 +157,53 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for precise industrial cleaning; smaller for fine details on Aluminum Bronze parts, larger
-      for broad surfaces. 200 μm recommended for uniform energy distribution and efficiency. Source: Equipment specs from
-      Coherent and Trumpf laser systems, optimized for alloy surface prep.'
+    description: 'Beam diameter for precise industrial cleaning; smaller for fine details on Aluminum Bronze parts, larger for broad surfaces. 200 μm recommended for uniform energy distribution and efficiency. Source: Equipment specs from Coherent and Trumpf laser systems, optimized for alloy surface prep.'
   energyDensity:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe contaminant ablation; Aluminum Bronze damage threshold ~8-12 J/cm² at 1064 nm due
-      to reflectivity (~40-60%). 1.5 J/cm² recommended for cleaning without substrate etching. Source: Ablation threshold
-      studies in Journal of Applied Physics (2017) and SPIE proceedings on metal cleaning.'
+    description: 'Fluence range for safe contaminant ablation; Aluminum Bronze damage threshold ~8-12 J/cm² at 1064 nm due to reflectivity (~40-60%). 1.5 J/cm² recommended for cleaning without substrate etching. Source: Ablation threshold studies in Journal of Applied Physics (2017) and SPIE proceedings on metal cleaning.'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 50
-    description: 'Nanosecond regime dominant for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs) reduce
-      HAZ but are less common for Aluminum Bronze due to high reflectivity. 50 ns recommended for minimal thermal effects
-      on conductive alloys. Source: Laser physics research in Applied Surface Science (2019) comparing pulse regimes for Cu-Al
-      alloys.'
+    description: 'Nanosecond regime dominant for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs) reduce HAZ but are less common for Aluminum Bronze due to high reflectivity. 50 ns recommended for minimal thermal effects on conductive alloys. Source: Laser physics research in Applied Surface Science (2019) comparing pulse regimes for Cu-Al alloys.'
   scanSpeed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective speeds for 1064 nm cleaning; lower for heavy contamination (e.g., oxide layers on Aluminum Bronze),
-      higher for light rust/oil. 1500 mm/s recommended for optimal contaminant removal without excessive heat buildup. Source:
-      Industry standards from Laserax manuals and Journal of Laser Applications (2020) case studies on bronze alloys.'
+    description: 'Effective speeds for 1064 nm cleaning; lower for heavy contamination (e.g., oxide layers on Aluminum Bronze), higher for light rust/oil. 1500 mm/s recommended for optimal contaminant removal without excessive heat buildup. Source: Industry standards from Laserax manuals and Journal of Laser Applications (2020) case studies on bronze alloys.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers like marine corrosion on Aluminum Bronze.
-      2 passes recommended for complete removal with minimal risk. Source: Industry practice in case studies from Surface
-      and Coatings Technology (2022) on bronze cleaning applications.'
+    description: 'Single pass for light contamination, multi-pass for heavy layers like marine corrosion on Aluminum Bronze. 2 passes recommended for complete removal with minimal risk. Source: Industry practice in case studies from Surface and Coatings Technology (2022) on bronze cleaning applications.'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or over-ablation; 60% typical for Aluminum Bronze to account for reflectivity
-      variations. Range adjusted for contamination thickness. Source: Process optimization studies in Optics & Laser Technology
-      (2020) on scan strategies for metals.'
+    description: 'Ensures uniform coverage without gaps or over-ablation; 60% typical for Aluminum Bronze to account for reflectivity variations. Range adjusted for contamination thickness. Source: Process optimization studies in Optics & Laser Technology (2020) on scan strategies for metals.'
   laserPower:
     value: 100
     unit: W
     description: Optimal average power for metal oxide removal
-    min: 1.0
+    min: 1
     max: 120
   laserPowerAlternative:
     min: 50
     max: 1000
     value: 200
     unit: W
-    description: 'Typical range for industrial cleaning of copper alloys like Aluminum Bronze to ablate contaminants without
-      melting; starting at 200W balances efficiency and safety. Max limited to avoid thermal damage given alloy''s ~1040°C
-      melting point. Source: IPG Photonics YLR series specs and studies in Optics and Lasers in Engineering (2018) on metal
-      surface cleaning.'
+    description: 'Typical range for industrial cleaning of copper alloys like Aluminum Bronze to ablate contaminants without melting; starting at 200W balances efficiency and safety. Max limited to avoid thermal damage given alloy''s ~1040°C melting point. Source: IPG Photonics YLR series specs and studies in Optics and Lasers in Engineering (2018) on metal surface cleaning.'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed fiber lasers in cleaning; higher rates speed up process but risk heat accumulation in
-      reflective Aluminum Bronze. 50 kHz balances speed and thermal management. Trade-off: >80 kHz may require cooling. Source:
-      Academic literature in Lasers in Manufacturing and Materials Processing (2021) on repetition rate effects.'
-componentSummary: The 200 W power at 1064 nm wavelength with 10 ns pulses enables precise contaminant removal from Aluminum
-  Bronze, minimizing thermal effects to preserve its corrosion-resistant alloy structure.
+    description: 'Typical for pulsed fiber lasers in cleaning; higher rates speed up process but risk heat accumulation in reflective Aluminum Bronze. 50 kHz balances speed and thermal management. Trade-off: >80 kHz may require cooling. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on repetition rate effects.'
+componentSummary: The 200 W power at 1064 nm wavelength with 10 ns pulses enables precise contaminant removal from Aluminum Bronze, minimizing thermal effects to preserve its corrosion-resistant alloy structure.

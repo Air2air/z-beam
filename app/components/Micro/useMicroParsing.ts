@@ -164,7 +164,7 @@ export function useMicroParsing(content: string | MicroData): ParsedMicroData {
       before: beforeText,
       after: afterText,
       laserParams: yamlData.laser_parameters,
-      metadata: yamlData.metadata,
+      frontmatter: yamlData.frontmatter,
       material: yamlData.material,
       isEnhanced: hasV2Features,
       qualityMetrics: yamlData.quality_metrics,

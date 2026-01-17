@@ -187,4 +187,273 @@ export const NETALUX_DATA = {
       ]
     }
   ]
-} ;
+};
+
+export const PARTNERS_DATA = {
+  "title": "Laser Cleaning Partners | North America & Europe",
+  "metaDescription": "Authorized laser cleaning partners: Laserverse (Canada), MacK Laser (California), Netalux (Belgium). Equipment sales, training & professional services.",
+  "description": "Z-Beam works with industry-leading partners across North America and Europe to deliver comprehensive laser cleaning solutions. Our network includes equipment manufacturers, service providers, and training specialists committed to excellence.",
+  "category": "company",
+  "subcategory": "partners",
+  "datePublished": "2024-01-15",
+  "dateModified": "2025-11-05",
+  "preservedData": {
+    "generationMetadata": {
+      "generated_date": "2025-11-23T04:15:02.000Z"
+    }
+  },
+  "keywords": [
+    "laser cleaning partners",
+    "Laserverse",
+    "MacK Laser Restoration",
+    "Netalux",
+    "authorized distributors"
+  ],
+  "slug": "partners",
+  "breadcrumb": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Partners",
+      "href": "/partners"
+    }
+  ],
+  "contentCards": [
+    {
+      "order": 1,
+      "heading": "Laserverse - Canada",
+      "text": "Laserverse is North America's premier provider of advanced laser cleaning equipment and training, offering innovative solutions that redefine surface preparation and restoration. Based in Canada, Laserverse specializes in the distribution of industry-leading Netalux laser systems: the portable Needle® for precision work in tight spaces, and the powerful Jango® for large-scale industrial applications. The Needle's lightweight, plug-and-play design (20-43 kg) makes it ideal for weld cleaning, intricate surfaces, and small parts—simply connect to standard power and start cleaning. The Jango delivers industrial-scale performance with its 7500W water-cooled system and 50-meter fiber reach, providing uniform coverage for tanks, extensive coatings, and high-volume operations. Both systems feature award-winning ergonomic design, integrated safety features, and air-cooled (Needle) or water-cooled (Jango) reliability. Complemented by supporting equipment from trusted brands like Univet, Husqvarna, 3M, and Kenetek, Laserverse delivers sustainable, eco-friendly cleaning that removes rust, paint, grease, and toxic contaminants without secondary waste—supporting a growing community of laser experts with rapid deployment and unparalleled precision.",
+      "image": {
+        "url": "/images/partners/partner-laserverse.png",
+        "alt": "Laserverse logo - North American laser cleaning equipment distributor"
+      },
+      "imagePosition": "right",
+      "details": [
+        "Location: Canada",
+        "Region: North America",
+        "Specialization: Equipment Distribution & Training",
+        "Website: laserverse.ca"
+      ]
+    },
+    {
+      "order": 2,
+      "heading": "MacK Laser Restoration - Southern California",
+      "text": "MacK Laser Restoration is Southern California's first and largest Laser Cleaning provider. MacK provides an extensive range of expert services, including rust and corrosion removal, paint and coating removal, NDT surface preparation, oil and grease removal, precision surface cleaning, industrial equipment and parts cleaning, weld cleaning and bonding treatment, injection mold cleaning, and smoke and soot damage removal. In the Los Angeles area and the rest of the southwest MacK is our recommended choice to get your job quickly and expertly.",
+      "image": {
+        "url": "/images/partners/partner-mack.png",
+        "alt": "MacK Laser Restoration logo - Professional laser cleaning services"
+      },
+      "imagePosition": "left",
+      "details": [
+        "Location: Southern California",
+        "Region: Southwest United States",
+        "Specialization: Professional Laser Cleaning Services",
+        "Website: macklaserrestoration.com"
+      ]
+    },
+    {
+      "order": 3,
+      "heading": "Netalux - Belgium",
+      "text": "Netalux delivers award-winning laser cleaning technology to industries worldwide from its headquarters in Beringen, Belgium. Founded in 2017 as the world's first dedicated laser cleaning contractor, Netalux brings unmatched field expertise to every machine they design and manufacture in-house. Their revolutionary lineup starts with the Needle®—a precision workhorse featuring Gaussian beam technology, lightweight portability (20-43 kg), and plug-and-play simplicity that makes it ideal for weld cleaning, small parts, and intricate surfaces. For large-scale operations, the Jango® delivers industrial power (7500W) with Top-Hat beam uniformity, water-cooled reliability, and extended 50-meter reach for cleaning tanks, extensive coatings, and high-volume applications. Both systems feature patented integrated safety lenses (a global first), ergonomic design, and intuitive controls that get operators productive immediately. The Kamino® rounds out the range for mid-scale applications. Every Netalux machine removes rust, paint, and toxic contaminants without damaging substrates or generating secondary waste—combining sustainability with performance. Beyond equipment, their Netalux Academy provides hands-on training, ensuring clients maximize efficiency from day one. From compact precision to industrial scale, Netalux makes laser cleaning accessible, safe, and remarkably effective.",
+      "image": {
+        "url": "/images/partners/partner-netalux.webp",
+        "alt": "Netalux logo - European laser cleaning equipment manufacturer"
+      },
+      "imagePosition": "right",
+      "details": [
+        "Location: Beringen, Belgium",
+        "Region: Europe",
+        "Specialization: Laser Cleaning Equipment Manufacturer",
+        "Equipment Specifications: /netalux",
+        "Website: netalux.com"
+      ]
+    }
+  ]
+};
+
+export const SERVICES_DATA = {
+  "title": "Laser Cleaning Services | Bay Area Mobile",
+  "metaDescription": "Precision laser cleaning: no chemicals, no abrasives, no substrate damage. Faster setup than sandblasting, zero hazardous waste. Bay Area mobile service.",
+  "description": "Z-Beam delivers professional laser cleaning services for industrial applications across the Bay Area. Our advanced technology and experienced technicians ensure superior results for your most demanding surface preparation projects.",
+  "category": "services",
+  "subcategory": "industrial",
+  "datePublished": "2024-01-15",
+  "dateModified": "2025-11-05",
+  "preservedData": {
+    "generationMetadata": {
+      "generated_date": "2025-11-23T04:15:02.000Z"
+    }
+  },
+  "video": {
+    "id": "t8fB3tJCfQw",
+    "title": "Professional Laser Cleaning Services - Z-Beam",
+    "description": "Watch our advanced laser cleaning technology remove rust, coatings, and contaminants without chemicals or abrasives.",
+    "duration": "PT2M30S"
+  },
+  "breadcrumb": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    }
+  ],
+  "keywords": [
+    "laser cleaning services",
+    "industrial cleaning",
+    "surface preparation",
+    "oxide removal",
+    "coating removal",
+    "professional cleaning",
+    "project workflow",
+    "industrial services",
+    "consultation"
+  ],
+  "slug": "services",
+  "contentCards": [
+    {
+      "order": 1,
+      "heading": "Consultation & Assessment",
+      "text": "We start by understanding your specific cleaning objectives, materials involved, types of contamination, and project requirements. Our technical team conducts a thorough assessment to ensure we deliver optimal results.",
+      "image": {
+        "url": "/images/pages/gelsight.jpg?v=2",
+        "alt": "Professional consultation and surface assessment"
+      },
+      "imagePosition": "right",
+      "details": [
+        "Material composition and substrate characteristics",
+        "Contamination types and severity",
+        "Surface preparation requirements",
+        "Production environment and constraints",
+        "Quality standards and specifications",
+        "Timeline and budget parameters"
+      ]
+    },
+    {
+      "order": 2,
+      "heading": "Expert Execution",
+      "text": "Our trained technicians use state-of-the-art Netalux laser cleaning equipment to execute your project with precision and efficiency. We provide continuous monitoring and quality checks throughout the process.",
+      "image": {
+        "url": "/images/pages/laser.jpg?v=2",
+        "alt": "Laser cleaning in action with precision equipment"
+      },
+      "imagePosition": "left",
+      "details": [
+        "Certified equipment operators",
+        "Real-time quality monitoring",
+        "Continuous process optimization",
+        "Safety compliance",
+        "Minimal downtime",
+        "Environmental responsibility"
+      ]
+    },
+    {
+      "order": 3,
+      "heading": "Completion & Reporting",
+      "text": "Upon project completion, we provide comprehensive documentation including before/after analysis, quality metrics, and detailed reporting. We ensure you have all the information needed for your records and quality assurance.",
+      "image": {
+        "url": "/images/pages/metrology.jpg?v=2",
+        "alt": "Surface metrology and quality documentation"
+      },
+      "imagePosition": "right",
+      "details": [
+        "Comprehensive project report",
+        "Before/after documentation",
+        "Quality metrics and analysis",
+        "Safety compliance documentation",
+        "Final invoice and warranty information",
+        "Follow-up support options"
+      ]
+    }
+  ]
+};
+
+export const RENTAL_DATA = {
+  "title": "Laser Cleaning Equipment Rental | Bay Area Service",
+  "metaDescription": "Professional laser cleaning equipment rental: Netalux Needle® portable systems. Daily/weekly rates. Training included. Bay Area coverage.",
+  "description": "Professional laser cleaning equipment rental service. Perfect for evaluating laser cleaning technology or handling specific projects without capital investment. Includes training and support.",
+  "category": "services", 
+  "subcategory": "rental",
+  "datePublished": "2024-01-15",
+  "dateModified": "2025-11-05",
+  "preservedData": {
+    "generationMetadata": {
+      "generated_date": "2025-11-23T04:15:02.000Z"
+    }
+  },
+  "keywords": [
+    "laser cleaning rental",
+    "equipment rental",
+    "short term laser cleaning",
+    "Bay Area laser rental",
+    "laser cleaning trial"
+  ],
+  "slug": "rental",
+  "breadcrumb": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Equipment Rental",
+      "href": "/rental"
+    }
+  ],
+  "contentCards": [
+    {
+      "order": 1,
+      "heading": "Try Before You Buy",
+      "text": "Experience laser cleaning technology firsthand with our rental program. Perfect for evaluating the technology for your specific applications before making an equipment purchase decision.",
+      "image": {
+        "url": "/images/pages/rental-tryout.jpg",
+        "alt": "Hands-on laser cleaning equipment evaluation"
+      },
+      "imagePosition": "right",
+      "details": [
+        "No long-term commitment required",
+        "Hands-on evaluation period", 
+        "Technical support included",
+        "Training and guidance provided",
+        "Flexible rental terms"
+      ]
+    },
+    {
+      "order": 2,
+      "heading": "Project-Specific Needs",
+      "text": "Need laser cleaning for a specific project? Our rental service provides access to professional-grade equipment without the capital investment. Ideal for one-time projects or periodic cleaning needs.",
+      "image": {
+        "url": "/images/pages/project-specific.jpg",
+        "alt": "Project-specific laser cleaning solutions"
+      },
+      "imagePosition": "left",
+      "details": [
+        "Short-term project support",
+        "Immediate equipment availability",
+        "Cost-effective solution",
+        "Professional-grade results",
+        "Comprehensive project support"
+      ]
+    },
+    {
+      "order": 3,
+      "heading": "Full Support & Training",
+      "text": "Every rental includes comprehensive training, technical support, and safety guidance. We ensure you get maximum value and safe operation from day one of your rental period.",
+      "image": {
+        "url": "/images/pages/training-support.jpg",
+        "alt": "Professional training and equipment support"
+      },
+      "imagePosition": "right",
+      "details": [
+        "On-site training available",
+        "Safety protocol education", 
+        "Technical support hotline",
+        "Equipment maintenance included",
+        "Application guidance provided"
+      ]
+    }
+  ]
+};

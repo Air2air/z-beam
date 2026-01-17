@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import type { RelationshipSection } from '@/types';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 
@@ -9,7 +9,7 @@ interface DescriptiveDataItem {
 
 interface DescriptiveDataPanelProps {
   items: DescriptiveDataItem[];
-  sectionMetadata?: RelationshipSection;
+  sectionMetadata: RelationshipSection;  // 🔥 REQUIRED - NO CONDITIONAL LOGIC
   className?: string;
 }
 
@@ -101,22 +101,16 @@ export function DescriptiveDataPanel({
     </div>
   );
 
-  // If section metadata provided, wrap in SectionContainer
-  if (sectionMetadata) {
-    return (
-      <SectionContainer
-        title={sectionMetadata.sectionTitle}
-        description={sectionMetadata.sectionDescription}
-        variant={sectionMetadata.variant as 'default' | 'dark' | undefined}
-        className="mb-8"
-      >
-        {content}
-      </SectionContainer>
-    );
-  }
-
-  // Return unwrapped content
-  return content;
+  // 🔥 ULTIMATE SIMPLICITY: Always use BaseSection with section object
+  return (
+    <BaseSection 
+      section={sectionMetadata}
+      variant={sectionMetadata.variant as 'default' | 'dark' | undefined}
+      className="mb-8"
+    >
+      {content}
+    </BaseSection>
+  );
 }
 
 export default DescriptiveDataPanel;

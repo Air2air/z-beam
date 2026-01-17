@@ -1,36 +1,112 @@
 id: pyrex-laser-cleaning
 name: Pyrex
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Glass
+    href: /materials/glass
+  - label: Soda Lime
+    href: /materials/glass/soda-lime
+  - label: Pyrex
+    href: /materials/glass/soda-lime/pyrex
 displayName: Pyrex Laser Cleaning
 category: glass
 subcategory: soda-lime
-pageDescription: When laser cleaning Pyrex, watch out for thermal shock right from the start—its low expansion under heat
-  sets it apart from ordinary glass, letting you ramp up the process safely without risking cracks and restoring labware efficiently
-  for repeated scientific use
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: amorphous crystal structure
-    source: ai_research
-    unit: crystal system
-    value: amorphous
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:45.034335+00:00'
+fullPath: /materials/glass/soda-lime/pyrex-laser-cleaning
+pageTitle: Pyrex
+metaDescription: >-
+  The contamination on Pyrex surfaces, it manifests as irregular clusters of particulates, which adhere tenaciously to
+  the glass matrix under high magnificatio...
+card:
+  default:
+    heading: Pyrex
+    subtitle: glass / soda-lime
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 2
+  name: Alessandro Moretti
+  country: Italy
+  countryDisplay: Italy
+  title: Ph.D.
+  sex: m
+  jobTitle: Materials Engineer
+  expertise:
+    - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+    - Ph.D. Materials Science, TU Milano, 2015
+    - 5+ years industrial ceramics experience
+    - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+    - https://scholar.google.com/citations?user=def456
+    - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+    - ANSI Z136.1 - Safe Use of Lasers
+  isBasedOn:
+    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+images:
+  hero:
+    url: /images/material/pyrex-laser-cleaning-hero.jpg
+    alt: Pyrex surface undergoing laser cleaning showing precise contamination removal
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/pyrex-laser-cleaning-micro.jpg
+    alt: Pyrex microscopic view of laser cleaning showing detailed precise contamination removal
+    width: 800
+    height: 600
+components:
+  settingsDescription: >-
+    When laser cleaning Pyrex, we've found that starting with lower power settings works best to gently remove
+    contaminants without risking cracks. This glass stands out for its excellent thermal shock resistance, which lets
+    you handle quick heat cycles that might shatter ordinary soda-lime types, so we often use pulsed lasers to control
+    the energy input precisely. But watch out midway through—its low thermal conductivity can trap heat in spots,
+    leading to uneven cleaning if you push the scan speed too high; dial it back and add passes instead. In our
+    experience, this brings back the surface clarity on lab equipment reliably while preserving its integrity for reuse.
+  micro:
+    before: |-
+      You see the Pyrex surface rough and dotted with dark specks of grime.  
+      Contaminants form thick, uneven layers that hide the underlying texture completely.  
+      Scattered debris clings tightly, creating a cluttered and dull appearance overall.
+    after: |-
+      After cleaning, the Pyrex surface appears smooth and free from any specks.  
+      No layers of contaminants remain to obscure the natural glass texture.  
+      The view shows a uniform, clear finish that gleams brightly throughout.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    percentage: 60.0
-    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-      integrity
+    percentage: 60
     electricalResistivity:
-      value: 1000000000000.0
+      value: 1000000000000
       unit: Ω·m
       confidence: 95
       source: ai_research
@@ -40,12 +116,12 @@ properties:
       confidence: 95
       source: ai_research
     youngsModulus:
-      value: 63.0
+      value: 63
       unit: GPa
       confidence: 100
       source: ai_research
     oxidationResistance:
-      value: 500.0
+      value: 500
       unit: °C
       confidence: 95
       source: ai_research
@@ -55,7 +131,7 @@ properties:
       confidence: 100
       source: ai_research
     hardness:
-      value: 530.0
+      value: 530
       unit: HV
       confidence: 95
       source: ai_research
@@ -65,17 +141,17 @@ properties:
       confidence: 95
       source: ai_research
     compressiveStrength:
-      value: 1000.0
+      value: 1000
       unit: MPa
       confidence: 95
       source: ai_research
     flexuralStrength:
-      value: 69.0
+      value: 69
       unit: MPa
       confidence: 98
       source: ai_research
     tensileStrength:
-      value: 70.0
+      value: 70
       unit: MPa
       confidence: 95
       source: ai_research
@@ -86,15 +162,25 @@ properties:
       sourceType: journal_article
       sourceName: Applied Physics Letters
       citation: 'G. J. Thomas et al., Applied Physics Letters, Vol. 92, Issue 10, 2008, DOI: 10.1063/1.2891005'
-      context: Corning Pyrex 7740 borosilicate glass (commercial purity), 1064 nm wavelength, 7 ns pulse duration, room temperature
-        (25°C), single-shot irradiation, normal incidence
+      context: >-
+        Corning Pyrex 7740 borosilicate glass (commercial purity), 1064 nm wavelength, 7 ns pulse duration, room
+        temperature (25°C), single-shot irradiation, normal incidence
       confidence: 95
       researchedDate: '2025-11-24T12:08:55.368175'
       needsValidation: true
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     absorptivity:
       value: 0.05
       unit: dimensionless
@@ -138,12 +224,12 @@ properties:
       max: 0.1
       source: ai_research
     thermalDestruction:
-      value: 821.0
+      value: 821
       unit: °C
       confidence: 100
       source: ai_research
     specificHeat:
-      value: 835.0
+      value: 835
       unit: J/kg·K
       confidence: 95
       source: ai_research
@@ -158,7 +244,7 @@ properties:
       confidence: 100
       source: ai_research
     thermalExpansion:
-      value: 3.3e-06
+      value: 0.0000033
       unit: K^{-1}
       confidence: 100
       source: ai_research
@@ -168,7 +254,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalDiffusivity:
-      value: 5.8e-07
+      value: 5.8e-7
       unit: m^2/s
       confidence: 95
       source: ai_research
@@ -177,386 +263,298 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-micro:
-  before: The contamination on Pyrex surfaces, it manifests as irregular clusters of particulates, which adhere tenaciously
-    to the glass matrix under high magnification. These deposits, they exhibit jagged edges and layered accumulations, influenced
-    from environmental exposure, that obscure the inherent smoothness of soda-lime structure. Pores and fissures, often filled
-    with debris, show patterns dependent from prolonged contact with pollutants, leading to a textured irregularity which
-    persists without intervention.
-  after: Laser cleaning yields a marked transformation, where the process removes these contaminants effectively. The cleaned
-    surface, it exhibits a uniform gloss and minimal residual marks, demonstrating the material's durable resilience. Subtle
-    etchings from the beam, which appear as faint traces, confirm restoration without underlying damage. It seems that adhesion
-    varies across regions, yet the laser ensures comprehensive clearance, restoring the glass's natural clarity. This outcome,
-    it highlights Pyrex's suitability for precision applications, where cleanliness proves essential.
-images:
-  hero:
-    url: /images/material/pyrex-laser-cleaning-hero.jpg
-    alt: Pyrex surface undergoing laser cleaning showing precise contamination removal
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/pyrex-laser-cleaning-micro.jpg
-    alt: Pyrex microscopic view of laser cleaning showing detailed precise contamination removal
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: what-are-the-optimal-laser-parameters
+      title: >-
+        What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning contaminants from Pyrex
+        without damaging the surface?
+      content: >-
+        For cleaning Pyrex, opt for a notable 1064 nm wavelength at ~25 W average power with 100 ns pulses. It's
+        essential to limit fluence below 2.5 J/cm², enabling selective removal of organics and particulates while
+        avoiding substrate micro-cracking—given this wavelength's poor absorption in pristine glass. A 50 μm spot
+        scanned at 500 mm/s yields distinct, effective, non-damaging results.
+      metadata:
+        topic: the optimal laser parameters (wavelength,
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: true
+        order: 1
+    - id: can-laser-cleaning-create-microfractures-or
+      title: Can laser cleaning create micro-fractures or induce thermal stress in Pyrex, and how can this be prevented?
+      content: >-
+        Indeed, Pyrex's low thermal expansion notably heightens its vulnerability to microfractures from excessive
+        fluence. We counter this using nanosecond pulses at 2.5 J/cm² with a 50 μm spot size. Essential aids like a
+        defocused beam or thin water film manage thermal stress, preserving your precision components' integrity.
+      metadata:
+        topic: laser cleaning create micro-fractures or
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 2
+    - id: is-it-safe-to-use-a
+      title: Is it safe to use a laser to remove labels, adhesives, or paint from Pyrex laboratory glassware?
+      content: >-
+        A well-configured laser cleaning setup at 1064 nm wavelength and 2.5 J/cm² fluence safely strips labels from
+        Pyrex. Notably, this vaporizes adhesives without chemical residue, while preserving the material's essential
+        optical clarity and structural integrity for lab use.
+      metadata:
+        topic: it safe to use a
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 3
+    - id: how-does-laser-cleaning-affect-the
+      title: How does laser cleaning affect the optical properties and surface roughness of Pyrex?
+      content: >-
+        With laser cleaning calibrated precisely to 2.5 J/cm² fluence, Pyrex preserves its notable optical clarity. This
+        essential method prevents surface hazing, curbs roughness shifts, and delivers high transmission alongside
+        minimal light scattering for rigorous optical uses.
+      metadata:
+        topic: laser cleaning affect the optical
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 4
+    - id: what-are-the-primary-safety-hazards
+      title: What are the primary safety hazards when laser cleaning Pyrex, and what PPE is required?
+      content: >-
+        Thermal shock, notably from exceeding 2.5 J/cm², can shatter Pyrex. For the 1064 nm wavelength, IR-specific
+        laser safety eyewear is essential. Hazardous glass and coating particulates demand a properly fitted respirator
+        to prevent inhalation.
+      metadata:
+        topic: the primary safety hazards laser
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 5
+    - id: can-laser-cleaning-be-used-to
+      title: Can laser cleaning be used to prepare a Pyrex surface for high-vacuum or thin-film deposition applications?
+      content: >-
+        Indeed, laser cleaning is essential for preparing Pyrex effectively in high-vacuum applications. A 1064 nm
+        wavelength at ~2.5 J/cm² notably removes contaminants and activates the surface without subsurface damage,
+        surpassing solvent methods for superior thin-film adhesion.
+      metadata:
+        topic: laser cleaning be used to
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 6
+    - id: why-is-a-pulsed-fiber-laser
+      title: Why is a pulsed fiber laser often recommended for cleaning Pyrex over a continuous-wave (CW) laser?
+      content: >-
+        Operating typically at a 1064 nm wavelength, pulsed fiber lasers deliver nanosecond pulses for precise thermal
+        control. This method is essential to avoid heat diffusion into the Pyrex bulk, distinct in its vulnerability to
+        thermal shock owing to low thermal conductivity under continuous-wave exposure.
+      metadata:
+        topic: a pulsed fiber laser often
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 7
+    - id: what-is-the-best-method-to
+      title: What is the best method to verify the effectiveness and safety of laser cleaning on Pyrex?
+      content: >-
+        Begin by examining under 50× magnification to spot micro-cracks. For optics' critical flatness, it's essential
+        to apply white-light interferometry, confirming surface roughness stays below 10 nm Ra. Lastly, perform a helium
+        leak test to verify vacuum system integrity, ensuring the 2.5 J/cm² fluence left no notable compromise.
+      metadata:
+        topic: the best method to verify
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 8
+    - id: how-do-you-clean-deeply-embedded
+      title: How do you clean deeply embedded metallic stains or diffusion layers from Pyrex with a laser?
+      content: >-
+        To address deeply embedded metallic stains in Pyrex, a multi-step approach proves essential. We begin with a
+        1064 nm wavelength at 2.5 J/cm² fluence for distinct selective vaporization of the surface contaminant. A
+        gentler follow-up pass then eliminates any residual diffusion layer, staying below the ablation threshold of the
+        Pyrex substrate.
+      metadata:
+        topic: do you clean deeply embedded
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Alessandro Moretti
+          title: Ph.D.
+          expertise:
+            - Laser-Based Additive Manufacturing
+      Display:
+        Open: false
+        order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: laboratory-and-scientific-equipment
-        name: Laboratory And Scientific Equipment
-      - id: pharmaceutical-manufacturing
-        name: Pharmaceutical Manufacturing
-      - id: aerospace-and-defense
-        name: Aerospace And Defense
-      - id: electronics-and-semiconductor
-        name: Electronics And Semiconductor
-      - id: food-and-beverage-processing
-        name: Food And Beverage Processing
-      - id: cultural-heritage-and-museums
-        name: Cultural Heritage And Museums
-      - id: medical-device-manufacturing
-        name: Medical Device Manufacturing
-      - id: energy-and-power-generation
-        name: Energy And Power Generation
-      - id: automotive-manufacturing
-        name: Automotive Manufacturing
-      - id: chemical-processing
-        name: Chemical Processing
+        - id: laboratory-and-scientific-equipment
+          name: Laboratory And Scientific Equipment
+        - id: pharmaceutical-manufacturing
+          name: Pharmaceutical Manufacturing
+        - id: aerospace-and-defense
+          name: Aerospace And Defense
+        - id: electronics-and-semiconductor
+          name: Electronics And Semiconductor
+        - id: food-and-beverage-processing
+          name: Food And Beverage Processing
+        - id: cultural-heritage-and-museums
+          name: Cultural Heritage And Museums
+        - id: medical-device-manufacturing
+          name: Medical Device Manufacturing
+        - id: energy-and-power-generation
+          name: Energy And Power Generation
+        - id: automotive-manufacturing
+          name: Automotive Manufacturing
+        - id: chemical-processing
+          name: Chemical Processing
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      - description: IEC 60825 - Safety of Laser Products
-        image: /images/logo/logo-org-iec.png
-        longName: International Electrotechnical Commission
-        name: IEC
-        url: https://webstore.iec.ch/publication/3587
-      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-        image: /images/logo/logo-org-osha.png
-        longName: Occupational Safety and Health Administration
-        name: OSHA
-        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: IEC 60825 - Safety of Laser Products
+          image: /images/logo/logo-org-iec.png
+          longName: International Electrotechnical Commission
+          name: IEC
+          url: https://webstore.iec.ch/publication/3587
+        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+          image: /images/logo/logo-org-osha.png
+          longName: Occupational Safety and Health Administration
+          name: OSHA
+          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
-author:
-  id: 2
-  name: Alessandro Moretti
-  country: Italy
-  countryDisplay: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
-  slug: alessandro-moretti
-card:
-  default:
-    heading: Pyrex
-    subtitle: glass / soda-lime
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-10T04:11:34.994033+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - environmental_dust
-  - scale_buildup
-  - chemical_stains
-  - paint_residue
+    - environmental_dust
+    - scale_buildup
+    - chemical_stains
+    - paint_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
-  - uv_chalking
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
+    - uv_chalking
   conditional: {}
-components:
-  settingsDescription: When laser cleaning Pyrex, we've found that starting with lower power settings works best to gently
-    remove contaminants without risking cracks. This glass stands out for its excellent thermal shock resistance, which lets
-    you handle quick heat cycles that might shatter ordinary soda-lime types, so we often use pulsed lasers to control the
-    energy input precisely. But watch out midway through—its low thermal conductivity can trap heat in spots, leading to uneven
-    cleaning if you push the scan speed too high; dial it back and add passes instead. In our experience, this brings back
-    the surface clarity on lab equipment reliably while preserving its integrity for reuse.
-  micro:
-    before: "You see the Pyrex surface rough and dotted with dark specks of grime.  \nContaminants form thick, uneven layers\
-      \ that hide the underlying texture completely.  \nScattered debris clings tightly, creating a cluttered and dull appearance\
-      \ overall."
-    after: "After cleaning, the Pyrex surface appears smooth and free from any specks.  \nNo layers of contaminants remain\
-      \ to obscure the natural glass texture.  \nThe view shows a uniform, clear finish that gleams brightly throughout."
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - ANSI Z136.1 - Safe Use of Lasers
-  isBasedOn:
-    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-faq:
-  presentation: collapsible
-  items:
-  - id: what-are-the-optimal-laser-parameters
-    title: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning contaminants from Pyrex
-      without damaging the surface?
-    content: For cleaning Pyrex, opt for a notable 1064 nm wavelength at ~25 W average power with 100 ns pulses. It's essential
-      to limit fluence below 2.5 J/cm², enabling selective removal of organics and particulates while avoiding substrate micro-cracking—given
-      this wavelength's poor absorption in pristine glass. A 50 μm spot scanned at 500 mm/s yields distinct, effective, non-damaging
-      results.
-    metadata:
-      topic: the optimal laser parameters (wavelength,
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: true
-      order: 1
-  - id: can-laser-cleaning-create-microfractures-or
-    title: Can laser cleaning create micro-fractures or induce thermal stress in Pyrex, and how can this be prevented?
-    content: Indeed, Pyrex's low thermal expansion notably heightens its vulnerability to microfractures from excessive fluence.
-      We counter this using nanosecond pulses at 2.5 J/cm² with a 50 μm spot size. Essential aids like a defocused beam or
-      thin water film manage thermal stress, preserving your precision components' integrity.
-    metadata:
-      topic: laser cleaning create micro-fractures or
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 2
-  - id: is-it-safe-to-use-a
-    title: Is it safe to use a laser to remove labels, adhesives, or paint from Pyrex laboratory glassware?
-    content: A well-configured laser cleaning setup at 1064 nm wavelength and 2.5 J/cm² fluence safely strips labels from
-      Pyrex. Notably, this vaporizes adhesives without chemical residue, while preserving the material's essential optical
-      clarity and structural integrity for lab use.
-    metadata:
-      topic: it safe to use a
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 3
-  - id: how-does-laser-cleaning-affect-the
-    title: How does laser cleaning affect the optical properties and surface roughness of Pyrex?
-    content: With laser cleaning calibrated precisely to 2.5 J/cm² fluence, Pyrex preserves its notable optical clarity. This
-      essential method prevents surface hazing, curbs roughness shifts, and delivers high transmission alongside minimal light
-      scattering for rigorous optical uses.
-    metadata:
-      topic: laser cleaning affect the optical
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 4
-  - id: what-are-the-primary-safety-hazards
-    title: What are the primary safety hazards when laser cleaning Pyrex, and what PPE is required?
-    content: Thermal shock, notably from exceeding 2.5 J/cm², can shatter Pyrex. For the 1064 nm wavelength, IR-specific laser
-      safety eyewear is essential. Hazardous glass and coating particulates demand a properly fitted respirator to prevent
-      inhalation.
-    metadata:
-      topic: the primary safety hazards laser
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 5
-  - id: can-laser-cleaning-be-used-to
-    title: Can laser cleaning be used to prepare a Pyrex surface for high-vacuum or thin-film deposition applications?
-    content: Indeed, laser cleaning is essential for preparing Pyrex effectively in high-vacuum applications. A 1064 nm wavelength
-      at ~2.5 J/cm² notably removes contaminants and activates the surface without subsurface damage, surpassing solvent methods
-      for superior thin-film adhesion.
-    metadata:
-      topic: laser cleaning be used to
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 6
-  - id: why-is-a-pulsed-fiber-laser
-    title: Why is a pulsed fiber laser often recommended for cleaning Pyrex over a continuous-wave (CW) laser?
-    content: Operating typically at a 1064 nm wavelength, pulsed fiber lasers deliver nanosecond pulses for precise thermal
-      control. This method is essential to avoid heat diffusion into the Pyrex bulk, distinct in its vulnerability to thermal
-      shock owing to low thermal conductivity under continuous-wave exposure.
-    metadata:
-      topic: a pulsed fiber laser often
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 7
-  - id: what-is-the-best-method-to
-    title: What is the best method to verify the effectiveness and safety of laser cleaning on Pyrex?
-    content: Begin by examining under 50× magnification to spot micro-cracks. For optics' critical flatness, it's essential
-      to apply white-light interferometry, confirming surface roughness stays below 10 nm Ra. Lastly, perform a helium leak
-      test to verify vacuum system integrity, ensuring the 2.5 J/cm² fluence left no notable compromise.
-    metadata:
-      topic: the best method to verify
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 8
-  - id: how-do-you-clean-deeply-embedded
-    title: How do you clean deeply embedded metallic stains or diffusion layers from Pyrex with a laser?
-    content: To address deeply embedded metallic stains in Pyrex, a multi-step approach proves essential. We begin with a
-      1064 nm wavelength at 2.5 J/cm² fluence for distinct selective vaporization of the surface contaminant. A gentler follow-up
-      pass then eliminates any residual diffusion layer, staying below the ablation threshold of the Pyrex substrate.
-    metadata:
-      topic: do you clean deeply embedded
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: false
-      order: 9
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/glass/soda-lime/pyrex-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Glass
-  href: /materials/glass
-- label: Soda Lime
-  href: /materials/glass/soda-lime
-metaDescription: The contamination on Pyrex surfaces, it manifests as irregular clusters of particulates, which adhere tenaciously
-  to the glass matrix under high magnificatio...
-pageTitle: Pyrex
+pageDescription: >-
+  When laser cleaning Pyrex, watch out for thermal shock right from the start—its low expansion under heat sets it apart
+  from ordinary glass, letting you ramp up the process safely without risking cracks and restoring labware efficiently
+  for repeated scientific use

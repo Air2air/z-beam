@@ -9,22 +9,16 @@ contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/mdf-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Wood
-  href: /settings/wood
-- label: Hardwood
-  href: /settings/wood/hardwood
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Wood
+    href: /settings/wood
+  - label: Hardwood
+    href: /settings/wood/hardwood
 pageTitle: MDF
-pageDescription: When laser cleaning MDF, the biggest hurdle is its porous structure. It soaks up heat unevenly. This leads
-  to quick charring if you're not careful. I've seen surfaces bubble and delaminate from that buildup. Start low on power
-  to let the laser gently lift dirt without penetrating deep. Its fibrous makeup differs from solid woods—more uniform but
-  fragile under stress. That means you adjust scans slower for even coverage. Tends to absorb contaminants well, restoring
-  finishes nicely in furniture or panels. But watch the edges; they fray easily. Keep passes light and overlapped just enough.
-  In my experience, this brings back that smooth look without warping. Finally, avoid high energy bursts—they scorch the core
-  and ruin the board.
+pageDescription: When laser cleaning MDF, the biggest hurdle is its porous structure. It soaks up heat unevenly. This leads to quick charring if you're not careful. I've seen surfaces bubble and delaminate from that buildup. Start low on power to let the laser gently lift dirt without penetrating deep. Its fibrous makeup differs from solid woods—more uniform but fragile under stress. That means you adjust scans slower for even coverage. Tends to absorb contaminants well, restoring finishes nicely in furniture or panels. But watch the edges; they fray easily. Keep passes light and overlapped just enough. In my experience, this brings back that smooth look without warping. Finally, avoid high energy bursts—they scorch the core and ruin the board.
 metaDescription: MDF laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -46,7 +40,7 @@ author:
   sex: m
   jobTitle: Materials Engineer
   expertise:
-  - Laser-Based Additive Manufacturing
+    - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
@@ -54,16 +48,16 @@ author:
     name: University of Bologna
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+    - Ph.D. Materials Science, TU Milano, 2015
+    - 5+ years industrial ceramics experience
+    - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
   imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
+    - https://scholar.google.com/citations?user=def456
+    - https://linkedin.com/in/alessandro-moretti-engineer
   personaFile: italy_persona.yaml
   formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
@@ -85,96 +79,80 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: settings
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: removesContaminants
+        group: interactions
+        domain: settings
+        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: worksOnMaterials
+        group: interactions
+        domain: settings
+        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-      - thermalManagement:
-        - id: charring-carbonization
-          type: challenge
-        - id: slow-thermal-diffusivity
-          type: challenge
-        contaminationChallenges:
-        - id: varnish-coating-removal
-          type: challenge
+        - thermalManagement:
+            - id: charring-carbonization
+              type: challenge
+            - id: slow-thermal-diffusivity
+              type: challenge
+          contaminationChallenges:
+            - id: varnish-coating-removal
+              type: challenge
       _section:
-        icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
+        icon: alert-triangle
+        order: 41
+        variant: default
+        relationshipType: commonChallenges
+        group: operational
+        domain: settings
+        schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength for optimal MDF absorption and minimal substrate damage
@@ -187,9 +165,7 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter for precise industrial cleaning; 200 μm recommended for MDF to balance resolution on fibrous
-      surface and large-area coverage, avoiding excessive heat concentration. Finer for details (<150 μm), larger for broad
-      prep (300-500 μm). Source: Equipment specs from Coherent and Trumpf lasers.'
+    description: 'Beam diameter for precise industrial cleaning; 200 μm recommended for MDF to balance resolution on fibrous surface and large-area coverage, avoiding excessive heat concentration. Finer for details (<150 μm), larger for broad prep (300-500 μm). Source: Equipment specs from Coherent and Trumpf lasers.'
   fluenceThreshold:
     description: Energy density threshold for MDF surface ablation
     unit: J/cm²
@@ -201,32 +177,25 @@ machineSettings:
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for MDF cleaning due to cost-effectiveness; picosecond (ps) or femtosecond reduces
-      HAZ but unnecessary for most industrial apps. 20 ns minimizes thermal effects on low-conductivity MDF. Source: Laser
-      physics reviews in Appl. Phys. A (2019) on pulsed laser cleaning of organics.'
+    description: 'Nanosecond regime preferred for MDF cleaning due to cost-effectiveness; picosecond (ps) or femtosecond reduces HAZ but unnecessary for most industrial apps. 20 ns minimizes thermal effects on low-conductivity MDF. Source: Laser physics reviews in Appl. Phys. A (2019) on pulsed laser cleaning of organics.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal on MDF; slower for heavy contamination (500-1000 mm/s) to ensure
-      ablation, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and heat control. Source: Industry
-      manuals from CleanLaser and process optimization in Opt. Lasers Eng. (2020).'
+    description: 'Effective speeds for contamination removal on MDF; slower for heavy contamination (500-1000 mm/s) to ensure ablation, faster (2000-3000 mm/s) for light. Recommended 1500 mm/s balances efficiency and heat control. Source: Industry manuals from CleanLaser and process optimization in Opt. Lasers Eng. (2020).'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete MDF surface
-      prep without overexposure. Source: Industry case studies in laser cleaning of wood composites (e.g., Proc. SPIE 2022).'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete MDF surface prep without overexposure. Source: Industry case studies in laser cleaning of wood composites (e.g., Proc. SPIE 2022).'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage on irregular MDF surfaces; 60% recommended for optimal cleaning without gaps or
-      over-ablation, typical range 30-80% based on scan patterns. Source: Process optimization in J. Mater. Process. Technol.
-      (2019).'
+    description: 'Ensures uniform coverage on irregular MDF surfaces; 60% recommended for optimal cleaning without gaps or over-ablation, typical range 30-80% based on scan patterns. Source: Process optimization in J. Mater. Process. Technol. (2019).'
   dwellTime:
     description: Beam dwell time per spot for effective material removal
     unit: μs
@@ -235,33 +204,26 @@ machineSettings:
     max: 200
   energyDensity:
     min: 0.1
-    max: 20.0
+    max: 20
     unit: J/cm²
     value: 2
-    description: 'Fluence range for safe removal of contaminants from MDF; damage threshold ~5-10 J/cm² due to charring/melting
-      (MDF decomposition ~200-300°C). Recommended 2 J/cm² for effective cleaning below threshold. Source: Ablation studies
-      in Wood Sci. Technol. (2017) and laser threshold measurements.'
+    description: 'Fluence range for safe removal of contaminants from MDF; damage threshold ~5-10 J/cm² due to charring/melting (MDF decomposition ~200-300°C). Recommended 2 J/cm² for effective cleaning below threshold. Source: Ablation studies in Wood Sci. Technol. (2017) and laser threshold measurements.'
   laserPower:
     description: Optimal average power for MDF surface cleaning without charring
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   laserPowerAlternative:
     min: 50
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial laser cleaning of wood-based materials like MDF to avoid charring; starting
-      at 100W for light contamination. Max safe before substrate damage (thermal degradation) is ~500W at 1064 nm. Source:
-      IPG Photonics YLR series specs and studies on laser ablation of composites (e.g., J. Laser Appl. 2018).'
+    description: 'Typical range for industrial laser cleaning of wood-based materials like MDF to avoid charring; starting at 100W for light contamination. Max safe before substrate damage (thermal degradation) is ~500W at 1064 nm. Source: IPG Photonics YLR series specs and studies on laser ablation of composites (e.g., J. Laser Appl. 2018).'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for 1064 nm cleaning; 50 kHz recommended for MDF to achieve fast coverage without excessive heat
-      accumulation, trading off speed vs. thermal buildup in resinous material. Higher rates (>80 kHz) risk damage. Source:
-      Academic literature, e.g., J. Appl. Phys. (2021) on pulse repetition in ablation.'
-componentSummary: These settings, with moderate 100 W power and short 10 ns pulses at 1064 nm, minimize thermal damage to
-  heat-sensitive MDF, enabling precise contaminant removal without charring or structural compromise.
+    description: 'Typical for 1064 nm cleaning; 50 kHz recommended for MDF to achieve fast coverage without excessive heat accumulation, trading off speed vs. thermal buildup in resinous material. Higher rates (>80 kHz) risk damage. Source: Academic literature, e.g., J. Appl. Phys. (2021) on pulse repetition in ablation.'
+componentSummary: These settings, with moderate 100 W power and short 10 ns pulses at 1064 nm, minimize thermal damage to heat-sensitive MDF, enabling precise contaminant removal without charring or structural compromise.

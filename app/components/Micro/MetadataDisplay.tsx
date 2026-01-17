@@ -13,12 +13,12 @@ interface MetadataType {
 interface MetadataDisplayProps {
   metadata?: MetadataType;
   material?: string;
-  show: boolean;
+  isVisible: boolean;
   frontmatter?: FrontmatterType;
 }
 
-export function MetadataDisplay({ metadata, material, show, frontmatter }: MetadataDisplayProps) {
-  if (!show || !metadata) return null;
+export function MetadataDisplay({ metadata, material, isVisible, frontmatter }: MetadataDisplayProps) {
+  if (!isVisible || !metadata) return null;
 
   return (
     <div 

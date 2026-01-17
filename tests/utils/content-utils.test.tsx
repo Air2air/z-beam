@@ -9,7 +9,7 @@ jest.mock('../../app/utils/content', () => ({
     // Simple markdown parsing mock
     return {
       content: content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
-      metadata: {
+      frontmatter: {
         title: content.split('\n')[0]?.replace(/^#\s*/, '') || 'Untitled',
         wordCount: content.split(/\s+/).length
       }
@@ -103,8 +103,8 @@ describe('Utility Functions', () => {
       const result = parseMarkdown(markdown);
       
       expect(result.content).toContain('<strong>bold</strong>');
-      expect(result.metadata.title).toBe('Test Title');
-      expect(result.metadata.wordCount).toBeGreaterThan(0);
+      expect(result.frontmatter.title).toBe('Test Title');
+      expect(result.frontmatter.wordCount).toBeGreaterThan(0);
     });
 
     test('extractMetadata should parse frontmatter', () => {
@@ -149,8 +149,8 @@ date: 2024-01-01
       const result = parseMarkdown('');
       
       expect(result.content).toBe('');
-      expect(result.metadata.title).toBe('Untitled');
-      expect(result.metadata.wordCount).toBe(1); // Empty string splits to ['']
+      expect(result.frontmatter.title).toBe('Untitled');
+      expect(result.frontmatter.wordCount).toBe(1); // Empty string splits to ['']
     });
 
     test('parseMarkdown should preserve line breaks', () => {
@@ -158,7 +158,7 @@ date: 2024-01-01
       const result = parseMarkdown(markdown);
       
       expect(result.content).toContain('\n');
-      expect(result.metadata.wordCount).toBe(6);
+      expect(result.frontmatter.wordCount).toBe(6);
     });
   });
 

@@ -5,8 +5,8 @@
  */
 'use client';
 
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { BaseSection } from '../BaseSection/BaseSection';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import { SafetyWarning } from '../SafetyWarning';
 import { Badge } from '../Badge/Badge';
 
@@ -43,14 +43,14 @@ interface SafetyWarningsGridProps {
 
 export function SafetyWarningsGrid({ safetyData, materialName, warningText }: SafetyWarningsGridProps) {
   return (
-    <SectionContainer variant="default" className="py-12">
+    <BaseSection 
+      variant="default" 
+      spacing="loose"
+      title="Safety Information"
+      description="Critical Warnings & Hazardous Fumes"
+      icon={getSectionIcon('shield')}
+    >
       <div className="container-custom px-4">
-        <SectionTitle 
-          title="Safety Information"
-          sectionDescription="Critical Warnings & Hazardous Fumes"
-          alignment="left"
-          className="mb-8"
-        />
         
         {/* Critical Warnings using color-coded cards */}
         <div className="space-y-4 mb-8">
@@ -155,6 +155,6 @@ export function SafetyWarningsGrid({ safetyData, materialName, warningText }: Sa
           warningText={warningText}
         />
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }

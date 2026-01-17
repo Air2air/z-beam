@@ -79,6 +79,7 @@ export interface RelationshipSectionData<T = any> {
   items: T[];
   metadata: RelationshipSection;
   presentation?: 'card' | 'badge' | 'list' | 'inline' | 'banner' | 'descriptive';
+  frontmatter: { order: number };
 }
 
 /**
@@ -177,7 +178,8 @@ export function getRelationshipSection<T = any>(
   return {
     items: current.items as T[],
     metadata: metadata,
-    presentation: current.presentation
+    presentation: current.presentation,
+    frontmatter: current.frontmatter || { order: metadata.order || 999 }
   };
 }
 
@@ -287,8 +289,8 @@ export function getAllRelationshipSections(
 
   // Sort by metadata order
   return sections.sort((a, b) => {
-    const orderA = a.metadata.order ?? 999;
-    const orderB = b.metadata.order ?? 999;
+    const orderA = a.frontmatter.order ?? 999;
+    const orderB = b.frontmatter.order ?? 999;
     return orderA - orderB;
   });
 }
@@ -404,7 +406,7 @@ export function getRegulatoryStandards(metadata: any): any[] {
   // Map frontmatter structure to component format
   return standardsArray.map((std: any) => {
     // If already in correct format, return as-is
-    if (std.name && std.description && !std.metadata) {
+    if (std.name && std.description && !std.frontmatter) {
       return std;
     }
     
@@ -413,11 +415,11 @@ export function getRegulatoryStandards(metadata: any): any[] {
     // Use organization abbreviation for search (e.g., "FDA" instead of full title)
     return {
       name: std.title || std.name || '',
-      description: std.metadata?.orgFullName || std.description || '',
-      url: std.metadata?.url || std.url || '',
-      image: std.metadata?.image || std.image || '',
-      longName: std.metadata?.orgFullName || std.longName || '',
-      searchTerm: std.metadata?.organization || std.id || std.title || '',
+      description: std.frontmatter?.orgFullName || std.description || '',
+      url: std.frontmatter?.url || std.url || '',
+      image: std.frontmatter?.image || std.image || '',
+      longName: std.frontmatter?.orgFullName || std.longName || '',
+      searchTerm: std.frontmatter?.organization || std.id || std.title || '',
       id: std.id || '',
       ...std
     };

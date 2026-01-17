@@ -39,6 +39,9 @@
 - ❌ **NO .metadata wrapper** (use .frontmatter instead) 🔥 **MANDATORY (Dec 28, 2025)**
 - ❌ **NO fallback values for frontmatter fields** (fail-fast immediately) 🔥 **MANDATORY (Jan 4, 2026)**
 - ❌ **NO AI-generated frontmatter data** (all data from YAML files only) 🔥 **MANDATORY (Jan 4, 2026)**
+- ❌ **NO AI editing of frontmatter YAML files** (backend only) 🔥 **MANDATORY (Jan 15, 2026)**
+- ❌ **NO hardcoded sectionTitle/sectionDescription** (read from frontmatter _section metadata) 🔥 **MANDATORY (Jan 15, 2026)**
+- ❌ **NO fallback values for section metadata** (fail-fast immediately) 🔥 **MANDATORY (Jan 15, 2026)**
 
 **TIER 2: Quality-Critical** (Will cause bugs)
 - ❌ NO expanding scope (fix X means fix ONLY X)
@@ -48,6 +51,8 @@
 - ✅ **ALWAYS use article.frontmatter** (never article.metadata wrapper) 🔥 **MANDATORY (Dec 28, 2025)**
 - ✅ **ALWAYS create named Props interfaces** (ComponentNameProps) 🔥 **REQUIRED (Dec 26, 2025)**
 - ✅ **ALWAYS use is/has/can prefixes** for boolean props (isLoading, not loading) 🔥 **REQUIRED (Dec 26, 2025)**
+- ✅ **ALWAYS use BaseSection architecture** (no SectionContainer/GridSection) 🔥 **MANDATORY (Jan 15, 2026)**
+- ✅ **ALWAYS read title/description from frontmatter data** (never hardcode) 🔥 **MANDATORY (Jan 15, 2026)**
 
 **TIER 3: Evidence & Honesty** (Will lose trust)
 - ✅ ALWAYS provide evidence (test output, commits)

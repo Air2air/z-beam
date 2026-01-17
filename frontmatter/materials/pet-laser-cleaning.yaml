@@ -1,14 +1,94 @@
 id: pet-laser-cleaning
 name: PET
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Plastic
+    href: /materials/plastic
+  - label: Thermoplastic
+    href: /materials/plastic/thermoplastic
+  - label: PET
+    href: /materials/plastic/thermoplastic/pet
 displayName: PET Laser Cleaning
 category: plastic
 subcategory: thermoplastic
-pageDescription: PET exhibits non-porous and smooth characteristics, so laser cleaning removes contaminants effectively from
-  surfaces without damaging underlying structure.
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:48.713139+00:00'
+fullPath: /materials/plastic/thermoplastic/pet-laser-cleaning
+pageTitle: PET
+metaDescription: >-
+  Contamination on PET surface forms uneven layers. This buildup, it clings tightly to plastic texture. At 1000x
+  magnification, particles cluster in irregular ...
+card:
+  default:
+    heading: PET
+    subtitle: plastic / thermoplastic
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  countryDisplay: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+    - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
+images:
+  hero:
+    url: /images/material/pet-laser-cleaning-hero.jpg
+    alt: PET surface during precision laser cleaning process removing contamination layer
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/pet-laser-cleaning-micro.jpg
+    alt: PET surface at 500x magnification showing laser cleaning results
+    width: 800
+    height: 600
+components:
+  micro:
+    before: >-
+      When you examine the contaminated PET surface up close, you spot irregular patches of grime and tiny debris
+      scattered everywhere. Dust particles cling tightly to the uneven texture, making the whole area look dull and
+      cluttered. This buildup hides the material's natural smoothness beneath layers of residue.
+    after: >-
+      After laser treatment, you notice the PET surface turns remarkably even and clear overall. The grime vanishes
+      completely, leaving behind a polished finish without any visible spots. Now the texture appears uniform and
+      bright, ready for practical
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    description: Intrinsic physical and mechanical properties affecting laser cleaning outcomes
     density:
       value: 1.38
       unit: g/cm³
@@ -54,14 +134,23 @@ properties:
       unit: MPa m^{1/2}
       confidence: 85
     electricalResistivity:
-      value: 1e+16
+      value: 10000000000000000
       unit: Ω·m
       confidence: 90
-    percentage: 60.0
+    percentage: 60
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     thermalDestruction:
       value: 523
       unit: K
@@ -76,9 +165,11 @@ properties:
       source: scientific_literature
       sourceType: journal_article
       sourceName: 'Laser Ablation of Polymers: PET Damage Threshold'
-      citation: 'Srinivasan, R. and Braren, B., Applied Physics A: Materials Science & Processing, 1989, Vol. 48, pp. 419-423,
-        DOI: 10.1007/BF00615347'
-      context: Amorphous PET film (100 μm thickness, commercial grade), 25°C, 248 nm KrF excimer laser, 20 ns pulse duration,
+      citation: >-
+        Srinivasan, R. and Braren, B., Applied Physics A: Materials Science & Processing, 1989, Vol. 48, pp. 419-423,
+        DOI: 10.1007/BF00615347
+      context: >-
+        Amorphous PET film (100 μm thickness, commercial grade), 25°C, 248 nm KrF excimer laser, 20 ns pulse duration,
         measured via optical microscopy of ablation craters
       confidence: 95
       researchedDate: '2025-11-24T12:58:12.983238'
@@ -90,44 +181,49 @@ properties:
       sourceType: journal_article
       sourceName: Applied Physics Letters
       citation: 'R. Srinivasan and B. Braren, Appl. Phys. Lett. 53, 1203 (1988), DOI: 10.1063/1.100065'
-      context: Commercial polyethylene terephthalate (PET) film (biaxially oriented, ~25 μm thickness), room temperature (25°C),
-        193 nm ArF excimer laser, 14 ns pulse duration, vacuum environment
+      context: >-
+        Commercial polyethylene terephthalate (PET) film (biaxially oriented, ~25 μm thickness), room temperature
+        (25°C), 193 nm ArF excimer laser, 14 ns pulse duration, vacuum environment
       confidence: 100
       researchedDate: '2025-11-24T13:02:26.087545'
       needsValidation: true
     thermalDiffusivity:
-      value: 1.2e-07
+      value: 1.2e-7
       unit: m²/s
       source: scientific_literature
       sourceType: textbook
       sourceName: Physical Properties of Polymers Handbook
       citation: J. E. Mark (ed.), Physical Properties of Polymers Handbook, 2nd Edition, Springer, 2007, ISBN 978-0-387-69002-5
-      context: Amorphous PET (polyethylene terephthalate), 25°C, density 1330-1380 kg/m³, measured via laser flash method
-        on thin films
+      context: >-
+        Amorphous PET (polyethylene terephthalate), 25°C, density 1330-1380 kg/m³, measured via laser flash method on
+        thin films
       confidence: 95
       researchedDate: '2025-11-24T13:27:52.253885'
       needsValidation: true
     thermalExpansion:
-      value: 7.0e-05
+      value: 0.00007
       unit: K^{-1}
       source: scientific_literature
       sourceType: reference_handbook
       sourceName: Polymer Handbook
-      citation: Brandrup, J., Immergut, E.H., Grulke, E.A. (Eds.), Polymer Handbook, 4th Edition, John Wiley & Sons, Inc.,
-        2004, ISBN 978-0-471-69469-5
+      citation: >-
+        Brandrup, J., Immergut, E.H., Grulke, E.A. (Eds.), Polymer Handbook, 4th Edition, John Wiley & Sons, Inc., 2004,
+        ISBN 978-0-471-69469-5
       context: Amorphous PET (polyethylene terephthalate), 25°C, measured via dilatometry on melt-quenched samples
       confidence: 95
       researchedDate: '2025-11-24T13:28:01.138793'
       needsValidation: true
     specificHeat:
-      value: 1170.0
+      value: 1170
       unit: J/(kg·K)
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb, LLC., Polyethylene Terephthalate (PET, Thermoplastic Polyester) Generic, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4bbdf6a2b7a04a0a9f8b0e1a2b3c4d5e,
-        accessed 2023
-      context: Amorphous PET (100% crystallinity not specified, commercial grade), 25°C, measured via differential scanning
+      citation: >-
+        MatWeb, LLC., Polyethylene Terephthalate (PET, Thermoplastic Polyester) Generic,
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=4bbdf6a2b7a04a0a9f8b0e1a2b3c4d5e, accessed 2023
+      context: >-
+        Amorphous PET (100% crystallinity not specified, commercial grade), 25°C, measured via differential scanning
         calorimetry (DSC)
       confidence: 95
       researchedDate: '2025-11-24T13:28:07.803748'
@@ -138,8 +234,9 @@ properties:
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb, LLC., Polyethylene Terephthalate (PET, PETP), unfilled, http://www.matweb.com/search/DataSheet.aspx?MatGUID=de6a4a5b8b4e4a0a8b4e4a0a8b4e4a0a,
-        accessed 2024
+      citation: >-
+        MatWeb, LLC., Polyethylene Terephthalate (PET, PETP), unfilled,
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=de6a4a5b8b4e4a0a8b4e4a0a8b4e4a0a, accessed 2024
       context: Unfilled amorphous PET, 25°C, room temperature and standard atmospheric pressure
       confidence: 98
       researchedDate: '2025-11-24T13:28:26.074352'
@@ -150,289 +247,215 @@ properties:
       source: scientific_literature
       sourceType: journal_article
       sourceName: Journal of Applied Physics
-      citation: 'A. M. Morales et al., ''Optical properties of polyethylene terephthalate (PET) in the near-infrared for laser
-        processing'', Journal of Applied Physics, 2018, DOI: 10.1063/1.5028334'
-      context: Commercial PET (density 1.38 g/cm³, 99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C,
+      citation: >-
+        A. M. Morales et al., 'Optical properties of polyethylene terephthalate (PET) in the near-infrared for laser
+        processing', Journal of Applied Physics, 2018, DOI: 10.1063/1.5028334
+      context: >-
+        Commercial PET (density 1.38 g/cm³, 99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C,
         vacuum conditions
       confidence: 95
       researchedDate: '2025-11-24T15:42:36.520118'
       needsValidation: true
-micro:
-  before: Contamination on PET surface forms uneven layers. This buildup, it clings tightly to plastic texture. At 1000x magnification,
-    particles cluster in irregular patterns, so roughness traps dirt easily. Before cleaning starts, surface looks dull and
-    patchy because oxide covers features.
-  after: Laser treatment applies heat pulses. After this, contamination is already removed from thermoplastic base. Clean
-    surface exhibits smooth uniformity now. Unique visual features appear, like clear polymer chains without debris. In observations,
-    no residues remain, so reflectivity increases sharply.
-images:
-  hero:
-    url: /images/material/pet-laser-cleaning-hero.jpg
-    alt: PET surface during precision laser cleaning process removing contamination layer
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/pet-laser-cleaning-micro.jpg
-    alt: PET surface at 500x magnification showing laser cleaning results
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: why-does-pet-sometimes-warp-during
+      title: Why does PET sometimes warp during laser cleaning?
+      content: >-
+        I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the laser
+        heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this,
+        keep the laser moving steadily and use shorter pulses so the material stays intact without deforming.
+      metadata:
+        topic: pet sometimes warp during laser
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: true
+        order: 1
+    - id: how-do-i-prepare-pet-surfaces
+      title: How do I prepare PET surfaces for effective laser cleaning?
+      content: >-
+        When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This
+        works best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove
+        them cleanly without residue. I've found wiping with a mild solvent beforehand makes the process faster and
+        leaves a spotless finish every time.
+      metadata:
+        topic: do i prep pet surfaces
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 2
+    - id: whats-the-best-speed-for-laser
+      title: What's the best speed for laser cleaning PET to avoid damage?
+      content: >-
+        Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser
+        plastics, PET's flexibility means it
+      metadata:
+        topic: '''s the best speed for'
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: adhesive-residue-contamination
-        name: Adhesive Residue / Tape Marks
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
-        description: Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape
-          or stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
-        frequency: moderate
-        severity: moderate
-      - id: chemical-stains-contamination
-        name: Chemical Stains / Acid Etching
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
-        image: /images/contaminant/chemical-stains-contamination-hero.jpg
-        description: Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in
-          laser cleaning applications. Formation patterns of this contamination, they arise from residue...
-        frequency: moderate
-        severity: moderate
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
-      - id: paint-residue-contamination
-        name: Paint Residue / Coating Failure
-        category: inorganic-coating
-        subcategory: paint
-        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-        image: /images/contaminant/paint-residue-contamination-hero.jpg
-        description: Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
-          irregular patterns, like patchy layers from uneven paint application and environmental wea...
-        frequency: moderate
-        severity: moderate
+        - id: adhesive-residue-contamination
+          name: Adhesive Residue / Tape Marks
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+          description: >-
+            Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape or
+            stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
+          frequency: moderate
+          severity: moderate
+        - id: chemical-stains-contamination
+          name: Chemical Stains / Acid Etching
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+          image: /images/contaminant/chemical-stains-contamination-hero.jpg
+          description: >-
+            Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in laser
+            cleaning applications. Formation patterns of this contamination, they arise from residue...
+          frequency: moderate
+          severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
+        - id: paint-residue-contamination
+          name: Paint Residue / Coating Failure
+          category: inorganic-coating
+          subcategory: paint
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminant/paint-residue-contamination-hero.jpg
+          description: >-
+            Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
+            irregular patterns, like patchy layers from uneven paint application and environmental wea...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: packaging
-        name: Packaging
-      - id: beverage-industry
-        name: Beverage Industry
-      - id: food-processing
-        name: Food Processing
-      - id: textiles
-        name: Textiles
-      - id: consumer-goods
-        name: Consumer Goods
-      - id: recycling
-        name: Recycling
-      - id: manufacturing
-        name: Manufacturing
-      - id: medical-packaging
-        name: Medical Packaging
+        - id: packaging
+          name: Packaging
+        - id: beverage-industry
+          name: Beverage Industry
+        - id: food-processing
+          name: Food Processing
+        - id: textiles
+          name: Textiles
+        - id: consumer-goods
+          name: Consumer Goods
+        - id: recycling
+          name: Recycling
+        - id: manufacturing
+          name: Manufacturing
+        - id: medical-packaging
+          name: Medical Packaging
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
-        icon: briefcase
-        order: 41
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: PET
-    subtitle: plastic / thermoplastic
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-10T04:11:39.658299+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - uv_chalking
-  - chemical_stains
-  - environmental_dust
-  - adhesive_residue
+    - uv_chalking
+    - chemical_stains
+    - environmental_dust
+    - adhesive_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
   conditional:
     industrialOil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
-components:
-  micro:
-    before: When you examine the contaminated PET surface up close, you spot irregular patches of grime and tiny debris scattered
-      everywhere. Dust particles cling tightly to the uneven texture, making the whole area look dull and cluttered. This
-      buildup hides the material's natural smoothness beneath layers of residue.
-    after: After laser treatment, you notice the PET surface turns remarkably even and clear overall. The grime vanishes completely,
-      leaving behind a polished finish without any visible spots. Now the texture appears uniform and bright, ready for practical
-faq:
-  presentation: collapsible
-  items:
-  - id: why-does-pet-sometimes-warp-during
-    title: Why does PET sometimes warp during laser cleaning?
-    content: I've seen PET warp more easily than metals because it softens at lower temperatures. This happens when the laser
-      heat builds up quickly on its smooth surface, unlike tougher materials that handle it better. To avoid this, keep the
-      laser moving steadily and use shorter pulses so the material stays intact without deforming.
-    metadata:
-      topic: pet sometimes warp during laser
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  - id: how-do-i-prepare-pet-surfaces
-    title: How do I prepare PET surfaces for effective laser cleaning?
-    content: When cleaning PET, start by removing loose dirt first to let the laser focus on the real contaminants. This works
-      best because PET's non-porous nature means contaminants stick tight, and prepping helps the laser remove them cleanly
-      without residue. I've found wiping with a mild solvent beforehand makes the process faster and leaves a spotless finish
-      every time.
-    metadata:
-      topic: do i prep pet surfaces
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 2
-  - id: whats-the-best-speed-for-laser
-    title: What's the best speed for laser cleaning PET to avoid damage?
-    content: Tending to go slow with PET helps control the heat so it cleans without burning the edges. Compared to denser
-      plastics, PET's flexibility means it
-    metadata:
-      topic: '''s the best speed for'
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 3
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/plastic/thermoplastic/pet-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Plastic
-  href: /materials/plastic
-- label: Thermoplastic
-  href: /materials/plastic/thermoplastic
-metaDescription: Contamination on PET surface forms uneven layers. This buildup, it clings tightly to plastic texture. At
-  1000x magnification, particles cluster in irregular ...
-pageTitle: PET
+pageDescription: >-
+  PET exhibits non-porous and smooth characteristics, so laser cleaning removes contaminants effectively from surfaces
+  without damaging underlying structure.

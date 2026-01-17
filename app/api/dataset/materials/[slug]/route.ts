@@ -1,9 +1,10 @@
 // app/api/dataset/materials/[slug]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { getArticle } from '@/app/utils/contentAPI';
+import type { MaterialItem } from '@/types';
 
 // Generate CSV from material data
-function generateCSV(material: any): string {
+function generateCSV(material: MaterialItem): string {
   const rows: string[][] = [];
   
   // Headers
@@ -16,7 +17,7 @@ function generateCSV(material: any): string {
   
   // Laser parameters
   if (material.parameters) {
-    Object.entries(material.parameters).forEach(([key, value]: [string, any]) => {
+    Object.entries(material.parameters).forEach(([key, value]: [string, unknown]) => {
       if (typeof value === 'object' && value?.value !== undefined) {
         rows.push(['Parameter', 'Laser', key, String(value.value), value.unit || '']);
       }
@@ -119,7 +120,7 @@ export async function GET(
     
     // Get material data
     const article = await getArticle(slug);
-    const material = article?.metadata as any;
+    const material = article?.frontmatter as any;
     
     if (!material) {
       return NextResponse.json(

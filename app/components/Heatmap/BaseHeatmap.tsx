@@ -2,8 +2,7 @@
 'use client';
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
-import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
+import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import { AnalysisCards } from './AnalysisCards';
 import { BaseHeatmapProps, HoveredCell, ColorAnchor, LegendItem } from './types';
 import { interpolateColor } from '@/app/utils/colorUtils';
@@ -243,16 +242,14 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   };
 
   return (
-    <SectionContainer
-      bgColor="transparent"
+    <BaseSection
+      variant="gradient"
+      spacing="loose"
+      title={title}
+      description={description}
+      icon={icon}
       className="heatmap bg-gradient-to-br from-gray-800 to-gray-700 rounded-md mb-8"
-      horizPadding={true}
     >
-      <SectionTitle
-        title={title}
-        icon={icon}
-        sectionDescription={description}
-      />
 
       <div className="flex flex-col gap-6">
         {/* Heatmap Grid - Full width on top */}
@@ -443,6 +440,6 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
         </aside>
       </div>
 
-    </SectionContainer>
+    </BaseSection>
   );
 };

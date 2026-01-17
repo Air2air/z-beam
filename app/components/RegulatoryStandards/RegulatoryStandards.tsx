@@ -14,7 +14,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { RegulatoryStandardsProps } from '@/types';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
@@ -22,12 +22,16 @@ export function RegulatoryStandards({
   standards,
   className: _className = '',
   showTitle: _showTitle = true,
-  title = 'Regulatory Standards & Compliance',
-  sectionDescription,
+  sectionMetadata,
   heroImage,
   thumbnailLink,
-}: RegulatoryStandardsProps & { heroImage?: string; thumbnailLink?: string; sectionDescription?: string }) {
+}: RegulatoryStandardsProps & { heroImage?: string; thumbnailLink?: string; sectionMetadata?: any }) {
   if (!standards || standards.length === 0) return null;
+  
+  // Read title, icon, description from _section metadata (with fallbacks if missing)
+  const title = sectionMetadata?.sectionTitle || 'Regulatory Standards & Compliance';
+  const icon = sectionMetadata?.icon || 'regulatory';
+  const sectionDescription = sectionMetadata?.sectionDescription || "Industry standards and compliance requirements for safe laser cleaning operations";
   
   // Filter to only show object/dict standards, not strings
   const validStandards = standards.filter(std => 
@@ -37,16 +41,14 @@ export function RegulatoryStandards({
   if (validStandards.length === 0) return null;
 
   return (
-    <SectionContainer 
+    <BaseSection 
+      title={title}
+      description={sectionDescription}
+      icon={getSectionIcon(icon)}
       bgColor="transparent"
       radius={false}
       className="regulatory-standards"
     >
-      <SectionTitle 
-        title={title}
-        icon={getSectionIcon('regulatory')}
-        sectionDescription={sectionDescription || "Industry standards and compliance requirements for safe laser cleaning operations"}
-      />
       <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
         {validStandards.map((standard, index) => (
           <li key={`${standard.name}-${index}`} className="flex">
@@ -135,6 +137,6 @@ export function RegulatoryStandards({
           </li>
         ))}
       </ul>
-    </SectionContainer>
+    </BaseSection>
   );
 }

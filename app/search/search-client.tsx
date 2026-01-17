@@ -191,7 +191,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     
     articles.forEach(article => {
       const slug = article.slug || String(Math.random());
-      cache.set(slug, parsePropertiesFromMetadata(article.metadata));
+      cache.set(slug, parsePropertiesFromMetadata(article.frontmatter));
     });
     
     return cache;
@@ -200,7 +200,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   // Cache: Build searchable index once
   const searchIndex = useMemo(() => {
     return articles.map(article => {
-      const metadata = article.metadata as any;
+      const metadata = article.frontmatter as any;
       
       // Build flat searchable text
       const searchableFields = [
@@ -364,17 +364,17 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
           items={filteredArticles.map((article) => ({
             slug: article.slug || 'unknown',
             title: article.name || article.title || 'Untitled Article',
-            description: article.description || article.excerpt || '',
-            href: (article.metadata as any)?.fullPath || (article as any).fullPath || `/${article.slug}`,
+            description: article.description || article.pageDescription || '',
+            href: (article.frontmatter as any)?.fullPath || (article as any).fullPath || `/${article.slug}`,
             imageUrl: article.image,
             imageAlt: article.imageAlt || article.name || article.title || '',
             badge: (article as any).badgeSymbolData || {
-              symbol: (article.metadata as any)?.chemicalSymbol,
-              formula: (article.metadata as any)?.chemicalFormula,
-              atomicNumber: (article.metadata as any)?.atomicNumber,
+              symbol: (article.frontmatter as any)?.chemicalSymbol,
+              formula: (article.frontmatter as any)?.chemicalFormula,
+              atomicNumber: (article.frontmatter as any)?.atomicNumber,
               materialType: toMaterialType(
-                article.metadata && 'category' in article.metadata && typeof article.metadata.category === 'string' 
-                  ? article.metadata.category 
+                article.frontmatter && 'category' in article.frontmatter && typeof article.frontmatter.category === 'string' 
+                  ? article.frontmatter.category 
                   : undefined
               ),
             },

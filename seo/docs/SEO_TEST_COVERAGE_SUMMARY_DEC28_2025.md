@@ -34,7 +34,7 @@
 
 ✅ **Image Sitemap Generation**:
 - `should generate valid XML structure` - Tests sitemap/0.9 and sitemap-image/1.1 xmlns
-- `should include required image metadata` - Tests loc, title, caption, lastmod presence
+- `should include required image metadata` - Tests loc, title, micro, lastmod presence
 - `should generate descriptive titles from filenames` - Tests filename → "Title Case" conversion
 - `should categorize images based on path` - Tests /materials, /contaminants, /equipment categorization
 
@@ -81,7 +81,7 @@
 **Fallback Tiers Tested**:
 1. Explicit: `frontmatter.images.hero.alt`
 2. Rich: `Professional laser cleaning for [name] - [category] [subcategory] surface treatment`
-3. Context: `[title] - [description excerpt]`
+3. Context: `[title] - [pageDescription]`
 4. Minimum: `[title] hero image`
 
 #### LazyYouTube Component Tests (NEW - Jan 2, 2026)
@@ -152,7 +152,7 @@
 
 **Fallback Tiers Tested**:
 1. Explicit: `accessibility.alt_text_detailed` or `images.micro.alt`
-2. Rich from micro: `[Material] microscopic surface analysis showing [micro.before excerpt]`
+2. Rich from micro: `[Material] microscopic surface analysis showing [micro.before description]`
 3. Category context: `[Material] [category] surface treatment - laser cleaning at microscopic level`
 4. Minimum: `[Material] surface analysis - laser cleaning results`
 
@@ -207,7 +207,7 @@
 
 ### Image Sitemap (100% Covered)
 - ✅ XML structure validation
-- ✅ Required metadata (loc, title, caption)
+- ✅ Required metadata (loc, title, micro)
 - ✅ Title generation from filenames
 - ✅ Category-based image grouping
 - ✅ lastmod timestamps
@@ -450,7 +450,7 @@ async function checkSitemap() {
   // Original checks + new image validation:
   ✅ XML structure and accessibility
   ✅ 346 images indexed
-  ✅ Image captions present
+  ✅ Image micro text present
   ✅ Image titles descriptive
   ✅ Icon/author exclusions working
   ✅ Title format quality

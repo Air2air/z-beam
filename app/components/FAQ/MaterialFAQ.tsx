@@ -57,7 +57,7 @@ export function MaterialFAQ({
       <SectionTitle 
         title={`${materialName} Laser Cleaning FAQs`}
         icon={getSectionIcon('faq')}
-        sectionDescription="Common questions and expert answers about laser cleaning this material"
+        description="Common questions and expert answers about laser cleaning this material"
       />
       <div className="space-y-2 mt-4" role="list">
         {faq.map((item, index) => (

@@ -81,12 +81,18 @@ describe('Contaminant SEO Integration Tests', () => {
 
   describe('Breadcrumb Schema Integration', () => {
     const mockContaminantData = {
-      metadata: {
+      frontmatter: {
         title: 'Battery Corrosion Contamination',
         name: 'Battery Corrosion',
         category: 'oxidation',
         subcategory: 'battery',
-        slug: 'battery-corrosion-contamination'
+        slug: 'battery-corrosion-contamination',
+        breadcrumb: [
+          { label: 'Home', href: '/' },
+          { label: 'Contaminants', href: '/contaminants' },
+          { label: 'Oxidation', href: '/contaminants/oxidation' },
+          { label: 'Battery Corrosion', href: '/contaminants/oxidation/battery/battery-corrosion-contamination' }
+        ]
       }
     };
 

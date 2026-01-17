@@ -99,7 +99,7 @@ href="/settings/..."
 - ✅ **Sitemap Accessibility** - public/image-sitemap.xml returns 200 OK
 - ✅ **Image Count** - 346 images indexed
 - ✅ **XML Structure** - Valid sitemap/0.9 and sitemap-image/1.1 xmlns
-- ✅ **Image Captions** - All images have descriptive captions
+- ✅ **Image Micro Text** - All images have descriptive micro text
 - ✅ **Image Titles** - All images have proper titles
 - ✅ **Directory Exclusions** - No icon/author images in sitemap
 - ✅ **Title Format** - No "Hero" suffix in titles
@@ -109,11 +109,11 @@ href="/settings/..."
 ```xml
 <!-- Good -->
 <image:title>Aluminum Laser Cleaning - 1000x Magnification</image:title>
-<image:caption>Professional laser cleaning removing surface contaminants from aluminum at 1000x magnification</image:caption>
+<image:micro>Professional laser cleaning removing surface contaminants from aluminum at 1000x magnification</image:micro>
 
 <!-- Bad (won't pass) -->
 <image:title>Aluminum Hero</image:title>
-<image:caption></image:caption>
+<image:micro></image:micro>
 ```
 
 ---

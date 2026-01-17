@@ -1,41 +1,116 @@
 id: shale-laser-cleaning
 name: Shale
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Stone
+    href: /materials/stone
+  - label: Sedimentary
+    href: /materials/stone/sedimentary
+  - label: Shale
+    href: /materials/stone/sedimentary/shale
 displayName: Shale Laser Cleaning
 category: stone
 subcategory: sedimentary
-pageDescription: When cleaning shale with lasers, I've seen it respond well to focused pulses that clear surface grime quickly,
-  as the stone absorbs energy deeply yet spreads heat slowly, keeping the layers intact—but avoid overexposure to prevent
-  subtle cracking.
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: crystalline crystal structure
-    source: ai_research
-    unit: crystal system
-    value: crystalline
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:45.825867+00:00'
+fullPath: /materials/stone/sedimentary/shale-laser-cleaning
+pageTitle: Shale
+metaDescription: >-
+  Shale surface shows contamination patterns before cleaning. This dirt layer, it covers fine grains and forms uneven
+  buildup. Particles cling tightly because ...
+card:
+  default:
+    heading: Shale
+    subtitle: stone / sedimentary
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  countryDisplay: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+    - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+    - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+images:
+  hero:
+    url: /images/material/shale-laser-cleaning-hero.jpg
+    alt: Shale surface undergoing laser cleaning showing precise contamination removal
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/shale-laser-cleaning-micro.jpg
+    alt: Shale microscopic view of laser cleaning showing detailed precise contamination removal
+    width: 800
+    height: 600
+components:
+  settingsDescription: >-
+    When laser cleaning shale, the key is its layered sedimentary structure, which makes it more prone to delamination
+    than denser stones like granite. We've found that this layering absorbs laser energy unevenly, so you need to start
+    with gentle passes to lift contaminants without prying apart those natural fissures. In our experience, keeping the
+    beam focused and moving steadily helps the heat dissipate across the surface, preserving the material's integrity
+    during restoration work on monuments or artifacts. But watch out midway through—its moderate porosity can trap
+    moisture, leading to steam bursts if you ramp up intensity too soon, so adjust by slowing the scan speed and
+    overlapping less to avoid micro-cracks. Overall, this approach works well for cultural heritage pieces, where we
+    emphasize multiple light treatments over aggressive ones to maintain shale's subtle textures.
+  micro:
+    before: >-
+      I've noticed the shale surface looks rough and patchy under magnification. Dark specks and uneven layers cover it
+      completely. Grimy buildup clings tightly to the fine grains.
+    after: >-
+      After treatment, the surface appears smooth and even across the view. Fresh layers shine clearly without any
+      residue. The natural texture stands out sharply now.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    percentage: 60.0
-    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-      integrity
+    percentage: 60
     fractureToughness:
       value: 0.92
       unit: MPa m^{1/2}
       confidence: 95
       source: ai_research
     youngsModulus:
-      value: 25000000000.0
+      value: 25000000000
       unit: Pa
       confidence: 95
       source: ai_research
@@ -45,12 +120,12 @@ properties:
       confidence: 92
       source: ai_research
     density:
-      value: 2650.0
+      value: 2650
       unit: kg/m³
       confidence: 95
       source: ai_research
     hardness:
-      value: 3.0
+      value: 3
       unit: Mohs
       confidence: 95
       source: ai_research
@@ -60,17 +135,17 @@ properties:
       confidence: 95
       source: ai_research
     compressiveStrength:
-      value: 35.0
+      value: 35
       unit: MPa
       confidence: 95
       source: ai_research
     flexuralStrength:
-      value: 10.0
+      value: 10
       unit: MPa
       confidence: 95
       source: ai_research
     tensileStrength:
-      value: 5.0
+      value: 5
       unit: MPa
       confidence: 95
       source: ai_research
@@ -86,15 +161,25 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser Ablation of Sedimentary Rocks: Threshold Fluences for Shale and Sandstone'
       citation: 'Smith, J.A.; Johnson, R.B.; et al., Applied Surface Science, Vol. 302, 2015, DOI: 10.1016/j.apsusc.2014.12.123'
-      context: Natural shale (argillaceous, 70% clay minerals, 20% quartz), room temperature (25°C), 1064 nm Nd:YAG laser,
+      context: >-
+        Natural shale (argillaceous, 70% clay minerals, 20% quartz), room temperature (25°C), 1064 nm Nd:YAG laser,
         nanosecond pulse duration (10 ns), measured under vacuum conditions to simulate laser cleaning
       confidence: 95
       researchedDate: '2025-11-24T12:18:10.601653'
       needsValidation: true
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     absorptivity:
       value: 0.85
       unit: dimensionless
@@ -102,22 +187,22 @@ properties:
       max: 0.95
       source: ai_research
     absorptionCoefficient:
-      value: 5000000.0
+      value: 5000000
       unit: m⁻¹
-      min: 100000.0
-      max: 10000000.0
+      min: 100000
+      max: 10000000
       source: ai_research
     laserDamageThreshold:
       value: 3.5
       unit: J/cm²
-      min: 1.0
-      max: 10.0
+      min: 1
+      max: 10
       source: ai_research
     thermalShockResistance:
       value: 1.8
       unit: MW/m
       min: 0.5
-      max: 3.0
+      max: 3
       source: ai_research
     reflectivity:
       value: 0.15
@@ -138,12 +223,12 @@ properties:
       max: 100
       source: ai_research
     thermalDestruction:
-      value: 1173.0
+      value: 1173
       unit: K
       confidence: 95
       source: ai_research
     specificHeat:
-      value: 920.0
+      value: 920
       unit: J/(kg·K)
       confidence: 95
       source: ai_research
@@ -158,17 +243,17 @@ properties:
       confidence: 95
       source: ai_research
     thermalExpansion:
-      value: 8.0e-06
+      value: 0.000008
       unit: K^{-1}
       confidence: 95
       source: ai_research
     laserAbsorption:
-      value: 250000.0
+      value: 250000
       unit: m^{-1}
       confidence: 95
       source: ai_research
     thermalDiffusivity:
-      value: 5.73e-07
+      value: 5.73e-7
       unit: m²/s
       confidence: 95
       source: ai_research
@@ -179,420 +264,345 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser Ablation of Sedimentary Rocks: Threshold Fluences for Shale and Sandstone'
       citation: 'Johnson, R. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
-      context: Natural shale (70% clay minerals, 20% quartz, 10% carbonates), room temperature (25°C), 1064 nm Nd:YAG laser,
-        10 ns pulse duration, measured under vacuum conditions
+      context: >-
+        Natural shale (70% clay minerals, 20% quartz, 10% carbonates), room temperature (25°C), 1064 nm Nd:YAG laser, 10
+        ns pulse duration, measured under vacuum conditions
       confidence: 95
       researchedDate: '2025-11-24T12:18:16.525598'
       needsValidation: true
-micro:
-  before: Shale surface shows contamination patterns before cleaning. This dirt layer, it covers fine grains and forms uneven
-    buildup. Particles cling tightly because exposure causes accumulation over time. In observations at magnification, contamination
-    appears as dark spots and irregular films on layered structure. So, laser treatment applies to remove these layers without
-    harming base material.
-  after: After treatment is performed, surface achieves clean state. Contamination already removed by precise ablation, and
-    shale exhibits natural smoothness. From the data, clean areas display uniform texture with visible grain boundaries. This
-    process, it restores original features so reflectivity increases. During exposure, laser targets only contaminants, leaving
-    substrate intact. Buildup is eliminated from surfaces, and results indicate complete removal in most regions. Surface
-    now shows durability and low roughness.
-images:
-  hero:
-    url: /images/material/shale-laser-cleaning-hero.jpg
-    alt: Shale surface undergoing laser cleaning showing precise contamination removal
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/shale-laser-cleaning-micro.jpg
-    alt: Shale microscopic view of laser cleaning showing detailed precise contamination removal
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: what-laser-wavelengths-and-power-settings
+      title: >-
+        What laser wavelengths and power settings are most effective for cleaning organic residues from shale rock
+        surfaces without causing thermal cracking?
+      content: >-
+        For cleaning organic residues on shale surfaces—which are prone to cracking due to low thermal conductivity—a
+        1064 nm Nd:YAG laser proves particularly effective with 12 ns pulses to minimize heat buildup. Thus, target 2.5
+        J/cm² fluence and 100 W average power, scanning at 500 mm/s for precise ablation without harming the stone.
+      metadata:
+        topic: laser wavelengths and power settings
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: true
+        order: 1
+    - id: how-does-the-high-porosity-of
+      title: >-
+        How does the high porosity of shale affect the efficiency of laser ablation in removing hydrocarbon contaminants
+        during oil shale processing?
+      content: >-
+        In oil processing, shale's inherent porosity notably hampers laser ablation efficiency for hydrocarbon removal.
+        The 1064 nm beam at 2.5 J/cm² fluence quickly vaporizes surface contaminants yet cannot reach deep pores, thus
+        risking incomplete cleaning. Petroleum industry forums report cases where mechanical agitation raised yields by
+        up to 25%, usually requiring two passes at 50 kHz.
+      metadata:
+        topic: the high porosity of shale
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 2
+    - id: what-safety-precautions-are-necessary-when
+      title: >-
+        What safety precautions are necessary when using fiber lasers to clean shale in archaeological sites to avoid
+        silica dust inhalation?
+      content: >-
+        When ablating shale using 1064 nm fiber lasers at 100 W, notably, the quartz content produces hazardous silica
+        dust. Thus, wear NIOSH-approved respirators to remain below OSHA's 50 μg/m³ exposure limit. Implement local
+        exhaust ventilation for particulate capture, and equip ANSI Z136.1-compliant goggles to shield eyes from
+        reflections.
+      metadata:
+        topic: safety precautions necessary using fiber
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 3
+    - id: in-laser-cleaning-of-shale-formations
+      title: >-
+        In laser cleaning of shale formations for fracking preparation, what are common issues with surface
+        re-contamination after treatment?
+      content: >-
+        After laser cleaning shale formations at 2.5 J/cm² fluence with 1064 nm wavelength, re-contamination notably
+        arises from clay minerals' strong adhesion, which traps airborne particles. Employ surface spectroscopy for
+        real-time monitoring to detect residues. Thus, manufacturer insights suggest applying post-scan sealing or
+        adjusting speeds to 500 mm/s for enhanced protection.
+      metadata:
+        topic: in laser cleaning of shale
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 4
+    - id: how-do-the-mineral-compositions-in
+      title: >-
+        How do the mineral compositions in different shale types (e.g., clay-rich vs. carbonate-rich) influence the
+        choice of laser cleaning methods?
+      content: >-
+        Clay-rich shales, dominated by silicates, show notably higher thermal stability. This enables effective
+        contaminant ablation at 2.5 J/cm² fluence and 1064 nm wavelength without harming the substrate. Carbonate-rich
+        variants, particularly prone to rapid decomposition, thus require lower energy densities to avoid unwanted
+        reactions and achieve uniform results in archaeological restorations.
+      metadata:
+        topic: do the mineral compositions in
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 5
+    - id: what-are-the-environmental-impacts-of
+      title: >-
+        What are the environmental impacts of laser cleaning shale surfaces in mining operations, particularly regarding
+        volatile organic compound emissions?
+      content: >-
+        In mining applications, laser cleaning of shale can release VOCs from kerogen through ablation, particularly at
+        fluences exceeding 2.5 J/cm², risking EPA limit violations without safeguards. Notably, with 100 W power and 50
+        kHz repetition rates, emissions hold below 50 ppm per industry guides—integrate local exhaust for ongoing
+        compliance.
+      metadata:
+        topic: the environmental impacts of laser
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 6
+    - id: can-pulsed-lasers-effectively-clean-microfractures
+      title: >-
+        Can pulsed lasers effectively clean micro-fractures in shale without propagating cracks, and what parameters
+        prevent this?
+      content: >-
+        Notably, pulsed lasers excel at cleaning micro-fractures in brittle shale without propagating cracks, owing to
+        their brief 12 ns pulses that limit shock waves and heat diffusion. Thus, maintain fluence below 2.5 J/cm² and
+        scan at 500 mm/s, as engineering forums indicate, for precise ablation without harm.
+      metadata:
+        topic: pulsed lasers effectively clean micro-fractures
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 7
+    - id: what-physical-properties-of-shale-like
+      title: >-
+        What physical properties of shale, like its low tensile strength, should be considered when selecting laser
+        cleaning equipment for restoration projects?
+      content: >-
+        Shale's low tensile strength renders it prone to cracking; thus, favor portable laser systems for field
+        restoration to preserve surface integrity. Notably, choose equipment with 1064 nm wavelength and 100 W power,
+        while keeping fluence below 2.5 J/cm² for precise, non-damaging cleaning.
+      metadata:
+        topic: physical properties of shale, like
+        severity: high
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 8
+    - id: how-does-moisture-content-in-shale
+      title: >-
+        How does moisture content in shale samples impact the laser cleaning process for removing surface biofilms in
+        environmental remediation?
+      content: >-
+        Shale with high moisture content can particularly trigger steam generation during laser cleaning at 2.5 J/cm²
+        fluence, leading to risks of micro-cracks or uneven biofilm removal in remediation work. Thus, pre-drying
+        samples to below 5% humidity boosts efficacy, supporting stable ablation at 100 W power while minimizing thermal
+        damage to hydrated minerals. This delivers safer, more uniform surface treatment.
+      metadata:
+        topic: moture content in shale samples
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 9
+    - id: what-are-standard-protocols-for-validating
+      title: >-
+        What are standard protocols for validating the cleanliness of laser-treated shale surfaces in laboratory testing
+        for petroleum geochemistry?
+      content: >-
+        In petroleum geochemistry labs, particularly for shale analysis, validate laser-cleaned surfaces via XPS to
+        ensure organic residues stay below 100 ppm, alongside SEM imaging for debris-free morphology. Manufacturer
+        protocols specifically endorse 2.5 J/cm² fluence at 1064 nm wavelength, provided no particulates hinder mineral
+        assessment, thus safeguarding shale integrity for reliable hydrocarbon evaluation.
+      metadata:
+        topic: standard protocols for validating the
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: cultural-heritage
-        name: Cultural Heritage
-      - id: energy
-        name: Energy
-      - id: construction
-        name: Construction
-      - id: manufacturing
-        name: Manufacturing
-      - id: archaeology
-        name: Archaeology
-      - id: museums
-        name: Museums
-      - id: geology
-        name: Geology
-      - id: monument-restoration
-        name: Monument Restoration
-      - id: research-laboratories
-        name: Research Laboratories
-      - id: landscape-architecture
-        name: Landscape Architecture
+        - id: cultural-heritage
+          name: Cultural Heritage
+        - id: energy
+          name: Energy
+        - id: construction
+          name: Construction
+        - id: manufacturing
+          name: Manufacturing
+        - id: archaeology
+          name: Archaeology
+        - id: museums
+          name: Museums
+        - id: geology
+          name: Geology
+        - id: monument-restoration
+          name: Monument Restoration
+        - id: research-laboratories
+          name: Research Laboratories
+        - id: landscape-architecture
+          name: Landscape Architecture
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      - description: IEC 60825 - Safety of Laser Products
-        image: /images/logo/logo-org-iec.png
-        longName: International Electrotechnical Commission
-        name: IEC
-        url: https://webstore.iec.ch/publication/3587
-      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-        image: /images/logo/logo-org-osha.png
-        longName: Occupational Safety and Health Administration
-        name: OSHA
-        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: IEC 60825 - Safety of Laser Products
+          image: /images/logo/logo-org-iec.png
+          longName: International Electrotechnical Commission
+          name: IEC
+          url: https://webstore.iec.ch/publication/3587
+        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+          image: /images/logo/logo-org-osha.png
+          longName: Occupational Safety and Health Administration
+          name: OSHA
+          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: Shale
-    subtitle: stone / sedimentary
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-10T04:11:35.902839+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - environmental_dust
-  - scale_buildup
-  - chemical_stains
-  - paint_residue
+    - environmental_dust
+    - scale_buildup
+    - chemical_stains
+    - paint_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
-  - uv_chalking
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
+    - uv_chalking
   conditional: {}
-components:
-  settingsDescription: When laser cleaning shale, the key is its layered sedimentary structure, which makes it more prone
-    to delamination than denser stones like granite. We've found that this layering absorbs laser energy unevenly, so you
-    need to start with gentle passes to lift contaminants without prying apart those natural fissures. In our experience,
-    keeping the beam focused and moving steadily helps the heat dissipate across the surface, preserving the material's integrity
-    during restoration work on monuments or artifacts. But watch out midway through—its moderate porosity can trap moisture,
-    leading to steam bursts if you ramp up intensity too soon, so adjust by slowing the scan speed and overlapping less to
-    avoid micro-cracks. Overall, this approach works well for cultural heritage pieces, where we emphasize multiple light
-    treatments over aggressive ones to maintain shale's subtle textures.
-  micro:
-    before: I've noticed the shale surface looks rough and patchy under magnification. Dark specks and uneven layers cover
-      it completely. Grimy buildup clings tightly to the fine grains.
-    after: After treatment, the surface appears smooth and even across the view. Fresh layers shine clearly without any residue.
-      The natural texture stands out sharply now.
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  isBasedOn:
-    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-faq:
-  presentation: collapsible
-  items:
-  - id: what-laser-wavelengths-and-power-settings
-    title: What laser wavelengths and power settings are most effective for cleaning organic residues from shale rock surfaces
-      without causing thermal cracking?
-    content: For cleaning organic residues on shale surfaces—which are prone to cracking due to low thermal conductivity—a
-      1064 nm Nd:YAG laser proves particularly effective with 12 ns pulses to minimize heat buildup. Thus, target 2.5 J/cm²
-      fluence and 100 W average power, scanning at 500 mm/s for precise ablation without harming the stone.
-    metadata:
-      topic: laser wavelengths and power settings
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  - id: how-does-the-high-porosity-of
-    title: How does the high porosity of shale affect the efficiency of laser ablation in removing hydrocarbon contaminants
-      during oil shale processing?
-    content: In oil processing, shale's inherent porosity notably hampers laser ablation efficiency for hydrocarbon removal.
-      The 1064 nm beam at 2.5 J/cm² fluence quickly vaporizes surface contaminants yet cannot reach deep pores, thus risking
-      incomplete cleaning. Petroleum industry forums report cases where mechanical agitation raised yields by up to 25%, usually
-      requiring two passes at 50 kHz.
-    metadata:
-      topic: the high porosity of shale
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 2
-  - id: what-safety-precautions-are-necessary-when
-    title: What safety precautions are necessary when using fiber lasers to clean shale in archaeological sites to avoid silica
-      dust inhalation?
-    content: When ablating shale using 1064 nm fiber lasers at 100 W, notably, the quartz content produces hazardous silica
-      dust. Thus, wear NIOSH-approved respirators to remain below OSHA's 50 μg/m³ exposure limit. Implement local exhaust
-      ventilation for particulate capture, and equip ANSI Z136.1-compliant goggles to shield eyes from reflections.
-    metadata:
-      topic: safety precautions necessary using fiber
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 3
-  - id: in-laser-cleaning-of-shale-formations
-    title: In laser cleaning of shale formations for fracking preparation, what are common issues with surface re-contamination
-      after treatment?
-    content: After laser cleaning shale formations at 2.5 J/cm² fluence with 1064 nm wavelength, re-contamination notably
-      arises from clay minerals' strong adhesion, which traps airborne particles. Employ surface spectroscopy for real-time
-      monitoring to detect residues. Thus, manufacturer insights suggest applying post-scan sealing or adjusting speeds to
-      500 mm/s for enhanced protection.
-    metadata:
-      topic: in laser cleaning of shale
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 4
-  - id: how-do-the-mineral-compositions-in
-    title: How do the mineral compositions in different shale types (e.g., clay-rich vs. carbonate-rich) influence the choice
-      of laser cleaning methods?
-    content: Clay-rich shales, dominated by silicates, show notably higher thermal stability. This enables effective contaminant
-      ablation at 2.5 J/cm² fluence and 1064 nm wavelength without harming the substrate. Carbonate-rich variants, particularly
-      prone to rapid decomposition, thus require lower energy densities to avoid unwanted reactions and achieve uniform results
-      in archaeological restorations.
-    metadata:
-      topic: do the mineral compositions in
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 5
-  - id: what-are-the-environmental-impacts-of
-    title: What are the environmental impacts of laser cleaning shale surfaces in mining operations, particularly regarding
-      volatile organic compound emissions?
-    content: In mining applications, laser cleaning of shale can release VOCs from kerogen through ablation, particularly
-      at fluences exceeding 2.5 J/cm², risking EPA limit violations without safeguards. Notably, with 100 W power and 50 kHz
-      repetition rates, emissions hold below 50 ppm per industry guides—integrate local exhaust for ongoing compliance.
-    metadata:
-      topic: the environmental impacts of laser
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 6
-  - id: can-pulsed-lasers-effectively-clean-microfractures
-    title: Can pulsed lasers effectively clean micro-fractures in shale without propagating cracks, and what parameters prevent
-      this?
-    content: Notably, pulsed lasers excel at cleaning micro-fractures in brittle shale without propagating cracks, owing to
-      their brief 12 ns pulses that limit shock waves and heat diffusion. Thus, maintain fluence below 2.5 J/cm² and scan
-      at 500 mm/s, as engineering forums indicate, for precise ablation without harm.
-    metadata:
-      topic: pulsed lasers effectively clean micro-fractures
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 7
-  - id: what-physical-properties-of-shale-like
-    title: What physical properties of shale, like its low tensile strength, should be considered when selecting laser cleaning
-      equipment for restoration projects?
-    content: Shale's low tensile strength renders it prone to cracking; thus, favor portable laser systems for field restoration
-      to preserve surface integrity. Notably, choose equipment with 1064 nm wavelength and 100 W power, while keeping fluence
-      below 2.5 J/cm² for precise, non-damaging cleaning.
-    metadata:
-      topic: physical properties of shale, like
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 8
-  - id: how-does-moisture-content-in-shale
-    title: How does moisture content in shale samples impact the laser cleaning process for removing surface biofilms in environmental
-      remediation?
-    content: Shale with high moisture content can particularly trigger steam generation during laser cleaning at 2.5 J/cm²
-      fluence, leading to risks of micro-cracks or uneven biofilm removal in remediation work. Thus, pre-drying samples to
-      below 5% humidity boosts efficacy, supporting stable ablation at 100 W power while minimizing thermal damage to hydrated
-      minerals. This delivers safer, more uniform surface treatment.
-    metadata:
-      topic: moture content in shale samples
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 9
-  - id: what-are-standard-protocols-for-validating
-    title: What are standard protocols for validating the cleanliness of laser-treated shale surfaces in laboratory testing
-      for petroleum geochemistry?
-    content: In petroleum geochemistry labs, particularly for shale analysis, validate laser-cleaned surfaces via XPS to ensure
-      organic residues stay below 100 ppm, alongside SEM imaging for debris-free morphology. Manufacturer protocols specifically
-      endorse 2.5 J/cm² fluence at 1064 nm wavelength, provided no particulates hinder mineral assessment, thus safeguarding
-      shale integrity for reliable hydrocarbon evaluation.
-    metadata:
-      topic: standard protocols for validating the
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 10
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/stone/sedimentary/shale-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Stone
-  href: /materials/stone
-- label: Sedimentary
-  href: /materials/stone/sedimentary
-metaDescription: Shale surface shows contamination patterns before cleaning. This dirt layer, it covers fine grains and forms
-  uneven buildup. Particles cling tightly because ...
-pageTitle: Shale
+pageDescription: >-
+  When cleaning shale with lasers, I've seen it respond well to focused pulses that clear surface grime quickly, as the
+  stone absorbs energy deeply yet spreads heat slowly, keeping the layers intact—but avoid overexposure to prevent
+  subtle cracking.

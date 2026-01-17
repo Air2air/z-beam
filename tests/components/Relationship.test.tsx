@@ -74,6 +74,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Test Section"
+          description="Test section description"
           mapper={mapMaterialToGrid}
         />
       );
@@ -96,6 +97,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Related Contaminants"
+          description="Related contaminants section"
           mapper={mapContaminantToGrid}
         />
       );
@@ -116,6 +118,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Related Materials"
+          description="Related materials section"
           mapper={mapMaterialToGrid}
         />
       );
@@ -135,6 +138,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Related Settings"
+          description="Related settings section"
           mapper={mapSettingToGrid}
         />
       );
@@ -157,6 +161,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Materials"
+          description="Materials section"
           mapper={mapMaterialToGrid}
         />
       );
@@ -188,6 +193,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Materials"
+          description="Materials section"
           mapper={mapMaterialToGrid}
         />
       );
@@ -220,6 +226,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Materials"
+          description="Materials section"
           mapper={mapMaterialToGrid}
           sorter={sortAlphabetically}
         />
@@ -266,13 +273,13 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Test Section"
+          description="Minimal description"
           mapper={mapMaterialToGrid}
         />
       );
       
-      // Should not have description element
-      const description = container.querySelector('.section-description');
-      expect(description).toBeNull();
+      // BaseSection requires description, so it should be rendered
+      expect(screen.getByText('Minimal description')).toBeInTheDocument();
     });
   });
 
@@ -289,6 +296,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Test Section"
+          description="Test section description"
           mapper={mapMaterialToGrid}
         />
       );
@@ -312,6 +320,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Test Section"
+          description="Test section description"
           mapper={mapMaterialToGrid}
           variant="relationship"
         />
@@ -334,6 +343,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Test Section"
+          description="Test section description"
           mapper={mapMaterialToGrid}
           columns={4}
         />
@@ -431,8 +441,7 @@ describe('Relationship Component', () => {
       render(
         <Relationship
           data={mockData}
-          title="Materials"
-          mapper={mapMaterialToGrid}
+          title="Materials"          description="Large dataset test"          mapper={mapMaterialToGrid}
         />
       );
       
@@ -452,6 +461,7 @@ describe('Relationship Component', () => {
         <Relationship
           data={mockData}
           title="Materials"
+          description="Large dataset test"
           mapper={mapMaterialToGrid}
         />
       );

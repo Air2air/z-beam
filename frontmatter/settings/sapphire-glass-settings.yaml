@@ -9,20 +9,21 @@ contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/soda-lime/sapphire-glass-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Glass
-  href: /settings/glass
-- label: Soda Lime
-  href: /settings/glass/soda-lime
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Glass
+    href: /settings/glass
+  - label: Soda Lime
+    href: /settings/glass/soda-lime
 pageTitle: Sapphire Glass
-pageDescription: "When laser cleaning sapphire glass, watch its extreme hardness first. It resists contaminants well but can\
-  \ crack under sudden heat. We've found that starting with gentle pulses avoids this. \n\nThis material stands out for its\
-  \ heat resistance in tough spots like watches or medical gear. Low expansion keeps it stable, unlike softer glasses. We\
-  \ typically use steady scans to clear grime without scratching. \n\nJust adjust overlap for even coverage. Skip high speeds—they\
-  \ scatter debris. In our experience, this restores shine safely every time."
+pageDescription: |-
+  When laser cleaning sapphire glass, watch its extreme hardness first. It resists contaminants well but can crack under sudden heat. We've found that starting with gentle pulses avoids this. 
+
+  This material stands out for its heat resistance in tough spots like watches or medical gear. Low expansion keeps it stable, unlike softer glasses. We typically use steady scans to clear grime without scratching. 
+
+  Just adjust overlap for even coverage. Skip high speeds—they scatter debris. In our experience, this restores shine safely every time.
 metaDescription: Sapphire Glass laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -44,25 +45,24 @@ author:
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
   expertise:
-  - Ultrafast Laser Physics and Material Interactions
+    - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
     type: EducationalOrganization
   credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
+    - Ph.D. Physics, ITB, 2020
+    - 2+ years in ultrafast laser research including ASEAN optics workshops
+    - Assisted in international optics projects
   languages:
-  - English
-  - Bahasa Indonesia
+    - English
+    - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
+    - https://linkedin.com/in/ikmanda-roswati-physicist
+    - https://www.academia.edu/profile/IkmandaRoswati
   personaFile: indonesia_persona.yaml
   formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
@@ -84,111 +84,95 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: settings
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: removesContaminants
+        group: interactions
+        domain: settings
+        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: worksOnMaterials
+        group: interactions
+        domain: settings
+        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-      - thermalManagement:
-        - challenge: Thermal shock and catastrophic failure
-          severity: critical
-          thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
-          impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
-          solutions:
-          - Use pulse mode with 5-8 second cooling between passes
-          - Preheat substrate to room temperature before cleaning
-          - Avoid cold spots (air vents, cold backing) during processing
-          - Tempered glass more resistant but still susceptible to thermal shock
-          - Monitor for stress fractures; stop immediately if cracks appear
-        - challenge: Low thermal diffusivity
-          severity: high
-          propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
-          impact: Heat accumulates in localized zones creating thermal gradients
-          solutions:
-          - Reduce power by 30-40% compared to metals
-          - Increase scan speed to distribute heat (1000-2000 mm/s)
-          - Use defocused beam to spread energy over larger area
-          - Optical-grade glass (fused silica) tolerates higher power
-        contaminationChallenges:
-        - id: adhesive-paint-removal
-          type: challenge
+        - thermalManagement:
+            - challenge: Thermal shock and catastrophic failure
+              severity: critical
+              thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+              impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
+              solutions:
+                - Use pulse mode with 5-8 second cooling between passes
+                - Preheat substrate to room temperature before cleaning
+                - Avoid cold spots (air vents, cold backing) during processing
+                - Tempered glass more resistant but still susceptible to thermal shock
+                - Monitor for stress fractures; stop immediately if cracks appear
+            - challenge: Low thermal diffusivity
+              severity: high
+              propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+              impact: Heat accumulates in localized zones creating thermal gradients
+              solutions:
+                - Reduce power by 30-40% compared to metals
+                - Increase scan speed to distribute heat (1000-2000 mm/s)
+                - Use defocused beam to spread energy over larger area
+                - Optical-grade glass (fused silica) tolerates higher power
+          contaminationChallenges:
+            - id: adhesive-paint-removal
+              type: challenge
       _section:
-        icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
+        icon: alert-triangle
+        order: 41
+        variant: default
+        relationshipType: commonChallenges
+        group: operational
+        domain: settings
+        schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 machineSettings:
   wavelength:
     description: Optimal wavelength for Sapphire Glass processing with good absorption
@@ -201,49 +185,37 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: Beam diameter range for precision vs. area coverage; 200 μm recommended for sapphire surface preparation,
-      allowing fine control on flat/polished surfaces while covering larger areas efficiently; smaller for detailed work (equipment
-      specs from Adapt Laser Systems; industry standards for optic cleaning).
+    description: Beam diameter range for precision vs. area coverage; 200 μm recommended for sapphire surface preparation, allowing fine control on flat/polished surfaces while covering larger areas efficiently; smaller for detailed work (equipment specs from Adapt Laser Systems; industry standards for optic cleaning).
   energyDensity:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 1.5
     unit: J/cm²
-    description: 'Fluence below sapphire''s damage threshold (~4-6 J/cm² at 1064 nm, 20 ns pulses) for safe contaminant ablation;
-      1.5 J/cm² effective for industrial removal without substrate etching, given sapphire''s high reflectivity (~92% transmission,
-      low absorption); conservative for optics-grade sapphire (ablation threshold studies: Opt. Express 2017; SPIE Proc. 2019).'
+    description: 'Fluence below sapphire''s damage threshold (~4-6 J/cm² at 1064 nm, 20 ns pulses) for safe contaminant ablation; 1.5 J/cm² effective for industrial removal without substrate etching, given sapphire''s high reflectivity (~92% transmission, low absorption); conservative for optics-grade sapphire (ablation threshold studies: Opt. Express 2017; SPIE Proc. 2019).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: Nanosecond regime preferred over picosecond/femtosecond for cost-effective industrial cleaning; 20 ns minimizes
-      heat-affected zone (HAZ) on sapphire due to reduced thermal diffusion; shorter pulses (<10 ns) for ultra-fine control
-      but higher cost (laser physics research in Appl. Phys. A 2015 on Al2O3 ablation; Coherent laser parameters).
+    description: Nanosecond regime preferred over picosecond/femtosecond for cost-effective industrial cleaning; 20 ns minimizes heat-affected zone (HAZ) on sapphire due to reduced thermal diffusion; shorter pulses (<10 ns) for ultra-fine control but higher cost (laser physics research in Appl. Phys. A 2015 on Al2O3 ablation; Coherent laser parameters).
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: Effective speeds for contamination removal; slower for heavy contaminants (e.g., oils), faster for light
-      dust; 2000 mm/s recommended for uniform cleaning on sapphire without excessive heat buildup, considering its good thermal
-      conductivity (industry standards from Laserax equipment manuals; Opt. Lasers case studies).
+    description: Effective speeds for contamination removal; slower for heavy contaminants (e.g., oils), faster for light dust; 2000 mm/s recommended for uniform cleaning on sapphire without excessive heat buildup, considering its good thermal conductivity (industry standards from Laserax equipment manuals; Opt. Lasers case studies).
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: Single pass for light contamination, multi-pass for stubborn residues; 2 passes typical for complete removal
-      on sapphire without risking cumulative damage, based on its hardness and low absorption (industry practice in watchmaking/optics
-      case studies; Laser Cleaning Journal 2021).
+    description: Single pass for light contamination, multi-pass for stubborn residues; 2 passes typical for complete removal on sapphire without risking cumulative damage, based on its hardness and low absorption (industry practice in watchmaking/optics case studies; Laser Cleaning Journal 2021).
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or overexposure; 60% recommended for sapphire to achieve even cleaning
-      while minimizing total energy input and HAZ, adjustable for contamination density (process optimization studies: Surf.
-      Coat. Technol. 2019; manufacturer guidelines from CleanLaser).'
+    description: 'Ensures uniform coverage without gaps or overexposure; 60% recommended for sapphire to achieve even cleaning while minimizing total energy input and HAZ, adjustable for contamination density (process optimization studies: Surf. Coat. Technol. 2019; manufacturer guidelines from CleanLaser).'
   dwellTime:
     description: Optimal dwell time per cleaning spot location
     unit: μs
@@ -254,23 +226,18 @@ machineSettings:
     description: Optimal power range for Sapphire Glass cleaning without thermal damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   laserPowerAlternative:
     min: 20
     max: 200
     value: 50
     unit: W
-    description: Typical range for industrial Nd:YAG lasers at 1064 nm used in delicate substrate cleaning; starting at 50
-      W balances efficiency and safety for sapphire's high melting point (~2040°C) and low absorption at this wavelength,
-      avoiding thermal damage (IPG Photonics laser cleaning systems specs; J. Laser Appl. 2018 study on oxide ceramics).
+    description: Typical range for industrial Nd:YAG lasers at 1064 nm used in delicate substrate cleaning; starting at 50 W balances efficiency and safety for sapphire's high melting point (~2040°C) and low absorption at this wavelength, avoiding thermal damage (IPG Photonics laser cleaning systems specs; J. Laser Appl. 2018 study on oxide ceramics).
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Common for pulsed cleaning to achieve high throughput; 50 kHz balances speed and heat management for sapphire,
-      where high rates risk accumulation but leverage its thermal conductivity; lower rates for heavy contamination (academic
-      literature: J. Phys. D 2020 on pulse overlap in ceramics; manufacturer data from Trumpf).'
-componentSummary: These settings employ moderate 50 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants from
-  Sapphire Glass, preserving its high thermal stability and optical clarity without subsurface damage.
+    description: 'Common for pulsed cleaning to achieve high throughput; 50 kHz balances speed and heat management for sapphire, where high rates risk accumulation but leverage its thermal conductivity; lower rates for heavy contamination (academic literature: J. Phys. D 2020 on pulse overlap in ceramics; manufacturer data from Trumpf).'
+componentSummary: These settings employ moderate 50 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants from Sapphire Glass, preserving its high thermal stability and optical clarity without subsurface damage.

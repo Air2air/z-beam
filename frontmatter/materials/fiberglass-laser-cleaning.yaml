@@ -1,41 +1,119 @@
 id: fiberglass-laser-cleaning
 name: Fiberglass
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Composite
+    href: /materials/composite
+  - label: Fiber Reinforced
+    href: /materials/composite/fiber-reinforced
+  - label: Fiberglass
+    href: /materials/composite/fiber-reinforced/fiberglass
 displayName: Fiberglass Laser Cleaning
 category: composite
 subcategory: fiber-reinforced
-pageDescription: I've seen fiberglass excel in marine and aerospace applications because it combines impressive strength with
-  lightweight durability and resists corrosion far better than metals, so you avoid heavy rust issues over time
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: mixed crystal structure
-    source: ai_research
-    unit: crystal system
-    value: mixed
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:41.756181+00:00'
+fullPath: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
+pageTitle: Fiberglass
+metaDescription: >-
+  Laser cleaning process targets fiberglass surfaces, where fibers embed in strong matrix. At 1000x magnification,
+  contamination appears as thick layers of dir...
+card:
+  default:
+    heading: Fiberglass
+    subtitle: composite / fiber-reinforced
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  countryDisplay: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+    - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+    - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    - ANSI Z136.1 - Safe Use of Lasers
+    - IEC 60825 - Safety of Laser Products
+  isBasedOn:
+    name: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+images:
+  hero:
+    url: /images/material/fiberglass-laser-cleaning-hero.jpg
+    alt: Fiberglass surface undergoing laser cleaning showing precise contamination removal
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/fiberglass-laser-cleaning-micro.jpg
+    alt: Fiberglass microscopic view of laser cleaning showing detailed precise contamination removal
+    width: 800
+    height: 600
+components:
+  settingsDescription: >-
+    When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process go smoothly.
+    This composite material holds up well because of its strong, lightweight fibers that resist corrosion in tough
+    environments like marine or aerospace settings. But watch out midway—its poor heat spread can cause localized damage
+    if you push too hard, so adjust to multiple light passes instead of one heavy go. Tends to clean contaminants
+    without scratching the surface when you keep the energy low and overlap spots just right. This way, you preserve its
+    flexibility for applications in wind energy or construction.
+  micro:
+    before: >-
+      When we look at the fiberglass surface before laser cleaning, contaminants cover the fibers thickly. Dust and
+      residues cling to every strand, making the texture rough and uneven. The whole area appears cluttered, hiding the
+      material's true structure underneath.
+    after: >-
+      After the laser treatment, the surface shows clear, exposed fibers standing out sharply. No more buildup mars the
+      view, and the strands look smooth and defined. We've uncovered a pristine layer that reveals the fiberglass's
+      natural form clearly.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    percentage: 60.0
-    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-      integrity
+    percentage: 60
     electricalResistivity:
-      value: 1000000000000.0
+      value: 1000000000000
       unit: Ω·m
       confidence: 95
       source: ai_research
-    fractureToughness: 15.0
+    fractureToughness: 15
     density:
-      value: 1800.0
+      value: 1800
       unit: kg/m³
       confidence: 95
       source: ai_research
@@ -45,27 +123,27 @@ properties:
       confidence: 95
       source: ai_research
     youngsModulus:
-      value: 25.0
+      value: 25
       unit: GPa
       confidence: 95
       source: ai_research
     hardness:
-      value: 85.0
+      value: 85
       unit: Shore D
       confidence: 95
       source: ai_research
     compressiveStrength:
-      value: 240.0
+      value: 240
       unit: MPa
       confidence: 95
       source: ai_research
     tensileStrength:
-      value: 620.0
+      value: 620
       unit: MPa
       confidence: 95
       source: ai_research
     flexuralStrength:
-      value: 200.0
+      value: 200
       unit: MPa
       confidence: 95
       source: ai_research
@@ -81,15 +159,25 @@ properties:
       sourceType: journal_article
       sourceName: Laser ablation thresholds of glass fiber reinforced polymer composites
       citation: 'Serafetinides et al., Applied Surface Science, 2008, DOI: 10.1016/j.apsusc.2007.10.058'
-      context: GFRP composite (E-glass fibers in epoxy matrix, 60% fiber volume), 1064 nm Nd:YAG laser, 5-10 ns pulse duration,
+      context: >-
+        GFRP composite (E-glass fibers in epoxy matrix, 60% fiber volume), 1064 nm Nd:YAG laser, 5-10 ns pulse duration,
         room temperature (25°C), atmospheric pressure
       confidence: 95
       researchedDate: '2025-11-24T11:57:28.072837'
       needsValidation: true
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     absorptivity:
       value: 0.85
       unit: dimensionless
@@ -105,14 +193,14 @@ properties:
     laserDamageThreshold:
       value: 3.5
       unit: J/cm²
-      min: 1.0
-      max: 10.0
+      min: 1
+      max: 10
       source: ai_research
     thermalShockResistance:
       value: 1.5
       unit: MW/m
       min: 0.5
-      max: 3.0
+      max: 3
       source: ai_research
     reflectivity:
       value: 0.08
@@ -133,7 +221,7 @@ properties:
       max: 500
       source: ai_research
     thermalDestruction:
-      value: 673.0
+      value: 673
       unit: K
       confidence: 95
       source: ai_research
@@ -143,7 +231,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalExpansion:
-      value: 1.5e-05
+      value: 0.000015
       unit: K^{-1}
       confidence: 95
       source: ai_research
@@ -153,7 +241,7 @@ properties:
       confidence: 95
       source: ai_research
     specificHeat:
-      value: 920.0
+      value: 920
       unit: J/(kg·K)
       confidence: 95
       source: ai_research
@@ -163,7 +251,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalDiffusivity:
-      value: 1.8e-07
+      value: 1.8e-7
       unit: m²/s
       confidence: 95
       source: ai_research
@@ -174,421 +262,341 @@ properties:
       sourceType: journal_article
       sourceName: Laser ablation of glass fiber reinforced polymer composites
       citation: 'Serafetinides, A.A. et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2008.10.065'
-      context: E-glass fiber reinforced epoxy composite (50 wt% fibers), room temperature (25°C), measured with excimer laser
+      context: >-
+        E-glass fiber reinforced epoxy composite (50 wt% fibers), room temperature (25°C), measured with excimer laser
         at 248 nm wavelength, 25 ns pulse duration
       confidence: 95
       researchedDate: '2025-11-24T11:57:33.517238'
       needsValidation: true
-micro:
-  before: Laser cleaning process targets fiberglass surfaces, where fibers embed in strong matrix. At 1000x magnification,
-    contamination appears as thick layers of dirt and oxide buildup, so it covers fiber strands completely. This contamination,
-    it forms irregular patterns because exposure to environment causes accumulation over time. Fibers show dull texture before
-    treatment, and matrix exhibits rough edges from deposits.
-  after: After laser cleaning is applied, surfaces achieve smooth removal of layers. Clean fiberglass now reveals uniform
-    fiber alignment, so reflectivity increases noticeably. Oxide is already removed by precise pulses, and particles still
-    present earlier just now disappear in observations. During this treatment, heat affects only contaminants, so underlying
-    durable structure remains intact. From the data, clean surface exhibits even gloss without damage.
-images:
-  hero:
-    url: /images/material/fiberglass-laser-cleaning-hero.jpg
-    alt: Fiberglass surface undergoing laser cleaning showing precise contamination removal
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/fiberglass-laser-cleaning-micro.jpg
-    alt: Fiberglass microscopic view of laser cleaning showing detailed precise contamination removal
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: can-you-safely-use-a-laser
+      title: Can you safely use a laser cleaner to remove paint or contamination from a fiberglass surface?
+      content: >-
+        Laser cleaning is strongly discouraged for fiberglass composites, particularly since the polymer resin absorbs
+        near-infrared energy at 1064 nm so readily. This leads to thermal degradation. Notably, even at a conservative
+        fluence of 5 J/cm², the resin matrix can burn and vaporize, thus catastrophically compromising the material's
+        structural integrity.
+      metadata:
+        topic: you safely use a laser
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: true
+        order: 1
+    - id: what-happens-to-fiberglass-when-its
+      title: What happens to fiberglass when it's hit with a laser during cleaning?
+      content: >-
+        The 1064 nm laser energy gets strongly absorbed by the polymer resin, particularly triggering rapid thermal
+        decomposition and ablation at fluences around 5 J/cm². This leaves exposed, frayed glass fibers and a charred
+        surface behind, thus critically undermining the material's structural integrity. The composite simply isn't
+        suited for this cleaning method.
+      metadata:
+        topic: happens to fiberglass it's hit
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 2
+    - id: are-there-any-specific-laser-types
+      title: >-
+        Are there any specific laser types or settings (wavelength, power) that make cleaning fiberglass less
+        destructive?
+      content: >-
+        UV lasers at 5 J/cm² particularly minimize thermal effects, yet fiberglass proves highly vulnerable. Even under
+        optimized ns-pulse settings, the resin matrix remains prone to degradation. Thus, most industrial systems face
+        material damage risks, deeming this application largely unsuitable.
+      metadata:
+        topic: there any specific laser types
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 3
+    - id: what-is-the-best-alternative-to
+      title: What is the best alternative to laser cleaning for preparing or restoring fiberglass surfaces?
+      content: >-
+        Particularly for fiberglass restoration, gentle mechanical abrasion using plastic media or chemical stripping is
+        preferred. These approaches notably avoid the thermal risks of laser processing, which requires precise control
+        below 5 J/cm² to prevent resin degradation in the composite matrix.
+      metadata:
+        topic: the best alternative to laser
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 4
+    - id: if-a-laser-accidentally-contacts-fiberglass
+      title: If a laser accidentally contacts fiberglass, what kind of damage should I look for?
+      content: >-
+        Examine for visible charring, like brown or black marks, alongside a pitted and bubbled surface texture.
+        Specifically, the 1064 nm wavelength ablates the resin matrix, exposing brittle glass fibers. Thus, it leads to
+        substantial loss of surface gloss and structural integrity.
+      metadata:
+        topic: if a laser accidentally contacts
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 5
+    - id: what-are-the-specific-health-hazards
+      title: What are the specific health hazards of laser cleaning fiberglass compared to cleaning metal?
+      content: >-
+        Unlike metal dust, laser cleaning fiberglass at 5 J/cm² particularly generates toxic resin fumes and aerosolizes
+        sharp sub-50μm glass fibers. Notably, these pose a severe inhalation risk, thus often requiring HEPA filtration
+        beyond standard PPE.
+      metadata:
+        topic: the specific health hazards of
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 6
+    - id: why-is-fiberglass-so-problematic-for
+      title: Why is fiberglass so problematic for laser cleaning compared to materials like rust or paint on steel?
+      content: >-
+        Notably, unlike steel, fiberglass's polymer resin strongly absorbs 1064 nm laser energy. This indicates the
+        substrate itself becomes vulnerable at fluences above ~5 J/cm², beyond just surface contaminants. Thus, precise
+        parameter control remains essential to prevent thermal damage to the composite material.
+      metadata:
+        topic: fiberglass so problematic for laser
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 7
+    - id: is-there-any-scenario-where-laser
+      title: >-
+        Is there any scenario where laser treatment of fiberglass is acceptable, such as for very light surface mold
+        release?
+      content: >-
+        Even with ultra-thin mold release, the risk remains extreme. Specifically, the fluence needed for contaminant
+        removal—typically over 5 J/cm²—will almost certainly surpass the damage threshold of the sensitive polymer
+        matrix, thus causing irreversible degradation to the underlying resin.
+      metadata:
+        topic: there any scenario laser treatment
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 8
+    - id: how-does-the-weave-and-resin
+      title: How does the weave and resin type (e.g., epoxy vs. polyester) affect its reaction to a laser?
+      content: >-
+        Epoxy and polyester resins degrade at varying temperatures, yet notably, both sustain damage from the ~5 J/cm²
+        fluence essential for cleaning. Weave patterns play no role; specifically, the 1064 nm laser energy absorbs into
+        the resin matrix binding the glass fibers, thus undermining the composite's structural integrity irrespective of
+        its design.
+      metadata:
+        topic: the weave and resin type
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Yi-Chun Lin
+          title: Ph.D.
+          expertise:
+            - Laser Materials Processing
+      Display:
+        Open: false
+        order: 9
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: aviation-sealant-contamination
-        name: Aerospace Sealant Residue
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/aviation-sealant-contamination
-        image: /images/contaminant/aviation-sealant-contamination-hero.jpg
-        description: Aviation sealants build up as tough, organic residues on aircraft surfaces. They form irregular patterns,
-          oozing into joints and crevices during assembly. This creates sticky layers that harden une...
-        frequency: moderate
-        severity: moderate
-      - id: epoxy-residue-contamination
-        name: Epoxy Resin Deposits
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
-        image: /images/contaminant/epoxy-residue-contamination-hero.jpg
-        description: Epoxy residue differs from inorganic contaminants so laser cleaning faces unique challenges. Formation
-          occurs during adhesive curing and leaves sticky layers on metal surfaces. These layers bond ti...
-        frequency: moderate
-        severity: moderate
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
-      - id: soap-scum-contamination
-        name: Soap Scum Buildup
-        category: organic-residue
-        subcategory: cleaning-agent
-        url: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
-        image: /images/contaminant/soap-scum-contamination-hero.jpg
-        description: Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of
-          soap residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
-        frequency: moderate
-        severity: moderate
+        - id: aviation-sealant-contamination
+          name: Aerospace Sealant Residue
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/aviation-sealant-contamination
+          image: /images/contaminant/aviation-sealant-contamination-hero.jpg
+          description: >-
+            Aviation sealants build up as tough, organic residues on aircraft surfaces. They form irregular patterns,
+            oozing into joints and crevices during assembly. This creates sticky layers that harden une...
+          frequency: moderate
+          severity: moderate
+        - id: epoxy-residue-contamination
+          name: Epoxy Resin Deposits
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+          image: /images/contaminant/epoxy-residue-contamination-hero.jpg
+          description: >-
+            Epoxy residue differs from inorganic contaminants so laser cleaning faces unique challenges. Formation
+            occurs during adhesive curing and leaves sticky layers on metal surfaces. These layers bond ti...
+          frequency: moderate
+          severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
+        - id: soap-scum-contamination
+          name: Soap Scum Buildup
+          category: organic-residue
+          subcategory: cleaning-agent
+          url: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
+          image: /images/contaminant/soap-scum-contamination-hero.jpg
+          description: >-
+            Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of soap
+            residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: aerospace
-        name: Aerospace
-      - id: marine
-        name: Marine
-      - id: automotive
-        name: Automotive
-      - id: wind-energy
-        name: Wind Energy
-      - id: electronics
-        name: Electronics
-      - id: construction
-        name: Construction
-      - id: medical-equipment
-        name: Medical Equipment
-      - id: cultural-heritage
-        name: Cultural Heritage
-      - id: chemical-processing
-        name: Chemical Processing
-      - id: transportation
-        name: Transportation
+        - id: aerospace
+          name: Aerospace
+        - id: marine
+          name: Marine
+        - id: automotive
+          name: Automotive
+        - id: wind-energy
+          name: Wind Energy
+        - id: electronics
+          name: Electronics
+        - id: construction
+          name: Construction
+        - id: medical-equipment
+          name: Medical Equipment
+        - id: cultural-heritage
+          name: Cultural Heritage
+        - id: chemical-processing
+          name: Chemical Processing
+        - id: transportation
+          name: Transportation
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      - description: IEC 60825 - Safety of Laser Products
-        image: /images/logo/logo-org-iec.png
-        longName: International Electrotechnical Commission
-        name: IEC
-        url: https://webstore.iec.ch/publication/3587
-      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-        image: /images/logo/logo-org-osha.png
-        longName: Occupational Safety and Health Administration
-        name: OSHA
-        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: IEC 60825 - Safety of Laser Products
+          image: /images/logo/logo-org-iec.png
+          longName: International Electrotechnical Commission
+          name: IEC
+          url: https://webstore.iec.ch/publication/3587
+        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+          image: /images/logo/logo-org-osha.png
+          longName: Occupational Safety and Health Administration
+          name: OSHA
+          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: Fiberglass
-    subtitle: composite / fiber-reinforced
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-13T03:48:12.660549+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - uv_chalking
-  - environmental_dust
-  - chemical_stains
-  - adhesive_residue
+    - uv_chalking
+    - environmental_dust
+    - chemical_stains
+    - adhesive_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
   conditional:
     industrialOil:
       context: machinery_parts_only
       note: Only if composite is part of machinery
-components:
-  settingsDescription: When laser cleaning fiberglass, I've found that starting with a gentle scan speed helps the process
-    go smoothly. This composite material holds up well because of its strong, lightweight fibers that resist corrosion in
-    tough environments like marine or aerospace settings. But watch out midway—its poor heat spread can cause localized damage
-    if you push too hard, so adjust to multiple light passes instead of one heavy go. Tends to clean contaminants without
-    scratching the surface when you keep the energy low and overlap spots just right. This way, you preserve its flexibility
-    for applications in wind energy or construction.
-  micro:
-    before: When we look at the fiberglass surface before laser cleaning, contaminants cover the fibers thickly. Dust and
-      residues cling to every strand, making the texture rough and uneven. The whole area appears cluttered, hiding the material's
-      true structure underneath.
-    after: After the laser treatment, the surface shows clear, exposed fibers standing out sharply. No more buildup mars the
-      view, and the strands look smooth and defined. We've uncovered a pristine layer that reveals the fiberglass's natural
-      form clearly.
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  - ANSI Z136.1 - Safe Use of Lasers
-  - IEC 60825 - Safety of Laser Products
-  isBasedOn:
-    name: ANSI Z136.1 - Safe Use of Lasers
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-faq:
-  presentation: collapsible
-  items:
-  - id: can-you-safely-use-a-laser
-    title: Can you safely use a laser cleaner to remove paint or contamination from a fiberglass surface?
-    content: Laser cleaning is strongly discouraged for fiberglass composites, particularly since the polymer resin absorbs
-      near-infrared energy at 1064 nm so readily. This leads to thermal degradation. Notably, even at a conservative fluence
-      of 5 J/cm², the resin matrix can burn and vaporize, thus catastrophically compromising the material's structural integrity.
-    metadata:
-      topic: you safely use a laser
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  - id: what-happens-to-fiberglass-when-its
-    title: What happens to fiberglass when it's hit with a laser during cleaning?
-    content: The 1064 nm laser energy gets strongly absorbed by the polymer resin, particularly triggering rapid thermal decomposition
-      and ablation at fluences around 5 J/cm². This leaves exposed, frayed glass fibers and a charred surface behind, thus
-      critically undermining the material's structural integrity. The composite simply isn't suited for this cleaning method.
-    metadata:
-      topic: happens to fiberglass it's hit
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 2
-  - id: are-there-any-specific-laser-types
-    title: Are there any specific laser types or settings (wavelength, power) that make cleaning fiberglass less destructive?
-    content: UV lasers at 5 J/cm² particularly minimize thermal effects, yet fiberglass proves highly vulnerable. Even under
-      optimized ns-pulse settings, the resin matrix remains prone to degradation. Thus, most industrial systems face material
-      damage risks, deeming this application largely unsuitable.
-    metadata:
-      topic: there any specific laser types
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 3
-  - id: what-is-the-best-alternative-to
-    title: What is the best alternative to laser cleaning for preparing or restoring fiberglass surfaces?
-    content: Particularly for fiberglass restoration, gentle mechanical abrasion using plastic media or chemical stripping
-      is preferred. These approaches notably avoid the thermal risks of laser processing, which requires precise control below
-      5 J/cm² to prevent resin degradation in the composite matrix.
-    metadata:
-      topic: the best alternative to laser
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 4
-  - id: if-a-laser-accidentally-contacts-fiberglass
-    title: If a laser accidentally contacts fiberglass, what kind of damage should I look for?
-    content: Examine for visible charring, like brown or black marks, alongside a pitted and bubbled surface texture. Specifically,
-      the 1064 nm wavelength ablates the resin matrix, exposing brittle glass fibers. Thus, it leads to substantial loss of
-      surface gloss and structural integrity.
-    metadata:
-      topic: if a laser accidentally contacts
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 5
-  - id: what-are-the-specific-health-hazards
-    title: What are the specific health hazards of laser cleaning fiberglass compared to cleaning metal?
-    content: Unlike metal dust, laser cleaning fiberglass at 5 J/cm² particularly generates toxic resin fumes and aerosolizes
-      sharp sub-50μm glass fibers. Notably, these pose a severe inhalation risk, thus often requiring HEPA filtration beyond
-      standard PPE.
-    metadata:
-      topic: the specific health hazards of
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 6
-  - id: why-is-fiberglass-so-problematic-for
-    title: Why is fiberglass so problematic for laser cleaning compared to materials like rust or paint on steel?
-    content: Notably, unlike steel, fiberglass's polymer resin strongly absorbs 1064 nm laser energy. This indicates the substrate
-      itself becomes vulnerable at fluences above ~5 J/cm², beyond just surface contaminants. Thus, precise parameter control
-      remains essential to prevent thermal damage to the composite material.
-    metadata:
-      topic: fiberglass so problematic for laser
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 7
-  - id: is-there-any-scenario-where-laser
-    title: Is there any scenario where laser treatment of fiberglass is acceptable, such as for very light surface mold release?
-    content: Even with ultra-thin mold release, the risk remains extreme. Specifically, the fluence needed for contaminant
-      removal—typically over 5 J/cm²—will almost certainly surpass the damage threshold of the sensitive polymer matrix, thus
-      causing irreversible degradation to the underlying resin.
-    metadata:
-      topic: there any scenario laser treatment
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 8
-  - id: how-does-the-weave-and-resin
-    title: How does the weave and resin type (e.g., epoxy vs. polyester) affect its reaction to a laser?
-    content: Epoxy and polyester resins degrade at varying temperatures, yet notably, both sustain damage from the ~5 J/cm²
-      fluence essential for cleaning. Weave patterns play no role; specifically, the 1064 nm laser energy absorbs into the
-      resin matrix binding the glass fibers, thus undermining the composite's structural integrity irrespective of its design.
-    metadata:
-      topic: the weave and resin type
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 9
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Composite
-  href: /materials/composite
-- label: Fiber Reinforced
-  href: /materials/composite/fiber-reinforced
-metaDescription: Laser cleaning process targets fiberglass surfaces, where fibers embed in strong matrix. At 1000x magnification,
-  contamination appears as thick layers of dir...
-pageTitle: Fiberglass
+pageDescription: >-
+  I've seen fiberglass excel in marine and aerospace applications because it combines impressive strength with
+  lightweight durability and resists corrosion far better than metals, so you avoid heavy rust issues over time

@@ -9,25 +9,21 @@ contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/sedimentary/limestone-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stone
-  href: /settings/stone
-- label: Sedimentary
-  href: /settings/stone/sedimentary
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Stone
+    href: /settings/stone
+  - label: Sedimentary
+    href: /settings/stone/sedimentary
 pageTitle: Limestone
-pageDescription: 'When laser cleaning limestone, watch its porosity first. It soaks up dirt and moisture more than denser
-  stones like granite. This traps contaminants deep, so you risk incomplete removal or surface damage if you blast too hard.
+pageDescription: |-
+  When laser cleaning limestone, watch its porosity first. It soaks up dirt and moisture more than denser stones like granite. This traps contaminants deep, so you risk incomplete removal or surface damage if you blast too hard.
 
+  I've seen heat build up quickly because limestone conducts it poorly, unlike metals that spread it out. Start slow with gentle pulses to avoid cracking the stone.
 
-  I''ve seen heat build up quickly because limestone conducts it poorly, unlike metals that spread it out. Start slow with
-  gentle pulses to avoid cracking the stone.
-
-
-  Tends to absorb laser energy moderately, better than reflective marbles. Keep passes light and overlap them a bit. This
-  clears buildup without etching the texture. Adjust if you spot whitening—dial back power right away.'
+  Tends to absorb laser energy moderately, better than reflective marbles. Keep passes light and overlap them a bit. This clears buildup without etching the texture. Adjust if you spot whitening—dial back power right away.
 metaDescription: Limestone laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -49,23 +45,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-  - Laser Materials Processing
+    - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   personaFile: taiwan_persona.yaml
   formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
@@ -87,108 +83,92 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: settings
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: removesContaminants
+        group: interactions
+        domain: settings
+        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-      - id: limestone-laser-cleaning
-        effectiveness: high
+        - id: limestone-laser-cleaning
+          effectiveness: high
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: worksOnMaterials
+        group: interactions
+        domain: settings
+        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-      - thermalManagement:
-        - challenge: Thermal shock and microcracking
-          severity: critical
-          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-          impact: Natural stone contains microfissures that propagate under thermal stress
-          solutions:
-          - Use pulse mode with 8-12 second cooling between passes
-          - Reduce power by 40-50% for weathered or damaged stone
-          - Preheat substrate if possible to reduce thermal gradients
-          - Granite more resistant than marble; sandstone most vulnerable
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Moisture-induced spalling
-          severity: high
-          thresholdTemperature: Steam formation >100°C with trapped moisture
-          impact: Porous stone traps moisture that explosively converts to steam
-          solutions:
-          - Test moisture content before cleaning (>3% requires drying)
-          - Allow 48-72 hours drying after rain before laser cleaning
-          - Reduce power by 50% for damp stone
-          - Use pulse mode with extended cooling (15-20 seconds)
-          - Heritage stone requires especially gentle approach
-        contaminationChallenges:
-        - id: biological-growth
-          type: challenge
+        - thermalManagement:
+            - challenge: Thermal shock and microcracking
+              severity: critical
+              thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+              impact: Natural stone contains microfissures that propagate under thermal stress
+              solutions:
+                - Use pulse mode with 8-12 second cooling between passes
+                - Reduce power by 40-50% for weathered or damaged stone
+                - Preheat substrate if possible to reduce thermal gradients
+                - Granite more resistant than marble; sandstone most vulnerable
+                - Monitor for surface crazing; stop immediately if cracks appear
+            - challenge: Moisture-induced spalling
+              severity: high
+              thresholdTemperature: Steam formation >100°C with trapped moisture
+              impact: Porous stone traps moisture that explosively converts to steam
+              solutions:
+                - Test moisture content before cleaning (>3% requires drying)
+                - Allow 48-72 hours drying after rain before laser cleaning
+                - Reduce power by 50% for damp stone
+                - Use pulse mode with extended cooling (15-20 seconds)
+                - Heritage stone requires especially gentle approach
+          contaminationChallenges:
+            - id: biological-growth
+              type: challenge
       _section:
-        icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
+        icon: alert-triangle
+        order: 41
+        variant: default
+        relationshipType: commonChallenges
+        group: operational
+        domain: settings
+        schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength optimized for limestone absorption and minimal scattering
@@ -201,70 +181,53 @@ machineSettings:
     max: 500
     value: 300
     unit: μm
-    description: Beam diameter range for 1064 nm cleaning; smaller (100-300 μm) for fine details like engravings, larger (up
-      to 1 mm) for broad surfaces; 300 μm recommended for uniform limestone cleaning, from equipment specifications by IPG
-      Photonics and process optimization in stone conservation.
+    description: Beam diameter range for 1064 nm cleaning; smaller (100-300 μm) for fine details like engravings, larger (up to 1 mm) for broad surfaces; 300 μm recommended for uniform limestone cleaning, from equipment specifications by IPG Photonics and process optimization in stone conservation.
   energyDensity:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 1.5
     unit: J/cm²
-    description: Fluence range for safe removal of contaminants without ablating limestone; damage threshold ~3-5 J/cm² due
-      to CaCO3 decomposition; 1.5 J/cm² recommended for industrial cleaning, based on ablation threshold studies (e.g., R.
-      P. Forbes et al., Journal of Cultural Heritage, 2003).
+    description: Fluence range for safe removal of contaminants without ablating limestone; damage threshold ~3-5 J/cm² due to CaCO3 decomposition; 1.5 J/cm² recommended for industrial cleaning, based on ablation threshold studies (e.g., R. P. Forbes et al., Journal of Cultural Heritage, 2003).
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: Nanosecond regime preferred for cost-effective cleaning of limestone; picosecond (ps) or femtosecond reduces
-      heat-affected zone (HAZ) but increases cost; 20 ns recommended for minimal thermal damage to CaCO3 substrate, from laser
-      physics research (e.g., S. J. Henley et al., Applied Physics A, 2004).
+    description: Nanosecond regime preferred for cost-effective cleaning of limestone; picosecond (ps) or femtosecond reduces heat-affected zone (HAZ) but increases cost; 20 ns recommended for minimal thermal damage to CaCO3 substrate, from laser physics research (e.g., S. J. Henley et al., Applied Physics A, 2004).
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: Effective range for contamination removal; slower (100-500 mm/s) for heavy soiling like graffiti, faster
-      (up to 5000 mm/s) for light dust; recommended 1000 mm/s for balanced efficiency on limestone, per industry standards
-      from LaserCladding Technologies manuals and case studies on cultural heritage cleaning.
+    description: Effective range for contamination removal; slower (100-500 mm/s) for heavy soiling like graffiti, faster (up to 5000 mm/s) for light dust; recommended 1000 mm/s for balanced efficiency on limestone, per industry standards from LaserCladding Technologies manuals and case studies on cultural heritage cleaning.
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
-      removal on limestone without excessive exposure, per industry practice and case studies (e.g., European project on laser
-      cleaning of monuments, 2015).
+    description: Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete removal on limestone without excessive exposure, per industry practice and case studies (e.g., European project on laser cleaning of monuments, 2015).
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: Ensures uniform coverage; 50% recommended for even cleaning on irregular limestone surfaces, avoiding gaps
-      or overexposure; range from process optimization studies (e.g., A. Nevin et al., Analytical and Bioanalytical Chemistry,
-      2007).
+    description: Ensures uniform coverage; 50% recommended for even cleaning on irregular limestone surfaces, avoiding gaps or overexposure; range from process optimization studies (e.g., A. Nevin et al., Analytical and Bioanalytical Chemistry, 2007).
   laserPower:
     description: Optimal average power for limestone cleaning without thermal damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   laserPowerAlternative:
     min: 50
     max: 1000
     value: 200
     unit: W
-    description: Typical range for industrial 1064 nm Nd:YAG lasers cleaning limestone; starting at 50-100 W to avoid thermal
-      damage; max safe below 1000 W to prevent substrate cracking, based on manufacturer specs from Adapt Laser Systems and
-      studies on stone ablation (e.g., Pou et al., Applied Surface Science, 2003).
+    description: Typical range for industrial 1064 nm Nd:YAG lasers cleaning limestone; starting at 50-100 W to avoid thermal damage; max safe below 1000 W to prevent substrate cracking, based on manufacturer specs from Adapt Laser Systems and studies on stone ablation (e.g., Pou et al., Applied Surface Science, 2003).
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: Typical for pulsed 1064 nm systems; 30 kHz balances cleaning speed and heat accumulation on low-conductivity
-      limestone; higher rates (>50 kHz) risk overheating, lower for precision; sourced from academic literature on pulse train
-      effects (e.g., J. C. S. Lai et al., Optics and Lasers in Engineering, 2010).
-componentSummary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to gently ablate surface contaminants
-  from fragile limestone, avoiding thermal cracking or substrate erosion.
+    description: Typical for pulsed 1064 nm systems; 30 kHz balances cleaning speed and heat accumulation on low-conductivity limestone; higher rates (>50 kHz) risk overheating, lower for precision; sourced from academic literature on pulse train effects (e.g., J. C. S. Lai et al., Optics and Lasers in Engineering, 2010).
+componentSummary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to gently ablate surface contaminants from fragile limestone, avoiding thermal cracking or substrate erosion.

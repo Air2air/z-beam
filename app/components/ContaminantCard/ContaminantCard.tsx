@@ -37,24 +37,25 @@ export function ContaminantCard({
   
   // Safety check: href is required for Link component
   if (!href) {
-    console.error('ContaminantCard component received undefined href for:', frontmatter?.title || 'unknown');
+    console.error('ContaminantCard component received undefined href for:', frontmatter?.title);
     return null;
   }
   
   // Extract metadata
-  const title = frontmatter?.title || '';
-  const subject = frontmatter?.subject || '';
-  const description = frontmatter?.description || '';
-  const category = frontmatter?.category || '';
+  const title = frontmatter?.title;
+  const subject = frontmatter?.subject;
+  const description = frontmatter?.description;
+  const category = frontmatter?.category;
   
   // Create absolute URL for SEO
-  const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href || ''}`;
+  const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href}`;
   
   // Format category for display
-  const formattedCategory = (category || '').replace(/_/g, ' ').replace(/-/g, ' ');
+  const formattedCategory = category?.replace(/_/g, ' ').replace(/-/g, ' ');
   
   // Get category icon based on category type
-  const getCategoryIcon = (cat: string) => {
+  const getCategoryIcon = (cat: string | undefined) => {
+    if (!cat) return '⚠️';
     const lower = cat.toLowerCase();
     if (lower.includes('organic') || lower.includes('bio')) return '🧪';
     if (lower.includes('metal') || lower.includes('iron') || lower.includes('steel')) return '⚙️';

@@ -107,7 +107,7 @@ describe.skip('Author Schema P1 Enhancements', () => {
   const mockData = {
     title: 'Test Material',
     slug: 'test-material',
-    excerpt: 'Test excerpt',
+    pageDescription: 'Test pageDescription',
     content: 'Test content',
     frontmatter: {
       title: 'Test Material',

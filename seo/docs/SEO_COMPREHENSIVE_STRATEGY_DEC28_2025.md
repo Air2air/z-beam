@@ -283,7 +283,7 @@ author:
     <loc>https://www.z-beam.com/materials/aluminum</loc>
     <image:image>
       <image:loc>https://www.z-beam.com/images/material/aluminum-laser-cleaning-hero.jpg</image:loc>
-      <image:caption>Aluminum surface laser cleaning before and after</image:caption>
+      <image:micro>Aluminum surface laser cleaning before and after</image:micro>
       <image:title>Aluminum Laser Cleaning Results</image:title>
     </image:image>
   </url>

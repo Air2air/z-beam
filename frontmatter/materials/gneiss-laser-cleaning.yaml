@@ -1,14 +1,94 @@
 id: gneiss-laser-cleaning
 name: Gneiss
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Stone
+    href: /materials/stone
+  - label: Metamorphic
+    href: /materials/stone/metamorphic
+  - label: Gneiss
+    href: /materials/stone/metamorphic/gneiss
 displayName: Gneiss Laser Cleaning
 category: stone
 subcategory: metamorphic
-pageDescription: Gneiss stands out with its durable structure and low porosity, allowing laser cleaning to strip away contaminants
-  efficiently while safeguarding the stone's natural integrity.
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:48.491496+00:00'
+fullPath: /materials/stone/metamorphic/gneiss-laser-cleaning
+pageTitle: Gneiss
+metaDescription: >-
+  Laser cleaning ramps up the clarity on gneiss surfaces, especially under 1000x magnification, where contamination
+  patterns stand out starkly against the ston...
+card:
+  default:
+    heading: Gneiss
+    subtitle: stone / metamorphic
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+    - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+images:
+  hero:
+    url: /images/material/gneiss-laser-cleaning-hero.jpg
+    alt: Gneiss surface during precision laser cleaning process removing contamination layer
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/gneiss-laser-cleaning-micro.jpg
+    alt: Gneiss surface at 500x magnification showing laser cleaning results
+    width: 800
+    height: 600
+components:
+  micro:
+    before: >-
+      At 1000x magnification, the gneiss surface appears coated with a thick layer of dark contaminants that obscure
+      underlying textures. Fine particles cling tightly to the rough contours, creating uneven patches and dull spots
+      across the view. This contamination hides the natural banding patterns that define gneiss.
+    after: >-
+      After laser treatment, the same surface reveals a clear, restored texture with distinct mineral bands now fully
+      exposed. Smooth areas emerge where contaminants once dominated, allowing the rock's layered structure to stand out
+      sharply
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    description: Intrinsic physical and mechanical properties affecting laser cleaning outcomes
     density:
       value: 2.7
       unit: g/cm³
@@ -54,14 +134,23 @@ properties:
       unit: MPa m^{1/2}
       confidence: 85
     electricalResistivity:
-      value: 1000000000000.0
+      value: 1000000000000
       unit: Ω·m
       confidence: 90
-    percentage: 60.0
+    percentage: 60
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     thermalDestruction:
       value: 1273
       unit: K
@@ -77,7 +166,8 @@ properties:
       sourceType: journal_article
       sourceName: Laser Ablation Thresholds for Natural Stones in Cultural Heritage Conservation
       citation: 'Pořízka, P. et al., Applied Surface Science, 2014, DOI: 10.1016/j.apsusc.2014.05.089'
-      context: Natural gneiss sample from Bohemian Massif (quartz 30-40%, feldspar 40-50%, mica 10-20%), room temperature
+      context: >-
+        Natural gneiss sample from Bohemian Massif (quartz 30-40%, feldspar 40-50%, mica 10-20%), room temperature
         (25°C), 1064 nm Nd:YAG laser, pulse duration 10 ns
       confidence: 92
       researchedDate: '2025-11-24T12:39:37.551270'
@@ -89,46 +179,51 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser Ablation of Geological Materials: Threshold Fluences for Nanosecond Pulses'
       citation: 'Krivtsun, I. V., et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
-      context: Natural gneiss sample (quartz-feldspar-mica composition, 95% purity equivalent), 20°C, 1064 nm Nd:YAG laser,
+      context: >-
+        Natural gneiss sample (quartz-feldspar-mica composition, 95% purity equivalent), 20°C, 1064 nm Nd:YAG laser,
         nanosecond pulse duration (10 ns), atmospheric pressure
       confidence: 95
       researchedDate: '2025-11-24T12:39:46.478401'
       needsValidation: true
     thermalDiffusivity:
-      value: 1.3e-06
+      value: 0.0000013
       unit: m²/s
       source: scientific_literature
       sourceType: journal_article
       sourceName: Schatz, J. F., & Simmons, G. Thermal conductivity and thermal diffusivity of rocks
-      citation: 'Schatz, J. F., & Simmons, G., 1972, Thermal conductivity and diffusivity of some silicate materials at high
-        pressures, Journal of Geophysical Research, 77(23), 4376-4383, DOI: 10.1029/JB077i023p04376'
-      context: Gneiss (quartz-feldspar-mica composition, typical metamorphic rock from Precambrian shield), 25°C, measured
+      citation: >-
+        Schatz, J. F., & Simmons, G., 1972, Thermal conductivity and diffusivity of some silicate materials at high
+        pressures, Journal of Geophysical Research, 77(23), 4376-4383, DOI: 10.1029/JB077i023p04376
+      context: >-
+        Gneiss (quartz-feldspar-mica composition, typical metamorphic rock from Precambrian shield), 25°C, measured
         under ambient pressure using transient heating method
       confidence: 95
       researchedDate: '2025-11-24T12:39:57.024288'
       needsValidation: true
     thermalExpansion:
-      value: 9.2e-06
+      value: 0.0000092
       unit: K^{-1}
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb LLC, Gneiss (rock), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5c8e4b0a4a4b0e9f0a4b5c8e4b0a4a,
+      citation: >-
+        MatWeb LLC, Gneiss (rock), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5c8e4b0a4a4b0e9f0a4b5c8e4b0a4a,
         accessed 2023
-      context: Natural gneiss (quartz-feldspar-mica composition, typical metamorphic rock), 20-100°C range, linear coefficient
+      context: >-
+        Natural gneiss (quartz-feldspar-mica composition, typical metamorphic rock), 20-100°C range, linear coefficient
         measured under ambient pressure
       confidence: 95
       researchedDate: '2025-11-24T12:40:03.391606'
       needsValidation: true
     specificHeat:
-      value: 840.0
+      value: 840
       unit: J/(kg·K)
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb LLC, 'Gneiss, stone', http://www.matweb.com/search/DataSheet.aspx?MatGUID=examplegneissid, accessed
-        2023
-      context: Typical gneiss (quartz-feldspar-mica composition, ~70% silicates), 25°C, measured under standard atmospheric
+      citation: MatWeb LLC, 'Gneiss, stone', http://www.matweb.com/search/DataSheet.aspx?MatGUID=examplegneissid, accessed 2023
+      context: >-
+        Typical gneiss (quartz-feldspar-mica composition, ~70% silicates), 25°C, measured under standard atmospheric
         pressure
       confidence: 95
       researchedDate: '2025-11-24T12:40:08.698298'
@@ -139,9 +234,11 @@ properties:
       source: scientific_literature
       sourceType: reference_handbook
       sourceName: Handbook of Physical Constants
-      citation: Clark, S. P., Jr. (ed.), Handbook of Physical Constants, Geological Society of America Memoir 97, 1966, ISBN
+      citation: >-
+        Clark, S. P., Jr. (ed.), Handbook of Physical Constants, Geological Society of America Memoir 97, 1966, ISBN
         978-0-8137-1097-3
-      context: Granitic gneiss (quartz-feldspar-mica composition, low porosity <2%), 25°C, measured under dry conditions using
+      context: >-
+        Granitic gneiss (quartz-feldspar-mica composition, low porosity <2%), 25°C, measured under dry conditions using
         steady-state plate method
       confidence: 95
       researchedDate: '2025-11-24T12:40:15.661199'
@@ -153,275 +250,192 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser Cleaning of Geological Samples: Reflectivity Measurements on Metamorphic Rocks'
       citation: 'Fernandez et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5021345'
-      context: Natural gneiss sample (quartz-feldspar-mica composition, 70% quartz), 20°C, 1064 nm Nd:YAG laser wavelength,
+      context: >-
+        Natural gneiss sample (quartz-feldspar-mica composition, 70% quartz), 20°C, 1064 nm Nd:YAG laser wavelength,
         specular and diffuse reflectivity combined, polished surface
       confidence: 92
       researchedDate: '2025-11-24T12:40:22.520341'
       needsValidation: true
-micro:
-  before: Laser cleaning ramps up the clarity on gneiss surfaces, especially under 1000x magnification, where contamination
-    patterns stand out starkly against the stone's natural foliation. Contaminated areas typically show dark, irregular deposits
-    clinging to the interlocking mineral grains—think soot-like smears and gritty residues that dull the banded textures unique
-    to this metamorphic rock. These buildups obscure the subtle layering of quartz and feldspar, creating a hazy, uneven look
-    that hampers the stone's inherent durability.
-  after: After the laser passes over, it clears away those layers efficiently, revealing a clean surface that demonstrates
-    the gneiss's true character. Freshly exposed grains gleam with a sharp, crystalline edge, free from the matted overgrowth.
-    The process brings out the rock's tough, resilient features, like tightly woven bands that resist wear in practical applications
-    such as construction or restoration. Turns out, this method achieves a solid finish without damaging the underlying structure,
-    making it ideal for preserving historical facades or industrial slabs. Overall, the transformation highlights how laser
-    cleaning addresses contamination head-on, restoring visual and functional integrity to gneiss.
-images:
-  hero:
-    url: /images/material/gneiss-laser-cleaning-hero.jpg
-    alt: Gneiss surface during precision laser cleaning process removing contamination layer
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/gneiss-laser-cleaning-micro.jpg
-    alt: Gneiss surface at 500x magnification showing laser cleaning results
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: what-makes-laser-cleaning-effective-for
+      title: What makes laser cleaning effective for gneiss stone?
+      content: >-
+        When laser cleaning gneiss, you'll want to dial in the right power levels right from the start. This metamorphic
+        stone holds up well under controlled laser passes because its dense structure resists deep penetration, so the
+        process clears surface contaminants without cracking the material. In practice, operators line up short bursts
+        to target grime and oxidation layers that build up over time. Compared to softer sedimentary stones, gneiss
+        demands a steadier hand to avoid uneven heating, which can lead to micro-fractures if not managed. Overall, this
+        approach achieves a clean finish while preserving the stone's natural patterns. The key point here is starting
+        slow to test adhesion of the dirt. In most cases, it works out efficiently for restoration projects. Just wrap
+        up with a cool-down period to prevent thermal stress.
+      metadata:
+        topic: makes laser cleaning effective for
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: true
+        order: 1
+    - id: what-safety-considerations-should-i-keep
+      title: What safety considerations should I keep in mind when laser cleaning gneiss?
+      content: >-
+        The key with gneiss during laser cleaning is monitoring dust generation closely, as its hard surface can kick up
+        fine particles into the air. You'll find that protective gear lines up essential here—think respirators and
+        sealed suits—to handle any silica release from the stone's composition. In our experience, this metamorphic rock
+        tends to fracture along its bands if overheated, so set up barriers to contain debris. Operators typically ramp
+        up ventilation systems to clear fumes from vaporized contaminants. Compared to granite, gneiss shows more
+        variable layering, which heightens the risk of unexpected spalling. Essentially, conduct a site assessment first
+        to address airflow. This cuts down on health hazards significantly. Overall, prioritizing eye protection and
+        training ensures safe operations. End by inspecting for residual heat to avoid burns.
+      metadata:
+        topic: safety considerations should i keep
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 2
+    - id: how-do-i-set-up-the
+      title: How do I set up the laser cleaning process for gneiss effectively?
+      content: >-
+        When cleaning gneiss, watch the stone's layered structure as you set up your equipment. Start by positioning the
+        laser head at a consistent distance to maintain even coverage across its foliated patterns. This durable
+        metamorphic material responds best to pulsed modes that remove encrustations without compromising its
+        compressive integrity. We've found that scanning in overlapping paths helps address porosity pockets where dirt
+        hides. In contrast to limestone, gneiss requires finer control to prevent surface roughening from its inherent
+        toughness. The process generally involves pre-wetting the area to reduce dust, followed by methodical passes.
+        This improves adhesion removal while keeping the finish smooth. Typically, multiple light treatments achieve
+        solid results. To wrap up, always calibrate for the stone's resistance to ensure no subsurface damage occurs.
+      metadata:
+        topic: do i set up the
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: construction
-        name: Construction
-      - id: monument-restoration
-        name: Monument Restoration
-      - id: building-facades
-        name: Building Facades
-      - id: cultural-heritage
-        name: Cultural Heritage
-      - id: countertops
-        name: Countertops
-      - id: flooring
-        name: Flooring
-      - id: architectural-elements
-        name: Architectural Elements
-      - id: landscaping
-        name: Landscaping
+        - id: construction
+          name: Construction
+        - id: monument-restoration
+          name: Monument Restoration
+        - id: building-facades
+          name: Building Facades
+        - id: cultural-heritage
+          name: Cultural Heritage
+        - id: countertops
+          name: Countertops
+        - id: flooring
+          name: Flooring
+        - id: architectural-elements
+          name: Architectural Elements
+        - id: landscaping
+          name: Landscaping
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
-        icon: briefcase
-        order: 41
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  countryDisplay: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
-card:
-  default:
-    heading: Gneiss
-    subtitle: stone / metamorphic
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-10T04:11:39.420506+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - environmental_dust
-  - scale_buildup
-  - chemical_stains
-  - paint_residue
+    - environmental_dust
+    - scale_buildup
+    - chemical_stains
+    - paint_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
-  - uv_chalking
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
+    - uv_chalking
   conditional: {}
-components:
-  micro:
-    before: At 1000x magnification, the gneiss surface appears coated with a thick layer of dark contaminants that obscure
-      underlying textures. Fine particles cling tightly to the rough contours, creating uneven patches and dull spots across
-      the view. This contamination hides the natural banding patterns that define gneiss.
-    after: After laser treatment, the same surface reveals a clear, restored texture with distinct mineral bands now fully
-      exposed. Smooth areas emerge where contaminants once dominated, allowing the rock's layered structure to stand out sharply
-faq:
-  presentation: collapsible
-  items:
-  - id: what-makes-laser-cleaning-effective-for
-    title: What makes laser cleaning effective for gneiss stone?
-    content: When laser cleaning gneiss, you'll want to dial in the right power levels right from the start. This metamorphic
-      stone holds up well under controlled laser passes because its dense structure resists deep penetration, so the process
-      clears surface contaminants without cracking the material. In practice, operators line up short bursts to target grime
-      and oxidation layers that build up over time. Compared to softer sedimentary stones, gneiss demands a steadier hand
-      to avoid uneven heating, which can lead to micro-fractures if not managed. Overall, this approach achieves a clean finish
-      while preserving the stone's natural patterns. The key point here is starting slow to test adhesion of the dirt. In
-      most cases, it works out efficiently for restoration projects. Just wrap up with a cool-down period to prevent thermal
-      stress.
-    metadata:
-      topic: makes laser cleaning effective for
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  - id: what-safety-considerations-should-i-keep
-    title: What safety considerations should I keep in mind when laser cleaning gneiss?
-    content: The key with gneiss during laser cleaning is monitoring dust generation closely, as its hard surface can kick
-      up fine particles into the air. You'll find that protective gear lines up essential here—think respirators and sealed
-      suits—to handle any silica release from the stone's composition. In our experience, this metamorphic rock tends to fracture
-      along its bands if overheated, so set up barriers to contain debris. Operators typically ramp up ventilation systems
-      to clear fumes from vaporized contaminants. Compared to granite, gneiss shows more variable layering, which heightens
-      the risk of unexpected spalling. Essentially, conduct a site assessment first to address airflow. This cuts down on
-      health hazards significantly. Overall, prioritizing eye protection and training ensures safe operations. End by inspecting
-      for residual heat to avoid burns.
-    metadata:
-      topic: safety considerations should i keep
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 2
-  - id: how-do-i-set-up-the
-    title: How do I set up the laser cleaning process for gneiss effectively?
-    content: When cleaning gneiss, watch the stone's layered structure as you set up your equipment. Start by positioning
-      the laser head at a consistent distance to maintain even coverage across its foliated patterns. This durable metamorphic
-      material responds best to pulsed modes that remove encrustations without compromising its compressive integrity. We've
-      found that scanning in overlapping paths helps address porosity pockets where dirt hides. In contrast to limestone,
-      gneiss requires finer control to prevent surface roughening from its inherent toughness. The process generally involves
-      pre-wetting the area to reduce dust, followed by methodical passes. This improves adhesion removal while keeping the
-      finish smooth. Typically, multiple light treatments achieve solid results. To wrap up, always calibrate for the stone's
-      resistance to ensure no subsurface damage occurs.
-    metadata:
-      topic: do i set up the
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 3
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/stone/metamorphic/gneiss-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Stone
-  href: /materials/stone
-- label: Metamorphic
-  href: /materials/stone/metamorphic
-metaDescription: Laser cleaning ramps up the clarity on gneiss surfaces, especially under 1000x magnification, where contamination
-  patterns stand out starkly against the ston...
-pageTitle: Gneiss
+pageDescription: >-
+  Gneiss stands out with its durable structure and low porosity, allowing laser cleaning to strip away contaminants
+  efficiently while safeguarding the stone's natural integrity.

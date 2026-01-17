@@ -37,7 +37,7 @@ export function BaseContentLayout({
   ...layoutProps
 }: BaseContentLayoutProps) {
   const effectiveMetadata = enrichedMetadata || metadata;
-  const itemName = title || (metadata?.title as string) || metadata?.name || slug;
+  const itemName = title || (metadata as any)?.pageTitle || (metadata as any)?.displayName || (metadata?.title as string) || metadata?.name || slug;
   
   return (
     <Layout 

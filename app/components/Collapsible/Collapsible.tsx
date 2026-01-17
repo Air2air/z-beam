@@ -14,7 +14,7 @@
 "use client";
 
 import React from 'react';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { Badge } from '../Badge/Badge';
 import type { RelationshipSection } from '@/types';
 import { 
@@ -487,7 +487,10 @@ export function Collapsible({
                     >
                       <span className="text-base font-light flex items-center gap-2">
                         {icon}
-                        <span className="font-semibold">{displayTitle}</span>
+                        <span 
+                          className="font-semibold"
+                          dangerouslySetInnerHTML={{ __html: displayTitle }}
+                        />
                       </span>
                       <div className="flex items-center gap-2">
                         {severity && (
@@ -537,11 +540,14 @@ export function Collapsible({
               <details className={`group rounded-md border overflow-hidden transition-all duration-200 hover:shadow-md ${cardStyle}`}>
                 <summary 
                   className={`cursor-pointer px-4 py-3 md:px-6 md:py-4 font-normal flex items-center justify-between ${hoverClass} list-none transition-all duration-200`}
-                  aria-label={`Expand ${displayTitle}`}
+                  aria-label={`Expand ${isFAQContent ? categoryKey.replace(/<[^>]*>/g, '') : displayTitle}`}
                 >
                   <span className="text-base font-light flex items-center gap-2">
                     {icon}
-                    <span className="font-semibold">{displayTitle}</span>
+                    <span 
+                      className="font-semibold" 
+                      dangerouslySetInnerHTML={{ __html: isFAQContent ? categoryKey : displayTitle }}
+                    />
                   </span>
                   <div className="flex items-center gap-2">
                     {severity && (
@@ -580,17 +586,16 @@ export function Collapsible({
     </div>
   );
 
-  // If section metadata provided, wrap in SectionContainer
+  // If section metadata provided, wrap in BaseSection
   if (sectionMetadata) {
     return (
-      <SectionContainer
-        title={sectionMetadata.sectionTitle}
-        description={sectionMetadata.sectionDescription}
+      <BaseSection
+        section={sectionMetadata}
         variant={sectionMetadata.variant as 'default' | 'dark' | undefined}
-        className="mb-8"
+        spacing="loose"
       >
         {content}
-      </SectionContainer>
+      </BaseSection>
     );
   }
 

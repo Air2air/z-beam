@@ -56,13 +56,13 @@ export interface RiskAssessment {
  */
 export interface HazardousCompound {
   compound: string;
-  concentration_mg_m3: number;
-  exposure_limit_mg_m3: number;
-  hazard_class: HazardClass;
+  concentrationMgM3: number;
+  exposureLimitMgM3: number;
+  hazardClass: HazardClass;
 }
 
 export interface ToxicGasRisk extends RiskAssessment {
-  primary_hazards?: HazardousCompound[];
+  primaryHazards?: HazardousCompound[];
 }
 
 export interface VisibilityHazard extends RiskAssessment {
@@ -75,46 +75,46 @@ export interface VisibilityHazard extends RiskAssessment {
 
 export interface PPERequirements {
   respiratory: string;
-  eye_protection: string;
-  skin_protection: string;
-  minimum_level?: string;
-  special_notes?: string;
+  eyeProtection: string;
+  skinProtection: string;
+  minimumLevel?: string;
+  specialNotes?: string;
   rationale?: string;
 }
 
 export interface VentilationRequirements {
-  minimum_air_changes_per_hour: number;
-  exhaust_velocity_m_s: number;
-  filtration_type: string;
-  capture_efficiency_required?: number;
+  minimumAirChangesPerHour: number;
+  exhaustVelocityMS: number;
+  filtrationType: string;
+  captureEfficiencyRequired?: number;
   rationale?: string;
 }
 
 export interface DetectionMethod {
   method: string;
-  detection_limit_ppm: number;
-  response_time: string;
+  detectionLimitPpm: number;
+  responseTime: string;
 }
 
 export interface AlarmSetpoints {
-  warning_ppm: number;
-  danger_ppm: number;
+  warningPpm: number;
+  dangerPpm: number;
 }
 
 export interface DetectionMonitoring {
-  detection_methods: DetectionMethod[];
-  monitoring_locations: string;
-  alarm_setpoints: AlarmSetpoints;
-  calibration_frequency: string;
+  detectionMethods: DetectionMethod[];
+  monitoringLocations: string;
+  alarmSetpoints: AlarmSetpoints;
+  calibrationFrequency: string;
 }
 
 export interface EmergencyResponse {
-  fire_hazard: string;
-  fire_suppression: string;
-  spill_procedures: string;
-  exposure_immediate_actions: string;
-  environmental_hazards: string;
-  special_hazards?: string;
+  fireHazard: string;
+  fireSuppression: string;
+  spillProcedures: string;
+  exposureImmediateActions: string;
+  environmentalHazards: string;
+  specialHazards?: string;
 }
 
 // ============================================================================
@@ -122,9 +122,9 @@ export interface EmergencyResponse {
 // ============================================================================
 
 export interface ParticulateGeneration {
-  respirable_fraction: number;  // 0.0-1.0
-  size_range_um: [number, number];
-  generation_rate_mg_min?: number;
+  respirableFraction: number;  // 0.0-1.0
+  sizeRangeUm: [number, number];
+  generationRateMgMin?: number;
 }
 
 // Note: Fumes generated uses HazardousCompound (same as primary_hazards)
@@ -135,60 +135,60 @@ export interface ParticulateGeneration {
 // ============================================================================
 
 export interface ExposureLimits {
-  osha_pel_ppm?: number | null;
-  osha_pel_mg_m3?: number | null;
-  niosh_rel_ppm?: number | null;
-  niosh_rel_mg_m3?: number | null;
-  acgih_tlv_ppm?: number | null;
-  acgih_tlv_mg_m3?: number | null;
-  idlh_ppm?: number | null;
-  stel_ppm?: number | null;
-  ceiling_ppm?: number | null;
+  oshaPelPpm?: number | null;
+  oshaPelMgM3?: number | null;
+  nioshRelPpm?: number | null;
+  nioshRelMgM3?: number | null;
+  acgihTlvPpm?: number | null;
+  acgihTlvMgM3?: number | null;
+  idlhPpm?: number | null;
+  stelPpm?: number | null;
+  ceilingPpm?: number | null;
 }
 
 export interface WorkplaceExposure {
-  monitoring_required: boolean;
-  monitoring_frequency: string;
-  detection_methods: string[];
-  action_level_ppm?: number;
-  exposure_assessment: string;
+  monitoringRequired: boolean;
+  monitoringFrequency: string;
+  detectionMethods: string[];
+  actionLevelPpm?: number;
+  exposureAssessment: string;
 }
 
 export interface StorageRequirements {
-  container_type: string;
-  temperature_range: string;
-  humidity_control: string;
+  containerType: string;
+  temperatureRange: string;
+  humidityControl: string;
   segregation: string;
   ventilation: string;
-  special_precautions: string;
+  specialPrecautions: string;
 }
 
 export interface Reactivity {
   stability: string;
-  conditions_to_avoid: string;
-  incompatible_materials: string;
-  hazardous_decomposition: string;
-  hazardous_polymerization: string;
+  conditionsToAvoid: string;
+  incompatibleMaterials: string;
+  hazardousDecomposition: string;
+  hazardousPolymerization: string;
 }
 
 export interface EnvironmentalImpact {
   persistence: string;
   bioaccumulation: string;
-  aquatic_toxicity: string;
-  soil_mobility: string;
-  atmospheric_impact: string;
+  aquaticToxicity: string;
+  soilMobility: string;
+  atmosphericImpact: string;
 }
 
 export interface RegulatoryClassification {
-  dot_hazard_class: string;
-  dot_packing_group: string;
-  dot_label: string;
-  nfpa_health: number;
-  nfpa_flammability: number;
-  nfpa_reactivity: number;
-  nfpa_special?: string;
-  ghs_classification: string;
-  ghs_pictograms: string[];
+  dotHazardClass: string;
+  dotPackingGroup: string;
+  dotLabel: string;
+  nfpaHealth: number;
+  nfpaFlammability: number;
+  nfpaReactivity: number;
+  nfpaSpecial?: string;
+  ghsClassification: string;
+  ghsPictograms: string[];
 }
 
 // ============================================================================
@@ -219,7 +219,7 @@ export interface NormalizedSafetyData {
   // Risk Assessments (Contaminants Primary)
   // ========================================================================
   fire_explosion_risk?: SafetySection<RiskAssessment>;
-  toxic_gas_risk?: SafetySection<ToxicGasRisk>;  // Contains primary_hazards: HazardousCompound[]
+  toxicGasRisk?: SafetySection<ToxicGasRisk>;  // Contains primaryHazards: HazardousCompound[]
   visibility_hazard?: SafetySection<VisibilityHazard>;
   
   // ========================================================================

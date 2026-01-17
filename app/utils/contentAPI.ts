@@ -15,6 +15,7 @@ import { safeMatterParse } from './yamlSanitizer';
 import { stripParenthesesFromSlug, stripParenthesesFromImageUrl } from './formatting';
 import { extractSafeValue } from './stringHelpers';
 import { validateSlug, validateFilePath } from './errorSystem';
+import yaml from 'js-yaml';
 import { 
   normalizeRegulatoryStandards,
   normalizeCategoryFields,
@@ -189,7 +190,7 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
         try {
           const filePath = path.join(frontmatterDir, file);
           const content = await fs.readFile(filePath, 'utf8');
-          const parsed = safeMatterParse(content, { excerpt: false, engines: { yaml: (s: string) => require('js-yaml').load(s, { schema: require('js-yaml').JSON_SCHEMA }) } });
+          const parsed = safeMatterParse(content, { excerpt: false, engines: { yaml: (s: string) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) } });
           
           // Only add slug if YAML is complete
           if (isYamlComplete(parsed.data)) {
@@ -837,8 +838,8 @@ export const loadPageData = cache(async (slug: string): Promise<PageData> => {
       ...pageYamlData,
     };
     
-    return { metadata: mergedMetadata, components };
-  }, { metadata: {}, components: {} }, 'loadPageData', slug);
+    return { frontmatter: mergedMetadata, components };
+  }, { frontmatter: {}, components: {} }, 'loadPageData', slug);
 });
 
 /**
@@ -863,7 +864,7 @@ export const loadArticle = cache(async (slug: string): Promise<Article | null> =
       tags: (metadata.tags as string[]) || [],
       website: (metadata.website as string) || '',
       author: (metadata.author as string) || '',
-      metadata,
+      frontmatter: metadata,
     };
   }, null, 'loadArticle', slug);
 });
@@ -896,7 +897,7 @@ export const getArticleBySlug = loadSingleArticle;
  * Backward compatibility for getArticle function from contentIntegrator
  * Now uses the consolidated getArticleByContentType
  */
-export const getArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+export const getArticle = cache(async (slug: string): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return getArticleByContentType('materials', slug);
 });
 
@@ -909,7 +910,7 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
 const getArticleByContentType = cache(async (
   contentType: 'materials' | 'contaminants' | 'compounds' | 'settings',
   slug: string
-): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return safeContentOperation(async () => {
     const frontmatterDir = path.join(process.cwd(), 'frontmatter', contentType);
     const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
@@ -951,6 +952,19 @@ const getArticleByContentType = cache(async (
         authorInfo: (typeof convertedData.author === 'object' ? convertedData.author : null) || convertedData.authorInfo
       };
 
+      // DEBUG: Log relationships object to verify it's being loaded
+      if (convertedData.relationships) {
+        console.log(`✅ [contentAPI] Loaded relationships for ${slug}:`, {
+          hasRelationships: true,
+          hasSafety: !!convertedData.relationships.safety,
+          hasRegulatoryStandards: !!convertedData.relationships?.safety?.regulatoryStandards,
+          hasSectionTitle: !!convertedData.relationships?.safety?.regulatoryStandards?._section?.sectionTitle,
+          sectionTitle: convertedData.relationships?.safety?.regulatoryStandards?._section?.sectionTitle
+        });
+      } else {
+        console.error(`❌ [contentAPI] NO relationships found for ${slug}`);
+      }
+
       const components: Record<string, ComponentData> = {};
       
       // ALL domains get same component loading (normalized)
@@ -978,7 +992,7 @@ const getArticleByContentType = cache(async (
       };
       
       return {
-        metadata,
+        frontmatter: metadata,
         components
       };
     } catch (error) {
@@ -991,14 +1005,14 @@ const getArticleByContentType = cache(async (
 /**
  * Load contaminant article - wrapper for backward compatibility
  */
-export const getContaminantArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+export const getContaminantArticle = cache(async (slug: string): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return getArticleByContentType('contaminants', slug);
 });
 
 /**
  * Load compound article - wrapper for backward compatibility
  */
-export const getCompoundArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+export const getCompoundArticle = cache(async (slug: string): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return getArticleByContentType('compounds', slug);
 });
 

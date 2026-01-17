@@ -1,14 +1,94 @@
 id: acrylic-pmma-laser-cleaning
 name: Acrylic (PMMA)
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Plastic
+    href: /materials/plastic
+  - label: Thermoplastic
+    href: /materials/plastic/thermoplastic
+  - label: Acrylic (PMMA)
+    href: /materials/plastic/thermoplastic/acrylic-(pmma)
 displayName: Acrylic (PMMA) Laser Cleaning
 category: plastic
 subcategory: thermoplastic
-pageDescription: Acrylic excels in laser cleaning setups thanks to its non-porous, smooth surface that enables precise contaminant
-  removal while preserving optical clarity and structural integrity.
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:48.214622+00:00'
+fullPath: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
+pageTitle: Acrylic (PMMA)
+metaDescription: >-
+  Laser cleaning ramps up the clarity on acrylic-PMMA surfaces, especially under high magnification. Contaminated areas
+  typically show irregular patterns of de...
+card:
+  default:
+    heading: Acrylic (PMMA)
+    subtitle: plastic / thermoplastic
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+    - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+images:
+  hero:
+    url: /images/material/acrylic-pmma-laser-cleaning-hero.jpg
+    alt: Acrylic (PMMA) surface during precision laser cleaning process removing contamination layer
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/acrylic-pmma-laser-cleaning-micro.jpg
+    alt: Acrylic (PMMA) surface at 500x magnification showing laser cleaning results
+    width: 800
+    height: 600
+components:
+  micro:
+    before: >-
+      The acrylic surface teems with embedded dirt particles and smudges at 1000x magnification. These contaminants form
+      irregular clusters that obscure the underlying material completely. Scratches and residues create a bumpy, uneven
+      texture across the entire area.
+    after: >-
+      Laser treatment clears away all traces of dirt and debris from the acrylic effectively. The surface now displays a
+      smooth, uniform finish without any visible flaws. It exposes a clear, pristine layer that reflects light evenly
+      throughout.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    description: Intrinsic physical and mechanical properties affecting laser cleaning outcomes
     density:
       value: 1.18
       unit: g/cm³
@@ -54,14 +134,23 @@ properties:
       unit: MPa m^{1/2}
       confidence: 85
     electricalResistivity:
-      value: 100000000000000.0
+      value: 100000000000000
       unit: Ω·m
       confidence: 90
-    percentage: 60.0
+    percentage: 60
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     thermalDestruction:
       value: 433
       unit: K
@@ -77,8 +166,9 @@ properties:
       sourceType: journal_article
       sourceName: 'Applied Physics A: Materials Science & Processing'
       citation: 'B. W. Smith et al., Applied Physics A 79, 1023-1026 (2004), DOI: 10.1007/s00339-004-2845-7'
-      context: Commercial-grade clear PMMA (99% purity), 25°C, 532 nm Nd:YAG laser, 10 ns pulse duration, single-shot irradiation
-        in air
+      context: >-
+        Commercial-grade clear PMMA (99% purity), 25°C, 532 nm Nd:YAG laser, 10 ns pulse duration, single-shot
+        irradiation in air
       confidence: 95
       researchedDate: '2025-11-24T12:30:31.076360'
       needsValidation: true
@@ -88,47 +178,54 @@ properties:
       source: scientific_literature
       sourceType: journal_article
       sourceName: 'Applied Physics A: Materials Science & Processing'
-      citation: Küper, S., Stuke, M. Ablation of polyimide with 193 and 248 nm excimer laser radiation. Appl. Phys. A 44,
+      citation: >-
+        Küper, S., Stuke, M. Ablation of polyimide with 193 and 248 nm excimer laser radiation. Appl. Phys. A 44,
         199–204 (1987). https://doi.org/10.1007/BF00919310
-      context: Pure PMMA (polymethyl methacrylate), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration,
+      context: >-
+        Pure PMMA (polymethyl methacrylate), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration,
         vacuum environment
       confidence: 95
       researchedDate: '2025-11-24T12:30:39.539163'
       needsValidation: true
     thermalDiffusivity:
-      value: 1.1e-07
+      value: 1.1e-7
       unit: m²/s
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb, LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5b4a0b0a4a4b0e9b0a0b0e9b0a0b0e,
-        accessed 2023
-      context: Commercial grade PMMA (density 1.18 g/cm³, 99% purity), 25°C, calculated from thermal conductivity (0.19 W/m·K),
+      citation: >-
+        MatWeb, LLC, Acrylic, General Purpose,
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5b4a0b0a4a4b0e9b0a0b0e9b0a0b0e, accessed 2023
+      context: >-
+        Commercial grade PMMA (density 1.18 g/cm³, 99% purity), 25°C, calculated from thermal conductivity (0.19 W/m·K),
         density, and specific heat (1.46 J/g·K)
       confidence: 95
       researchedDate: '2025-11-24T12:30:44.295139'
       needsValidation: true
     thermalExpansion:
-      value: 8.0e-05
+      value: 0.00008
       unit: 1/K
       source: scientific_literature
       sourceType: materials_database
       sourceName: MatWeb Materials Database
-      citation: MatWeb LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c07b3d2a1b74c4e9a4b0a4e4b0a4e4b,
-        accessed 2023
+      citation: >-
+        MatWeb LLC, Acrylic, General Purpose,
+        http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c07b3d2a1b74c4e9a4b0a4e4b0a4e4b, accessed 2023
       context: Cast PMMA sheet, commercial grade (99% purity), 25°C, linear expansion measured by dilatometry
       confidence: 95
       researchedDate: '2025-11-24T12:30:51.668519'
       needsValidation: true
     specificHeat:
-      value: 1460.0
+      value: 1460
       unit: J/(kg·K)
       source: scientific_literature
       sourceType: reference_handbook
       sourceName: CRC Handbook of Chemistry and Physics
-      citation: Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton,
+      citation: >-
+        Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton,
         FL, 2023, ISBN 978-1-138-56163-2
-      context: Atactic poly(methyl methacrylate) (PMMA), 99% purity, 25°C, amorphous state, measured under standard atmospheric
+      context: >-
+        Atactic poly(methyl methacrylate) (PMMA), 99% purity, 25°C, amorphous state, measured under standard atmospheric
         pressure
       confidence: 98
       researchedDate: '2025-11-24T12:30:58.489536'
@@ -140,7 +237,9 @@ properties:
       sourceType: reference_handbook
       sourceName: CRC Handbook of Chemistry and Physics
       citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2
-      context: Amorphous PMMA (polymethyl methacrylate), 25°C, steady-state heat flow method under standard atmospheric conditions
+      context: >-
+        Amorphous PMMA (polymethyl methacrylate), 25°C, steady-state heat flow method under standard atmospheric
+        conditions
       confidence: 95
       researchedDate: '2025-11-24T12:31:04.956559'
       needsValidation: true
@@ -151,300 +250,223 @@ properties:
       sourceType: journal_article
       sourceName: Optical Properties of Polymethyl Methacrylate (PMMA) in the Near-Infrared Region
       citation: 'Sultanova, M., et al., Applied Optics, 2009, DOI: 10.1364/AO.48.000223'
-      context: Clear PMMA (99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C, vacuum-deposited thin film
+      context: >-
+        Clear PMMA (99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C, vacuum-deposited thin film
         measurement
       confidence: 95
       researchedDate: '2025-11-24T12:31:12.656518'
       needsValidation: true
-micro:
-  before: Laser cleaning ramps up the clarity on acrylic-PMMA surfaces, especially under high magnification. Contaminated
-    areas typically show irregular patterns of debris—fine particles and oily residues that cling tightly to the smooth, glossy
-    texture of this thermoplastic. These contaminants create shadowy clusters, disrupting the material's inherent uniformity
-    and revealing tiny pits where dirt embeds into micro-scratches.
-  after: After the laser treatment clears things out, the surface demonstrates a clean finish that restores its natural sheen.
-    The process removes those stubborn layers without etching the base material, leaving behind a uniform, pore-free expanse
-    that reflects light evenly. In practice, this turns out to be a solid way to maintain the plastic's durable, transparent
-    qualities, cutting down on haze from buildup. Overall, the key point here is how laser action preserves the substrate's
-    integrity while achieving a pristine look.
-images:
-  hero:
-    url: /images/material/acrylic-pmma-laser-cleaning-hero.jpg
-    alt: Acrylic (PMMA) surface during precision laser cleaning process removing contamination layer
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/acrylic-pmma-laser-cleaning-micro.jpg
-    alt: Acrylic (PMMA) surface at 500x magnification showing laser cleaning results
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: how-can-i-prevent-warping-when
+      title: How can I prevent warping when laser cleaning acrylic sheets?
+      content: >-
+        When laser cleaning acrylic, you'll want to start with low-power settings to avoid overheating its
+        heat-sensitive surface. I've seen that this material contrasts with metals by deforming easily under brief heat
+        exposure, so short pulses remove dirt without causing warps. This approach restores clarity and shape
+        effectively in practical applications like signage restoration.
+      metadata:
+        topic: i prevent warping laser cleaning
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: true
+        order: 1
+    - id: whats-the-best-way-to-remove
+      title: What's the best way to remove stains from PMMA without scratching?
+      content: >-
+        If you're cleaning PMMA, watch for its smooth surface that resists scratches but absorbs laser energy quickly.
+        Unlike rougher plastics, acrylic cleans best with gentle, focused beams that lift stains layer by layer. In my
+        experience, this method exposes a pristine finish and improves durability for repeated use in displays.
+      metadata:
+        topic: '''s the best way to'
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 2
+    - id: does-laser-cleaning-affect-the-transparency
+      title: Does laser cleaning affect the transparency of acrylic parts?
+      content: >-
+        Laser cleaning acrylic demands careful control since its clear nature can fog from uneven heating. Compared to
+        opaque thermoplastics, PMMA reveals contaminants easily but risks haze if pulses are too intense.
+      metadata:
+        topic: laser cleaning affect the transpncy
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 3
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: adhesive-residue-contamination
-        name: Adhesive Residue / Tape Marks
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
-        description: Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape
-          or stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
-        frequency: moderate
-        severity: moderate
-      - id: chemical-stains-contamination
-        name: Chemical Stains / Acid Etching
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
-        image: /images/contaminant/chemical-stains-contamination-hero.jpg
-        description: Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in
-          laser cleaning applications. Formation patterns of this contamination, they arise from residue...
-        frequency: moderate
-        severity: moderate
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
-      - id: paint-residue-contamination
-        name: Paint Residue / Coating Failure
-        category: inorganic-coating
-        subcategory: paint
-        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-        image: /images/contaminant/paint-residue-contamination-hero.jpg
-        description: Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
-          irregular patterns, like patchy layers from uneven paint application and environmental wea...
-        frequency: moderate
-        severity: moderate
-      - id: uv-chalking-contamination
-        name: UV Photodegradation / Polymer Chalking
-        category: aging
-        subcategory: photodegradation
-        url: /contaminants/aging/photodegradation/uv-chalking-contamination
-        image: /images/contaminant/uv-chalking-contamination-hero.jpg
-        description: UV-chalking-contamination arises from prolonged ultraviolet exposure on aged surfaces. This contamination,
-          it develops unique powdery patterns, where fine chalk-like residues accumulate unevenly an...
-        frequency: moderate
-        severity: moderate
+        - id: adhesive-residue-contamination
+          name: Adhesive Residue / Tape Marks
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+          description: >-
+            Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape or
+            stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
+          frequency: moderate
+          severity: moderate
+        - id: chemical-stains-contamination
+          name: Chemical Stains / Acid Etching
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+          image: /images/contaminant/chemical-stains-contamination-hero.jpg
+          description: >-
+            Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in laser
+            cleaning applications. Formation patterns of this contamination, they arise from residue...
+          frequency: moderate
+          severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
+        - id: paint-residue-contamination
+          name: Paint Residue / Coating Failure
+          category: inorganic-coating
+          subcategory: paint
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminant/paint-residue-contamination-hero.jpg
+          description: >-
+            Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
+            irregular patterns, like patchy layers from uneven paint application and environmental wea...
+          frequency: moderate
+          severity: moderate
+        - id: uv-chalking-contamination
+          name: UV Photodegradation / Polymer Chalking
+          category: aging
+          subcategory: photodegradation
+          url: /contaminants/aging/photodegradation/uv-chalking-contamination
+          image: /images/contaminant/uv-chalking-contamination-hero.jpg
+          description: >-
+            UV-chalking-contamination arises from prolonged ultraviolet exposure on aged surfaces. This contamination,
+            it develops unique powdery patterns, where fine chalk-like residues accumulate unevenly an...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: signage-manufacturing
-        name: Signage Manufacturing
-      - id: display-cases
-        name: Display Cases
-      - id: optical-components
-        name: Optical Components
-      - id: medical-devices
-        name: Medical Devices
-      - id: automotive-lighting
-        name: Automotive Lighting
-      - id: architecture
-        name: Architecture
-      - id: aquariums
-        name: Aquariums
-      - id: electronics-manufacturing
-        name: Electronics Manufacturing
+        - id: signage-manufacturing
+          name: Signage Manufacturing
+        - id: display-cases
+          name: Display Cases
+        - id: optical-components
+          name: Optical Components
+        - id: medical-devices
+          name: Medical Devices
+        - id: automotive-lighting
+          name: Automotive Lighting
+        - id: architecture
+          name: Architecture
+        - id: aquariums
+          name: Aquariums
+        - id: electronics-manufacturing
+          name: Electronics Manufacturing
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
-        icon: briefcase
-        order: 41
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  countryDisplay: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
-card:
-  default:
-    heading: Acrylic (PMMA)
-    subtitle: plastic / thermoplastic
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-10T04:11:39.113609+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - uv_chalking
-  - chemical_stains
-  - environmental_dust
-  - adhesive_residue
+    - uv_chalking
+    - chemical_stains
+    - environmental_dust
+    - adhesive_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
   conditional:
     industrialOil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
-components:
-  micro:
-    before: The acrylic surface teems with embedded dirt particles and smudges at 1000x magnification. These contaminants
-      form irregular clusters that obscure the underlying material completely. Scratches and residues create a bumpy, uneven
-      texture across the entire area.
-    after: Laser treatment clears away all traces of dirt and debris from the acrylic effectively. The surface now displays
-      a smooth, uniform finish without any visible flaws. It exposes a clear, pristine layer that reflects light evenly throughout.
-faq:
-  presentation: collapsible
-  items:
-  - id: how-can-i-prevent-warping-when
-    title: How can I prevent warping when laser cleaning acrylic sheets?
-    content: When laser cleaning acrylic, you'll want to start with low-power settings to avoid overheating its heat-sensitive
-      surface. I've seen that this material contrasts with metals by deforming easily under brief heat exposure, so short
-      pulses remove dirt without causing warps. This approach restores clarity and shape effectively in practical applications
-      like signage restoration.
-    metadata:
-      topic: i prevent warping laser cleaning
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  - id: whats-the-best-way-to-remove
-    title: What's the best way to remove stains from PMMA without scratching?
-    content: If you're cleaning PMMA, watch for its smooth surface that resists scratches but absorbs laser energy quickly.
-      Unlike rougher plastics, acrylic cleans best with gentle, focused beams that lift stains layer by layer. In my experience,
-      this method exposes a pristine finish and improves durability for repeated use in displays.
-    metadata:
-      topic: '''s the best way to'
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 2
-  - id: does-laser-cleaning-affect-the-transparency
-    title: Does laser cleaning affect the transparency of acrylic parts?
-    content: Laser cleaning acrylic demands careful control since its clear nature can fog from uneven heating. Compared to
-      opaque thermoplastics, PMMA reveals contaminants easily but risks haze if pulses are too intense.
-    metadata:
-      topic: laser cleaning affect the transpncy
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 3
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Plastic
-  href: /materials/plastic
-- label: Thermoplastic
-  href: /materials/plastic/thermoplastic
-metaDescription: Laser cleaning ramps up the clarity on acrylic-PMMA surfaces, especially under high magnification. Contaminated
-  areas typically show irregular patterns of de...
-pageTitle: Acrylic (PMMA)
+pageDescription: >-
+  Acrylic excels in laser cleaning setups thanks to its non-porous, smooth surface that enables precise contaminant
+  removal while preserving optical clarity and structural integrity.

@@ -1,9 +1,22 @@
 import React from 'react';
 import { Button } from '../Button';
-import { SectionTitle } from '../SectionTitle';
+import { BaseSection } from '../BaseSection/BaseSection';
 import type { SectionContainerProps } from '@/types/centralized';
-import { toCategorySlug } from '@/app/utils/formatting';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
+/**
+ * SectionContainer - Legacy wrapper component
+ * @deprecated Use BaseSection directly for new components
+ * 
+ * This component is maintained for backward compatibility with existing code.
+ * It now delegates to BaseSection internally while preserving the original API.
+ * 
+ * For new development, use BaseSection instead which provides:
+ * - More consistent API
+ * - Better variant support
+ * - Enhanced spacing options
+ * - Cleaner prop naming
+ */
 export function SectionContainer({
   title,
   description,
@@ -18,69 +31,34 @@ export function SectionContainer({
   variant = 'default',
   children,
 }: SectionContainerProps) {
-  const sectionId = title ? toCategorySlug(title) : 'section';
+  // Convert string icon names to ReactNode
+  const iconNode = typeof icon === 'string' ? getSectionIcon(icon) : icon;
   
-  // Support legacy actionText/actionUrl props
+  // Support legacy actionText/actionUrl props by creating Button
   const finalAction = action || (actionText && actionUrl ? (
     <Button variant="primary" size="md" href={actionUrl} showIcon>
       {actionText}
     </Button>
-  ) : null);
+  ) : undefined);
   
-  // Handle variant-based styling
-  if (variant === 'dark') {
-    return (
-      <section
-        className={`bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-4 md:px-5 py-4 md:py-5 mb-3 sm:mb-4 ${className}`.trim()}
-        aria-labelledby={title ? `section-${sectionId}` : undefined}
-      >
-        {title && (
-          <div className="flex items-center justify-between mb-2 sm:mb-3">
-            <SectionTitle
-              title={title}
-              icon={icon}
-              sectionDescription={description}
-            />
-            {finalAction && <div>{finalAction}</div>}
-          </div>
-        )}
-        {children}
-      </section>
-    );
-  }
-  
-  // Map bgColor to Tailwind classes
-  const bgColorClasses = {
-    transparent: '',
-    default: 'bg-white',
-    body: 'bg-gray-50',
-    'gray-50': 'bg-gray-50',
-    'gray-100': 'bg-gray-100',
-    'gradient-dark': 'bg-gradient-to-br from-gray-800 to-gray-700',
-  };
-  
-  const bgClass = bgColorClasses[bgColor] || '';
-  const paddingClass = horizPadding ? 'px-4 md:px-5' : '';
-  const radiusClass = radius ? 'rounded-md' : '';
-  const baseClass = 'py-1 sm:py-2';
+  // Map old variant to new BaseSection variant
+  const baseSectionVariant = variant === 'dark' ? 'dark' : 'default';
   
   return (
-    <section
-      className={`${baseClass} ${bgClass} ${paddingClass} ${radiusClass} ${className}`.trim()}
-      aria-labelledby={title ? `section-${sectionId}` : undefined}
+    <BaseSection
+      title={title}
+      description={description}
+      icon={iconNode}
+      action={finalAction}
+      variant={baseSectionVariant}
+      bgColor={bgColor}
+      horizPadding={horizPadding}
+      radius={radius}
+      spacing="tight"
+      className={className}
     >
-      {title && (
-        <div className="flex items-center justify-between mb-2 sm:mb-3">
-          <SectionTitle
-            title={title}
-            icon={icon}
-            sectionDescription={description}
-          />
-          {finalAction && <div>{finalAction}</div>}
-        </div>
-      )}
       {children}
-    </section>
+    </BaseSection>
   );
 }
 

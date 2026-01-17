@@ -1,40 +1,126 @@
 id: birch-laser-cleaning
 name: Birch
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Wood
+    href: /materials/wood
+  - label: Hardwood
+    href: /materials/wood/hardwood
+  - label: Birch
+    href: /materials/wood/hardwood/birch
 displayName: Birch Laser Cleaning
 category: wood
 subcategory: hardwood
-pageDescription: Birch wood's balanced porosity and toughness let operators dial in laser cleaning processes that remove contaminants
-  cleanly from heritage pieces without compromising structural integrity.
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: amorphous crystal structure
-    source: ai_research
-    unit: crystal system
-    value: amorphous
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:40.156977+00:00'
+fullPath: /materials/wood/hardwood/birch-laser-cleaning
+pageTitle: Birch
+metaDescription: >-
+  Laser cleaning transforms birch wood surfaces at 1000x magnification. Contaminated areas show dirt and residues
+  clinging tightly to the porous fibers. These ...
+card:
+  default:
+    heading: Birch
+    subtitle: wood / hardwood
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+    - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+    - EPA Clean Air Act Compliance
+  isBasedOn:
+    name: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+images:
+  hero:
+    url: /images/material/birch-laser-cleaning-hero.jpg
+    alt: Birch surface undergoing laser cleaning showing precise contamination removal
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/birch-laser-cleaning-micro.jpg
+    alt: Birch microscopic view of laser cleaning showing detailed precise contamination removal
+    width: 800
+    height: 600
+components:
+  subtitle: >-
+    Birch combines a high tensile strength of 130 MPa with a low thermal conductivity of 0.163 W/m·K, making it uniquely
+    dimensionally stable for precision manufacturing applications
+  description: >-
+    When laser cleaning Birch, you'll want to account for its high porosity at 0.587, which can trap residues and lead
+    to uneven ablation. Its low thermal conductivity of 0.163 W/m·K causes localized heating, so use 45 W at 1064 nm
+    with 50% overlap to avoid charring. We've found two passes at 500 mm/s restore surfaces without cracking the 13.9
+    GPa modulus wood.
+  settingsDescription: >-
+    The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser energy than
+    denser hardwoods. This property allows the process to remove surface contaminants and restore natural grain
+    effectively, but it also increases the risk of uneven heating if not managed carefully. We typically start with
+    reduced power levels to prevent charring in those open pores, gradually increasing as the cleaning progresses to
+    expose underlying layers without compromising structural integrity. In our experience, this approach improves
+    adhesion removal in applications like furniture manufacturing or architectural restoration, where preserving the
+    wood's flexibility is essential. Watch for localized discoloration mid-process, and adjust scan speeds upward to
+    reduce dwell time on porous areas, ensuring the material's moderate strength holds up across multiple passes.
+  micro:
+    before: >-
+      At 1000x magnification, the birch surface shows thick layers of dirt clogging the wood fibers. Grime fills the
+      tiny pores, making everything look uneven and dull. Contaminants stick tightly, hiding the natural texture
+      beneath.
+    after: >-
+      After laser treatment at 1000x magnification, the birch surface reveals clear, open wood fibers. The treatment
+      removes all grime, exposing smooth and even pores. It restores the natural shine, showing a clean and detailed
+      texture.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    percentage: 60.0
-    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-      integrity
+    percentage: 60
     fractureToughness:
       value: 0.35
       unit: MPa m^{0.5}
       confidence: 95
       source: ai_research
     density:
-      value: 650.0
+      value: 650
       unit: kg/m³
       confidence: 95
       source: ai_research
@@ -49,7 +135,7 @@ properties:
       confidence: 98
       source: ai_research
     hardness:
-      value: 1260.0
+      value: 1260
       unit: lbf
       confidence: 95
       source: ai_research
@@ -59,12 +145,12 @@ properties:
       confidence: 98
       source: ai_research
     tensileStrength:
-      value: 130.0
+      value: 130
       unit: MPa
       confidence: 95
       source: ai_research
     flexuralStrength:
-      value: 96.0
+      value: 96
       unit: MPa
       confidence: 95
       source: ai_research
@@ -85,15 +171,25 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser processing of wood: Ablation thresholds and surface morphology'
       citation: 'Y. H. Lee et al., Optics and Lasers in Engineering, 2018, DOI: 10.1016/j.optlaseng.2017.10.012'
-      context: Betula pendula (silver birch) wood, density 650 kg/m³, 12% moisture content, 1064 nm Nd:YAG laser, nanosecond
+      context: >-
+        Betula pendula (silver birch) wood, density 650 kg/m³, 12% moisture content, 1064 nm Nd:YAG laser, nanosecond
         pulses, room temperature (20°C)
       confidence: 92
       researchedDate: '2025-11-24T11:51:38.738978'
       needsValidation: true
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     absorptivity:
       value: 0.85
       unit: dimensionless
@@ -110,7 +206,7 @@ properties:
       value: 2.5
       unit: J/cm²
       min: 1.5
-      max: 4.0
+      max: 4
       source: ai_research
     thermalShockResistance:
       value: 0.8
@@ -137,7 +233,7 @@ properties:
       max: 1000
       source: ai_research
     thermalDestruction:
-      value: 563.0
+      value: 563
       unit: K
       confidence: 95
       source: ai_research
@@ -147,7 +243,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalExpansion:
-      value: 2.7e-05
+      value: 0.000027
       unit: K^{-1}
       confidence: 95
       source: ai_research
@@ -157,17 +253,17 @@ properties:
       confidence: 100
       source: ai_research
     specificHeat:
-      value: 1380.0
+      value: 1380
       unit: J/(kg·K)
       confidence: 95
       source: ai_research
     laserAbsorption:
-      value: 35000.0
+      value: 35000
       unit: m^{-1}
       confidence: 95
       source: ai_research
     thermalDiffusivity:
-      value: 1.3e-07
+      value: 1.3e-7
       unit: m²/s
       confidence: 95
       source: ai_research
@@ -178,342 +274,245 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser ablation of wood surfaces: Effect of laser wavelength and fluence'
       citation: 'G. J. H. M. van der Marel et al., Journal of Applied Physics, 2005, DOI: 10.1063/1.1845572'
-      context: Dry birch wood (Betula pendula, density 650 kg/m³), room temperature (20°C), 1064 nm Nd:YAG laser, 10 ns pulse
+      context: >-
+        Dry birch wood (Betula pendula, density 650 kg/m³), room temperature (20°C), 1064 nm Nd:YAG laser, 10 ns pulse
         duration, atmospheric pressure
       confidence: 95
       researchedDate: '2025-11-24T11:51:50.916370'
       needsValidation: true
-micro:
-  before: Laser cleaning transforms birch wood surfaces at 1000x magnification. Contaminated areas show dirt and residues
-    clinging tightly to the porous fibers. These contaminants form irregular clumps, filling the natural vessel patterns and
-    dulling the hardwood's fine grain.
-  after: The process ramps up precision. It removes grime without damaging the underlying structure. Clean surfaces emerge
-    smooth and vibrant. Fibers stand out clearly, revealing birch's distinctive ray cells and tight annual rings.
-images:
-  hero:
-    url: /images/material/birch-laser-cleaning-hero.jpg
-    alt: Birch surface undergoing laser cleaning showing precise contamination removal
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/birch-laser-cleaning-micro.jpg
-    alt: Birch microscopic view of laser cleaning showing detailed precise contamination removal
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: how-can-laser-cleaning-restore-birch
+      title: How can laser cleaning restore birch wood surfaces without damaging the grain?
+      content: >-
+        Laser cleaning basically employs precise, non-abrasive pulses to strip dirt, old finishes, or contaminants from
+        birch, while preserving its fine grain and natural color. This technique pretty much skips mechanical abrasion,
+        delivering fairly minimal structural impact for a clean, restored finish.
+      metadata:
+        topic: laser cleaning restore birch wood
+        severity: high
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: true
+        order: 1
+    - id: what-are-the-challenges-of-cleaning
+      title: What are the challenges of cleaning birch with traditional methods, and why choose laser instead?
+      content: >-
+        Birch wood is pretty sensitive to moisture and abrasion, so traditional methods like sanding or chemicals
+        typically risk warping or discoloring it. Laser cleaning addresses this effectively by precisely vaporizing
+        surface grime, avoiding any heat damage or residues. This preserves the wood's natural grain, lightweight
+        structure, and aesthetic appeal during delicate restorations. Best of all, it's fairly eco-friendly, minimizing
+        chemical use and waste overall.
+      metadata:
+        topic: the challenges of cleaning birch
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 2
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: adhesive-residue-contamination
-        name: Adhesive Residue / Tape Marks
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
-        description: Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape
-          or stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
-        frequency: moderate
-        severity: moderate
-      - id: algae-growth-contamination
-        name: Algae and Lichen Growth
-        category: biological
-        subcategory: growth
-        url: /contaminants/biological/growth/algae-growth-contamination
-        image: /images/contaminant/algae-growth-contamination-hero.jpg
-        description: Algae-growth contamination, it manifests uniquely in humid environments, where biological layers adhere
-          tenaciously to surfaces exposed to moisture. This contamination, dependent from regional patt...
-        frequency: moderate
-        severity: moderate
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
-      - id: lead-paint-contamination
-        name: Lead-Based Paint Removal
-        category: inorganic-coating
-        subcategory: paint
-        url: /contaminants/inorganic-coating/paint/lead-paint-contamination
-        image: /images/contaminant/lead-paint-contamination-hero.jpg
-        description: Lead-paint contamination forms as durable inorganic coating on old surfaces. Before cleaning, layer adheres
-          tightly to substrates like wood or metal, so removal demands care. Process exhibits uniqu...
-        frequency: moderate
-        severity: moderate
-      - id: mold-mildew-contamination
-        name: Mold and Mildew Growth
-        category: biological
-        subcategory: growth
-        url: /contaminants/biological/growth/mold-mildew-contamination
-        image: /images/contaminant/mold-mildew-contamination-hero.jpg
-        description: Mold contamination forms irregularly on damp surfaces. Spores settle and grow fast in humid conditions,
-          creating patchy layers. Before cleaning, buildup clings tightly to porous materials like wood...
-        frequency: moderate
-        severity: moderate
-      - id: paint-residue-contamination
-        name: Paint Residue / Coating Failure
-        category: inorganic-coating
-        subcategory: paint
-        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-        image: /images/contaminant/paint-residue-contamination-hero.jpg
-        description: Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
-          irregular patterns, like patchy layers from uneven paint application and environmental wea...
-        frequency: moderate
-        severity: moderate
-      - id: wax-buildup-contamination
-        name: Wax Coating Buildup
-        category: organic-residue
-        subcategory: wax
-        url: /contaminants/organic-residue/wax/wax-buildup-contamination
-        image: /images/contaminant/wax-buildup-contamination-hero.jpg
-        description: Wax-buildup-contamination, it arises from organic residues in laser cleaning. This contamination forms
-          unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
-        frequency: moderate
-        severity: moderate
+        - id: adhesive-residue-contamination
+          name: Adhesive Residue / Tape Marks
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+          description: >-
+            Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape or
+            stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
+          frequency: moderate
+          severity: moderate
+        - id: algae-growth-contamination
+          name: Algae and Lichen Growth
+          category: biological
+          subcategory: growth
+          url: /contaminants/biological/growth/algae-growth-contamination
+          image: /images/contaminant/algae-growth-contamination-hero.jpg
+          description: >-
+            Algae-growth contamination, it manifests uniquely in humid environments, where biological layers adhere
+            tenaciously to surfaces exposed to moisture. This contamination, dependent from regional patt...
+          frequency: moderate
+          severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
+        - id: lead-paint-contamination
+          name: Lead-Based Paint Removal
+          category: inorganic-coating
+          subcategory: paint
+          url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+          image: /images/contaminant/lead-paint-contamination-hero.jpg
+          description: >-
+            Lead-paint contamination forms as durable inorganic coating on old surfaces. Before cleaning, layer adheres
+            tightly to substrates like wood or metal, so removal demands care. Process exhibits uniqu...
+          frequency: moderate
+          severity: moderate
+        - id: mold-mildew-contamination
+          name: Mold and Mildew Growth
+          category: biological
+          subcategory: growth
+          url: /contaminants/biological/growth/mold-mildew-contamination
+          image: /images/contaminant/mold-mildew-contamination-hero.jpg
+          description: >-
+            Mold contamination forms irregularly on damp surfaces. Spores settle and grow fast in humid conditions,
+            creating patchy layers. Before cleaning, buildup clings tightly to porous materials like wood...
+          frequency: moderate
+          severity: moderate
+        - id: paint-residue-contamination
+          name: Paint Residue / Coating Failure
+          category: inorganic-coating
+          subcategory: paint
+          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+          image: /images/contaminant/paint-residue-contamination-hero.jpg
+          description: >-
+            Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
+            irregular patterns, like patchy layers from uneven paint application and environmental wea...
+          frequency: moderate
+          severity: moderate
+        - id: wax-buildup-contamination
+          name: Wax Coating Buildup
+          category: organic-residue
+          subcategory: wax
+          url: /contaminants/organic-residue/wax/wax-buildup-contamination
+          image: /images/contaminant/wax-buildup-contamination-hero.jpg
+          description: >-
+            Wax-buildup-contamination, it arises from organic residues in laser cleaning. This contamination forms
+            unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: aerospace
-        name: Aerospace
-      - id: automotive
-        name: Automotive
-      - id: cultural-heritage
-        name: Cultural Heritage
-      - id: marine
-        name: Marine
-      - id: electronics-manufacturing
-        name: Electronics Manufacturing
-      - id: medical-equipment
-        name: Medical Equipment
-      - id: furniture-manufacturing
-        name: Furniture Manufacturing
-      - id: energy-sector
-        name: Energy Sector
-      - id: musical-instrument-manufacturing
-        name: Musical Instrument Manufacturing
-      - id: architectural-restoration
-        name: Architectural Restoration
+        - id: aerospace
+          name: Aerospace
+        - id: automotive
+          name: Automotive
+        - id: cultural-heritage
+          name: Cultural Heritage
+        - id: marine
+          name: Marine
+        - id: electronics-manufacturing
+          name: Electronics Manufacturing
+        - id: medical-equipment
+          name: Medical Equipment
+        - id: furniture-manufacturing
+          name: Furniture Manufacturing
+        - id: energy-sector
+          name: Energy Sector
+        - id: musical-instrument-manufacturing
+          name: Musical Instrument Manufacturing
+        - id: architectural-restoration
+          name: Architectural Restoration
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      - description: IEC 60825 - Safety of Laser Products
-        image: /images/logo/logo-org-iec.png
-        longName: International Electrotechnical Commission
-        name: IEC
-        url: https://webstore.iec.ch/publication/3587
-      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-        image: /images/logo/logo-org-osha.png
-        longName: Occupational Safety and Health Administration
-        name: OSHA
-        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      - description: EPA Clean Air Act Compliance
-        image: /images/logo/logo-org-generic.png
-        longName: Unknown Organization
-        name: Unknown
-        url: ''
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: IEC 60825 - Safety of Laser Products
+          image: /images/logo/logo-org-iec.png
+          longName: International Electrotechnical Commission
+          name: IEC
+          url: https://webstore.iec.ch/publication/3587
+        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+          image: /images/logo/logo-org-osha.png
+          longName: Occupational Safety and Health Administration
+          name: OSHA
+          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+        - description: EPA Clean Air Act Compliance
+          image: /images/logo/logo-org-generic.png
+          longName: Unknown Organization
+          name: Unknown
+          url: ''
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  country_display: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  persona_file: usa_persona.yaml
-  formatting_file: usa_formatting.yaml
-  countryDisplay: United States
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
-card:
-  default:
-    heading: Birch
-    subtitle: wood / hardwood
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-13T03:48:10.984151+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - wood_rot
-  - environmental_dust
-  - chemical_stains
-  - paint_residue
+    - wood_rot
+    - environmental_dust
+    - chemical_stains
+    - paint_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - uv_chalking
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - uv_chalking
   conditional: {}
-components:
-  subtitle: Birch combines a high tensile strength of 130 MPa with a low thermal conductivity of 0.163 W/m·K, making it uniquely
-    dimensionally stable for precision manufacturing applications
-  description: When laser cleaning Birch, you'll want to account for its high porosity at 0.587, which can trap residues and
-    lead to uneven ablation. Its low thermal conductivity of 0.163 W/m·K causes localized heating, so use 45 W at 1064 nm
-    with 50% overlap to avoid charring. We've found two passes at 500 mm/s restore surfaces without cracking the 13.9 GPa
-    modulus wood.
-  settingsDescription: The key with Birch lies in its notable porosity, which we've found makes it more absorbent to laser
-    energy than denser hardwoods. This property allows the process to remove surface contaminants and restore natural grain
-    effectively, but it also increases the risk of uneven heating if not managed carefully. We typically start with reduced
-    power levels to prevent charring in those open pores, gradually increasing as the cleaning progresses to expose underlying
-    layers without compromising structural integrity. In our experience, this approach improves adhesion removal in applications
-    like furniture manufacturing or architectural restoration, where preserving the wood's flexibility is essential. Watch
-    for localized discoloration mid-process, and adjust scan speeds upward to reduce dwell time on porous areas, ensuring
-    the material's moderate strength holds up across multiple passes.
-  micro:
-    before: At 1000x magnification, the birch surface shows thick layers of dirt clogging the wood fibers. Grime fills the
-      tiny pores, making everything look uneven and dull. Contaminants stick tightly, hiding the natural texture beneath.
-    after: After laser treatment at 1000x magnification, the birch surface reveals clear, open wood fibers. The treatment
-      removes all grime, exposing smooth and even pores. It restores the natural shine, showing a clean and detailed texture.
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - EPA Clean Air Act Compliance
-  isBasedOn:
-    name: ANSI Z136.1 - Safe Use of Lasers
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-faq:
-  presentation: collapsible
-  items:
-  - id: how-can-laser-cleaning-restore-birch
-    title: How can laser cleaning restore birch wood surfaces without damaging the grain?
-    content: Laser cleaning basically employs precise, non-abrasive pulses to strip dirt, old finishes, or contaminants from
-      birch, while preserving its fine grain and natural color. This technique pretty much skips mechanical abrasion, delivering
-      fairly minimal structural impact for a clean, restored finish.
-    metadata:
-      topic: laser cleaning restore birch wood
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  - id: what-are-the-challenges-of-cleaning
-    title: What are the challenges of cleaning birch with traditional methods, and why choose laser instead?
-    content: Birch wood is pretty sensitive to moisture and abrasion, so traditional methods like sanding or chemicals typically
-      risk warping or discoloring it. Laser cleaning addresses this effectively by precisely vaporizing surface grime, avoiding
-      any heat damage or residues. This preserves the wood's natural grain, lightweight structure, and aesthetic appeal during
-      delicate restorations. Best of all, it's fairly eco-friendly, minimizing chemical use and waste overall.
-    metadata:
-      topic: the challenges of cleaning birch
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 2
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/wood/hardwood/birch-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Wood
-  href: /materials/wood
-- label: Hardwood
-  href: /materials/wood/hardwood
-metaDescription: Laser cleaning transforms birch wood surfaces at 1000x magnification. Contaminated areas show dirt and residues
-  clinging tightly to the porous fibers. These ...
-pageTitle: Birch
-excerpt: When cleaning birch wood surfaces, laser methods deliver a clean finish that preserves its natural grain and light
-  color.. Technicians typically set up the system to remove dirt, resins, or old coatings without scorching the material..
-  This approach cuts down on chemical use and speeds up restoration for furniture or paneling projects.
+pageDescription: >-
+  Birch wood's balanced porosity and toughness let operators dial in laser cleaning processes that remove contaminants
+  cleanly from heritage pieces without compromising structural integrity.

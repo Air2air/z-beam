@@ -167,7 +167,7 @@ export interface MaterialFrontmatter extends FrontmatterBase {
 
 export interface ArticleFrontmatter extends FrontmatterBase {
   content?: string;
-  excerpt?: string;
+  pageDescription?: string;
   readingTime?: number;
 }
 

@@ -401,9 +401,9 @@ class BuildValidator {
       );
       
       const auditResult = JSON.parse(stdout);
-      if (auditResult.metadata?.vulnerabilities?.high > 0 || auditResult.metadata?.vulnerabilities?.critical > 0) {
+      if (auditResult.frontmatter?.vulnerabilities?.high > 0 || auditResult.frontmatter?.vulnerabilities?.critical > 0) {
         this.result.checks.dependencies.warnings.push(
-          `Security vulnerabilities found: ${auditResult.metadata.vulnerabilities.high} high, ${auditResult.metadata.vulnerabilities.critical} critical`
+          `Security vulnerabilities found: ${auditResult.frontmatter.vulnerabilities.high} high, ${auditResult.frontmatter.vulnerabilities.critical} critical`
         );
       }
       

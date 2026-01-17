@@ -64,30 +64,30 @@ describe('urlBuilder', () => {
 
   describe('buildUrlFromMetadata', () => {
     it('builds hierarchical URL from material metadata', () => {
-      const metadata = {
+      const frontmatter = {
         category: 'ceramic',
         subcategory: 'oxide',
         slug: 'alumina-laser-cleaning'
       };
-      const url = buildUrlFromMetadata(metadata);
+      const url = buildUrlFromMetadata(frontmatter);
       expect(url).toBe('/materials/ceramic/oxide/alumina-laser-cleaning');
     });
 
     it('builds flat URL from non-material metadata', () => {
-      const metadata = {
+      const frontmatter = {
         slug: 'services'
       };
-      const url = buildUrlFromMetadata(metadata);
+      const url = buildUrlFromMetadata(frontmatter);
       expect(url).toBe('/services');
     });
 
     it('builds absolute URL when absolute=true', () => {
-      const metadata = {
+      const frontmatter = {
         category: 'composite',
         subcategory: 'fiber-reinforced',
         slug: 'carbon-fiber-laser-cleaning'
       };
-      const url = buildUrlFromMetadata(metadata, true);
+      const url = buildUrlFromMetadata(frontmatter, true);
       expect(url).toMatch(/^https?:\/\/.+\/materials\/composite\/fiber-reinforced\/carbon-fiber-laser-cleaning$/);
       expect(url).toContain('/materials/composite/fiber-reinforced/carbon-fiber-laser-cleaning');
     });
@@ -174,71 +174,71 @@ describe('urlBuilder', () => {
 
   describe('validateUrl', () => {
     it('validates correct material URL', () => {
-      const metadata = {
+      const frontmatter = {
         category: 'metal',
         subcategory: 'ferrous',
         slug: 'steel-laser-cleaning'
       };
       const url = '/materials/metal/ferrous/steel-laser-cleaning';
-      expect(validateUrl(url, metadata)).toBe(true);
+      expect(validateUrl(url, frontmatter)).toBe(true);
     });
 
     it('validates correct absolute material URL', () => {
-      const metadata = {
+      const frontmatter = {
         category: 'wood',
         subcategory: 'hardwood',
         slug: 'oak-laser-cleaning'
       };
       // Use buildUrlFromMetadata to get environment-aware URL
-      const url = buildUrlFromMetadata(metadata, true);
-      expect(validateUrl(url, metadata)).toBe(true);
+      const url = buildUrlFromMetadata(frontmatter, true);
+      expect(validateUrl(url, frontmatter)).toBe(true);
     });
 
     it('invalidates incorrect material URL', () => {
-      const metadata = {
+      const frontmatter = {
         category: 'metal',
         subcategory: 'ferrous',
         slug: 'steel-laser-cleaning'
       };
       const url = '/steel-laser-cleaning'; // Old flat URL
-      expect(validateUrl(url, metadata)).toBe(false);
+      expect(validateUrl(url, frontmatter)).toBe(false);
     });
 
     it('validates correct flat URL for non-material', () => {
-      const metadata = {
+      const frontmatter = {
         slug: 'contact'
       };
       const url = '/contact';
-      expect(validateUrl(url, metadata)).toBe(true);
+      expect(validateUrl(url, frontmatter)).toBe(true);
     });
   });
 
   describe('getContentType', () => {
     it('identifies material content type', () => {
-      const metadata = {
+      const frontmatter = {
         category: 'metal',
         subcategory: 'ferrous'
       };
-      expect(getContentType(metadata)).toBe('material');
+      expect(getContentType(frontmatter)).toBe('material');
     });
 
     it('identifies service content type', () => {
-      const metadata = {
+      const frontmatter = {
         articleType: 'service'
       };
-      expect(getContentType(metadata)).toBe('service');
+      expect(getContentType(frontmatter)).toBe('service');
     });
 
     it('identifies article content type', () => {
-      const metadata = {
+      const frontmatter = {
         articleType: 'article'
       };
-      expect(getContentType(metadata)).toBe('article');
+      expect(getContentType(frontmatter)).toBe('article');
     });
 
     it('defaults to page for unknown type', () => {
-      const metadata = {};
-      expect(getContentType(metadata)).toBe('page');
+      const frontmatter = {};
+      expect(getContentType(frontmatter)).toBe('page');
     });
 
     it('handles undefined metadata', () => {
@@ -294,34 +294,34 @@ describe('urlBuilder', () => {
     const testCases = [
       {
         name: 'Wood hardwood (legacy - infers materials)',
-        metadata: { category: 'wood', subcategory: 'hardwood', slug: 'ash-laser-cleaning' },
+        frontmatter: { category: 'wood', subcategory: 'hardwood', slug: 'ash-laser-cleaning' },
         expected: '/materials/wood/hardwood/ash-laser-cleaning'
       },
       {
         name: 'Metal ferrous (explicit rootPath)',
-        metadata: { rootPath: 'materials', category: 'metal', subcategory: 'ferrous', slug: 'carbon-steel-laser-cleaning' },
+        frontmatter: { rootPath: 'materials', category: 'metal', subcategory: 'ferrous', slug: 'carbon-steel-laser-cleaning' },
         expected: '/materials/metal/ferrous/carbon-steel-laser-cleaning'
       },
       {
         name: 'Ceramic oxide',
-        metadata: { rootPath: 'materials', category: 'ceramic', subcategory: 'oxide', slug: 'alumina-laser-cleaning' },
+        frontmatter: { rootPath: 'materials', category: 'ceramic', subcategory: 'oxide', slug: 'alumina-laser-cleaning' },
         expected: '/materials/ceramic/oxide/alumina-laser-cleaning'
       },
       {
         name: 'Future: Product laser',
-        metadata: { rootPath: 'products', category: 'lasers', subcategory: 'portable', slug: 'netalux-compact' },
+        frontmatter: { rootPath: 'products', category: 'lasers', subcategory: 'portable', slug: 'netalux-compact' },
         expected: '/products/lasers/portable/netalux-compact'
       },
       {
         name: 'Future: Equipment industrial',
-        metadata: { rootPath: 'equipment', category: 'industrial', subcategory: 'high-power', slug: 'laser-system-5000' },
+        frontmatter: { rootPath: 'equipment', category: 'industrial', subcategory: 'high-power', slug: 'laser-system-5000' },
         expected: '/equipment/industrial/high-power/laser-system-5000'
       }
     ];
 
-    testCases.forEach(({ name, metadata, expected }) => {
+    testCases.forEach(({ name, frontmatter, expected }) => {
       it(`builds correct URL for ${name}`, () => {
-        const url = buildUrlFromMetadata(metadata);
+        const url = buildUrlFromMetadata(frontmatter);
         expect(url).toBe(expected);
       });
     });
@@ -329,69 +329,69 @@ describe('urlBuilder', () => {
 
   describe('Settings Pages with -settings Suffix', () => {
     it('preserves -settings suffix in slug for settings pages', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'settings',
         category: 'metal',
         subcategory: 'ferrous',
         slug: 'stainless-steel-settings'
       };
-      const url = buildUrlFromMetadata(metadata);
+      const url = buildUrlFromMetadata(frontmatter);
       expect(url).toBe('/settings/metal/ferrous/stainless-steel-settings');
       expect(url).toContain('-settings');
     });
 
     it('builds absolute URL for settings page with -settings suffix', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'settings',
         category: 'wood',
         subcategory: 'hardwood',
         slug: 'oak-settings'
       };
-      const url = buildUrlFromMetadata(metadata, true);
+      const url = buildUrlFromMetadata(frontmatter, true);
       expect(url).toMatch(/^https?:\/\/.+\/settings\/wood\/hardwood\/oak-settings$/);
       expect(url).toContain('-settings');
     });
 
     it('validates settings URL preserves -settings suffix', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'settings',
         category: 'ceramic',
         subcategory: 'oxide',
         slug: 'alumina-settings'
       };
       const url = '/settings/ceramic/oxide/alumina-settings';
-      expect(validateUrl(url, metadata)).toBe(true);
+      expect(validateUrl(url, frontmatter)).toBe(true);
     });
 
     it('invalidates settings URL if -settings suffix is missing', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'settings',
         category: 'metal',
         subcategory: 'ferrous',
         slug: 'steel-settings'
       };
       const url = '/settings/metal/ferrous/steel'; // Missing -settings
-      expect(validateUrl(url, metadata)).toBe(false);
+      expect(validateUrl(url, frontmatter)).toBe(false);
     });
 
     it('handles multiple settings pages with different categories', () => {
       const testCases = [
         {
-          metadata: { rootPath: 'settings', category: 'metal', subcategory: 'ferrous', slug: 'carbon-steel-settings' },
+          frontmatter: { rootPath: 'settings', category: 'metal', subcategory: 'ferrous', slug: 'carbon-steel-settings' },
           expected: '/settings/metal/ferrous/carbon-steel-settings'
         },
         {
-          metadata: { rootPath: 'settings', category: 'wood', subcategory: 'softwood', slug: 'pine-settings' },
+          frontmatter: { rootPath: 'settings', category: 'wood', subcategory: 'softwood', slug: 'pine-settings' },
           expected: '/settings/wood/softwood/pine-settings'
         },
         {
-          metadata: { rootPath: 'settings', category: 'composite', subcategory: 'fiber-reinforced', slug: 'carbon-fiber-settings' },
+          frontmatter: { rootPath: 'settings', category: 'composite', subcategory: 'fiber-reinforced', slug: 'carbon-fiber-settings' },
           expected: '/settings/composite/fiber-reinforced/carbon-fiber-settings'
         }
       ];
 
-      testCases.forEach(({ metadata, expected }) => {
-        const url = buildUrlFromMetadata(metadata);
+      testCases.forEach(({ frontmatter, expected }) => {
+        const url = buildUrlFromMetadata(frontmatter);
         expect(url).toBe(expected);
       });
     });
@@ -399,47 +399,47 @@ describe('urlBuilder', () => {
 
   describe('E2E URL Generation Accuracy', () => {
     it('handles slug with numbers and hyphens', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'materials',
         category: 'metal',
         subcategory: 'non-ferrous',
         slug: 'aluminum-6061-t6-laser-cleaning'
       };
-      const url = buildUrlFromMetadata(metadata);
+      const url = buildUrlFromMetadata(frontmatter);
       expect(url).toBe('/materials/metal/non-ferrous/aluminum-6061-t6-laser-cleaning');
     });
 
     it('handles settings slug with numbers and complex hyphens', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'settings',
         category: 'metal',
         subcategory: 'non-ferrous',
         slug: 'aluminum-6061-settings'
       };
-      const url = buildUrlFromMetadata(metadata);
+      const url = buildUrlFromMetadata(frontmatter);
       expect(url).toBe('/settings/metal/non-ferrous/aluminum-6061-settings');
     });
 
     it('handles very long slug names', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'materials',
         category: 'composite',
         subcategory: 'fiber-reinforced',
         slug: 'carbon-fiber-reinforced-polymer-with-epoxy-resin-laser-cleaning'
       };
-      const url = buildUrlFromMetadata(metadata);
+      const url = buildUrlFromMetadata(frontmatter);
       expect(url).toBe('/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-with-epoxy-resin-laser-cleaning');
     });
 
     it('builds consistent URLs for same metadata', () => {
-      const metadata = {
+      const frontmatter = {
         rootPath: 'materials',
         category: 'metal',
         subcategory: 'ferrous',
         slug: 'steel-laser-cleaning'
       };
-      const url1 = buildUrlFromMetadata(metadata);
-      const url2 = buildUrlFromMetadata(metadata);
+      const url1 = buildUrlFromMetadata(frontmatter);
+      const url2 = buildUrlFromMetadata(frontmatter);
       expect(url1).toBe(url2);
     });
 
@@ -470,14 +470,14 @@ describe('urlBuilder', () => {
 
     it('validates URL structure matches sitemap generation', () => {
       // Test that our URL building matches what sitemap.ts does
-      const metadata = {
+      const frontmatter = {
         rootPath: 'materials',
         category: 'metal',
         subcategory: 'ferrous',
         slug: 'steel-laser-cleaning'
       };
-      const relativeUrl = buildUrlFromMetadata(metadata, false);
-      const absoluteUrl = buildUrlFromMetadata(metadata, true);
+      const relativeUrl = buildUrlFromMetadata(frontmatter, false);
+      const absoluteUrl = buildUrlFromMetadata(frontmatter, true);
       
       // Sitemap uses absolute URLs
       expect(absoluteUrl).toContain(relativeUrl);

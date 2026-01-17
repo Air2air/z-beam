@@ -3,7 +3,7 @@
  * Semantic Naming Validation
  * 
  * Enforces semantic naming conventions across the codebase:
- * - No .frontmatter usage (should use .metadata)
+ * - No .metadata wrapper usage (should use .frontmatter) - Updated Dec 28, 2025
  * - Boolean props must use is/has/can/should prefixes
  * - Props interfaces must follow ComponentNameProps pattern
  * - Array fields must use plural naming
@@ -33,7 +33,7 @@ const EXCLUDE_PATTERNS = [
 
 // Results tracking
 const results = {
-  frontmatterUsage: [],
+  metadataUsage: [],  // Changed: now we check for deprecated .metadata usage
   badBooleanProps: [],
   genericPropsNames: [],
   singularArrayFields: [],
@@ -49,23 +49,54 @@ const BLUE = '\x1b[34m';
 const RESET = '\x1b[0m';
 
 /**
- * Check file for .frontmatter usage
+ * Check file for deprecated .metadata wrapper usage
  */
-function checkFrontmatterUsage(filePath, content) {
+function checkMetadataUsage(filePath, content) {
   const lines = content.split('\n');
   const violations = [];
   
   lines.forEach((line, index) => {
-    // Match .frontmatter. but not in comments explaining the change
-    if (/\.frontmatter\./.test(line) && 
-        !/\/\/.*\.frontmatter/.test(line) && 
-        !/\*.*\.frontmatter/.test(line) &&
-        !/@deprecated.*frontmatter/i.test(line)) {
+    // Match .metadata. but not in comments explaining the change
+    if (/\.metadata\./.test(line) && 
+        !/\/\/.*\.metadata/.test(line) && 
+        !/\*.*\.metadata/.test(line) &&
+        !/@deprecated.*metadata/i.test(line)) {
+      
+      // Allow dual pattern usage in several forms:
+      // 1. item.frontmatter || item.metadata
+      // 2. Sequential if statements checking frontmatter first
+      // 3. Constants that merge frontmatter and metadata
+      if (/\.frontmatter\s*\|\|\s*\w*\.metadata/.test(line) ||
+          /\w*\.metadata\s*\|\|\s*\w*\.frontmatter/.test(line) ||
+          /const\s+\w+\s*=\s*\w*\.frontmatter\s*\|\|\s*\w*\.metadata/.test(line)) {
+        // This is acceptable dual pattern - don't flag
+        return;
+      }
+      
+      // Check if this line is part of a fallback pattern (metadata check after frontmatter)
+      const lineStr = line.trim();
+      const isConditionalCheck = /if\s*\(\s*\w*\.metadata/.test(lineStr);
+      
+      if (isConditionalCheck) {
+        // Look for frontmatter check in preceding lines (within 5 lines)
+        const startIndex = Math.max(0, index - 5);
+        const precedingLines = lines.slice(startIndex, index);
+        const hasFrontmatterCheck = precedingLines.some(prevLine => 
+          /\.frontmatter/.test(prevLine) && /if\s*\(/.test(prevLine)
+        );
+        
+        if (hasFrontmatterCheck) {
+          // This is part of a valid fallback pattern - don't flag
+          return;
+        }
+      }
+      
+      // Flag direct .metadata usage without proper .frontmatter fallback pattern
       violations.push({
         file: filePath,
         line: index + 1,
         code: line.trim(),
-        message: 'Use .metadata instead of .frontmatter'
+        message: 'Use .frontmatter instead of deprecated .metadata wrapper'
       });
     }
   });
@@ -180,13 +211,13 @@ function scanFile(filePath) {
     results.filesScanned++;
     
     // Run checks
-    const frontmatterViolations = checkFrontmatterUsage(filePath, content);
+    const metadataViolations = checkMetadataUsage(filePath, content);
     const booleanViolations = checkBooleanProps(filePath, content);
     const propsViolations = checkPropsNaming(filePath, content);
     const arrayViolations = checkArrayFieldNaming(filePath, content);
     
     // Collect violations
-    results.frontmatterUsage.push(...frontmatterViolations);
+    results.metadataUsage.push(...metadataViolations);
     results.badBooleanProps.push(...booleanViolations);
     results.genericPropsNames.push(...propsViolations);
     results.singularArrayFields.push(...arrayViolations);
@@ -222,11 +253,11 @@ function validateSemanticNaming() {
   
   let hasViolations = false;
   
-  // Report .frontmatter violations
-  if (results.frontmatterUsage.length > 0) {
+  // Report deprecated .metadata wrapper violations
+  if (results.metadataUsage.length > 0) {
     hasViolations = true;
-    console.log(`${RED}❌ .frontmatter Usage (${results.frontmatterUsage.length} violations):${RESET}`);
-    results.frontmatterUsage.forEach(v => {
+    console.log(`${RED}❌ .metadata Usage (${results.metadataUsage.length} violations):${RESET}`);
+    results.metadataUsage.forEach(v => {
       console.log(`   ${v.file}:${v.line}`);
       console.log(`      ${v.code}`);
       console.log(`      → ${v.message}\n`);
@@ -270,7 +301,7 @@ function validateSemanticNaming() {
     console.log(`${GREEN}✅ All semantic naming checks passed!${RESET}\n`);
     return 0;
   } else {
-    console.log(`${RED}❌ Found ${results.frontmatterUsage.length + results.badBooleanProps.length + results.genericPropsNames.length} critical naming violations${RESET}\n`);
+    console.log(`${RED}❌ Found ${results.metadataUsage.length + results.badBooleanProps.length + results.genericPropsNames.length} critical naming violations${RESET}\n`);
     console.log(`${BLUE}📖 See docs/08-development/NAMING_CONVENTIONS.md for guidance${RESET}\n`);
     return 1;
   }

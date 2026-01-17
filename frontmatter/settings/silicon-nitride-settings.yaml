@@ -9,19 +9,16 @@ contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/oxide/silicon-nitride-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Ceramic
-  href: /settings/ceramic
-- label: Oxide
-  href: /settings/ceramic/oxide
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Ceramic
+    href: /settings/ceramic
+  - label: Oxide
+    href: /settings/ceramic/oxide
 pageTitle: Silicon Nitride
-pageDescription: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat. I've
-  seen that happen when folks push too hard right away. This works best if you start with gentle pulses to warm the surface
-  slowly, building up over a few passes. That way, you remove contaminants without risking fractures, keeping the material's
-  tough, heat-resistant nature intact. Just avoid high speeds early on.
+pageDescription: When laser cleaning Silicon Nitride, watch its brittleness first—it cracks easily under sudden heat. I've seen that happen when folks push too hard right away. This works best if you start with gentle pulses to warm the surface slowly, building up over a few passes. That way, you remove contaminants without risking fractures, keeping the material's tough, heat-resistant nature intact. Just avoid high speeds early on.
 metaDescription: Silicon Nitride laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -43,23 +40,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-  - Laser Materials Processing
+    - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
+    - Ph.D. Materials Engineering, National Taiwan University, 2018
+    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+    - 3+ years in laser processing R&D
+    - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+    - https://scholar.google.com/citations?user=ghi789
+    - https://linkedin.com/in/yi-chun-lin-engineer
+    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   personaFile: taiwan_persona.yaml
   formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
@@ -81,109 +78,93 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: settings
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: removesContaminants
+        group: interactions
+        domain: settings
+        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
+        - id: oak-laser-cleaning
+          effectiveness: medium
+        - id: maple-laser-cleaning
+          effectiveness: medium
+        - id: pine-laser-cleaning
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: worksOnMaterials
+        group: interactions
+        domain: settings
+        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-      - thermalManagement:
-        - challenge: Thermal shock and cracking
-          severity: critical
-          thresholdTemperature: ΔT > 200-300°C rapid cooling
-          impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
-          solutions:
-          - Use pulse mode with 3-5 second cooling between passes
-          - Gradual power ramping (start 50W, increase 10W per pass)
-          - Preheat substrate to reduce thermal gradients
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Variable thermal conductivity
-          severity: medium
-          propertyValue: 0.8-120 W/m·K (150x variation between materials)
-          impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
-          solutions:
-          - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
-          - High conductivity ceramics (SiC, WC) tolerate higher power
-          - Test on scrap to determine cooling requirements
-        contaminationChallenges:
-        - id: coating-residue-removal
-          type: challenge
+        - thermalManagement:
+            - challenge: Thermal shock and cracking
+              severity: critical
+              thresholdTemperature: ΔT > 200-300°C rapid cooling
+              impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
+              solutions:
+                - Use pulse mode with 3-5 second cooling between passes
+                - Gradual power ramping (start 50W, increase 10W per pass)
+                - Preheat substrate to reduce thermal gradients
+                - Monitor for surface crazing; stop immediately if cracks appear
+            - challenge: Variable thermal conductivity
+              severity: medium
+              propertyValue: 0.8-120 W/m·K (150x variation between materials)
+              impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
+              solutions:
+                - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
+                - High conductivity ceramics (SiC, WC) tolerate higher power
+                - Test on scrap to determine cooling requirements
+          contaminationChallenges:
+            - id: coating-residue-removal
+              type: challenge
       _section:
-        icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
+        icon: alert-triangle
+        order: 41
+        variant: default
+        relationshipType: commonChallenges
+        group: operational
+        domain: settings
+        schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength optimized for Silicon Nitride absorption characteristics
@@ -196,50 +177,37 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter range: smaller (50-200 μm) for fine detail on Si3N4 components, larger (500-1000 μm) for broad
-      area prep. 200 μm recommended for uniform cleaning balancing resolution and speed. Source: Equipment specs from Coherent
-      and Trumpf laser systems for industrial cleaning.'
+    description: 'Beam diameter range: smaller (50-200 μm) for fine detail on Si3N4 components, larger (500-1000 μm) for broad area prep. 200 μm recommended for uniform cleaning balancing resolution and speed. Source: Equipment specs from Coherent and Trumpf laser systems for industrial cleaning.'
   energyDensity:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 0.5
     unit: J/cm²
-    description: 'Fluence range for safe contaminant removal; damage threshold for Si3N4 ~3-5 J/cm² at 1064 nm due to moderate
-      reflectivity (~35%). Recommended 0.5 J/cm² for cleaning without ablation of substrate. Conservative for light contamination.
-      Source: Ablation threshold studies in Journal of Applied Physics (2016); uncertainty noted for specific contaminants.'
+    description: 'Fluence range for safe contaminant removal; damage threshold for Si3N4 ~3-5 J/cm² at 1064 nm due to moderate reflectivity (~35%). Recommended 0.5 J/cm² for cleaning without ablation of substrate. Conservative for light contamination. Source: Ablation threshold studies in Journal of Applied Physics (2016); uncertainty noted for specific contaminants.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for Si3N4 cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond (ps)
-      or femtosecond (fs) for ultra-precision but costlier. 20 ns typical for contaminant removal without substrate melting
-      (Si3N4 mp ~1900°C). Avoid fs for industrial scale. Source: Laser physics in ''Pulsed Laser Cleaning of Ceramics'' (Applied
-      Surface Science, 2019).'
+    description: 'Nanosecond regime preferred for Si3N4 cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns typical for contaminant removal without substrate melting (Si3N4 mp ~1900°C). Avoid fs for industrial scale. Source: Laser physics in ''Pulsed Laser Cleaning of Ceramics'' (Applied Surface Science, 2019).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: 'Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination (e.g., oxides), faster
-      (2000-5000 mm/s) for light surface prep. Recommended 2000 mm/s balances efficiency and safety on Si3N4''s brittle surface.
-      Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).'
+    description: 'Effective range for 1064 nm cleaning; slower (100-500 mm/s) for heavy contamination (e.g., oxides), faster (2000-5000 mm/s) for light surface prep. Recommended 2000 mm/s balances efficiency and safety on Si3N4''s brittle surface. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Laser Applications (2020).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-3) for heavy layers on Si3N4 to ensure complete removal
-      without excessive energy input. Recommended 2 passes for industrial surface prep. Source: Industry case studies in ''Laser
-      Surface Treatment of Ceramics'' (Materials Science and Engineering A, 2021).'
+    description: 'Single pass for light contamination, multi-pass (2-3) for heavy layers on Si3N4 to ensure complete removal without excessive energy input. Recommended 2 passes for industrial surface prep. Source: Industry case studies in ''Laser Surface Treatment of Ceramics'' (Materials Science and Engineering A, 2021).'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Typical 30-80% for uniform coverage; 50% recommended for Si3N4 to avoid uneven heating or missed spots while
-      preventing overexposure on heat-sensitive ceramic. Higher overlap for heavy contamination. Source: Process optimization
-      in Laser & Photonics Reviews (2019).'
+    description: 'Typical 30-80% for uniform coverage; 50% recommended for Si3N4 to avoid uneven heating or missed spots while preventing overexposure on heat-sensitive ceramic. Higher overlap for heavy contamination. Source: Process optimization in Laser & Photonics Reviews (2019).'
   dwellTime:
     description: Effective dwell time per cleaning spot
     unit: μs
@@ -250,24 +218,18 @@ machineSettings:
     description: Optimal average power for Silicon Nitride surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   laserPowerAlternative:
     min: 20
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for pulsed fiber lasers in industrial cleaning of ceramics like Si3N4 to remove contaminants
-      without thermal damage; starting at 100W for controlled ablation. Max safe ~300-500W to avoid cracking due to low thermal
-      conductivity (~25 W/mK). Source: IPG Photonics fiber laser specs for cleaning applications; academic review in ''Laser
-      Cleaning of Ceramics'' (Optics and Lasers in Engineering, 2018).'
+    description: 'Typical range for pulsed fiber lasers in industrial cleaning of ceramics like Si3N4 to remove contaminants without thermal damage; starting at 100W for controlled ablation. Max safe ~300-500W to avoid cracking due to low thermal conductivity (~25 W/mK). Source: IPG Photonics fiber laser specs for cleaning applications; academic review in ''Laser Cleaning of Ceramics'' (Optics and Lasers in Engineering, 2018).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical 20-100 kHz for cleaning; 50 kHz recommended for Si3N4 to achieve fast coverage while limiting heat
-      accumulation (trade-off: higher rates speed up process but risk thermal buildup on low-conductivity material). Source:
-      Academic literature in Optics Express (2017) on pulse train effects in ceramic ablation.'
-componentSummary: These settings utilize a 1064 nm wavelength for strong absorption in Silicon Nitride, with 100 W power and
-  10 ns pulses to ablate contaminants efficiently while minimizing thermal stress on the brittle ceramic.
+    description: 'Typical 20-100 kHz for cleaning; 50 kHz recommended for Si3N4 to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk thermal buildup on low-conductivity material). Source: Academic literature in Optics Express (2017) on pulse train effects in ceramic ablation.'
+componentSummary: These settings utilize a 1064 nm wavelength for strong absorption in Silicon Nitride, with 100 W power and 10 ns pulses to ablate contaminants efficiently while minimizing thermal stress on the brittle ceramic.

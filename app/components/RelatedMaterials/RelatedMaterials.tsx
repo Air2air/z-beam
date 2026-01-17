@@ -10,16 +10,19 @@
 
 import { getMaterialsBySubcategory } from '@/app/utils/materialCategories';
 import { CardGridSSR } from '../CardGrid';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import { capitalizeWords } from '@/app/utils/formatting';
+import { Button } from '../Button';
 import type { RelatedMaterialsProps } from '@/types';
 
 export async function RelatedMaterials({
   currentSlug,
   category,
   subcategory,
-  maxItems = 6
+  maxItems = 6,
+  sectionTitle,
+  sectionDescription
 }: RelatedMaterialsProps) {
   // Get all materials in this subcategory
   const materials = await getMaterialsBySubcategory(category, subcategory);
@@ -37,13 +40,25 @@ export async function RelatedMaterials({
   const formattedCategory = capitalizeWords(category.replace(/-/g, ' '));
   const formattedSubcategory = capitalizeWords(subcategory.replace(/-/g, ' '));
   
+  // Use provided title/description or fall back to defaults
+  const title = sectionTitle || `Other ${formattedSubcategory} Materials`;
+  const description = sectionDescription || `Explore other ${formattedSubcategory.toLowerCase()} materials suitable for laser cleaning applications`;
+  
   return (
-    <SectionContainer
-      variant="default"
-      title={`Other ${formattedSubcategory} Materials`}
+    <BaseSection
+      title={title}
+      description={description}
       icon={getSectionIcon('related-materials')}
-      actionText={formattedSubcategory}
-      actionUrl={`/search?q=${encodeURIComponent(category)}`}
+      action={
+        <Button 
+          variant="primary" 
+          size="md" 
+          href={`/search?q=${encodeURIComponent(category)}`}
+          showIcon
+        >
+          {formattedSubcategory}
+        </Button>
+      }
     >
       <CardGridSSR
         slugs={relatedSlugs}
@@ -52,6 +67,6 @@ export async function RelatedMaterials({
         showBadgeSymbols={true}
         loadBadgeSymbolData={true}
       />
-    </SectionContainer>
+    </BaseSection>
   );
 }

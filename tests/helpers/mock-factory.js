@@ -9,7 +9,7 @@ class MockFactory {
     return {
       getArticle: jest.fn().mockResolvedValue({
         slug: 'test-article',
-        metadata: { title: 'Test Article' },
+        frontmatter: { title: 'Test Article' },
         components: {}
       }),
       getAllArticles: jest.fn().mockResolvedValue([]),

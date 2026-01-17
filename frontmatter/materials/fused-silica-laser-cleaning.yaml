@@ -1,35 +1,109 @@
 id: fused-silica-laser-cleaning
 name: Fused Silica
+breadcrumb:
+  - label: Home
+    href: /
+  - label: Materials
+    href: /materials
+  - label: Glass
+    href: /materials/glass
+  - label: Soda Lime
+    href: /materials/glass/soda-lime
+  - label: Fused Silica
+    href: /materials/glass/soda-lime/fused-silica
 displayName: Fused Silica Laser Cleaning
 category: glass
 subcategory: soda-lime
-pageDescription: Fused silica distinguishes itself among glasses with its minimal thermal expansion, preserving structural
-  integrity under intense heat in aerospace and semiconductor applications
-characteristics:
-  crystallineStructure:
-    allowedValues:
-    - FCC
-    - BCC
-    - HCP
-    - amorphous
-    - cubic
-    - hexagonal
-    - tetragonal
-    - orthorhombic
-    - monoclinic
-    - triclinic
-    description: amorphous crystal structure
-    source: ai_research
-    unit: crystal system
-    value: amorphous
+contentType: material
+schemaVersion: 5.0.0
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-01-15T21:46:41.943257+00:00'
+fullPath: /materials/glass/soda-lime/fused-silica-laser-cleaning
+pageTitle: Fused Silica
+metaDescription: >-
+  Laser cleaning works wonders on fused silica surfaces. I have run through countless samples in the lab. Contaminants
+  cling tight under 1000x magnification—du...
+card:
+  default:
+    heading: Fused Silica
+    subtitle: glass / soda-lime
+    badge:
+      text: Common
+      variant: info
+    metric:
+      value: '1064'
+      unit: nm
+      legend: Optimal Wavelength
+    severity: low
+    icon: cube
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+    - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+    - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+images:
+  hero:
+    url: /images/material/fused-silica-laser-cleaning-hero.jpg
+    alt: Fused Silica surface undergoing laser cleaning showing precise contamination removal
+    width: 1200
+    height: 630
+  micro:
+    url: /images/material/fused-silica-laser-cleaning-micro.jpg
+    alt: Fused Silica microscopic view of laser cleaning showing detailed precise contamination removal
+    width: 800
+    height: 600
+components:
+  settingsDescription: >-
+    When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This makes the
+    process slower since the beam tends to pass through the material with minimal interaction. I've seen that pulsing at
+    moderate rates removes surface contaminants effectively without overheating. Multiple gentle passes reveal the
+    underlying clarity. Adjust scan speeds to avoid thermal buildup, which can lead to cracking.
+  micro:
+    before: >-
+      At 1000x magnification, the fused silica surface bristles with fine particles and residues that cling stubbornly.
+      These contaminants create irregular bumps and dull patches across the material's face. Grime layers obscure the
+      glass's inherent clarity in every observed section.
+    after: >-
+      After laser treatment at 1000x, the fused silica surface gleams smooth and free of all debris. Even textures
+      replace the former roughness without any lingering spots. The cleaned glass exposes its natural polish clearly
+      throughout the view.
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    percentage: 60.0
-    description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material
-      integrity
+    percentage: 60
     electricalResistivity:
-      value: 1.0e+16
+      value: 10000000000000000
       unit: Ω·m
       confidence: 98
       source: ai_research
@@ -40,12 +114,12 @@ properties:
       confidence: 100
       source: ai_research
     oxidationResistance:
-      value: 0.0
+      value: 0
       unit: g/m²/s
       confidence: 100
       source: ai_research
     youngsModulus:
-      value: 73.0
+      value: 73
       unit: GPa
       confidence: 100
       source: ai_research
@@ -55,17 +129,17 @@ properties:
       confidence: 95
       source: ai_research
     compressiveStrength:
-      value: 1100.0
+      value: 1100
       unit: MPa
       confidence: 100
       source: ai_research
     tensileStrength:
-      value: 48.0
+      value: 48
       unit: MPa
       confidence: 95
       source: ai_research
     flexuralStrength:
-      value: 50.0
+      value: 50
       unit: MPa
       confidence: 95
       source: ai_research
@@ -75,22 +149,33 @@ properties:
       confidence: 95
       source: ai_research
     laserDamageThreshold:
-      value: 40.0
+      value: 40
       unit: J/cm²
       source: scientific_literature
       sourceType: journal_article
       sourceName: Applied Optics
-      citation: 'J. A. Folta, M. R. Kozlowski, N. Bellamy, SPIE Proceedings Vol. 1848, Laser-Induced Damage of Optical Materials:
-        1992, pp. 468-477, 1993, DOI: 10.1117/12.145281'
-      context: High-purity fused silica (Suprasil 1, 99.999% SiO2), room temperature (25°C), 1064 nm wavelength, 3 ns pulse
+      citation: >-
+        J. A. Folta, M. R. Kozlowski, N. Bellamy, SPIE Proceedings Vol. 1848, Laser-Induced Damage of Optical Materials:
+        1992, pp. 468-477, 1993, DOI: 10.1117/12.145281
+      context: >-
+        High-purity fused silica (Suprasil 1, 99.999% SiO2), room temperature (25°C), 1064 nm wavelength, 3 ns pulse
         duration, 1-on-1 damage testing on bulk material
       confidence: 95
       researchedDate: '2025-11-24T11:58:33.134999'
       needsValidation: true
+    _section:
+      icon: atom
+      order: 1
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Core physical and chemical properties of the material
+      notes: Foundational material data for laser cleaning applications
+      sectionTitle: Material Characteristics
+      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40.0
-    description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
+    percentage: 40
     absorptivity:
       value: 0.03
       unit: dimensionless
@@ -134,7 +219,7 @@ properties:
       max: 1
       source: ai_research
     thermalDestruction:
-      value: 1986.0
+      value: 1986
       unit: K
       confidence: 95
       source: ai_research
@@ -144,7 +229,7 @@ properties:
       confidence: 98
       source: ai_research
     thermalExpansion:
-      value: 5.5e-07
+      value: 5.5e-7
       unit: K^{-1}
       confidence: 99
       source: ai_research
@@ -154,7 +239,7 @@ properties:
       confidence: 100
       source: ai_research
     specificHeat:
-      value: 740.0
+      value: 740
       unit: J/(kg·K)
       confidence: 98
       source: ai_research
@@ -164,7 +249,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalDiffusivity:
-      value: 8.4e-07
+      value: 8.4e-7
       unit: m²/s
       confidence: 95
       source: ai_research
@@ -173,561 +258,493 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-micro:
-  before: Laser cleaning works wonders on fused silica surfaces. I have run through countless samples in the lab. Contaminants
-    cling tight under 1000x magnification—dust particles scatter like rough islands across the smooth glass matrix. Organic
-    residues form hazy films, disrupting the material's natural glassy sheen. These patterns typically cluster in micro-cracks,
-    where fused silica's dense structure holds onto debris stubbornly.
-  after: 'The laser process clears this up effectively. Pulses vaporize contaminants without etching the substrate. Post-cleaning
-    views reveal a pristine landscape. The surface lines up evenly, showcasing fused silica''s inherent polish—clear, featureless
-    expanses that reflect light uniformly. No lingering spots mar the view. Turns out, this method preserves the material''s
-    thermal resilience and optical clarity. In practice, it demonstrates solid results for optics applications, cutting down
-    on residue buildup while maintaining tight surface integrity. Overall, the transformation stands out: from cluttered chaos
-    to a clean, durable finish.'
-images:
-  hero:
-    url: /images/material/fused-silica-laser-cleaning-hero.jpg
-    alt: Fused Silica surface undergoing laser cleaning showing precise contamination removal
-    width: 1200
-    height: 630
-  micro:
-    url: /images/material/fused-silica-laser-cleaning-micro.jpg
-    alt: Fused Silica microscopic view of laser cleaning showing detailed precise contamination removal
-    width: 800
-    height: 600
+    _section:
+      icon: zap
+      order: 2
+      variant: default
+      group: properties
+      domain: materials
+      schemaDescription: Thermal and optical properties affecting laser-material interaction
+      notes: Laser interaction parameters for optimal cleaning
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
+faq:
+  presentation: collapsible
+  items:
+    - id: can-fused-silica-be-laser-cleaned
+      title: Can fused silica be laser cleaned without causing damage or micro-cracks?
+      content: >-
+        Yes, fused silica can be pretty safely laser cleaned with careful parameter control. A 1064 nm wavelength,
+        fluence below 2.5 J/cm², and nanosecond pulses typically minimize thermal shock risks to its amorphous
+        structure. This method effectively removes contaminants while preventing subsurface damage and micro-crack
+        formation in the glass.
+      metadata:
+        topic: fused silica be laser cleaned
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: true
+        order: 1
+    - id: what-is-the-best-laser-wavelength
+      title: What is the best laser wavelength for cleaning contaminants from fused silica optics?
+      content: >-
+        For fused silica optics, UV wavelengths around 355 nm are pretty superior. Most contaminants absorb them fairly
+        strongly, enabling effective ablation at fluences below the substrate's ~2.5 J/cm² damage threshold. This
+        separation ensures thorough cleaning without harming the optic's surface.
+      metadata:
+        topic: the best laser wavelength for
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 2
+    - id: how-do-you-remove-thin-film
+      title: How do you remove thin film coatings from fused silica using a laser without etching the surface?
+      content: >-
+        We basically employ 1064 nm nanosecond pulses at around 2.5 J/cm² for selective ablation of thin films. This
+        fluence sits fairly above the coating's ablation threshold, while remaining safely below the point that could
+        etch the pristine fused silica substrate.
+      metadata:
+        topic: do you remove thin film
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 3
+    - id: what-are-the-lidt-laserinduced-damage
+      title: What are the LIDT (Laser-Induced Damage Threshold) concerns when laser cleaning fused silica optics?
+      content: >-
+        Operating laser cleaning close to the 2.5 J/cm² threshold can pretty much generate microscopic damage
+        precursors, potentially reducing Fused Silica's LIDT. Typically, follow-up measurements uncover a lowered
+        threshold from these subsurface alterations, undermining reliability in high-power applications.
+      metadata:
+        topic: the lidt (laser-induced damage threshold)
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 4
+    - id: does-laser-cleaning-create-oh-group
+      title: Does laser cleaning create OH group contamination or other chemical changes on the fused silica surface?
+      content: >-
+        When laser cleaning is properly configured below the 2.5 J/cm² threshold, it typically avoids OH group
+        formation. But excessive fluence can induce surface chemistry changes, potentially boosting hydrogen bonding and
+        degrading UV transmission. Keeping optimal parameters is basically critical for long-term optical stability.
+      metadata:
+        topic: laser cleaning create oh group
+        severity: high
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 5
+    - id: what-safety-precautions-are-specific-to
+      title: What safety precautions are specific to laser cleaning fused silica compared to metals?
+      content: >-
+        The main precaution here is keeping things below fused silica's 2.5 J/cm² damage threshold to avoid subsurface
+        cracking. Pretty much unlike metals, its fairly low thermal conductivity causes those stress fractures. Always
+        wear respiratory PPE for the fine silica particulates it generates.
+      metadata:
+        topic: safety precautions specific to laser
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 6
+    - id: how-effective-is-laser-cleaning-for
+      title: How effective is laser cleaning for removing sub-surface damage (SSD) in fused silica?
+      content: >-
+        Laser cleaning can fairly effectively mitigate existing sub-surface damage when operated below fused silica's
+        ~2.5 J/cm² damage threshold. Yet, exceeding this fluence with 10 ns pulses will pretty reliably introduce new
+        microfractures, undermining the conditioning goal.
+      metadata:
+        topic: effective laser cleaning for removing
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 7
+    - id: can-laser-cleaning-replace-traditional-methods
+      title: >-
+        Can laser cleaning replace traditional methods like CO2 snow or solvent cleaning for fused silica in cleanroom
+        environments?
+      content: >-
+        Laser cleaning pretty much replaces traditional methods for fused silica, delivering superior particle removal
+        below 2.5 J/cm². This non-contact process relies on a 1064 nm wavelength to fairly eliminate organics without
+        solvents, boosting throughput while enabling validation through light scatter testing for critical optics.
+      metadata:
+        topic: laser cleaning replace traditional methods
+        severity: medium
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 8
+    - id: what-is-the-maximum-allowable-surface
+      title: >-
+        What is the maximum allowable surface temperature during laser cleaning of fused silica to prevent thermal
+        stress failure?
+      content: >-
+        Fused silica's pretty low 0.55 ppm/°C thermal expansion coefficient lets it handle surface temperatures up to
+        around 300°C before any stress failure kicks in. To keep things stable, stay below the 2.5 J/cm² fluence damage
+        threshold and go with fairly high 500 mm/s scan speeds to cut localized heating and dodge harmful thermal
+        gradients.
+      metadata:
+        topic: the maximum allowable surface temperature
+        severity: critical
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 9
+    - id: how-do-you-verify-the-success
+      title: How do you verify the success of a laser cleaning process on a fused silica optic?
+      content: >-
+        Verification employs several techniques. Typically, we assess surface integrity via white-light interferometry,
+        confirming no profile shifts beyond 2 nm. Scatterometry spots residual particles, while 1064 nm transmission
+        measurements indicate no baseline degradation. Basically, this approach fully restores the optic's performance.
+      metadata:
+        topic: do you verify the success
+        severity: high
+        acceptedAnswer: true
+        expertInfo:
+          name: Todd Dunning
+          title: MA
+          expertise:
+            - Optical Materials for Laser Systems
+      Display:
+        Open: false
+        order: 10
+  options:
+    autoOpenFirst: true
+    sortBy: severity
 relationships:
   interactions:
     contaminatedBy:
       presentation: card
       items:
-      - id: adhesive-residue-contamination
-        name: Adhesive Residue / Tape Marks
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
-        description: Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape
-          or stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
-        frequency: moderate
-        severity: moderate
-      - id: biological-stains-contamination
-        name: Organic Biofilm Deposits
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/biological-stains-contamination
-        image: /images/contaminant/biological-stains-contamination-hero.jpg
-        description: Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
-          Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
-        frequency: moderate
-        severity: moderate
-      - id: blood-residue-contamination
-        name: Biological Blood Residue
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/blood-residue-contamination
-        image: /images/contaminant/blood-residue-contamination-hero.jpg
-        description: Blood-residue contamination, it forms through biological adhesion on surfaces. Proteins and cells bind
-          tightly, creating layered patterns that vary by substrate. On metals, residue spreads unevenly...
-        frequency: moderate
-        severity: moderate
-      - id: industrial-oil-contamination
-        name: Industrial Oil / Grease Buildup
-        category: organic-residue
-        subcategory: petroleum
-        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-        image: /images/contaminant/industrial-oil-contamination-hero.jpg
-        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-        frequency: moderate
-        severity: moderate
-      - id: insect-residue-contamination
-        name: Insect Impact Residue
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/insect-residue-contamination
-        image: /images/contaminant/insect-residue-contamination-hero.jpg
-        description: Insect-residue contamination, it arises from biological impacts on surfaces. Collisions cause splattering,
-          and residue adheres irregularly. Organic matter like chitin and proteins forms patchy laye...
-        frequency: moderate
-        severity: moderate
-      - id: lime-scale-contamination
-        name: Limescale Deposits
-        category: thermal-damage
-        subcategory: scale
-        url: /contaminants/thermal-damage/scale/lime-scale-contamination
-        image: /images/contaminant/lime-scale-contamination-hero.jpg
-        description: Lime scale contamination builds up as hard, chalky deposits from mineral-rich water, forming irregular
-          layers on metal and stone surfaces in humid environments. These patterns often show flaky, une...
-        frequency: moderate
-        severity: moderate
-      - id: medical-disinfectant-contamination
-        name: Medical Disinfectant Residue
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/medical-disinfectant-contamination
-        image: /images/contaminant/medical-disinfectant-contamination-hero.jpg
-        description: Medical disinfectant contamination forms stubborn, film-like residues that cling tightly to surfaces
-          in healthcare settings. These contaminants arise when cleaning agents like quaternary ammonium c...
-        frequency: moderate
-        severity: moderate
-      - id: mineral-deposits-contamination
-        name: Hard Water Mineral Scale
-        category: thermal-damage
-        subcategory: scale
-        url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
-        image: /images/contaminant/mineral-deposits-contamination-hero.jpg
-        description: Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
-          thin on stones, and this difference affects cleaning outcomes. After exposure to moisture...
-        frequency: moderate
-        severity: moderate
-      - id: pesticide-residue-contamination
-        name: Pesticide Chemical Residue
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
-        image: /images/contaminant/pesticide-residue-contamination-hero.jpg
-        description: Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
-          layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
-        frequency: moderate
-        severity: moderate
-      - id: pharmaceutical-residue-contamination
-        name: Pharmaceutical Drug Residue
-        category: chemical-residue
-        subcategory: industrial
-        url: /contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination
-        image: /images/contaminant/pharmaceutical-residue-contamination-hero.jpg
-        description: Pharmaceutical-residue-contamination, it arises from sticky organic layers in drug production environments.
-          This contamination forms unique patterns, such as bio-adhesive films on metal tools and c...
-        frequency: moderate
-        severity: moderate
-      - id: plastic-residue-contamination
-        name: Degraded Polymer Deposits
-        category: organic-residue
-        subcategory: polymer
-        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-        image: /images/contaminant/plastic-residue-contamination-hero.jpg
-        description: Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
-          films that adhere tenaciously to substrates. This contamination, derived from organic re...
-        frequency: moderate
-        severity: moderate
-      - id: pollen-deposit-contamination
-        name: Pollen Accumulation
-        category: biological
-        subcategory: deposit
-        url: /contaminants/biological/deposit/pollen-deposit-contamination
-        image: /images/contaminant/pollen-deposit-contamination-hero.jpg
-        description: Pollen-deposit-contamination, it manifests as irregular organic layers, formed from airborne pollen adhering
-          to surfaces in humid environments. These deposits, they exhibit unique patterns influenc...
-        frequency: moderate
-        severity: moderate
-      - id: scale-buildup-contamination
-        name: Mineral Scale / Hard Water Deposits
-        category: thermal-damage
-        subcategory: scale
-        url: /contaminants/thermal-damage/scale/scale-buildup-contamination
-        image: /images/contaminant/scale-buildup-contamination-hero.jpg
-        description: Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary.
-          On steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
-        frequency: moderate
-        severity: moderate
-      - id: silicone-buildup-contamination
-        name: Silicone Sealant Buildup
-        category: organic-residue
-        subcategory: adhesive
-        url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
-        image: /images/contaminant/silicone-buildup-contamination-hero.jpg
-        description: Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors
-          and residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
-        frequency: moderate
-        severity: moderate
-      - id: soap-scum-contamination
-        name: Soap Scum Buildup
-        category: organic-residue
-        subcategory: cleaning-agent
-        url: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
-        image: /images/contaminant/soap-scum-contamination-hero.jpg
-        description: Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of
-          soap residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
-        frequency: moderate
-        severity: moderate
-      - id: tree-sap-contamination
-        name: Tree Sap and Resin
-        category: organic-residue
-        subcategory: natural
-        url: /contaminants/organic-residue/natural/tree-sap-contamination
-        image: /images/contaminant/tree-sap-contamination-hero.jpg
-        description: Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
-          elements. This organic residue hardens over time, creating irregular patterns like drips a...
-        frequency: moderate
-        severity: moderate
-      - id: water-stain-contamination
-        name: Water Staining and Marks
-        category: organic-residue
-        subcategory: other
-        url: /contaminants/organic-residue/other/water-stain-contamination
-        image: /images/contaminant/water-stain-contamination-hero.jpg
-        description: Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios.
-          On porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
-        frequency: moderate
-        severity: moderate
+        - id: adhesive-residue-contamination
+          name: Adhesive Residue / Tape Marks
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+          image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+          description: >-
+            Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape or
+            stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
+          frequency: moderate
+          severity: moderate
+        - id: biological-stains-contamination
+          name: Organic Biofilm Deposits
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/biological-stains-contamination
+          image: /images/contaminant/biological-stains-contamination-hero.jpg
+          description: >-
+            Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
+            Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
+          frequency: moderate
+          severity: moderate
+        - id: blood-residue-contamination
+          name: Biological Blood Residue
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/blood-residue-contamination
+          image: /images/contaminant/blood-residue-contamination-hero.jpg
+          description: >-
+            Blood-residue contamination, it forms through biological adhesion on surfaces. Proteins and cells bind
+            tightly, creating layered patterns that vary by substrate. On metals, residue spreads unevenly...
+          frequency: moderate
+          severity: moderate
+        - id: industrial-oil-contamination
+          name: Industrial Oil / Grease Buildup
+          category: organic-residue
+          subcategory: petroleum
+          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+          image: /images/contaminant/industrial-oil-contamination-hero.jpg
+          description: >-
+            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+          frequency: moderate
+          severity: moderate
+        - id: insect-residue-contamination
+          name: Insect Impact Residue
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/insect-residue-contamination
+          image: /images/contaminant/insect-residue-contamination-hero.jpg
+          description: >-
+            Insect-residue contamination, it arises from biological impacts on surfaces. Collisions cause splattering,
+            and residue adheres irregularly. Organic matter like chitin and proteins forms patchy laye...
+          frequency: moderate
+          severity: moderate
+        - id: lime-scale-contamination
+          name: Limescale Deposits
+          category: thermal-damage
+          subcategory: scale
+          url: /contaminants/thermal-damage/scale/lime-scale-contamination
+          image: /images/contaminant/lime-scale-contamination-hero.jpg
+          description: >-
+            Lime scale contamination builds up as hard, chalky deposits from mineral-rich water, forming irregular
+            layers on metal and stone surfaces in humid environments. These patterns often show flaky, une...
+          frequency: moderate
+          severity: moderate
+        - id: medical-disinfectant-contamination
+          name: Medical Disinfectant Residue
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/medical-disinfectant-contamination
+          image: /images/contaminant/medical-disinfectant-contamination-hero.jpg
+          description: >-
+            Medical disinfectant contamination forms stubborn, film-like residues that cling tightly to surfaces in
+            healthcare settings. These contaminants arise when cleaning agents like quaternary ammonium c...
+          frequency: moderate
+          severity: moderate
+        - id: mineral-deposits-contamination
+          name: Hard Water Mineral Scale
+          category: thermal-damage
+          subcategory: scale
+          url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
+          image: /images/contaminant/mineral-deposits-contamination-hero.jpg
+          description: >-
+            Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
+            thin on stones, and this difference affects cleaning outcomes. After exposure to moisture...
+          frequency: moderate
+          severity: moderate
+        - id: pesticide-residue-contamination
+          name: Pesticide Chemical Residue
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
+          image: /images/contaminant/pesticide-residue-contamination-hero.jpg
+          description: >-
+            Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
+            layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
+          frequency: moderate
+          severity: moderate
+        - id: pharmaceutical-residue-contamination
+          name: Pharmaceutical Drug Residue
+          category: chemical-residue
+          subcategory: industrial
+          url: /contaminants/chemical-residue/industrial/pharmaceutical-residue-contamination
+          image: /images/contaminant/pharmaceutical-residue-contamination-hero.jpg
+          description: >-
+            Pharmaceutical-residue-contamination, it arises from sticky organic layers in drug production environments.
+            This contamination forms unique patterns, such as bio-adhesive films on metal tools and c...
+          frequency: moderate
+          severity: moderate
+        - id: plastic-residue-contamination
+          name: Degraded Polymer Deposits
+          category: organic-residue
+          subcategory: polymer
+          url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+          image: /images/contaminant/plastic-residue-contamination-hero.jpg
+          description: >-
+            Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
+            films that adhere tenaciously to substrates. This contamination, derived from organic re...
+          frequency: moderate
+          severity: moderate
+        - id: pollen-deposit-contamination
+          name: Pollen Accumulation
+          category: biological
+          subcategory: deposit
+          url: /contaminants/biological/deposit/pollen-deposit-contamination
+          image: /images/contaminant/pollen-deposit-contamination-hero.jpg
+          description: >-
+            Pollen-deposit-contamination, it manifests as irregular organic layers, formed from airborne pollen adhering
+            to surfaces in humid environments. These deposits, they exhibit unique patterns influenc...
+          frequency: moderate
+          severity: moderate
+        - id: scale-buildup-contamination
+          name: Mineral Scale / Hard Water Deposits
+          category: thermal-damage
+          subcategory: scale
+          url: /contaminants/thermal-damage/scale/scale-buildup-contamination
+          image: /images/contaminant/scale-buildup-contamination-hero.jpg
+          description: >-
+            Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary. On
+            steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
+          frequency: moderate
+          severity: moderate
+        - id: silicone-buildup-contamination
+          name: Silicone Sealant Buildup
+          category: organic-residue
+          subcategory: adhesive
+          url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+          image: /images/contaminant/silicone-buildup-contamination-hero.jpg
+          description: >-
+            Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors and
+            residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
+          frequency: moderate
+          severity: moderate
+        - id: soap-scum-contamination
+          name: Soap Scum Buildup
+          category: organic-residue
+          subcategory: cleaning-agent
+          url: /contaminants/organic-residue/cleaning-agent/soap-scum-contamination
+          image: /images/contaminant/soap-scum-contamination-hero.jpg
+          description: >-
+            Soap-scum contamination, it manifests as a sticky organic residue, formed through the interaction of soap
+            residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
+          frequency: moderate
+          severity: moderate
+        - id: tree-sap-contamination
+          name: Tree Sap and Resin
+          category: organic-residue
+          subcategory: natural
+          url: /contaminants/organic-residue/natural/tree-sap-contamination
+          image: /images/contaminant/tree-sap-contamination-hero.jpg
+          description: >-
+            Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
+            elements. This organic residue hardens over time, creating irregular patterns like drips a...
+          frequency: moderate
+          severity: moderate
+        - id: water-stain-contamination
+          name: Water Staining and Marks
+          category: organic-residue
+          subcategory: other
+          url: /contaminants/organic-residue/other/water-stain-contamination
+          image: /images/contaminant/water-stain-contamination-hero.jpg
+          description: >-
+            Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios. On
+            porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
+          frequency: moderate
+          severity: moderate
       _section:
+        icon: droplet
+        order: 10
+        variant: default
+        relationshipType: contaminatedBy
+        group: interactions
+        domain: materials
+        schemaDescription: Common contaminants found on this material
+        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-      - id: aerospace
-        name: Aerospace
-      - id: semiconductor-manufacturing
-        name: Semiconductor Manufacturing
-      - id: medical-device
-        name: Medical Device
-      - id: solar-energy
-        name: Solar Energy
-      - id: cultural-heritage
-        name: Cultural Heritage
-      - id: research-laboratory
-        name: Research Laboratory
-      - id: automotive
-        name: Automotive
-      - id: marine
-        name: Marine
-      - id: telecommunications
-        name: Telecommunications
-      - id: defense-and-security
-        name: Defense And Security
+        - id: aerospace
+          name: Aerospace
+        - id: semiconductor-manufacturing
+          name: Semiconductor Manufacturing
+        - id: medical-device
+          name: Medical Device
+        - id: solar-energy
+          name: Solar Energy
+        - id: cultural-heritage
+          name: Cultural Heritage
+        - id: research-laboratory
+          name: Research Laboratory
+        - id: automotive
+          name: Automotive
+        - id: marine
+          name: Marine
+        - id: telecommunications
+          name: Telecommunications
+        - id: defense-and-security
+          name: Defense And Security
       _section:
+        icon: briefcase
+        order: 40
+        variant: default
+        relationshipType: industryApplications
+        group: operational
+        domain: materials
+        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-        image: /images/logo/logo-org-fda.png
-        longName: Food and Drug Administration
-        name: FDA
-        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-      - description: ANSI Z136.1 - Safe Use of Lasers
-        image: /images/logo/logo-org-ansi.png
-        longName: American National Standards Institute
-        name: ANSI
-        url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      - description: IEC 60825 - Safety of Laser Products
-        image: /images/logo/logo-org-iec.png
-        longName: International Electrotechnical Commission
-        name: IEC
-        url: https://webstore.iec.ch/publication/3587
-      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-        image: /images/logo/logo-org-osha.png
-        longName: Occupational Safety and Health Administration
-        name: OSHA
-        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+          image: /images/logo/logo-org-fda.png
+          longName: Food and Drug Administration
+          name: FDA
+          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+        - description: ANSI Z136.1 - Safe Use of Lasers
+          image: /images/logo/logo-org-ansi.png
+          longName: American National Standards Institute
+          name: ANSI
+          url: https://webstore.ansi.org/standards/lia/ansiz1362022
+        - description: IEC 60825 - Safety of Laser Products
+          image: /images/logo/logo-org-iec.png
+          longName: International Electrotechnical Commission
+          name: IEC
+          url: https://webstore.iec.ch/publication/3587
+        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+          image: /images/logo/logo-org-osha.png
+          longName: Occupational Safety and Health Administration
+          name: OSHA
+          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: materials
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  countryDisplay: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
-card:
-  default:
-    heading: Fused Silica
-    subtitle: glass / soda-lime
-    badge:
-      text: Common
-      variant: info
-    metric:
-      value: '1064'
-      unit: nm
-      legend: Optimal Wavelength
-    severity: low
-    icon: cube
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-13T03:48:12.862046+00:00'
-contentType: material
-schemaVersion: 5.0.0
 contamination:
   valid:
-  - environmental_dust
-  - scale_buildup
-  - chemical_stains
-  - paint_residue
+    - environmental_dust
+    - scale_buildup
+    - chemical_stains
+    - paint_residue
   prohibited:
-  - rust_oxidation
-  - copper_patina
-  - aluminum_oxidation
-  - wood_rot
-  - uv_chalking
+    - rust_oxidation
+    - copper_patina
+    - aluminum_oxidation
+    - wood_rot
+    - uv_chalking
   conditional: {}
-components:
-  settingsDescription: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This
-    makes the process slower since the beam tends to pass through the material with minimal interaction. I've seen that pulsing
-    at moderate rates removes surface contaminants effectively without overheating. Multiple gentle passes reveal the underlying
-    clarity. Adjust scan speeds to avoid thermal buildup, which can lead to cracking.
-  micro:
-    before: At 1000x magnification, the fused silica surface bristles with fine particles and residues that cling stubbornly.
-      These contaminants create irregular bumps and dull patches across the material's face. Grime layers obscure the glass's
-      inherent clarity in every observed section.
-    after: After laser treatment at 1000x, the fused silica surface gleams smooth and free of all debris. Even textures replace
-      the former roughness without any lingering spots. The cleaned glass exposes its natural polish clearly throughout the
-      view.
-eeat:
-  reviewedBy: Z-Beam Quality Assurance Team
-  citations:
-  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-  isBasedOn:
-    name: IEC 60825 - Safety of Laser Products
-    url: https://webstore.iec.ch/publication/3587
-faq:
-  presentation: collapsible
-  items:
-  - id: can-fused-silica-be-laser-cleaned
-    title: Can fused silica be laser cleaned without causing damage or micro-cracks?
-    content: Yes, fused silica can be pretty safely laser cleaned with careful parameter control. A 1064 nm wavelength, fluence
-      below 2.5 J/cm², and nanosecond pulses typically minimize thermal shock risks to its amorphous structure. This method
-      effectively removes contaminants while preventing subsurface damage and micro-crack formation in the glass.
-    metadata:
-      topic: fused silica be laser cleaned
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  - id: what-is-the-best-laser-wavelength
-    title: What is the best laser wavelength for cleaning contaminants from fused silica optics?
-    content: For fused silica optics, UV wavelengths around 355 nm are pretty superior. Most contaminants absorb them fairly
-      strongly, enabling effective ablation at fluences below the substrate's ~2.5 J/cm² damage threshold. This separation
-      ensures thorough cleaning without harming the optic's surface.
-    metadata:
-      topic: the best laser wavelength for
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 2
-  - id: how-do-you-remove-thin-film
-    title: How do you remove thin film coatings from fused silica using a laser without etching the surface?
-    content: We basically employ 1064 nm nanosecond pulses at around 2.5 J/cm² for selective ablation of thin films. This
-      fluence sits fairly above the coating's ablation threshold, while remaining safely below the point that could etch the
-      pristine fused silica substrate.
-    metadata:
-      topic: do you remove thin film
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 3
-  - id: what-are-the-lidt-laserinduced-damage
-    title: What are the LIDT (Laser-Induced Damage Threshold) concerns when laser cleaning fused silica optics?
-    content: Operating laser cleaning close to the 2.5 J/cm² threshold can pretty much generate microscopic damage precursors,
-      potentially reducing Fused Silica's LIDT. Typically, follow-up measurements uncover a lowered threshold from these subsurface
-      alterations, undermining reliability in high-power applications.
-    metadata:
-      topic: the lidt (laser-induced damage threshold)
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 4
-  - id: does-laser-cleaning-create-oh-group
-    title: Does laser cleaning create OH group contamination or other chemical changes on the fused silica surface?
-    content: When laser cleaning is properly configured below the 2.5 J/cm² threshold, it typically avoids OH group formation.
-      But excessive fluence can induce surface chemistry changes, potentially boosting hydrogen bonding and degrading UV transmission.
-      Keeping optimal parameters is basically critical for long-term optical stability.
-    metadata:
-      topic: laser cleaning create oh group
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 5
-  - id: what-safety-precautions-are-specific-to
-    title: What safety precautions are specific to laser cleaning fused silica compared to metals?
-    content: The main precaution here is keeping things below fused silica's 2.5 J/cm² damage threshold to avoid subsurface
-      cracking. Pretty much unlike metals, its fairly low thermal conductivity causes those stress fractures. Always wear
-      respiratory PPE for the fine silica particulates it generates.
-    metadata:
-      topic: safety precautions specific to laser
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 6
-  - id: how-effective-is-laser-cleaning-for
-    title: How effective is laser cleaning for removing sub-surface damage (SSD) in fused silica?
-    content: Laser cleaning can fairly effectively mitigate existing sub-surface damage when operated below fused silica's
-      ~2.5 J/cm² damage threshold. Yet, exceeding this fluence with 10 ns pulses will pretty reliably introduce new microfractures,
-      undermining the conditioning goal.
-    metadata:
-      topic: effective laser cleaning for removing
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 7
-  - id: can-laser-cleaning-replace-traditional-methods
-    title: Can laser cleaning replace traditional methods like CO2 snow or solvent cleaning for fused silica in cleanroom
-      environments?
-    content: Laser cleaning pretty much replaces traditional methods for fused silica, delivering superior particle removal
-      below 2.5 J/cm². This non-contact process relies on a 1064 nm wavelength to fairly eliminate organics without solvents,
-      boosting throughput while enabling validation through light scatter testing for critical optics.
-    metadata:
-      topic: laser cleaning replace traditional methods
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 8
-  - id: what-is-the-maximum-allowable-surface
-    title: What is the maximum allowable surface temperature during laser cleaning of fused silica to prevent thermal stress
-      failure?
-    content: Fused silica's pretty low 0.55 ppm/°C thermal expansion coefficient lets it handle surface temperatures up to
-      around 300°C before any stress failure kicks in. To keep things stable, stay below the 2.5 J/cm² fluence damage threshold
-      and go with fairly high 500 mm/s scan speeds to cut localized heating and dodge harmful thermal gradients.
-    metadata:
-      topic: the maximum allowable surface temperature
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 9
-  - id: how-do-you-verify-the-success
-    title: How do you verify the success of a laser cleaning process on a fused silica optic?
-    content: Verification employs several techniques. Typically, we assess surface integrity via white-light interferometry,
-      confirming no profile shifts beyond 2 nm. Scatterometry spots residual particles, while 1064 nm transmission measurements
-      indicate no baseline degradation. Basically, this approach fully restores the optic's performance.
-    metadata:
-      topic: do you verify the success
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: false
-      order: 10
-  options:
-    autoOpenFirst: true
-    sortBy: severity
-fullPath: /materials/glass/soda-lime/fused-silica-laser-cleaning
-breadcrumb:
-- label: Home
-  href: /
-- label: Materials
-  href: /materials
-- label: Glass
-  href: /materials/glass
-- label: Soda Lime
-  href: /materials/glass/soda-lime
-metaDescription: Laser cleaning works wonders on fused silica surfaces. I have run through countless samples in the lab. Contaminants
-  cling tight under 1000x magnification—du...
-pageTitle: Fused Silica
+pageDescription: >-
+  Fused silica distinguishes itself among glasses with its minimal thermal expansion, preserving structural integrity
+  under intense heat in aerospace and semiconductor applications

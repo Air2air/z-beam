@@ -14,18 +14,20 @@
  * 1. Settings objects with machineSettings at top level (return directly)
  * 2. data.frontmatter (standard wrapper)
  * 3. data.pageConfig (legacy structure)
- * 4. data.metadata (DEPRECATED - use frontmatter instead)
- * 5. data itself (fallback - the object IS the metadata)
+ * 4. data itself (fallback - the object IS the metadata)
  * 
  * Settings pages pass the SettingsMetadata object directly, which IS the metadata.
  * They have machineSettings at the top level with no nesting.
- * 
- * @deprecated The `metadata` wrapper is deprecated. Use `frontmatter` wrapper or direct data access.
  */
 export function getMetadata(data: any): Record<string, unknown> {
+  // Handle null/undefined data
+  if (!data || typeof data !== 'object') {
+    return {};
+  }
+  
   // PRIORITY: Settings objects have machineSettings at top level (flat structure)
   // Return them directly to avoid wrapper confusion
-  if (data.machineSettings && typeof data.machineSettings === 'object' && !data.frontmatter && !data.metadata) {
+  if (data.machineSettings && typeof data.machineSettings === 'object' && !data.frontmatter) {
     return data as Record<string, unknown>;
   }
   
@@ -34,15 +36,14 @@ export function getMetadata(data: any): Record<string, unknown> {
     return data.frontmatter as Record<string, unknown>;
   }
   
+  // Check for metadata wrapper (alternative structure)
+  if (data.metadata && typeof data.metadata === 'object' && Object.keys(data.metadata).length > 0) {
+    return data.metadata as Record<string, unknown>;
+  }
+  
   // Legacy pageConfig structure
   if (data.pageConfig && typeof data.pageConfig === 'object') {
     return data.pageConfig as Record<string, unknown>;
-  }
-  
-  // DEPRECATED: metadata wrapper - keeping for backward compatibility only
-  if (data.metadata && typeof data.metadata === 'object' && Object.keys(data.metadata).length > 0) {
-    console.warn('[DEPRECATED] Using data.metadata wrapper. Use data.frontmatter or direct data access instead.');
-    return data.metadata as Record<string, unknown>;
   }
   
   // Fallback: the data object itself is the frontmatter
@@ -62,7 +63,12 @@ export function hasProductData(data: any): boolean {
     meta.machineSettings ||
     meta.composition ||
     meta.safety_data ||
-    data.products
+    data.products ||
+    // Check nested .metadata wrapper
+    data.metadata?.materialProperties ||
+    data.metadata?.machineSettings ||
+    data.metadata?.composition ||
+    data.metadata?.safety_data
   );
 }
 
@@ -71,7 +77,12 @@ export function hasProductData(data: any): boolean {
  */
 export function hasMachineSettings(data: any): boolean {
   const meta = getMetadata(data);
-  return !!(meta.machineSettings || data.steps);
+  return !!(
+    meta.machineSettings || 
+    data.steps ||
+    // Check nested .metadata wrapper
+    data.metadata?.machineSettings
+  );
 }
 
 /**
@@ -79,7 +90,11 @@ export function hasMachineSettings(data: any): boolean {
  */
 export function hasMaterialProperties(data: any): boolean {
   const meta = getMetadata(data);
-  return !!meta.materialProperties;
+  return !!(
+    meta.materialProperties ||
+    // Check nested .metadata wrapper
+    data.metadata?.materialProperties
+  );
 }
 
 /**
@@ -87,18 +102,34 @@ export function hasMaterialProperties(data: any): boolean {
  */
 export function hasAuthor(data: any): boolean {
   const meta = getMetadata(data);
-  return !!(meta.author || data.author);
+  return !!(
+    meta.author || 
+    data.author ||
+    // Check nested .metadata wrapper
+    data.metadata?.author
+  );
 }
 
 /**
  * Check if has FAQ data for FAQ schema
+ * Handles multiple data structures including nested .metadata wrapper
  */
 export function hasFAQData(data: any): boolean {
   const meta = getMetadata(data);
+  
+  // Check for direct faq field or in extracted metadata
   if (data.faq || meta.faq) return true;
   
+  // Check for nested .metadata wrapper (deprecated but still used in some tests/contexts)
+  if (data.metadata?.faq) return true;
+  
   // Check for FAQ-generating frontmatter (used by MaterialFAQ component)
-  return !!(meta.outcomeMetrics || meta.applications || meta.environmentalImpact);
+  if (meta.outcomeMetrics || meta.applications || meta.environmentalImpact) return true;
+  
+  // Check FAQ-generating fields in nested .metadata wrapper
+  if (data.metadata?.outcomeMetrics || data.metadata?.applications || data.metadata?.environmentalImpact) return true;
+  
+  return false;
 }
 
 /**
@@ -118,11 +149,16 @@ export function hasServiceData(data: any): boolean {
   if (meta.serviceOffering?.enabled === true) return true;
   if (data.serviceOffering?.enabled === true) return true;
   
+  // Check nested .metadata wrapper
+  if (data.metadata?.serviceOffering?.isEnabled === true) return true;
+  if (data.metadata?.serviceOffering?.enabled === true) return true;
+  
   // Legacy formats
   return !!(
     data.services ||
     data.serviceOfferings ||
     meta.serviceOfferings ||
+    data.metadata?.serviceOfferings ||
     (data.contentCards && title.toLowerCase().includes('service'))
   );
 }
@@ -168,8 +204,13 @@ export function hasRegulatoryStandards(data: any): boolean {
 export function hasVideoData(data: any): boolean {
   const meta = getMetadata(data);
   // Always include video for material pages (default video: t8fB3tJCfQw)
-  const isMaterialPage = meta.materialProperties || meta.category;
-  return !!(data.video || data.youtubeUrl || meta.video || isMaterialPage);
+  const isMaterialPage = meta.materialProperties || meta.category || data.metadata?.materialProperties || data.metadata?.category;
+  return !!(
+    data.video || 
+    data.youtubeUrl || 
+    meta.video || 
+    isMaterialPage
+  );
 }
 
 /**
@@ -180,6 +221,18 @@ export function hasVideoData(data: any): boolean {
 export function hasImageData(data: any): boolean {
   const meta = getMetadata(data);
   // Check for explicit images OR slug (which triggers fallback hero image URL generation)
-  const hasSlug = !!(data.slug || meta.slug);
-  return !!(data.images || meta.images || meta.hero || data.hero || meta.micro || data.micro || hasSlug);
+  const hasSlug = !!(data.slug || meta.slug || data.metadata?.slug);
+  return !!(
+    data.images || 
+    meta.images || 
+    meta.hero || 
+    data.hero || 
+    meta.micro || 
+    data.micro || 
+    hasSlug ||
+    // Check nested .metadata wrapper
+    data.metadata?.images ||
+    data.metadata?.hero ||
+    data.metadata?.micro
+  );
 }

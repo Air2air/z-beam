@@ -179,13 +179,13 @@ describe('Image SEO - Sitemap and Schema', () => {
       const imageEntry = {
         loc: '/images/material/aluminum-hero.jpg',
         title: 'Aluminum Laser Cleaning Hero',
-        caption: 'Laser cleaning solution for industrial materials',
+        micro: 'Laser cleaning solution for industrial materials',
         lastmod: '2025-12-28'
       };
       
       expect(imageEntry.loc).toBeDefined();
       expect(imageEntry.title).toBeDefined();
-      expect(imageEntry.caption).toBeDefined();
+      expect(imageEntry.micro).toBeDefined();
       expect(imageEntry.title.length).toBeGreaterThan(10);
     });
 

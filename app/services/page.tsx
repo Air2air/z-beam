@@ -5,7 +5,7 @@ import { ScheduleCards } from "../components/Schedule/ScheduleCards";
 import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { schemaRegistry } from "@/app/utils/schemas/registry";
-import { loadStaticPage, type StaticPageWithCards } from '@/app/utils/staticPageLoader';
+import { SERVICES_DATA } from '@/app/utils/staticPageData.generated';
 
 export const metadata = {
   title: 'Industrial Laser Cleaning Services | Bay Area',
@@ -38,8 +38,8 @@ export const metadata = {
 export default function ServicesPage() {
   const pricing = SITE_CONFIG.pricing.professionalCleaning;
   
-  // Load services page configuration directly from YAML
-  const pageConfig = loadStaticPage<StaticPageWithCards>('services.yaml');
+  // Load services page configuration from pre-loaded static data
+  const pageConfig = SERVICES_DATA;
   
   // Generate schemas using centralized registry
   const serviceSchema = schemaRegistry.getPageSchemas('services', {

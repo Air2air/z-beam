@@ -95,7 +95,7 @@ interface SearchResultItem {
   type: 'page' | 'material' | 'application' | 'region' | 'thesaurus';
   url: string;
   score?: number;
-  excerpt?: string;
+  pageDescription?: string;
   author?: Author;
   publishedDate?: string;
   featured?: boolean;

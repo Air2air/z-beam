@@ -9,22 +9,16 @@ contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/igneous/granite-settings
 breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stone
-  href: /settings/stone
-- label: Igneous
-  href: /settings/stone/igneous
+  - label: Home
+    href: /
+  - label: Settings
+    href: /settings
+  - label: Stone
+    href: /settings/stone
+  - label: Igneous
+    href: /settings/stone/igneous
 pageTitle: Granite
-pageDescription: When laser cleaning granite, start with the main challenge of its low heat conduction. This dense igneous
-  stone holds heat unevenly compared to softer sedimentary rocks, which can lead to surface cracking if energy builds up too
-  fast. You must use lower power settings right away to spread the heat gradually. Keep scan speeds moderate so the laser
-  removes contaminants without stressing the material's rigid structure. Watch out for overexposure in the middle of the process—granite's
-  hardness resists cleaning but amplifies any localized heating. Adjust to multiple light passes instead of heavy single ones.
-  This approach restores the stone's natural finish while preserving its compressive strength for applications like monument
-  restoration. End by verifying even cleaning to avoid weak spots.
+pageDescription: When laser cleaning granite, start with the main challenge of its low heat conduction. This dense igneous stone holds heat unevenly compared to softer sedimentary rocks, which can lead to surface cracking if energy builds up too fast. You must use lower power settings right away to spread the heat gradually. Keep scan speeds moderate so the laser removes contaminants without stressing the material's rigid structure. Watch out for overexposure in the middle of the process—granite's hardness resists cleaning but amplifies any localized heating. Adjust to multiple light passes instead of heavy single ones. This approach restores the stone's natural finish while preserving its compressive strength for applications like monument restoration. End by verifying even cleaning to avoid weak spots.
 metaDescription: Granite laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -46,23 +40,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-  - Optical Materials for Laser Systems
+    - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
+    - BA Physics, UC Irvine, 2017
+    - Hands-on at JPL optics internship, 2018
+    - MA Optics and Photonics, UC Irvine, 2019
+    - 3+ years in laser systems development
+    - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
+    - https://linkedin.com/in/todd-dunning-optics
+    - https://spie.org/profile/Todd.Dunning
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
   slug: todd-dunning
@@ -84,108 +78,92 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
+        - type: regulatory_standards
+          id: osha-ppe-requirements
+        - type: regulatory_standards
+          id: ansi-z136-1-laser-safety
       _section:
+        icon: shield-check
+        order: 20
+        variant: default
+        relationshipType: regulatoryStandards
+        group: safety
+        domain: settings
+        schemaDescription: OSHA, ANSI, and ISO compliance requirements
+        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-      - id: rust-oxidation-contamination
-        effectiveness: high
-      - id: adhesive-residue-contamination
-        effectiveness: medium
+        - id: rust-oxidation-contamination
+          effectiveness: high
+        - id: adhesive-residue-contamination
+          effectiveness: medium
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: removesContaminants
+        group: interactions
+        domain: settings
+        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-      - id: granite-laser-cleaning
-        effectiveness: high
+        - id: granite-laser-cleaning
+          effectiveness: high
       _section:
+        icon: circle-help
+        order: 999
+        variant: default
+        relationshipType: worksOnMaterials
+        group: interactions
+        domain: settings
+        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-      - thermalManagement:
-        - challenge: Thermal shock and microcracking
-          severity: critical
-          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-          impact: Natural stone contains microfissures that propagate under thermal stress
-          solutions:
-          - Use pulse mode with 8-12 second cooling between passes
-          - Reduce power by 40-50% for weathered or damaged stone
-          - Preheat substrate if possible to reduce thermal gradients
-          - Granite more resistant than marble; sandstone most vulnerable
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Moisture-induced spalling
-          severity: high
-          thresholdTemperature: Steam formation >100°C with trapped moisture
-          impact: Porous stone traps moisture that explosively converts to steam
-          solutions:
-          - Test moisture content before cleaning (>3% requires drying)
-          - Allow 48-72 hours drying after rain before laser cleaning
-          - Reduce power by 50% for damp stone
-          - Use pulse mode with extended cooling (15-20 seconds)
-          - Heritage stone requires especially gentle approach
-        contaminationChallenges:
-        - id: biological-growth
-          type: challenge
+        - thermalManagement:
+            - challenge: Thermal shock and microcracking
+              severity: critical
+              thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+              impact: Natural stone contains microfissures that propagate under thermal stress
+              solutions:
+                - Use pulse mode with 8-12 second cooling between passes
+                - Reduce power by 40-50% for weathered or damaged stone
+                - Preheat substrate if possible to reduce thermal gradients
+                - Granite more resistant than marble; sandstone most vulnerable
+                - Monitor for surface crazing; stop immediately if cracks appear
+            - challenge: Moisture-induced spalling
+              severity: high
+              thresholdTemperature: Steam formation >100°C with trapped moisture
+              impact: Porous stone traps moisture that explosively converts to steam
+              solutions:
+                - Test moisture content before cleaning (>3% requires drying)
+                - Allow 48-72 hours drying after rain before laser cleaning
+                - Reduce power by 50% for damp stone
+                - Use pulse mode with extended cooling (15-20 seconds)
+                - Heritage stone requires especially gentle approach
+          contaminationChallenges:
+            - id: biological-growth
+              type: challenge
       _section:
-        icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
+        icon: alert-triangle
+        order: 41
+        variant: default
+        relationshipType: commonChallenges
+        group: operational
+        domain: settings
+        schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 machineSettings:
   wavelength:
     description: Near-infrared wavelength optimized for granite mineral absorption
@@ -198,9 +176,7 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for uniform coverage on granite surfaces; smaller for fine details (100-200 μm), larger for
-      broad areas (300-500 μm). 200 μm recommended for industrial prep. Source: Equipment specifications from Coherent and
-      Trumpf laser cleaners, aligned with industry practice for stone.'
+    description: 'Beam diameter for uniform coverage on granite surfaces; smaller for fine details (100-200 μm), larger for broad areas (300-500 μm). 200 μm recommended for industrial prep. Source: Equipment specifications from Coherent and Trumpf laser cleaners, aligned with industry practice for stone.'
   fluenceThreshold:
     description: Minimum fluence required for effective contaminant removal from granite
     unit: J/cm²
@@ -212,63 +188,47 @@ machineSettings:
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for granite to achieve ablation with minimal heat-affected zone (HAZ <10 μm);
-      picosecond (ps) or femtosecond reduces HAZ further but increases cost. Avoid >100 ns to prevent cracking. Source: Laser
-      physics research in Applied Surface Science (2019) on ns/ps cleaning of silicates like granite.'
+    description: 'Nanosecond regime preferred for granite to achieve ablation with minimal heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond reduces HAZ further but increases cost. Avoid >100 ns to prevent cracking. Source: Laser physics research in Applied Surface Science (2019) on ns/ps cleaning of silicates like granite.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective speeds for contamination removal on granite; slower for heavy rust/oxides (200-800 mm/s), faster
-      for light dust (1500-3000 mm/s). Recommended 1000 mm/s balances efficiency and safety. Source: Industry standards from
-      Laserax equipment manuals and Journal of Cultural Heritage (2020) case study on granite restoration.'
+    description: 'Effective speeds for contamination removal on granite; slower for heavy rust/oxides (200-800 mm/s), faster for light dust (1500-3000 mm/s). Recommended 1000 mm/s balances efficiency and safety. Source: Industry standards from Laserax equipment manuals and Journal of Cultural Heritage (2020) case study on granite restoration.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on granite to ensure complete removal
-      without overexposure. Recommended 2 passes for typical industrial use. Source: Industry case studies in Surface and
-      Coatings Technology (2019) on granite surface preparation.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers on granite to ensure complete removal without overexposure. Recommended 2 passes for typical industrial use. Source: Industry case studies in Surface and Coatings Technology (2019) on granite surface preparation.'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform fluence distribution; 60% recommended for granite to avoid striping while minimizing passes.
-      Higher (70-80%) for textured surfaces. Source: Process optimization studies in International Journal of Advanced Manufacturing
-      Technology (2020) on laser scanning parameters for stones.'
+    description: 'Ensures uniform fluence distribution; 60% recommended for granite to avoid striping while minimizing passes. Higher (70-80%) for textured surfaces. Source: Process optimization studies in International Journal of Advanced Manufacturing Technology (2020) on laser scanning parameters for stones.'
   energyDensity:
     min: 0.1
-    max: 20.0
+    max: 20
     value: 2
     unit: J/cm²
-    description: 'Fluence range for safe contaminant removal; granite damage threshold ~6-8 J/cm². Recommended 2 J/cm² for
-      effective cleaning without substrate ablation. Conservative due to granite''s variable composition. Source: Ablation
-      threshold studies in Journal of Applied Physics (2017) and Optics Express (2022) on 1064 nm interaction with rocks.'
+    description: 'Fluence range for safe contaminant removal; granite damage threshold ~6-8 J/cm². Recommended 2 J/cm² for effective cleaning without substrate ablation. Conservative due to granite''s variable composition. Source: Ablation threshold studies in Journal of Applied Physics (2017) and Optics Express (2022) on 1064 nm interaction with rocks.'
   laserPower:
     description: Optimal average power for granite surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1.0
+    min: 1
     max: 120
   laserPowerAlternative:
     min: 50
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for 1064 nm pulsed lasers in stone cleaning to avoid thermal damage to granite''s low thermal
-      conductivity (~1.5 W/m·K); starting at 100W for light contamination. Max safe below granite''s damage threshold (~400°C
-      melting point onset). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on
-      stone ablation.'
+    description: 'Typical range for 1064 nm pulsed lasers in stone cleaning to avoid thermal damage to granite''s low thermal conductivity (~1.5 W/m·K); starting at 100W for light contamination. Max safe below granite''s damage threshold (~400°C melting point onset). Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on stone ablation.'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for 1064 nm cleaning; 50 kHz recommended for granite to enable fast processing without excessive
-      heat accumulation (granite reflectivity ~10-20% at 1064 nm aids absorption). Higher rates (>80 kHz) risk thermal buildup.
-      Source: Academic literature in Lasers in Engineering (2021) on pulse repetition effects on stone substrates.'
-componentSummary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to effectively remove contaminants
-  from granite while minimizing thermal stress that could cause cracking or surface damage.
+    description: 'Typical for 1064 nm cleaning; 50 kHz recommended for granite to enable fast processing without excessive heat accumulation (granite reflectivity ~10-20% at 1064 nm aids absorption). Higher rates (>80 kHz) risk thermal buildup. Source: Academic literature in Lasers in Engineering (2021) on pulse repetition effects on stone substrates.'
+componentSummary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to effectively remove contaminants from granite while minimizing thermal stress that could cause cracking or surface damage.

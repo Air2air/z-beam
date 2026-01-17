@@ -91,13 +91,13 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
             value: propData.value,
             unitText: propData.unit,
             // E-E-A-T: Trustworthiness - verification metadata
-            ...(propData.metadata?.last_verified && {
-              dateModified: propData.metadata.last_verified
+            ...(propData.frontmatter?.last_verified && {
+              dateModified: propData.frontmatter.last_verified
             }),
-            ...(propData.metadata?.source && {
+            ...(propData.frontmatter?.source && {
               citation: {
                 '@type': 'CreativeWork',
-                name: propData.metadata.source
+                name: propData.frontmatter.source
               }
             }),
             // Confidence score

@@ -1,19 +1,17 @@
 /**
  * @component CardListPanel
  * @purpose Base component for rendering lists of items in a 2-column card grid
- * @dependencies SectionContainer, SectionTitle, @/types
+ * @dependencies BaseSection, @/types
  * @related RegulatoryStandards, IndustryApplicationsPanel
  * @complexity Low (base pattern for card list sections)
  * @aiContext Renders items in a responsive grid with consistent card styling.
- *           Follows the pattern established by RegulatoryStandards component.
+ *           Uses BaseSection for consistent section rendering patterns.
  *           Extensions should override renderCard() for custom card content.
  */
 
 import React from 'react';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import { getSectionIcon } from '@/app/config/sectionIcons';
 import type { RelationshipSection } from '@/types';
 
 export interface CardListItem {
@@ -45,24 +43,16 @@ export function CardListPanel({
   if (!items || items.length === 0) return null;
 
   return (
-    <SectionContainer 
-      bgColor="transparent"
-      radius={false}
+    <BaseSection
+      section={sectionMetadata}
       className={className}
     >
-      {sectionMetadata && (
-        <SectionTitle
-          title={sectionMetadata.sectionTitle}
-          icon={getSectionIcon(iconType as any)}
-          sectionDescription={sectionMetadata.sectionDescription}
-        />
-      )}
-      <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
+      <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none`}>
         {items.map((item) => (
           <CardListItem key={item.id} item={item} />
         ))}
       </ul>
-    </SectionContainer>
+    </BaseSection>
   );
 }
 
@@ -102,26 +92,18 @@ export function createCardListPanel(
     if (!items || items.length === 0) return null;
 
     return (
-      <SectionContainer 
-        bgColor="transparent"
-        radius={false}
+      <BaseSection
+        section={sectionMetadata}
         className={className}
       >
-        {sectionMetadata && (
-          <SectionTitle
-            title={sectionMetadata.sectionTitle}
-            icon={getSectionIcon(iconType as any)}
-            sectionDescription={sectionMetadata.sectionDescription}
-          />
-        )}
-        <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none mt-4`}>
+        <ul className={`grid-2col ${GRID_GAP_RESPONSIVE} list-none`}>
           {items.map((item, index) => (
             <React.Fragment key={item.id}>
               {renderCard ? renderCard(item, index) : <CardListItem item={item} />}
             </React.Fragment>
           ))}
         </ul>
-      </SectionContainer>
+      </BaseSection>
     );
   };
 }

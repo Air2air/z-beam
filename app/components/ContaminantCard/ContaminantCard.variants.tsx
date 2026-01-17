@@ -23,8 +23,8 @@ export interface ContaminantCardProps extends Omit<CardProps, 'variant'> {
 // ================================
 export function ContaminantCardDefault({ frontmatter, href, className = "" }: ContaminantCardProps) {
   const config = getCardVariant('relationship');
-  const category = (frontmatter?.category || '').replace(/_/g, ' ').replace(/-/g, ' ');
-  const description = frontmatter?.description || '';
+  const category = frontmatter?.category?.replace(/_/g, ' ').replace(/-/g, ' ');
+  const description = frontmatter?.description;
   
   return (
     <Link href={href} className={`group card-base ${config.cardHeight} ${className} ${config.hoverEffect}`}>
@@ -209,6 +209,7 @@ export function ContaminantCardIconBased({ frontmatter, href, className = "" }: 
   
   // Simple icon placeholder based on category
   const getCategoryIcon = (cat: string) => {
+    if (!cat) return '⚠️';
     const lower = cat.toLowerCase();
     if (lower.includes('organic')) return '🧪';
     if (lower.includes('metal')) return '⚙️';

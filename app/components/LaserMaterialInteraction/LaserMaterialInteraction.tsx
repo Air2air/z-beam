@@ -1,6 +1,7 @@
 import React from 'react';
-import { Zap } from 'lucide-react';
-import { PropertyGrid } from '../PropertyGrid/PropertyGrid';
+import { BaseSection } from '../BaseSection/BaseSection';
+import { PropertyBars } from '../PropertyBars/PropertyBars';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface LaserMaterialInteractionProps {
   materialName: string;
@@ -9,6 +10,8 @@ interface LaserMaterialInteractionProps {
   subcategory?: string;
   slug?: string;
   className?: string;
+  sectionTitle?: string;
+  sectionDescription?: string;
 }
 
 /**
@@ -28,14 +31,35 @@ export function LaserMaterialInteraction({
   category,
   subcategory,
   slug,
-  className = ''
+  className = '',
+  sectionTitle,
+  sectionDescription
 }: LaserMaterialInteractionProps) {
   // Extract only laser-material interaction section
-  const laserInteractionData = materialProperties?.laserMaterialInteraction || {};
+  const laserInteractionData = materialProperties?.laserMaterialInteraction;
+  
+  // Use _section data if available, fallback to props or defaults
+  const sectionData = laserInteractionData?._section;
+  const title = sectionData?.sectionTitle || sectionTitle || `${materialName} Laser-Material Interaction`;
+  const description = sectionData?.sectionDescription || sectionDescription || laserInteractionData?.description || (typeof laserInteractionData === 'string' ? laserInteractionData : undefined);
+  
+  // If laserMaterialInteraction is a string, render it as description only
+  if (typeof laserInteractionData === 'string') {
+    return (
+      <BaseSection
+        title={title}
+        description={description}
+        icon={getSectionIcon('zap')}
+        spacing="loose"
+      >
+        <div className="text-muted italic">Detailed interaction metrics will be available soon.</div>
+      </BaseSection>
+    );
+  }
   
   // Check for actual property data (not just 'label' or 'percentage' metadata fields)
-  const hasActualProperties = Object.keys(laserInteractionData).some(
-    key => key !== 'label' && key !== 'percentage' && 
+  const hasActualProperties = laserInteractionData && Object.keys(laserInteractionData).some(
+    key => key !== 'label' && key !== 'percentage' && key !== 'description' &&
            laserInteractionData[key]?.value !== undefined
   );
   
@@ -62,15 +86,19 @@ export function LaserMaterialInteraction({
     : undefined;
 
   return (
-    <PropertyGrid
-      metadata={metadata}
-      dataSource="materialProperties"
-      title={`${materialName} Laser-Material Interaction`}
-      icon={<Zap className="w-5 h-5 text-orange-500" />}
-      description="Energy transfer properties and laser absorption characteristics"
-      actionText={settingsUrl ? 'Machine settings' : undefined}
-      actionUrl={settingsUrl}
-      className={`mb-8 ${className}`}
-    />
+    <BaseSection
+      title={title}
+      description={description}
+      icon={getSectionIcon('zap')}
+      spacing="loose"
+      className={className}
+    >
+      <PropertyBars
+        metadata={metadata}
+        dataSource="materialProperties"
+        columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
+        height={70}
+      />
+    </BaseSection>
   );
 }

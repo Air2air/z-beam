@@ -5,6 +5,8 @@
  * Used by: SchemaFactory, datasetLoader, components, API routes
  */
 
+import path from 'path';
+
 /**
  * Remove all known suffixes to get base material/contaminant slug
  * 
@@ -55,7 +57,6 @@ export function getDatasetPath(
     throw new Error('getDatasetPath is server-side only. Use getDatasetUrl for client-side.');
   }
   
-  const path = require('path');
   const filename = getDatasetFilename(baseSlug, type, format);
   return path.join(process.cwd(), 'public', 'datasets', type, filename);
 }

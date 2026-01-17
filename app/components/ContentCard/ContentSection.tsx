@@ -1,15 +1,18 @@
 /**
  * @component ContentSection
  * @purpose Wrapper for rendering collections of ContentCards (e.g., workflow, callouts)
- * @dependencies ContentCard, SectionTitle
+ * @dependencies ContentCard, BaseSection
  * @aiContext Use this to display multiple ContentCards with an optional section title
  *           Perfect for workflow sections, multiple callouts, or any grouped content
+ * 
+ * @note Now uses BaseSection internally for consistency
  * 
  * @usage
  * <ContentSection title="Our Process" items={contentCards} />
  */
 import React from 'react';
 import { ContentCard } from './ContentCard';
+import { BaseSection } from '../BaseSection/BaseSection';
 import type { ContentCardItem, WorkflowItem, CalloutProps, BenefitItem } from '@/types';
 
 export interface ContentSectionProps {
@@ -29,12 +32,13 @@ export function ContentSection({
   });
 
   return (
-    <section className="content-section">
-      {title && (
-        <h2 className="text-3xl font-bold mb-6 tracking-tight text-gray-100">
-          {title}
-        </h2>
-      )}
+    <BaseSection 
+      title={title || "Content"}
+      description="Content overview and detailed information"
+      variant="minimal"
+      spacing="normal"
+      className="content-section"
+    >
       <div className="space-y-8">
         {sortedItems.map((item, index) => {
           // Support ContentCardItem (heading/text), legacy WorkflowItem (name/description), and BenefitItem (title/description)
@@ -70,6 +74,6 @@ export function ContentSection({
           );
         })}
       </div>
-    </section>
+    </BaseSection>
   );
 }

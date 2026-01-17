@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
     
     const fileContent = fs.readFileSync(componentPath, 'utf8');
     
-    let data: any = {};
+    let data: Record<string, unknown> = {};
     let content: string = '';
     
     if (isYamlFile) {

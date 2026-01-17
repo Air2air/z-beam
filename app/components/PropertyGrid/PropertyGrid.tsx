@@ -1,7 +1,7 @@
 // app/components/PropertyGrid/PropertyGrid.tsx
 import React from 'react';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface PropertyGridProps {
@@ -85,13 +85,13 @@ export function PropertyGrid({
   );
 
   return (
-    <SectionContainer
+    <BaseSection
       title={displayTitle}
+      description={description}
       icon={displayIcon}
-      actionText={actionText}
-      actionUrl={actionUrl}
+      variant={variant || "default"}
+      spacing="loose"
       className={className}
-      variant={variant}
     >
       <PropertyBars
         metadata={metadata}
@@ -99,6 +99,6 @@ export function PropertyGrid({
         columns={columns}
         height={height}
       />
-    </SectionContainer>
+    </BaseSection>
   );
 }

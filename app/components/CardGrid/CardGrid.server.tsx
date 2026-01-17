@@ -35,7 +35,7 @@ export async function CardGrid({
         if (!article) return null;
         
         // Handle different return types: SettingsMetadata vs standard article
-        const frontmatter = ('metadata' in article ? article.metadata : article) as unknown as ArticleMetadata;
+        const frontmatter = (article.frontmatter || article) as unknown as ArticleMetadata;
         const imageUrl = frontmatter?.images?.hero?.url || '';
         const imageAlt = frontmatter?.images?.hero?.alt || frontmatter?.title || '';
         

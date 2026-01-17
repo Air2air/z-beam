@@ -3,7 +3,7 @@ import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
-import { loadStaticPage, type StaticPageWithCards } from '@/app/utils/staticPageLoader';
+import { RENTAL_DATA } from '@/app/utils/staticPageData.generated';
 
 export const metadata = {
   title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
@@ -36,8 +36,8 @@ export const metadata = {
 export default function RentalPage() {
   const pricing = SITE_CONFIG.pricing.equipmentRental;
   
-  // Load rental page configuration directly from YAML
-  const pageConfig = loadStaticPage<StaticPageWithCards>('rental.yaml');
+  // Load rental page configuration from pre-loaded static data
+  const pageConfig = RENTAL_DATA;
   
   // Equipment Rental Service JSON-LD Schema
   const rentalSchema = {

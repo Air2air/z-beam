@@ -382,10 +382,15 @@ export function extractPropertiesFromMetadata(
   
   // Extract based on data source
   if (dataSource === 'machineSettings') {
-    sourceData = metadata.machineSettings || metadata.settings || {};
+    sourceData = metadata.machineSettings;
   } else {
     // materialProperties - support both flat and categorized structures
-    sourceData = metadata.properties || metadata.materialProperties || {};
+    sourceData = metadata.materialProperties || metadata.properties;
+  }
+  
+  // Guard against undefined or null sourceData
+  if (!sourceData || typeof sourceData !== 'object') {
+    return [];
   }
   
   // If the top-level sourceData does not contain direct property entries

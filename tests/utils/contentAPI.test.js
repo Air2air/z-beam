@@ -195,10 +195,10 @@ describe('Content API Utils', () => {
       expect(result).toBeNull();
     });
 
-    test.skip('should handle file read errors', async () => {
+    test('should handle file read errors', async () => {
       // Override the default mock for this specific test - use a slug not in beforeEach
       existsSync.mockReturnValue(true);
-      mockFs.readFile.mockImplementation((path) => {
+      fs.readFile.mockImplementation((path) => {
         if (path.includes('error-test-slug')) {
           return Promise.reject(new Error('File read error'));
         }
@@ -212,8 +212,8 @@ describe('Content API Utils', () => {
       expect(result).toBeNull();
     });
 
-    test.skip('should handle empty frontmatter', async () => {
-      // This test needs update after consolidation - skipping for now
+    test('should handle empty frontmatter', async () => {
+      // This test validates proper handling of content without frontmatter
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
       safeMatterParse.mockReturnValue({
         data: {},
@@ -224,10 +224,9 @@ describe('Content API Utils', () => {
       const { existsSync } = require('fs');
       existsSync.mockReturnValue(true);
       
-      const fs = require('fs/promises');
       fs.readFile.mockResolvedValue('Content only');
 
-      const result = await loadComponent('content', 'empty-frontmatter-slug', { convertMarkdown: false });
+      const result = await loadComponent('text', 'empty-frontmatter-slug', { convertMarkdown: false });
 
       expect(result).toEqual({
         content: 'Content only',
@@ -334,29 +333,11 @@ describe('Content API Utils', () => {
 
   describe('loadPageData', () => {
     test.skip('should combine metadata and components', async () => {
-      // SKIPPED: Mock setup needs to match actual loadPageData implementation.
-      const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
-      
-      // Mock existsSync to return true for frontmatter file
-      jest.mocked(existsSync).mockImplementation((filePath) => {
-        if (filePath.includes('frontmatter')) return true;
-        return false;
-      });
-      
-      jest.mocked(readFileSync).mockReturnValue('---\ntitle: Test Page\n---\ncontent');
-      jest.mocked(fs.readFile).mockResolvedValue('test content');
-      jest.mocked(fs.readdir).mockResolvedValue([]);
-      
-      safeMatterParse.mockReturnValue({
-        data: { title: 'Test Page' },
-        content: 'content'
-      });
-
+      // SKIPPED: Mock setup complex due to dynamic imports and caching in loadFrontmatterDataInline
+      // This test would require mocking js-yaml dynamic imports and cache behavior
       const result = await loadPageData('test-slug');
-
-      expect(result).toHaveProperty('metadata');
+      expect(result).toHaveProperty('frontmatter');
       expect(result).toHaveProperty('components');
-      expect(result.metadata).toEqual({ title: 'Test Page' });
     });
 
     test('should handle errors gracefully', async () => {
@@ -368,7 +349,7 @@ describe('Content API Utils', () => {
       const result = await loadPageData('error-slug');
 
       expect(result).toEqual({
-        metadata: {},
+        frontmatter: {},
         components: {}
       });
     });
@@ -406,7 +387,7 @@ describe('Content API Utils', () => {
         tags: ['tag1', 'tag2'],
         website: '',
         author: 'Test Author',
-        metadata: {
+        frontmatter: {
           title: 'Test Article',
           name: 'Test Name',
           description: 'Test description',
@@ -518,17 +499,26 @@ describe('Content API Utils', () => {
   });
 
   describe('caching behavior', () => {
-    test.skip('should use cache for repeated calls', async () => {
+    test('should use cache for repeated calls', async () => {
+      // Testing basic caching behavior - React cache may not work in Jest but the API should be consistent
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
       
-      // The beforeEach already sets up mocks for cached-slug, so we can use that
+      // Mock a valid component file
+      jest.mocked(existsSync).mockReturnValue(true);
+      jest.mocked(fs.readFile).mockResolvedValue('test content');
+      
+      safeMatterParse.mockReturnValue({
+        data: { title: 'Cached Title' },
+        content: 'cached content'
+      });
+      
       // First call
       const result1 = await loadComponent('frontmatter', 'cached-slug');
       
-      // Second call - React cache may or may not work in Jest environment
+      // Second call - should return the same structure even if cache doesn't work in Jest
       const result2 = await loadComponent('frontmatter', 'cached-slug');
 
-      // Both calls should return the same result
+      // Both calls should return the same result structure
       expect(result1).toEqual({
         content: expect.any(String),
         config: { title: 'Cached Title' }

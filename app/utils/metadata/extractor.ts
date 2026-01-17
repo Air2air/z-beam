@@ -33,9 +33,9 @@ export class MetadataExtractor {
   /**
    * Extract metadata from article object
    */
-  static fromArticle(article: { metadata?: Record<string, unknown> }): ExtractedMetadata {
-    if (!article?.metadata) return {};
-    return this.normalize(article.metadata);
+  static fromArticle(article: { frontmatter?: Record<string, unknown> }): ExtractedMetadata {
+    if (!article?.frontmatter) return {};
+    return this.normalize(article.frontmatter);
   }
 
   /**
@@ -229,7 +229,7 @@ export function parsePropertiesFromMetadata(metadata: Record<string, unknown>): 
   return MetadataExtractor.getProperties(metadata);
 }
 
-export function getEnrichmentMetadata(article: { metadata?: Record<string, unknown> }): Record<string, unknown> {
-  if (!article?.metadata) return {};
-  return MetadataExtractor.getEnrichmentData(article.metadata);
+export function getEnrichmentMetadata(article: { frontmatter?: Record<string, unknown> }): Record<string, unknown> {
+  if (!article?.frontmatter) return {};
+  return MetadataExtractor.getEnrichmentData(article.frontmatter);
 }

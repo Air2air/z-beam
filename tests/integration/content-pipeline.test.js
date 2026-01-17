@@ -322,7 +322,7 @@ tags: ["Electronics", "High-Temperature"]
       expect(article.title).toBe(metadata.title);
       expect(article.title).toBe(pageData.metadata.title);
       expect(article.author).toBe(metadata.author);
-      expect(article.metadata.category).toBe(metadata.category);
+      expect(article.frontmatter.category).toBe(metadata.category);
     });
 
     test('should preserve type safety through pipeline', async () => {

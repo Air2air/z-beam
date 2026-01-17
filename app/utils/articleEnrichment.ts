@@ -22,22 +22,22 @@ function extractArticleText(article: Article): string {
   
   // Add title
   if (article.title) textParts.push(article.title);
-  if (article.metadata?.title && typeof article.metadata.title === 'string') {
-    textParts.push(article.metadata.title);
+  if (article.frontmatter?.title && typeof article.frontmatter.title === 'string') {
+    textParts.push(article.frontmatter.title);
   }
   
   // Add description
   if (article.description) textParts.push(article.description);
-  if (article.metadata?.description && typeof article.metadata.description === 'string') {
-    textParts.push(article.metadata.description);
+  if (article.frontmatter?.description && typeof article.frontmatter.description === 'string') {
+    textParts.push(article.frontmatter.description);
   }
   
   // Add slug parts
   if (article.slug) textParts.push(article.slug.replace(/-/g, ' '));
   
   // Add keywords
-  if (article.metadata?.keywords && Array.isArray(article.metadata.keywords)) {
-    textParts.push(...article.metadata.keywords);
+  if (article.frontmatter?.keywords && Array.isArray(article.frontmatter.keywords)) {
+    textParts.push(...article.frontmatter.keywords);
   }
   
   return textParts.join(' ');
@@ -72,9 +72,12 @@ export function enrichArticle(article: Article): SearchableArticle {
     enriched.tags.push(enriched.author);
   }
   
-  // Ensure name is set from metadata if available
-  if (enriched.metadata?.name && !enriched.name && typeof enriched.metadata.name === 'string') {
-    enriched.name = enriched.metadata.name;
+  // Ensure name is set from frontmatter if available
+  if (!enriched.name) {
+    // Use frontmatter as the primary data source
+    if (enriched.frontmatter?.name && typeof enriched.frontmatter.name === 'string') {
+      enriched.name = enriched.frontmatter.name;
+    }
   }
   
   // If no name is available yet, try to extract it from the slug
@@ -82,16 +85,18 @@ export function enrichArticle(article: Article): SearchableArticle {
     enriched.name = slugToDisplayName(enriched.slug);
   }
   
-  // 1. EXTRACT TAGS FROM METADATA
-  if (enriched.metadata) {
+  // 1. EXTRACT TAGS FROM FRONTMATTER
+  const source = enriched.frontmatter;
+  
+  if (source) {
     // Add explicit tags
-    if (enriched.metadata.tags && Array.isArray(enriched.metadata.tags)) {
-      enriched.tags.push(...enriched.metadata.tags);
+    if (source.tags && Array.isArray(source.tags)) {
+      enriched.tags.push(...source.tags);
     }
     
     // Add keywords
-    if (enriched.metadata.keywords && Array.isArray(enriched.metadata.keywords)) {
-      enriched.metadata.keywords.forEach(keyword => {
+    if (source.keywords && Array.isArray(source.keywords)) {
+      source.keywords.forEach((keyword: any) => {
         if (keyword && typeof keyword === 'string') {
           enriched.tags.push(keyword);
         }
@@ -99,28 +104,26 @@ export function enrichArticle(article: Article): SearchableArticle {
     }
     
     // Add category
-    if (enriched.metadata.category && typeof enriched.metadata.category === 'string') {
-      enriched.tags.push(enriched.metadata.category);
+    if (source.category && typeof source.category === 'string') {
+      enriched.tags.push(source.category);
       // Also add capitalized version for consistency
-      if (typeof enriched.metadata.category === 'string') {
-        const capitalizedCategory = capitalizeFirst(enriched.metadata.category);
-        enriched.tags.push(capitalizedCategory);
-      }
+      const capitalizedCategory = capitalizeFirst(source.category);
+      enriched.tags.push(capitalizedCategory);
     }
     
     // Add subject
-    if (enriched.metadata.subject && typeof enriched.metadata.subject === 'string') {
-      enriched.tags.push(enriched.metadata.subject);
+    if (source.subject && typeof source.subject === 'string') {
+      enriched.tags.push(source.subject);
     }
     
     // Add articleType
-    if (enriched.metadata.articleType && typeof enriched.metadata.articleType === 'string') {
-      enriched.tags.push(enriched.metadata.articleType);
+    if (source.articleType && typeof source.articleType === 'string') {
+      enriched.tags.push(source.articleType);
     }
     
     // Add author name from metadata if it exists
-    if (enriched.metadata.author && typeof enriched.metadata.author === 'string') {
-      enriched.tags.push(enriched.metadata.author);
+    if (source.author && typeof source.author === 'string') {
+      enriched.tags.push(source.author);
     }
     
     // Parse raw content if it exists - EXTRACT TAGS FROM THE FIRST LINE
@@ -137,21 +140,6 @@ export function enrichArticle(article: Article): SearchableArticle {
         // Add these tags
         enriched.tags.push(...firstLineTags);
       }
-    }
-  }
-  
-  // 2. EXTRACT TAGS FROM METADATA
-  if (enriched.metadata) {
-    if ('category' in enriched.metadata && enriched.metadata.category && typeof enriched.metadata.category === 'string') {
-      enriched.tags.push(enriched.metadata.category);
-    }
-    
-    if ('subject' in enriched.metadata && enriched.metadata.subject && typeof enriched.metadata.subject === 'string') {
-      enriched.tags.push(enriched.metadata.subject);
-    }
-    
-    if (enriched.metadata.keywords && Array.isArray(enriched.metadata.keywords)) {
-      enriched.tags.push(...enriched.metadata.keywords);
     }
   }
   
