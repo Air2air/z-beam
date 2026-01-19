@@ -375,9 +375,9 @@ export const SERVICES_DATA = {
 };
 
 export const RENTAL_DATA = {
-  "title": "Laser Cleaning Equipment Rental | Bay Area Service",
-  "metaDescription": "Professional laser cleaning equipment rental: Netalux Needle® portable systems. Daily/weekly rates. Training included. Bay Area coverage.",
-  "description": "Professional laser cleaning equipment rental service. Perfect for evaluating laser cleaning technology or handling specific projects without capital investment. Includes training and support.",
+  "title": "Laser Equipment Rental | Bay Area & California",
+  "metaDescription": "Rent Netalux laser cleaning equipment. Daily/weekly/monthly Bay Area delivery. Training included, no long-term commitment.",
+  "description": "Do it yourself after an hour of training. You'll get all you need to confidently clean like the pros around your schedule. Since you only pay for usage, you can schedule at any day or hour and call us when you're done.",
   "category": "services", 
   "subcategory": "rental",
   "datePublished": "2024-01-15",
@@ -389,10 +389,9 @@ export const RENTAL_DATA = {
   },
   "keywords": [
     "laser cleaning rental",
-    "equipment rental",
-    "short term laser cleaning",
-    "Bay Area laser rental",
-    "laser cleaning trial"
+    "Netalux Dragon",
+    "Netalux Jango",
+    "Netalux Kamino"
   ],
   "slug": "rental",
   "breadcrumb": [
@@ -408,53 +407,58 @@ export const RENTAL_DATA = {
   "contentCards": [
     {
       "order": 1,
-      "heading": "Try Before You Buy",
-      "text": "Experience laser cleaning technology firsthand with our rental program. Perfect for evaluating the technology for your specific applications before making an equipment purchase decision.",
+      "heading": "Netalux Kamino 300 laser cleaning system",
+      "text": "Compact 43kg air-cooled system with 300W Class IV Ytterbium fiber laser (1064nm); hybrid beam shape; 5m fiber length; 15mm strip width; cleans up to 8.6 ft²/hr.",
       "image": {
-        "url": "/images/pages/rental-tryout.jpg",
-        "alt": "Hands-on laser cleaning equipment evaluation"
+        "url": "/images/netalux/needle.jpg?v=2",
+        "alt": "Netalux Kamino 300 laser cleaning system"
       },
       "imagePosition": "right" as const,
       "details": [
-        "No long-term commitment required",
-        "Hands-on evaluation period", 
-        "Technical support included",
-        "Training and guidance provided",
-        "Flexible rental terms"
+        "<strong>High-performance</strong> 300W output; adjustable frequency (2-4000 kHz); pulse duration (20-500 ns); hand-held with touchscreen interface and preset modes.",
+        "<strong>CE certified Class 4</strong> with IP54 rating; safety interlocks; cleans aluminum, steel, titanium, copper without thermal damage."
       ]
     },
     {
       "order": 2,
-      "heading": "Project-Specific Needs",
-      "text": "Need laser cleaning for a specific project? Our rental service provides access to professional-grade equipment without the capital investment. Ideal for one-time projects or periodic cleaning needs.",
+      "heading": "Premium laser safety goggles",
+      "text": "Class 4 laser protection required. Premium Univet goggles included for operator and onlookers.",
       "image": {
-        "url": "/images/pages/project-specific.jpg",
-        "alt": "Project-specific laser cleaning solutions"
+        "url": "/images/pages/univet.jpg",
+        "alt": "Univet laser safety goggles"
       },
       "imagePosition": "left" as const,
       "details": [
-        "Short-term project support",
-        "Immediate equipment availability",
-        "Cost-effective solution",
-        "Professional-grade results",
-        "Comprehensive project support"
+        "<strong>Full shielding</strong> from direct, scattered, or reflected beams; ideal for aerospace and automotive applications with multi-wavelength protection.",
+        "<strong>Certified</strong> EN 207/208 standards; CE-marked; OSHA and ANSI Z136.1 compliant for safe visibility and OD levels."
       ]
     },
     {
       "order": 3,
-      "heading": "Full Support & Training",
-      "text": "Every rental includes comprehensive training, technical support, and safety guidance. We ensure you get maximum value and safe operation from day one of your rental period.",
+      "heading": "3M Versaflo PAPR respiratory protection",
+      "text": "3M TR-600-HIK powered air purification with climate-controlled airflow keeps operators comfortable during extended operations, eliminating breathing resistance and heat stress.",
       "image": {
-        "url": "/images/pages/training-support.jpg",
-        "alt": "Professional training and equipment support"
+        "url": "/images/pages/versaflow.jpg?v=2",
+        "alt": "3M Versaflo PAPR respiratory protection system"
       },
       "imagePosition": "right" as const,
       "details": [
-        "On-site training available",
-        "Safety protocol education", 
-        "Technical support hotline",
-        "Equipment maintenance included",
-        "Application guidance provided"
+        "<strong>Advanced protection</strong> 99.97% particle filtration; 8-hour battery; adjustable airflow (170-200 LPM); climate control reduces fogging; under 2 lbs.",
+        "<strong>NIOSH/OSHA compliant</strong> for hazardous particulates; meets ANSI Z87.1; approved for welding, grinding, laser operations (29 CFR 1910.134)."
+      ]
+    },
+    {
+      "order": 4,
+      "heading": "HEPA-filtered dust extractor",
+      "text": "Husqvarna DE 120 captures fine dust, fumes, and particles from laser ablation, minimizing airborne hazards for safe industrial operation.",
+      "image": {
+        "url": "/images/pages/vacuum.jpg?v=2",
+        "alt": "HEPA-filtered dust extractor for laser cleaning"
+      },
+      "imagePosition": "left" as const,
+      "details": [
+        "<strong>Portable design</strong> 84.9 lbs; 3HP motor with 265 CFM airflow; e-flow auto-adjustment extends filter life; HMI with filter alarm; dual-stage filtration.",
+        "<strong>H-class certified</strong> HEPA filter (EN1822); OSHA silica dust compliant (29 CFR 1926.1153); EPA hazardous dust guidelines."
       ]
     }
   ]
