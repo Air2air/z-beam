@@ -98,8 +98,8 @@ export const HeatStatusCard: React.FC<HeatStatusData> = ({
 
   return (
     <article
-      className="relative bg-primary p-3 rounded-md transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg"
-      style={{ backgroundColor: styles.bgSolid, transition: 'background-color 150ms ease-out' }}
+      className="relative p-3 rounded-md transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg border"
+      style={{ backgroundColor: styles.bgSolid, borderColor: styles.text, transition: 'background-color 150ms ease-out' }}
       aria-label={`Heat status: ${getStatusLabel()}`}
       role="region"
     >
@@ -146,7 +146,8 @@ export const HeatFactorCard: React.FC<HeatFactorData> = ({
 
   return (
     <article
-      className="relative bg-primary p-3 rounded-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg"
+      className="relative p-3 rounded-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg border"
+      style={{ backgroundColor: styles.bgSolid, borderColor: styles.text }}
       aria-label={`${label} analysis factor`}
       role="region"
     >

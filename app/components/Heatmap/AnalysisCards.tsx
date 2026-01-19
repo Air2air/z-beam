@@ -207,7 +207,7 @@ export const StatusSummaryCard: React.FC<StatusSummaryData> = ({
 
   return (
     <article
-      className="relative bg-primary p-3 rounded-md transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg"
+      className="relative p-3 rounded-md transition-transform duration-200 hover:scale-[1.02] hover:shadow-lg border"
       style={{ backgroundColor: styles.bgSolid, transition: 'background-color 150ms ease-out' }}
       aria-label={`${scoreLabel} status summary`}
       role="region"

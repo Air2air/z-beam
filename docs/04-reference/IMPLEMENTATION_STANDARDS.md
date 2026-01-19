@@ -184,18 +184,18 @@ import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
   </article>
   
   {/* 3. Data Sections */}
-  <SectionContainer title="Machine Settings" className="mb-12">
+  <BaseSection title="Machine Settings" spacing="normal">
     <PropertyBars metadata={metadata} dataSource="machineSettings" />
-  </SectionContainer>
+  </BaseSection>
   
-  <SectionContainer title="Material Properties" className="mb-12">
+  <BaseSection title="Material Properties" spacing="normal">
     <PropertyBars metadata={metadata} dataSource="materialProperties" />
-  </SectionContainer>
+  </BaseSection>
   
   {/* 4. Related Content */}
-  <SectionContainer title="Related Materials" className="mb-12">
+  <BaseSection title="Related Materials" spacing="normal">
     <RelatedMaterials currentSlug={slug} />
-  </SectionContainer>
+  </BaseSection>
 </Layout>
 ```
 

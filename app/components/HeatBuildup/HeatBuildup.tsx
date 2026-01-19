@@ -221,7 +221,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
       title={title}
       icon={getSectionIcon('technical')}
       bgColor="transparent"
-      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-md mb-8"
+      className="bg-gradient-to-br from-gray-900 to-gray-950 rounded-md mb-8 border border-blue-500/30"
       horizPadding={true}
     >
 
@@ -241,7 +241,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
         />
 
         {/* Heat Profile - Full Width */}
-        <div className="bg-tertiary rounded-md p-6 border">
+        <div className="rounded-md p-6 border border-gray-700" style={{ backgroundColor: 'rgba(17, 24, 39, 0.6)' }}>
           <div className="mb-4 flex items-center justify-between">
             <h4 className="text-sm text-secondary font-semibold">📈 Heat Profile</h4>
             <div className="flex gap-2 text-xs">
@@ -260,7 +260,8 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
           <svg 
             viewBox="0 0 800 400" 
             preserveAspectRatio="xMidYMid meet"
-            className="w-full h-[200px] sm:h-[280px] md:h-[360px] bg-gray-950 rounded"
+            className="w-full h-[200px] sm:h-[280px] md:h-[360px] rounded border border-gray-700"
+            style={{ backgroundColor: 'rgba(5, 5, 5, 0.5)' }}
           >
             {/* Grid lines */}
             {[0, 100, 200, 300].map((temp) => (
@@ -776,12 +777,12 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
 
           {/* Current Temperature Display */}
           <div
-            className={`bg-gradient-to-br from-gray-900 to-gray-950 rounded-md p-6 border-2 transition-all duration-300 ${
+            className={`rounded-md p-6 border-2 transition-all duration-300 ${
               currentTemp > damageTemp ? 'animate-pulse shadow-2xl shadow-red-500/50' : 
               currentTemp > maxSafeTemp ? 'shadow-xl shadow-yellow-500/30' : 
               'shadow-lg shadow-blue-500/20'
             }`}
-            style={{ borderColor: tempColor }}
+            style={{ borderColor: tempColor, backgroundColor: 'rgba(17, 24, 39, 0.8)' }}
           >
             <h4 className="text-xs text-center text-muted mb-2 font-semibold">🌡️ Live Temperature</h4>
             <div className="text-center">
@@ -813,7 +814,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
           </div>
 
           {/* Controls */}
-          <div className="bg-tertiary rounded-md p-4 border space-y-3">
+          <div className="rounded-md p-4 border border-gray-700 space-y-3" style={{ backgroundColor: 'rgba(17, 24, 39, 0.6)' }}>
             <h4 className="text-sm text-secondary font-semibold mb-2">▶️ Simulation Controls</h4>
             <div className="flex gap-2">
               <button

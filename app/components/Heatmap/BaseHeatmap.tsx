@@ -243,12 +243,12 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
 
   return (
     <BaseSection
-      variant="gradient"
+      variant="dark"
       spacing="loose"
       title={title}
       description={description}
       icon={icon}
-      className="heatmap bg-gradient-to-br from-gray-800 to-gray-700 rounded-md mb-8"
+      className="heatmap"
     >
 
       <div className="flex flex-col gap-6">

@@ -30,7 +30,6 @@ export function QuickFactsCard({ facts }: QuickFactsCardProps) {
       title="Quick Facts"
       description="Key information and important facts"
       icon={getSectionIcon('zap')}
-      className="mb-8"
     >
       <div className="container-custom px-4">
         <div className="bg-gray-800/50 border border-orange-500/30 rounded-md p-6">

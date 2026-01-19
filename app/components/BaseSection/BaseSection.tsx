@@ -102,11 +102,11 @@ export function BaseSection({
       titleClass: '',
     },
     dark: {
-      wrapper: 'bg-gradient-to-br from-gray-800 to-gray-700 rounded-md px-4 md:px-5 py-4 md:py-5 mb-3 sm:mb-4',
+      wrapper: 'bg-gray-800 rounded-md p-6 shadow-sm',
       titleClass: 'text-gray-100',
     },
     card: {
-      wrapper: 'bg-white rounded-md shadow-sm border border-gray-200 px-4 md:px-5 py-4 md:py-5',
+      wrapper: 'rounded-md shadow-sm border border-gray-200 px-4 md:px-5 py-4 md:py-5',
       titleClass: '',
     },
     minimal: {
@@ -114,7 +114,7 @@ export function BaseSection({
       titleClass: '',
     },
     gradient: {
-      wrapper: 'bg-gradient-to-br from-blue-600 to-purple-600 rounded-md px-4 md:px-5 py-4 md:py-5 mb-3 sm:mb-4',
+      wrapper: 'rounded-md shadow-sm border border-gray-200 px-4 md:px-5 py-4 md:py-5',
       titleClass: 'text-white',
     },
   };

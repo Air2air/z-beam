@@ -213,6 +213,7 @@ BaseSection includes:
 
 - **Component README**: `app/components/BaseSection/README.md`
 - **Usage Examples**: `app/components/BaseSection/examples.tsx`
+- **CSS Normalization Guide**: `docs/02-features/components/BASESECTION_CSS_NORMALIZATION.md` ⭐ **NEW**
 - **Changelog**: `docs/05-changelog/SECTION_CONSOLIDATION_JAN15_2026.md`
 - **Type Definitions**: `types/centralized.ts` (BaseSectionProps)
 

@@ -33,11 +33,12 @@ Become the #1 backlink destination for laser cleaning industry peers seeking aut
 - **Reference**: All materials pages use this exact pattern
 
 ### Content Structure Standards
-- **SectionContainer**: Use for ALL major content sections
+- **BaseSection**: Use for ALL major content sections
   - Provides consistent styling, spacing, and responsive design
-  - Props: `title`, `className`, `bgColor`, `horizPadding`, `radius`, `icon`
-  - Example: `<SectionContainer title="Essential Parameters" className="mb-12">`
-- **Spacing**: Use `SPACER_CLASSES` for consistent vertical rhythm
+  - Props: `title`, `description`, `spacing`, `variant`, `bgColor`, `horizPadding`, `radius`, `icon`
+  - Example: `<BaseSection title="Essential Parameters" spacing="normal">`
+  - See: `docs/02-features/components/BASESECTION_CSS_NORMALIZATION.md`
+- **Spacing**: Use built-in `spacing` prop (tight/normal/loose) instead of className
 - **Containers**: Use `CONTAINER_STYLES` for consistent padding/margins
 - **Flow**: Hero → Main Content → Sections (with SectionContainer) → Related Content
 
