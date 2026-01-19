@@ -1,10 +1,7 @@
 // app/components/Buttons/ButtonIcons.tsx
 // Feather icon set for buttons - https://feathericons.com/
 import React from 'react';
-
-interface ButtonIconProps {
-  className?: string;
-}
+import type { ButtonIconProps } from '@/types';
 
 // Download icon - for download actions
 export const DownloadIcon = ({ className = "w-5 h-5" }: ButtonIconProps) => (

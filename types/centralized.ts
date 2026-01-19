@@ -4501,3 +4501,111 @@ export interface CompoundInfo {
   category: string;
   subcategory?: string;
 }
+
+/**
+ * Button and Icon Props
+ * Used across 40+ icon components for consistent sizing and styling
+ */
+export interface ButtonIconProps {
+  className?: string;
+}
+
+/**
+ * Layout Props - used in multiple layout wrappers
+ * Consolidates common layout composition patterns
+ */
+export interface LayoutProps {
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'default' | 'full' | 'compact';
+}
+
+/**
+ * Analysis Cards Props - used in research and analysis sections
+ */
+export interface AnalysisCardsProps {
+  data: Array<{
+    title: string;
+    value: string | number;
+    icon?: React.ReactNode;
+    change?: number;
+  }>;
+  className?: string;
+}
+
+/**
+ * Prevention Panel Props
+ */
+export interface PreventionPanelProps {
+  items: Array<{
+    title: string;
+    description: string;
+    icon?: React.ReactNode;
+  }>;
+  className?: string;
+}
+
+/**
+ * Pricing Props - for pricing/cost components
+ */
+export interface PricingProps {
+  amount: number;
+  currency?: string;
+  description?: string;
+  className?: string;
+}
+
+/**
+ * Button and Icon Props
+ * Used across 40+ icon components for consistent sizing and styling
+ */
+export interface ButtonIconProps {
+  className?: string;
+}
+
+/**
+ * Layout Props - used in multiple layout wrappers
+ * Consolidates common layout composition patterns
+ */
+export interface LayoutProps {
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'default' | 'full' | 'compact';
+}
+
+/**
+ * Analysis Cards Props - used in research and analysis sections
+ */
+export interface AnalysisCardsProps {
+  data: Array<{
+    title: string;
+    value: string | number;
+    icon?: React.ReactNode;
+    change?: number;
+  }>;
+  className?: string;
+}
+
+/**
+ * Prevention Panel Props
+ */
+export interface PreventionPanelProps {
+  items: Array<{
+    title: string;
+    description: string;
+    icon?: React.ReactNode;
+  }>;
+  className?: string;
+}
+
+/**
+ * Pricing Props - for pricing/cost components
+ */
+export interface PricingProps {
+  amount: number;
+  currency?: string;
+  description?: string;
+  className?: string;
+}
+
+
