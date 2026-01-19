@@ -1,176 +1,143 @@
 /**
- * PreventionPanel Component
+ * PreventionPanel Component - Consolidated re-export
  * 
- * Displays prevention strategies and challenges using the centralized Collapsible component.
- * Used in DiagnosticCenter for showing prevention measures grouped by category.
+ * Consolidated from duplicate implementations:
+ * - DiagnosticCenter/PreventionPanel: Slim native <details> implementation (112 lines)
+ * - PreventionPanel/PreventionPanel: Collapsible wrapper (was 181 lines)
  * 
- * Architecture: Zero CSS - all styling from Collapsible base component
+ * Architecture: Core implementation uses native <details> elements
+ * Wrapper adapts data for Collapsible component compatibility when needed
  * 
  * @module components/PreventionPanel
  */
 
-import React from 'react';
-import { Collapsible } from '../Collapsible';
+'use client';
 
-/**
- * Individual challenge/prevention item
- */
+import { CheckCircle, ChevronDown } from 'lucide-react';
+
 interface Challenge {
   challenge: string;
+  severity?: 'critical' | 'high' | 'medium' | 'low';
   impact: string;
   solutions: string[];
-  prevention: string[];
-  severity?: 'critical' | 'high' | 'medium' | 'low';
+  prevention: string | string[];
 }
 
-/**
- * Challenges grouped by category
- */
 interface PreventionData {
   [category: string]: Challenge[];
 }
 
 interface PreventionPanelProps {
-  /** Prevention data grouped by category */
   challenges: PreventionData;
-  /** Title for the section */
   title?: string;
-  /** Optional description */
   description?: string;
-  /** Optional CSS classes */
   className?: string;
 }
 
 /**
- * Get icon emoji for category
+ * Slim, direct PreventionPanel - Consolidated core implementation
+ * Uses native <details> elements with consistent styling
  */
-function getCategoryIcon(category: string): string {
-  const icons: Record<string, string> = {
-    surface_characteristics: '🔍',
-    thermal_management: '🌡️',
-    contamination_challenges: '🧹',
-    safety_compliance: '⚠️',
-    surface_contamination: '🧹',
-    thermal_effects: '🌡️',
-    mechanical_stress: '⚙️',
-    optical_issues: '👁️'
-  };
-  return icons[category] || '📋';
-}
-
-/**
- * Format category name for display
- */
-function formatCategoryName(category: string): string {
-  return category
-    .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
-
-/**
- * PreventionPanel - Display prevention strategies using Collapsible base
- * 
- * Transforms prevention challenge data for Collapsible component, grouping
- * challenges by category with severity indicators and detailed solutions.
- * 
- * @example
- * ```tsx
- * <PreventionPanel
- *   challenges={{
- *     thermal_management: [
- *       {
- *         challenge: "Heat buildup",
- *         impact: "Material warping",
- *         solutions: ["Use cooling systems", "Adjust power"],
- *         prevention: ["Monitor temperature", "Regular maintenance"],
- *         severity: "high"
- *       }
- *     ]
- *   }}
- *   title="Prevention Strategies"
- * />
- * ```
- */
-export function PreventionPanel({
-  challenges,
-  title = 'Prevention Strategies',
-  description,
-  className = ''
+export function PreventionPanel({ 
+  challenges, 
+  className = '' 
 }: PreventionPanelProps) {
   if (!challenges || Object.keys(challenges).length === 0) {
-    return null;
+    return (
+      <details className="bg-secondary rounded-lg overflow-hidden group" open>
+        <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
+          <CheckCircle className="w-5 h-5 text-orange-500" />
+          <div className="flex-1">
+            <h3 className="text-base text-secondary">Prevention First</h3>
+            <p className="text-sm text-tertiary font-normal">Proactive strategies to avoid problems before they occur</p>
+          </div>
+          <ChevronDown className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" />
+        </summary>
+        <div className="p-4">
+          <div className="text-center py-8 text-tertiary">
+            <p>No prevention strategies available for this material.</p>
+          </div>
+        </div>
+      </details>
+    );
   }
 
-  // Transform challenges to Collapsible format
-  // Group by category, each challenge becomes a collapsible item
-  const allItems: any[] = [];
-  
-  Object.entries(challenges).forEach(([category, challengeList]) => {
-    if (!Array.isArray(challengeList)) return;
-
-    const categoryIcon = getCategoryIcon(category);
-    const categoryName = formatCategoryName(category);
-
-    // Each challenge in this category becomes an item
-    challengeList.forEach((challenge, index) => {
-      // Build description with impact, solutions, and prevention
-      const descriptionParts: string[] = [];
-
-      // Impact section
-      if (challenge.impact) {
-        descriptionParts.push(`**Impact:** ${challenge.impact}`);
-        descriptionParts.push(''); // Blank line
-      }
-
-      // Solutions section
-      if (challenge.solutions && challenge.solutions.length > 0) {
-        descriptionParts.push('**Solutions:**');
-        challenge.solutions.forEach(solution => {
-          descriptionParts.push(`✓ ${solution}`);
-        });
-        descriptionParts.push(''); // Blank line
-      }
-
-      // Prevention section
-      if (challenge.prevention && challenge.prevention.length > 0) {
-        descriptionParts.push('**Prevention:**');
-        challenge.prevention.forEach(prev => {
-          descriptionParts.push(`• ${prev}`);
-        });
-      }
-
-      allItems.push({
-        challengeName: `${categoryIcon} ${challenge.challenge}`,
-        challengeDesc: descriptionParts.join('\n'),
-        severity: challenge.severity,
-        category: categoryName
-      });
-    });
-  });
-
-  // Sort by severity (critical > high > medium > low)
-  const severityOrder = { critical: 0, high: 1, medium: 2, low: 3 };
-  allItems.sort((a, b) => {
-    const aOrder = severityOrder[a.severity as keyof typeof severityOrder] ?? 99;
-    const bOrder = severityOrder[b.severity as keyof typeof severityOrder] ?? 99;
-    return aOrder - bOrder;
-  });
-
-  // Section metadata
-  const sectionMetadata = {
-    sectionTitle: title,
-    sectionDescription: description,
-    icon: 'prevention',
-    order: 80
-  };
+  const content = (
+    <div className="space-y-2">
+      {Object.entries(challenges).flatMap(([category, challengeList]: [string, Challenge[]]) =>
+        challengeList.map((challenge, idx) => (
+          <details key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden group">
+            <summary className="cursor-pointer px-4 py-3 hover:bg-gray-800/50 transition-colors list-none flex items-center justify-between gap-3">
+              <div className="flex items-start gap-3 flex-1">
+                <CheckCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <h3 className="text-base text-secondary font-semibold">
+                    {challenge.challenge}
+                  </h3>
+                  <div className="text-base text-tertiary capitalize mt-0.5">
+                    {category.replace(/_/g, ' ')} {challenge.severity ? `• ${challenge.severity} severity` : ''}
+                  </div>
+                </div>
+              </div>
+              <ChevronDown className="w-4 h-4 text-tertiary transition-transform group-open:rotate-180 flex-shrink-0" />
+            </summary>
+            
+            <div className="p-4 space-y-3">
+              {challenge.impact && (
+                <div className="bg-orange-900/10 rounded-md p-3">
+                  <h4 className="text-base text-secondary font-semibold mb-2">Impact</h4>
+                  <p className="text-base text-tertiary">{challenge.impact}</p>
+                </div>
+              )}
+              
+              {challenge.solutions && challenge.solutions.length > 0 && (
+                <div className="bg-green-900/10 rounded-md p-3">
+                  <h4 className="text-base text-secondary font-semibold mb-2">Prevention Solutions</h4>
+                  <ul className="space-y-1.5">
+                    {challenge.solutions.map((solution: string, sidx: number) => (
+                      <li key={sidx} className="text-base flex items-start gap-2">
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-semibold text-xs">
+                          {sidx + 1}
+                        </span>
+                        <span className="flex-1 pt-0.5 text-tertiary">{solution}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              {challenge.prevention && (
+                <div className="bg-purple-900/10 rounded-md p-3">
+                  <h4 className="text-base text-secondary font-semibold mb-2">Threshold</h4>
+                  <p className="text-base text-tertiary">
+                    {Array.isArray(challenge.prevention) 
+                      ? challenge.prevention.join('; ') 
+                      : challenge.prevention}
+                  </p>
+                </div>
+              )}
+            </div>
+          </details>
+        ))
+      )}
+    </div>
+  );
 
   return (
     <div className={className}>
-      <Collapsible
-        items={allItems}
-        sectionMetadata={sectionMetadata}
-      />
+      <details className="bg-secondary rounded-lg overflow-hidden group" open>
+        <summary className="cursor-pointer px-4 py-3 font-semibold flex items-center gap-2 hover:bg-gray-800/50 transition-colors list-none">
+          <CheckCircle className="w-5 h-5 text-orange-500" />
+          <div className="flex-1">
+            <h3 className="text-base text-secondary">Prevention First</h3>
+            <p className="text-sm text-tertiary font-normal">Proactive strategies to avoid problems before they occur</p>
+          </div>
+          <ChevronDown className="w-5 h-5 text-tertiary transition-transform group-open:rotate-180" />
+        </summary>
+        <div className="p-4">
+          {content}
+        </div>
+      </details>
     </div>
   );
 }
