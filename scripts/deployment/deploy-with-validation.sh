@@ -194,10 +194,19 @@ run_pre_deployment_validations() {
     section "15. DEPLOYMENT TESTS"
     run_validation "Deployment tests" "npm run test:deployment" true
     
-    # 16. Production Build
-    section "16. PRODUCTION BUILD"
-    log "Building production bundle (this may take a few minutes)..."
-    run_validation "Production build" "npm run build:fast" true
+    # 16. PRE-DEPLOYMENT VERIFICATION (Comprehensive Build Check)
+    section "16. PRE-DEPLOYMENT VERIFICATION"
+    log "Running comprehensive pre-deployment verification..."
+    log "This includes detailed build error detection and artifact validation"
+    
+    if "$SCRIPT_DIR/verify-pre-deployment.sh"; then
+        success "Pre-deployment verification passed!"
+        ((VALIDATIONS_PASSED++))
+    else
+        error "Pre-deployment verification failed!"
+        ((VALIDATIONS_FAILED++))
+        return 1
+    fi
     
     # 17. Build Artifact Checks
     section "17. BUILD ARTIFACTS"

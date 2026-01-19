@@ -758,6 +758,7 @@ export interface ParsedMicroData {
   // afterText?: string;
   laserParams?: any; // MicroYamlData['laser_parameters']
   metadata?: any; // MicroYamlData['metadata']
+  frontmatter?: any; // Frontmatter data from YAML
   material?: string;
   // Enhanced data fields
   isEnhanced?: boolean;
@@ -953,6 +954,7 @@ export interface ComponentData {
 export interface PageData {
   frontmatter: Record<string, unknown>;
   components: { [componentType: string]: ComponentData };
+  metadata?: ArticleMetadata;
 }
 
 // ===============================
@@ -1142,6 +1144,7 @@ export interface CardItem {
   category?: string;
   metadata?: ArticleMetadata | Record<string, unknown>;
   article?: Article | null;
+  frontmatter?: Record<string, unknown>;
 }
 
 /**
@@ -1469,6 +1472,9 @@ export interface SearchResultItem {
   
   /** Chemical properties for materials */
   chemicalProperties?: MaterialProperties;
+  
+  /** Frontmatter data */
+  frontmatter?: Record<string, unknown>;
 }
 
 // ===============================
@@ -1789,6 +1795,15 @@ export interface MaterialItem {
   materialType?: string;
   properties?: Record<string, any>;
   metadata?: Record<string, any>;
+  // Additional properties for API routes
+  category?: string;
+  subcategory?: string;
+  parameters?: Record<string, {
+    value?: unknown;
+    unit?: string;
+  }>;
+  materialProperties?: Record<string, unknown>;
+  applications?: string[];
 }
 
 /**
@@ -2652,9 +2667,12 @@ export interface MaterialFiltersProps {
 /**
  * BaseSection component props
  * Unified base component for all section types - consolidates patterns from:
- * SectionContainer, GridSection, ContentSection, and LinkageSection
+ * SectionContainer (archived), GridSection, ContentSection, and LinkageSection
  * 
- * @property {string} [title] - Section heading text
+ * Replaces the legacy SectionContainer which has been archived to:
+ * app/components/legacy/SectionContainer_Deprecated/
+ * 
+ * @property {string} [title] - Section heading text (required if no section object provided)
  * @property {string} [description] - Optional description below title (supports markdown)
  * @property {ReactNode | string} [icon] - Icon element or Lucide icon name
  * @property {ReactNode} [action] - Action button/element for right side of title
@@ -2663,7 +2681,7 @@ export interface MaterialFiltersProps {
  * @property {'none' | 'tight' | 'normal' | 'loose'} [spacing] - Bottom margin spacing
  * @property {string} [bgColor] - Background color preset
  * @property {boolean} [horizPadding] - Apply horizontal padding
- * @property {boolean} [radius] - Apply border radius
+ * @property {boolean} [rounded] - Apply border radius
  * @property {string} [className] - Additional CSS classes
  * @property {string} [id] - Custom section ID (auto-generated from title if not provided)
  * @property {ReactNode} children - Section content
@@ -2673,18 +2691,21 @@ export interface BaseSectionProps {
   description?: string;             // Optional when using section object  
   icon?: ReactNode | string;
   action?: ReactNode;
+  actionText?: string;              // Text for action link/button
+  actionUrl?: string;               // URL for action link
   children: ReactNode;
-  variant?: 'default' | 'dark' | 'card' | 'minimal';
+  variant?: 'default' | 'dark' | 'card' | 'minimal' | 'gradient';
   alignment?: 'left' | 'center' | 'right';
   spacing?: 'none' | 'tight' | 'normal' | 'loose';
   bgColor?: 'transparent' | 'default' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
   horizPadding?: boolean;
-  radius?: boolean;
+  rounded?: boolean;                // Alias for radius
+  radius?: boolean;                 // Alias for rounded (deprecated but supported)
   className?: string;
   id?: string;
   section?: {                       // 🔥 ULTIMATE SIMPLICITY: Pass entire _section object
     sectionTitle: string;
-    sectionDescription: string;
+    sectionDescription?: string;
     icon?: string;
     order?: number;
     variant?: string;
@@ -2692,9 +2713,28 @@ export interface BaseSectionProps {
 }
 
 /**
- * SectionContainer component props
- * Reusable container for sections with integrated title and styling
- * @deprecated Consider using BaseSectionProps for new components
+ * @deprecated ARCHIVED - January 31, 2026
+ * SectionContainer component is now archived to app/components/legacy/SectionContainer_Deprecated/
+ * 
+ * Migration Guide: Use BaseSectionProps instead
+ * 
+ * BEFORE (SectionContainer):
+ *   <SectionContainer title="Title" bgColor="gray-50" radius={true}>
+ *     Content here
+ *   </SectionContainer>
+ * 
+ * AFTER (BaseSection):
+ *   <BaseSection title="Title" variant="gray-50" rounded={true}>
+ *     Content here
+ *   </BaseSection>
+ * 
+ * Prop Mapping:
+ * - bgColor → variant
+ * - radius → rounded
+ * - All other props stay the same
+ * 
+ * Component Location: app/components/legacy/SectionContainer_Deprecated/
+ * Replacement Component: app/components/BaseSection/
  */
 export interface SectionContainerProps {
   title?: string;
@@ -2702,10 +2742,10 @@ export interface SectionContainerProps {
   bgColor?: 'transparent' | 'default' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
   horizPadding?: boolean;
   radius?: boolean;
-  icon?: ReactNode | string; // Support both ReactNode and Lucide icon name strings
-  action?: ReactNode; // Optional action button/element on right side of title
-  actionText?: string; // Legacy: Text for action button (deprecated, use action prop)
-  actionUrl?: string; // Legacy: URL for action button (deprecated, use action prop)
+  icon?: ReactNode | string;
+  action?: ReactNode;
+  actionText?: string;
+  actionUrl?: string;
   className?: string;
   children: ReactNode;
   variant?: 'default' | 'dark';
@@ -4112,6 +4152,11 @@ export interface SectionContainerInternalProps extends SectionContainerBaseProps
   variant?: 'default' | 'dark' | 'light';
 }
 
+/**
+ * @deprecated ARCHIVED - January 31, 2026
+ * Use BaseSectionProps instead
+ * Legacy component: app/components/legacy/SectionContainer_Deprecated/
+ */
 export interface SectionContainerBaseProps {
   title?: string;
   icon?: ReactNode;
@@ -4126,6 +4171,7 @@ export interface SectionContainerBaseProps {
 export interface SectionTitleProps {
   title: string;
   subtitle?: string;
+  description?: string;
   alignment?: 'left' | 'center' | 'right';
   className?: string;
 }

@@ -80,8 +80,8 @@ export function FAQPanel({
   // Use title as the collapsible title, put content as direct value with empty key to hide label
   const collapsibleItems = faqItems.map((item, index) => {
     return {
-      [parseSimpleMarkdown(item.title)]: {
-        '': parseSimpleMarkdown(item.content)
+      [parseSimpleMarkdown(item.title || '')]: {
+        '': parseSimpleMarkdown(item.content || '')
       }
     };
   });

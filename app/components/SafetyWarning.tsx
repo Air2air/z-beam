@@ -3,7 +3,8 @@
 
 import Link from 'next/link';
 import { AlertTriangleIcon } from '@/app/components/Buttons';
-import { SectionContainer } from './SectionContainer';
+import { BaseSection } from './BaseSection/BaseSection';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface SafetyWarningProps {
   materialName?: string;
@@ -20,36 +21,33 @@ export function SafetyWarning({
   
   return (
     <div className={className}>
-      <SectionContainer
-        title=""
-        bgColor="body"
-        radius={true}
-        horizPadding={true}
+      <BaseSection
+        title="Important Safety Notice"
+        icon={getSectionIcon('warning')}
+        variant="default"
+        className="bg-red-50 border-l-4 border-red-400"
       >
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0 mt-1">
             <div className="bg-red-900/30 p-3 rounded-full">
-              <AlertTriangleIcon className="text-red-600400 text-2xl" aria-hidden="true" />
+              <AlertTriangleIcon className="text-red-600 text-2xl" aria-hidden="true" />
             </div>
           </div>
           
           <div className="flex-1">
-            <h3 className="text-secondary font-bold text-lg text-secondary mb-2">
-              Important Safety Notice
-            </h3>
-            <p className="text-red-800200 text-base mb-4">
+            <p className="text-red-800 text-base mb-4">
               {warningText || defaultWarning}
             </p>
             <Link 
               href="/contact"
-              className="inline-flex items-center gap-2 text-red-600400 hover:text-red-700:text-red-300 font-semibold underline transition-colors"
+              className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold underline transition-colors"
             >
               Contact Safety Specialists
               <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
-      </SectionContainer>
+      </BaseSection>
     </div>
   );
 }

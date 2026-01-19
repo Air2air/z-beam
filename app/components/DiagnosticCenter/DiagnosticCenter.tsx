@@ -4,7 +4,7 @@
 import { PreventionPanel } from './PreventionPanel';
 import { TroubleshootingPanel } from './TroubleshootingPanel';
 import { QuickReferencePanel } from './QuickReferencePanel';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { Title } from '../Title/Title';
 import { getSectionIcon } from '@/app/config/sectionIcons';
@@ -38,7 +38,7 @@ export function DiagnosticCenter({
   const safeMaterialName = materialName || 'material';
   
   return (
-    <SectionContainer className="mb-8">
+    <BaseSection className="mb-8">
       <SectionTitle
         title="Diagnostic & Prevention Center"
         icon={getSectionIcon('diagnostic')}
@@ -51,6 +51,6 @@ export function DiagnosticCenter({
         <TroubleshootingPanel issues={issues} />
         <QuickReferencePanel challenges={challenges} issues={issues} />
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }

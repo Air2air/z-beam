@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { SectionContainer } from '@/app/components/SectionContainer';
+import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import MaterialBrowser from '@/app/components/Dataset/MaterialBrowser';
 import DatasetSection from '@/app/components/Dataset/DatasetSection';
 import { PackageIcon } from '@/app/components/Buttons';
@@ -275,11 +275,11 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
     <>
       {/* Complete Database */}
       <div className="mb-8">
-        <SectionContainer 
+        <BaseSection 
           title="Complete Database" 
-          bgColor="default" 
+          variant="default" 
           horizPadding={true} 
-          radius={true}
+          rounded={true}
           icon={<PackageIcon className="w-6 h-6" />}
         >
           <DatasetSection
@@ -290,7 +290,7 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
             onDownload={handleCompleteDbDownload}
             note="This comprehensive dataset includes full data for all materials across all categories, combining properties, specifications, and parameters into a single file."
           />
-        </SectionContainer>
+        </BaseSection>
       </div>
 
       {/* Search & Filter + Results */}

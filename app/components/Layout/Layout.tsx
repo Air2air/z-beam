@@ -17,7 +17,7 @@ import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { ExpertAnswers } from '../ExpertAnswers/ExpertAnswers';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 
 // Dynamic import Micro component for code-splitting (reduces initial bundle by ~15-20 KB)
 // Below-fold content, no SEO impact from ssr: false
@@ -142,7 +142,7 @@ export function Layout(props: LayoutProps) {
           />
 
           {metadata?.machineSettings && !metadata?.materialProperties && getContentType(metadata) === 'settings' && (
-            <SectionContainer 
+            <BaseSection 
               title={metadata.title && metadata.title.toLowerCase().includes('settings') 
                 ? metadata.title 
                 : metadata.title 
@@ -159,7 +159,7 @@ export function Layout(props: LayoutProps) {
                 metadata={metadata} 
                 dataSource="machineSettings" 
               />
-            </SectionContainer>
+            </BaseSection>
           )}
 
           {metadata?.environmental_impact && Object.keys(metadata.environmental_impact).length > 0 && (

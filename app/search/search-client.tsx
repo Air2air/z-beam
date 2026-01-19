@@ -364,7 +364,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
           items={filteredArticles.map((article) => ({
             slug: article.slug || 'unknown',
             title: article.name || article.title || 'Untitled Article',
-            description: article.description || article.pageDescription || '',
+            description: article.description || '',
             href: (article.frontmatter as any)?.fullPath || (article as any).fullPath || `/${article.slug}`,
             imageUrl: article.image,
             imageAlt: article.imageAlt || article.name || article.title || '',

@@ -113,6 +113,10 @@ export function BaseSection({
       wrapper: '',
       titleClass: '',
     },
+    gradient: {
+      wrapper: 'bg-gradient-to-br from-blue-600 to-purple-600 rounded-md px-4 md:px-5 py-4 md:py-5 mb-3 sm:mb-4',
+      titleClass: 'text-white',
+    },
   };
   
   // Spacing configurations

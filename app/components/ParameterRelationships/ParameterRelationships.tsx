@@ -3,8 +3,7 @@
 
 import React, { useState, useMemo } from "react";
 import { formatKeyAsTitle } from "@/app/utils/formatting";
-import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
-import { SectionTitle } from "@/app/components/SectionTitle/SectionTitle";
+import { BaseSection } from "@/app/components/BaseSection/BaseSection";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import type {
   NetworkParameter,
@@ -637,14 +636,11 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
   };
 
   return (
-    <SectionContainer
+    <BaseSection
+      title="Parameter Relationships"
+      icon={getSectionIcon('machine-settings')}
       variant="dark"
     >
-      <SectionTitle
-        title="Parameter Relationships"
-        icon={getSectionIcon('machine-settings')}
-        description="Shows how changing one parameter physically affects others. Click any node to see its downstream impacts and role."
-      />
       <div className="space-y-6">
 
         {/* Two-column layout: Network Graph (left) and Info Panel (right) on >XS */}
@@ -1024,6 +1020,6 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
           </div>
         </div>
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '../Button';
-import { BaseSection } from '../BaseSection/BaseSection';
+import { Button } from '../../Button';
+import { BaseSection } from '../../BaseSection/BaseSection';
 import type { SectionContainerProps } from '@/types/centralized';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 

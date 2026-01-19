@@ -93,7 +93,7 @@ export async function generateItemMetadata(
     
     // All domains use consistent metadata structure (normalized)
     // Use backward compatibility helper to access frontmatter/metadata
-    const articleMeta = getMetadata(article);
+    const articleMeta = getMetadata(article) as Record<string, any>;
     
     // Debug: Check if metaDescription exists
     console.log(`[METADATA] ${itemSlug}:`, {
@@ -110,7 +110,7 @@ export async function generateItemMetadata(
     let articleCategory: string | undefined;
     let articleSubcategory: string | undefined;
     
-    const pathToUse = articleMeta.fullPath || articleMeta.full_path;
+    const pathToUse = (articleMeta.fullPath || articleMeta.full_path) as string;
     if (pathToUse) {
       const pathParts = pathToUse.split('/').filter(Boolean);
       // fullPath format: /rootPath/category/subcategory/slug

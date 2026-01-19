@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import { normalizeToBaseSlug, getDatasetUrl } from '@/app/utils/slugHelpers';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
@@ -129,7 +129,7 @@ export default function SubcategoryDatasetWrapper({
   ];
 
   return (
-    <SectionContainer
+    <BaseSection
       variant="dark"
       title={`${subcategoryLabel} Dataset Download`}
       icon={getSectionIcon('dataset')}
@@ -146,6 +146,6 @@ export default function SubcategoryDatasetWrapper({
           label: `View all ${categoryLabel} materials`
         }}
       />
-    </SectionContainer>
+    </BaseSection>
   );
 }

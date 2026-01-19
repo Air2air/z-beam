@@ -10,7 +10,7 @@ import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
 import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
 import { InfoCard } from '../InfoCard/InfoCard';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { sortByFrequency } from '@/app/utils/gridSorters';
@@ -84,7 +84,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
     // Chemical Properties Section - NEW
     {
       component: () => (
-        <SectionContainer
+        <BaseSection
           title="Chemical Properties"
         >
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ${GRID_GAP_RESPONSIVE}`}>
@@ -148,7 +148,7 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
               />
             )}
           </div>
-        </SectionContainer>
+        </BaseSection>
       ),
       condition: !!(casNumber || molecularWeight || chemicalFormula || physicalProperties || exposureLimits || healthEffects || synonyms),
       props: {}

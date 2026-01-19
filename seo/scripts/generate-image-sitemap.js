@@ -20,7 +20,7 @@ const path = require('path');
 const { URL } = require('url');
 
 // Configuration
-// BASE_URL imported from config/urls.js
+const { BASE_URL } = require('../../config/urls');
 // Provides environment-aware URL resolution
 const PUBLIC_DIR = path.join(__dirname, '../../public');
 const IMAGES_DIR = path.join(PUBLIC_DIR, 'images');

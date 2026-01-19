@@ -54,6 +54,7 @@ export function PropertyGrid({
   metadata,
   dataSource = 'materialProperties',
   title,
+  description,
   materialName,
   icon,
   actionText,

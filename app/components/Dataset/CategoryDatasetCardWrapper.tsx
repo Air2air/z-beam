@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import type { CategoryDatasetCardWrapperProps } from '@/types/centralized';
@@ -222,7 +222,7 @@ export default function CategoryDatasetCardWrapper({
   ];
 
   return (
-    <SectionContainer
+    <BaseSection
       variant="dark"
       title={`${categoryLabel} Dataset Download`}
       icon={getSectionIcon('dataset')}
@@ -236,6 +236,6 @@ export default function CategoryDatasetCardWrapper({
         note="This aggregated dataset includes full data for all materials in this category, combining properties, specifications, and parameters into a single comprehensive file."
         fullDatasetLink={true}
       />
-    </SectionContainer>
+    </BaseSection>
   );
 }

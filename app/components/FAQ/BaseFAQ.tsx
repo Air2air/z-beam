@@ -10,7 +10,7 @@
 // app/components/FAQ/BaseFAQ.tsx
 "use client";
 
-import { SectionContainer } from "../SectionContainer/SectionContainer";
+import { BaseSection } from "../BaseSection/BaseSection";
 import { trackFAQClick } from "@/app/utils/analytics";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import type { BaseFAQProps, HelpSection, HelpItem } from '@/types';
@@ -170,7 +170,7 @@ function HelpSectionDisplay({
   const icon = section.type === 'faq' ? 'faq' : 'warning';
 
   return (
-    <SectionContainer
+    <BaseSection
       variant="default"
       title={title}
       icon={getSectionIcon(icon)}
@@ -186,7 +186,7 @@ function HelpSectionDisplay({
           />
         ))}
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }
 

@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import { getGridClasses } from '@/app/utils/gridConfig';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
@@ -217,16 +217,13 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
   const title = materialName ? `${materialName} Heat Buildup` : "Heat Buildup Simulator";
   
   return (
-    <SectionContainer
+    <BaseSection
+      title={title}
+      icon={getSectionIcon('technical')}
       bgColor="transparent"
       className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-md mb-8"
       horizPadding={true}
     >
-      <SectionTitle
-        title={title}
-        icon={getSectionIcon('technical')}
-        description="See if your multi-pass cleaning will overheat and damage the material"
-      />
 
       {/* Stacked Layout: Analysis Cards above Graph+Controls */}
       <div className="space-y-6">
@@ -880,7 +877,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
           )}
         </div>
       </div>
-    </SectionContainer>
+    </BaseSection>
   );
 };
 

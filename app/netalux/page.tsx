@@ -3,6 +3,7 @@ import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config/site";
 import { NETALUX_DATA } from '@/app/utils/staticPageData.generated';
+import type { ContentCardItem, ArticleMetadata } from '@/types';
 
 export const metadata = {
   title: 'Netalux Needle & Jango Laser Systems | Belgian Tech | Z-Beam',
@@ -79,17 +80,17 @@ export default function NetaluxPage() {
     <Layout
       title={pageConfig.title || "Netalux Laser Cleaning Equipment"}
       pageDescription={pageConfig.description}
-      metadata={pageConfig}
+      metadata={pageConfig as ArticleMetadata}
       slug="netalux"
     >
       {/* Needle® Section */}
-      {needleCard && <ContentSection items={[needleCard]} />}
+      {needleCard && <ContentSection items={[needleCard as ContentCardItem]} />}
       
       {/* Jango® Section */}
-      {jangoCard && <ContentSection items={[jangoCard]} />}
+      {jangoCard && <ContentSection items={[jangoCard as ContentCardItem]} />}
       
       {/* Other content cards */}
-      {otherCards.length > 0 && <ContentSection items={otherCards} />}
+      {otherCards.length > 0 && <ContentSection items={otherCards as ContentCardItem[]} />}
     </Layout>
   );
 }

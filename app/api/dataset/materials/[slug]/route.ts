@@ -18,8 +18,8 @@ function generateCSV(material: MaterialItem): string {
   // Laser parameters
   if (material.parameters) {
     Object.entries(material.parameters).forEach(([key, value]: [string, unknown]) => {
-      if (typeof value === 'object' && value?.value !== undefined) {
-        rows.push(['Parameter', 'Laser', key, String(value.value), value.unit || '']);
+      if (typeof value === 'object' && value && (value as any)?.value !== undefined) {
+        rows.push(['Parameter', 'Laser', key, String((value as any).value), (value as any).unit || '']);
       }
     });
   }

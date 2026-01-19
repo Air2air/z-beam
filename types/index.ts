@@ -78,7 +78,6 @@ export {
 export type {
   RelationshipEntry,
   LaserProperties,
-  MachineSettings,
   MachineSetting,
   MaterialProperties,
   PPERequirements,

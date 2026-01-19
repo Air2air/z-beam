@@ -9,7 +9,7 @@
  * <HomePageGrid items={featuredSections} />
  */
 import React from 'react';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { CardGridSSR } from '../CardGrid';
 import type { HomePageGridProps, CardItem } from '@/types/centralized';
 
@@ -34,7 +34,7 @@ export function HomePageGrid({
     badge: undefined,
   }));
   
-  // If no title, render CardGridSSR directly without SectionContainer
+  // If no title, render CardGridSSR directly without BaseSection
   if (!title) {
     return (
       <CardGridSSR
@@ -47,14 +47,14 @@ export function HomePageGrid({
   }
   
   return (
-    <SectionContainer title={title} bgColor="transparent" radius={false}>
+    <BaseSection title={title} variant="default">
       <CardGridSSR
         items={cardItems}
         columns={columns}
         variant="featured"
         className="!grid-cols-2 sm:!grid-cols-3"
       />
-    </SectionContainer>
+    </BaseSection>
   );
 }
 

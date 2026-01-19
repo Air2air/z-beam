@@ -60,8 +60,8 @@ export async function GET(request: NextRequest) {
       const documents: unknown[] = [];
       yaml.loadAll(fileContent, (doc) => documents.push(doc));
       // Get the first document which contains the actual data
-      data = documents[0];
-      content = data; // For YAML components, the data is the content
+      data = documents[0] as Record<string, unknown>;
+      content = data as unknown as string; // For YAML components, the data is the content
     } else {
       // For markdown files, use gray-matter
       const parsed = matter(fileContent);

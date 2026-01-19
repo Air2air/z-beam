@@ -1,3 +1,5 @@
+import type { ContentCardItem } from '@/types';
+
 export const NETALUX_DATA = {
   "title": "Netalux Needle & Jango Laser Systems | Belgian Tech",
   "metaDescription": "Netalux Needle® (100-300W precision) & Jango® (7500W industrial) laser cleaning systems. Belgian engineering, award-winning technology. Bay Area dealer.",
@@ -135,7 +137,7 @@ export const NETALUX_DATA = {
         "url": "/images/partners/partner-netalux.webp",
         "alt": "Netalux Needle laser cleaning system - compact precision cleaning"
       },
-      "imagePosition": "right",
+      "imagePosition": "right" as const,
       "details": [
         "Power Range: 100W - 300W",
         "Beam Shape: Gaussian (precision)",
@@ -155,7 +157,7 @@ export const NETALUX_DATA = {
         "url": "/images/partners/partner-netalux.webp",
         "alt": "Netalux Jango industrial laser cleaning system - high-power cleaning"
       },
-      "imagePosition": "left",
+      "imagePosition": "left" as const,
       "details": [
         "Power: 7,500W",
         "Beam Shape: Top-Hat (uniform coverage)",
@@ -229,7 +231,7 @@ export const PARTNERS_DATA = {
         "url": "/images/partners/partner-laserverse.png",
         "alt": "Laserverse logo - North American laser cleaning equipment distributor"
       },
-      "imagePosition": "right",
+      "imagePosition": "right" as const,
       "details": [
         "Location: Canada",
         "Region: North America",
@@ -245,7 +247,7 @@ export const PARTNERS_DATA = {
         "url": "/images/partners/partner-mack.png",
         "alt": "MacK Laser Restoration logo - Professional laser cleaning services"
       },
-      "imagePosition": "left",
+      "imagePosition": "left" as const,
       "details": [
         "Location: Southern California",
         "Region: Southwest United States",
@@ -323,7 +325,7 @@ export const SERVICES_DATA = {
         "url": "/images/pages/gelsight.jpg?v=2",
         "alt": "Professional consultation and surface assessment"
       },
-      "imagePosition": "right",
+      "imagePosition": "right" as const,
       "details": [
         "Material composition and substrate characteristics",
         "Contamination types and severity",
@@ -341,7 +343,7 @@ export const SERVICES_DATA = {
         "url": "/images/pages/laser.jpg?v=2",
         "alt": "Laser cleaning in action with precision equipment"
       },
-      "imagePosition": "left",
+      "imagePosition": "left" as const,
       "details": [
         "Certified equipment operators",
         "Real-time quality monitoring",
@@ -359,7 +361,7 @@ export const SERVICES_DATA = {
         "url": "/images/pages/metrology.jpg?v=2",
         "alt": "Surface metrology and quality documentation"
       },
-      "imagePosition": "right",
+      "imagePosition": "right" as const,
       "details": [
         "Comprehensive project report",
         "Before/after documentation",
@@ -412,7 +414,7 @@ export const RENTAL_DATA = {
         "url": "/images/pages/rental-tryout.jpg",
         "alt": "Hands-on laser cleaning equipment evaluation"
       },
-      "imagePosition": "right",
+      "imagePosition": "right" as const,
       "details": [
         "No long-term commitment required",
         "Hands-on evaluation period", 
@@ -429,7 +431,7 @@ export const RENTAL_DATA = {
         "url": "/images/pages/project-specific.jpg",
         "alt": "Project-specific laser cleaning solutions"
       },
-      "imagePosition": "left",
+      "imagePosition": "left" as const,
       "details": [
         "Short-term project support",
         "Immediate equipment availability",
@@ -446,7 +448,7 @@ export const RENTAL_DATA = {
         "url": "/images/pages/training-support.jpg",
         "alt": "Professional training and equipment support"
       },
-      "imagePosition": "right",
+      "imagePosition": "right" as const,
       "details": [
         "On-site training available",
         "Safety protocol education", 

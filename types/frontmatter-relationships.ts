@@ -5,6 +5,8 @@
  * with standardized entry structure across all types.
  */
 
+import type { MachineSettings } from './centralized';
+
 // ============================================
 // UNIFIED RELATIONSHIP ENTRY
 // ============================================
@@ -121,6 +123,11 @@ export interface LaserProperties {
 // MACHINE SETTINGS
 // ============================================
 
+// Note: MachineSettings interface moved to types/settings.ts to avoid duplication
+// Import with: import type { MachineSettings } from '@/types/settings';
+// This prevents type conflicts and ensures consistent naming (camelCase)
+
+// Legacy MachineSetting interface kept for backward compatibility in relationships
 export interface MachineSetting {
   value: number;
   unit: string;
@@ -139,15 +146,6 @@ export interface MachineSetting {
   lel?: number;
   uel?: number;
   percentage?: string;
-}
-
-export interface MachineSettings {
-  power?: MachineSetting;
-  wavelength?: MachineSetting;
-  pulse_frequency?: MachineSetting;
-  spot_size?: MachineSetting;
-  scan_speed?: MachineSetting;
-  [key: string]: MachineSetting | undefined;
 }
 
 // ============================================

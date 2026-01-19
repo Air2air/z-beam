@@ -584,7 +584,7 @@ export function SettingsLayout({
 
       {/* Material groups (from relationships.materials.groups) */}
       {(relationships?.materials?.groups ? Object.values(relationships.materials.groups) : []).map((group: any, index: number) => (
-        group?.items?.length > 0 && (
+        group?.items?.length > 0 && group?.title?.trim() && (
           <CardGrid
             key={`materials-group-${index}`}
             items={(group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem)}
@@ -596,7 +596,7 @@ export function SettingsLayout({
 
       {/* Contaminant groups (from relationships.contaminants.groups) */}
       {(relationships?.contaminants?.groups ? Object.values(relationships.contaminants.groups) : []).map((group: any, index: number) => (
-        group?.items?.length > 0 && (
+        group?.items?.length > 0 && group?.title?.trim() && (
           <CardGrid
             key={`contaminants-group-${index}`}
             items={(group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem)}

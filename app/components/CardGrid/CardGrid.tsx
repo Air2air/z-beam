@@ -450,10 +450,11 @@ export function CardGrid({
       </>
     );
 
-    // Always wrap in BaseSection
+    // Always wrap in BaseSection with defensive title fallback
+    const safeTitle = displayTitle?.trim() || 'Related Items';
     return (
       <BaseSection 
-        title={displayTitle}
+        title={safeTitle}
         description={description}
         className={`article-grid article-grid--category-grouped ${className}`}
       >
@@ -494,10 +495,11 @@ export function CardGrid({
     </>
   );
 
-  // Always wrap in BaseSection
+  // Always wrap in BaseSection with defensive title fallback
+  const safeTitle = (title || heading)?.trim() || 'Related Items';
   return (
     <BaseSection 
-      title={title || heading}
+      title={safeTitle}
       description={description}
       icon={icon}
       className={`article-grid article-grid--simple ${className}`}

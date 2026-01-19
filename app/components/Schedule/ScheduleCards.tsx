@@ -6,12 +6,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './ScheduleCards.module.css';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { GRID_GAP_RESPONSIVE, CARD_HEADER_CLASSES } from '@/app/config/site';
 
 export function ScheduleCards() {
   return (
-    <SectionContainer
+    <BaseSection
       title="Get Started"
       description="Schedule a service or reach out for more information"
     >
@@ -120,6 +120,6 @@ export function ScheduleCards() {
         </article>
       </Link>
     </div>
-    </SectionContainer>
+    </BaseSection>
   );
 }

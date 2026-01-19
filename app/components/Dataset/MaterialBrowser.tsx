@@ -4,7 +4,7 @@
 import React, { useState, useMemo } from 'react';
 import { SearchIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
 import { DatasetCard } from './DatasetCard';
-import { SectionContainer } from '../SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import MaterialFilters from './MaterialFilters';
 import { getGridClasses, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
@@ -85,12 +85,12 @@ export default function MaterialBrowser({
     return capitalizeWords(category.replace(/-/g, ' '));
   };
 
-  // If withFilterSection is true, render with SectionContainer wrappers
+  // If withFilterSection is true, render with BaseSection wrappers
   if (withFilterSection) {
     return (
       <>
         {/* Search & Filters Section */}
-        <SectionContainer title="Or, search & filter" bgColor="default" horizPadding={true} radius={true}>
+        <BaseSection title="Or, search & filter" variant="default" horizPadding={true} rounded={true}>
           <MaterialFilters
             searchTerm={searchTerm}
             selectedCategory={selectedCategory}
@@ -102,10 +102,10 @@ export default function MaterialBrowser({
             onCategoryChange={handleCategoryChange}
             onSortChange={handleSortChange}
           />
-        </SectionContainer>
+        </BaseSection>
 
         {/* Results Section */}
-        <SectionContainer title="Materials" bgColor="transparent" radius={false}>
+        <BaseSection title="Materials" bgColor="transparent" rounded={false}>
           <div className={`${getGridClasses({ columns: 3 })} ${GRID_GAP_RESPONSIVE}`}>
             {filteredMaterials.map((material: any) => (
               <DatasetCard
@@ -141,7 +141,7 @@ export default function MaterialBrowser({
               </div>
             )}
           </div>
-        </SectionContainer>
+        </BaseSection>
       </>
     );
   }

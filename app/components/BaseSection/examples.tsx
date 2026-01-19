@@ -149,7 +149,7 @@ export function ComplexSectionExample() {
       spacing="loose"
       bgColor="gray-50"
       horizPadding={true}
-      radius={true}
+      rounded={true}
     >
       <div className="grid grid-cols-3 gap-4 mt-4">
         <div className="text-center">

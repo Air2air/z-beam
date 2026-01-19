@@ -3,6 +3,7 @@ import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config/site";
 import { PARTNERS_DATA } from '@/app/utils/staticPageData.generated';
+import type { ContentCardItem, ArticleMetadata } from '@/types';
 
 export const metadata = {
   title: 'Laser Cleaning Partners | North America & Europe | Z-Beam',
@@ -71,11 +72,11 @@ export default function PartnersPage() {
     <Layout
       title={pageConfig.title}
       pageDescription={pageConfig.description}
-      metadata={pageConfig}
+      metadata={pageConfig as ArticleMetadata}
       slug="partners"
     >
       {pageConfig.contentCards && pageConfig.contentCards.length > 0 && (
-        <ContentSection items={pageConfig.contentCards} />
+        <ContentSection items={pageConfig.contentCards as ContentCardItem[]} />
       )}
     </Layout>
   );

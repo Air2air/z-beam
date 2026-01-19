@@ -4,7 +4,7 @@ import { JsonLD } from '../components/JsonLD/JsonLD';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import { SectionContainer } from '../components/SectionContainer';
+import { BaseSection } from '../components/BaseSection/BaseSection';
 import { AlertTriangleIcon, ShieldIcon, CheckCircleIcon, PhoneIcon } from '@/app/components/Buttons';
 
 export const metadata = {
@@ -91,10 +91,10 @@ export default async function SafetyPage() {
       >
         {/* Overview */}
         <div className="mt-8">
-          <SectionContainer
+          <BaseSection
             title="Safety First Approach"
             bgColor="transparent"
-            radius={false}
+            rounded={false}
           >
             <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
               At Z-Beam, safety is our top priority. Laser cleaning is a powerful and effective industrial process, 
@@ -116,15 +116,15 @@ export default async function SafetyPage() {
                 </div>
               </div>
             </div>
-          </SectionContainer>
+          </BaseSection>
         </div>
 
         {/* Critical Hazards */}
         <div className="mt-12">
-          <SectionContainer
+          <BaseSection
             title="Critical Hazards"
             bgColor="body"
-            radius={true}
+            rounded={true}
             horizPadding={true}
           >
             <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
@@ -172,15 +172,15 @@ export default async function SafetyPage() {
                 </p>
               </div>
             </div>
-          </SectionContainer>
+          </BaseSection>
         </div>
 
         {/* Required Safety Equipment */}
         <div className="mt-12">
-          <SectionContainer
+          <BaseSection
             title="Required Safety Equipment"
             bgColor="transparent"
-            radius={false}
+            rounded={false}
           >
             <div className="space-y-6">
               <div>
@@ -237,15 +237,15 @@ export default async function SafetyPage() {
                 </ul>
               </div>
             </div>
-          </SectionContainer>
+          </BaseSection>
         </div>
 
         {/* Material-Specific Warnings */}
         <div className="mt-12">
-          <SectionContainer
+          <BaseSection
             title="Material-Specific Safety Warnings"
             bgColor="body"
-            radius={true}
+            rounded={true}
             horizPadding={true}
           >
             <div className="space-y-4">
@@ -279,15 +279,15 @@ export default async function SafetyPage() {
                 </p>
               </div>
             </div>
-          </SectionContainer>
+          </BaseSection>
         </div>
 
         {/* Regulatory Compliance */}
         <div className="mt-12">
-          <SectionContainer
+          <BaseSection
             title="Regulatory Compliance"
             bgColor="transparent"
-            radius={false}
+            rounded={false}
           >
             <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
               <div>
@@ -326,15 +326,15 @@ export default async function SafetyPage() {
                 </ul>
               </div>
             </div>
-          </SectionContainer>
+          </BaseSection>
         </div>
 
         {/* Training Requirements */}
         <div className="mt-12">
-          <SectionContainer
+          <BaseSection
             title="Operator Training Requirements"
             bgColor="body"
-            radius={true}
+            rounded={true}
             horizPadding={true}
           >
             <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
@@ -384,17 +384,12 @@ export default async function SafetyPage() {
                 Contact us to discuss training requirements for your team.
               </p>
             </div>
-          </SectionContainer>
+          </BaseSection>
         </div>
 
         {/* Contact CTA */}
         <div className="mt-12 mb-8">
-          <SectionContainer
-            title=""
-            bgColor="body"
-            radius={true}
-            horizPadding={true}
-          >
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg px-4 sm:px-6 md:px-8 py-8">
             <div className="text-center py-6">
               <PhoneIcon className="text-4xl text-orange-600 dark:text-orange-400 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
@@ -420,7 +415,7 @@ export default async function SafetyPage() {
                 </a>
               </div>
             </div>
-          </SectionContainer>
+          </div>
         </div>
       </Layout>
     </>

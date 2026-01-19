@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { BaseSection } from '../BaseSection/BaseSection';
 import { Badge } from '../Badge/Badge';
 import Link from 'next/link';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
@@ -92,12 +92,12 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
 
       {/* Primary Value Spotlight */}
       {data.research?.primary && (
-        <SectionContainer
+        <BaseSection
           title="Recommended Value"
           icon={<CheckCircleIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className="bg-secondary rounded-md p-8 border-2 border-green-200800">
             <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
@@ -142,17 +142,17 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             </div>
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* Research Sources - Interactive Cards */}
       {data.research?.sources && (
-        <SectionContainer
+        <BaseSection
           title={`Multi-Source Analysis (${data.research.sources.length} Sources)`}
           icon={<LayersIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className="space-y-4">
             {data.research.sources.map((source: any, index: number) => (
@@ -261,17 +261,17 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             ))}
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* Geological Variations */}
       {data.research?.geological_variations && (
-        <SectionContainer
+        <BaseSection
           title="Material Variations & Types"
           icon={<TrendingUpIcon className="w-6 h-6" />}
           bgColor="gray-100"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
             {data.research.geological_variations.map((variation: any, index: number) => (
@@ -343,17 +343,17 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             ))}
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* Laser Cleaning Implications */}
       {data.laser_implications && (
-        <SectionContainer
+        <BaseSection
           title="Laser Cleaning Parameter Optimization"
           icon={<ZapIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className="space-y-6">
             {/* Summary */}
@@ -455,17 +455,17 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             )}
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* Comparative Analysis */}
       {data.comparative?.similar_materials && (
-        <SectionContainer
+        <BaseSection
           title="Material Comparison"
           icon={<BarChartIcon className="w-6 h-6" />}
           bgColor="gray-100"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className="space-y-6">
             {/* Visual Comparison Bar */}
@@ -507,17 +507,17 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             </div>
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* Research Methodology */}
       {data.methodology && (
-        <SectionContainer
+        <BaseSection
           title="Research Methodology"
           icon={<InfoIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className="prose prose-lg max-w-none">
             <div className="whitespace-pre-wrap">
@@ -566,16 +566,16 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             )}
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* FAQ Section */}
       {data.faq && data.faq.length > 0 && (
-        <SectionContainer
+        <BaseSection
           title="Frequently Asked Questions"
           bgColor="transparent"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className="space-y-6">
             {data.faq.map((item: any, index: number) => (
@@ -592,17 +592,17 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             ))}
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* Dataset Download */}
       {data.dataset?.enabled && (
-        <SectionContainer
+        <BaseSection
           title="Download Research Dataset"
           icon={<DownloadIcon className="w-6 h-6" />}
           bgColor="gray-100"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className="bg-secondary p-6 rounded-md border">
             <p className="text-secondary mb-6">
@@ -637,16 +637,16 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             )}
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
 
       {/* Related Research Links */}
       {data.related_research && (
-        <SectionContainer
+        <BaseSection
           title="Related Research"
           bgColor="gray-50"
           horizPadding={true}
-          radius={true}
+          rounded={true}
         >
           <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
             {data.related_research.same_material && (
@@ -697,7 +697,7 @@ export function ResearchPage({ data, category: _category, subcategory: _subcateg
               </div>
             )}
           </div>
-        </SectionContainer>
+        </BaseSection>
       )}
     </div>
   );

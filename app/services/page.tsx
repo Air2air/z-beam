@@ -6,6 +6,7 @@ import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { schemaRegistry } from "@/app/utils/schemas/registry";
 import { SERVICES_DATA } from '@/app/utils/staticPageData.generated';
+import type { ContentCardItem } from '@/types';
 
 export const metadata = {
   title: 'Industrial Laser Cleaning Services | Bay Area',
@@ -59,7 +60,7 @@ export default function ServicesPage() {
         slug="services"
       >
         {pageConfig.contentCards && pageConfig.contentCards.length > 0 && (
-          <ContentSection items={pageConfig.contentCards} />
+          <ContentSection items={pageConfig.contentCards as ContentCardItem[]} />
         )}
         
         {/* Schedule Cards */}

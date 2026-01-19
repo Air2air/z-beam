@@ -4,6 +4,7 @@ import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { RENTAL_DATA } from '@/app/utils/staticPageData.generated';
+import type { ContentCardItem } from '@/types';
 
 export const metadata = {
   title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
@@ -210,7 +211,7 @@ export default function RentalPage() {
         slug="rental"
       >
         {pageConfig.contentCards && pageConfig.contentCards.length > 0 && (
-          <ContentSection items={pageConfig.contentCards} />
+          <ContentSection items={pageConfig.contentCards as ContentCardItem[]} />
         )}
       </Layout>
     </>
