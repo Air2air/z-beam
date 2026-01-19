@@ -9,7 +9,7 @@ import { Title } from './Title';
  * For backwards compatibility with existing code that imports PageTitle directly
  */
 export function PageTitle(props: TitleProps) {
-  return <Title {...props} level="page" />;
+  return <Title {...props} level={props.level || 'page'} />;
 }
 
 // Export for backward compatibility

@@ -64,8 +64,12 @@ export function PreventionPanel({
 
   const content = (
     <div className="space-y-2">
-      {Object.entries(challenges).flatMap(([category, challengeList]: [string, Challenge[]]) =>
-        challengeList.map((challenge, idx) => (
+      {Object.entries(challenges).flatMap(([category, challengeList]: [string, Challenge[]]) => {
+        // Skip non-array values
+        if (!Array.isArray(challengeList)) {
+          return [];
+        }
+        return challengeList.map((challenge, idx) => (
           <details key={`${category}-${idx}`} className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-md overflow-hidden group">
             <summary className="cursor-pointer px-4 py-3 hover:bg-gray-800/50 transition-colors list-none flex items-center justify-between gap-3">
               <div className="flex items-start gap-3 flex-1">
@@ -118,8 +122,8 @@ export function PreventionPanel({
               )}
             </div>
           </details>
-        ))
-      )}
+        ));
+      })}
     </div>
   );
 

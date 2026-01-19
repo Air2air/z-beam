@@ -244,7 +244,7 @@ export function Title({
               ...rest
             }, title)}
             
-            {(rightContent !== undefined ? rightContent : true) && (
+            {level === 'page' && (
               <div className="hidden sm:flex flex-shrink-0">
                 {rightContent !== undefined ? rightContent : (
                   <Button variant="primary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
@@ -265,7 +265,7 @@ export function Title({
                 'aria-label': ariaLabel,
                 'aria-describedby': page_description ? descriptionId : ariaDescribedby,
                 'aria-labelledby': ariaLabelledby,
-                tabIndex: tabIndex !== undefined ? tabIndex : -1,
+                tabIndex: tabIndex !== undefined ? tabIndex : 0,
                 onFocus: onFocus,
                 onBlur: onBlur,
                 onKeyDown: handleKeyDown,
