@@ -64,26 +64,23 @@ export function BaseSection({
   section, // 🔥 NEW: Accept entire _section object for ultimate simplicity
   ...rest
 }: BaseSectionProps) {
-  // 🔥 ULTIMATE SIMPLICITY: Use section object if provided, fallback to individual props
-  const sectionTitle = section?.sectionTitle || title || '';
-  const sectionDescription = section?.sectionDescription || description || '';
-  const rawIcon = section?.icon || icon;
+  // Support both direct props AND section object (direct props take precedence)
+  // Normalize immediately: treat empty strings and whitespace-only as undefined
+  const normalizedTitle = (title?.trim() || section?.sectionTitle?.trim()) || undefined;
+  const normalizedDescription = (description?.trim() || section?.sectionDescription?.trim()) || undefined;
+  const rawIcon = icon || section?.icon;
   
   // Convert string icons to React components using getSectionIcon
   const sectionIcon = typeof rawIcon === 'string' ? getSectionIcon(rawIcon) : rawIcon;
 
   // 🔥 MANDATORY SECTION REQUIREMENTS (Jan 15, 2026) - Fail-fast validation
-  // ONLY enforce when _section object provided (from frontmatter metadata)
-  // Allow direct props to be optional for backward compatibility with CardGrid/DataGrid
-  if (!sectionTitle || sectionTitle.trim() === '') {
-    throw new Error('BaseSection: sectionTitle is required and cannot be empty');
-  }
-  if (section && (!sectionDescription || sectionDescription.trim() === '')) {
-    throw new Error('BaseSection: sectionDescription is required when using _section object from frontmatter');
+  // When using section prop (frontmatter _section), require both title AND description
+  if (section && normalizedTitle && !normalizedDescription) {
+    throw new Error('BaseSection: sectionDescription is required when sectionTitle is provided from frontmatter _section');
   }
 
   // Generate section ID from title if not provided
-  const sectionId = id || (sectionTitle ? toCategorySlug(sectionTitle) : undefined);
+  const sectionId = id || (normalizedTitle ? toCategorySlug(normalizedTitle) : undefined);
   
   // Alignment classes for title
   const alignmentClasses = {
@@ -92,8 +89,8 @@ export function BaseSection({
     right: 'text-right',
   };
   
-  // Generate heading ID for accessibility - sectionTitle is guaranteed to have a value here
-  const headingId = sectionId || `section-${sectionTitle.toLowerCase().replace(/[()[\]]/g, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`;
+  // Generate heading ID for accessibility - normalizedTitle is guaranteed to have a value here
+  const headingId = sectionId || (normalizedTitle ? `section-${normalizedTitle.toLowerCase().replace(/[()[\]]/g, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '')}` : undefined);
   
   // Variant-based styling configurations
   const variantConfig = {
@@ -160,10 +157,10 @@ export function BaseSection({
     <section
       id={sectionId}
       className={wrapperClasses}
-      aria-labelledby={sectionTitle ? `section-${sectionId}` : undefined}
+      aria-labelledby={normalizedTitle ? `section-${sectionId}` : undefined}
       {...rest}
     >
-      {sectionTitle && (
+      {normalizedTitle && (
         <div className="flex items-center justify-between mb-2 sm:mb-3">
           <div className={`flex-1 ${alignmentClasses[alignment]}`}>
             <h2
@@ -171,13 +168,13 @@ export function BaseSection({
               className={`${SECTION_HEADER_CLASSES.title} flex items-center ${config.titleClass}`}
             >
               {sectionIcon && <span className="pr-2" aria-hidden="true">{sectionIcon}</span>}
-              {sectionTitle}
+              {normalizedTitle}
             </h2>
             
-            {sectionDescription && (
+            {normalizedDescription && (
               <div 
                 className={`text-base text-primary mt-2 prose prose-sm max-w-none ${alignmentClasses[alignment]}`}
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(sectionDescription) }}
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(normalizedDescription) }}
               />
             )}
           </div>

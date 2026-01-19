@@ -29,8 +29,8 @@ BaseSection provides:
 ```typescript
 interface BaseSectionProps {
   // Content
-  title?: string;                    // Section heading
-  description?: string;              // Optional description (supports markdown)
+  title?: string;                    // Section heading (optional, no fallback)
+  description?: string;              // Optional description (supports markdown, no fallback)
   icon?: ReactNode | string;         // Icon element or Lucide name
   action?: ReactNode;                // Action button/CTA on right side
   children: ReactNode;               // Section content
@@ -46,8 +46,22 @@ interface BaseSectionProps {
   // Advanced
   className?: string;                // Additional CSS classes
   id?: string;                       // Custom section ID (auto-generated from title)
+  section?: {                        // Pass _section object from frontmatter
+    sectionTitle: string;            // Required if section provided
+    sectionDescription: string;      // Required if section provided
+    icon?: string;
+  };
 }
 ```
+
+## Validation Rules (Jan 19, 2026)
+
+**No Fallbacks Policy**: All fallbacks have been removed from section components.
+
+- ✅ Empty string for `title` is allowed (section renders without header)
+- ❌ Non-empty `title` that is whitespace-only will throw error
+- ✅ When using `section` object from frontmatter, both `sectionTitle` and `sectionDescription` are required
+- ✅ When not using `section` object, title/description are optional
 
 ## Usage Examples
 

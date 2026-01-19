@@ -26,15 +26,15 @@ export function ContentSection({
 }: ContentSectionProps) {
   // Sort items: those with order property first (by order), others maintain YAML order
   const sortedItems = [...items].sort((a, b) => {
-    const orderA = 'order' in a ? a.order || 999 : 999;
-    const orderB = 'order' in b ? b.order || 999 : 999;
+    const orderA = 'order' in a ? (a.order ?? 999) : 999;
+    const orderB = 'order' in b ? (b.order ?? 999) : 999;
     return orderA - orderB;
   });
 
   return (
     <BaseSection 
-      title={title || "Content"}
-      description="Content overview and detailed information"
+      title={title ?? ''}
+      description=""
       variant="minimal"
       spacing="normal"
       className="content-section"

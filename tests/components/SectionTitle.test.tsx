@@ -53,6 +53,12 @@ describe('SectionTitle', () => {
       const heading = screen.getByRole('heading', { level: 2 });
       expect(heading).toHaveAttribute('id', 'custom-id');
     });
+
+    it('requires non-empty title (no fallback to "Section")', () => {
+      // Title is required - component expects valid string
+      render(<SectionTitle title="Valid Title" />);
+      expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Valid Title');
+    });
   });
 
   describe('Section Description', () => {

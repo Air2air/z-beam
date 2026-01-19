@@ -2687,8 +2687,8 @@ export interface MaterialFiltersProps {
  * @property {ReactNode} children - Section content
  */
 export interface BaseSectionProps {
-  title?: string;                   // Optional when using section object
-  description?: string;             // Optional when using section object  
+  title?: string;                   // Optional - no fallback, reads from section if available
+  description?: string;             // Optional - no fallback, reads from section if available
   icon?: ReactNode | string;
   action?: ReactNode;
   actionText?: string;              // Text for action link/button
@@ -2703,9 +2703,9 @@ export interface BaseSectionProps {
   radius?: boolean;                 // Alias for rounded (deprecated but supported)
   className?: string;
   id?: string;
-  section?: {                       // 🔥 ULTIMATE SIMPLICITY: Pass entire _section object
-    sectionTitle: string;
-    sectionDescription?: string;
+  section?: {                       // 🔥 Pass entire _section object from frontmatter
+    sectionTitle: string;           // Required if section provided
+    sectionDescription: string;     // Required if section provided
     icon?: string;
     order?: number;
     variant?: string;
@@ -4169,11 +4169,16 @@ export interface SectionContainerBaseProps {
 }
 
 export interface SectionTitleProps {
-  title: string;
+  title: string;                    // Required - no fallback to 'Section'
   subtitle?: string;
   description?: string;
   alignment?: 'left' | 'center' | 'right';
   className?: string;
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+  id?: string;
+  icon?: React.ReactNode;
+  sectionDescription?: string;
 }
 
 export interface SettingValue {

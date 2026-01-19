@@ -378,6 +378,8 @@ export const RENTAL_DATA = {
   "title": "Laser Equipment Rental | Bay Area & California",
   "metaDescription": "Rent Netalux laser cleaning equipment. Daily/weekly/monthly Bay Area delivery. Training included, no long-term commitment.",
   "description": "Do it yourself after an hour of training. You'll get all you need to confidently clean like the pros around your schedule. Since you only pay for usage, you can schedule at any day or hour and call us when you're done.",
+  "sectionTitle": "",
+  "sectionDescription": "",
   "category": "services", 
   "subcategory": "rental",
   "datePublished": "2024-01-15",

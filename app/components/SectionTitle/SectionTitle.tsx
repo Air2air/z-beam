@@ -33,9 +33,7 @@ export function SectionTitle({
   };
 
   // Remove parentheses, brackets, and special chars from chemical formulas before generating ID
-  // Ensure title is a string before calling toLowerCase
-  const safeTitle = title || 'Section';
-  const headingId = id || `section-${safeTitle.toLowerCase().replace(/[()[\]]/g, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`;
+  const headingId = id ?? `section-${title.toLowerCase().replace(/[()[\]]/g, '').replace(/\s+/g, '-').replace(/[^\w-]/g, '')}`;
 
 
   return (
