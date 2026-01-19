@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from 'react';
 import { TitleProps } from '@/types';
 import { SITE_CONFIG } from '@/app/config/site';
 import { Button } from '../Button';
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 
 /**
  * WCAG 2.1 AAA Compliant Title Component with Enhanced Accessibility
@@ -13,11 +14,12 @@ import { Button } from '../Button';
  * - Keyboard navigation and focus management
  * - Structured data for enhanced searchability
  * - High contrast and reduced motion support
+ * - Dual layout support: simple (inline) and page (full-width header with description)
  * 
- * @param level - Semantic level mapping:
- *   - 'page': Creates h1 (Main page title) - should be unique per page
- *   - 'section': Creates h2 (Major sections) - for content organization
- *   - 'card': Creates h3 (Sub-sections/cards) - for component headers
+ * @param level - Semantic level and layout mapping:
+ *   - 'page': Creates h1 with full-width header layout (Main page title) - unique per page
+ *   - 'section': Creates h2 with inline layout (Major sections) - content organization
+ *   - 'card': Creates h3 with inline layout (Sub-sections/cards) - component headers
  */
 export function Title({
   title,
@@ -218,49 +220,72 @@ export function Title({
       )}
       
       <header 
-        className={`w-full mt-2 mb-2 py-2 sm:mt-4 sm:mb-4 sm:py-3 ${landmark ? 'landmark-title' : ''}`}
+        className={`w-full ${level === 'page' ? 'py-3 sm:py-4' : 'mt-2 mb-2 py-2 sm:mt-4 sm:mb-4 sm:py-3'} ${landmark ? 'landmark-title' : ''}`}
         role={landmark ? config.landmark || undefined : undefined}
         aria-labelledby={titleId}
       >
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="flex-1">
-            <Tag
-              ref={titleRef}
-              id={titleId}
-              className={combinedClasses}
-              role={role || config.role}
-              aria-level={config.ariaLevel}
-              aria-label={ariaLabel}
-              aria-describedby={page_description ? descriptionId : ariaDescribedby}
-              aria-labelledby={ariaLabelledby}
-              tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
-              onFocus={onFocus}
-              onBlur={onBlur}
-              onKeyDown={handleKeyDown}
-              {...(level === 'page' ? { itemProp: 'headline' } : {})}
-              {...rest}
-            >
-              {title}
-            </Tag>
+        {level === 'page' ? (
+          // Full-width page layout
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            {React.createElement(Tag, {
+              ref: titleRef,
+              id: titleId,
+              className: combinedClasses,
+              role: role || config.role,
+              'aria-level': config.ariaLevel,
+              'aria-label': ariaLabel,
+              'aria-describedby': page_description ? descriptionId : ariaDescribedby,
+              'aria-labelledby': ariaLabelledby,
+              tabIndex: tabIndex !== undefined ? tabIndex : 0,
+              onFocus: onFocus,
+              onBlur: onBlur,
+              onKeyDown: handleKeyDown,
+              itemProp: 'headline',
+              ...rest
+            }, title)}
             
-            {page_description && (
-              <p 
-                id={descriptionId}
-                className="mt-3"
-              >
-                {page_description}
-              </p>
+            {(rightContent !== undefined ? rightContent : true) && (
+              <div className="hidden sm:flex flex-shrink-0">
+                {rightContent !== undefined ? rightContent : (
+                  <Button variant="primary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
+                )}
+              </div>
             )}
           </div>
-          
-          {(rightContent !== undefined ? rightContent : level === 'page') && (
-            <div className="hidden sm:flex flex-shrink-0 sm:self-start">
-              {rightContent !== undefined ? rightContent : (
-                <Button variant="primary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
-              )}
+        ) : (
+          // Simple inline layout
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex-1">
+              {React.createElement(Tag, {
+                ref: titleRef,
+                id: titleId,
+                className: combinedClasses,
+                role: role || config.role,
+                'aria-level': config.ariaLevel,
+                'aria-label': ariaLabel,
+                'aria-describedby': page_description ? descriptionId : ariaDescribedby,
+                'aria-labelledby': ariaLabelledby,
+                tabIndex: tabIndex !== undefined ? tabIndex : -1,
+                onFocus: onFocus,
+                onBlur: onBlur,
+                onKeyDown: handleKeyDown,
+                ...rest
+              }, title)}
             </div>
-          )}
-        </div>
+            
+            {rightContent && (
+              <div className="hidden sm:flex flex-shrink-0">
+                {rightContent}
+              </div>
+            )}
+          </div>
+        )}
+        
+        {page_description && (
+          <div id={descriptionId} className="mt-3">
+            <MarkdownRenderer content={page_description} convertMarkdown={true} />
+          </div>
+        )}
       </header>
     </>
   );
