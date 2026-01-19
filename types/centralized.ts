@@ -4045,7 +4045,7 @@ export interface InfoCardProps {
 }
 
 export interface ButtonIconProps {
-  icon: ReactNode;
+  icon?: ReactNode;
   label?: string;
   onClick?: () => void;
   className?: string;
@@ -4503,24 +4503,6 @@ export interface CompoundInfo {
 }
 
 /**
- * Button and Icon Props
- * Used across 40+ icon components for consistent sizing and styling
- */
-export interface ButtonIconProps {
-  className?: string;
-}
-
-/**
- * Layout Props - used in multiple layout wrappers
- * Consolidates common layout composition patterns
- */
-export interface LayoutProps {
-  children: React.ReactNode;
-  className?: string;
-  variant?: 'default' | 'full' | 'compact';
-}
-
-/**
  * Analysis Cards Props - used in research and analysis sections
  */
 export interface AnalysisCardsProps {
@@ -4552,23 +4534,6 @@ export interface PricingProps {
   amount: number;
   currency?: string;
   description?: string;
-  className?: string;
-}
-
-/**
- * Button and Icon Props
- * Used across 40+ icon components for consistent sizing and styling
- */
-export interface ButtonIconProps {
-  className?: string;
-}
-
-/**
- * Layout Props - used in multiple layout wrappers
- * Consolidates common layout composition patterns
- */
-export interface LayoutProps {
-  children: React.ReactNode;
   className?: string;
   variant?: 'default' | 'full' | 'compact';
 }
