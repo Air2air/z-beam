@@ -2704,8 +2704,8 @@ export interface BaseSectionProps {
   className?: string;
   id?: string;
   section?: {                       // 🔥 Pass entire _section object from frontmatter
-    sectionTitle: string;           // Required if section provided
-    sectionDescription: string;     // Required if section provided
+    sectionTitle?: string;          // Optional - empty strings normalized to undefined
+    sectionDescription?: string;    // Optional - empty strings normalized to undefined
     icon?: string;
     order?: number;
     variant?: string;
