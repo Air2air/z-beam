@@ -28,18 +28,48 @@ const STATIC_PAGES_DIR = 'static-pages';
 const MATERIALS_DIR = 'frontmatter/materials';
 
 /**
- * Generate breadcrumbs for a material
+ * Generate breadcrumbs for a material using fullPath
  */
 function generateMaterialBreadcrumbs(
   name: string,
   category: string,
   subcategory: string,
-  slug?: string
+  slug?: string,
+  fullPath?: string
 ): BreadcrumbItem[] {
   const breadcrumbs: BreadcrumbItem[] = [
-    { label: 'Home', href: '/' },
-    { label: 'Materials', href: '/materials' }
+    { label: 'Home', href: '/' }
   ];
+  
+  // If fullPath exists, parse it to build accurate breadcrumbs
+  if (fullPath) {
+    const pathParts = fullPath.split('/').filter(p => p); // ['materials', 'metal', 'non-ferrous', 'aluminum-laser-cleaning']
+    
+    if (pathParts.length > 0 && pathParts[0] === 'materials') {
+      breadcrumbs.push({ label: 'Materials', href: '/materials' });
+      
+      // Build breadcrumb for each path segment
+      for (let i = 1; i < pathParts.length; i++) {
+        const segment = pathParts[i];
+        const isLast = i === pathParts.length - 1;
+        
+        // Convert slug to display label
+        const label = isLast 
+          ? name // Use actual name for the material itself
+          : segment.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        
+        // Build href from cumulative path
+        const href = '/' + pathParts.slice(0, i + 1).join('/');
+        
+        breadcrumbs.push({ label, href });
+      }
+      
+      return breadcrumbs;
+    }
+  }
+  
+  // Fallback to old logic if no fullPath
+  breadcrumbs.push({ label: 'Materials', href: '/materials' });
   
   // Capitalize category for display
   const categoryLabel = category
@@ -167,7 +197,7 @@ function processFile(
     
     if (isMaterial) {
       // Material file
-      const { name, category, subcategory, slug } = data;
+      const { name, category, subcategory, slug, fullPath } = data;
       
       if (!name || !category) {
         return {
@@ -177,7 +207,7 @@ function processFile(
         };
       }
       
-      breadcrumbs = generateMaterialBreadcrumbs(name, category, subcategory, slug);
+      breadcrumbs = generateMaterialBreadcrumbs(name, category, subcategory, slug, fullPath);
     } else {
       // Static page
       const title = data.title || data.name;

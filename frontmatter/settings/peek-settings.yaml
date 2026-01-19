@@ -4,21 +4,22 @@ displayName: PEEK Laser Cleaning Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:15.928033+00:00'
+dateModified: '2026-01-19T02:42:26.759068+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/peek-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Plastic
-    href: /settings/plastic
-  - label: Thermoplastic
-    href: /settings/plastic/thermoplastic
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Plastic
+  href: /settings/plastic
+- label: Thermoplastic
+  href: /settings/plastic/thermoplastic
 pageTitle: PEEK
-pageDescription: Before laser cleaning, PEEK surfaces require careful parameter selection After cleaning, PEEK surfaces show restored appearance with controlled parameters
+pageDescription: Before laser cleaning, PEEK surfaces require careful parameter selection After cleaning, PEEK surfaces show
+  restored appearance with controlled parameters
 metaDescription: PEEK laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,7 +41,7 @@ author:
   sex: m
   jobTitle: Materials Engineer
   expertise:
-    - Laser-Based Additive Manufacturing
+  - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
@@ -48,16 +49,16 @@ author:
     name: University of Bologna
     type: EducationalOrganization
   credentials:
-    - Ph.D. Materials Science, TU Milano, 2015
-    - 5+ years industrial ceramics experience
-    - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
   imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
-    - https://scholar.google.com/citations?user=def456
-    - https://linkedin.com/in/alessandro-moretti-engineer
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
   personaFile: italy_persona.yaml
   formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
@@ -67,7 +68,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -79,75 +80,91 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - - Requires careful power calibration to prevent material damage
-          - Monitor surface temperature during processing
-          - Verify cleaning effectiveness through inspection
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     value: 1064
@@ -160,53 +177,70 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for precision vs. area coverage; smaller (100-200 μm) for fine surface prep on PEEK, larger for broad cleaning. Recommended 200 μm to control energy delivery. Source: Manufacturer specs (e.g., Coherent lasers) and equipment for polymer applications.'
+    description: 'Beam diameter for precision vs. area coverage; smaller (100-200 μm) for fine surface prep on PEEK, larger
+      for broad cleaning. Recommended 200 μm to control energy delivery. Source: Manufacturer specs (e.g., Coherent lasers)
+      and equipment for polymer applications.'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Fluence for contaminant removal without substrate damage; PEEK damage threshold ~1-2 J/cm² at 1064 nm due to reflectivity (~0.9) and absorption. Recommended 0.5 J/cm² for safe cleaning. Source: Ablation threshold studies (J. Phys. D: Appl. Phys. 2017); conservative for PEEK''s sensitivity.'
+    description: 'Fluence for contaminant removal without substrate damage; PEEK damage threshold ~1-2 J/cm² at 1064 nm due
+      to reflectivity (~0.9) and absorption. Recommended 0.5 J/cm² for safe cleaning. Source: Ablation threshold studies (J.
+      Phys. D: Appl. Phys. 2017); conservative for PEEK''s sensitivity.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for PEEK to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. Typical 10-50 ns avoids excessive melting. Source: Laser physics research on polymer ablation (Opt. Express 2015); ns pulses reduce thermal diffusion in low-conductivity PEEK.'
+    description: 'Nanosecond regime preferred for PEEK to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond
+      (fs) for ultra-precision but costlier. Typical 10-50 ns avoids excessive melting. Source: Laser physics research on
+      polymer ablation (Opt. Express 2015); ns pulses reduce thermal diffusion in low-conductivity PEEK.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal; slower (500-1000 mm/s) for heavy contamination, faster (2000-5000 mm/s) for light. Recommended 1500 mm/s for PEEK to balance cleaning efficiency and heat minimization. Source: CleanLaser equipment manuals and industry standards (ISO 11553).'
+    description: 'Effective speeds for contamination removal; slower (500-1000 mm/s) for heavy contamination, faster (2000-5000
+      mm/s) for light. Recommended 1500 mm/s for PEEK to balance cleaning efficiency and heat minimization. Source: CleanLaser
+      equipment manuals and industry standards (ISO 11553).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; recommended 2 passes for complete PEEK cleaning without overexposure. Source: Industry case studies on polymer surface preparation (Laser Tech. J. 2019); minimizes cumulative heat.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; recommended 2 passes for complete PEEK
+      cleaning without overexposure. Source: Industry case studies on polymer surface preparation (Laser Tech. J. 2019); minimizes
+      cumulative heat.'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage; 30-50% for speed, 50-80% for thoroughness on irregular PEEK surfaces. Recommended 50% to avoid gaps while preventing overheating. Source: Process optimization studies (Opt. Lasers Eng. 2021); standard for scanned laser cleaning.'
+    description: 'Ensures uniform coverage; 30-50% for speed, 50-80% for thoroughness on irregular PEEK surfaces. Recommended
+      50% to avoid gaps while preventing overheating. Source: Process optimization studies (Opt. Lasers Eng. 2021); standard
+      for scanned laser cleaning.'
   laserPower:
     value: 30
     unit: W
     description: Low power for thermal-sensitive polymer cleaning
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 10
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for polymer cleaning at 1064 nm to avoid thermal damage to PEEK (melting point ~343°C); starting at 50 W for light contamination. Max safe ~200 W based on low thermal conductivity. Source: IPG Photonics laser cleaning guidelines and studies on polymer ablation (e.g., J. Laser Appl. 2018).'
+    description: 'Typical range for polymer cleaning at 1064 nm to avoid thermal damage to PEEK (melting point ~343°C); starting
+      at 50 W for light contamination. Max safe ~200 W based on low thermal conductivity. Source: IPG Photonics laser cleaning
+      guidelines and studies on polymer ablation (e.g., J. Laser Appl. 2018).'
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Common for cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation in PEEK due to poor thermal dissipation. Recommended 30 kHz for balance. Source: Academic literature on pulsed laser cleaning (Appl. Surf. Sci. 2020); trade-off noted for polymers.'
-componentSummary: These settings use moderate power and short nanosecond pulses at 1064 nm to enable precise ablation of contaminants from PEEK while minimizing heat input and preventing thermal degradation of the sensitive polymer.
+    description: 'Common for cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation in PEEK due to poor
+      thermal dissipation. Recommended 30 kHz for balance. Source: Academic literature on pulsed laser cleaning (Appl. Surf.
+      Sci. 2020); trade-off noted for polymers.'
+componentSummary: These settings use moderate power and short nanosecond pulses at 1064 nm to enable precise ablation of contaminants
+  from PEEK while minimizing heat input and preventing thermal degradation of the sensitive polymer.

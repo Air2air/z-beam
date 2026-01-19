@@ -381,10 +381,23 @@ function generateWebPageSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   // Extract frontmatter from various possible locations with type guards
   const metadata = getMetadata(data);
-  const title = (metadata.title as string) || (typeof data.title === "string" ? data.title : "");
-  const description = (metadata.description as string) || (metadata.pageDescription as string) || (typeof data.description === "string" ? data.description : "");
+  const title = (metadata.title as string) || (metadata.pageTitle as string) || (metadata.name as string) || (metadata.displayName as string) || (typeof data.title === "string" ? data.title : "") || (typeof data.pageTitle === "string" ? data.pageTitle : "") || (typeof data.name === "string" ? data.name : "") || (typeof data.displayName === "string" ? data.displayName : "");
+  const description = (metadata.description as string) || (metadata.pageDescription as string) || (metadata.metaDescription as string) || (typeof data.description === "string" ? data.description : "") || (typeof data.pageDescription === "string" ? data.pageDescription : "") || (typeof data.metaDescription === "string" ? data.metaDescription : "");
   
-  if (!title) return null;
+  if (!title) {
+    console.error('[WebPage Schema] FAILED to extract title from:', {
+      slug: context.slug,
+      hasMetadata: !!metadata,
+      metadataKeys: metadata ? Object.keys(metadata).slice(0, 20) : [],
+      metadataTitle: metadata?.title,
+      metadataPageTitle: metadata?.pageTitle,
+      metadataName: metadata?.name,
+      metadataDisplayName: metadata?.displayName,
+      dataType: typeof data,
+      dataKeys: data ? Object.keys(data).slice(0, 20) : []
+    });
+    return null;
+  }
   
   return {
     '@context': 'https://schema.org',

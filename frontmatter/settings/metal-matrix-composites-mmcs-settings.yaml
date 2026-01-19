@@ -4,21 +4,26 @@ displayName: Metal Matrix Composites MMCs Laser Cleaning Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:11.872974+00:00'
+dateModified: '2026-01-19T02:42:21.967203+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/metal-matrix-composites-mmcs-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Composite
-    href: /settings/composite
-  - label: Fiber Reinforced
-    href: /settings/composite/fiber-reinforced
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Composite
+  href: /settings/composite
+- label: Fiber Reinforced
+  href: /settings/composite/fiber-reinforced
 pageTitle: Metal Matrix Composites MMCs
-pageDescription: When laser cleaning metal matrix composites, unlike pure metals that heat evenly, watch out for their embedded reinforcements—these can cause uneven heat buildup right from the start, risking cracks if you push power too high. We've found that starting with lower energy pulses helps control this, letting the laser clear contaminants without stressing the matrix. What sets MMCs apart is their hybrid strength from metal and fibers, so you adjust scan speeds slower to match their good heat spreading, avoiding delamination. In our experience, this approach restores surfaces smoothly for aerospace parts, but always test overlaps to prevent hot spots in the tougher zones.
+pageDescription: When laser cleaning metal matrix composites, unlike pure metals that heat evenly, watch out for their embedded
+  reinforcements—these can cause uneven heat buildup right from the start, risking cracks if you push power too high. We've
+  found that starting with lower energy pulses helps control this, letting the laser clear contaminants without stressing
+  the matrix. What sets MMCs apart is their hybrid strength from metal and fibers, so you adjust scan speeds slower to match
+  their good heat spreading, avoiding delamination. In our experience, this approach restores surfaces smoothly for aerospace
+  parts, but always test overlaps to prevent hot spots in the tougher zones.
 metaDescription: Metal Matrix Composites MMCs laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,24 +45,25 @@ author:
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
   expertise:
-    - Ultrafast Laser Physics and Material Interactions
+  - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
     type: EducationalOrganization
   credentials:
-    - Ph.D. Physics, ITB, 2020
-    - 2+ years in ultrafast laser research including ASEAN optics workshops
-    - Assisted in international optics projects
+  - Ph.D. Physics, ITB, 2020
+  - 2+ years in ultrafast laser research including ASEAN optics workshops
+  - Assisted in international optics projects
   languages:
-    - English
-    - Bahasa Indonesia
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
-    - https://linkedin.com/in/ikmanda-roswati-physicist
-    - https://www.academia.edu/profile/IkmandaRoswati
+  - https://linkedin.com/in/ikmanda-roswati-physicist
+  - https://www.academia.edu/profile/IkmandaRoswati
   personaFile: indonesia_persona.yaml
   formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
@@ -67,7 +73,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -79,61 +85,73 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - id: matrix-degradation
-              type: challenge
-            - id: anisotropic-thermal
-              type: challenge
-          contaminationChallenges:
-            - id: resin-contaminant-removal
-              type: challenge
+      - thermalManagement:
+        - id: matrix-degradation
+          type: challenge
+        - id: anisotropic-thermal
+          type: challenge
+        contaminationChallenges:
+        - id: resin-contaminant-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength providing good absorption in metallic matrix while minimizing damage to ceramic reinforcements
@@ -146,37 +164,50 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter range for cleaning; smaller for fine surface prep on MMCs (100-200 μm), larger for broad areas (300-500 μm); 200 μm recommended to focus energy on contaminants while minimizing exposure to heterogeneous MMC structure (source: equipment specs from Coherent and Trumpf laser systems for composites).'
+    description: 'Beam diameter range for cleaning; smaller for fine surface prep on MMCs (100-200 μm), larger for broad areas
+      (300-500 μm); 200 μm recommended to focus energy on contaminants while minimizing exposure to heterogeneous MMC structure
+      (source: equipment specs from Coherent and Trumpf laser systems for composites).'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe contaminant ablation on MMCs; damage threshold ~2-4 J/cm² for matrices like Ti or Al with ceramic particles, lower to prevent cracking; 1.5 J/cm² recommended for effective cleaning without exceeding ablation thresholds (source: ablation threshold studies in Journal of Materials Processing Technology).'
+    description: 'Fluence range for safe contaminant ablation on MMCs; damage threshold ~2-4 J/cm² for matrices like Ti or
+      Al with ceramic particles, lower to prevent cracking; 1.5 J/cm² recommended for effective cleaning without exceeding
+      ablation thresholds (source: ablation threshold studies in Journal of Materials Processing Technology).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 30
     unit: ns
-    description: 'Nanosecond regime preferred for MMCs at 1064 nm to achieve effective cleaning with minimal heat-affected zone (HAZ); picosecond (ps) or femtosecond for ultra-precision but costlier; 30 ns recommended to limit thermal diffusion in high-conductivity matrices like Al-based MMCs (source: laser physics research in Optics Express on pulsed ablation of composites).'
+    description: 'Nanosecond regime preferred for MMCs at 1064 nm to achieve effective cleaning with minimal heat-affected
+      zone (HAZ); picosecond (ps) or femtosecond for ultra-precision but costlier; 30 ns recommended to limit thermal diffusion
+      in high-conductivity matrices like Al-based MMCs (source: laser physics research in Optics Express on pulsed ablation
+      of composites).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal on MMCs; higher for light oils/dusts (2000-3000 mm/s), lower for heavy oxides (500-1000 mm/s) to ensure ablation without excessive heat buildup; recommended 1500 mm/s for balanced efficiency (source: IPG Photonics laser cleaning manuals and industry standards for metallic composites).'
+    description: 'Effective speeds for contamination removal on MMCs; higher for light oils/dusts (2000-3000 mm/s), lower
+      for heavy oxides (500-1000 mm/s) to ensure ablation without excessive heat buildup; recommended 1500 mm/s for balanced
+      efficiency (source: IPG Photonics laser cleaning manuals and industry standards for metallic composites).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-4) for heavy layers to avoid thermal damage in MMCs; 2 passes recommended for uniform removal and surface preparation without risking delamination (source: industry case studies in Laser Cleaning Handbook and practical applications on aerospace MMCs).'
+    description: 'Single pass for light contamination, multi-pass (2-4) for heavy layers to avoid thermal damage in MMCs;
+      2 passes recommended for uniform removal and surface preparation without risking delamination (source: industry case
+      studies in Laser Cleaning Handbook and practical applications on aerospace MMCs).'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform coverage in scan patterns; 60% typical for MMCs to prevent gaps in cleaning while avoiding overexposure that could heat sensitive interfaces; range adjusted for contamination density (source: process optimization studies in International Journal of Advanced Manufacturing Technology).'
+    description: 'Ensures uniform coverage in scan patterns; 60% typical for MMCs to prevent gaps in cleaning while avoiding
+      overexposure that could heat sensitive interfaces; range adjusted for contamination density (source: process optimization
+      studies in International Journal of Advanced Manufacturing Technology).'
   dwellTime:
     description: Effective interaction time per spot location
     unit: μs
@@ -187,18 +218,23 @@ machineSettings:
     description: Optimal average power for MMCs cleaning considering thermal conductivity and matrix integrity
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 50
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for industrial cleaning of MMCs at 1064 nm to remove contaminants without delaminating reinforcements; starting at 100 W for light contamination, max below 300 W to avoid substrate damage due to thermal sensitivity of composite interfaces (source: studies in Journal of Laser Applications, e.g., on Al/SiC MMCs).'
+    description: 'Typical range for industrial cleaning of MMCs at 1064 nm to remove contaminants without delaminating reinforcements;
+      starting at 100 W for light contamination, max below 300 W to avoid substrate damage due to thermal sensitivity of composite
+      interfaces (source: studies in Journal of Laser Applications, e.g., on Al/SiC MMCs).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed cleaning applications; 50 kHz balances speed and heat management for MMCs, as higher rates (>80 kHz) risk accumulation in lower-conductivity reinforcements like SiC, while lower aids heavy contamination (source: academic literature in Applied Surface Science on fiber laser cleaning of MMCs).'
-componentSummary: These settings, featuring 100 W power, 1064 nm wavelength, and 10 ns pulses, enable precise contaminant removal from MMCs while minimizing thermal stress to prevent delamination at matrix-reinforcement interfaces.
+    description: 'Typical for pulsed cleaning applications; 50 kHz balances speed and heat management for MMCs, as higher
+      rates (>80 kHz) risk accumulation in lower-conductivity reinforcements like SiC, while lower aids heavy contamination
+      (source: academic literature in Applied Surface Science on fiber laser cleaning of MMCs).'
+componentSummary: These settings, featuring 100 W power, 1064 nm wavelength, and 10 ns pulses, enable precise contaminant
+  removal from MMCs while minimizing thermal stress to prevent delamination at matrix-reinforcement interfaces.

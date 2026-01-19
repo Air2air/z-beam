@@ -51,10 +51,14 @@ export async function ItemPage({
         }
       }
       
+      // Ensure schema generator can find title - wrap metadata in frontmatter structure
+      // Settings files have pageTitle but SchemaFactory expects consistent structure
+      const articleForSchema = { frontmatter: metadata };
+      
       return (
         <>
           <MaterialJsonLD 
-            article={metadata} 
+            article={articleForSchema} 
             slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`} 
           />
           <SettingsLayout 

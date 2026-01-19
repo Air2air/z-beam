@@ -43,24 +43,47 @@ describe('Mandatory Section Requirements (Jan 15, 2026)', () => {
       ).toThrow('BaseSection: sectionTitle is required and cannot be empty');
     });
 
-    it('should throw error when sectionDescription is missing', () => {
+    it('should throw error when sectionDescription is missing WITH section prop', () => {
+      const invalidSection = {
+        sectionTitle: 'Valid Title',
+        sectionDescription: '', // Empty when using section object
+        icon: 'Settings'
+      };
+      
       expect(() => 
         render(
-          <BaseSection title="Valid Title" description="">
+          <BaseSection section={invalidSection}>
             <div>Test content</div>
           </BaseSection>
         )
-      ).toThrow('BaseSection: sectionDescription is required and cannot be empty');
+      ).toThrow('BaseSection: sectionDescription is required when using _section object from frontmatter');
     });
 
-    it('should throw error when sectionDescription is empty string', () => {
+    it('should throw error when sectionDescription is empty string WITH section prop', () => {
+      const invalidSection = {
+        sectionTitle: 'Valid Title',
+        sectionDescription: '   ', // Whitespace-only when using section object
+        icon: 'Settings'
+      };
+      
       expect(() => 
         render(
-          <BaseSection title="Valid Title" description="   ">
+          <BaseSection section={invalidSection}>
             <div>Test content</div>
           </BaseSection>
         )
-      ).toThrow('BaseSection: sectionDescription is required and cannot be empty');
+      ).toThrow('BaseSection: sectionDescription is required when using _section object from frontmatter');
+    });
+    
+    it('should allow missing description when NOT using section prop (backward compatibility)', () => {
+      const { getByText } = render(
+        <BaseSection title="Valid Title">
+          <div>Test content</div>
+        </BaseSection>
+      );
+      
+      expect(getByText('Valid Title')).toBeInTheDocument();
+      expect(getByText('Test content')).toBeInTheDocument();
     });
 
     it('should render successfully with valid title and description', () => {

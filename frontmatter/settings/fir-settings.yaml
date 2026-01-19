@@ -4,21 +4,24 @@ displayName: Fir Laser Cleaning Settings
 category: wood
 subcategory: softwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:10.412388+00:00'
+dateModified: '2026-01-19T02:42:20.477146+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/softwood/fir-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Wood
-    href: /settings/wood
-  - label: Softwood
-    href: /settings/wood/softwood
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Wood
+  href: /settings/wood
+- label: Softwood
+  href: /settings/wood/softwood
 pageTitle: Fir
-pageDescription: When laser cleaning Fir, watch its softness compared to hardwoods—it chars faster under heat. You must start with low power to prevent surface damage. Unlike denser woods, Fir's high porosity absorbs contaminants deeply, so use multiple gentle passes. This clears grime without warping the grain. Keep scans slow for even coverage. Adjust overlap to avoid hot spots. Fir restores well in heritage work.
+pageDescription: When laser cleaning Fir, watch its softness compared to hardwoods—it chars faster under heat. You must start
+  with low power to prevent surface damage. Unlike denser woods, Fir's high porosity absorbs contaminants deeply, so use multiple
+  gentle passes. This clears grime without warping the grain. Keep scans slow for even coverage. Adjust overlap to avoid hot
+  spots. Fir restores well in heritage work.
 metaDescription: Fir laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,24 +43,25 @@ author:
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
   expertise:
-    - Ultrafast Laser Physics and Material Interactions
+  - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
     type: EducationalOrganization
   credentials:
-    - Ph.D. Physics, ITB, 2020
-    - 2+ years in ultrafast laser research including ASEAN optics workshops
-    - Assisted in international optics projects
+  - Ph.D. Physics, ITB, 2020
+  - 2+ years in ultrafast laser research including ASEAN optics workshops
+  - Assisted in international optics projects
   languages:
-    - English
-    - Bahasa Indonesia
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
-    - https://linkedin.com/in/ikmanda-roswati-physicist
-    - https://www.academia.edu/profile/IkmandaRoswati
+  - https://linkedin.com/in/ikmanda-roswati-physicist
+  - https://www.academia.edu/profile/IkmandaRoswati
   personaFile: indonesia_persona.yaml
   formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
@@ -67,7 +71,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -79,80 +83,96 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - id: charring-carbonization
-              type: challenge
-            - id: slow-thermal-diffusivity
-              type: challenge
-          contaminationChallenges:
-            - id: varnish-coating-removal
-              type: challenge
+      - thermalManagement:
+        - id: charring-carbonization
+          type: challenge
+        - id: slow-thermal-diffusivity
+          type: challenge
+        contaminationChallenges:
+        - id: varnish-coating-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength for optimal absorption in Fir wood contaminants
@@ -165,37 +185,50 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter range for cleaning; smaller (100-200 μm) for fine detail on Fir grain, larger (300-500 μm) for broad areas. 200 μm recommended for uniform surface preparation. Source: Equipment specifications from Trumpf and CleanLASER systems; process optimization in industrial applications.'
+    description: 'Beam diameter range for cleaning; smaller (100-200 μm) for fine detail on Fir grain, larger (300-500 μm)
+      for broad areas. 200 μm recommended for uniform surface preparation. Source: Equipment specifications from Trumpf and
+      CleanLASER systems; process optimization in industrial applications.'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
     value: 2
-    description: 'Fluence range for safe cleaning of contaminants; Fir damage threshold ~6-10 J/cm² at 1064 nm due to moderate reflectivity (~40% for wood). Recommended 2 J/cm² for removal without charring. Source: Ablation threshold studies in Optics Express (e.g., research on softwood laser interaction, Kononenko et al., 2006); conservative for industrial use.'
+    description: 'Fluence range for safe cleaning of contaminants; Fir damage threshold ~6-10 J/cm² at 1064 nm due to moderate
+      reflectivity (~40% for wood). Recommended 2 J/cm² for removal without charring. Source: Ablation threshold studies in
+      Optics Express (e.g., research on softwood laser interaction, Kononenko et al., 2006); conservative for industrial use.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for Fir to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 20 ns optimal for 1064 nm ablation of organics without excessive plasma formation. Source: Laser physics research in Applied Surface Science (e.g., Anisimov et al., 2010) on wood ablation thresholds.'
+    description: 'Nanosecond regime preferred for Fir to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond
+      (fs) for ultra-precision but costlier. 20 ns optimal for 1064 nm ablation of organics without excessive plasma formation.
+      Source: Laser physics research in Applied Surface Science (e.g., Anisimov et al., 2010) on wood ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Range for effective contaminant removal without substrate ablation; slower for heavy contamination (500-1000 mm/s) vs light (2000-5000 mm/s). Recommended 1500 mm/s balances speed and control for Fir surface preparation. Source: Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems); case studies on wood restoration.'
+    description: 'Range for effective contaminant removal without substrate ablation; slower for heavy contamination (500-1000
+      mm/s) vs light (2000-5000 mm/s). Recommended 1500 mm/s balances speed and control for Fir surface preparation. Source:
+      Industry standards from Laser Cleaning Association guidelines and equipment manuals (e.g., Adapt Laser Systems); case
+      studies on wood restoration.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete Fir cleaning without overexposure. Source: Industry practice from case studies in wood heritage restoration (e.g., European Laser Cleaning projects) and manufacturer guidelines.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
+      Fir cleaning without overexposure. Source: Industry practice from case studies in wood heritage restoration (e.g., European
+      Laser Cleaning projects) and manufacturer guidelines.'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage; 50% recommended for Fir to avoid gaps or streaks while minimizing total energy input. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surface and Coatings Technology (e.g., research on scan strategies, Palmieri et al., 2018).'
+    description: 'Ensures uniform coverage; 50% recommended for Fir to avoid gaps or streaks while minimizing total energy
+      input. Higher (60-80%) for heavy contamination. Source: Process optimization studies in Surface and Coatings Technology
+      (e.g., research on scan strategies, Palmieri et al., 2018).'
   dwellTime:
     description: Optimal dwell time per cleaning spot on Fir wood surface
     unit: μs
@@ -206,18 +239,24 @@ machineSettings:
     description: Optimal average power for Fir surface cleaning without charring
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 20
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in wood cleaning to avoid thermal damage; starting at 50 W for light contamination on softwoods like Fir. Max limited to prevent charring (Fir''s low thermal conductivity ~0.12 W/mK increases heat buildup). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaning heads; academic paper by Pou et al. (2004) in Optics and Lasers in Engineering.'
+    description: 'Typical range for pulsed Nd:YAG lasers in wood cleaning to avoid thermal damage; starting at 50 W for light
+      contamination on softwoods like Fir. Max limited to prevent charring (Fir''s low thermal conductivity ~0.12 W/mK increases
+      heat buildup). Source: Manufacturer specs from IPG Photonics and Coherent for industrial cleaning heads; academic paper
+      by Pou et al. (2004) in Optics and Lasers in Engineering.'
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for cleaning applications; 30 kHz recommended for Fir to achieve fast coverage while limiting heat accumulation (trade-off: higher rates speed up process but risk thermal damage on low-conductivity wood). Source: Academic literature in Journal of Applied Physics (e.g., studies on pulse overlap in laser cleaning, Semaltianos, 2013).'
-componentSummary: These settings deliver precise, low-heat ablation at 1064 nm for Fir wood, with 50 W power and 10 ns pulses minimizing charring while effectively removing surface contaminants without damaging delicate fibers.
+    description: 'Typical for cleaning applications; 30 kHz recommended for Fir to achieve fast coverage while limiting heat
+      accumulation (trade-off: higher rates speed up process but risk thermal damage on low-conductivity wood). Source: Academic
+      literature in Journal of Applied Physics (e.g., studies on pulse overlap in laser cleaning, Semaltianos, 2013).'
+componentSummary: These settings deliver precise, low-heat ablation at 1064 nm for Fir wood, with 50 W power and 10 ns pulses
+  minimizing charring while effectively removing surface contaminants without damaging delicate fibers.

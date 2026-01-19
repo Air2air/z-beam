@@ -1,27 +1,28 @@
 id: concrete-laser-cleaning
 name: Concrete
+
+# Breadcrumb navigation
 breadcrumb:
-  - label: Home
+  - label: "Home"
     href: /
-  - label: Materials
+  - label: "Materials"
     href: /materials
-  - label: Masonry
+  - label: "Masonry"
     href: /materials/masonry
-  - label: General
+  - label: "General"
     href: /materials/masonry/general
-  - label: Concrete
-    href: /materials/masonry/general/concrete
+  - label: "Concrete"
+    href: /materials/masonry/general/concrete-laser-cleaning
 displayName: Concrete Laser Cleaning
 category: masonry
 subcategory: general
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-15T21:46:41.312513+00:00'
+dateModified: '2026-01-19T03:28:25.059816+00:00'
 fullPath: /materials/masonry/general/concrete-laser-cleaning
 pageTitle: Concrete
-metaDescription: >-
-  Laser cleaning ramps up on concrete surfaces, targeting built-up grime and pollutants at 1000x magnification.
+metaDescription: Laser cleaning ramps up on concrete surfaces, targeting built-up grime and pollutants at 1000x magnification.
   Contaminated spots show dense pores clogged wit...
 card:
   default:
@@ -40,36 +41,39 @@ author:
   id: 4
   name: Todd Dunning
   country: United States
-  countryDisplay: United States
+  country_display: United States
   title: MA
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-    - Optical Materials for Laser Systems
+  - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-    - BA Physics, UC Irvine, 2017
-    - Hands-on at JPL optics internship, 2018
-    - MA Optics and Photonics, UC Irvine, 2019
-    - 3+ years in laser systems development
-    - Hands-on experience with optical fabrication
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-    - https://linkedin.com/in/todd-dunning-optics
-    - https://spie.org/profile/Todd.Dunning
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  persona_file: usa_persona.yaml
+  formatting_file: usa_formatting.yaml
+  countryDisplay: United States
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
   slug: todd-dunning
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:
-    - FDA 21 CFR 1040.10 - Laser Product Performance Standards
-    - ANSI Z136.1 - Safe Use of Lasers
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  - ANSI Z136.1 - Safe Use of Lasers
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
@@ -85,29 +89,32 @@ images:
     width: 800
     height: 600
 components:
-  settingsDescription: >-
-    We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling, a risk not
-    as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy, which
-    reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans to
-    restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
+  settingsDescription: We've found that concrete demands initial low-power passes in laser cleaning to avoid aggregate spalling,
+    a risk not as prevalent in denser stones like granite. Its inherent porosity allows effective absorption of laser energy,
+    which reveals embedded contaminants without excessive heat buildup. We typically follow with multiple overlapping scans
+    to restore surface uniformity in infrastructure settings, reducing the chance of uneven ablation.
   micro:
-    before: >-
-      The surface shows dark stains and fine particles clinging tightly to the rough texture. Cracks and pits fill with
+    before: The surface shows dark stains and fine particles clinging tightly to the rough texture. Cracks and pits fill with
       debris that scatters light unevenly across the view. Layers of grime obscure the underlying grains completely.
-    after: >-
-      Laser treatment removes the stains and exposes smooth, bare areas on the texture. Particles vanish, leaving clear
+    after: Laser treatment removes the stains and exposes smooth, bare areas on the texture. Particles vanish, leaving clear
       edges around the grains in the view. The surface now reflects light evenly without any hidden debris.
+    _section:
+      sectionTitle: Microscopic Analysis
+      sectionDescription: High-magnification comparison of Concrete surface before and after laser cleaning treatment
+      icon: microscope
+      order: 5
+      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
-    percentage: 60
+    percentage: 60.0
     fractureToughness:
       value: 0.7
       unit: MPa m^{1/2}
       confidence: 95
       source: ai_research
     density:
-      value: 2400
+      value: 2400.0
       unit: kg/m³
       confidence: 95
       source: ai_research
@@ -117,7 +124,7 @@ properties:
       confidence: 95
       source: ai_research
     youngsModulus:
-      value: 30
+      value: 30.0
       unit: GPa
       confidence: 95
       source: ai_research
@@ -127,7 +134,7 @@ properties:
       confidence: 95
       source: ai_research
     compressiveStrength:
-      value: 25
+      value: 25.0
       unit: MPa
       confidence: 95
       source: ai_research
@@ -142,7 +149,7 @@ properties:
       confidence: 95
       source: ai_research
     corrosionResistance:
-      value: 300
+      value: 300.0
       unit: Ω·m
       confidence: 95
       source: ai_research
@@ -153,25 +160,21 @@ properties:
       sourceType: journal_article
       sourceName: 'Laser cleaning of concrete surfaces: Damage thresholds and ablation mechanisms'
       citation: 'Pini, R., et al., Applied Surface Science, 2001, DOI: 10.1016/S0169-4332(01)00485-7'
-      context: >-
-        Ordinary Portland cement concrete (OPC, aggregate size 5-20 mm), 1064 nm Nd:YAG laser, room temperature (25°C),
+      context: Ordinary Portland cement concrete (OPC, aggregate size 5-20 mm), 1064 nm Nd:YAG laser, room temperature (25°C),
         pulse duration 10 ns, atmospheric pressure
       confidence: 95
       researchedDate: '2025-11-24T11:55:18.938620'
       needsValidation: true
     _section:
-      icon: atom
-      order: 1
+      sectionTitle: Concrete's Core Properties
+      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
+        and material integrity
+      icon: wrench
+      order: 50
       variant: default
-      group: properties
-      domain: materials
-      schemaDescription: Core physical and chemical properties of the material
-      notes: Foundational material data for laser cleaning applications
-      sectionTitle: Material Characteristics
-      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
-    percentage: 40
+    percentage: 40.0
     absorptivity:
       value: 0.75
       unit: dimensionless
@@ -215,7 +218,7 @@ properties:
       max: 100
       source: ai_research
     thermalDestruction:
-      value: 773
+      value: 773.0
       unit: K
       confidence: 95
       source: ai_research
@@ -225,7 +228,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalExpansion:
-      value: 0.000012
+      value: 1.2e-05
       unit: K^{-1}
       confidence: 95
       source: ai_research
@@ -235,7 +238,7 @@ properties:
       confidence: 95
       source: ai_research
     specificHeat:
-      value: 880
+      value: 880.0
       unit: J/(kg·K)
       confidence: 95
       source: ai_research
@@ -245,7 +248,7 @@ properties:
       confidence: 95
       source: ai_research
     thermalDiffusivity:
-      value: 5.e-7
+      value: 5.0e-07
       unit: m²/s
       confidence: 95
       source: ai_research
@@ -256,223 +259,207 @@ properties:
       sourceType: journal_article
       sourceName: Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser
       citation: 'P. Pou et al., Optics and Lasers in Engineering, 2000, DOI: 10.1016/S0143-8166(99)00078-5'
-      context: >-
-        Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG laser,
+      context: Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG laser,
         7 ns pulse duration, atmospheric pressure
       confidence: 95
       researchedDate: '2025-11-24T11:55:28.526883'
       needsValidation: true
     _section:
+      sectionTitle: Laser Interaction Behavior
+      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
+        thresholds
       icon: zap
-      order: 2
+      order: 60
       variant: default
-      group: properties
-      domain: materials
-      schemaDescription: Thermal and optical properties affecting laser-material interaction
-      notes: Laser interaction parameters for optimal cleaning
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
 faq:
   presentation: collapsible
   items:
-    - id: can-laser-cleaning-remove-paint-and
-      title: Can laser cleaning remove paint and graffiti from concrete without damaging the surface?
-      content: >-
-        Yes, laser cleaning pretty effectively removes paint and graffiti from concrete. By employing a 1064 nm
-        wavelength at 2.5 J/cm² fluence, it selectively ablates the coating while preserving the substrate. This
-        approach typically avoids the surface etching and aggregate exposure seen in abrasive methods like sandblasting.
-      metadata:
-        topic: laser cleaning remove paint and
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: true
-        order: 1
-    - id: what-laser-settings-wavelength-power-pulse
-      title: What laser settings (wavelength, power, pulse duration) work best for concrete cleaning?
-      content: >-
-        For concrete's heterogeneous makeup, I'd recommend a 1064 nm wavelength at about 100 W average power. Typically,
-        a fluence around 2.5 J/cm² with nanosecond pulses effectively removes contaminants while fairly mitigating
-        thermal stress on the aggregate and cement matrix, preserving substrate integrity.
-      metadata:
-        topic: laser settings (wavelength, power, pulse
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 2
-    - id: does-laser-cleaning-create-hazardous-dust
-      title: Does laser cleaning create hazardous dust when used on concrete, and how is it controlled?
-      content: >-
-        Compared to abrasive blasting, laser cleaning produces significantly less respirable silica dust. Typically,
-        with our 100 W, 1064 nm settings, it basically generates coarse debris. Effective fume extraction remains
-        essential to manage the fine particulate produced.
-      metadata:
-        topic: laser cleaning create hazardous dust
-        severity: critical
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 3
-    - id: how-effective-is-laser-cleaning-for
-      title: How effective is laser cleaning for removing biological growth like mold or algae from concrete?
-      content: >-
-        Laser cleaning pretty effectively removes surface biological growth at ~2.5 J/cm² by thermally denaturing
-        contaminants. It also sterilizes the concrete, typically preventing immediate regrowth. That said, its effect
-        stays fairly limited to the surface, with no penetration for deeply embedded organisms.
-      metadata:
-        topic: effective laser cleaning for removing
-        severity: critical
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 4
-    - id: can-laser-cleaning-be-used-on
-      title: Can laser cleaning be used on reinforced concrete without damaging the rebar?
-      content: >-
-        When properly tuned, laser cleaning at 2.5 J/cm² pretty effectively removes contaminants from reinforced
-        concrete. This approach fairly well preserves the structural cover over rebar, preventing exposure while
-        upholding the vital concrete-rebar bond integrity under optimal parameters.
-      metadata:
-        topic: laser cleaning be used on
-        severity: critical
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 5
-    - id: what-is-the-typical-cleaning-rate
-      title: What is the typical cleaning rate (square meters per hour) for concrete surfaces with laser?
-      content: >-
-        Typically, cleaning rates fall between 2 and 8 m² per hour with a 100 W laser at 1064 nm. Actual speeds depend
-        fairly heavily on contaminant type and surface texture, often requiring multiple passes at 2.5 J/cm² for full
-        removal.
-      metadata:
-        topic: the typical cleaning rate (squ
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 6
-    - id: does-laser-cleaning-alter-the-surface
-      title: Does laser cleaning alter the surface profile or texture of concrete?
-      content: >-
-        Properly tuned laser cleaning at 2.5 J/cm² basically removes contaminants without altering the concrete's
-        micro-roughness. That 1064 nm wavelength pretty much avoids glazing the aggregate, preserving the surface
-        profile that's essential for optimal coating adhesion.
-      metadata:
-        topic: laser cleaning alter the surface
-        severity: high
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 7
-    - id: how-does-laser-cleaning-compare-to
-      title: How does laser cleaning compare to dry ice blasting for concrete restoration projects?
-      content: >-
-        Laser ablation at 2.5 J/cm² pretty selectively removes contaminants without harming the concrete substrate,
-        unlike dry ice blasting. This delivers a superior, residue-free surface for better coating adhesion, though the
-        upfront equipment cost is fairly higher.
-      metadata:
-        topic: laser cleaning comp to dry
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 8
-    - id: can-laser-cleaning-remove-efflorescence-white
-      title: Can laser cleaning remove efflorescence (white salt deposits) from concrete surfaces?
-      content: >-
-        Yeah, laser cleaning pretty effectively removes efflorescence by vaporizing surface salts at around 2.5 J/cm².
-        Basically, this beats chemical washes by clearing deposits without adding moisture, which is crucial for
-        stopping their quick return on porous concrete.
-      metadata:
-        topic: laser cleaning remove efflorescence (white
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 9
-    - id: what-are-the-limitations-of-laser
-      title: What are the limitations of laser cleaning for heavily contaminated or oil-stained concrete?
-      content: >-
-        Heavily oil-stained concrete creates a pretty major limitation: the depth of laser interaction. With our
-        standard 2.5 J/cm² fluence, we typically clear surface contaminants well, but deeply penetrated oils often
-        demand multiple passes. This fairly extends process time as the laser ablates contamination layer by layer.
-      metadata:
-        topic: the limitations of laser cleaning
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 10
-    - id: is-laser-cleaning-safe-for-historic
-      title: Is laser cleaning safe for historic concrete structures and monuments?
-      content: >-
-        Properly calibrated at about 2.5 J/cm², laser cleaning is fairly safe for historic concrete. This non-contact
-        method offers precise control, typically removing contaminants like soot or biological growth with minimal
-        substrate loss, aligning well with core conservation principles of preserving original material integrity.
-      metadata:
-        topic: laser cleaning safe for htoric
-        severity: high
-        acceptedAnswer: true
-        expertInfo:
-          name: Todd Dunning
-          title: MA
-          expertise:
-            - Optical Materials for Laser Systems
-      Display:
-        Open: false
-        order: 11
+  - id: can-laser-cleaning-remove-paint-and
+    title: Can laser cleaning remove paint and graffiti from concrete without damaging the surface?
+    content: Yes, laser cleaning pretty effectively removes paint and graffiti from concrete. By employing a 1064 nm wavelength
+      at 2.5 J/cm² fluence, it selectively ablates the coating while preserving the substrate. This approach typically avoids
+      the surface etching and aggregate exposure seen in abrasive methods like sandblasting.
+    metadata:
+      topic: laser cleaning remove paint and
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  - id: what-laser-settings-wavelength-power-pulse
+    title: What laser settings (wavelength, power, pulse duration) work best for concrete cleaning?
+    content: For concrete's heterogeneous makeup, I'd recommend a 1064 nm wavelength at about 100 W average power. Typically,
+      a fluence around 2.5 J/cm² with nanosecond pulses effectively removes contaminants while fairly mitigating thermal stress
+      on the aggregate and cement matrix, preserving substrate integrity.
+    metadata:
+      topic: laser settings (wavelength, power, pulse
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 2
+  - id: does-laser-cleaning-create-hazardous-dust
+    title: Does laser cleaning create hazardous dust when used on concrete, and how is it controlled?
+    content: Compared to abrasive blasting, laser cleaning produces significantly less respirable silica dust. Typically,
+      with our 100 W, 1064 nm settings, it basically generates coarse debris. Effective fume extraction remains essential
+      to manage the fine particulate produced.
+    metadata:
+      topic: laser cleaning create hazardous dust
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 3
+  - id: how-effective-is-laser-cleaning-for
+    title: How effective is laser cleaning for removing biological growth like mold or algae from concrete?
+    content: Laser cleaning pretty effectively removes surface biological growth at ~2.5 J/cm² by thermally denaturing contaminants.
+      It also sterilizes the concrete, typically preventing immediate regrowth. That said, its effect stays fairly limited
+      to the surface, with no penetration for deeply embedded organisms.
+    metadata:
+      topic: effective laser cleaning for removing
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 4
+  - id: can-laser-cleaning-be-used-on
+    title: Can laser cleaning be used on reinforced concrete without damaging the rebar?
+    content: When properly tuned, laser cleaning at 2.5 J/cm² pretty effectively removes contaminants from reinforced concrete.
+      This approach fairly well preserves the structural cover over rebar, preventing exposure while upholding the vital concrete-rebar
+      bond integrity under optimal parameters.
+    metadata:
+      topic: laser cleaning be used on
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 5
+  - id: what-is-the-typical-cleaning-rate
+    title: What is the typical cleaning rate (square meters per hour) for concrete surfaces with laser?
+    content: Typically, cleaning rates fall between 2 and 8 m² per hour with a 100 W laser at 1064 nm. Actual speeds depend
+      fairly heavily on contaminant type and surface texture, often requiring multiple passes at 2.5 J/cm² for full removal.
+    metadata:
+      topic: the typical cleaning rate (squ
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 6
+  - id: does-laser-cleaning-alter-the-surface
+    title: Does laser cleaning alter the surface profile or texture of concrete?
+    content: Properly tuned laser cleaning at 2.5 J/cm² basically removes contaminants without altering the concrete's micro-roughness.
+      That 1064 nm wavelength pretty much avoids glazing the aggregate, preserving the surface profile that's essential for
+      optimal coating adhesion.
+    metadata:
+      topic: laser cleaning alter the surface
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 7
+  - id: how-does-laser-cleaning-compare-to
+    title: How does laser cleaning compare to dry ice blasting for concrete restoration projects?
+    content: Laser ablation at 2.5 J/cm² pretty selectively removes contaminants without harming the concrete substrate, unlike
+      dry ice blasting. This delivers a superior, residue-free surface for better coating adhesion, though the upfront equipment
+      cost is fairly higher.
+    metadata:
+      topic: laser cleaning comp to dry
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 8
+  - id: can-laser-cleaning-remove-efflorescence-white
+    title: Can laser cleaning remove efflorescence (white salt deposits) from concrete surfaces?
+    content: Yeah, laser cleaning pretty effectively removes efflorescence by vaporizing surface salts at around 2.5 J/cm².
+      Basically, this beats chemical washes by clearing deposits without adding moisture, which is crucial for stopping their
+      quick return on porous concrete.
+    metadata:
+      topic: laser cleaning remove efflorescence (white
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 9
+  - id: what-are-the-limitations-of-laser
+    title: What are the limitations of laser cleaning for heavily contaminated or oil-stained concrete?
+    content: 'Heavily oil-stained concrete creates a pretty major limitation: the depth of laser interaction. With our standard
+      2.5 J/cm² fluence, we typically clear surface contaminants well, but deeply penetrated oils often demand multiple passes.
+      This fairly extends process time as the laser ablates contamination layer by layer.'
+    metadata:
+      topic: the limitations of laser cleaning
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 10
+  - id: is-laser-cleaning-safe-for-historic
+    title: Is laser cleaning safe for historic concrete structures and monuments?
+    content: Properly calibrated at about 2.5 J/cm², laser cleaning is fairly safe for historic concrete. This non-contact
+      method offers precise control, typically removing contaminants like soot or biological growth with minimal substrate
+      loss, aligning well with core conservation principles of preserving original material integrity.
+    metadata:
+      topic: laser cleaning safe for htoric
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: false
+      order: 11
   options:
     autoOpenFirst: true
     sortBy: severity
@@ -481,440 +468,586 @@ relationships:
     contaminatedBy:
       presentation: card
       items:
-        - id: algae-growth-contamination
-          name: Algae and Lichen Growth
-          category: biological
-          subcategory: growth
-          url: /contaminants/biological/growth/algae-growth-contamination
-          image: /images/contaminant/algae-growth-contamination-hero.jpg
-          description: >-
-            Algae-growth contamination, it manifests uniquely in humid environments, where biological layers adhere
-            tenaciously to surfaces exposed to moisture. This contamination, dependent from regional patt...
-          frequency: moderate
-          severity: moderate
-        - id: asbestos-coating-contamination
-          name: Asbestos-Containing Material
-          category: inorganic-coating
-          subcategory: hazardous
-          url: /contaminants/inorganic-coating/hazardous/asbestos-coating-contamination
-          image: /images/contaminant/asbestos-coating-contamination-hero.jpg
-          description: >-
-            Asbestos-coating-contamination differs from organic residues because it forms dense, fibrous layers on metal
-            surfaces during industrial exposure. Layer builds up tightly and resists initial breakdo...
-          frequency: moderate
-          severity: moderate
-        - id: biological-stains-contamination
-          name: Organic Biofilm Deposits
-          category: biological
-          subcategory: deposit
-          url: /contaminants/biological/deposit/biological-stains-contamination
-          image: /images/contaminant/biological-stains-contamination-hero.jpg
-          description: >-
-            Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
-            Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
-          frequency: moderate
-          severity: moderate
-        - id: bitumen-tar-contamination
-          name: Bitumen and Tar Coatings
-          category: organic-residue
-          subcategory: petroleum
-          url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
-          image: /images/contaminant/bitumen-tar-contamination-hero.jpg
-          description: >-
-            Bitumen-tar contamination forms sticky organic residue on surfaces during industrial exposure and road
-            contact. Layer adheres strongly because it penetrates pores and creates uneven buildup. After ...
-          frequency: moderate
-          severity: moderate
-        - id: carbon-soot-contamination
-          name: Carbon Soot Deposits
-          category: organic-residue
-          subcategory: other
-          url: /contaminants/organic-residue/other/carbon-soot-contamination
-          image: /images/contaminant/carbon-soot-contamination-hero.jpg
-          description: >-
-            Carbon-soot contamination, it emerges from incomplete combustion processes and deposits as irregular, porous
-            layers on material surfaces. Formation patterns reveal unique regional variations, where...
-          frequency: moderate
-          severity: moderate
-        - id: chemical-stains-contamination
-          name: Chemical Stains / Acid Etching
-          category: chemical-residue
-          subcategory: industrial
-          url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
-          image: /images/contaminant/chemical-stains-contamination-hero.jpg
-          description: >-
-            Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in laser
-            cleaning applications. Formation patterns of this contamination, they arise from residue...
-          frequency: moderate
-          severity: moderate
-        - id: concrete-dust-contamination
-          name: Concrete Dust Deposits
-          category: inorganic-coating
-          subcategory: mineral
-          url: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
-          image: /images/contaminant/concrete-dust-contamination-hero.jpg
-          description: >-
-            Adhesiveness of concrete dust contamination, it embeds deeply into surfaces during construction exposure.
-            This inorganic coating forms uneven layers and thus clings to substrates like metal or ston...
-          frequency: moderate
-          severity: moderate
-        - id: efflorescence-contamination
-          name: Concrete Efflorescence
-          category: inorganic-coating
-          subcategory: mineral
-          url: /contaminants/inorganic-coating/mineral/efflorescence-contamination
-          image: /images/contaminant/efflorescence-contamination-hero.jpg
-          description: >-
-            Efflorescence contamination arises as salts migrate through porous materials like stone or concrete. Water
-            draws these minerals to the surface, where they crystallize into white, powdery deposits. ...
-          frequency: moderate
-          severity: moderate
-        - id: epoxy-residue-contamination
-          name: Epoxy Resin Deposits
-          category: organic-residue
-          subcategory: adhesive
-          url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
-          image: /images/contaminant/epoxy-residue-contamination-hero.jpg
-          description: >-
-            Epoxy residue differs from inorganic contaminants so laser cleaning faces unique challenges. Formation
-            occurs during adhesive curing and leaves sticky layers on metal surfaces. These layers bond ti...
-          frequency: moderate
-          severity: moderate
-        - id: fertilizer-residue-contamination
-          name: Fertilizer Salt Deposits
-          category: chemical-residue
-          subcategory: industrial
-          url: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
-          image: /images/contaminant/fertilizer-residue-contamination-hero.jpg
-          description: >-
-            Fertilizer residue contamination, it forms through deposition of crystalline salts and organic compounds on
-            industrial surfaces, influenced from environmental humidity and prolonged exposure. These...
-          frequency: moderate
-          severity: moderate
-        - id: fire-damage-contamination
-          name: Fire and Smoke Damage
-          category: thermal-damage
-          subcategory: fire
-          url: /contaminants/thermal-damage/fire/fire-damage-contamination
-          image: /images/contaminant/fire-damage-contamination-hero.jpg
-          description: >-
-            Fire-damage-contamination, it arises from intense heat exposure and leaves charred residues on surfaces.
-            Steel substrates versus wood materials, contamination patterns differ sharply—steel develops...
-          frequency: moderate
-          severity: moderate
-        - id: graffiti-paint-contamination
-          name: Graffiti and Spray Paint
-          category: inorganic-coating
-          subcategory: paint
-          url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
-          image: /images/contaminant/graffiti-paint-contamination-hero.jpg
-          description: >-
-            Graffiti paint contamination poses a tough challenge in urban settings, where artists spray quick layers
-            that build up unevenly on surfaces like concrete walls or metal signs. This inorganic coatin...
-          frequency: moderate
-          severity: moderate
-        - id: graphite-marks-contamination
-          name: Graphite Deposit Traces
-          category: organic-residue
-          subcategory: marking
-          url: /contaminants/organic-residue/marking/graphite-marks-contamination
-          image: /images/contaminant/graphite-marks-contamination-hero.jpg
-          description: >-
-            Graphite marks stand out from typical organic residues because they form through direct pencil-like scoring
-            on surfaces, leaving behind fine, layered carbon streaks that cling tightly. These patter...
-          frequency: moderate
-          severity: moderate
-        - id: hydraulic-fluid-contamination
-          name: Hydraulic Fluid Contamination
-          category: organic-residue
-          subcategory: petroleum
-          url: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
-          image: /images/contaminant/hydraulic-fluid-contamination-hero.jpg
-          description: >-
-            Hydraulic fluid contamination, it arises primarily from leaks in machinery, forming tenacious organic films
-            on surfaces. This residue, dependent from exposure to air and moisture, exhibits a viscou...
-          frequency: moderate
-          severity: moderate
-        - id: industrial-oil-contamination
-          name: Industrial Oil / Grease Buildup
-          category: organic-residue
-          subcategory: petroleum
-          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-          image: /images/contaminant/industrial-oil-contamination-hero.jpg
-          description: >-
-            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-          frequency: moderate
-          severity: moderate
-        - id: ink-stains-contamination
-          name: Printing Ink Residue
-          category: organic-residue
-          subcategory: marking
-          url: /contaminants/organic-residue/marking/ink-stains-contamination
-          image: /images/contaminant/ink-stains-contamination-hero.jpg
-          description: >-
-            Ink stains contamination, it forms through droplet spreading and penetration on surfaces. Unique patterns
-            emerge as blotchy clusters and irregular halos, especially on porous substrates like paper ...
-          frequency: moderate
-          severity: moderate
-        - id: lead-paint-contamination
-          name: Lead-Based Paint Removal
-          category: inorganic-coating
-          subcategory: paint
-          url: /contaminants/inorganic-coating/paint/lead-paint-contamination
-          image: /images/contaminant/lead-paint-contamination-hero.jpg
-          description: >-
-            Lead-paint contamination forms as durable inorganic coating on old surfaces. Before cleaning, layer adheres
-            tightly to substrates like wood or metal, so removal demands care. Process exhibits uniqu...
-          frequency: moderate
-          severity: moderate
-        - id: mercury-contamination
-          name: Mercury Spill Residue
-          category: chemical-residue
-          subcategory: hazardous
-          url: /contaminants/chemical-residue/hazardous/mercury-contamination
-          image: /images/contaminant/mercury-contamination-hero.jpg
-          description: >-
-            Mercury contamination forms during industrial processes on metal surfaces, and residues deposit unevenly
-            because vapor exposure creates thin films. Before cleaning, contamination spreads in irregul...
-          frequency: moderate
-          severity: moderate
-        - id: mineral-stain-contamination
-          name: Mineral Staining
-          category: inorganic-coating
-          subcategory: mineral
-          url: /contaminants/inorganic-coating/mineral/mineral-stain-contamination
-          image: /images/contaminant/mineral-stain-contamination-hero.jpg
-          description: >-
-            Mineral-stain contamination, it manifests as inorganic coatings from environmental deposition. These stains
-            form unique patterns, dependent from regional humidity and mineral sources, creating patc...
-          frequency: moderate
-          severity: moderate
-        - id: mold-mildew-contamination
-          name: Mold and Mildew Growth
-          category: biological
-          subcategory: growth
-          url: /contaminants/biological/growth/mold-mildew-contamination
-          image: /images/contaminant/mold-mildew-contamination-hero.jpg
-          description: >-
-            Mold contamination forms irregularly on damp surfaces. Spores settle and grow fast in humid conditions,
-            creating patchy layers. Before cleaning, buildup clings tightly to porous materials like wood...
-          frequency: moderate
-          severity: moderate
-        - id: paint-residue-contamination
-          name: Paint Residue / Coating Failure
-          category: inorganic-coating
-          subcategory: paint
-          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-          image: /images/contaminant/paint-residue-contamination-hero.jpg
-          description: >-
-            Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
-            irregular patterns, like patchy layers from uneven paint application and environmental wea...
-          frequency: moderate
-          severity: moderate
-        - id: pcb-contamination
-          name: PCB Oil Contamination
-          category: chemical-residue
-          subcategory: industrial
-          url: /contaminants/chemical-residue/industrial/pcb-contamination
-          image: /images/contaminant/pcb-contamination-hero.jpg
-          description: >-
-            Contamination on PCBs forms during soldering process and handling. Residues like flux and oils stick to
-            copper traces and boards. After exposure, layer builds unevenly because board topography trap...
-          frequency: moderate
-          severity: moderate
-        - id: pesticide-residue-contamination
-          name: Pesticide Chemical Residue
-          category: chemical-residue
-          subcategory: industrial
-          url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
-          image: /images/contaminant/pesticide-residue-contamination-hero.jpg
-          description: >-
-            Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
-            layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
-          frequency: moderate
-          severity: moderate
-        - id: plastic-residue-contamination
-          name: Degraded Polymer Deposits
-          category: organic-residue
-          subcategory: polymer
-          url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-          image: /images/contaminant/plastic-residue-contamination-hero.jpg
-          description: >-
-            Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
-            films that adhere tenaciously to substrates. This contamination, derived from organic re...
-          frequency: moderate
-          severity: moderate
-        - id: radioactive-contamination
-          name: Surface Radioactive Contamination
-          category: chemical-residue
-          subcategory: hazardous
-          url: /contaminants/chemical-residue/hazardous/radioactive-contamination
-          image: /images/contaminant/radioactive-contamination-hero.jpg
-          description: >-
-            Radioactive contamination manifests as adherent layers of radionuclides, which form unevenly on surfaces
-            during exposure to fallout or spills. This contamination, it persists tenaciously on metals,...
-          frequency: moderate
-          severity: moderate
-        - id: rubber-residue-contamination
-          name: Rubber Compound Residue
-          category: organic-residue
-          subcategory: polymer
-          url: /contaminants/organic-residue/polymer/rubber-residue-contamination
-          image: /images/contaminant/rubber-residue-contamination-hero.jpg
-          description: >-
-            Rubber residue contamination forms sticky layers on surfaces during processing. Before cleaning, buildup
-            adheres tightly because rubber compounds polymerize under heat and pressure. This creates un...
-          frequency: moderate
-          severity: moderate
-        - id: salt-residue-contamination
-          name: Salt and Chloride Deposits
-          category: inorganic-coating
-          subcategory: mineral
-          url: /contaminants/inorganic-coating/mineral/salt-residue-contamination
-          image: /images/contaminant/salt-residue-contamination-hero.jpg
-          description: >-
-            Salt residues form tricky patterns on surfaces exposed to harsh environments, like coastal machinery or
-            salted roads. They build up in crystalline layers that cling tight to metals and stone, often...
-          frequency: moderate
-          severity: moderate
-        - id: scale-buildup-contamination
-          name: Mineral Scale / Hard Water Deposits
-          category: thermal-damage
-          subcategory: scale
-          url: /contaminants/thermal-damage/scale/scale-buildup-contamination
-          image: /images/contaminant/scale-buildup-contamination-hero.jpg
-          description: >-
-            Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary. On
-            steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
-          frequency: moderate
-          severity: moderate
-        - id: silicone-buildup-contamination
-          name: Silicone Sealant Buildup
-          category: organic-residue
-          subcategory: adhesive
-          url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
-          image: /images/contaminant/silicone-buildup-contamination-hero.jpg
-          description: >-
-            Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors and
-            residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
-          frequency: moderate
-          severity: moderate
-        - id: uranium-oxide-contamination
-          name: Depleted Uranium Oxide
-          category: chemical-residue
-          subcategory: hazardous
-          url: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
-          image: /images/contaminant/uranium-oxide-contamination-hero.jpg
-          description: >-
-            Uranium-oxide contamination forms during exposure to oxidizing environments. Layer builds up on uranium
-            surfaces and creates uneven patterns because of varying oxygen access. In observations, conta...
-          frequency: moderate
-          severity: moderate
-        - id: water-stain-contamination
-          name: Water Staining and Marks
-          category: organic-residue
-          subcategory: other
-          url: /contaminants/organic-residue/other/water-stain-contamination
-          image: /images/contaminant/water-stain-contamination-hero.jpg
-          description: >-
-            Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios. On
-            porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
-          frequency: moderate
-          severity: moderate
+      - id: algae-growth-contamination
+        name: Algae and Lichen Growth
+        category: biological
+        subcategory: growth
+        url: /contaminants/biological/growth/algae-growth-contamination
+        image: /images/contaminant/algae-growth-contamination-hero.jpg
+        description: Algae-growth contamination, it manifests uniquely in humid environments, where biological layers adhere
+          tenaciously to surfaces exposed to moisture. This contamination, dependent from regional patt...
+        frequency: moderate
+        severity: moderate
+      - id: asbestos-coating-contamination
+        name: Asbestos-Containing Material
+        category: inorganic-coating
+        subcategory: hazardous
+        url: /contaminants/inorganic-coating/hazardous/asbestos-coating-contamination
+        image: /images/contaminant/asbestos-coating-contamination-hero.jpg
+        description: Asbestos-coating-contamination differs from organic residues because it forms dense, fibrous layers on
+          metal surfaces during industrial exposure. Layer builds up tightly and resists initial breakdo...
+        frequency: moderate
+        severity: moderate
+      - id: biological-stains-contamination
+        name: Organic Biofilm Deposits
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/biological-stains-contamination
+        image: /images/contaminant/biological-stains-contamination-hero.jpg
+        description: Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
+          Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
+        frequency: moderate
+        severity: moderate
+      - id: bitumen-tar-contamination
+        name: Bitumen and Tar Coatings
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+        image: /images/contaminant/bitumen-tar-contamination-hero.jpg
+        description: Bitumen-tar contamination forms sticky organic residue on surfaces during industrial exposure and road
+          contact. Layer adheres strongly because it penetrates pores and creates uneven buildup. After ...
+        frequency: moderate
+        severity: moderate
+      - id: carbon-soot-contamination
+        name: Carbon Soot Deposits
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-soot-contamination
+        image: /images/contaminant/carbon-soot-contamination-hero.jpg
+        description: Carbon-soot contamination, it emerges from incomplete combustion processes and deposits as irregular,
+          porous layers on material surfaces. Formation patterns reveal unique regional variations, where...
+        frequency: moderate
+        severity: moderate
+      - id: chemical-stains-contamination
+        name: Chemical Stains / Acid Etching
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+        image: /images/contaminant/chemical-stains-contamination-hero.jpg
+        description: Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in
+          laser cleaning applications. Formation patterns of this contamination, they arise from residue...
+        frequency: moderate
+        severity: moderate
+      - id: concrete-dust-contamination
+        name: Concrete Dust Deposits
+        category: inorganic-coating
+        subcategory: mineral
+        url: /contaminants/inorganic-coating/mineral/concrete-dust-contamination
+        image: /images/contaminant/concrete-dust-contamination-hero.jpg
+        description: Adhesiveness of concrete dust contamination, it embeds deeply into surfaces during construction exposure.
+          This inorganic coating forms uneven layers and thus clings to substrates like metal or ston...
+        frequency: moderate
+        severity: moderate
+      - id: efflorescence-contamination
+        name: Concrete Efflorescence
+        category: inorganic-coating
+        subcategory: mineral
+        url: /contaminants/inorganic-coating/mineral/efflorescence-contamination
+        image: /images/contaminant/efflorescence-contamination-hero.jpg
+        description: Efflorescence contamination arises as salts migrate through porous materials like stone or concrete.
+          Water draws these minerals to the surface, where they crystallize into white, powdery deposits. ...
+        frequency: moderate
+        severity: moderate
+      - id: epoxy-residue-contamination
+        name: Epoxy Resin Deposits
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+        image: /images/contaminant/epoxy-residue-contamination-hero.jpg
+        description: Epoxy residue differs from inorganic contaminants so laser cleaning faces unique challenges. Formation
+          occurs during adhesive curing and leaves sticky layers on metal surfaces. These layers bond ti...
+        frequency: moderate
+        severity: moderate
+      - id: fertilizer-residue-contamination
+        name: Fertilizer Salt Deposits
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
+        image: /images/contaminant/fertilizer-residue-contamination-hero.jpg
+        description: Fertilizer residue contamination, it forms through deposition of crystalline salts and organic compounds
+          on industrial surfaces, influenced from environmental humidity and prolonged exposure. These...
+        frequency: moderate
+        severity: moderate
+      - id: fire-damage-contamination
+        name: Fire and Smoke Damage
+        category: thermal-damage
+        subcategory: fire
+        url: /contaminants/thermal-damage/fire/fire-damage-contamination
+        image: /images/contaminant/fire-damage-contamination-hero.jpg
+        description: Fire-damage-contamination, it arises from intense heat exposure and leaves charred residues on surfaces.
+          Steel substrates versus wood materials, contamination patterns differ sharply—steel develops...
+        frequency: moderate
+        severity: moderate
+      - id: graffiti-paint-contamination
+        name: Graffiti and Spray Paint
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+        image: /images/contaminant/graffiti-paint-contamination-hero.jpg
+        description: Graffiti paint contamination poses a tough challenge in urban settings, where artists spray quick layers
+          that build up unevenly on surfaces like concrete walls or metal signs. This inorganic coatin...
+        frequency: moderate
+        severity: moderate
+      - id: graphite-marks-contamination
+        name: Graphite Deposit Traces
+        category: organic-residue
+        subcategory: marking
+        url: /contaminants/organic-residue/marking/graphite-marks-contamination
+        image: /images/contaminant/graphite-marks-contamination-hero.jpg
+        description: Graphite marks stand out from typical organic residues because they form through direct pencil-like scoring
+          on surfaces, leaving behind fine, layered carbon streaks that cling tightly. These patter...
+        frequency: moderate
+        severity: moderate
+      - id: hydraulic-fluid-contamination
+        name: Hydraulic Fluid Contamination
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/hydraulic-fluid-contamination
+        image: /images/contaminant/hydraulic-fluid-contamination-hero.jpg
+        description: Hydraulic fluid contamination, it arises primarily from leaks in machinery, forming tenacious organic
+          films on surfaces. This residue, dependent from exposure to air and moisture, exhibits a viscou...
+        frequency: moderate
+        severity: moderate
+      - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+        frequency: moderate
+        severity: moderate
+      - id: ink-stains-contamination
+        name: Printing Ink Residue
+        category: organic-residue
+        subcategory: marking
+        url: /contaminants/organic-residue/marking/ink-stains-contamination
+        image: /images/contaminant/ink-stains-contamination-hero.jpg
+        description: Ink stains contamination, it forms through droplet spreading and penetration on surfaces. Unique patterns
+          emerge as blotchy clusters and irregular halos, especially on porous substrates like paper ...
+        frequency: moderate
+        severity: moderate
+      - id: lead-paint-contamination
+        name: Lead-Based Paint Removal
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/lead-paint-contamination
+        image: /images/contaminant/lead-paint-contamination-hero.jpg
+        description: Lead-paint contamination forms as durable inorganic coating on old surfaces. Before cleaning, layer adheres
+          tightly to substrates like wood or metal, so removal demands care. Process exhibits uniqu...
+        frequency: moderate
+        severity: moderate
+      - id: mercury-contamination
+        name: Mercury Spill Residue
+        category: chemical-residue
+        subcategory: hazardous
+        url: /contaminants/chemical-residue/hazardous/mercury-contamination
+        image: /images/contaminant/mercury-contamination-hero.jpg
+        description: Mercury contamination forms during industrial processes on metal surfaces, and residues deposit unevenly
+          because vapor exposure creates thin films. Before cleaning, contamination spreads in irregul...
+        frequency: moderate
+        severity: moderate
+      - id: mineral-stain-contamination
+        name: Mineral Staining
+        category: inorganic-coating
+        subcategory: mineral
+        url: /contaminants/inorganic-coating/mineral/mineral-stain-contamination
+        image: /images/contaminant/mineral-stain-contamination-hero.jpg
+        description: Mineral-stain contamination, it manifests as inorganic coatings from environmental deposition. These
+          stains form unique patterns, dependent from regional humidity and mineral sources, creating patc...
+        frequency: moderate
+        severity: moderate
+      - id: mold-mildew-contamination
+        name: Mold and Mildew Growth
+        category: biological
+        subcategory: growth
+        url: /contaminants/biological/growth/mold-mildew-contamination
+        image: /images/contaminant/mold-mildew-contamination-hero.jpg
+        description: Mold contamination forms irregularly on damp surfaces. Spores settle and grow fast in humid conditions,
+          creating patchy layers. Before cleaning, buildup clings tightly to porous materials like wood...
+        frequency: moderate
+        severity: moderate
+      - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
+          irregular patterns, like patchy layers from uneven paint application and environmental wea...
+        frequency: moderate
+        severity: moderate
+      - id: pcb-contamination
+        name: PCB Oil Contamination
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pcb-contamination
+        image: /images/contaminant/pcb-contamination-hero.jpg
+        description: Contamination on PCBs forms during soldering process and handling. Residues like flux and oils stick
+          to copper traces and boards. After exposure, layer builds unevenly because board topography trap...
+        frequency: moderate
+        severity: moderate
+      - id: pesticide-residue-contamination
+        name: Pesticide Chemical Residue
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
+        image: /images/contaminant/pesticide-residue-contamination-hero.jpg
+        description: Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
+          layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
+        frequency: moderate
+        severity: moderate
+      - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
+          films that adhere tenaciously to substrates. This contamination, derived from organic re...
+        frequency: moderate
+        severity: moderate
+      - id: radioactive-contamination
+        name: Surface Radioactive Contamination
+        category: chemical-residue
+        subcategory: hazardous
+        url: /contaminants/chemical-residue/hazardous/radioactive-contamination
+        image: /images/contaminant/radioactive-contamination-hero.jpg
+        description: Radioactive contamination manifests as adherent layers of radionuclides, which form unevenly on surfaces
+          during exposure to fallout or spills. This contamination, it persists tenaciously on metals,...
+        frequency: moderate
+        severity: moderate
+      - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: Rubber residue contamination forms sticky layers on surfaces during processing. Before cleaning, buildup
+          adheres tightly because rubber compounds polymerize under heat and pressure. This creates un...
+        frequency: moderate
+        severity: moderate
+      - id: salt-residue-contamination
+        name: Salt and Chloride Deposits
+        category: inorganic-coating
+        subcategory: mineral
+        url: /contaminants/inorganic-coating/mineral/salt-residue-contamination
+        image: /images/contaminant/salt-residue-contamination-hero.jpg
+        description: Salt residues form tricky patterns on surfaces exposed to harsh environments, like coastal machinery
+          or salted roads. They build up in crystalline layers that cling tight to metals and stone, often...
+        frequency: moderate
+        severity: moderate
+      - id: scale-buildup-contamination
+        name: Mineral Scale / Hard Water Deposits
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/scale-buildup-contamination
+        image: /images/contaminant/scale-buildup-contamination-hero.jpg
+        description: Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary.
+          On steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
+        frequency: moderate
+        severity: moderate
+      - id: silicone-buildup-contamination
+        name: Silicone Sealant Buildup
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+        image: /images/contaminant/silicone-buildup-contamination-hero.jpg
+        description: Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors
+          and residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
+        frequency: moderate
+        severity: moderate
+      - id: uranium-oxide-contamination
+        name: Depleted Uranium Oxide
+        category: chemical-residue
+        subcategory: hazardous
+        url: /contaminants/chemical-residue/hazardous/uranium-oxide-contamination
+        image: /images/contaminant/uranium-oxide-contamination-hero.jpg
+        description: Uranium-oxide contamination forms during exposure to oxidizing environments. Layer builds up on uranium
+          surfaces and creates uneven patterns because of varying oxygen access. In observations, conta...
+        frequency: moderate
+        severity: moderate
+      - id: water-stain-contamination
+        name: Water Staining and Marks
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/water-stain-contamination
+        image: /images/contaminant/water-stain-contamination-hero.jpg
+        description: Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios.
+          On porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
+        frequency: moderate
+        severity: moderate
       _section:
-        icon: droplet
-        order: 10
-        variant: default
-        relationshipType: contaminatedBy
-        group: interactions
-        domain: materials
-        schemaDescription: Common contaminants found on this material
-        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
+          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-        - id: civil-infrastructure
-          name: Civil Infrastructure
-        - id: nuclear-decommissioning
-          name: Nuclear Decommissioning
-        - id: marine-structures
-          name: Marine Structures
-        - id: historical-preservation
-          name: Historical Preservation
-        - id: industrial-flooring
-          name: Industrial Flooring
-        - id: parking-structures
-          name: Parking Structures
-        - id: food-processing
-          name: Food Processing
-        - id: transportation-infrastructure
-          name: Transportation Infrastructure
-        - id: water-treatment-facilities
-          name: Water Treatment Facilities
-        - id: power-generation
-          name: Power Generation
+      - id: civil-infrastructure
+        name: Civil Infrastructure
+      - id: nuclear-decommissioning
+        name: Nuclear Decommissioning
+      - id: marine-structures
+        name: Marine Structures
+      - id: historical-preservation
+        name: Historical Preservation
+      - id: industrial-flooring
+        name: Industrial Flooring
+      - id: parking-structures
+        name: Parking Structures
+      - id: food-processing
+        name: Food Processing
+      - id: transportation-infrastructure
+        name: Transportation Infrastructure
+      - id: water-treatment-facilities
+        name: Water Treatment Facilities
+      - id: power-generation
+        name: Power Generation
       _section:
-        icon: briefcase
-        order: 40
-        variant: default
-        relationshipType: industryApplications
-        group: operational
-        domain: materials
-        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        icon: building
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-          image: /images/logo/logo-org-fda.png
-          longName: Food and Drug Administration
-          name: FDA
-          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-        - description: ANSI Z136.1 - Safe Use of Lasers
-          image: /images/logo/logo-org-ansi.png
-          longName: American National Standards Institute
-          name: ANSI
-          url: https://webstore.ansi.org/standards/lia/ansiz1362022
-        - description: IEC 60825 - Safety of Laser Products
-          image: /images/logo/logo-org-iec.png
-          longName: International Electrotechnical Commission
-          name: IEC
-          url: https://webstore.iec.ch/publication/3587
-        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-          image: /images/logo/logo-org-osha.png
-          longName: Occupational Safety and Health Administration
-          name: OSHA
-          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: materials
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
 contamination:
   valid:
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
-    - paint_residue
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
+  - paint_residue
   prohibited:
-    - rust_oxidation
-    - copper_patina
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
+  - rust_oxidation
+  - copper_patina
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
   conditional: {}
-pageDescription: >-
-  When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and restore
+pageDescription: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and restore
   durability, all while preserving its structural integrity.
+materialCharacteristics:
+  label: Material Characteristics
+  percentage: 60.0
+  fractureToughness:
+    value: 0.7
+    unit: MPa m^{1/2}
+    confidence: 95
+    source: ai_research
+  density:
+    value: 2400.0
+    unit: kg/m³
+    confidence: 95
+    source: ai_research
+  oxidationResistance:
+    value: 0.98
+    unit: dimensionless
+    confidence: 95
+    source: ai_research
+  youngsModulus:
+    value: 30.0
+    unit: GPa
+    confidence: 95
+    source: ai_research
+  hardness:
+    value: 0.4
+    unit: GPa
+    confidence: 95
+    source: ai_research
+  compressiveStrength:
+    value: 25.0
+    unit: MPa
+    confidence: 95
+    source: ai_research
+  tensileStrength:
+    value: 3.2
+    unit: MPa
+    confidence: 95
+    source: ai_research
+  flexuralStrength:
+    value: 4.2
+    unit: MPa
+    confidence: 95
+    source: ai_research
+  corrosionResistance:
+    value: 300.0
+    unit: Ω·m
+    confidence: 95
+    source: ai_research
+  laserDamageThreshold:
+    value: 4.2
+    unit: J/cm²
+    source: scientific_literature
+    sourceType: journal_article
+    sourceName: 'Laser cleaning of concrete surfaces: Damage thresholds and ablation mechanisms'
+    citation: 'Pini, R., et al., Applied Surface Science, 2001, DOI: 10.1016/S0169-4332(01)00485-7'
+    context: Ordinary Portland cement concrete (OPC, aggregate size 5-20 mm), 1064 nm Nd:YAG laser, room temperature (25°C),
+      pulse duration 10 ns, atmospheric pressure
+    confidence: 95
+    researchedDate: '2025-11-24T11:55:18.938620'
+    needsValidation: true
+  _section:
+    sectionTitle: Concrete's Core Properties
+    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
+      material integrity
+    icon: wrench
+    order: 50
+    variant: default
+laserMaterialInteraction:
+  label: Laser-Material Interaction
+  percentage: 40.0
+  absorptivity:
+    value: 0.75
+    unit: dimensionless
+    min: 0.6
+    max: 0.9
+    source: ai_research
+  absorptionCoefficient:
+    value: 50000
+    unit: m⁻¹
+    min: 10000
+    max: 100000
+    source: ai_research
+  laserDamageThreshold:
+    value: 8
+    unit: J/cm²
+    min: 5
+    max: 15
+    source: ai_research
+  thermalShockResistance:
+    value: 1.5
+    unit: MW/m
+    min: 1
+    max: 2
+    source: ai_research
+  reflectivity:
+    value: 0.25
+    unit: dimensionless
+    min: 0.1
+    max: 0.4
+    source: ai_research
+  thermalDestructionPoint:
+    value: 1000
+    unit: K
+    min: 800
+    max: 1200
+    source: ai_research
+  vaporPressure:
+    value: 10
+    unit: Pa
+    min: 1
+    max: 100
+    source: ai_research
+  thermalDestruction:
+    value: 773.0
+    unit: K
+    confidence: 95
+    source: ai_research
+  laserReflectivity:
+    value: 0.35
+    unit: '%'
+    confidence: 95
+    source: ai_research
+  thermalExpansion:
+    value: 1.2e-05
+    unit: K^{-1}
+    confidence: 95
+    source: ai_research
+  thermalConductivity:
+    value: 1.4
+    unit: W/m·K
+    confidence: 95
+    source: ai_research
+  specificHeat:
+    value: 880.0
+    unit: J/(kg·K)
+    confidence: 95
+    source: ai_research
+  laserAbsorption:
+    value: 0.9
+    unit: dimensionless
+    confidence: 95
+    source: ai_research
+  thermalDiffusivity:
+    value: 5.0e-07
+    unit: m²/s
+    confidence: 95
+    source: ai_research
+  ablationThreshold:
+    value: 3.2
+    unit: J/cm²
+    source: scientific_literature
+    sourceType: journal_article
+    sourceName: Laser ablation of cement-based materials using a 1064 nm Nd:YAG laser
+    citation: 'P. Pou et al., Optics and Lasers in Engineering, 2000, DOI: 10.1016/S0143-8166(99)00078-5'
+    context: Standard Portland cement concrete (OPC, aggregate size 5-20 mm), room temperature (25°C), 1064 nm Nd:YAG laser,
+      7 ns pulse duration, atmospheric pressure
+    confidence: 95
+    researchedDate: '2025-11-24T11:55:28.526883'
+    needsValidation: true
+  _section:
+    sectionTitle: Laser Interaction Behavior
+    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
+      thresholds
+    icon: zap
+    order: 60
+    variant: default

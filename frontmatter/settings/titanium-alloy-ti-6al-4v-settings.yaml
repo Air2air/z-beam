@@ -4,21 +4,22 @@ displayName: Titanium Alloy (Ti-6Al-4V) Laser Cleaning Settings
 category: metal
 subcategory: alloy
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:16.159438+00:00'
+dateModified: '2026-01-19T02:42:27.170298+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/alloy/titanium-alloy-ti-6al-4v-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Metal
-    href: /settings/metal
-  - label: Alloy
-    href: /settings/metal/alloy
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Alloy
+  href: /settings/metal/alloy
 pageTitle: Titanium Alloy (Ti-6Al-4V)
-pageDescription: Before laser cleaning, Titanium Alloy (Ti-6Al-4V) surfaces require careful parameter selection After cleaning, Titanium Alloy (Ti-6Al-4V) surfaces show restored appearance with controlled parameters
+pageDescription: Before laser cleaning, Titanium Alloy (Ti-6Al-4V) surfaces require careful parameter selection After cleaning,
+  Titanium Alloy (Ti-6Al-4V) surfaces show restored appearance with controlled parameters
 metaDescription: Titanium Alloy (Ti-6Al-4V) laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,23 +41,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-    - Laser Materials Processing
+  - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-    - Ph.D. Materials Engineering, National Taiwan University, 2018
-    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-    - 3+ years in laser processing R&D
-    - Assisted in projects on ultrafast laser applications
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-    - https://scholar.google.com/citations?user=ghi789
-    - https://linkedin.com/in/yi-chun-lin-engineer
-    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   personaFile: taiwan_persona.yaml
   formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
@@ -66,7 +67,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -78,71 +79,87 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: titanium-laser-cleaning
-          effectiveness: high
+      - id: titanium-laser-cleaning
+        effectiveness: high
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - - Requires careful power calibration to prevent material damage
-          - Monitor surface temperature during processing
-          - Verify cleaning effectiveness through inspection
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     value: 1064
@@ -155,53 +172,71 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter range for focused cleaning; 200 μm recommended for Ti-6Al-4V surface preparation to balance resolution and coverage, smaller for fine details, larger for broad areas; ensures uniform fluence on reflective surfaces; source: Equipment specs from IPG Photonics YLR series and Surface and Coatings Technology (2019).'
+    description: 'Beam diameter range for focused cleaning; 200 μm recommended for Ti-6Al-4V surface preparation to balance
+      resolution and coverage, smaller for fine details, larger for broad areas; ensures uniform fluence on reflective surfaces;
+      source: Equipment specs from IPG Photonics YLR series and Surface and Coatings Technology (2019).'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
-    value: 1
-    description: 'Fluence range for safe contaminant ablation; damage threshold ~1.5-2 J/cm² for ns pulses on Ti-6Al-4V, recommended 1.0 J/cm² for cleaning without substrate melting or oxidation; conservative due to low thermal diffusivity; source: Ablation threshold studies in Journal of Applied Physics (2017) and Optik (2022).'
+    value: 1.0
+    description: 'Fluence range for safe contaminant ablation; damage threshold ~1.5-2 J/cm² for ns pulses on Ti-6Al-4V, recommended
+      1.0 J/cm² for cleaning without substrate melting or oxidation; conservative due to low thermal diffusivity; source:
+      Ablation threshold studies in Journal of Applied Physics (2017) and Optik (2022).'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning; 20 ns recommended to minimize heat-affected zone (HAZ <10 μm) on heat-sensitive Ti-6Al-4V, avoiding picosecond/femtosecond unless precision required (which increase cost); ns sufficient for contamination removal without plasma shielding issues; source: Laser physics in Applied Surface Science (2019) on ablation thresholds for Ti alloys.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning; 20 ns recommended to minimize heat-affected zone
+      (HAZ <10 μm) on heat-sensitive Ti-6Al-4V, avoiding picosecond/femtosecond unless precision required (which increase
+      cost); ns sufficient for contamination removal without plasma shielding issues; source: Laser physics in Applied Surface
+      Science (2019) on ablation thresholds for Ti alloys.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: 'Effective range for ablation of surface contaminants; 2000 mm/s recommended for optimal balance of removal efficiency and minimal HAZ on reflective Ti-6Al-4V; slower (500-1000 mm/s) for heavy contamination like oxides, faster for light residues; source: Industry standards from Laserax equipment guidelines and Journal of Laser Applications (2020).'
+    description: 'Effective range for ablation of surface contaminants; 2000 mm/s recommended for optimal balance of removal
+      efficiency and minimal HAZ on reflective Ti-6Al-4V; slower (500-1000 mm/s) for heavy contamination like oxides, faster
+      for light residues; source: Industry standards from Laserax equipment guidelines and Journal of Laser Applications (2020).'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass often sufficient for light contamination, multi-pass for heavy layers; 2 passes recommended for complete removal on Ti-6Al-4V without over-ablation, allowing cooling between passes; source: Industry case studies in Proceedings of SPIE (2020) on laser cleaning of aerospace Ti alloys.'
+    description: 'Single pass often sufficient for light contamination, multi-pass for heavy layers; 2 passes recommended
+      for complete removal on Ti-6Al-4V without over-ablation, allowing cooling between passes; source: Industry case studies
+      in Proceedings of SPIE (2020) on laser cleaning of aerospace Ti alloys.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage without gaps or excessive overlap heating; 60% recommended for Ti-6Al-4V to achieve even cleaning on curved or irregular surfaces, higher (70-80%) for heavy contamination; source: Process optimization in International Journal of Advanced Manufacturing Technology (2018).'
+    description: 'Ensures uniform coverage without gaps or excessive overlap heating; 60% recommended for Ti-6Al-4V to achieve
+      even cleaning on curved or irregular surfaces, higher (70-80%) for heavy contamination; source: Process optimization
+      in International Journal of Advanced Manufacturing Technology (2018).'
   laserPower:
     value: 100
     unit: W
     description: Optimal average power for metal oxide removal
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 50
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for 1064 nm ns-pulsed lasers in industrial cleaning of Ti-6Al-4V to remove contaminants without excessive heating; starting at 100 W for light oxidation, max limited by low thermal conductivity (6.7 W/m·K) to avoid melting (1660°C); source: CleanLaser CL 1000 manual and study in Optics and Lasers in Engineering (2018) on Ti alloys.'
+    description: 'Typical range for 1064 nm ns-pulsed lasers in industrial cleaning of Ti-6Al-4V to remove contaminants without
+      excessive heating; starting at 100 W for light oxidation, max limited by low thermal conductivity (6.7 W/m·K) to avoid
+      melting (1660°C); source: CleanLaser CL 1000 manual and study in Optics and Lasers in Engineering (2018) on Ti alloys.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 30
-    description: 'Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for Ti-6Al-4V to achieve fast processing while limiting heat accumulation due to moderate reflectivity (0.4 at 1064 nm); higher rates (>50 kHz) speed up but risk thermal buildup; source: Academic literature in Lasers in Manufacturing and Materials Processing (2021).'
-componentSummary: These settings deliver precise, short-pulse ablation at 1064 nm for high titanium absorption, with 100 W power minimizing heat-affected zones to prevent oxidation in heat-sensitive Ti 6Al 4V.
+    description: 'Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for Ti-6Al-4V to achieve fast
+      processing while limiting heat accumulation due to moderate reflectivity (0.4 at 1064 nm); higher rates (>50 kHz) speed
+      up but risk thermal buildup; source: Academic literature in Lasers in Manufacturing and Materials Processing (2021).'
+componentSummary: These settings deliver precise, short-pulse ablation at 1064 nm for high titanium absorption, with 100 W
+  power minimizing heat-affected zones to prevent oxidation in heat-sensitive Ti 6Al 4V.

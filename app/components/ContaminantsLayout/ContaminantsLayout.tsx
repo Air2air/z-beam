@@ -91,8 +91,9 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
             hazard_level: c.hazardLevel,
           },
         })),
-        title: `Compounds produced by ${contaminantName}`,
-        description: undefined,
+        title: relationships?.interactions?.producesCompounds?._section?.sectionTitle || `Compounds produced by ${contaminantName}`,
+        description: relationships?.interactions?.producesCompounds?._section?.sectionDescription || `Hazardous compounds produced during laser cleaning of ${contaminantName}`,
+        icon: relationships?.interactions?.producesCompounds?._section?.icon,
         variant: 'relationship' as const,
       }
     },
@@ -132,8 +133,9 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
             difficulty: m.difficulty,
           },
         })),
-        title: `Materials affected by ${contaminantName}`,
-        description: undefined,
+        title: relationships?.interactions?.affectsMaterials?._section?.sectionTitle || `Materials affected by ${contaminantName}`,
+        description: relationships?.interactions?.affectsMaterials?._section?.sectionDescription || `Materials where ${contaminantName} commonly appears`,
+        icon: relationships?.interactions?.affectsMaterials?._section?.icon,
         variant: 'relationship' as const,
       }
     },

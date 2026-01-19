@@ -73,11 +73,13 @@ export function BaseSection({
   const sectionIcon = typeof rawIcon === 'string' ? getSectionIcon(rawIcon) : rawIcon;
 
   // 🔥 MANDATORY SECTION REQUIREMENTS (Jan 15, 2026) - Fail-fast validation
+  // ONLY enforce when _section object provided (from frontmatter metadata)
+  // Allow direct props to be optional for backward compatibility with CardGrid/DataGrid
   if (!sectionTitle || sectionTitle.trim() === '') {
     throw new Error('BaseSection: sectionTitle is required and cannot be empty');
   }
-  if (!sectionDescription || sectionDescription.trim() === '') {
-    throw new Error('BaseSection: sectionDescription is required and cannot be empty');
+  if (section && (!sectionDescription || sectionDescription.trim() === '')) {
+    throw new Error('BaseSection: sectionDescription is required when using _section object from frontmatter');
   }
 
   // Generate section ID from title if not provided
@@ -131,7 +133,7 @@ export function BaseSection({
     'gradient-dark': 'bg-gradient-to-br from-gray-800 to-gray-700',
   };
   
-  const config = variantConfig[variant];
+  const config = variantConfig[variant] || variantConfig.default;
   const bgClass = bgColorClasses[bgColor] || '';
   const paddingClass = horizPadding ? 'px-4 md:px-5' : '';
   const radiusClass = radius ? 'rounded-md' : '';

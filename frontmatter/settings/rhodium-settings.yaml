@@ -4,21 +4,24 @@ displayName: Rhodium Laser Cleaning Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:13.254427+00:00'
+dateModified: '2026-01-19T02:42:23.659767+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/rhodium-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Metal
-    href: /settings/metal
-  - label: Non Ferrous
-    href: /settings/metal/non-ferrous
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Non Ferrous
+  href: /settings/metal/non-ferrous
 pageTitle: Rhodium
-pageDescription: When cleaning rhodium, watch its high reflectivity first—it tends to bounce laser energy away, so start with lower power to avoid scattering heat unevenly. I've seen this works best by scanning slowly across the surface, which exposes contaminants without stressing the dense, heat-resistant layer underneath. Multiple passes restore the shine effectively, reducing any risk of uneven ablation.
+pageDescription: When cleaning rhodium, watch its high reflectivity first—it tends to bounce laser energy away, so start with
+  lower power to avoid scattering heat unevenly. I've seen this works best by scanning slowly across the surface, which exposes
+  contaminants without stressing the dense, heat-resistant layer underneath. Multiple passes restore the shine effectively,
+  reducing any risk of uneven ablation.
 metaDescription: Rhodium laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,23 +43,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-    - Optical Materials for Laser Systems
+  - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-    - BA Physics, UC Irvine, 2017
-    - Hands-on at JPL optics internship, 2018
-    - MA Optics and Photonics, UC Irvine, 2019
-    - 3+ years in laser systems development
-    - Hands-on experience with optical fabrication
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-    - https://linkedin.com/in/todd-dunning-optics
-    - https://spie.org/profile/Todd.Dunning
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
   slug: todd-dunning
@@ -66,7 +69,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -78,82 +81,98 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - id: high-thermal-conductivity
-              type: challenge
-            - id: melting-haz
-              type: challenge
-          contaminationChallenges:
-            - id: rust-oxide-removal
-              type: challenge
-            - id: oil-grease-removal
-              type: challenge
+      - thermalManagement:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contaminationChallenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength optimized for Rhodium's moderate reflectivity and thermal absorption
@@ -166,7 +185,9 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Smaller spots (50-200 μm) for fine surface preparation on Rhodium; larger (200-500 μm) for broad areas. 200 μm recommended for uniform cleaning without excessive overlap heating. Suited to Rhodium''s use in plating/electronics. Source: Equipment specs from Coherent and Trumpf industrial lasers.'
+    description: 'Smaller spots (50-200 μm) for fine surface preparation on Rhodium; larger (200-500 μm) for broad areas.
+      200 μm recommended for uniform cleaning without excessive overlap heating. Suited to Rhodium''s use in plating/electronics.
+      Source: Equipment specs from Coherent and Trumpf industrial lasers.'
   fluenceThreshold:
     description: Minimum fluence required for effective contaminant removal
     unit: J/cm²
@@ -178,47 +199,65 @@ machineSettings:
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning of Rhodium; picosecond (ps) or femtosecond for ultra-minimal HAZ but less common industrially. 20 ns recommended to minimize heat-affected zone on high-melting-point Rhodium (1964°C). Avoid fs for industrial scale due to complexity. Source: Laser physics research in Appl. Phys. A 2019 on metal ablation thresholds.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning of Rhodium; picosecond (ps) or femtosecond for ultra-minimal
+      HAZ but less common industrially. 20 ns recommended to minimize heat-affected zone on high-melting-point Rhodium (1964°C).
+      Avoid fs for industrial scale due to complexity. Source: Laser physics research in Appl. Phys. A 2019 on metal ablation
+      thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: 'Effective speeds for 1064 nm cleaning of metals; slower for heavy contamination (500-1000 mm/s), faster for light (3000-5000 mm/s). Recommended 2000 mm/s for Rhodium to ensure contaminant removal without substrate heating, considering its thermal conductivity (150 W/m·K). Source: Industry standards from Laserax equipment manuals and process optimization in Surf. Coat. Technol. 2020.'
+    description: 'Effective speeds for 1064 nm cleaning of metals; slower for heavy contamination (500-1000 mm/s), faster
+      for light (3000-5000 mm/s). Recommended 2000 mm/s for Rhodium to ensure contaminant removal without substrate heating,
+      considering its thermal conductivity (150 W/m·K). Source: Industry standards from Laserax equipment manuals and process
+      optimization in Surf. Coat. Technol. 2020.'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination; multi-pass (2-5) for heavy or uneven layers on Rhodium. Recommended 2 passes for complete removal while preserving substrate integrity. Based on industrial practice for precious metals. Source: Case studies in Ind. Laser Sol. 2019 and process reports from Adapt Laser Systems.'
+    description: 'Single pass for light contamination; multi-pass (2-5) for heavy or uneven layers on Rhodium. Recommended
+      2 passes for complete removal while preserving substrate integrity. Based on industrial practice for precious metals.
+      Source: Case studies in Ind. Laser Sol. 2019 and process reports from Adapt Laser Systems.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage without gaps or excessive energy input; 60% recommended for Rhodium to account for beam divergence and reflectivity, preventing uneven cleaning. Typical range from process optimization. Source: Studies in Laser Ablation and Surf. Eng. (Proc. SPIE 2020).'
+    description: 'Ensures uniform coverage without gaps or excessive energy input; 60% recommended for Rhodium to account
+      for beam divergence and reflectivity, preventing uneven cleaning. Typical range from process optimization. Source: Studies
+      in Laser Ablation and Surf. Eng. (Proc. SPIE 2020).'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence below Rhodium''s ablation threshold (~4-6 J/cm² at 1064 nm due to high reflectivity) for safe contaminant removal. Recommended 1.5 J/cm² for light industrial cleaning; higher for heavy contamination risks damage. Conservative estimate based on similar PGMs. Source: Ablation threshold studies in Opt. Express 2017 and Appl. Surf. Sci. 2022.'
+    description: 'Fluence below Rhodium''s ablation threshold (~4-6 J/cm² at 1064 nm due to high reflectivity) for safe contaminant
+      removal. Recommended 1.5 J/cm² for light industrial cleaning; higher for heavy contamination risks damage. Conservative
+      estimate based on similar PGMs. Source: Ablation threshold studies in Opt. Express 2017 and Appl. Surf. Sci. 2022.'
   laserPower:
     description: Optimal average power for Rhodium surface cleaning without thermal damage
     unit: W
     value: 45
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 50
     max: 500
     unit: W
     value: 150
-    description: 'Typical range for industrial Nd:YAG laser cleaners on reflective metals like Rhodium to balance efficiency and avoid thermal damage; recommended starting at 150W for contamination removal. Rhodium''s high reflectivity (~65% at 1064 nm) requires higher power than less reflective substrates. Source: IPG Photonics YLR series specs and studies on PGM cleaning (e.g., Opt. Lasers Eng. 2018).'
+    description: 'Typical range for industrial Nd:YAG laser cleaners on reflective metals like Rhodium to balance efficiency
+      and avoid thermal damage; recommended starting at 150W for contamination removal. Rhodium''s high reflectivity (~65%
+      at 1064 nm) requires higher power than less reflective substrates. Source: IPG Photonics YLR series specs and studies
+      on PGM cleaning (e.g., Opt. Lasers Eng. 2018).'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning to achieve high throughput; higher rates (50-100 kHz) speed up process but risk heat accumulation on reflective Rhodium. 50 kHz balances speed and safety. Trade-off: low freq reduces overlap heating. Source: Academic literature on Nd:YAG cleaning (e.g., J. Laser Appl. 2021).'
-componentSummary: These settings employ a 1064 nm wavelength and 15 ns pulses at 150 W to ablate contaminants from Rhodium's reflective surface without inducing thermal damage or altering its corrosion-resistant properties.
+    description: 'Typical for pulsed cleaning to achieve high throughput; higher rates (50-100 kHz) speed up process but risk
+      heat accumulation on reflective Rhodium. 50 kHz balances speed and safety. Trade-off: low freq reduces overlap heating.
+      Source: Academic literature on Nd:YAG cleaning (e.g., J. Laser Appl. 2021).'
+componentSummary: These settings employ a 1064 nm wavelength and 15 ns pulses at 150 W to ablate contaminants from Rhodium's
+  reflective surface without inducing thermal damage or altering its corrosion-resistant properties.

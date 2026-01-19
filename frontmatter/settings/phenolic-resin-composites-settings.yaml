@@ -4,21 +4,27 @@ displayName: Phenolic Resin Composites Laser Cleaning Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:12.275187+00:00'
+dateModified: '2026-01-19T02:42:22.461443+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/phenolic-resin-composites-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Composite
-    href: /settings/composite
-  - label: Fiber Reinforced
-    href: /settings/composite/fiber-reinforced
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Composite
+  href: /settings/composite
+- label: Fiber Reinforced
+  href: /settings/composite/fiber-reinforced
 pageTitle: Phenolic Resin Composites
-pageDescription: When laser cleaning phenolic resin composites, we typically begin by addressing their tendency to retain heat due to poor thermal conductivity. This buildup risks damaging the resin matrix if power levels rise too quickly, so we recommend starting with conservative settings to allow gradual contaminant removal. Unlike metals that dissipate heat evenly, these fiber-reinforced materials absorb laser energy efficiently but unevenly, which can expose underlying fibers to thermal stress. We've found that multiple low-intensity passes restore surface integrity without delamination. To avoid charring pitfalls, monitor for localized discoloration and adjust scan speeds accordingly, ensuring the composite's compressive strength remains intact for applications in aerospace and automotive sectors.
+pageDescription: When laser cleaning phenolic resin composites, we typically begin by addressing their tendency to retain
+  heat due to poor thermal conductivity. This buildup risks damaging the resin matrix if power levels rise too quickly, so
+  we recommend starting with conservative settings to allow gradual contaminant removal. Unlike metals that dissipate heat
+  evenly, these fiber-reinforced materials absorb laser energy efficiently but unevenly, which can expose underlying fibers
+  to thermal stress. We've found that multiple low-intensity passes restore surface integrity without delamination. To avoid
+  charring pitfalls, monitor for localized discoloration and adjust scan speeds accordingly, ensuring the composite's compressive
+  strength remains intact for applications in aerospace and automotive sectors.
 metaDescription: Phenolic Resin Composites laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,23 +46,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-    - Optical Materials for Laser Systems
+  - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-    - BA Physics, UC Irvine, 2017
-    - Hands-on at JPL optics internship, 2018
-    - MA Optics and Photonics, UC Irvine, 2019
-    - 3+ years in laser systems development
-    - Hands-on experience with optical fabrication
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-    - https://linkedin.com/in/todd-dunning-optics
-    - https://spie.org/profile/Todd.Dunning
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
   slug: todd-dunning
@@ -66,7 +72,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -78,61 +84,73 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - id: matrix-degradation
-              type: challenge
-            - id: anisotropic-thermal
-              type: challenge
-          contaminationChallenges:
-            - id: resin-contaminant-removal
-              type: challenge
+      - thermalManagement:
+        - id: matrix-degradation
+          type: challenge
+        - id: anisotropic-thermal
+          type: challenge
+        contaminationChallenges:
+        - id: resin-contaminant-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength optimized for phenolic resin absorption and minimal substrate damage
@@ -145,53 +163,71 @@ machineSettings:
     max: 500
     unit: μm
     value: 300
-    description: 'Beam diameter range for precision vs. area coverage; 300 μm recommended for phenolic composites in surface prep to focus energy and minimize overshoot on irregular surfaces. Smaller for fine details, larger for broad areas. Source: Equipment specs from Coherent Inc. and process optimization in Industrial Laser Solutions (2020).'
+    description: 'Beam diameter range for precision vs. area coverage; 300 μm recommended for phenolic composites in surface
+      prep to focus energy and minimize overshoot on irregular surfaces. Smaller for fine details, larger for broad areas.
+      Source: Equipment specs from Coherent Inc. and process optimization in Industrial Laser Solutions (2020).'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
-    value: 1
-    description: 'Fluence range for contaminant removal; damage threshold for phenolics ~1.5-2.5 J/cm² at 1064 nm due to moderate absorption; 1.0 J/cm² safe for cleaning without ablation of substrate. Conservative for thermal sensitivity. Source: Ablation studies in Composites Part B (2017) and Optics Express (2022).'
+    value: 1.0
+    description: 'Fluence range for contaminant removal; damage threshold for phenolics ~1.5-2.5 J/cm² at 1064 nm due to moderate
+      absorption; 1.0 J/cm² safe for cleaning without ablation of substrate. Conservative for thermal sensitivity. Source:
+      Ablation studies in Composites Part B (2017) and Optics Express (2022).'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ <50 μm); 20 ns balances ablation efficiency and reduced thermal diffusion in phenolics. Ps (10-100 ps) for ultra-precise work but higher cost. Source: Laser physics in Applied Surface Science (2019) on polymer ablation thresholds.'
+    description: 'Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ
+      <50 μm); 20 ns balances ablation efficiency and reduced thermal diffusion in phenolics. Ps (10-100 ps) for ultra-precise
+      work but higher cost. Source: Laser physics in Applied Surface Science (2019) on polymer ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective range for 1064 nm cleaning of contaminants; slower (500-1000 mm/s) for heavy soiling, faster (2000-3000 mm/s) for light; 1500 mm/s optimal for uniform removal without substrate heating on low-reflectivity phenolics (~10-20% at 1064 nm). Source: Industry standards from Laserax manuals and J. Cleaner Production (2020) case studies.'
+    description: 'Effective range for 1064 nm cleaning of contaminants; slower (500-1000 mm/s) for heavy soiling, faster (2000-3000
+      mm/s) for light; 1500 mm/s optimal for uniform removal without substrate heating on low-reflectivity phenolics (~10-20%
+      at 1064 nm). Source: Industry standards from Laserax manuals and J. Cleaner Production (2020) case studies.'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes typical for complete removal on phenolics without excessive heat buildup. Source: Industry practice in aerospace case studies (e.g., AIAA Journal, 2019) and manufacturer guidelines.'
+    description: 'Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes typical for complete removal on
+      phenolics without excessive heat buildup. Source: Industry practice in aerospace case studies (e.g., AIAA Journal, 2019)
+      and manufacturer guidelines.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: 'Ensures uniform coverage; 50% recommended for phenolic composites to avoid gaps or overexposure, balancing efficiency and even fluence distribution. Higher (60-80%) for heavy contamination. Source: Process optimization in Surface and Coatings Technology (2021).'
+    description: 'Ensures uniform coverage; 50% recommended for phenolic composites to avoid gaps or overexposure, balancing
+      efficiency and even fluence distribution. Higher (60-80%) for heavy contamination. Source: Process optimization in Surface
+      and Coatings Technology (2021).'
   laserPower:
     description: Optimal average power for phenolic resin composite cleaning without thermal damage
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 50
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage; starting at 100W for light contamination on phenolics, which have low thermal conductivity (~0.2 W/m·K). Max safe ~300W to prevent charring (melting point ~200-300°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018) on polymer composites.'
+    description: 'Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage; starting at 100W for
+      light contamination on phenolics, which have low thermal conductivity (~0.2 W/m·K). Max safe ~300W to prevent charring
+      (melting point ~200-300°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018) on polymer
+      composites.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 30
-    description: 'Typical for industrial cleaning; 30 kHz recommended for phenolics to achieve fast processing while limiting heat accumulation (high freq >50 kHz risks cumulative heating due to low conductivity). Trade-off: higher rates speed up cleaning but increase HAZ. Source: Academic literature in Journal of Laser Applications (2021).'
-componentSummary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants from heat-sensitive Phenolic Resin Composites without causing thermal degradation or delamination.
+    description: 'Typical for industrial cleaning; 30 kHz recommended for phenolics to achieve fast processing while limiting
+      heat accumulation (high freq >50 kHz risks cumulative heating due to low conductivity). Trade-off: higher rates speed
+      up cleaning but increase HAZ. Source: Academic literature in Journal of Laser Applications (2021).'
+componentSummary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants
+  from heat-sensitive Phenolic Resin Composites without causing thermal degradation or delamination.

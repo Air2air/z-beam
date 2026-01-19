@@ -1,28 +1,29 @@
 id: bronze-laser-cleaning
 name: Bronze
+
+# Breadcrumb navigation
 breadcrumb:
-  - label: Home
+  - label: "Home"
     href: /
-  - label: Materials
+  - label: "Materials"
     href: /materials
-  - label: Metal
+  - label: "Metal"
     href: /materials/metal
-  - label: Non Ferrous
+  - label: "Non Ferrous"
     href: /materials/metal/non-ferrous
-  - label: Bronze
-    href: /materials/metal/non-ferrous/bronze
+  - label: "Bronze"
+    href: /materials/metal/non-ferrous/bronze-laser-cleaning
 displayName: Bronze Laser Cleaning
 category: metal
 subcategory: non-ferrous
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-15T21:46:40.579571+00:00'
+dateModified: '2026-01-19T03:28:24.296845+00:00'
 fullPath: /materials/metal/non-ferrous/bronze-laser-cleaning
 pageTitle: Bronze
-metaDescription: >-
-  The contamination on bronze surfaces, it manifests as irregular, adherent layers that obscure the metal's inherent
-  texture. At 1000x magnification, these dep...
+metaDescription: The contamination on bronze surfaces, it manifests as irregular, adherent layers that obscure the metal's
+  inherent texture. At 1000x magnification, these dep...
 card:
   default:
     heading: Bronze
@@ -40,12 +41,12 @@ author:
   id: 2
   name: Alessandro Moretti
   country: Italy
-  countryDisplay: Italy
+  country_display: Italy
   title: Ph.D.
   sex: m
   jobTitle: Materials Engineer
   expertise:
-    - Laser-Based Additive Manufacturing
+  - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
@@ -53,25 +54,28 @@ author:
     name: University of Bologna
     type: EducationalOrganization
   credentials:
-    - Ph.D. Materials Science, TU Milano, 2015
-    - 5+ years industrial ceramics experience
-    - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
   imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
-    - https://scholar.google.com/citations?user=def456
-    - https://linkedin.com/in/alessandro-moretti-engineer
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  persona_file: italy_persona.yaml
+  formatting_file: italy_formatting.yaml
+  countryDisplay: Italy
   personaFile: italy_persona.yaml
   formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
 eeat:
   reviewedBy: Z-Beam Quality Assurance Team
   citations:
-    - IEC 60825 - Safety of Laser Products
-    - ANSI Z136.1 - Safe Use of Lasers
-    - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  - IEC 60825 - Safety of Laser Products
+  - ANSI Z136.1 - Safe Use of Lasers
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
@@ -87,26 +91,27 @@ images:
     width: 800
     height: 600
 components:
-  subtitle: >-
-    A durable alloy for marine and artistic use, bronze resists corrosion exceptionally well and its low melting point
+  subtitle: A durable alloy for marine and artistic use, bronze resists corrosion exceptionally well and its low melting point
     makes casting intricate shapes straightforward
   micro:
-    before: >-
-      Looking closely at the bronze surface before cleaning, I see a layer of dull, patchy grime covering everything.
-      Dark streaks and tiny clumps stick tightly to the metal, making it look uneven and worn. Scratches and small pits
-      scatter across, roughening the whole view.
-    after: >-
-      After the laser treatment, the bronze surface appears smooth and brightly metallic. The grime vanishes completely,
+    before: Looking closely at the bronze surface before cleaning, I see a layer of dull, patchy grime covering everything.
+      Dark streaks and tiny clumps stick tightly to the metal, making it look uneven and worn. Scratches and small pits scatter
+      across, roughening the whole view.
+    after: After the laser treatment, the bronze surface appears smooth and brightly metallic. The grime vanishes completely,
       revealing a uniform shine without any streaks. Now, the texture looks even and clear, free from those old pits
-  description: >-
-    Bronze has a high reflectivity of 0.65, so we typically use a 1064 nm wavelength for better absorption. Its melting
-    point is 950 °C, so we keep the energy density around 5.1 J/cm². This clears contaminants effectively and avoids any
-    thermal damage to the valuable substrate.
-  settingsDescription: >-
-    When laser cleaning bronze, unlike ferrous metals like steel, you must account for its higher reflectivity that
-    sends more energy back at the source. This means starting with gentler power levels to avoid surface melting, since
-    bronze heats up faster from that bounce. Watch out mid-process for uneven patina removal—it can fade historical
-    value—so adjust scans slower and use multiple light passes to lift dirt without erasing the alloy's natural shield.
+    _section:
+      sectionTitle: Microscopic Analysis
+      sectionDescription: High-magnification comparison of Bronze surface before and after laser cleaning treatment
+      icon: microscope
+      order: 5
+      variant: default
+  description: Bronze has a high reflectivity of 0.65, so we typically use a 1064 nm wavelength for better absorption. Its
+    melting point is 950 °C, so we keep the energy density around 5.1 J/cm². This clears contaminants effectively and avoids
+    any thermal damage to the valuable substrate.
+  settingsDescription: When laser cleaning bronze, unlike ferrous metals like steel, you must account for its higher reflectivity
+    that sends more energy back at the source. This means starting with gentler power levels to avoid surface melting, since
+    bronze heats up faster from that bounce. Watch out mid-process for uneven patina removal—it can fade historical value—so
+    adjust scans slower and use multiple light passes to lift dirt without erasing the alloy's natural shield.
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -120,8 +125,8 @@ properties:
       value: 0.5
       unit: '%'
       confidence: 85
-      min: 0
-      max: 15
+      min: 0.0
+      max: 15.0
     surfaceRoughness:
       value: 0.8
       unit: μm
@@ -129,13 +134,13 @@ properties:
       min: 0.4
       max: 150
     tensileStrength:
-      value: 400
+      value: 400.0
       unit: MPa
       confidence: 92
-      min: 3
-      max: 3000
+      min: 3.0
+      max: 3000.0
     youngsModulus:
-      value: 110
+      value: 110.0
       unit: GPa
       confidence: 95
       min: 5
@@ -151,7 +156,7 @@ properties:
       unit: MPa
       confidence: 88
       min: 2.5
-      max: 1050
+      max: 1050.0
     oxidationResistance:
       value: 8
       unit: scale 1-10
@@ -165,53 +170,50 @@ properties:
       min: 1
       max: 10
     compressiveStrength:
-      value: 345
+      value: 345.0
       unit: MPa
       confidence: 95
       source: ai_research
     fractureToughness:
-      value: 52
+      value: 52.0
       unit: MPa m^{0.5}
       confidence: 95
       source: ai_research
     electricalResistivity:
-      value: 2.e-7
+      value: 2.0e-07
       unit: Ω·m
       confidence: 95
       source: ai_research
     boilingPoint:
-      value: 2840
+      value: 2840.0
       unit: K
       confidence: 90
       source: ai_research
     electricalConductivity:
-      value: 6960000
+      value: 6960000.0
       unit: S/m
       confidence: 95
       source: ai_research
     meltingPoint:
-      value: 950
+      value: 950.0
       unit: °C
       confidence: 95
       source: ai_research
-    percentage: 60
+    percentage: 60.0
     _section:
-      icon: atom
-      order: 1
+      sectionTitle: Bronze's Core Properties
+      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
+        and material integrity
+      icon: wrench
+      order: 50
       variant: default
-      group: properties
-      domain: materials
-      schemaDescription: Core physical and chemical properties of the material
-      notes: Foundational material data for laser cleaning applications
-      sectionTitle: Material Characteristics
-      sectionDescription: Core physical and chemical properties that define the material's behavior under laser cleaning
   laserMaterialInteraction:
     label: Laser-Material Interaction
     thermalConductivity:
-      value: 60
+      value: 60.0
       unit: W/(m·K)
       confidence: 92
-      min: 7
+      min: 7.0
       max: 430
     thermalExpansion:
       value: 18
@@ -220,13 +222,13 @@ properties:
       min: 0.5
       max: 33
     thermalDiffusivity:
-      value: 22
+      value: 22.0
       unit: mm²/s
       confidence: 88
       min: 0.06
       max: 174
     specificHeat:
-      value: 380
+      value: 380.0
       unit: J/(kg·K)
       confidence: 90
       min: 100
@@ -253,22 +255,22 @@ properties:
       value: 2.5
       unit: J/cm²
       confidence: 85
-      min: 2
-      max: 8
+      min: 2.0
+      max: 8.0
     laserDamageThreshold:
       value: 1.8
       unit: J/cm²
       confidence: 84
       min: 0.1
-      max: 20
-    percentage: 40
+      max: 20.0
+    percentage: 40.0
     thermalDestruction:
-      value: 1223
+      value: 1223.0
       unit: K
       confidence: 95
       source: ai_research
     laserAbsorption:
-      value: 78000000
+      value: 78000000.0
       unit: m^{-1}
       confidence: 93
       source: ai_research
@@ -288,59 +290,54 @@ properties:
       confidence: 92
       source: ai_research
     thermalDestructionPoint:
-      value: 950
+      value: 950.0
       unit: °C
       confidence: 95
       source: ai_research
     _section:
+      sectionTitle: Laser Interaction Behavior
+      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
+        thresholds
       icon: zap
-      order: 2
+      order: 60
       variant: default
-      group: properties
-      domain: materials
-      schemaDescription: Thermal and optical properties affecting laser-material interaction
-      notes: Laser interaction parameters for optimal cleaning
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: Thermal and optical properties that govern how the material responds to laser energy during cleaning
 faq:
   presentation: collapsible
   items:
-    - id: what-makes-bronze-a-reliable-metal
-      title: What makes bronze a reliable metal for industrial use?
-      content: >-
-        Bronze is a copper-tin alloy we often turn to in manufacturing. It holds up well in tools, fittings, and even
-        marine parts because it resists corrosion. Density sits around 8.8 g/cm³, so pieces stay sturdy without getting
-        too heavy. Porosity hovers at about 0.5%, which means fewer voids that could trap dirt or weaken the structure.
-      metadata:
-        topic: makes bronze a reliable metal
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Alessandro Moretti
-          title: Ph.D.
-          expertise:
-            - Laser-Based Additive Manufacturing
-      Display:
-        Open: true
-        order: 1
-    - id: how-do-we-clean-bronze-with
-      title: How do we clean bronze with lasers?
-      content: >-
-        Laser cleaning works great here. You apply roughly 100 W power to remove rust or grime from surfaces. This
-        method clears contaminants fast and leaves the base metal intact. It suits restoration projects, like old
-        statues, without harsh chemicals. Just watch the settings to avoid heating the alloy too much.
-      metadata:
-        topic: do we clean bronze with
-        severity: medium
-        acceptedAnswer: true
-        expertInfo:
-          name: Alessandro Moretti
-          title: Ph.D.
-          expertise:
-            - Laser-Based Additive Manufacturing
-      Display:
-        Open: false
-        order: 2
+  - id: what-makes-bronze-a-reliable-metal
+    title: What makes bronze a reliable metal for industrial use?
+    content: Bronze is a copper-tin alloy we often turn to in manufacturing. It holds up well in tools, fittings, and even
+      marine parts because it resists corrosion. Density sits around 8.8 g/cm³, so pieces stay sturdy without getting too
+      heavy. Porosity hovers at about 0.5%, which means fewer voids that could trap dirt or weaken the structure.
+    metadata:
+      topic: makes bronze a reliable metal
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  - id: how-do-we-clean-bronze-with
+    title: How do we clean bronze with lasers?
+    content: Laser cleaning works great here. You apply roughly 100 W power to remove rust or grime from surfaces. This method
+      clears contaminants fast and leaves the base metal intact. It suits restoration projects, like old statues, without
+      harsh chemicals. Just watch the settings to avoid heating the alloy too much.
+    metadata:
+      topic: do we clean bronze with
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: false
+      order: 2
   options:
     autoOpenFirst: true
     sortBy: severity
@@ -349,423 +346,592 @@ relationships:
     contaminatedBy:
       presentation: card
       items:
-        - id: adhesive-residue-contamination
-          name: Adhesive Residue / Tape Marks
-          category: organic-residue
-          subcategory: adhesive
-          url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
-          image: /images/contaminant/adhesive-residue-contamination-hero.jpg
-          description: >-
-            Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape or
-            stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
-          frequency: moderate
-          severity: moderate
-        - id: algae-growth-contamination
-          name: Algae and Lichen Growth
-          category: biological
-          subcategory: growth
-          url: /contaminants/biological/growth/algae-growth-contamination
-          image: /images/contaminant/algae-growth-contamination-hero.jpg
-          description: >-
-            Algae-growth contamination, it manifests uniquely in humid environments, where biological layers adhere
-            tenaciously to surfaces exposed to moisture. This contamination, dependent from regional patt...
-          frequency: moderate
-          severity: moderate
-        - id: biological-stains-contamination
-          name: Organic Biofilm Deposits
-          category: biological
-          subcategory: deposit
-          url: /contaminants/biological/deposit/biological-stains-contamination
-          image: /images/contaminant/biological-stains-contamination-hero.jpg
-          description: >-
-            Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
-            Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
-          frequency: moderate
-          severity: moderate
-        - id: bronze-patina-contamination
-          name: Bronze Patina and Corrosion
-          category: oxidation
-          subcategory: non-ferrous
-          url: /contaminants/oxidation/non-ferrous/bronze-patina-contamination
-          image: /images/contaminant/bronze-patina-contamination-hero.jpg
-          description: >-
-            Bronze patina contamination, it arises from oxidation on bronze surfaces. Exposure to air and moisture
-            causes this. Layer forms unevenly, with green hues dominating. Unique patterns emerge regional...
-          frequency: moderate
-          severity: moderate
-        - id: carbon-soot-contamination
-          name: Carbon Soot Deposits
-          category: organic-residue
-          subcategory: other
-          url: /contaminants/organic-residue/other/carbon-soot-contamination
-          image: /images/contaminant/carbon-soot-contamination-hero.jpg
-          description: >-
-            Carbon-soot contamination, it emerges from incomplete combustion processes and deposits as irregular, porous
-            layers on material surfaces. Formation patterns reveal unique regional variations, where...
-          frequency: moderate
-          severity: moderate
-        - id: chemical-stains-contamination
-          name: Chemical Stains / Acid Etching
-          category: chemical-residue
-          subcategory: industrial
-          url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
-          image: /images/contaminant/chemical-stains-contamination-hero.jpg
-          description: >-
-            Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in laser
-            cleaning applications. Formation patterns of this contamination, they arise from residue...
-          frequency: moderate
-          severity: moderate
-        - id: copper-patina-contamination
-          name: Copper Patina / Verdigris
-          category: oxidation
-          subcategory: non-ferrous
-          url: /contaminants/oxidation/non-ferrous/copper-patina-contamination
-          image: /images/contaminant/copper-patina-contamination-hero.jpg
-          description: >-
-            Copper patina forms as a green oxidation layer on surfaces exposed to moist air. This contamination builds
-            up unevenly, creating flaky patterns that line up along edges and crevices in humid region...
-          frequency: moderate
-          severity: moderate
-        - id: epoxy-residue-contamination
-          name: Epoxy Resin Deposits
-          category: organic-residue
-          subcategory: adhesive
-          url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
-          image: /images/contaminant/epoxy-residue-contamination-hero.jpg
-          description: >-
-            Epoxy residue differs from inorganic contaminants so laser cleaning faces unique challenges. Formation
-            occurs during adhesive curing and leaves sticky layers on metal surfaces. These layers bond ti...
-          frequency: moderate
-          severity: moderate
-        - id: fertilizer-residue-contamination
-          name: Fertilizer Salt Deposits
-          category: chemical-residue
-          subcategory: industrial
-          url: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
-          image: /images/contaminant/fertilizer-residue-contamination-hero.jpg
-          description: >-
-            Fertilizer residue contamination, it forms through deposition of crystalline salts and organic compounds on
-            industrial surfaces, influenced from environmental humidity and prolonged exposure. These...
-          frequency: moderate
-          severity: moderate
-        - id: graffiti-paint-contamination
-          name: Graffiti and Spray Paint
-          category: inorganic-coating
-          subcategory: paint
-          url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
-          image: /images/contaminant/graffiti-paint-contamination-hero.jpg
-          description: >-
-            Graffiti paint contamination poses a tough challenge in urban settings, where artists spray quick layers
-            that build up unevenly on surfaces like concrete walls or metal signs. This inorganic coatin...
-          frequency: moderate
-          severity: moderate
-        - id: graphite-marks-contamination
-          name: Graphite Deposit Traces
-          category: organic-residue
-          subcategory: marking
-          url: /contaminants/organic-residue/marking/graphite-marks-contamination
-          image: /images/contaminant/graphite-marks-contamination-hero.jpg
-          description: >-
-            Graphite marks stand out from typical organic residues because they form through direct pencil-like scoring
-            on surfaces, leaving behind fine, layered carbon streaks that cling tightly. These patter...
-          frequency: moderate
-          severity: moderate
-        - id: industrial-oil-contamination
-          name: Industrial Oil / Grease Buildup
-          category: organic-residue
-          subcategory: petroleum
-          url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
-          image: /images/contaminant/industrial-oil-contamination-hero.jpg
-          description: >-
-            Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
-            forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
-          frequency: moderate
-          severity: moderate
-        - id: ink-stains-contamination
-          name: Printing Ink Residue
-          category: organic-residue
-          subcategory: marking
-          url: /contaminants/organic-residue/marking/ink-stains-contamination
-          image: /images/contaminant/ink-stains-contamination-hero.jpg
-          description: >-
-            Ink stains contamination, it forms through droplet spreading and penetration on surfaces. Unique patterns
-            emerge as blotchy clusters and irregular halos, especially on porous substrates like paper ...
-          frequency: moderate
-          severity: moderate
-        - id: insect-residue-contamination
-          name: Insect Impact Residue
-          category: biological
-          subcategory: deposit
-          url: /contaminants/biological/deposit/insect-residue-contamination
-          image: /images/contaminant/insect-residue-contamination-hero.jpg
-          description: >-
-            Insect-residue contamination, it arises from biological impacts on surfaces. Collisions cause splattering,
-            and residue adheres irregularly. Organic matter like chitin and proteins forms patchy laye...
-          frequency: moderate
-          severity: moderate
-        - id: lime-scale-contamination
-          name: Limescale Deposits
-          category: thermal-damage
-          subcategory: scale
-          url: /contaminants/thermal-damage/scale/lime-scale-contamination
-          image: /images/contaminant/lime-scale-contamination-hero.jpg
-          description: >-
-            Lime scale contamination builds up as hard, chalky deposits from mineral-rich water, forming irregular
-            layers on metal and stone surfaces in humid environments. These patterns often show flaky, une...
-          frequency: moderate
-          severity: moderate
-        - id: mercury-contamination
-          name: Mercury Spill Residue
-          category: chemical-residue
-          subcategory: hazardous
-          url: /contaminants/chemical-residue/hazardous/mercury-contamination
-          image: /images/contaminant/mercury-contamination-hero.jpg
-          description: >-
-            Mercury contamination forms during industrial processes on metal surfaces, and residues deposit unevenly
-            because vapor exposure creates thin films. Before cleaning, contamination spreads in irregul...
-          frequency: moderate
-          severity: moderate
-        - id: mineral-deposits-contamination
-          name: Hard Water Mineral Scale
-          category: thermal-damage
-          subcategory: scale
-          url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
-          image: /images/contaminant/mineral-deposits-contamination-hero.jpg
-          description: >-
-            Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
-            thin on stones, and this difference affects cleaning outcomes. After exposure to moisture...
-          frequency: moderate
-          severity: moderate
-        - id: paint-residue-contamination
-          name: Paint Residue / Coating Failure
-          category: inorganic-coating
-          subcategory: paint
-          url: /contaminants/inorganic-coating/paint/paint-residue-contamination
-          image: /images/contaminant/paint-residue-contamination-hero.jpg
-          description: >-
-            Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
-            irregular patterns, like patchy layers from uneven paint application and environmental wea...
-          frequency: moderate
-          severity: moderate
-        - id: pesticide-residue-contamination
-          name: Pesticide Chemical Residue
-          category: chemical-residue
-          subcategory: industrial
-          url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
-          image: /images/contaminant/pesticide-residue-contamination-hero.jpg
-          description: >-
-            Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
-            layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
-          frequency: moderate
-          severity: moderate
-        - id: plastic-residue-contamination
-          name: Degraded Polymer Deposits
-          category: organic-residue
-          subcategory: polymer
-          url: /contaminants/organic-residue/polymer/plastic-residue-contamination
-          image: /images/contaminant/plastic-residue-contamination-hero.jpg
-          description: >-
-            Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
-            films that adhere tenaciously to substrates. This contamination, derived from organic re...
-          frequency: moderate
-          severity: moderate
-        - id: pollen-deposit-contamination
-          name: Pollen Accumulation
-          category: biological
-          subcategory: deposit
-          url: /contaminants/biological/deposit/pollen-deposit-contamination
-          image: /images/contaminant/pollen-deposit-contamination-hero.jpg
-          description: >-
-            Pollen-deposit-contamination, it manifests as irregular organic layers, formed from airborne pollen adhering
-            to surfaces in humid environments. These deposits, they exhibit unique patterns influenc...
-          frequency: moderate
-          severity: moderate
-        - id: radioactive-contamination
-          name: Surface Radioactive Contamination
-          category: chemical-residue
-          subcategory: hazardous
-          url: /contaminants/chemical-residue/hazardous/radioactive-contamination
-          image: /images/contaminant/radioactive-contamination-hero.jpg
-          description: >-
-            Radioactive contamination manifests as adherent layers of radionuclides, which form unevenly on surfaces
-            during exposure to fallout or spills. This contamination, it persists tenaciously on metals,...
-          frequency: moderate
-          severity: moderate
-        - id: rubber-residue-contamination
-          name: Rubber Compound Residue
-          category: organic-residue
-          subcategory: polymer
-          url: /contaminants/organic-residue/polymer/rubber-residue-contamination
-          image: /images/contaminant/rubber-residue-contamination-hero.jpg
-          description: >-
-            Rubber residue contamination forms sticky layers on surfaces during processing. Before cleaning, buildup
-            adheres tightly because rubber compounds polymerize under heat and pressure. This creates un...
-          frequency: moderate
-          severity: moderate
-        - id: salt-residue-contamination
-          name: Salt and Chloride Deposits
-          category: inorganic-coating
-          subcategory: mineral
-          url: /contaminants/inorganic-coating/mineral/salt-residue-contamination
-          image: /images/contaminant/salt-residue-contamination-hero.jpg
-          description: >-
-            Salt residues form tricky patterns on surfaces exposed to harsh environments, like coastal machinery or
-            salted roads. They build up in crystalline layers that cling tight to metals and stone, often...
-          frequency: moderate
-          severity: moderate
-        - id: scale-buildup-contamination
-          name: Mineral Scale / Hard Water Deposits
-          category: thermal-damage
-          subcategory: scale
-          url: /contaminants/thermal-damage/scale/scale-buildup-contamination
-          image: /images/contaminant/scale-buildup-contamination-hero.jpg
-          description: >-
-            Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary. On
-            steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
-          frequency: moderate
-          severity: moderate
-        - id: silicone-buildup-contamination
-          name: Silicone Sealant Buildup
-          category: organic-residue
-          subcategory: adhesive
-          url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
-          image: /images/contaminant/silicone-buildup-contamination-hero.jpg
-          description: >-
-            Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors and
-            residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
-          frequency: moderate
-          severity: moderate
-        - id: silver-plating-contamination
-          name: Silver Plating Residue
-          category: metallic-coating
-          subcategory: plating
-          url: /contaminants/metallic-coating/plating/silver-plating-contamination
-          image: /images/contaminant/silver-plating-contamination-hero.jpg
-          description: >-
-            Silver-plating contamination arises during coating processes and poses challenges for laser cleaning
-            applications. After plating, contaminants form uneven layers on surfaces because silver reacts w...
-          frequency: moderate
-          severity: moderate
-        - id: tree-sap-contamination
-          name: Tree Sap and Resin
-          category: organic-residue
-          subcategory: natural
-          url: /contaminants/organic-residue/natural/tree-sap-contamination
-          image: /images/contaminant/tree-sap-contamination-hero.jpg
-          description: >-
-            Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
-            elements. This organic residue hardens over time, creating irregular patterns like drips a...
-          frequency: moderate
-          severity: moderate
-        - id: water-stain-contamination
-          name: Water Staining and Marks
-          category: organic-residue
-          subcategory: other
-          url: /contaminants/organic-residue/other/water-stain-contamination
-          image: /images/contaminant/water-stain-contamination-hero.jpg
-          description: >-
-            Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios. On
-            porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
-          frequency: moderate
-          severity: moderate
-        - id: wax-buildup-contamination
-          name: Wax Coating Buildup
-          category: organic-residue
-          subcategory: wax
-          url: /contaminants/organic-residue/wax/wax-buildup-contamination
-          image: /images/contaminant/wax-buildup-contamination-hero.jpg
-          description: >-
-            Wax-buildup-contamination, it arises from organic residues in laser cleaning. This contamination forms
-            unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
-          frequency: moderate
-          severity: moderate
+      - id: adhesive-residue-contamination
+        name: Adhesive Residue / Tape Marks
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+        description: Adhesive residue contamination forms during shipping or labeling processes on manufactured items. Tape
+          or stickers leave sticky layers after removal, so surfaces exhibit uneven organic buildup. Bef...
+        frequency: moderate
+        severity: moderate
+      - id: algae-growth-contamination
+        name: Algae and Lichen Growth
+        category: biological
+        subcategory: growth
+        url: /contaminants/biological/growth/algae-growth-contamination
+        image: /images/contaminant/algae-growth-contamination-hero.jpg
+        description: Algae-growth contamination, it manifests uniquely in humid environments, where biological layers adhere
+          tenaciously to surfaces exposed to moisture. This contamination, dependent from regional patt...
+        frequency: moderate
+        severity: moderate
+      - id: biological-stains-contamination
+        name: Organic Biofilm Deposits
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/biological-stains-contamination
+        image: /images/contaminant/biological-stains-contamination-hero.jpg
+        description: Biological stains contamination, it arises from organic residues like algae and mold in humid environments.
+          Formation patterns show irregular clusters, thus creating uneven layers on surfaces. Thes...
+        frequency: moderate
+        severity: moderate
+      - id: bronze-patina-contamination
+        name: Bronze Patina and Corrosion
+        category: oxidation
+        subcategory: non-ferrous
+        url: /contaminants/oxidation/non-ferrous/bronze-patina-contamination
+        image: /images/contaminant/bronze-patina-contamination-hero.jpg
+        description: Bronze patina contamination, it arises from oxidation on bronze surfaces. Exposure to air and moisture
+          causes this. Layer forms unevenly, with green hues dominating. Unique patterns emerge regional...
+        frequency: moderate
+        severity: moderate
+      - id: carbon-soot-contamination
+        name: Carbon Soot Deposits
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-soot-contamination
+        image: /images/contaminant/carbon-soot-contamination-hero.jpg
+        description: Carbon-soot contamination, it emerges from incomplete combustion processes and deposits as irregular,
+          porous layers on material surfaces. Formation patterns reveal unique regional variations, where...
+        frequency: moderate
+        severity: moderate
+      - id: chemical-stains-contamination
+        name: Chemical Stains / Acid Etching
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/chemical-stains-contamination
+        image: /images/contaminant/chemical-stains-contamination-hero.jpg
+        description: Chemical stains contamination, it differs from oxide layers on metals, thus poses unique challenges in
+          laser cleaning applications. Formation patterns of this contamination, they arise from residue...
+        frequency: moderate
+        severity: moderate
+      - id: copper-patina-contamination
+        name: Copper Patina / Verdigris
+        category: oxidation
+        subcategory: non-ferrous
+        url: /contaminants/oxidation/non-ferrous/copper-patina-contamination
+        image: /images/contaminant/copper-patina-contamination-hero.jpg
+        description: Copper patina forms as a green oxidation layer on surfaces exposed to moist air. This contamination builds
+          up unevenly, creating flaky patterns that line up along edges and crevices in humid region...
+        frequency: moderate
+        severity: moderate
+      - id: epoxy-residue-contamination
+        name: Epoxy Resin Deposits
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+        image: /images/contaminant/epoxy-residue-contamination-hero.jpg
+        description: Epoxy residue differs from inorganic contaminants so laser cleaning faces unique challenges. Formation
+          occurs during adhesive curing and leaves sticky layers on metal surfaces. These layers bond ti...
+        frequency: moderate
+        severity: moderate
+      - id: fertilizer-residue-contamination
+        name: Fertilizer Salt Deposits
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/fertilizer-residue-contamination
+        image: /images/contaminant/fertilizer-residue-contamination-hero.jpg
+        description: Fertilizer residue contamination, it forms through deposition of crystalline salts and organic compounds
+          on industrial surfaces, influenced from environmental humidity and prolonged exposure. These...
+        frequency: moderate
+        severity: moderate
+      - id: graffiti-paint-contamination
+        name: Graffiti and Spray Paint
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+        image: /images/contaminant/graffiti-paint-contamination-hero.jpg
+        description: Graffiti paint contamination poses a tough challenge in urban settings, where artists spray quick layers
+          that build up unevenly on surfaces like concrete walls or metal signs. This inorganic coatin...
+        frequency: moderate
+        severity: moderate
+      - id: graphite-marks-contamination
+        name: Graphite Deposit Traces
+        category: organic-residue
+        subcategory: marking
+        url: /contaminants/organic-residue/marking/graphite-marks-contamination
+        image: /images/contaminant/graphite-marks-contamination-hero.jpg
+        description: Graphite marks stand out from typical organic residues because they form through direct pencil-like scoring
+          on surfaces, leaving behind fine, layered carbon streaks that cling tightly. These patter...
+        frequency: moderate
+        severity: moderate
+      - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments,
+          forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
+        frequency: moderate
+        severity: moderate
+      - id: ink-stains-contamination
+        name: Printing Ink Residue
+        category: organic-residue
+        subcategory: marking
+        url: /contaminants/organic-residue/marking/ink-stains-contamination
+        image: /images/contaminant/ink-stains-contamination-hero.jpg
+        description: Ink stains contamination, it forms through droplet spreading and penetration on surfaces. Unique patterns
+          emerge as blotchy clusters and irregular halos, especially on porous substrates like paper ...
+        frequency: moderate
+        severity: moderate
+      - id: insect-residue-contamination
+        name: Insect Impact Residue
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/insect-residue-contamination
+        image: /images/contaminant/insect-residue-contamination-hero.jpg
+        description: Insect-residue contamination, it arises from biological impacts on surfaces. Collisions cause splattering,
+          and residue adheres irregularly. Organic matter like chitin and proteins forms patchy laye...
+        frequency: moderate
+        severity: moderate
+      - id: lime-scale-contamination
+        name: Limescale Deposits
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/lime-scale-contamination
+        image: /images/contaminant/lime-scale-contamination-hero.jpg
+        description: Lime scale contamination builds up as hard, chalky deposits from mineral-rich water, forming irregular
+          layers on metal and stone surfaces in humid environments. These patterns often show flaky, une...
+        frequency: moderate
+        severity: moderate
+      - id: mercury-contamination
+        name: Mercury Spill Residue
+        category: chemical-residue
+        subcategory: hazardous
+        url: /contaminants/chemical-residue/hazardous/mercury-contamination
+        image: /images/contaminant/mercury-contamination-hero.jpg
+        description: Mercury contamination forms during industrial processes on metal surfaces, and residues deposit unevenly
+          because vapor exposure creates thin films. Before cleaning, contamination spreads in irregul...
+        frequency: moderate
+        severity: moderate
+      - id: mineral-deposits-contamination
+        name: Hard Water Mineral Scale
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/mineral-deposits-contamination
+        image: /images/contaminant/mineral-deposits-contamination-hero.jpg
+        description: Mineral deposits contaminate surfaces unevenly across regions, forming thick layers on metals while staying
+          thin on stones, and this difference affects cleaning outcomes. After exposure to moisture...
+        frequency: moderate
+        severity: moderate
+      - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: Paint-residue contamination arises from degraded coatings on surfaces. This contamination, it forms unique
+          irregular patterns, like patchy layers from uneven paint application and environmental wea...
+        frequency: moderate
+        severity: moderate
+      - id: pesticide-residue-contamination
+        name: Pesticide Chemical Residue
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pesticide-residue-contamination
+        image: /images/contaminant/pesticide-residue-contamination-hero.jpg
+        description: Pesticide residue contamination poses distinct challenges in laser cleaning applications, where irregular
+          layers form tenaciously on agricultural surfaces. This contamination, it manifests through ...
+        frequency: moderate
+        severity: moderate
+      - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: Plastic residue contamination, it manifests uniquely in laser cleaning applications, forming thin, irregular
+          films that adhere tenaciously to substrates. This contamination, derived from organic re...
+        frequency: moderate
+        severity: moderate
+      - id: pollen-deposit-contamination
+        name: Pollen Accumulation
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/pollen-deposit-contamination
+        image: /images/contaminant/pollen-deposit-contamination-hero.jpg
+        description: Pollen-deposit-contamination, it manifests as irregular organic layers, formed from airborne pollen adhering
+          to surfaces in humid environments. These deposits, they exhibit unique patterns influenc...
+        frequency: moderate
+        severity: moderate
+      - id: radioactive-contamination
+        name: Surface Radioactive Contamination
+        category: chemical-residue
+        subcategory: hazardous
+        url: /contaminants/chemical-residue/hazardous/radioactive-contamination
+        image: /images/contaminant/radioactive-contamination-hero.jpg
+        description: Radioactive contamination manifests as adherent layers of radionuclides, which form unevenly on surfaces
+          during exposure to fallout or spills. This contamination, it persists tenaciously on metals,...
+        frequency: moderate
+        severity: moderate
+      - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: Rubber residue contamination forms sticky layers on surfaces during processing. Before cleaning, buildup
+          adheres tightly because rubber compounds polymerize under heat and pressure. This creates un...
+        frequency: moderate
+        severity: moderate
+      - id: salt-residue-contamination
+        name: Salt and Chloride Deposits
+        category: inorganic-coating
+        subcategory: mineral
+        url: /contaminants/inorganic-coating/mineral/salt-residue-contamination
+        image: /images/contaminant/salt-residue-contamination-hero.jpg
+        description: Salt residues form tricky patterns on surfaces exposed to harsh environments, like coastal machinery
+          or salted roads. They build up in crystalline layers that cling tight to metals and stone, often...
+        frequency: moderate
+        severity: moderate
+      - id: scale-buildup-contamination
+        name: Mineral Scale / Hard Water Deposits
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/scale-buildup-contamination
+        image: /images/contaminant/scale-buildup-contamination-hero.jpg
+        description: Scale buildup contamination forms differently on metals compared to ceramics, so removal challenges vary.
+          On steel surfaces, layer adheres tightly from heat exposure, creating uneven patterns that ...
+        frequency: moderate
+        severity: moderate
+      - id: silicone-buildup-contamination
+        name: Silicone Sealant Buildup
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+        image: /images/contaminant/silicone-buildup-contamination-hero.jpg
+        description: Silicone buildup contamination, it forms uneven films on surfaces through repeated exposure to vapors
+          and residues. This organic layer, it adheres strongly and creates patchy patterns, especially o...
+        frequency: moderate
+        severity: moderate
+      - id: silver-plating-contamination
+        name: Silver Plating Residue
+        category: metallic-coating
+        subcategory: plating
+        url: /contaminants/metallic-coating/plating/silver-plating-contamination
+        image: /images/contaminant/silver-plating-contamination-hero.jpg
+        description: Silver-plating contamination arises during coating processes and poses challenges for laser cleaning
+          applications. After plating, contaminants form uneven layers on surfaces because silver reacts w...
+        frequency: moderate
+        severity: moderate
+      - id: tree-sap-contamination
+        name: Tree Sap and Resin
+        category: organic-residue
+        subcategory: natural
+        url: /contaminants/organic-residue/natural/tree-sap-contamination
+        image: /images/contaminant/tree-sap-contamination-hero.jpg
+        description: Tree sap contamination forms sticky, resinous layers that build up unevenly on surfaces exposed to outdoor
+          elements. This organic residue hardens over time, creating irregular patterns like drips a...
+        frequency: moderate
+        severity: moderate
+      - id: water-stain-contamination
+        name: Water Staining and Marks
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/water-stain-contamination
+        image: /images/contaminant/water-stain-contamination-hero.jpg
+        description: Water-stain contamination, it manifests distinctly on varied substrates in laser cleaning scenarios.
+          On porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
+        frequency: moderate
+        severity: moderate
+      - id: wax-buildup-contamination
+        name: Wax Coating Buildup
+        category: organic-residue
+        subcategory: wax
+        url: /contaminants/organic-residue/wax/wax-buildup-contamination
+        image: /images/contaminant/wax-buildup-contamination-hero.jpg
+        description: Wax-buildup-contamination, it arises from organic residues in laser cleaning. This contamination forms
+          unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
+        frequency: moderate
+        severity: moderate
       _section:
-        icon: droplet
-        order: 10
-        variant: default
-        relationshipType: contaminatedBy
-        group: interactions
-        domain: materials
-        schemaDescription: Common contaminants found on this material
-        notes: Cross-references to contaminant pages
         sectionTitle: Common Contaminants
         sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: contaminatedBy
+          group: interactions
+          domain: materials
+          icon: droplet
+          order: 10
+          variant: default
+          schemaDescription: Common contaminants found on this material
+          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
       items:
-        - id: architecture
-          name: Architecture
-        - id: art-and-sculpture
-          name: Art And Sculpture
-        - id: bearings
-          name: Bearings
-        - id: marine
-          name: Marine
-        - id: memorial-and-monument
-          name: Memorial And Monument
-        - id: musical-instruments
-          name: Musical Instruments
+      - id: architecture
+        name: Architecture
+      - id: art-and-sculpture
+        name: Art And Sculpture
+      - id: bearings
+        name: Bearings
+      - id: marine
+        name: Marine
+      - id: memorial-and-monument
+        name: Memorial And Monument
+      - id: musical-instruments
+        name: Musical Instruments
       _section:
-        icon: briefcase
-        order: 40
-        variant: default
-        relationshipType: industryApplications
-        group: operational
-        domain: materials
-        schemaDescription: Industries and sectors where commonly used
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        icon: building
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: industryApplications
+          group: operational
+          domain: materials
+          icon: briefcase
+          order: 40
+          variant: default
+          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
       items:
-        - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
-          image: /images/logo/logo-org-fda.png
-          longName: Food and Drug Administration
-          name: FDA
-          url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-        - description: ANSI Z136.1 - Safe Use of Lasers
-          image: /images/logo/logo-org-ansi.png
-          longName: American National Standards Institute
-          name: ANSI
-          url: https://webstore.ansi.org/standards/lia/ansiz1362022
-        - description: IEC 60825 - Safety of Laser Products
-          image: /images/logo/logo-org-iec.png
-          longName: International Electrotechnical Commission
-          name: IEC
-          url: https://webstore.iec.ch/publication/3587
-        - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
-          image: /images/logo/logo-org-osha.png
-          longName: Occupational Safety and Health Administration
-          name: OSHA
-          url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
+      - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+        image: /images/logo/logo-org-fda.png
+        longName: Food and Drug Administration
+        name: FDA
+        url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+      - description: ANSI Z136.1 - Safe Use of Lasers
+        image: /images/logo/logo-org-ansi.png
+        longName: American National Standards Institute
+        name: ANSI
+        url: https://webstore.ansi.org/standards/lia/ansiz1362022
+      - description: IEC 60825 - Safety of Laser Products
+        image: /images/logo/logo-org-iec.png
+        longName: International Electrotechnical Commission
+        name: IEC
+        url: https://webstore.iec.ch/publication/3587
+      - description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+        image: /images/logo/logo-org-osha.png
+        longName: Occupational Safety and Health Administration
+        name: OSHA
+        url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: materials
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: materials
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
 contamination:
   valid:
-    - copper_patina
-    - industrial_oil
-    - environmental_dust
-    - scale_buildup
-    - chemical_stains
+  - copper_patina
+  - industrial_oil
+  - environmental_dust
+  - scale_buildup
+  - chemical_stains
   prohibited:
-    - rust_oxidation
-    - aluminum_oxidation
-    - wood_rot
-    - uv_chalking
+  - rust_oxidation
+  - aluminum_oxidation
+  - wood_rot
+  - uv_chalking
   conditional: {}
-pageDescription: >-
-  Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants are removed
-  without disrupting the protective patina that forms naturally. This tenacity, distinct from ferrous metals that rust
-  readily, preserves structural integrity in art sculptures and marine monuments, yielding efficient restoration
-  dependent from controlled laser parameters.
+pageDescription: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
+  are removed without disrupting the protective patina that forms naturally. This tenacity, distinct from ferrous metals that
+  rust readily, preserves structural integrity in art sculptures and marine monuments, yielding efficient restoration dependent
+  from controlled laser parameters.
+materialCharacteristics:
+  label: Material Characteristics
+  density:
+    value: 8.8
+    unit: g/cm³
+    confidence: 98
+    min: 0.53
+    max: 22.6
+  porosity:
+    value: 0.5
+    unit: '%'
+    confidence: 85
+    min: 0.0
+    max: 15.0
+  surfaceRoughness:
+    value: 0.8
+    unit: μm
+    confidence: 80
+    min: 0.4
+    max: 150
+  tensileStrength:
+    value: 400.0
+    unit: MPa
+    confidence: 92
+    min: 3.0
+    max: 3000.0
+  youngsModulus:
+    value: 110.0
+    unit: GPa
+    confidence: 95
+    min: 5
+    max: 600
+  hardness:
+    value: 100
+    unit: HB
+    confidence: 90
+    min: 0.5
+    max: 3500
+  flexuralStrength:
+    value: 450
+    unit: MPa
+    confidence: 88
+    min: 2.5
+    max: 1050.0
+  oxidationResistance:
+    value: 8
+    unit: scale 1-10
+    confidence: 88
+    min: 200
+    max: 1200
+  corrosionResistance:
+    value: 7
+    unit: scale 1-10
+    confidence: 86
+    min: 1
+    max: 10
+  compressiveStrength:
+    value: 345.0
+    unit: MPa
+    confidence: 95
+    source: ai_research
+  fractureToughness:
+    value: 52.0
+    unit: MPa m^{0.5}
+    confidence: 95
+    source: ai_research
+  electricalResistivity:
+    value: 2.0e-07
+    unit: Ω·m
+    confidence: 95
+    source: ai_research
+  boilingPoint:
+    value: 2840.0
+    unit: K
+    confidence: 90
+    source: ai_research
+  electricalConductivity:
+    value: 6960000.0
+    unit: S/m
+    confidence: 95
+    source: ai_research
+  meltingPoint:
+    value: 950.0
+    unit: °C
+    confidence: 95
+    source: ai_research
+  percentage: 60.0
+  _section:
+    sectionTitle: Bronze's Core Properties
+    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
+      material integrity
+    icon: wrench
+    order: 50
+    variant: default
+laserMaterialInteraction:
+  label: Laser-Material Interaction
+  thermalConductivity:
+    value: 60.0
+    unit: W/(m·K)
+    confidence: 92
+    min: 7.0
+    max: 430
+  thermalExpansion:
+    value: 18
+    unit: ×10^{-6}/K
+    confidence: 94
+    min: 0.5
+    max: 33
+  thermalDiffusivity:
+    value: 22.0
+    unit: mm²/s
+    confidence: 88
+    min: 0.06
+    max: 174
+  specificHeat:
+    value: 380.0
+    unit: J/(kg·K)
+    confidence: 90
+    min: 100
+    max: 2000
+  thermalShockResistance:
+    value: 150
+    unit: W/m·K
+    confidence: 85
+    min: 50
+    max: 400
+  laserReflectivity:
+    value: 0.65
+    unit: '%'
+    confidence: 87
+    min: 5
+    max: 99.9
+  absorptionCoefficient:
+    value: 5.5
+    unit: ×10^6 /m
+    confidence: 85
+    min: 100000
+    max: 50000000
+  ablationThreshold:
+    value: 2.5
+    unit: J/cm²
+    confidence: 85
+    min: 2.0
+    max: 8.0
+  laserDamageThreshold:
+    value: 1.8
+    unit: J/cm²
+    confidence: 84
+    min: 0.1
+    max: 20.0
+  percentage: 40.0
+  thermalDestruction:
+    value: 1223.0
+    unit: K
+    confidence: 95
+    source: ai_research
+  laserAbsorption:
+    value: 78000000.0
+    unit: m^{-1}
+    confidence: 93
+    source: ai_research
+  absorptivity:
+    value: 0.35
+    unit: dimensionless
+    confidence: 95
+    source: ai_research
+  reflectivity:
+    value: 0.65
+    unit: ''
+    confidence: 95
+    source: ai_research
+  vaporPressure:
+    value: 0.14
+    unit: Pa
+    confidence: 92
+    source: ai_research
+  thermalDestructionPoint:
+    value: 950.0
+    unit: °C
+    confidence: 95
+    source: ai_research
+  _section:
+    sectionTitle: Laser Interaction Behavior
+    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
+      thresholds
+    icon: zap
+    order: 60
+    variant: default

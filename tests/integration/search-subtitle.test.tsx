@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import SearchWrapper from '@/app/search/search-wrapper';
 import { Article } from '@/types';
 
@@ -134,7 +134,9 @@ describe('SearchWrapper Description Tests', () => {
       let event = new CustomEvent('searchResultsUpdated', {
         detail: { count: 1, unit: 'g/cm³' },
       });
-      window.dispatchEvent(event);
+      await act(async () => {
+        window.dispatchEvent(event);
+      });
 
       await waitFor(() => {
         const subtitle = screen.getByTestId('layout-description');
@@ -143,10 +145,12 @@ describe('SearchWrapper Description Tests', () => {
       });
 
       // Test with multiple materials
-      event = new CustomEvent('searchResultsUpdated', {
+      const event2 = new CustomEvent('searchResultsUpdated', {
         detail: { count: 7, unit: 'g/cm³' },
       });
-      window.dispatchEvent(event);
+      await act(async () => {
+        window.dispatchEvent(event2);
+      });
 
       await waitFor(() => {
         const subtitle = screen.getByTestId('layout-description');
@@ -276,7 +280,9 @@ describe('SearchWrapper Description Tests', () => {
       const event = new CustomEvent('searchResultsUpdated', {
         detail: { count: 12, unit: 'g/cm³' },
       });
-      window.dispatchEvent(event);
+      await act(async () => {
+        window.dispatchEvent(event);
+      });
 
       await waitFor(() => {
         const subtitle = screen.getByTestId('layout-description');
@@ -336,7 +342,9 @@ describe('SearchWrapper Description Tests', () => {
       const event = new CustomEvent('searchResultsUpdated', {
         detail: { count: 7, unit: 'J/(kg·K)' },
       });
-      window.dispatchEvent(event);
+      await act(async () => {
+        window.dispatchEvent(event);
+      });
 
       await waitFor(() => {
         const subtitle = screen.getByTestId('layout-description');
@@ -359,7 +367,9 @@ describe('SearchWrapper Description Tests', () => {
       const event = new CustomEvent('searchResultsUpdated', {
         detail: { count: 5, unit: '' },
       });
-      window.dispatchEvent(event);
+      await act(async () => {
+        window.dispatchEvent(event);
+      });
 
       await waitFor(() => {
         const subtitle = screen.getByTestId('layout-description');

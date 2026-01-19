@@ -4,21 +4,23 @@ displayName: Zinc Laser Cleaning Settings
 category: metal
 subcategory: alloy
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:15.098372+00:00'
+dateModified: '2026-01-19T02:42:25.876262+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/alloy/zinc-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Metal
-    href: /settings/metal
-  - label: Alloy
-    href: /settings/metal/alloy
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Alloy
+  href: /settings/metal/alloy
 pageTitle: Zinc
-pageDescription: We've found zinc cleans up nicely with laser settings. It reflects a lot of light, so we start low on power to avoid scattering energy. This keeps the surface cool and removes grime without melting. But watch the heat buildup mid-process—it spreads fast because zinc conducts well. Adjust overlap to stay safe, and you'll get a smooth finish every time.
+pageDescription: We've found zinc cleans up nicely with laser settings. It reflects a lot of light, so we start low on power
+  to avoid scattering energy. This keeps the surface cool and removes grime without melting. But watch the heat buildup mid-process—it
+  spreads fast because zinc conducts well. Adjust overlap to stay safe, and you'll get a smooth finish every time.
 metaDescription: Zinc laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,24 +42,25 @@ author:
   sex: m
   jobTitle: Junior Research Scientist in Laser Physics
   expertise:
-    - Ultrafast Laser Physics and Material Interactions
+  - Ultrafast Laser Physics and Material Interactions
   affiliation:
     name: Bandung Institute of Technology
     type: EducationalOrganization
   credentials:
-    - Ph.D. Physics, ITB, 2020
-    - 2+ years in ultrafast laser research including ASEAN optics workshops
-    - Assisted in international optics projects
+  - Ph.D. Physics, ITB, 2020
+  - 2+ years in ultrafast laser research including ASEAN optics workshops
+  - Assisted in international optics projects
   languages:
-    - English
-    - Bahasa Indonesia
+  - English
+  - Bahasa Indonesia
   email: info@z-beam.com
   image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork optics setup
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
   url: https://z-beam.com/authors/ikmanda-roswati
   sameAs:
-    - https://linkedin.com/in/ikmanda-roswati-physicist
-    - https://www.academia.edu/profile/IkmandaRoswati
+  - https://linkedin.com/in/ikmanda-roswati-physicist
+  - https://www.academia.edu/profile/IkmandaRoswati
   personaFile: indonesia_persona.yaml
   formattingFile: indonesia_formatting.yaml
   slug: ikmanda-roswati
@@ -67,7 +70,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -79,78 +82,94 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: zinc-laser-cleaning
-          effectiveness: high
+      - id: zinc-laser-cleaning
+        effectiveness: high
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - id: high-thermal-conductivity
-              type: challenge
-            - id: melting-haz
-              type: challenge
-          contaminationChallenges:
-            - id: rust-oxide-removal
-              type: challenge
-            - id: oil-grease-removal
-              type: challenge
+      - thermalManagement:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contaminationChallenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength with good Zinc absorption and minimal reflectivity
@@ -163,53 +182,69 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Smaller spots for precision on zinc details, larger for broad areas; 200 μm recommended for uniform energy distribution and reduced peak fluence on reflective surfaces. Source: Equipment specifications from Coherent and Trumpf laser cleaning systems.'
+    description: 'Smaller spots for precision on zinc details, larger for broad areas; 200 μm recommended for uniform energy
+      distribution and reduced peak fluence on reflective surfaces. Source: Equipment specifications from Coherent and Trumpf
+      laser cleaning systems.'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
-    description: 'Fluence range for contaminant ablation without zinc damage; threshold ~2.5 J/cm² due to high reflectivity at 1064 nm. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account for zinc''s low melting point. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017).'
+    description: 'Fluence range for contaminant ablation without zinc damage; threshold ~2.5 J/cm² due to high reflectivity
+      at 1064 nm. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account for zinc''s low melting
+      point. Source: Ablation threshold studies in J. Phys. D: Appl. Phys. (2017).'
     value: 10.05
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 50
-    description: 'Nanosecond regime preferred for cost-effective industrial cleaning of zinc; shorter pulses (ps/fs) reduce HAZ but are less common at 1064 nm. 50 ns recommended for minimal heat diffusion in zinc''s high thermal conductivity (~116 W/mK). Source: Laser physics studies in Opt. Express (2015) on metal ablation thresholds.'
+    description: 'Nanosecond regime preferred for cost-effective industrial cleaning of zinc; shorter pulses (ps/fs) reduce
+      HAZ but are less common at 1064 nm. 50 ns recommended for minimal heat diffusion in zinc''s high thermal conductivity
+      (~116 W/mK). Source: Laser physics studies in Opt. Express (2015) on metal ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Range ensures effective contaminant removal without substrate ablation; slower for heavy contamination (e.g., oils), faster for light rust. Recommended 1500 mm/s for optimal zinc cleaning to minimize thermal effects due to high reflectivity. Source: Industry standards from Laserax and academic reviews in J. Laser Appl. (2018).'
+    description: 'Range ensures effective contaminant removal without substrate ablation; slower for heavy contamination (e.g.,
+      oils), faster for light rust. Recommended 1500 mm/s for optimal zinc cleaning to minimize thermal effects due to high
+      reflectivity. Source: Industry standards from Laserax and academic reviews in J. Laser Appl. (2018).'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for zinc to ensure complete removal without cumulative heating. Source: Industry case studies in Surf. Coat. Technol. (2019) on multi-pass laser cleaning of metals.'
+    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes recommended for zinc to ensure
+      complete removal without cumulative heating. Source: Industry case studies in Surf. Coat. Technol. (2019) on multi-pass
+      laser cleaning of metals.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage without gaps or overexposure; 60% optimal for zinc to prevent uneven heating on large areas. Source: Process optimization in Laser Technol. J. (2021), typical for industrial scanning parameters.'
+    description: 'Ensures uniform coverage without gaps or overexposure; 60% optimal for zinc to prevent uneven heating on
+      large areas. Source: Process optimization in Laser Technol. J. (2021), typical for industrial scanning parameters.'
   laserPower:
     description: Optimal average power for Zinc oxide removal without substrate damage
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 50
     max: 500
     value: 150
     unit: W
-    description: 'Typical range for industrial 1064 nm fiber lasers cleaning reflective metals like zinc to avoid excessive heat buildup; starting at 150 W balances efficiency and safety. Max limited to prevent melting (zinc MP ~419°C). Source: CleanLaser and IPG Photonics equipment specs for metal surface preparation.'
+    description: 'Typical range for industrial 1064 nm fiber lasers cleaning reflective metals like zinc to avoid excessive
+      heat buildup; starting at 150 W balances efficiency and safety. Max limited to prevent melting (zinc MP ~419°C). Source:
+      CleanLaser and IPG Photonics equipment specs for metal surface preparation.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed fiber lasers; higher rates speed up cleaning but increase heat accumulation on reflective zinc, risking damage. 50 kHz balances speed and safety. Source: Academic literature in Appl. Surf. Sci. (2020) on pulse train effects for metal cleaning.'
-componentSummary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for Zinc, providing efficient contaminant removal while minimizing heat input to prevent melting its soft, low-melting-point surface.
+    description: 'Typical for pulsed fiber lasers; higher rates speed up cleaning but increase heat accumulation on reflective
+      zinc, risking damage. 50 kHz balances speed and safety. Source: Academic literature in Appl. Surf. Sci. (2020) on pulse
+      train effects for metal cleaning.'
+componentSummary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for Zinc, providing efficient
+  contaminant removal while minimizing heat input to prevent melting its soft, low-melting-point surface.

@@ -4,21 +4,24 @@ displayName: Hastelloy Laser Cleaning Settings
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:10.883084+00:00'
+dateModified: '2026-01-19T02:42:21.026523+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/specialty/hastelloy-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Metal
-    href: /settings/metal
-  - label: Specialty
-    href: /settings/metal/specialty
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Specialty
+  href: /settings/metal/specialty
 pageTitle: Hastelloy
-pageDescription: When laser cleaning Hastelloy, start with reduced power to manage its low thermal conductivity, which causes heat to build up quickly in treated areas. This approach removes surface contaminants cleanly while preserving the alloy's exceptional corrosion resistance. But watch for uneven heating midway through—adjust scan speeds downward to avoid cracking the protective oxide layer. Multiple passes restore the finish without weakening its high-temperature strength.
+pageDescription: When laser cleaning Hastelloy, start with reduced power to manage its low thermal conductivity, which causes
+  heat to build up quickly in treated areas. This approach removes surface contaminants cleanly while preserving the alloy's
+  exceptional corrosion resistance. But watch for uneven heating midway through—adjust scan speeds downward to avoid cracking
+  the protective oxide layer. Multiple passes restore the finish without weakening its high-temperature strength.
 metaDescription: Hastelloy laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,23 +43,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-    - Optical Materials for Laser Systems
+  - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-    - BA Physics, UC Irvine, 2017
-    - Hands-on at JPL optics internship, 2018
-    - MA Optics and Photonics, UC Irvine, 2019
-    - 3+ years in laser systems development
-    - Hands-on experience with optical fabrication
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-    - https://linkedin.com/in/todd-dunning-optics
-    - https://spie.org/profile/Todd.Dunning
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
   slug: todd-dunning
@@ -66,7 +69,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -78,82 +81,98 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - id: high-thermal-conductivity
-              type: challenge
-            - id: melting-haz
-              type: challenge
-          contaminationChallenges:
-            - id: rust-oxide-removal
-              type: challenge
-            - id: oil-grease-removal
-              type: challenge
+      - thermalManagement:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contaminationChallenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-infrared wavelength optimized for Hastelloy absorption and minimal reflectivity
@@ -166,37 +185,55 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Typical beam diameters for industrial cleaning; smaller (50-150 μm) for fine details, larger (200-500 μm) for broad surface prep on Hastelloy parts. 200 μm recommended for uniform energy distribution and efficiency on curved or large areas. Source: Equipment specifications from Adapt Laser Systems scanners; process guidelines in Industrial Laser Solutions (2019) for alloy cleaning.'
+    description: 'Typical beam diameters for industrial cleaning; smaller (50-150 μm) for fine details, larger (200-500 μm)
+      for broad surface prep on Hastelloy parts. 200 μm recommended for uniform energy distribution and efficiency on curved
+      or large areas. Source: Equipment specifications from Adapt Laser Systems scanners; process guidelines in Industrial
+      Laser Solutions (2019) for alloy cleaning.'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe cleaning of superalloys; below damage threshold (~4-5 J/cm² for Hastelloy due to high thermal stability). 1.5 J/cm² recommended for effective contaminant vaporization without substrate ablation. Conservative to account for reflectivity reducing absorption. Source: Ablation threshold studies in Journal of Applied Physics (2021) on Ni-based alloys; experimental data from laser cleaning of Inconel/Hastelloy analogs.'
+    description: 'Fluence range for safe cleaning of superalloys; below damage threshold (~4-5 J/cm² for Hastelloy due to
+      high thermal stability). 1.5 J/cm² recommended for effective contaminant vaporization without substrate ablation. Conservative
+      to account for reflectivity reducing absorption. Source: Ablation threshold studies in Journal of Applied Physics (2021)
+      on Ni-based alloys; experimental data from laser cleaning of Inconel/Hastelloy analogs.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime (5-200 ns) preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-low HAZ but less common industrially. 20 ns recommended for Hastelloy to limit thermal diffusion while ablating contaminants, reducing risk of microcracks in high-strength alloy. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects for Ni-superalloys; avoids fs due to high reflectivity at 1064 nm.'
+    description: 'Nanosecond regime (5-200 ns) preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs)
+      for ultra-low HAZ but less common industrially. 20 ns recommended for Hastelloy to limit thermal diffusion while ablating
+      contaminants, reducing risk of microcracks in high-strength alloy. Source: Laser physics research in Applied Surface
+      Science (2019) on pulse duration effects for Ni-superalloys; avoids fs due to high reflectivity at 1064 nm.'
   scanSpeed:
     min: 10
     max: 5000
     value: 1000
     unit: mm/s
-    description: 'Range for effective contaminant removal on reflective metals; slower speeds (200-800 mm/s) for heavy oxidation, faster (1000-3000 mm/s) for light surface prep. Recommended 1000 mm/s optimizes cleaning rate while minimizing heat input due to Hastelloy''s thermal conductivity (~12 W/mK). Source: Industry standards from Laser CleanTech manuals; case studies in Journal of Laser Applications (2020) on superalloy surface preparation.'
+    description: 'Range for effective contaminant removal on reflective metals; slower speeds (200-800 mm/s) for heavy oxidation,
+      faster (1000-3000 mm/s) for light surface prep. Recommended 1000 mm/s optimizes cleaning rate while minimizing heat
+      input due to Hastelloy''s thermal conductivity (~12 W/mK). Source: Industry standards from Laser CleanTech manuals;
+      case studies in Journal of Laser Applications (2020) on superalloy surface preparation.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy oxide or paint removal on Hastelloy. 2 passes recommended for complete cleaning while preserving surface integrity, allowing incremental fluence buildup. Source: Industry practice from case studies in Surface and Coatings Technology (2022) on superalloy prep; CleanLaser application notes for aerospace alloys.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy oxide or paint removal on Hastelloy. 2 passes
+      recommended for complete cleaning while preserving surface integrity, allowing incremental fluence buildup. Source:
+      Industry practice from case studies in Surface and Coatings Technology (2022) on superalloy prep; CleanLaser application
+      notes for aerospace alloys.'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Typical 30-80% for uniform coverage without gaps or overexposure; 60% recommended for Hastelloy to ensure even cleaning on irregular surfaces while minimizing total energy input and heat buildup. Higher overlap for heavy contamination. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020); scanning system manuals from Scanlab for metal applications.'
+    description: 'Typical 30-80% for uniform coverage without gaps or overexposure; 60% recommended for Hastelloy to ensure
+      even cleaning on irregular surfaces while minimizing total energy input and heat buildup. Higher overlap for heavy contamination.
+      Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020); scanning system manuals
+      from Scanlab for metal applications.'
   dwellTime:
     description: Optimal dwell time per spot for effective cleaning with thermal control
     unit: μs
@@ -207,18 +244,26 @@ machineSettings:
     description: Optimal average power for Hastelloy surface cleaning without substrate damage
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 50
     max: 1000
     value: 200
     unit: W
-    description: 'Typical range for industrial cleaning of nickel-based superalloys like Hastelloy to remove contaminants without ablation; starting at 200W balances efficiency and safety to avoid thermal damage given Hastelloy''s high melting point (~1350°C). Max limited to prevent substrate melting at high fluences. Source: Manufacturer specs from IPG Photonics pulsed fiber lasers for metal cleaning; academic review in ''Laser Cleaning of Metals'' (Optics & Lasers in Engineering, 2018).'
+    description: 'Typical range for industrial cleaning of nickel-based superalloys like Hastelloy to remove contaminants
+      without ablation; starting at 200W balances efficiency and safety to avoid thermal damage given Hastelloy''s high melting
+      point (~1350°C). Max limited to prevent substrate melting at high fluences. Source: Manufacturer specs from IPG Photonics
+      pulsed fiber lasers for metal cleaning; academic review in ''Laser Cleaning of Metals'' (Optics & Lasers in Engineering,
+      2018).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical 10-200 kHz for pulsed cleaning; higher rates speed up process but increase heat accumulation on reflective Hastelloy (reflectivity ~65% at 1064 nm). 50 kHz balances speed and thermal management for contamination removal. Trade-off: >100 kHz risks overheating. Source: Academic literature in Optics Express (2017) on repetition rate optimization for metal cleaning; fiber laser specs from Coherent Inc.'
-componentSummary: These settings, with moderate 200 W power and 10 ns pulses at 1064 nm, enable precise contaminant ablation on Hastelloy's corrosion-resistant surface while minimizing thermal distortion to preserve its structural integrity.
+    description: 'Typical 10-200 kHz for pulsed cleaning; higher rates speed up process but increase heat accumulation on
+      reflective Hastelloy (reflectivity ~65% at 1064 nm). 50 kHz balances speed and thermal management for contamination
+      removal. Trade-off: >100 kHz risks overheating. Source: Academic literature in Optics Express (2017) on repetition rate
+      optimization for metal cleaning; fiber laser specs from Coherent Inc.'
+componentSummary: These settings, with moderate 200 W power and 10 ns pulses at 1064 nm, enable precise contaminant ablation
+  on Hastelloy's corrosion-resistant surface while minimizing thermal distortion to preserve its structural integrity.

@@ -1163,10 +1163,12 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
     // Convert YAML snake_case to TypeScript camelCase at data boundary
     return {
       name: data.name,
+      displayName: data.displayName,  // Full display name for settings
       materialRef: data.materialRef,
       category: data.category,
       subcategory: data.subcategory,
-      title: data.title,
+      title: data.title || data.pageTitle,  // Fallback to pageTitle if title not present
+      pageTitle: data.pageTitle,  // Explicit pageTitle for schema generation
       subtitle: data.subtitle,
       description: data.description,
       metaDescription: data.meta_description, // SEO meta description (short) - converted from snake_case

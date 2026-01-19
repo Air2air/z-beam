@@ -4,21 +4,23 @@ displayName: Oak Laser Cleaning Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:12.139471+00:00'
+dateModified: '2026-01-19T02:42:22.294604+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/oak-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Wood
-    href: /settings/wood
-  - label: Hardwood
-    href: /settings/wood/hardwood
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Wood
+  href: /settings/wood
+- label: Hardwood
+  href: /settings/wood/hardwood
 pageTitle: Oak
-pageDescription: We've found Oak's open porosity sets it apart from denser hardwoods like maple. This lets contaminants seep deep into the grain, so we typically start with low-power passes to gently draw them out without charring. Watch for uneven heat buildup in those pores—bump up overlap midway to even things out and preserve the wood's natural strength.
+pageDescription: We've found Oak's open porosity sets it apart from denser hardwoods like maple. This lets contaminants seep
+  deep into the grain, so we typically start with low-power passes to gently draw them out without charring. Watch for uneven
+  heat buildup in those pores—bump up overlap midway to even things out and preserve the wood's natural strength.
 metaDescription: Oak laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,7 +42,7 @@ author:
   sex: m
   jobTitle: Materials Engineer
   expertise:
-    - Laser-Based Additive Manufacturing
+  - Laser-Based Additive Manufacturing
   affiliation:
     name: Politecnico di Milano's Materials Dept.
     type: EducationalOrganization
@@ -48,16 +50,16 @@ author:
     name: University of Bologna
     type: EducationalOrganization
   credentials:
-    - Ph.D. Materials Science, TU Milano, 2015
-    - 5+ years industrial ceramics experience
-    - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
   email: info@z-beam.com
   image: /images/author/alessandro-moretti.jpg
   imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
   url: https://z-beam.com/authors/alessandro-moretti-phd
   sameAs:
-    - https://scholar.google.com/citations?user=def456
-    - https://linkedin.com/in/alessandro-moretti-engineer
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
   personaFile: italy_persona.yaml
   formattingFile: italy_formatting.yaml
   slug: alessandro-moretti
@@ -67,7 +69,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -79,76 +81,92 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: high
+      - id: oak-laser-cleaning
+        effectiveness: high
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - id: charring-carbonization
-              type: challenge
-            - id: slow-thermal-diffusivity
-              type: challenge
-          contaminationChallenges:
-            - id: varnish-coating-removal
-              type: challenge
+      - thermalManagement:
+        - id: charring-carbonization
+          type: challenge
+        - id: slow-thermal-diffusivity
+          type: challenge
+        contaminationChallenges:
+        - id: varnish-coating-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength for optimal absorption in Oak cellulose and lignin
@@ -161,37 +179,48 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter for precise industrial cleaning; smaller for fine details on oak surfaces (e.g., engravings), larger for broad areas; 200 μm recommended for uniform contaminant removal without excessive overlap heating. Source: Equipment specs from Coherent and Trumpf lasers.'
+    description: 'Beam diameter for precise industrial cleaning; smaller for fine details on oak surfaces (e.g., engravings),
+      larger for broad areas; 200 μm recommended for uniform contaminant removal without excessive overlap heating. Source:
+      Equipment specs from Coherent and Trumpf lasers.'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal on wood; oak damage threshold ~3-5 J/cm² (ablation starts at ~1 J/cm² for organics); 1.5 J/cm² safe for cleaning without degrading cellulose structure. Conservative due to oak''s melting/decomposition point ~200-300°C. Source: Ablation threshold studies in Journal of Applied Physics (2017).'
+    description: 'Fluence range for contaminant removal on wood; oak damage threshold ~3-5 J/cm² (ablation starts at ~1 J/cm²
+      for organics); 1.5 J/cm² safe for cleaning without degrading cellulose structure. Conservative due to oak''s melting/decomposition
+      point ~200-300°C. Source: Ablation threshold studies in Journal of Applied Physics (2017).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning of oak to minimize heat-affected zone (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; 20 ns balances ablation of contaminants with oak''s sensitivity to thermal damage. Source: Laser physics research in Optics & Lasers in Engineering (2018).'
+    description: 'Nanosecond regime preferred for industrial cleaning of oak to minimize heat-affected zone (HAZ <50 μm);
+      picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications; 20 ns balances ablation of contaminants
+      with oak''s sensitivity to thermal damage. Source: Laser physics research in Optics & Lasers in Engineering (2018).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Effective speeds for 1064 nm cleaning of oak; slower for heavy contamination (e.g., mold or grease) to ensure removal, faster for light dust; 500 mm/s optimal for balancing efficiency and heat control. Source: Industry manuals from IPG Photonics and Adapt Laser Systems.'
+    description: 'Effective speeds for 1064 nm cleaning of oak; slower for heavy contamination (e.g., mold or grease) to ensure
+      removal, faster for light dust; 500 mm/s optimal for balancing efficiency and heat control. Source: Industry manuals
+      from IPG Photonics and Adapt Laser Systems.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for oak to ensure complete removal while monitoring for discoloration. Source: Industry case studies on wood restoration (e.g., Laser Cleaning Conference proceedings, 2019).'
+    description: 'Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for oak to ensure complete
+      removal while monitoring for discoloration. Source: Industry case studies on wood restoration (e.g., Laser Cleaning
+      Conference proceedings, 2019).'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021).'
+    description: 'Ensures uniform coverage in scan patterns; 50% recommended for oak to avoid gaps in cleaning while preventing
+      over-exposure and thermal buildup. Source: Process optimization in Surface and Coatings Technology (2021).'
   dwellTime:
     description: Optimal dwell time per cleaning spot
     unit: μs
@@ -202,18 +231,23 @@ machineSettings:
     description: Optimal average power for Oak surface cleaning without charring
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 20
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in wood cleaning to remove contaminants without charring; starting at 50 W for light soiling on oak, max limited by oak''s low thermal conductivity (~0.17 W/m·K) to avoid substrate damage. Source: Studies on laser cleaning of wooden artifacts (e.g., Journal of Cultural Heritage, 2015).'
+    description: 'Typical range for pulsed Nd:YAG lasers in wood cleaning to remove contaminants without charring; starting
+      at 50 W for light soiling on oak, max limited by oak''s low thermal conductivity (~0.17 W/m·K) to avoid substrate damage.
+      Source: Studies on laser cleaning of wooden artifacts (e.g., Journal of Cultural Heritage, 2015).'
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for 1064 nm cleaning; 30 kHz recommended for oak to achieve fast coverage without excessive heat accumulation, as higher rates (>50 kHz) risk charring due to oak''s low reflectivity (~10-20% at 1064 nm). Trade-off: higher freq speeds process but increases thermal load. Source: Academic literature, Applied Surface Science (2020).'
-componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants from oak without causing charring or thermal degradation of the wood's delicate fibers.
+    description: 'Typical for 1064 nm cleaning; 30 kHz recommended for oak to achieve fast coverage without excessive heat
+      accumulation, as higher rates (>50 kHz) risk charring due to oak''s low reflectivity (~10-20% at 1064 nm). Trade-off:
+      higher freq speeds process but increases thermal load. Source: Academic literature, Applied Surface Science (2020).'
+componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants
+  from oak without causing charring or thermal degradation of the wood's delicate fibers.

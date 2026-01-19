@@ -4,21 +4,24 @@ displayName: Fused Silica Laser Cleaning Settings
 category: glass
 subcategory: soda-lime
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:10.504612+00:00'
+dateModified: '2026-01-19T02:42:20.589540+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/soda-lime/fused-silica-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Glass
-    href: /settings/glass
-  - label: Soda Lime
-    href: /settings/glass/soda-lime
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Glass
+  href: /settings/glass
+- label: Soda Lime
+  href: /settings/glass/soda-lime
 pageTitle: Fused Silica
-pageDescription: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This makes the process slower since the beam tends to pass through the material with minimal interaction. I've seen that pulsing at moderate rates removes surface contaminants effectively without overheating. Multiple gentle passes reveal the underlying clarity. Adjust scan speeds to avoid thermal buildup, which can lead to cracking.
+pageDescription: When laser cleaning fused silica, the biggest challenge is its low absorption of laser energy. This makes
+  the process slower since the beam tends to pass through the material with minimal interaction. I've seen that pulsing at
+  moderate rates removes surface contaminants effectively without overheating. Multiple gentle passes reveal the underlying
+  clarity. Adjust scan speeds to avoid thermal buildup, which can lead to cracking.
 metaDescription: Fused Silica laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,23 +43,23 @@ author:
   sex: m
   jobTitle: Junior Optical Materials Specialist
   expertise:
-    - Optical Materials for Laser Systems
+  - Optical Materials for Laser Systems
   affiliation:
     name: Coherent Inc.
     type: Organization
   credentials:
-    - BA Physics, UC Irvine, 2017
-    - Hands-on at JPL optics internship, 2018
-    - MA Optics and Photonics, UC Irvine, 2019
-    - 3+ years in laser systems development
-    - Hands-on experience with optical fabrication
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
   email: info@z-beam.com
   image: /images/author/todd-dunning.jpg
   imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
   url: https://z-beam.com/authors/todd-dunning
   sameAs:
-    - https://linkedin.com/in/todd-dunning-optics
-    - https://spie.org/profile/Todd.Dunning
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
   slug: todd-dunning
@@ -66,7 +69,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -78,95 +81,111 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: oak-laser-cleaning
-          effectiveness: medium
-        - id: maple-laser-cleaning
-          effectiveness: medium
-        - id: pine-laser-cleaning
-          effectiveness: medium
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - thermalManagement:
-            - challenge: Thermal shock and catastrophic failure
-              severity: critical
-              thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
-              impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
-              solutions:
-                - Use pulse mode with 5-8 second cooling between passes
-                - Preheat substrate to room temperature before cleaning
-                - Avoid cold spots (air vents, cold backing) during processing
-                - Tempered glass more resistant but still susceptible to thermal shock
-                - Monitor for stress fractures; stop immediately if cracks appear
-            - challenge: Low thermal diffusivity
-              severity: high
-              propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
-              impact: Heat accumulates in localized zones creating thermal gradients
-              solutions:
-                - Reduce power by 30-40% compared to metals
-                - Increase scan speed to distribute heat (1000-2000 mm/s)
-                - Use defocused beam to spread energy over larger area
-                - Optical-grade glass (fused silica) tolerates higher power
-          contaminationChallenges:
-            - id: adhesive-paint-removal
-              type: challenge
+      - thermalManagement:
+        - challenge: Thermal shock and catastrophic failure
+          severity: critical
+          thresholdTemperature: ΔT > 40-100°C rapid cooling (glass-dependent)
+          impact: Glass shatters from thermal gradients due to low thermal expansion and brittleness
+          solutions:
+          - Use pulse mode with 5-8 second cooling between passes
+          - Preheat substrate to room temperature before cleaning
+          - Avoid cold spots (air vents, cold backing) during processing
+          - Tempered glass more resistant but still susceptible to thermal shock
+          - Monitor for stress fractures; stop immediately if cracks appear
+        - challenge: Low thermal diffusivity
+          severity: high
+          propertyValue: 0.01-15 mm²/s (most glasses 0.5-1.0 mm²/s)
+          impact: Heat accumulates in localized zones creating thermal gradients
+          solutions:
+          - Reduce power by 30-40% compared to metals
+          - Increase scan speed to distribute heat (1000-2000 mm/s)
+          - Use defocused beam to spread energy over larger area
+          - Optical-grade glass (fused silica) tolerates higher power
+        contaminationChallenges:
+        - id: adhesive-paint-removal
+          type: challenge
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     description: Near-IR wavelength providing optimal absorption balance for Fused Silica contamination removal
@@ -178,7 +197,9 @@ machineSettings:
     min: 0.1
     max: 500
     unit: μm
-    description: 'Smaller spots (50-200 μm) for fine detail/precision on fused silica surfaces; larger (200-500 μm) for broad area prep. Recommended 200 μm for balanced resolution and efficiency at 1064 nm (high reflectivity ~4% for silica). Source: Equipment specifications from Coherent and Trumpf laser systems manuals.'
+    description: 'Smaller spots (50-200 μm) for fine detail/precision on fused silica surfaces; larger (200-500 μm) for broad
+      area prep. Recommended 200 μm for balanced resolution and efficiency at 1064 nm (high reflectivity ~4% for silica).
+      Source: Equipment specifications from Coherent and Trumpf laser systems manuals.'
     value: 250
   fluenceThreshold:
     description: Critical fluence threshold for effective contaminant removal without Fused Silica damage
@@ -190,48 +211,65 @@ machineSettings:
     min: 0.1
     max: 1000
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal HAZ but higher cost. Typical 10-30 ns for fused silica to limit thermal diffusion given low thermal conductivity (~1.4 W/m·K). Recommended 20 ns. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects for dielectric materials.'
+    description: 'Nanosecond regime preferred for cost-effective cleaning; picosecond (ps) or femtosecond (fs) for ultra-minimal
+      HAZ but higher cost. Typical 10-30 ns for fused silica to limit thermal diffusion given low thermal conductivity (~1.4
+      W/m·K). Recommended 20 ns. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects
+      for dielectric materials.'
     value: 500
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for uniform removal on fused silica. Source: Industry standards from Laser Cleaning Association guidelines and case studies in Journal of Applied Physics (2020).'
+    description: 'Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s),
+      faster for light (2000-3000 mm/s). Recommended 1500 mm/s for uniform removal on fused silica. Source: Industry standards
+      from Laser Cleaning Association guidelines and case studies in Journal of Applied Physics (2020).'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination; multi-pass (2-3) for heavy layers to build fluence gradually without damage. Recommended 2 passes for fused silica industrial cleaning. Source: Industry practice in case studies from Surface and Coatings Technology (2022) on iterative laser processing.'
+    description: 'Single pass for light contamination; multi-pass (2-3) for heavy layers to build fluence gradually without
+      damage. Recommended 2 passes for fused silica industrial cleaning. Source: Industry practice in case studies from Surface
+      and Coatings Technology (2022) on iterative laser processing.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage; 50-70% typical for even energy distribution on transparent/low-absorbing fused silica. Recommended 60% to minimize gaps while avoiding overexposure. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing (2020).'
+    description: 'Ensures uniform coverage; 50-70% typical for even energy distribution on transparent/low-absorbing fused
+      silica. Recommended 60% to minimize gaps while avoiding overexposure. Source: Process optimization studies in Lasers
+      in Manufacturing and Materials Processing (2020).'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     unit: J/cm²
     value: 2
-    description: 'Fluence range for contaminant ablation without exceeding fused silica damage threshold (~12-15 J/cm² at 1064 nm, ns pulses). Recommended 2 J/cm² for safe cleaning of organics/metals. Source: Ablation threshold studies in Journal of Laser Applications (2017) and SPIE proceedings on optical material cleaning.'
+    description: 'Fluence range for contaminant ablation without exceeding fused silica damage threshold (~12-15 J/cm² at
+      1064 nm, ns pulses). Recommended 2 J/cm² for safe cleaning of organics/metals. Source: Ablation threshold studies in
+      Journal of Laser Applications (2017) and SPIE proceedings on optical material cleaning.'
   laserPower:
     description: Optimal average power range for Fused Silica surface cleaning without thermal damage
     unit: W
     value: 100
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 20
     max: 500
     unit: W
     value: 100
-    description: 'Typical range for industrial Nd:YAG lasers cleaning delicate optics like fused silica to avoid thermal damage; starting at 100 W for light contamination removal. Max safe below substrate ablation threshold (~10 J/cm² fluence limit). Source: Manufacturer specs from IPG Photonics YLR series and academic review in Optics Express (2018) on laser cleaning of silica optics.'
+    description: 'Typical range for industrial Nd:YAG lasers cleaning delicate optics like fused silica to avoid thermal damage;
+      starting at 100 W for light contamination removal. Max safe below substrate ablation threshold (~10 J/cm² fluence limit).
+      Source: Manufacturer specs from IPG Photonics YLR series and academic review in Optics Express (2018) on laser cleaning
+      of silica optics.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical 20-80 kHz for cleaning; higher rates speed up process but risk heat accumulation on low-conductivity fused silica (melting point ~1700°C). Recommended 50 kHz balances speed and safety. Source: Academic literature in Optics and Lasers in Engineering (2021) discussing trade-offs in pulsed laser cleaning.'
-componentSummary: These settings—100 W power, 1064 nm wavelength, and 10 ns pulse width—suit Fused Silica by enabling contaminant ablation with minimal thermal damage to its fragile, low-conductivity structure.
+    description: 'Typical 20-80 kHz for cleaning; higher rates speed up process but risk heat accumulation on low-conductivity
+      fused silica (melting point ~1700°C). Recommended 50 kHz balances speed and safety. Source: Academic literature in Optics
+      and Lasers in Engineering (2021) discussing trade-offs in pulsed laser cleaning.'
+componentSummary: These settings—100 W power, 1064 nm wavelength, and 10 ns pulse width—suit Fused Silica by enabling contaminant
+  ablation with minimal thermal damage to its fragile, low-conductivity structure.

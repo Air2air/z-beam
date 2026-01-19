@@ -4,21 +4,22 @@ displayName: Stainless Steel 316 Laser Cleaning Settings
 category: metal
 subcategory: alloy
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-09T05:27:16.114806+00:00'
+dateModified: '2026-01-19T02:42:26.977927+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/alloy/stainless-steel-316-settings
 breadcrumb:
-  - label: Home
-    href: /
-  - label: Settings
-    href: /settings
-  - label: Metal
-    href: /settings/metal
-  - label: Alloy
-    href: /settings/metal/alloy
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Alloy
+  href: /settings/metal/alloy
 pageTitle: Stainless Steel 316
-pageDescription: Before laser cleaning, Stainless Steel 316 surfaces require careful parameter selection After cleaning, Stainless Steel 316 surfaces show restored appearance with controlled parameters
+pageDescription: Before laser cleaning, Stainless Steel 316 surfaces require careful parameter selection After cleaning, Stainless
+  Steel 316 surfaces show restored appearance with controlled parameters
 metaDescription: Stainless Steel 316 laser cleaning guide. Technical specifications and applications.
 images:
   hero:
@@ -40,23 +41,23 @@ author:
   sex: f
   jobTitle: Laser Processing Engineer
   expertise:
-    - Laser Materials Processing
+  - Laser Materials Processing
   affiliation:
     name: National Taiwan University
     type: EducationalOrganization
   credentials:
-    - Ph.D. Materials Engineering, National Taiwan University, 2018
-    - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-    - 3+ years in laser processing R&D
-    - Assisted in projects on ultrafast laser applications
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
   email: info@z-beam.com
   image: /images/author/yi-chun-lin.jpg
   imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
   url: https://z-beam.com/authors/yi-chun-lin
   sameAs:
-    - https://scholar.google.com/citations?user=ghi789
-    - https://linkedin.com/in/yi-chun-lin-engineer
-    - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
   personaFile: taiwan_persona.yaml
   formattingFile: taiwan_formatting.yaml
   slug: yi-chun-lin
@@ -66,7 +67,7 @@ card:
     subtitle: Machine Settings
     badge:
       text: Optimized
-      variant: success
+      variant: default
     metric:
       value: 100-300
       unit: W
@@ -78,73 +79,89 @@ relationships:
     regulatoryStandards:
       presentation: card
       items:
-        - type: regulatory_standards
-          id: osha-ppe-requirements
-        - type: regulatory_standards
-          id: ansi-z136-1-laser-safety
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
       _section:
-        icon: shield-check
-        order: 20
-        variant: default
-        relationshipType: regulatoryStandards
-        group: safety
-        domain: settings
-        schemaDescription: OSHA, ANSI, and ISO compliance requirements
-        notes: Compliance requirements
         sectionTitle: Regulatory Standards
         sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: regulatoryStandards
+          group: safety
+          domain: settings
+          icon: shield-check
+          order: 20
+          variant: default
+          schemaDescription: OSHA, ANSI, and ISO compliance requirements
+          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
       items:
-        - id: rust-oxidation-contamination
-          effectiveness: high
-        - id: adhesive-residue-contamination
-          effectiveness: medium
+      - id: rust-oxidation-contamination
+        effectiveness: high
+      - id: adhesive-residue-contamination
+        effectiveness: medium
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: removesContaminants
-        group: interactions
-        domain: settings
-        notes: Cross-references to contaminant pages
         sectionTitle: Removes Contaminants
         sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+        sectionMetadata:
+          relationshipType: removesContaminants
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
-        - id: steel-laser-cleaning
-          effectiveness: high
-        - id: stainless-steel-316-laser-cleaning
-          effectiveness: high
+      - id: steel-laser-cleaning
+        effectiveness: high
+      - id: stainless-steel-316-laser-cleaning
+        effectiveness: high
       _section:
-        icon: circle-help
-        order: 999
-        variant: default
-        relationshipType: worksOnMaterials
-        group: interactions
-        domain: settings
-        notes: Cross-references to material pages
         sectionTitle: Works On Materials
         sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+        sectionMetadata:
+          relationshipType: worksOnMaterials
+          group: interactions
+          domain: settings
+          icon: circle-help
+          order: 999
+          variant: default
+          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
       items:
-        - - Requires careful power calibration to prevent material damage
-          - Monitor surface temperature during processing
-          - Verify cleaning effectiveness through inspection
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
       _section:
-        icon: alert-triangle
-        order: 41
-        variant: default
-        relationshipType: commonChallenges
-        group: operational
-        domain: settings
-        schemaDescription: Typical difficulties and solutions
+        icon: triangle-exclamation
+        sectionMetadata:
+          relationshipType: commonChallenges
+          group: operational
+          domain: settings
+          icon: alert-triangle
+          order: 41
+          variant: default
+          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
 machineSettings:
   wavelength:
     value: 1064
@@ -157,53 +174,71 @@ machineSettings:
     max: 500
     value: 100
     unit: μm
-    description: 'Beam diameter range for focused cleaning; smaller (20-50 μm) for fine details, larger (100-200 μm) for broad areas; 100 μm recommended for uniform SS316 surface prep; source: Equipment specs from Coherent and Trumpf lasers, per industry case studies.'
+    description: 'Beam diameter range for focused cleaning; smaller (20-50 μm) for fine details, larger (100-200 μm) for broad
+      areas; 100 μm recommended for uniform SS316 surface prep; source: Equipment specs from Coherent and Trumpf lasers, per
+      industry case studies.'
   energyDensity:
     min: 0.1
-    max: 20
+    max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Fluence range for safe ablation of contaminants on metals; SS316 damage threshold ~1.5-2.5 J/cm² for ns pulses at 1064 nm; 0.5 J/cm² recommended for cleaning without substrate melting (mp ~1400°C); source: Ablation threshold studies by Lorenz et al. (2017) in Applied Physics A.'
+    description: 'Fluence range for safe ablation of contaminants on metals; SS316 damage threshold ~1.5-2.5 J/cm² for ns
+      pulses at 1064 nm; 0.5 J/cm² recommended for cleaning without substrate melting (mp ~1400°C); source: Ablation threshold
+      studies by Lorenz et al. (2017) in Applied Physics A.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime standard for industrial cleaning to ablate contaminants without deep substrate penetration; 50 ns recommended for SS316 to minimize heat-affected zone (HAZ <10 μm) given its thermal conductivity (16 W/m·K); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier; source: Laser physics studies by Kunze et al. (2019) in Applied Surface Science.'
+    description: 'Nanosecond regime standard for industrial cleaning to ablate contaminants without deep substrate penetration;
+      50 ns recommended for SS316 to minimize heat-affected zone (HAZ <10 μm) given its thermal conductivity (16 W/m·K); picosecond
+      (ps) or femtosecond (fs) for ultra-precision but costlier; source: Laser physics studies by Kunze et al. (2019) in Applied
+      Surface Science.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: 'Effective range for contamination removal; slower (100-1000 mm/s) for heavy rust/oil, faster (2000-5000 mm/s) for light contaminants; 2000 mm/s optimal for SS316 surface prep balancing efficiency and minimal HAZ; source: Laserax equipment manuals and industry standards from SPIE proceedings (2020).'
+    description: 'Effective range for contamination removal; slower (100-1000 mm/s) for heavy rust/oil, faster (2000-5000
+      mm/s) for light contaminants; 2000 mm/s optimal for SS316 surface prep balancing efficiency and minimal HAZ; source:
+      Laserax equipment manuals and industry standards from SPIE proceedings (2020).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete SS316 cleaning without excessive wear; source: Industry practice from case studies in Metal Finishing Journal (2021) and manufacturer guidelines.'
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete SS316
+      cleaning without excessive wear; source: Industry practice from case studies in Metal Finishing Journal (2021) and manufacturer
+      guidelines.'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on reflective SS316; 60% recommended to avoid gaps while minimizing passes; source: Process optimization studies by Zhou et al. (2020) in Optics and Lasers in Engineering.'
+    description: 'Ensures uniform coverage; 30-50% for speed, 60-80% for thoroughness on reflective SS316; 60% recommended
+      to avoid gaps while minimizing passes; source: Process optimization studies by Zhou et al. (2020) in Optics and Lasers
+      in Engineering.'
   laserPower:
     value: 100
     unit: W
     description: Optimal average power for metal oxide removal
-    min: 1
+    min: 1.0
     max: 120
   laserPowerAlternative:
     min: 20
     max: 1000
     value: 100
     unit: W
-    description: 'Typical range for industrial fiber lasers cleaning metals like SS316; starting at 100 W avoids overheating due to SS316''s reflectivity (~65% at 1064 nm); max limited to prevent melting (threshold ~500-1000 W depending on pulse); source: IPG Photonics YLR series specs and Anisimov et al. (2018) in Optics Express.'
+    description: 'Typical range for industrial fiber lasers cleaning metals like SS316; starting at 100 W avoids overheating
+      due to SS316''s reflectivity (~65% at 1064 nm); max limited to prevent melting (threshold ~500-1000 W depending on pulse);
+      source: IPG Photonics YLR series specs and Anisimov et al. (2018) in Optics Express.'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed cleaning; 20-50 kHz for SS316 to control heat accumulation (high freq increases temp rise); 50 kHz balances speed and safety; trade-off: higher rates speed up process but risk thermal damage; source: Academic literature, e.g., Pou et al. (2011) in Journal of Cleaner Production.'
-componentSummary: For Stainless Steel 316, the 100 W power, 1064 nm wavelength, and 10 ns pulses enable precise ablation of contaminants while minimizing thermal damage to preserve its corrosion-resistant austenitic structure.
+    description: 'Typical for pulsed cleaning; 20-50 kHz for SS316 to control heat accumulation (high freq increases temp
+      rise); 50 kHz balances speed and safety; trade-off: higher rates speed up process but risk thermal damage; source: Academic
+      literature, e.g., Pou et al. (2011) in Journal of Cleaner Production.'
+componentSummary: For Stainless Steel 316, the 100 W power, 1064 nm wavelength, and 10 ns pulses enable precise ablation of
+  contaminants while minimizing thermal damage to preserve its corrosion-resistant austenitic structure.
