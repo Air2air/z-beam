@@ -134,16 +134,36 @@ export default function ContactPage() {
         slug="contact"
       >
         <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_GAP_RESPONSIVE} mt-8 items-start`}>
-          {/* Workiz Service Request Form */}
+          {/* Workiz Service Request Form Link */}
           <div className="bg-gray-800 p-6 mb-6 rounded-md shadow-md">
-            <iframe
-              src='https://st.sendajob.com/MY/servicerequest/bc0bbe1e44d7eda5aed87bb3ababd7c52a171de4_f.html' 
-              width='100%' 
-              height='650' 
-              scrolling='auto' 
-              style={{border:'none', display:'block', borderRadius:'0.375rem'}}
-              title="Contact Form"
-            />
+            <div className="flex flex-col items-center justify-center min-h-[500px] text-center">
+              <h2 className="text-2xl font-bold mb-4 text-gray-100">Request a Quote</h2>
+              <p className="text-gray-300 mb-6 max-w-md">
+                Fill out our service request form to get a free quote for your laser cleaning project.
+              </p>
+              <a
+                href="https://st.sendajob.com/MY/servicerequest/bc0bbe1e44d7eda5aed87bb3ababd7c52a171de4_f.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 bg-brand-orange hover:bg-brand-orange-dark focus-visible:ring-brand-orange focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl transform hover:scale-[1.03] px-6 py-3 text-lg"
+                style={{ color: '#2d3441' }}
+              >
+                Open Service Request Form
+                <svg
+                  className="w-5 h-5 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
 
           <ContactInfo />
