@@ -15,23 +15,36 @@ export function middleware(request: NextRequest) {
   const isDev = process.env.NODE_ENV === 'development';
   const evalPolicy = isDev ? " 'unsafe-eval'" : "";
   
-  // Build CSP - use unsafe-inline without nonce for Next.js compatibility
-  // Modern browsers will still protect against most XSS with other directives
-  const cspHeader = [
-    "default-src 'self'",
-    // Use unsafe-inline for Next.js framework scripts (no nonce to avoid conflicts)
-    `script-src 'self' 'unsafe-inline'${evalPolicy} https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com https://online-booking.workiz.com`,
-    "style-src 'self' 'unsafe-inline' https://online-booking.workiz.com",
-    "font-src 'self' data:",
-    "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com https://online-booking.workiz.com",
-    "media-src 'self' data: blob:",
-    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://online-booking.workiz.com https://app.workiz.com",
-    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://online-booking.workiz.com",
+  // In development, use a more permissive CSP for easier debugging
+  const cspHeader = isDev ? [
+    "default-src 'self' https: http:",
+    `script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http:`,
+    "style-src 'self' 'unsafe-inline' https: http:",
+    "font-src 'self' data: https: http:",
+    "img-src 'self' data: blob: https: http:",
+    "media-src 'self' data: blob: https: http:",
+    "connect-src 'self' https: http: ws: wss:",
+    "frame-src 'self' https: http:",
     "frame-ancestors 'none'",
-    "form-action 'self'",
+    "form-action 'self' https: http:",
     "base-uri 'self'",
     "object-src 'none'",
-    "worker-src 'self' blob:", // Allow Partytown web workers
+    "worker-src 'self' blob:",
+  ].join('; ') : [
+    // Production CSP - more restrictive
+    "default-src 'self' https://st.sendajob.com",
+    `script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com`,
+    "style-src 'self' 'unsafe-inline' https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
+    "font-src 'self' data: https://st.sendajob.com https://*.sendajob.com",
+    "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
+    "media-src 'self' data: blob: https://st.sendajob.com https://*.sendajob.com",
+    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://online-booking.workiz.com https://app.workiz.com https://st.sendajob.com https://*.sendajob.com",
+    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
+    "frame-ancestors 'none'",
+    "form-action 'self' https://st.sendajob.com https://*.sendajob.com",
+    "base-uri 'self'",
+    "object-src 'none'",
+    "worker-src 'self' blob:",
     "upgrade-insecure-requests",
   ].join('; ');
 

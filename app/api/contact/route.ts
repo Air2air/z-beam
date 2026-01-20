@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     const body: ContactFormData = await request.json();
     
     // Validate required fields (only name, email, and message are required)
-    const { name, email, subject, message, inquiryType } = body;
+    const { name, email, subject, message, inquiryType, phone, company } = body;
     
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -26,15 +26,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Log form submission (email service removed)
+    // Log form submission (handled by Workiz web form now)
     logger.info('Contact form submission received', { 
       name,
       email,
       subject,
       inquiryType,
       hasMessage: !!message,
-      hasCompany: !!body.company,
-      hasPhone: !!body.phone
+      hasCompany: !!company,
+      hasPhone: !!phone
     });
     
     return NextResponse.json({
