@@ -668,7 +668,10 @@ export function generateOrganizationSchema() {
         ? BUSINESS_CONFIG.assets.logo.primary 
         : `${SITE_CONFIG.url}${BUSINESS_CONFIG.assets.logo.primary}`,
       "width": BUSINESS_CONFIG.assets.logo.width,
-      "height": BUSINESS_CONFIG.assets.logo.height
+      "height": BUSINESS_CONFIG.assets.logo.height,
+      "creator": SITE_CONFIG.shortName,
+      "description": `${SITE_CONFIG.shortName} company logo`,
+      "encodingFormat": "image/png"
     },
     "image": BUSINESS_CONFIG.assets.images.ogImage.startsWith('http')
       ? BUSINESS_CONFIG.assets.images.ogImage
@@ -733,6 +736,7 @@ export function generateOrganizationSchema() {
         },
         "price": String(SITE_CONFIG.pricing.professionalCleaning.hourlyRate),
         "priceCurrency": SITE_CONFIG.pricing.professionalCleaning.currency,
+        "image": `${SITE_CONFIG.url}/images/services/${service.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
         "priceSpecification": {
           "@type": "PriceSpecification",
           "price": String(SITE_CONFIG.pricing.professionalCleaning.hourlyRate),

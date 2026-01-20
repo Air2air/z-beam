@@ -77,7 +77,44 @@ export function createMaterialJsonLd(data: MaterialData, slug: string) {
         '@type': 'ImageObject',
         url: `${baseUrl}/logo.png`,
         width: 512,
-        height: 512
+        height: 512,
+        creator: SITE_CONFIG.shortName
+      }
+    },
+    
+    // Primary product image with creator
+    image: {
+      '@type': 'ImageObject',
+      url: `${baseUrl}/images/materials/${slug}-hero.jpg`,
+      width: 1200,
+      height: 630,
+      creator: data.author || SITE_CONFIG.shortName,
+      description: `Professional laser cleaning for ${data.title}`,
+      encodingFormat: 'image/jpeg'
+    },
+    
+    // Service offers with pricing
+    offers: {
+      '@type': 'Offer',
+      name: `Professional Laser Cleaning for ${data.title}`,
+      description: `Expert laser cleaning service for ${data.title} with guaranteed results`,
+      price: '390',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: pageUrl,
+      image: `${baseUrl}/images/materials/${slug}-service.jpg`,
+      validFrom: new Date().toISOString(),
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: '390',
+        priceCurrency: 'USD',
+        unitCode: 'HUR',
+        unitText: 'per hour'
+      },
+      seller: {
+        '@type': 'Organization',
+        name: SITE_CONFIG.shortName,
+        url: baseUrl
       }
     }
   };

@@ -1,5 +1,6 @@
 import { SITE_CONFIG } from './constants';
 import { normalizeToBaseSlug, getDatasetUrl } from './slugHelpers';
+import type { Author } from '@/types';
 import {
   generatePersonSchema,
   generateArticleSchema,
@@ -260,7 +261,7 @@ function createTechnicalArticleSchema(data: any) {
 
 // 2. Material Product Schema (E-E-A-T: Authoritativeness with verified data)
 function createMaterialProductSchema(data: any) {
-  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, images, author } = data;
+  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, images, author, slug } = data;
   
   // Extract properties from categorized structure
   const properties: any[] = [];
@@ -369,6 +370,7 @@ function createMaterialProductSchema(data: any) {
       url: pageUrl,
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
+      image: `${SITE_CONFIG.url}/images/materials/${normalizeToBaseSlug(slug)}-service.jpg`,
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
         priceCurrency: 'USD',
