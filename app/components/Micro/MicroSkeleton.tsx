@@ -7,7 +7,6 @@
  */
 
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
-import { DIMENSION_CLASSES } from '@/app/config/dimensions';
 
 export default function MicroSkeleton() {
   return (

@@ -4,7 +4,6 @@
 import { CardGridSSR } from '@/app/components/CardGrid';
 import { Layout } from '@/app/components/Layout/Layout';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
-import { SITE_CONFIG } from '@/app/config';
 import { ContentTypeConfig } from '@/app/config/contentTypes';
 import { GridItem } from '@/types';
 

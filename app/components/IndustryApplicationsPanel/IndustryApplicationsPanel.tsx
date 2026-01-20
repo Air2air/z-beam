@@ -36,7 +36,7 @@ interface IndustryApplicationsPanelProps {
  */
 export function IndustryApplicationsPanel({
   applications,
-  entityName,
+  entityName: _entityName,
   variant = 'materials',
   className = '',
   sectionMetadata

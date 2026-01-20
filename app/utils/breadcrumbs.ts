@@ -52,7 +52,7 @@ export function generateBreadcrumbs(
  * Example: /settings/metal/non-ferrous/aluminum-settings
  * Returns: Home → Settings → Metal → Non-Ferrous → Aluminum
  */
-function buildBreadcrumbsFromPath(fullPath: string): BreadcrumbItem[] {
+function _buildBreadcrumbsFromPath(fullPath: string): BreadcrumbItem[] {
   const breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
   
   const segments = fullPath.split('/').filter(Boolean);

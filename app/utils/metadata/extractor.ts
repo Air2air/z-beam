@@ -3,7 +3,7 @@
  * Consolidates 15+ duplicate metadata extraction functions
  */
 
-import type { ArticleMetadata, ContentType } from '@/types/centralized';
+import type { ContentType } from '@/types/centralized';
 
 export interface ExtractedMetadata {
   title?: string;

@@ -26,7 +26,7 @@ import {
   isMaterialPage,
   isCompoundPage 
 } from '../contentTypeDetection';
-import { normalizeToBaseSlug, getDatasetUrl } from '../slugHelpers';
+import { normalizeToBaseSlug, getDatasetUrl as _getDatasetUrl } from '../slugHelpers';
 import { toCategorySlug } from '../formatting';
 import {
   getMetadata,
@@ -34,7 +34,7 @@ import {
   hasMachineSettings,
   hasMaterialProperties,
   hasAuthor,
-  hasFAQData,
+  hasFAQData as _hasFAQData,
   hasServiceData,
   hasMultipleProducts,
   hasMultipleServices,

@@ -6,9 +6,7 @@
 "use client";
 
 import Link from "next/link";
-import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { CardProps } from "@/types";
-import { SITE_CONFIG } from "@/app/config/site";
 import { getCardVariant } from "@/app/config/card-variants";
 
 export interface ContaminantCardProps extends Omit<CardProps, 'variant'> {

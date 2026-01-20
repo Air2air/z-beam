@@ -11,6 +11,7 @@
     "dev:status": "lsof -ti:3000 > /dev/null && echo '✅ Dev server is running on port 3000' || echo '❌ Dev server is not running'",
     "prebuild": "npm run validate:content && npm run validate:naming:semantic && npm run validate:types && npm run verify:sitemap:links && npm run test:ci",
     "build": "next build",
+    "vercel-build": "next build",
     "start": "next start",
     "clean": "rm -rf .next node_modules/.cache tsconfig.tsbuildinfo .vercel .validation-cache",
     "check": "node scripts/validation/lib/run-checks.js",

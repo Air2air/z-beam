@@ -65,7 +65,7 @@ export function SafetyDataPanel({
   compounds = [],  // Enhanced compound data from produces_compounds top-level field
   className = '',
   collapsible = false,  // Default to false for backward compatibility
-  entityName,  // Name of contaminant/compound for title
+  entityName: _entityName,  // Name of contaminant/compound for title (not currently used)
   sectionDescription
 }: SafetyDataPanelProps) {
   if (!safetyData) return null;

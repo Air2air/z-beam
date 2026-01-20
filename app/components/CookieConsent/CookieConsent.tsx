@@ -39,7 +39,7 @@ export function CookieConsent() {
           // Version changed, request new consent
           setShowBanner(true);
         }
-      } catch (e) {
+      } catch (_e) {
         setShowBanner(true);
       }
     }

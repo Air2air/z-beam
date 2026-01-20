@@ -43,7 +43,7 @@ interface ExpertAnswersPanelProps {
   /** Array of expert answers to display */
   answers: ExpertAnswerItem[];
   /** Name of entity (material, contaminant, etc.) for context */
-  entityName: string;
+  entityName?: string;  // Optional - not currently used but kept for future context
   /** Default expert if individual answers don't specify one */
   defaultExpert?: ExpertInfo;
   /** Optional CSS classes */
@@ -54,7 +54,9 @@ interface ExpertAnswersPanelProps {
 
 /**
  * Parse simple markdown bold syntax (**text** → <strong>text</strong>)
+ * Currently unused - kept for potential future use
  */
+/*
 function parseSimpleMarkdown(text: string): React.ReactNode {
   if (!text) return null;
   
@@ -102,7 +104,7 @@ export function ExpertAnswersPanel({
   entityName,
   defaultExpert,
   className = '',
-  onQuestionClick
+  onQuestionClick: _onQuestionClick
 }: ExpertAnswersPanelProps) {
   if (!answers || answers.length === 0) {
     return null;

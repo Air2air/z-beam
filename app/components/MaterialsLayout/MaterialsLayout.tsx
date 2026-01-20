@@ -12,10 +12,8 @@ import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetDownloader from '../Dataset/MaterialDatasetDownloader';
 import { CardGrid } from '../CardGrid';
 import { Micro } from '../Micro/Micro';
-import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { getHeroImageUrl } from '@/app/utils/relationshipHelpers';
-import type { LayoutProps } from '@/types';
 import type { SectionConfig } from '../BaseContentLayout';
 
 interface MaterialsLayoutProps extends LayoutProps {

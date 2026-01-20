@@ -6,7 +6,6 @@
  * @performance Uses DIMENSION_CLASSES to match CardGrid exactly (CLS: 0.0)
  */
 
-import { DIMENSION_CLASSES } from '@/app/config/dimensions';
 import { getGridClasses } from '@/app/config/site';
 
 interface CardGridSkeletonProps {
@@ -25,7 +24,7 @@ interface CardGridSkeletonProps {
 export default function CardGridSkeleton({ 
   count = 9, 
   showTitle = true,
-  titleText = "Loading",
+  titleText: _titleText = "Loading",
   columns = 3,
   gap = "md"
 }: CardGridSkeletonProps) {

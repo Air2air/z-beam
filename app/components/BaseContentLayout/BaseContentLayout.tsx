@@ -5,7 +5,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Layout } from '../Layout/Layout';
-import type { LayoutProps, SectionConfig, BaseContentLayoutProps } from '@/types';
+import type { SectionConfig, BaseContentLayoutProps } from '@/types';
 
 const Micro = dynamic(() => import('../Micro/Micro').then(mod => ({ default: mod.Micro })), {
   ssr: true
@@ -27,9 +27,9 @@ export function BaseContentLayout({
   metadata,
   children,
   slug = '',
-  category = '',
-  subcategory = '',
-  contentType,
+  category: _category = '',
+  subcategory: _subcategory = '',
+  contentType: _contentType,
   sections = [],
   showMicro = true,
   enrichedMetadata,

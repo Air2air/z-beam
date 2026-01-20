@@ -4,7 +4,6 @@
 import React, { useState, useMemo } from "react";
 import { formatKeyAsTitle } from "@/app/utils/formatting";
 import { BaseSection } from "@/app/components/BaseSection/BaseSection";
-import { getSectionIcon } from "@/app/config/sectionIcons";
 import type {
   NetworkParameter,
   ParameterRelationship,
@@ -122,8 +121,8 @@ const getRelationshipDescription = (
 export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { heroImage?: string; materialLink?: string }> = ({
   parameters,
   materialName: _materialName,
-  heroImage,
-  materialLink,
+  heroImage: _heroImage,
+  materialLink: _materialLink,
 }) => {
   // Derive material-specific relationships from parameter data
   const relationships: ParameterRelationship[] = useMemo(() => {

@@ -29,7 +29,6 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Title } from '../Title/Title';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import type { ContentCardProps } from '@/types';
 
@@ -254,10 +253,12 @@ export function ContentCard({
                     itemScope
                     itemType="https://schema.org/ListItem"
                   >
-                    <img 
+                    <Image 
                       src="/images/logo/bullet.svg"
                       alt=""
-                      className="w-4 h-4 mt-1 flex-shrink-0 object-contain"
+                      width={16}
+                      height={16}
+                      className="mt-1 flex-shrink-0 object-contain"
                       role="presentation"
                       aria-hidden="true"
                     />

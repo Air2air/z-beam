@@ -11,7 +11,7 @@
 
 import Link from "next/link";
 import { resolveCardData, resolveEntityUrl } from "@/app/utils/entityLookup";
-import { SEVERITY_COLORS, type RelationshipItem, type CardVariant } from "@/types";
+import { SEVERITY_COLORS, type RelationshipItem, type CardVariant as _CardVariant } from "@/types";
 import { Circle } from 'lucide-react';
 
 export interface RelationshipCardProps {

@@ -1,5 +1,4 @@
 import { SITE_CONFIG } from './constants';
-import type { Author } from '@/types';
 import { normalizeToBaseSlug, getDatasetUrl } from './slugHelpers';
 import {
   generatePersonSchema,

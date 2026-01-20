@@ -11,7 +11,6 @@
 "use client";
 
 import { Collapsible } from "../Collapsible";
-import { trackFAQClick } from "@/app/utils/analytics";
 import type { ExpertAnswersProps, ExpertAnswerItem } from '@/types';
 
 /**

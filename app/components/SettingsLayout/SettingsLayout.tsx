@@ -10,17 +10,14 @@ import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
 import MaterialDatasetDownloader from '@/app/components/Dataset/MaterialDatasetDownloader';
 import { MachineSettings } from '@/app/components/MachineSettings/MachineSettings';
 import { ScheduleCards } from '@/app/components/Schedule/ScheduleCards';
-import { GridSection } from '@/app/components/GridSection/GridSection';
 import { CardGrid } from '@/app/components/CardGrid';
-import { DataGrid } from '@/app/components/DataGrid/DataGrid';
 import { DescriptiveDataPanel } from '@/app/components/DescriptiveDataPanel';
 import { 
   contaminantLinkageToGridItem, 
-  materialLinkageToGridItem, 
-  settingsLinkageToGridItem 
+  materialLinkageToGridItem 
 } from '@/app/utils/gridMappers';
-import { sortByFrequency, sortBySeverity } from '@/app/utils/gridSorters';
-import { SettingsMetadata, LayoutProps, SettingsLayoutProps } from '@/types/centralized';
+import { sortByFrequency } from '@/app/utils/gridSorters';
+import { SettingsMetadata, SettingsLayoutProps } from '@/types/centralized';
 
 // Re-export for convenience
 export type { SettingsLayoutProps };

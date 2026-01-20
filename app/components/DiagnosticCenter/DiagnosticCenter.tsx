@@ -6,16 +6,14 @@ import { TroubleshootingPanel } from './TroubleshootingPanel';
 import { QuickReferencePanel } from './QuickReferencePanel';
 import { BaseSection } from '../BaseSection/BaseSection';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
-import { Title } from '../Title/Title';
 import { getSectionIcon } from '@/app/config/sectionIcons';
-import { Wrench } from 'lucide-react';
 
 interface DiagnosticCenterProps {
   materialName: string;
   challenges: any; // material_challenges from frontmatter
   issues: any[]; // common_issues from frontmatter
-  heroImage?: string;
-  materialLink?: string;
+  heroImage?: string;  // Not used - kept for interface compatibility
+  materialLink?: string;  // Not used - kept for interface compatibility
 }
 
 /**
@@ -31,8 +29,8 @@ export function DiagnosticCenter({
   materialName, 
   challenges, 
   issues,
-  heroImage,
-  materialLink 
+  heroImage: _heroImage,
+  materialLink: _materialLink 
 }: DiagnosticCenterProps) {
   // Safety check for materialName
   const safeMaterialName = materialName || 'material';

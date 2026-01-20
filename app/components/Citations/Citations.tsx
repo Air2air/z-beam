@@ -21,7 +21,7 @@ import type { CitationsProps } from '@/types/centralized';
  * <Citations research_library={settings.research_library} materialName="Aluminum" />
  * ```
  */
-export function Citations({ research_library, materialName, heroImage, materialLink }: CitationsProps & { heroImage?: string; materialLink?: string }) {
+export function Citations({ research_library, materialName, heroImage: _heroImage, materialLink: _materialLink }: CitationsProps & { heroImage?: string; materialLink?: string }) {
   const [expandedCitations, setExpandedCitations] = useState<Set<string>>(new Set());
 
   if (!research_library || Object.keys(research_library).length === 0) {

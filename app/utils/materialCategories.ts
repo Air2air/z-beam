@@ -7,7 +7,7 @@
 import { 
   getAllCategoriesGeneric, 
   getSubcategoryInfoGeneric, 
-  getItemInfoGeneric,
+  // getItemInfoGeneric,  // Unused import - commented out
   type GenericItemInfo 
 } from './categories/generic';
 

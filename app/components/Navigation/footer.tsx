@@ -7,7 +7,6 @@ import { FooterNavItem, SocialLink } from "@/types";
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
 import { SITE_CONFIG } from "@/app/config/site";
 import { MAIN_NAV_ITEMS } from "../../config/navigation";
-import { openCookieSettings } from "../CookieConsent";
 
 // Use centralized navigation config - convert NavItem[] to FooterNavItem[]
 const footerNav: FooterNavItem[] = MAIN_NAV_ITEMS.map(item => ({

@@ -26,8 +26,8 @@ export function ContaminantCard({
   href,
   badge,
   className = "",
-  imageUrl: explicitImageUrl,
-  imageAlt: explicitImageAlt,
+  imageUrl: _explicitImageUrl,
+  imageAlt: _explicitImageAlt,
   showCategory = true,
   showContext = true,
   showIcon = true

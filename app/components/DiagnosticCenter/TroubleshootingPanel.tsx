@@ -1,7 +1,6 @@
 // app/components/DiagnosticCenter/TroubleshootingPanel.tsx
 'use client';
 
-import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { AlertTriangle, ChevronDown, ClipboardList, CheckCircle, ClipboardCheck, Lock } from 'lucide-react';
 
 interface Issue {

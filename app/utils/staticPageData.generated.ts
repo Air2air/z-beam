@@ -1,4 +1,4 @@
-import type { ContentCardItem } from '@/types';
+import type { ContentCardItem as _ContentCardItem } from '@/types';
 
 export const NETALUX_DATA = {
   "title": "Netalux Needle & Jango Laser Systems | Belgian Tech",

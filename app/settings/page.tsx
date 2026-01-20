@@ -83,7 +83,7 @@ export default async function SettingsPage() {
           imageUrl = materialData.images.hero.url;
         }
       }
-    } catch (e) {
+    } catch (_e) {
       // Fall back to constructed URL if material not found
     }
     

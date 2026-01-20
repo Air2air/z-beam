@@ -11,10 +11,8 @@ import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
 import { Collapsible } from '../Collapsible';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
-import { sortByFrequency } from '@/app/utils/gridSorters';
-import { getRelationshipSection } from '@/app/utils/relationshipHelpers';
 import ContaminantDatasetDownloader from '../Dataset/ContaminantDatasetDownloader';
-import type { LayoutProps, ContaminantsLayoutProps, SectionConfig } from '@/types';
+import type { ContaminantsLayoutProps, SectionConfig } from '@/types';
 
 /**
  * Denormalized compound item structure

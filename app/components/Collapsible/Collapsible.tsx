@@ -23,7 +23,6 @@ import {
   SettingsIcon,
   ZapIcon,
   ShieldIcon,
-  FileTextIcon,
   DatabaseIcon
 } from '@/app/components/Buttons/ButtonIcons';
 import { Flame, AlertTriangle, Eye, Wind } from 'lucide-react';

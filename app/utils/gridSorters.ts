@@ -14,7 +14,7 @@
  * @see DataGrid component for usage
  */
 
-import { EnhancedCompound, Relationship } from './gridMappers';
+import { EnhancedCompound } from './gridMappers';
 
 /**
  * Severity hierarchy (most severe first)

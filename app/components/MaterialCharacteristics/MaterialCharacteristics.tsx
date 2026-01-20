@@ -2,7 +2,6 @@
 import React from 'react';
 import { BaseSection } from '../BaseSection/BaseSection';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
-import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface MaterialCharacteristicsProps {
   materialProperties: any;

@@ -1,7 +1,6 @@
 // app/components/DiagnosticCenter/PreventionPanel.tsx
 'use client';
 
-import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { CheckCircle, ChevronDown } from 'lucide-react';
 
 interface Challenge {

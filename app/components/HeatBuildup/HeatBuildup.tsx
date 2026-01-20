@@ -4,7 +4,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import { getGridClasses } from '@/app/utils/gridConfig';
-import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import { HeatAnalysisCards } from './HeatAnalysisCards';
 
@@ -15,8 +14,8 @@ interface HeatBuildupProps {
   scanSpeed: number; // mm/s
   passCount: number;
   thermalDiffusivity?: number; // mm²/s (aluminum = 97)
-  heroImage?: string;
-  materialLink?: string;
+  heroImage?: string;  // Not used - kept for interface compatibility
+  materialLink?: string;  // Not used - kept for interface compatibility
 }
 
 /**
@@ -30,8 +29,8 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
   scanSpeed,
   passCount,
   thermalDiffusivity: _thermalDiffusivity = 97, // Aluminum default
-  heroImage,
-  materialLink,
+  heroImage: _heroImage,
+  materialLink: _materialLink,
 }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -94,7 +93,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
       max = Math.max(max, calculateTemperature(t));
     }
     return max;
-  }, [editablePower, editableRepRate, editableScanSpeed, editablePassCount, editableCoolingTime, totalSimTime]);
+  }, [editablePower, editableRepRate, editableScanSpeed, editablePassCount, editableCoolingTime, totalSimTime, calculateTemperature]);
 
   // Calculate heat analysis factors (0-100 scores)
   const heatFactors = useMemo(() => {
@@ -133,7 +132,7 @@ export const HeatBuildup: React.FC<HeatBuildupProps> = ({
       { label: 'Cooling Efficiency', score: coolingEfficiency, weight: '20%' },
       { label: 'Pass Optimization', score: passOptimization, weight: '15%' },
     ];
-  }, [peakTemp, maxSafeTemp, damageTemp, editableCoolingTime, editablePassCount, passTime]);
+  }, [peakTemp, maxSafeTemp, damageTemp, editableCoolingTime, editablePassCount, passTime, totalSimTime]);
 
   // Animation loop
   useEffect(() => {

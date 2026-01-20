@@ -45,7 +45,7 @@ import type { BaseSectionProps } from '@/types';
 import { toCategorySlug } from '@/app/utils/formatting';
 import { SECTION_HEADER_CLASSES } from '@/app/config/site';
 import { renderMarkdown } from '@/app/utils/markdown';
-import { getSectionIcon } from '@/app/config/sectionIcons';
+import { getSectionIcon } from '@/app/config/sectionIcons.tsx';
 
 export function BaseSection({
   title,

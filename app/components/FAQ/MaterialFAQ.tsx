@@ -11,7 +11,6 @@
 "use client";
 
 import { BaseSection } from "../BaseSection/BaseSection";
-import { Title } from "../Title/Title";
 import { trackFAQClick } from "@/app/utils/analytics";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import type { MaterialFAQProps } from '@/types';
@@ -30,8 +29,8 @@ export function MaterialFAQ({
   materialName,
   faq = [],
   className: _className = "",
-  heroImage,
-  thumbnailLink,
+  heroImage: _heroImage,
+  thumbnailLink: _thumbnailLink,
 }: MaterialFAQProps & { heroImage?: string; thumbnailLink?: string }) {
   // Use FAQ data from frontmatter
   if (!faq || faq.length === 0) return null;

@@ -2,7 +2,7 @@
 import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from "../components/JsonLD/JsonLD";
 import { loadPageData } from "../utils/contentAPI";
-import { ArticleMetadata } from "@/types";
+import { ArticleMetadata as _ArticleMetadata } from "@/types";
 import { SITE_CONFIG } from "@/app/config/site";
 import { ScheduleContent } from "../components/Schedule/ScheduleContent";
 import Link from "next/link";

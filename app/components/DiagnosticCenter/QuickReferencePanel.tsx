@@ -1,7 +1,6 @@
 // app/components/DiagnosticCenter/QuickReferencePanel.tsx
 'use client';
 
-import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { BarChart3, ChevronDown } from 'lucide-react';
 
 interface Challenge {

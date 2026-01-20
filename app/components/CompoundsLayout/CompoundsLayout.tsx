@@ -9,15 +9,13 @@ import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
 import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
 import { InfoCard } from '../InfoCard/InfoCard';
-import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { BaseSection } from '../BaseSection/BaseSection';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
-import { sortByFrequency } from '@/app/utils/gridSorters';
 import { contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
-import { getRelationshipSection } from '@/app/utils/relationshipHelpers';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { Beaker, Thermometer, Activity, FileText } from 'lucide-react';
-import type { LayoutProps, SectionConfig, CompoundsLayoutProps } from '@/types';
+import type { SectionConfig, CompoundsLayoutProps } from '@/types';
 
 // Re-export for convenience
 export type { CompoundsLayoutProps };

@@ -15,13 +15,11 @@
 import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
 import { Button } from "../Button";
-import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
+import { CardItem, CardGridProps } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { getContentType } from '@/app/utils/relationshipHelpers';
-import { Title } from '../Title/Title';
 import { BaseSection } from '../BaseSection/BaseSection';
-import { renderMarkdown } from '@/app/utils/markdown';
 
 // Unified item interface that handles all data sources - now imported from @/types
 

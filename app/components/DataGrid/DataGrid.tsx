@@ -31,7 +31,7 @@
 
 import React from 'react';
 import { CardGrid } from '../CardGrid';
-import type { GridItem, DataGridProps } from '@/types';
+import type { DataGridProps } from '@/types';
 
 // Re-export for convenience
 export type { DataGridProps };

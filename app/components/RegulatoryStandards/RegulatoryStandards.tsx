@@ -13,9 +13,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { RegulatoryStandardsProps } from '@/types';
-import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { BaseSection } from '../BaseSection/BaseSection';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 export function RegulatoryStandards({
@@ -23,8 +21,8 @@ export function RegulatoryStandards({
   className: _className = '',
   showTitle: _showTitle = true,
   sectionMetadata,
-  heroImage,
-  thumbnailLink,
+  heroImage: _heroImage,
+  thumbnailLink: _thumbnailLink,
 }: RegulatoryStandardsProps & { heroImage?: string; thumbnailLink?: string; sectionMetadata?: any }) {
   if (!standards || standards.length === 0) return null;
   

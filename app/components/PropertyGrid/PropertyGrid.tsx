@@ -11,8 +11,8 @@ interface PropertyGridProps {
   description?: string;  // Optional description
   materialName?: string;
   icon?: React.ReactNode;
-  actionText?: string;
-  actionUrl?: string;
+  actionText?: string; // Not used - kept for interface compatibility
+  actionUrl?: string; // Not used - kept for interface compatibility
   columns?: { xs?: number; sm?: number; md?: number; lg?: number };
   height?: number;
   className?: string;
@@ -57,8 +57,8 @@ export function PropertyGrid({
   description,
   materialName,
   icon,
-  actionText,
-  actionUrl,
+  actionText: _actionText,  // Not used - kept for interface compatibility
+  actionUrl: _actionUrl,    // Not used - kept for interface compatibility
   columns = { xs: 3, sm: 4, md: 5, lg: 6 },
   height = 70,
   className = 'mb-8',

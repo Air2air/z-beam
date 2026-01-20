@@ -67,7 +67,7 @@ function tryLoadEntity(dir: string, entityId: string): EntityFrontmatter | null 
     const frontmatter = yaml.load(fileContents) as EntityFrontmatter;
     
     return frontmatter;
-  } catch (error) {
+  } catch (_error) {
     // File doesn't exist or parse error - continue searching
     return null;
   }
