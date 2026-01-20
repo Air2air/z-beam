@@ -15,6 +15,7 @@ import { Micro } from '../Micro/Micro';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { getHeroImageUrl } from '@/app/utils/relationshipHelpers';
 import type { SectionConfig } from '../BaseContentLayout';
+import type { LayoutProps } from '@/types';
 
 interface MaterialsLayoutProps extends LayoutProps {
   slug?: string;

@@ -15,7 +15,7 @@
 import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
 import { Button } from "../Button";
-import { CardItem, CardGridProps } from "@/types";
+import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { getContentType } from '@/app/utils/relationshipHelpers';

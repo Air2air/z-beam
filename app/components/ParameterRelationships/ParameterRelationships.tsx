@@ -4,6 +4,7 @@
 import React, { useState, useMemo } from "react";
 import { formatKeyAsTitle } from "@/app/utils/formatting";
 import { BaseSection } from "@/app/components/BaseSection/BaseSection";
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import type {
   NetworkParameter,
   ParameterRelationship,

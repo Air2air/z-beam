@@ -14,6 +14,7 @@ import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { sortByFrequency, getRelationshipSection } from '@/app/utils/gridSorters';
 import { Beaker, Thermometer, Activity, FileText } from 'lucide-react';
 import type { SectionConfig, CompoundsLayoutProps } from '@/types';
 

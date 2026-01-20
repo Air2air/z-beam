@@ -13,6 +13,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { RegulatoryStandardsProps } from '@/types';
+import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { BaseSection } from '../BaseSection/BaseSection';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
