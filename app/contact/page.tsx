@@ -3,24 +3,9 @@ import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from "../components/JsonLD/JsonLD";
 import { loadStaticPage } from '@/app/utils/staticPageLoader';
 import { ArticleMetadata } from "@/types";
-import dynamicImport from "next/dynamic";
 import Link from "next/link";
 
 import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from "@/app/config/site";
-
-const ContactForm = dynamicImport(
-  () =>
-    import("../components/Contact/ContactForm").then((mod) => ({
-      default: mod.ContactForm,
-    })),
-  {
-    loading: () => (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    ),
-  }
-);
 import { ContactInfo } from "../components/Contact/ContactInfo";
 
 export const metadata = {
@@ -148,14 +133,20 @@ export default function ContactPage() {
         }
         slug="contact"
       >
-        <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_GAP_RESPONSIVE} mt-8`}>
-          <div>
-            <ContactForm />
+        <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_GAP_RESPONSIVE} mt-8 items-start`}>
+          {/* Workiz Service Request Form */}
+          <div className="bg-gray-800 p-6 mb-6 rounded-md shadow-md">
+            <iframe
+              src='https://st.sendajob.com/MY/servicerequest/bc0bbe1e44d7eda5aed87bb3ababd7c52a171de4_f.html' 
+              width='100%' 
+              height='650' 
+              scrolling='auto' 
+              style={{border:'none', display:'block', borderRadius:'0.375rem'}}
+              title="Contact Form"
+            />
           </div>
 
-          <div>
-            <ContactInfo />
-          </div>
+          <ContactInfo />
         </div>
       </Layout>
     </>
