@@ -56,12 +56,48 @@ interface BaseSectionProps {
 
 ## Validation Rules (Jan 19, 2026)
 
-**No Fallbacks Policy**: All fallbacks have been removed from section components.
+**No Fallbacks Policy**: All fallbacks have been removed from section components to enforce fail-fast architecture.
 
-- ✅ Empty string for `title` is allowed (section renders without header)
+### Title Validation
+- ✅ Empty string `''` for `title` is allowed (section renders without header)
 - ❌ Non-empty `title` that is whitespace-only will throw error
-- ✅ When using `section` object from frontmatter, both `sectionTitle` and `sectionDescription` are required
-- ✅ When not using `section` object, title/description are optional
+- ✅ Undefined/null title is treated as empty section (no error)
+- ✅ Non-empty valid string renders normally
+
+### Section Object Validation (from frontmatter)
+When passing `section` prop from frontmatter `_section` object:
+- ✅ `sectionTitle` is **REQUIRED** (must be present and non-empty)
+- ✅ `sectionDescription` is **REQUIRED** (must be present, can be empty string)
+- ✅ `icon` is optional
+- ❌ Missing either required field will cause runtime error
+
+### When NOT using section object
+- ✅ `title` prop is optional (no fallback)
+- ✅ `description` prop is optional (no fallback)
+- ✅ `icon` prop is optional
+
+### Frontmatter Requirements
+```yaml
+# ❌ INVALID - Missing sectionDescription
+_section:
+  sectionTitle: "My Section"
+
+# ❌ INVALID - Empty sectionTitle
+_section:
+  sectionTitle: ""
+  sectionDescription: "Description"
+
+# ✅ VALID - Both fields present
+_section:
+  sectionTitle: "My Section"
+  sectionDescription: "Complete description"
+  icon: "Package"
+
+# ✅ VALID - Empty sectionDescription allowed
+_section:
+  sectionTitle: "My Section"
+  sectionDescription: ""
+```
 
 ## Usage Examples
 

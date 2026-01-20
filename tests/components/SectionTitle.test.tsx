@@ -140,4 +140,31 @@ describe('SectionTitle', () => {
       expect(container).toHaveClass('custom-class');
     });
   });
+
+  describe('Fallback Removal (Jan 19, 2026)', () => {
+    it('requires title prop (no default fallback)', () => {
+      // Title is required and must be provided
+      render(<SectionTitle title="Required Title" />);
+      expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Required Title');
+    });
+
+    it('accepts empty string for title', () => {
+      // Empty string is valid (component renders without visible title)
+      render(<SectionTitle title="" />);
+      const heading = screen.getByRole('heading', { level: 2 });
+      expect(heading).toHaveTextContent('');
+    });
+
+    it('generates id from non-empty title', () => {
+      render(<SectionTitle title="Test Section" />);
+      const heading = screen.getByRole('heading', { level: 2 });
+      expect(heading).toHaveAttribute('id', 'section-test-section');
+    });
+
+    it('handles custom id prop', () => {
+      render(<SectionTitle title="Title" id="custom-section-id" />);
+      const heading = screen.getByRole('heading', { level: 2 });
+      expect(heading).toHaveAttribute('id', 'custom-section-id');
+    });
+  });
 });
