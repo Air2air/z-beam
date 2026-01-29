@@ -1,25 +1,12 @@
 id: cast-iron-laser-cleaning
 name: Cast Iron
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Ferrous"
-    href: /materials/metal/ferrous
-  - label: "Cast Iron"
-    href: /materials/metal/ferrous/cast-iron-laser-cleaning
 displayName: Cast Iron Laser Cleaning
 category: metal
 subcategory: ferrous
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:24.492004+00:00'
+dateModified: '2026-01-22T03:04:25.225959+00:00'
 fullPath: /materials/metal/ferrous/cast-iron-laser-cleaning
 pageTitle: Cast Iron
 metaDescription: Cast iron surface, its dense structure reveals unique challenges in cleaning. Contamination patterns appear
@@ -101,12 +88,6 @@ components:
       Scattered pits fill with grime, making the whole area look dull and irregular.
     after: After laser treatment, you notice the surface turns smooth with clear, exposed metal shining through evenly. No
       traces of rust remain, and the grains appear crisp without any clinging residues. The texture evens out
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Cast Iron surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
   settingsDescription: When laser cleaning cast iron, I've seen how its embedded graphite flakes set it apart from smoother
     steels, drawing in laser energy unevenly and speeding up contaminant removal while risking uneven heating in those spots.
     This works best when you focus the beam to gently abrade surface rust or scale, restoring that durable base without digging
@@ -202,13 +183,6 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-    _section:
-      sectionTitle: Cast Iron's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     thermalConductivity:
@@ -296,13 +270,6 @@ properties:
       unit: K
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -830,15 +797,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -863,14 +821,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -901,15 +851,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - rust_oxidation
@@ -1016,11 +957,10 @@ materialCharacteristics:
     source: ai_research
   percentage: 60.0
   _section:
-    sectionTitle: Cast Iron's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -1110,9 +1050,8 @@ laserMaterialInteraction:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

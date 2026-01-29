@@ -4,7 +4,7 @@ displayName: PAHs
 category: carcinogen
 subcategory: aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T02:39:59.128244+00:00'
+dateModified: '2026-01-22T00:31:50.092227+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic_hydrocarbon/pahs-compound
@@ -101,16 +101,6 @@ relationships:
         icon: atom
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: chemicalProperties
-          group: identity
-          domain: compounds
-          icon: flask
-          order: 70
-          variant: default
-          schemaDescription: Chemical composition and properties
-          notes: Core chemical identity data from Compounds.yaml
-          sourceField: chemical_properties
   safety:
     healthEffects:
       presentation: card
@@ -133,14 +123,6 @@ relationships:
         onset: long-term
       _section:
         icon: heart-pulse
-        sectionMetadata:
-          relationshipType: healthEffects
-          group: safety
-          domain: compounds
-          icon: heart-pulse
-          order: 21
-          variant: warning
-          schemaDescription: Health hazards and exposure effects
         sectionTitle: Health Effects
         sectionDescription: Adverse health impacts from exposure to this compound
         order: 5
@@ -155,14 +137,6 @@ relationships:
           pelPpm: null
       _section:
         icon: shield-check
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: compounds
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
         sectionTitle: Personal Protective Equipment
         sectionDescription: Required safety equipment for handling this compound
         order: 10
@@ -176,14 +150,6 @@ relationships:
           specificCompound: Polycyclic Aromatic Hydrocarbons
       _section:
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: emergencyResponse
-          group: safety
-          domain: compounds
-          icon: ambulance
-          order: 23
-          variant: danger
-          schemaDescription: Emergency procedures and first aid
         sectionTitle: Emergency Response
         sectionDescription: Procedures for handling emergencies involving this compound
         order: 15
@@ -199,14 +165,6 @@ relationships:
         acgihTlvMgM3: 0.2
       _section:
         icon: gauge
-        sectionMetadata:
-          relationshipType: exposureLimits
-          group: safety
-          domain: compounds
-          icon: gauge
-          order: 24
-          variant: warning
-          schemaDescription: Occupational exposure limits
         sectionTitle: Exposure Limits
         sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
         order: 20
@@ -223,16 +181,6 @@ relationships:
         icon: leaf
         order: 1
         variant: warning
-        sectionMetadata:
-          relationshipType: environmentalImpact
-          group: environmental
-          domain: compounds
-          icon: leaf
-          order: 50
-          variant: default
-          schemaDescription: Environmental effects and disposal considerations
-          notes: Environmental and ecological concerns
-          sourceField: environmental_impact
   detectionMonitoring:
     detectionMonitoring:
       presentation: descriptive
@@ -245,16 +193,6 @@ relationships:
         icon: activity
         order: 2
         variant: default
-        sectionMetadata:
-          relationshipType: detectionMonitoring
-          group: detectionMonitoring
-          domain: compounds
-          icon: radar
-          order: 80
-          variant: default
-          schemaDescription: Detection and monitoring methods
-          notes: Continuous monitoring and sampling systems
-          sourceField: detectionMonitoring
   interactions:
     producedFromContaminants:
       presentation: card
@@ -353,15 +291,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: producedFromContaminants
-          group: interactions
-          domain: compounds
-          icon: box
-          order: 12
-          variant: default
-          schemaDescription: Contaminants that produce this compound
-          notes: Links to contaminant pages
 faq:
   presentation: collapsible
   items:

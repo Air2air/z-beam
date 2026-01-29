@@ -1,25 +1,12 @@
 id: calcite-laser-cleaning
 name: Calcite
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Stone"
-    href: /materials/stone
-  - label: "Sedimentary"
-    href: /materials/stone/sedimentary
-  - label: "Calcite"
-    href: /materials/stone/sedimentary/calcite-laser-cleaning
 displayName: Calcite Laser Cleaning
 category: stone
 subcategory: sedimentary
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:24.366596+00:00'
+dateModified: '2026-01-22T03:04:25.021489+00:00'
 fullPath: /materials/stone/sedimentary/calcite-laser-cleaning
 pageTitle: Calcite
 metaDescription: Calcite surface before laser cleaning, it displays irregular contamination patterns. Dust particles cling
@@ -104,12 +91,6 @@ components:
       the uneven terrain. This coating hides the natural contours completely.
     after: After laser treatment, we've seen the calcite surface emerge spotless. All grime vanishes, exposing smooth and
       even features. This reveals the material's clear, vibrant structure.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Calcite surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -177,13 +158,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:53:00.421879'
       needsValidation: true
-    _section:
-      sectionTitle: Calcite's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -276,13 +250,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:53:15.934626'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -362,15 +329,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -401,14 +359,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -439,15 +389,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - environmental_dust
@@ -530,11 +471,10 @@ materialCharacteristics:
     researchedDate: '2025-11-24T11:53:00.421879'
     needsValidation: true
   _section:
-    sectionTitle: Calcite's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -629,9 +569,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T11:53:15.934626'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

@@ -38,9 +38,14 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   };
   
   // 🔥 FIX: Ensure _section metadata is included in materialCharacteristics
-  // The AI-generated properties data doesn't include _section, so we need to merge it from frontmatter
-  if (materialProperties?.materialCharacteristics && (metadata as any)?.properties?.materialCharacteristics?._section) {
-    materialProperties.materialCharacteristics._section = (metadata as any).properties.materialCharacteristics._section;
+  // The _section metadata is at the root level materialCharacteristics._section (not under properties)
+  if (materialProperties?.materialCharacteristics && (metadata as any)?.materialCharacteristics?._section) {
+    materialProperties.materialCharacteristics._section = (metadata as any).materialCharacteristics._section;
+  }
+
+  // 🔥 FIX: Also ensure _section metadata for laserMaterialInteraction
+  if (materialProperties?.laserMaterialInteraction && (metadata as any)?.laserMaterialInteraction?._section) {
+    materialProperties.laserMaterialInteraction._section = (metadata as any).laserMaterialInteraction._section;
   }
 
   // Handle FAQ - can be string, array, or object with items array
@@ -74,7 +79,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     // Micro section - positioned after Material Characteristics
     {
       component: Micro,
-      condition: () => !!metadata?.images?.micro?.url,
+      condition: () => !!(metadata as any)?.components?.micro || !!(metadata as any)?.micro,
       props: {
         frontmatter: metadata as any,
         config: {}

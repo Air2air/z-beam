@@ -1,25 +1,12 @@
 id: titanium-laser-cleaning
 name: Titanium
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Specialty"
-    href: /materials/metal/specialty
-  - label: "Titanium"
-    href: /materials/metal/specialty/titanium-laser-cleaning
 displayName: Titanium Laser Cleaning
 category: metal
 subcategory: specialty
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:31.366618+00:00'
+dateModified: '2026-01-22T03:04:36.583153+00:00'
 fullPath: /materials/metal/specialty/titanium-laser-cleaning
 pageTitle: Titanium
 metaDescription: Titanium surface before cleaning, it displays thick oxide layers and embedded particles, irregular patterns
@@ -98,12 +85,6 @@ components:
       sure you note how this dulls the overall shine before any cleaning starts.
     after: After laser treatment on the titanium surface at 1000x magnification, you see a smooth, even layer free of those
       stubborn residues. The metal now reflects light cleanly without any rough interruptions. Watch out for
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Titanium surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
   settingsDescription: When laser cleaning titanium, I've seen it stand out from denser metals like steel because of its lighter
     weight and strong natural oxide layer that fights corrosion so well. This makes it great for aerospace parts, where you
     can remove tough contaminants without deep damage, but the layer also means the laser tends to skim the surface gently—start
@@ -225,13 +206,6 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-    _section:
-      sectionTitle: Titanium's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     absorptivity:
@@ -317,13 +291,6 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -725,15 +692,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -762,14 +720,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -795,15 +745,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - industrial_oil
@@ -935,11 +876,10 @@ materialCharacteristics:
     source: ai_research
   percentage: 60.0
   _section:
-    sectionTitle: Titanium's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -1027,9 +967,8 @@ laserMaterialInteraction:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

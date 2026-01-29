@@ -27,7 +27,7 @@ const Footer = dynamic(() => import("./components/Navigation/footer").then(mod =
   loading: () => null,
 });
 
-const ConditionalCTA = dynamic(() => import("./components/CTA").then(mod => ({ default: mod.ConditionalCTA })), {
+const ConditionalCTA = dynamic(() => import("./components/CTA/ConditionalCTA").then(mod => ({ default: mod.ConditionalCTA })), {
   ssr: false,
   loading: () => null,
 });

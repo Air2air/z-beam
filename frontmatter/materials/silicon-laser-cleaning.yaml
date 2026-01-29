@@ -1,25 +1,12 @@
 id: silicon-laser-cleaning
 name: Silicon
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Semiconductor"
-    href: /materials/semiconductor
-  - label: "Elemental"
-    href: /materials/semiconductor/elemental
-  - label: "Silicon"
-    href: /materials/semiconductor/elemental/silicon-laser-cleaning
 displayName: Silicon Laser Cleaning
 category: semiconductor
 subcategory: elemental
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:30.028402+00:00'
+dateModified: '2026-01-22T03:04:34.417506+00:00'
 fullPath: /materials/semiconductor/elemental/silicon-laser-cleaning
 pageTitle: Silicon
 metaDescription: Laser cleaning ramps up efficiency for silicon wafers in semiconductor work. Contaminated surfaces at 1000x
@@ -99,12 +86,6 @@ components:
       magnification.
     after: Laser treatment removes the grime, exposing a smooth and uniform silicon surface. Debris vanishes completely, revealing
       even textures without any clinging spots. The cleaned area shines clearly, highlighting pristine details throughout.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Silicon surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -174,13 +155,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:18:31.619113'
       needsValidation: true
-    _section:
-      sectionTitle: Silicon's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -273,13 +247,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:18:40.536280'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -469,15 +436,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -508,14 +466,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -561,15 +511,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - environmental_dust
@@ -650,11 +591,10 @@ materialCharacteristics:
     researchedDate: '2025-11-24T12:18:31.619113'
     needsValidation: true
   _section:
-    sectionTitle: Silicon's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -749,9 +689,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T12:18:40.536280'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

@@ -1,25 +1,12 @@
 id: polystyrene-laser-cleaning
 name: Polystyrene
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Plastic"
-    href: /materials/plastic
-  - label: "Thermoplastic"
-    href: /materials/plastic/thermoplastic
-  - label: "Polystyrene"
-    href: /materials/plastic/thermoplastic/polystyrene-laser-cleaning
 displayName: Polystyrene Laser Cleaning
 category: plastic
 subcategory: thermoplastic
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:28.630693+00:00'
+dateModified: '2026-01-22T03:04:32.240044+00:00'
 fullPath: /materials/plastic/thermoplastic/polystyrene-laser-cleaning
 pageTitle: Polystyrene
 metaDescription: The contaminated polystyrene surface, it reveals a textured overlay at 1000x magnification, where residues
@@ -102,12 +89,6 @@ components:
       completely.
     after: After laser treatment, we see a smooth, even surface emerge clearly. The clean polystyrene gleams with a uniform
       finish. No traces of debris remain, restoring its original look. Watch for any slight discoloration in future runs.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Polystyrene surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -173,13 +154,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:06:43.791522'
       needsValidation: true
-    _section:
-      sectionTitle: Polystyrene's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -272,13 +246,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:06:52.112132'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -476,15 +443,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -515,14 +473,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -553,15 +503,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - uv_chalking
@@ -645,11 +586,10 @@ materialCharacteristics:
     researchedDate: '2025-11-24T12:06:43.791522'
     needsValidation: true
   _section:
-    sectionTitle: Polystyrene's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -744,9 +684,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T12:06:52.112132'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

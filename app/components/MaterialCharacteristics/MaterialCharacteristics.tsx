@@ -54,18 +54,32 @@ export function MaterialCharacteristics({ materialProperties, materialName, cate
     );
   }
   
-  // 🔥 ULTIMATE SIMPLICITY: For object data, section metadata is MANDATORY
-  if (!materialChars || !materialChars._section?.sectionTitle || !materialChars._section?.sectionDescription) {
-    throw new Error(`MaterialCharacteristics: _section metadata with sectionTitle and sectionDescription is required for object data. Found: ${JSON.stringify(materialChars?._section)}`);
+  // 🔥 GRACEFUL HANDLING: For object data with _section but no properties, show placeholder
+  if (!materialChars) {
+    return null;
   }
   
-  // Check for actual property data (not just 'label' or 'percentage' metadata fields)
+  // If materialCharacteristics has _section metadata but no property data, show placeholder
+  const hasSection = materialChars._section?.sectionTitle && materialChars._section?.sectionDescription;
   const hasActualProperties = materialChars && Object.keys(materialChars).some(
-    key => key !== 'label' && key !== 'percentage' && key !== 'description' &&
+    key => key !== 'label' && key !== 'percentage' && key !== 'description' && 
+           key !== '_section' && key !== '_metadata' && key !== 'title' &&
            materialChars[key]?.value !== undefined
   );
 
-  if (!hasActualProperties) {
+  if (hasSection && !hasActualProperties) {
+    return (
+      <BaseSection
+        section={materialChars._section}
+        spacing="loose"
+      >
+        <div className="text-muted italic">Detailed property metrics will be available soon.</div>
+      </BaseSection>
+    );
+  }
+
+  // If no section metadata at all, don't render
+  if (!hasSection) {
     return null;
   }
 

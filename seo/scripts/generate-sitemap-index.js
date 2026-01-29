@@ -18,8 +18,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 // Configuration
-// BASE_URL imported from config/urls.js
-// Provides environment-aware URL resolution
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.z-beam.com';
 const PUBLIC_DIR = path.join(__dirname, '../../public');
 const OUTPUT_FILE = path.join(PUBLIC_DIR, 'sitemap-index.xml');
 

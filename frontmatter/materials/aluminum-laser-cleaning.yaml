@@ -1,27 +1,14 @@
 id: aluminum-laser-cleaning
 name: Aluminum
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Non Ferrous"
-    href: /materials/metal/non-ferrous
-  - label: "Aluminum"
-    href: /materials/metal/non-ferrous/aluminum-laser-cleaning
 displayName: Aluminum Laser Cleaning
 category: metal
 subcategory: non-ferrous
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:23.490422+00:00'
+dateModified: '2026-01-22T03:04:23.685839+00:00'
 fullPath: /materials/metal/non-ferrous/aluminum-laser-cleaning
-pageTitle: Aluminum Laser Cleaning
+pageTitle: Aluminum
 metaDescription: Laser cleaning process starts on aluminum surface. Contamination covers it before treatment. This contamination,
   it forms irregular patches and clusters. Oxi...
 card:
@@ -97,8 +84,6 @@ components:
       icon: microscope
       order: 5
       variant: default
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Aluminum surface before and after laser cleaning treatment
     before: 'At 500-1000x magnification, untreated aluminum surfaces reveal irregular patches of oxidation layering across
       the field of view. Dark streaks from industrial oils cling tightly to microscopic ridges, creating uneven textures that
       obscure the base metal''s natural luster. Fine particles of environmental dust embed themselves within surface imperfections,
@@ -269,107 +254,18 @@ properties:
       notes: Cleaning range 0.5-3.0 J/cm², higher values for heavy contamination
 faq:
   _section:
-    sectionTitle: Aluminum Laser Cleaning FAQs
-    sectionDescription: Common questions about laser cleaning aluminum surfaces, parameters, and applications
+    sectionTitle: Aluminum Laser Cleaning FAQ
+    sectionDescription: Expert answers to common questions about laser cleaning aluminum surfaces
     icon: help-circle
-    order: 70
+    order: 100
     variant: default
-  presentation: collapsible
   items:
-  - id: what-laser-parameters-work-best-for-aluminum
-    title: What laser parameters work best for cleaning aluminum surfaces without causing thermal damage?
-    content: For aluminum cleaning, fiber lasers at 1064 nm with 100W power and 2.0 J/cm² fluence work effectively. Given
-      aluminum's high reflectivity around 95%, this wavelength penetrates adequately while nanosecond pulses (10ns) localize
-      energy to avoid warping thin sections. A 50 kHz repetition rate with 500 mm/s scanning speed ensures uniform oxide removal
-      without excessive heat buildup in the substrate.
-    metadata:
-      topic: laser parameters work best for aluminum
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  - id: how-does-aluminum-reflectivity-affect-laser-cleaning
-    title: How does aluminum's high reflectivity affect laser cleaning efficiency and what adjustments are needed?
-    content: Aluminum reflects approximately 95% of laser energy at 1064 nm, requiring higher power levels to achieve effective
-      cleaning. This high reflectivity means only about 6-8% of energy gets absorbed. To compensate, operators should use
-      higher fluence values (2.0-2.5 J/cm²) and multiple passes with 50% overlap. Surface oxide layers actually help by increasing
-      absorption slightly, making initial cleaning more efficient.
-    metadata:
-      topic: aluminum reflectivity affect laser cleaning
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 2
-  - id: what-contaminants-commonly-form-on-aluminum
-    title: What contaminants commonly form on aluminum surfaces and how effectively does laser cleaning remove them?
-    content: Aluminum surfaces typically develop aluminum oxide layers (5-10 µm thick), industrial oils, greases, and environmental
-      dust. The oxide layer forms naturally due to aluminum's reactive surface chemistry with atmospheric oxygen. Laser cleaning
-      removes these contaminants effectively at 2.0-2.5 J/cm² fluence, with the oxide layer ablating cleanly due to its different
-      absorption characteristics compared to the base metal. Multiple passes (typically 3) ensure complete removal without
-      substrate damage.
-    metadata:
-      topic: contaminants commonly form on aluminum
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 3
-  - id: can-laser-cleaning-damage-aluminum-alloys
-    title: Can laser cleaning damage aluminum alloys and what precautions should be taken?
-    content: Laser cleaning can potentially damage aluminum if parameters aren't properly controlled. The main risks are thermal
-      warping in thin sections (due to aluminum's high thermal conductivity of 237 W/m·K), surface melting from excessive
-      fluence, and uneven heating causing distortion. To prevent damage, use nanosecond pulses to localize energy, maintain
-      scanning speeds of 500+ mm/s, keep fluence below 2.5 J/cm², and always test on scrap material first. Different alloy
-      series (2xxx, 6xxx, 7xxx) may require parameter adjustments due to varying composition.
-    metadata:
-      topic: laser cleaning damage aluminum alloys
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 4
-  - id: what-industries-benefit-most-from-aluminum-laser-cleaning
-    title: What industries benefit most from aluminum laser cleaning and why?
-    content: Aerospace, automotive, and electronics manufacturing benefit significantly from aluminum laser cleaning. Aerospace
-      uses it for aircraft panel preparation before coating, ensuring optimal adhesion without surface abrasion. Automotive
-      applications include engine component cleaning and body panel restoration. Electronics manufacturing requires precise
-      contamination removal from heat sinks and housings without introducing secondary contamination. The non-contact, chemical-free
-      nature of laser cleaning preserves dimensional tolerances critical in these precision industries while maintaining aluminum's
-      natural corrosion resistance.
-    metadata:
-      topic: industries benefit most from aluminum laser cleaning
-      severity: low
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: false
-      order: 5
+  - question: What safety considerations should we keep in mind when laser cleaning aluminum surfaces, especially regarding
+      its reflective qualities?
+    answer: Professionals often deal with aluminum's shiny and reflective surface, which can bounce laser beams around unpredictably
+      and increase risks if not handled properly, so we use full eye protection rated for the specific laser wavelength. Additionally,
+      proper enclosure systems prevent stray reflections from reaching unprotected areas, and we always maintain proper ventilation
+      to handle any particles dispersed during the cleaning process.
 relationships:
   interactions:
     contaminatedBy:
@@ -873,15 +769,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -912,14 +799,10 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
+    laserMaterialInteraction:
+      _section:
+        sectionDescription: Dynamics of laser energy absorption and thermal response in aluminum during precision cleaning
+          operations
   safety:
     regulatoryStandards:
       presentation: card
@@ -952,15 +835,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   contaminatedBy:
     _section:
       sectionTitle: Aluminum's Oxide Susceptibilities
@@ -992,9 +866,12 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-pageDescription: Aluminum stands out as a lightweight non-ferrous metal that we often encounter in everyday items and industrial
-  setups, and while it's valued for its corrosion resistance and malleability, laser cleaning enhances its usability by stripping
-  away surface contaminants without altering the base structure.
+pageDescription: '### Laser Cleaning Aluminum
+
+
+  Aluminum stands out as a lightweight non-ferrous metal that we often encounter in everyday items and industrial setups,
+  and while it''s valued for its corrosion resistance and malleability, laser cleaning enhances its usability by stripping
+  away surface contaminants without altering the base structure.'
 materialCharacteristics:
   _section:
     sectionTitle: Aluminum's Distinctive Traits

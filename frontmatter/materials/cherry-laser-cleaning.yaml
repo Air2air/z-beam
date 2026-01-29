@@ -1,25 +1,12 @@
 id: cherry-laser-cleaning
 name: Cherry
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Wood"
-    href: /materials/wood
-  - label: "Hardwood"
-    href: /materials/wood/hardwood
-  - label: "Cherry"
-    href: /materials/wood/hardwood/cherry-laser-cleaning
 displayName: Cherry Laser Cleaning
 category: wood
 subcategory: hardwood
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:24.834112+00:00'
+dateModified: '2026-01-22T03:04:25.765120+00:00'
 fullPath: /materials/wood/hardwood/cherry-laser-cleaning
 pageTitle: Cherry
 metaDescription: Cherry wood's intricate grain patterns stand out under close microscopic inspection, revealing how laser
@@ -100,12 +87,6 @@ components:
     after: After laser treatment at 1000x magnification, the cherry wood surface shows clear, even fibers. The cleaning removes
       all visible residues, exposing smooth grain patterns. This reveals a uniform, restored appearance without any lingering
       marks.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Cherry surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -172,13 +153,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:55:01.840641'
       needsValidation: true
-    _section:
-      sectionTitle: Cherry's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -271,13 +245,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:55:09.787392'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -549,15 +516,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -588,14 +546,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -631,15 +581,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - wood_rot
@@ -720,11 +661,10 @@ materialCharacteristics:
     researchedDate: '2025-11-24T11:55:01.840641'
     needsValidation: true
   _section:
-    sectionTitle: Cherry's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -819,9 +759,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T11:55:09.787392'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

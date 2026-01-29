@@ -1,25 +1,12 @@
 id: zinc-laser-cleaning
 name: Zinc
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Alloy"
-    href: /materials/metal/alloy
-  - label: "Zinc"
-    href: /materials/metal/alloy/zinc-laser-cleaning
 displayName: Zinc Laser Cleaning
 category: metal
 subcategory: alloy
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:32.173598+00:00'
+dateModified: '2026-01-22T03:04:37.856566+00:00'
 fullPath: /materials/metal/alloy/zinc-laser-cleaning
 pageTitle: Zinc
 metaDescription: Zinc surface before cleaning, it displays irregular contamination layers. Oxide films cover peaks and valleys,
@@ -102,12 +89,6 @@ components:
       worn look that hides the underlying structure.
     after: After laser treatment on the zinc surface at 1000x magnification, it appears smooth and evenly lit now. The clean
       areas reflect light brightly without any lingering marks. This polished finish reveals the metal's true clarity
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Zinc surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
   settingsDescription: We've found zinc cleans up nicely with laser settings. It reflects a lot of light, so we start low
     on power to avoid scattering energy. This keeps the surface cool and removes grime without melting. But watch the heat
     buildup mid-process—it spreads fast because zinc conducts well. Adjust overlap to stay safe, and you'll get a smooth finish
@@ -226,13 +207,6 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-    _section:
-      sectionTitle: Zinc's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     absorptivity:
@@ -318,13 +292,6 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -657,15 +624,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -686,14 +644,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -719,15 +669,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - industrial_oil
@@ -859,11 +800,10 @@ materialCharacteristics:
     source: ai_research
   percentage: 60.0
   _section:
-    sectionTitle: Zinc's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -951,9 +891,8 @@ laserMaterialInteraction:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

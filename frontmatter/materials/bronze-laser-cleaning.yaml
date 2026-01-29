@@ -1,25 +1,12 @@
 id: bronze-laser-cleaning
 name: Bronze
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Non Ferrous"
-    href: /materials/metal/non-ferrous
-  - label: "Bronze"
-    href: /materials/metal/non-ferrous/bronze-laser-cleaning
 displayName: Bronze Laser Cleaning
 category: metal
 subcategory: non-ferrous
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:24.296845+00:00'
+dateModified: '2026-01-22T03:04:24.916054+00:00'
 fullPath: /materials/metal/non-ferrous/bronze-laser-cleaning
 pageTitle: Bronze
 metaDescription: The contamination on bronze surfaces, it manifests as irregular, adherent layers that obscure the metal's
@@ -99,12 +86,6 @@ components:
       across, roughening the whole view.
     after: After the laser treatment, the bronze surface appears smooth and brightly metallic. The grime vanishes completely,
       revealing a uniform shine without any streaks. Now, the texture looks even and clear, free from those old pits
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Bronze surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
   description: Bronze has a high reflectivity of 0.65, so we typically use a 1064 nm wavelength for better absorption. Its
     melting point is 950 °C, so we keep the energy density around 5.1 J/cm². This clears contaminants effectively and avoids
     any thermal damage to the valuable substrate.
@@ -200,13 +181,6 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-    _section:
-      sectionTitle: Bronze's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     thermalConductivity:
@@ -294,13 +268,6 @@ properties:
       unit: °C
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -652,15 +619,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -683,14 +641,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -721,15 +671,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - copper_patina
@@ -835,11 +776,10 @@ materialCharacteristics:
     source: ai_research
   percentage: 60.0
   _section:
-    sectionTitle: Bronze's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -929,9 +869,8 @@ laserMaterialInteraction:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

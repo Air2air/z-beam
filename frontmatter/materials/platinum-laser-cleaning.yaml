@@ -1,25 +1,12 @@
 id: platinum-laser-cleaning
 name: Platinum
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Non Ferrous"
-    href: /materials/metal/non-ferrous
-  - label: "Platinum"
-    href: /materials/metal/non-ferrous/platinum-laser-cleaning
 displayName: Platinum Laser Cleaning
 category: metal
 subcategory: non-ferrous
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:28.230678+00:00'
+dateModified: '2026-01-22T03:04:31.604059+00:00'
 fullPath: /materials/metal/non-ferrous/platinum-laser-cleaning
 pageTitle: Platinum
 metaDescription: Laser cleaning process on platinum, it begins with targeted pulses, and contamination layers vaporize thus.
@@ -96,12 +83,6 @@ components:
       the underlying luster. Tends to show scratches too, pulling focus from the metal's natural smoothness.
     after: After laser treatment, the same spot gleams with a uniform polish that restores its bright, even finish completely.
       No more clinging debris mars the view; everything looks crisp and
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Platinum surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
   settingsDescription: When laser cleaning platinum, watch its high reflectivity first. It bounces back most laser energy.
     This scatters the beam and slows contaminant removal. I've seen jobs drag on without adjustments. Start low on power to
     build heat gradually. Tends to work best with multiple passes. Overlap scans tightly for even coverage. Avoid high fluence
@@ -221,13 +202,6 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Platinum's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -299,13 +273,6 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -770,15 +737,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -809,14 +767,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -847,15 +797,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - industrial_oil
@@ -987,11 +928,10 @@ materialCharacteristics:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Platinum's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -1065,9 +1005,8 @@ laserMaterialInteraction:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

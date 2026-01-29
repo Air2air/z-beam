@@ -1,25 +1,12 @@
 id: beech-laser-cleaning
 name: Beech
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Wood"
-    href: /materials/wood
-  - label: "Hardwood"
-    href: /materials/wood/hardwood
-  - label: "Beech"
-    href: /materials/wood/hardwood/beech-laser-cleaning
 displayName: Beech Laser Cleaning
 category: wood
 subcategory: hardwood
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:23.766958+00:00'
+dateModified: '2026-01-22T03:04:24.101966+00:00'
 fullPath: /materials/wood/hardwood/beech-laser-cleaning
 pageTitle: Beech
 metaDescription: The contaminated beech surface, at 1000x magnification, exhibits irregular deposits that adhere tenaciously
@@ -113,12 +100,6 @@ components:
     after: After laser treatment on Beech, you see the grime vanish completely, revealing crisp fiber details. The grain emerges
       sharp and uniform, with no residue left behind. This treatment restores a clean, polished look to the wood's natural
       structure.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Beech surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -185,13 +166,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:51:23.064286'
       needsValidation: true
-    _section:
-      sectionTitle: Beech's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -284,13 +258,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:51:28.696295'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
   porosity:
     value: 0.59
     unit: fraction
@@ -519,15 +486,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -558,14 +516,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -596,15 +546,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - wood_rot
@@ -686,11 +627,10 @@ materialCharacteristics:
     researchedDate: '2025-11-24T11:51:23.064286'
     needsValidation: true
   _section:
-    sectionTitle: Beech's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -785,9 +725,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T11:51:28.696295'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

@@ -1,25 +1,12 @@
 id: walnut-laser-cleaning
 name: Walnut
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Wood"
-    href: /materials/wood
-  - label: "Hardwood"
-    href: /materials/wood/hardwood
-  - label: "Walnut"
-    href: /materials/wood/hardwood/walnut-laser-cleaning
 displayName: Walnut Laser Cleaning
 category: wood
 subcategory: hardwood
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:31.968065+00:00'
+dateModified: '2026-01-22T03:04:37.540396+00:00'
 fullPath: /materials/wood/hardwood/walnut-laser-cleaning
 pageTitle: Walnut
 metaDescription: This contamination on walnut surface, it forms irregular patches. During exposure to environment, dirt accumulates
@@ -95,12 +82,6 @@ components:
       the fibers completely. Grime clogs the tiny pores, making everything look dull and rough.
     after: After the laser passes over it, the walnut surface transforms noticeably. Fibers stand out clear and smooth without
       any residue. Pores open up wide, revealing a fresh and even texture.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Walnut surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -167,13 +148,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:29:22.375154'
       needsValidation: true
-    _section:
-      sectionTitle: Walnut's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -266,13 +240,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:29:28.625567'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -535,15 +502,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -574,14 +532,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -607,15 +557,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - wood_rot
@@ -696,11 +637,10 @@ materialCharacteristics:
     researchedDate: '2025-11-24T12:29:22.375154'
     needsValidation: true
   _section:
-    sectionTitle: Walnut's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -795,9 +735,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T12:29:28.625567'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

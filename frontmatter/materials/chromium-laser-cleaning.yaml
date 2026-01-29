@@ -1,25 +1,12 @@
 id: chromium-laser-cleaning
 name: Chromium
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Specialty"
-    href: /materials/metal/specialty
-  - label: "Chromium"
-    href: /materials/metal/specialty/chromium-laser-cleaning
 displayName: Chromium Laser Cleaning
 category: metal
 subcategory: specialty
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:24.904372+00:00'
+dateModified: '2026-01-22T03:04:25.946901+00:00'
 fullPath: /materials/metal/specialty/chromium-laser-cleaning
 pageTitle: Chromium
 metaDescription: Contamination on chromium surfaces poses a real challenge in industrial settings, where oxides and debris
@@ -97,12 +84,6 @@ components:
       to its texture, hiding the metal's natural shine. Scratches and residues make the whole area look rough and patchy.
     after: Laser cleaning restores the chromium to a smooth, reflective state. Bright, uniform facets emerge without any clinging
       debris. The treated surface now gleams evenly, free of all visible imperfections.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Chromium surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
   settingsDescription: When laser cleaning chromium, watch out for its high reflectivity, which scatters more energy than
     you'll see with less shiny metals like iron or nickel. We've found this makes the process less efficient at first, so
     we typically start with controlled power levels to ensure the beam couples effectively without wasting shots. Unlike softer
@@ -225,13 +206,6 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Chromium's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -303,13 +277,6 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -775,15 +742,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -810,14 +768,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -848,15 +798,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - industrial_oil
@@ -987,11 +928,10 @@ materialCharacteristics:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Chromium's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -1065,9 +1005,8 @@ laserMaterialInteraction:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

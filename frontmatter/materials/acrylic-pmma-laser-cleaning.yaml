@@ -1,25 +1,12 @@
 id: acrylic-pmma-laser-cleaning
 name: Acrylic (PMMA)
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Plastic"
-    href: /materials/plastic
-  - label: "Thermoplastic"
-    href: /materials/plastic/thermoplastic
-  - label: "Acrylic (PMMA)"
-    href: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
 displayName: Acrylic (PMMA) Laser Cleaning
 category: plastic
 subcategory: thermoplastic
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:32.409214+00:00'
+dateModified: '2026-01-22T03:04:38.189575+00:00'
 fullPath: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
 pageTitle: Acrylic (PMMA)
 metaDescription: Laser cleaning ramps up the clarity on acrylic-PMMA surfaces, especially under high magnification. Contaminated
@@ -84,12 +71,6 @@ components:
       texture across the entire area.
     after: Laser treatment clears away all traces of dirt and debris from the acrylic effectively. The surface now displays
       a smooth, uniform finish without any visible flaws. It exposes a clear, pristine layer that reflects light evenly throughout.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Acrylic (PMMA) surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -142,12 +123,6 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Acrylic (PMMA)'s Core Properties
-      sectionDescription: Intrinsic physical and mechanical properties affecting laser cleaning outcomes
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -245,13 +220,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:31:12.656518'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -370,15 +338,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   safety:
     regulatoryStandards:
       presentation: card
@@ -399,15 +358,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   operational:
     industryApplications:
       presentation: card
@@ -434,14 +384,6 @@ relationships:
         icon: briefcase
         order: 41
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
 contamination:
   valid:
   - uv_chalking
@@ -511,10 +453,10 @@ materialCharacteristics:
     confidence: 90
   percentage: 60.0
   _section:
-    sectionTitle: Acrylic (PMMA)'s Core Properties
-    sectionDescription: Intrinsic physical and mechanical properties affecting laser cleaning outcomes
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -614,9 +556,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T12:31:12.656518'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

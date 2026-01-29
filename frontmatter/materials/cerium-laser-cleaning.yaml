@@ -1,25 +1,12 @@
 id: cerium-laser-cleaning
 name: Cerium
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Rare Earth"
-    href: /materials/rare-earth
-  - label: "Lanthanide"
-    href: /materials/rare-earth/lanthanide
-  - label: "Cerium"
-    href: /materials/rare-earth/lanthanide/cerium-laser-cleaning
 displayName: Cerium Laser Cleaning
 category: rare-earth
 subcategory: lanthanide
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:24.773415+00:00'
+dateModified: '2026-01-22T03:04:25.653643+00:00'
 fullPath: /materials/rare-earth/lanthanide/cerium-laser-cleaning
 pageTitle: Cerium
 metaDescription: Cerium's dense structure holds up well under laser cleaning, revealing sharp contrasts at 1000x magnification.
@@ -105,12 +92,6 @@ components:
       hiding its natural features. Scattered debris clings tightly, creating a dull and patchy overall look.
     after: Laser treatment restores a smooth and uniform surface free of residues. The metal now shows clear grain patterns
       without any clinging particles. A consistent shine emerges, revealing the underlying clean texture.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Cerium surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -145,13 +126,6 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-    _section:
-      sectionTitle: Cerium's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     absorptivity:
@@ -216,13 +190,6 @@ properties:
       confidence: 99
       researchedDate: '2025-11-24T11:54:52.106504'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -423,15 +390,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -454,14 +412,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -492,15 +442,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - environmental_dust
@@ -581,11 +522,10 @@ materialCharacteristics:
     source: ai_research
   percentage: 60.0
   _section:
-    sectionTitle: Cerium's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -652,9 +592,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T11:54:52.106504'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

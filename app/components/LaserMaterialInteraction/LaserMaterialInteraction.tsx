@@ -60,11 +60,29 @@ export function LaserMaterialInteraction({
   // Check for actual property data (not just 'label' or 'percentage' metadata fields)
   const hasActualProperties = laserInteractionData && Object.keys(laserInteractionData).some(
     key => key !== 'label' && key !== 'percentage' && key !== 'description' &&
+           key !== '_section' && key !== '_metadata' && key !== 'title' &&
            laserInteractionData[key]?.value !== undefined
   );
   
-  // If no actual property data, don't render the section
-  if (!hasActualProperties) {
+  // If has _section metadata but no property data, show placeholder
+  const hasSection = laserInteractionData?._section?.sectionTitle && laserInteractionData?._section?.sectionDescription;
+  
+  if (hasSection && !hasActualProperties) {
+    return (
+      <BaseSection
+        title={title}
+        description={description}
+        icon={getSectionIcon('zap')}
+        spacing="loose"
+        className={className}
+      >
+        <div className="text-muted italic">Detailed interaction metrics will be available soon.</div>
+      </BaseSection>
+    );
+  }
+
+  // If no actual property data and no section metadata, don't render the section
+  if (!hasActualProperties && !hasSection) {
     return null;
   }
 

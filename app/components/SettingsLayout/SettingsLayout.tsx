@@ -283,6 +283,7 @@ export function SettingsLayout({
         materialName={settings.name}
         heroImage={heroImage}
         materialLink={materialLink}
+        sectionDescription={relationships?.operational?.machineSettings?._section?.sectionDescription}
       />
 
       {/* Material Safety Heatmap */}

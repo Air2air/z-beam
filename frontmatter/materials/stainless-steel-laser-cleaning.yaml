@@ -1,25 +1,12 @@
 id: stainless-steel-laser-cleaning
 name: Stainless Steel
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Metal"
-    href: /materials/metal
-  - label: "Ferrous"
-    href: /materials/metal/ferrous
-  - label: "Stainless Steel"
-    href: /materials/metal/ferrous/stainless-steel-laser-cleaning
 displayName: Stainless Steel Laser Cleaning
 category: metal
 subcategory: ferrous
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:30.589617+00:00'
+dateModified: '2026-01-22T03:04:35.254812+00:00'
 fullPath: /materials/metal/ferrous/stainless-steel-laser-cleaning
 pageTitle: Stainless Steel
 metaDescription: In practice with stainless steel surfaces, laser cleaning proves effective for revealing underlying microstructures,
@@ -97,12 +84,6 @@ components:
       debris cling tightly to the metal. Scratches and buildup make it seem dull overall.
     after: After laser treatment, the same view shows a smooth and uniform surface. The metal gleams with a clean, even shine.
       No more spots or roughness disrupt the finish.
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of Stainless Steel surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
   settingsDescription: We've found stainless steel cleans smoothly with laser, unlike more brittle carbon steels. Its tough
     surface holds up well under pulses. We start low on power to strip oxides without scratching. Watch out mid-process—too
     much heat dulls that shiny finish. Adjust speed up if buildup resists. This keeps corrosion resistance intact for food
@@ -221,13 +202,6 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-    _section:
-      sectionTitle: Stainless Steel's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     absorptivity:
@@ -313,13 +287,6 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -1129,15 +1096,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -1168,14 +1126,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -1201,15 +1151,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - industrial_oil
@@ -1341,11 +1282,10 @@ materialCharacteristics:
     source: ai_research
   percentage: 60.0
   _section:
-    sectionTitle: Stainless Steel's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -1433,9 +1373,8 @@ laserMaterialInteraction:
     confidence: 95
     source: ai_research
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

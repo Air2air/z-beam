@@ -1,25 +1,12 @@
 id: mdf-laser-cleaning
 name: MDF
-
-# Breadcrumb navigation
-breadcrumb:
-  - label: "Home"
-    href: /
-  - label: "Materials"
-    href: /materials
-  - label: "Wood"
-    href: /materials/wood
-  - label: "Hardwood"
-    href: /materials/wood/hardwood
-  - label: "MDF"
-    href: /materials/wood/hardwood/mdf-laser-cleaning
 displayName: MDF Laser Cleaning
 category: wood
 subcategory: hardwood
 contentType: material
 schemaVersion: 5.0.0
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T03:28:27.039631+00:00'
+dateModified: '2026-01-22T03:04:29.484409+00:00'
 fullPath: /materials/wood/hardwood/mdf-laser-cleaning
 pageTitle: MDF
 metaDescription: The contamination on MDF surfaces, it manifests as irregular clusters of particulates, which adhere tenaciously
@@ -99,12 +86,6 @@ components:
       the natural wood structure beneath a hazy layer of contamination.
     after: After laser treatment, at 1000x, the MDF surface appears smooth with clear, separated fibers standing out. No traces
       of dirt remain, and the texture feels even across the entire view. This cleaning reveals the
-    _section:
-      sectionTitle: Microscopic Analysis
-      sectionDescription: High-magnification comparison of MDF surface before and after laser cleaning treatment
-      icon: microscope
-      order: 5
-      variant: default
 properties:
   materialCharacteristics:
     label: Material Characteristics
@@ -171,13 +152,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:01:13.562975'
       needsValidation: true
-    _section:
-      sectionTitle: MDF's Core Properties
-      sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes
-        and material integrity
-      icon: wrench
-      order: 50
-      variant: default
   laserMaterialInteraction:
     label: Laser-Material Interaction
     percentage: 40.0
@@ -270,13 +244,6 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:01:19.902057'
       needsValidation: true
-    _section:
-      sectionTitle: Laser Interaction Behavior
-      sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-        thresholds
-      icon: zap
-      order: 60
-      variant: default
 faq:
   presentation: collapsible
   items:
@@ -504,15 +471,6 @@ relationships:
         icon: droplet
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: contaminatedBy
-          group: interactions
-          domain: materials
-          icon: droplet
-          order: 10
-          variant: default
-          schemaDescription: Common contaminants found on this material
-          notes: Cross-references to contaminant pages
   operational:
     industryApplications:
       presentation: card
@@ -543,14 +501,6 @@ relationships:
         icon: building
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: industryApplications
-          group: operational
-          domain: materials
-          icon: briefcase
-          order: 40
-          variant: default
-          schemaDescription: Industries and sectors where commonly used
   safety:
     regulatoryStandards:
       presentation: card
@@ -581,15 +531,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: materials
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
 contamination:
   valid:
   - wood_rot
@@ -670,11 +611,10 @@ materialCharacteristics:
     researchedDate: '2025-11-24T12:01:13.562975'
     needsValidation: true
   _section:
-    sectionTitle: MDF's Core Properties
-    sectionDescription: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and
-      material integrity
+    sectionTitle: Material Characteristics
+    sectionDescription: Physical and mechanical properties
     icon: wrench
-    order: 50
+    order: 70
     variant: default
 laserMaterialInteraction:
   label: Laser-Material Interaction
@@ -769,9 +709,8 @@ laserMaterialInteraction:
     researchedDate: '2025-11-24T12:01:19.902057'
     needsValidation: true
   _section:
-    sectionTitle: Laser Interaction Behavior
-    sectionDescription: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation
-      thresholds
+    sectionTitle: Laser Material Interaction
+    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
     icon: zap
-    order: 60
+    order: 71
     variant: default

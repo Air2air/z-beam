@@ -9,6 +9,7 @@ interface MachineSettingsProps {
   materialName?: string;
   materialLink?: string;
   heroImage?: string;
+  sectionDescription?: string;
 }
 
 /**
@@ -24,7 +25,7 @@ interface MachineSettingsProps {
  * @param materialName - Optional material name for title context
  * @param materialLink - Optional link back to material page (creates "Material" button)
  */
-export function MachineSettings({ metadata, materialName, materialLink }: MachineSettingsProps) {
+export function MachineSettings({ metadata, materialName, materialLink, sectionDescription }: MachineSettingsProps) {
   // Check if we have machine settings data
   const hasMachineSettings = metadata?.machineSettings && 
     Object.keys(metadata.machineSettings).length > 0;
@@ -37,10 +38,14 @@ export function MachineSettings({ metadata, materialName, materialLink }: Machin
     ? `${materialName} Machine Settings`
     : 'Machine Settings';
 
+  // Use passed sectionDescription or fall back to default
+  const description = sectionDescription 
+    || "Optimal laser parameters and operating ranges for effective cleaning";
+
   return (
     <BaseSection
       title={title}
-      description="Optimal laser parameters and operating ranges for effective cleaning"
+      description={description}
       icon={getSectionIcon('settings')}
       spacing="loose"
     >
