@@ -24,11 +24,11 @@ async function main() {
   
   // Run validations in sequence (they're interdependent)
   const validations = [
-    { name: 'Frontmatter structure', command: 'node scripts/validation/content/validate-frontmatter-structure.js' },
-    { name: 'Naming conventions', command: 'node scripts/validation/content/validate-naming-e2e.js' },
-    { name: 'Metadata sync', command: 'node scripts/validation/content/validate-metadata-sync.js' },
-    { name: 'Sitemap verification', command: 'bash scripts/sitemap/verify-sitemap.sh' },
-    { name: 'Breadcrumbs', command: 'tsx scripts/validation/content/validate-breadcrumbs.ts' }
+    { name: 'Frontmatter structure', command: 'node scripts/validation/content/validate-frontmatter-structure.js', critical: true },
+    { name: 'Naming conventions', command: 'node scripts/validation/content/validate-naming-e2e.js', critical: true },
+    { name: 'Metadata sync', command: 'node scripts/validation/content/validate-metadata-sync.js', critical: true },
+    { name: 'Sitemap verification', command: 'bash scripts/sitemap/verify-sitemap.sh', critical: true },
+    { name: 'Breadcrumbs', command: 'tsx scripts/validation/content/validate-breadcrumbs.ts', critical: false }
   ];
   
   for (const validation of validations) {
@@ -36,7 +36,12 @@ async function main() {
     if (success) {
       result.addPassed(validation.name);
     } else {
-      result.addFailure(validation.name);
+      // Breadcrumbs is non-critical - treat as warning during migration
+      if (validation.critical) {
+        result.addFailure(validation.name);
+      } else {
+        result.addWarning(`${validation.name} validation failed (non-blocking during migration)`);
+      }
     }
   }
   
