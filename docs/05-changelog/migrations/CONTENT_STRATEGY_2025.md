@@ -4,7 +4,7 @@
 **Created**: November 1, 2025  
 **Site**: https://www.z-beam.com  
 **Industry**: Industrial Laser Cleaning Services  
-**Primary Market**: Bay Area (CA, AZ, NV, OR)
+**Primary Market**: California and Western States (CA, AZ, NV, OR)
 
 ---
 
@@ -26,7 +26,7 @@
 - **No customer testimonials**: Missing social proof
 - **Limited service-level content**: Only basic service workflow page
 - **No blog/insights**: Missing thought leadership content
-- **Minimal local SEO**: Under-optimized for Bay Area searches
+- **Minimal local SEO**: Under-optimized for California and regional searches
 
 **Current E-E-A-T Score**: 7.5/10
 - Experience: 6/10 ⚠️
@@ -50,7 +50,7 @@
   - Worker safety concerns
   - Equipment maintenance budgets
 - Search Intent:
-  - "industrial rust removal contractors bay area"
+  - "industrial rust removal contractors california"
   - "laser cleaning vs sandblasting cost comparison"
   - "minimize production downtime surface cleaning"
 
@@ -79,7 +79,7 @@
   - Documentation requirements
 - Search Intent:
   - "non-destructive monument cleaning san francisco"
-  - "marble restoration laser cleaning bay area"
+  - "marble restoration laser cleaning california"
   - "heritage building restoration services"
 
 #### 4. **Procurement/Purchasing** (15% of market)

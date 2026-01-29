@@ -174,7 +174,7 @@ Located at: `/app/components/Contact/ContactInfo.tsx`
 ## SEO Configuration
 
 ### Contact Page
-- **Title**: "Get a Free Quote | Bay Area Laser Cleaning | Z-Beam"
+- **Title**: "Get a Free Quote | California Laser Cleaning | Z-Beam"
 - **Description**: "Precision laser cleaning quotes for aerospace, marine, automotive & heritage projects"
 - **Robots**: `noindex, follow`
 - **Schema**: ContactPage with LocalBusiness mainEntity

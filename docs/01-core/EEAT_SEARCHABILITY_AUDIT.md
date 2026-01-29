@@ -73,7 +73,7 @@ testimonials: [
   {
     quote: "Z-Beam's laser cleaning saved our project...",
     author: "John Smith",
-    company: "Bay Area Manufacturing",
+    company: "California Manufacturing",
     project: "Industrial Equipment Restoration",
     verified: true
   }
@@ -538,7 +538,7 @@ Target: 2-4 articles per month
 - Google Business Profile optimization
 - Local citations (Yelp, Yellow Pages, etc.)
 - GeoCoordinates in schema
-- Service area pages (SF Bay Area, etc.)
+- Service area pages (California, Western States, etc.)
 
 ---
 

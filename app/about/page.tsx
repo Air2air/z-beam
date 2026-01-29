@@ -6,14 +6,14 @@ import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '@/app/config/site';
 
 export const metadata = {
-  title: 'Bay Area Laser Cleaning Experts | Z-Beam Since 2020',
-  description: `Bay Area precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process. Trusted for critical applications.`,
+  title: 'California Laser Cleaning Experts | Z-Beam Since 2020',
+  description: `California precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process. Trusted for critical applications.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
   },
   openGraph: {
-    title: 'Bay Area Laser Cleaning Experts Since 2020 | Z-Beam',
-    description: `Bay Area precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process.`,
+    title: 'California Laser Cleaning Experts Since 2020 | Z-Beam',
+    description: `California precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process.`,
     url: `${SITE_CONFIG.url}/about`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -28,7 +28,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bay Area Laser Cleaning Experts Since 2020 | Z-Beam',
+    title: 'California Laser Cleaning Experts Since 2020 | Z-Beam',
     description: `Precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste.`,
   },
 };
@@ -68,22 +68,31 @@ export default async function AboutPage() {
       '@type': 'Organization',
       '@id': `${SITE_CONFIG.url}/#organization`,
       name: SITE_CONFIG.name,
-      description: 'Bay Area precision laser cleaning since 2020',
+      description: 'California precision laser cleaning since 2020',
       url: SITE_CONFIG.url,
       foundingDate: '2020',
       numberOfEmployees: {
         '@type': 'QuantitativeValue',
         value: 10
       },
-      areaServed: {
-        '@type': 'GeoCircle',
-        geoMidpoint: {
-          '@type': 'GeoCoordinates',
-          latitude: 37.7749,
-          longitude: -122.4194
+      areaServed: [
+        {
+          '@type': 'State',
+          name: 'California'
         },
-        geoRadius: '100'
-      }
+        {
+          '@type': 'State',
+          name: 'Arizona'
+        },
+        {
+          '@type': 'State',
+          name: 'Nevada'
+        },
+        {
+          '@type': 'State',
+          name: 'Oregon'
+        }
+      ]
     }
   };
   

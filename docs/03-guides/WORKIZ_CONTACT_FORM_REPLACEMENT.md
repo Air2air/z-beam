@@ -133,9 +133,9 @@ const WorkizWidget = dynamicImport(
 import { ContactInfo } from "../components/Contact/ContactInfo";
 
 export const metadata = {
-  title: "Get a Free Quote | Bay Area Laser Cleaning | Z-Beam",
+  title: "Get a Free Quote | California Laser Cleaning | Z-Beam",
   description:
-    "Precision laser cleaning quotes for aerospace, marine, automotive & heritage projects. No chemicals, no substrate damage. Same-day response. Bay Area mobile service.",
+    "Precision laser cleaning quotes for aerospace, marine, automotive & heritage projects. No chemicals, no substrate damage. Same-day response. California mobile service.",
   // ... rest of metadata
 };
 
