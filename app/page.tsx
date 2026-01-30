@@ -95,35 +95,40 @@ export default async function HomePage() {
             SITE_CONFIG.social.youtube
           ].filter(Boolean)
         },
-        // Product - Professional Cleaning Service
+        // Product - Equipment Rental Service
         {
           '@type': 'Product',
-          '@id': `${SITE_CONFIG.url}/#product-laser-cleaning`,
-          name: 'Professional Laser Cleaning Service',
-          description: SITE_CONFIG.pricing.professionalCleaning.description,
+          '@id': `${SITE_CONFIG.url}/#product-equipment-rental`,
+          name: 'Laser Cleaning Equipment Rental',
+          description: SITE_CONFIG.pricing.equipmentRental.description,
           brand: {
             '@type': 'Brand',
             name: SITE_CONFIG.name
           },
           offers: {
             '@type': 'Offer',
-            price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
-            priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
+            price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+            priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
             priceValidUntil: '2026-12-31',
             availability: 'https://schema.org/InStock',
-            url: `${SITE_CONFIG.url}/services`,
+            url: `${SITE_CONFIG.url}/rental`,
             seller: {
               '@type': 'Organization',
               '@id': `${SITE_CONFIG.url}/#organization`
             },
             priceSpecification: {
               '@type': 'UnitPriceSpecification',
-              price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
-              priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
-              unitText: SITE_CONFIG.pricing.professionalCleaning.unit
+              price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+              priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+              unitText: SITE_CONFIG.pricing.equipmentRental.unit,
+              referenceQuantity: {
+                '@type': 'QuantitativeValue',
+                value: SITE_CONFIG.pricing.equipmentRental.minimumHours,
+                unitCode: 'HUR'
+              }
             }
           },
-          category: 'Industrial Cleaning Services'
+          category: 'Equipment Rental Service'
         },
         // BreadcrumbList
         {
@@ -177,7 +182,6 @@ export default async function HomePage() {
         <JsonLD data={jsonLdSchema} />
         <Layout 
           title={pageTitle}
-          pageDescription={pageDescription}
           metadata={heroFrontmatter}
           customHeroOverlay={true}
         >

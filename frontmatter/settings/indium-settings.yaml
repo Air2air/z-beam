@@ -4,7 +4,7 @@ displayName: Indium Laser Cleaning Settings
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T02:42:21.191021+00:00'
+dateModified: '2026-01-30T02:39:25.384908+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/specialty/indium-settings
@@ -93,15 +93,6 @@ relationships:
         icon: shield-check
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: settings
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-          notes: Compliance requirements
   interactions:
     removesContaminants:
       presentation: card
@@ -116,14 +107,6 @@ relationships:
         icon: droplet-off
         order: 1
         variant: default
-        sectionMetadata:
-          relationshipType: removesContaminants
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to contaminant pages
     worksOnMaterials:
       presentation: card
       items:
@@ -139,14 +122,6 @@ relationships:
         icon: box
         order: 2
         variant: default
-        sectionMetadata:
-          relationshipType: worksOnMaterials
-          group: interactions
-          domain: settings
-          icon: circle-help
-          order: 999
-          variant: default
-          notes: Cross-references to material pages
   operational:
     commonChallenges:
       presentation: descriptive
@@ -163,14 +138,6 @@ relationships:
           type: challenge
       _section:
         icon: triangle-exclamation
-        sectionMetadata:
-          relationshipType: commonChallenges
-          group: operational
-          domain: settings
-          icon: alert-triangle
-          order: 41
-          variant: default
-          schemaDescription: Typical difficulties and solutions
         sectionTitle: Common Challenges
         sectionDescription: Technical challenges and optimization strategies for these settings
         order: 5

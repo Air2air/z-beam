@@ -275,7 +275,7 @@ const TEST_PAGES = [
   { url: '/contaminants/oxidation/ferrous/rust-oxidation-contamination', type: 'contaminant', name: 'Contaminant Page' },
   { url: '/contaminants/oxidation', type: 'contaminant-category', name: 'Contaminant Category' },
   { url: '/contaminants/oxidation/ferrous', type: 'contaminant-subcategory', name: 'Contaminant Subcategory' },
-  { url: '/services', type: 'service', name: 'Service Page' },
+  { url: '/rental', type: 'service', name: 'Rental Page' },
   { url: '/about', type: 'static', name: 'Static Page' }
 ];
 

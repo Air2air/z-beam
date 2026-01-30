@@ -36,7 +36,6 @@ describe('Sitemap Validation', () => {
       
       const requiredRoutes = [
         '/about',
-        '/services',
         '/rental',
         '/partners',
         '/contact',

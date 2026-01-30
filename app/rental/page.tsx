@@ -7,14 +7,14 @@ import { RENTAL_DATA } from '@/app/utils/staticPageData.generated';
 import type { ContentCardItem } from '@/types';
 
 export const metadata = {
-  title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
-  description: 'Rent Netalux laser cleaning equipment. Daily/weekly/monthly Bay Area delivery. Training included, no long-term commitment. Try before you buy.',
+  title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
+  description: 'Professional laser cleaning equipment delivered to your location in California. $390/hour, 2-hour minimum. Includes training, safety gear, and 24/7 support. Flexible rental periods.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/rental`,
   },
   openGraph: {
-    title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
-    description: 'Rent Netalux laser cleaning equipment. Daily/weekly/monthly Bay Area delivery. Training included, no long-term commitment.',
+    title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
+    description: 'Professional laser cleaning equipment delivered to your location. $390/hour, 2-hour minimum. Training and support included.',
     url: `${SITE_CONFIG.url}/rental`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -29,8 +29,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
-    description: 'Rent Netalux laser equipment. Bay Area delivery, training included. Try before you buy.',
+    title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
+    description: 'Professional laser equipment delivered to your location in California. $390/hour, 2-hour minimum.',
   },
 };
 
@@ -49,7 +49,7 @@ export default function RentalPage() {
         '@type': 'Service',
         '@id': `${SITE_CONFIG.url}/rental#service`,
         'name': pricing.label,
-        'description': 'Professional laser cleaning equipment rental with flexible terms. Rent Netalux Needle® and Jango® systems for industrial applications. Includes training, 24/7 technical support, and nationwide shipping. Perfect for project-based needs without capital expense.',
+        'description': 'Professional laser cleaning equipment delivered to your location with flexible rental terms. Rent Netalux Needle® and Jango® systems for industrial applications. Includes equipment delivery, on-site training, 24/7 technical support, and all necessary safety equipment. $390/hour with 2-hour minimum. Perfect for project-based needs without capital expense.',
         'provider': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
@@ -107,20 +107,25 @@ export default function RentalPage() {
           },
           'eligibleDuration': {
             '@type': 'QuantitativeValue',
-            'value': 1,
+            'value': 2,
             'unitText': 'hour',
-            'minValue': 1
+            'minValue': 2
           },
           'additionalProperty': [
             {
               '@type': 'PropertyValue',
               'name': 'Rental Terms',
-              'value': 'Daily, Weekly, or Monthly'
+              'value': '2-hour minimum, flexible daily/weekly/monthly rates available'
             },
             {
               '@type': 'PropertyValue',
               'name': 'Included Services',
-              'value': 'Training, 24/7 Support, Nationwide Shipping'
+              'value': 'Equipment delivery, on-site training, safety gear, 24/7 technical support'
+            },
+            {
+              '@type': 'PropertyValue',
+              'name': 'Service Area',
+              'value': 'California - equipment delivered to your location'
             }
           ]
         },
@@ -139,7 +144,7 @@ export default function RentalPage() {
         '@type': 'Product',
         '@id': `${SITE_CONFIG.url}/rental#equipment`,
         'name': 'Laser Cleaning Equipment',
-        'description': 'Professional Netalux laser cleaning systems available for rent. State-of-the-art technology for rust removal, coating removal, and surface preparation.',
+        'description': 'Professional Netalux laser cleaning systems delivered to your location for rent. State-of-the-art technology for rust removal, coating removal, and surface preparation. $390/hour with 2-hour minimum.',
         'brand': {
           '@type': 'Brand',
           'name': 'Netalux'

@@ -178,7 +178,6 @@ class UnusedVariableCleaner {
 
       'app/contact/page.tsx',
       'app/search/search-client.tsx',
-      'app/services/page.tsx',
       'app/utils/articleEnrichment.ts',
       'app/utils/badgeDataLoader.ts',
       'app/utils/badgeUtils.ts',

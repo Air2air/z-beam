@@ -151,8 +151,8 @@ module.exports = {
       '/',
       '/about',
       '/contact',
-      '/materials',
-      '/services'
+      '/rental',
+      '/materials'
     ],
     
     datasetRequirements: {

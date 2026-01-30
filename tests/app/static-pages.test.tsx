@@ -1,7 +1,7 @@
 /**
  * Static Pages Content Loading Tests
  * 
- * Ensures that static pages (services, rental, partners, about, contact)
+ * Ensures that static pages (rental, partners, about, contact)
  * load their content properly from YAML/markdown sources
  */
 
@@ -10,32 +10,6 @@ import fs from 'fs';
 import path from 'path';
 
 describe('Static Pages Content Loading', () => {
-  describe('Services Page', () => {
-    it.skip('should load services metadata from YAML', async () => {
-      // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
-      // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { frontmatter } = await loadPageData('services');
-      
-      expect(frontmatter).toBeDefined();
-      expect(frontmatter.title).toBeDefined();
-      expect(frontmatter.description).toBeDefined();
-      expect(frontmatter.slug).toBe('services');
-    });
-
-    it('should load services content component', async () => {
-      const { components } = await loadPageData('services');
-      
-      expect(components).toBeDefined();
-      // Components may be empty for static pages that use YAML-only content
-      // This is expected behavior as content is in static-pages/*.yaml files
-    });
-
-    it('should have services YAML file', () => {
-      const yamlPath = path.join(process.cwd(), 'static-pages/services.yaml');
-      expect(fs.existsSync(yamlPath)).toBe(true);
-    });
-  });
-
   describe('Rental Page', () => {
     it.skip('should load rental metadata from YAML', async () => {
       // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
@@ -137,7 +111,7 @@ describe('Static Pages Content Loading', () => {
 
   describe('YAML Files Validation', () => {
     it('should have all required YAML files', () => {
-      const yamlFiles = ['services.yaml', 'rental.yaml', 'partners.yaml'];
+      const yamlFiles = ['rental.yaml', 'partners.yaml'];
       const pagesDir = path.join(process.cwd(), 'static-pages');
       
       yamlFiles.forEach(file => {
@@ -147,7 +121,7 @@ describe('Static Pages Content Loading', () => {
     });
 
     it('should have valid YAML structure', () => {
-      const yamlFiles = ['services.yaml', 'rental.yaml', 'partners.yaml'];
+      const yamlFiles = ['rental.yaml', 'partners.yaml'];
       const pagesDir = path.join(process.cwd(), 'static-pages');
       
       yamlFiles.forEach(file => {

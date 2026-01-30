@@ -65,7 +65,7 @@ const mockFrontmatterData = {
   },
   serviceOffering: {
     enabled: true,
-    type: 'professionalCleaning',
+    type: 'equipmentRental',
     materialSpecific: {
       estimatedHoursMin: 2,
       estimatedHoursTypical: 6,
@@ -413,7 +413,7 @@ describe('SEO Pipeline E2E Integration', () => {
       const serviceType = mockFrontmatterData.serviceOffering.type;
       const expectedProductId = `${slug}-${serviceType}`;
       
-      expect(expectedProductId).toBe('aluminum-laser-cleaning-professionalCleaning');
+      expect(expectedProductId).toBe('aluminum-laser-cleaning-equipmentRental');
       // Product ID includes camelCase service type
       expect(expectedProductId).toMatch(/^[a-zA-Z0-9-]+$/);
     });
@@ -433,9 +433,9 @@ describe('SEO Pipeline E2E Integration', () => {
 
     it('should generate SKU format matching feed requirements', () => {
       const serviceType = mockFrontmatterData.serviceOffering.type;
-      const skuPrefix = serviceType === 'professionalCleaning' ? 'Z-BEAM-CLEAN' : 'ZB-EQUIP-RENT';
+      const skuPrefix = serviceType === 'equipmentRental' ? 'ZB-EQUIP-RENT' : 'ZB-EQUIP-RENT';
       
-      expect(skuPrefix).toMatch(/^(Z-BEAM-CLEAN|ZB-EQUIP-RENT)$/);
+      expect(skuPrefix).toBe('ZB-EQUIP-RENT');
     });
   });
 

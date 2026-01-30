@@ -114,7 +114,6 @@ describe('JSON-LD Architecture Enforcement', () => {
   describe('Page Component Patterns', () => {
     const staticPages = [
       'app/partners/page.tsx',
-      'app/services/page.tsx',
       'app/rental/page.tsx',
       'app/netalux/page.tsx'
     ];

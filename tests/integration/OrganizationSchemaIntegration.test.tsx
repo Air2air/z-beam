@@ -125,7 +125,7 @@ describe('Organization Schema Integration', () => {
       
       expect(serviceNames).toContain('laser');
       expect(serviceNames).toContain('cleaning');
-      expect(serviceNames).toContain('industrial');
+      expect(serviceNames).toContain('equipment');
     });
 
     test('should have correct contact information', () => {

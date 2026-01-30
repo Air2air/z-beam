@@ -92,11 +92,15 @@ export function generateWebsiteSchema(): SchemaOrgBase {
 export function generateServiceSchema(options?: {
   serviceName?: string;
   description?: string;
-  pricing?: typeof SITE_CONFIG.pricing.professionalCleaning;
+  pricing?: typeof SITE_CONFIG.pricing.equipmentRental;
 }): SchemaOrgBase {
-  const pricing = options?.pricing || SITE_CONFIG.pricing.professionalCleaning;
+  const pricing = options?.pricing || SITE_CONFIG.pricing.equipmentRental;
   const serviceName = options?.serviceName || pricing.label;
   const description = options?.description || pricing.description;
+
+  const hourlyRate = typeof pricing.hourlyRate === 'object' 
+    ? pricing.hourlyRate.standard 
+    : pricing.hourlyRate;
 
   return {
     '@type': 'Service',
@@ -265,14 +269,14 @@ export const schemaRegistry = {
         generateWebPageSchema({
           slug: 'services',
           title: 'Laser Cleaning Services',
-          description: data?.description || SITE_CONFIG.pricing.professionalCleaning.description
+          description: data?.description || SITE_CONFIG.pricing.equipmentRental.description
         }),
         // VideoObject - if video data provided
         ...(data?.video?.id ? [{
           '@type': 'VideoObject',
           '@id': `${SITE_CONFIG.url}/services#video`,
           'name': data.video.title || 'Professional Laser Cleaning Services',
-          'description': data.video.description || data?.description || SITE_CONFIG.pricing.professionalCleaning.description,
+          'description': data.video.description || data?.description || SITE_CONFIG.pricing.equipmentRental.description,
           'thumbnailUrl': `https://img.youtube.com/vi/${data.video.id}/maxresdefault.jpg`,
           'uploadDate': data.datePublished || new Date().toISOString().split('T')[0],
           'contentUrl': `https://www.youtube.com/watch?v=${data.video.id}`,

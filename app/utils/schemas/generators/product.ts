@@ -149,18 +149,18 @@ export function generateProductSchema(options: ProductSchemaOptions) {
     offers: {
       '@type': 'Offer',
       url: pageUrl,
-      price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
-      priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
+      price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+      priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
       availability: 'https://schema.org/InStock',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
-        priceCurrency: SITE_CONFIG.pricing.professionalCleaning.currency,
-        unitText: SITE_CONFIG.pricing.professionalCleaning.unit,
+        price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+        priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+        unitText: SITE_CONFIG.pricing.equipmentRental.unit,
         referenceQuantity: {
           '@type': 'QuantitativeValue',
-          value: 1,
-          unitText: 'service'
+          value: SITE_CONFIG.pricing.equipmentRental.minimumHours || 2,
+          unitText: 'hours'
         }
       },
       seller: {
@@ -168,7 +168,7 @@ export function generateProductSchema(options: ProductSchemaOptions) {
         name: SITE_CONFIG.name,
         url: SITE_CONFIG.url
       },
-      description: `${SITE_CONFIG.pricing.professionalCleaning.description} for ${name}. Starting at $${SITE_CONFIG.pricing.professionalCleaning.hourlyRate}/${SITE_CONFIG.pricing.professionalCleaning.unit}. Contact for custom quote.`
+      description: `${SITE_CONFIG.pricing.equipmentRental.description} for ${name}. $${SITE_CONFIG.pricing.equipmentRental.hourlyRate}/${SITE_CONFIG.pricing.equipmentRental.unit}, ${SITE_CONFIG.pricing.equipmentRental.minimumHours || 2}-hour minimum. Delivered to your location.`
     }
   };
 }

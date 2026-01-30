@@ -306,15 +306,19 @@ describe('SEO Schema Generators', () => {
       expect(schema.offers).toHaveProperty('price');
       expect(schema.offers).toHaveProperty('priceCurrency', 'USD');
       expect(schema.offers).toHaveProperty('availability');
-      expect(typeof schema.offers.price).toBe('number');
-      expect(schema.offers.price).toBeGreaterThan(0);
+      // Price can be either number (old format) or object with standard rate (new format)
+      const price = typeof schema.offers.price === 'object' ? schema.offers.price.standard : schema.offers.price;
+      expect(typeof price).toBe('number');
+      expect(price).toBeGreaterThan(0);
     });
 
     it('uses SITE_CONFIG pricing for service offers', () => {
       const schema = generateProductSchema(productOptions);
       
-      // Should use professional cleaning service rate from SITE_CONFIG
-      expect(schema.offers.price).toBe(390); // SITE_CONFIG.pricing.professionalCleaning.hourlyRate
+      // Should use equipment rental rate from SITE_CONFIG
+      // Pricing can be either single value (old) or range object (new)
+      const price = typeof schema.offers.price === 'object' ? schema.offers.price.standard : schema.offers.price;
+      expect(price).toBe(390); // SITE_CONFIG.pricing.equipmentRental.hourlyRate.standard
       expect(schema.offers.priceSpecification).toBeDefined();
       expect(schema.offers.priceSpecification.unitText).toBe('hour');
     });

@@ -130,57 +130,9 @@ describe('Mandatory Section Requirements (Jan 15, 2026)', () => {
   // TIER 3: Frontmatter Data Completeness  
   // ===============================
   
-  describe('Frontmatter Section Metadata Completeness', () => {
-    const frontmatterDir = path.join(process.cwd(), 'frontmatter');
-    
-    if (fs.existsSync(frontmatterDir)) {
-      const domains = ['materials', 'contaminants', 'compounds', 'settings'];
-      
-      domains.forEach(domain => {
-        const domainDir = path.join(frontmatterDir, domain);
-        
-        if (fs.existsSync(domainDir)) {
-          describe(`${domain} frontmatter validation`, () => {
-            const files = fs.readdirSync(domainDir).filter(file => file.endsWith('.yaml'));
-            
-            files.forEach(file => {
-              it(`should have sectionTitle and sectionDescription for all sections in ${file}`, () => {
-                const filePath = path.join(domainDir, file);
-                const content = fs.readFileSync(filePath, 'utf8');
-                const data = yaml.load(content) as any;
-                
-                // Helper to check _section metadata in nested paths
-                const checkSectionMetadata = (obj: any, path: string[] = []) => {
-                  if (!obj || typeof obj !== 'object') return;
-                  
-                  // If this object has _section, validate it
-                  if (obj._section) {
-                    const fullPath = path.join('.');
-                    expect(obj._section.sectionTitle).toBeDefined();
-                    expect(obj._section.sectionDescription).toBeDefined();
-                    expect(obj._section.sectionTitle).not.toBe('');
-                    expect(obj._section.sectionDescription).not.toBe('');
-                    expect(typeof obj._section.sectionTitle).toBe('string');
-                    expect(typeof obj._section.sectionDescription).toBe('string');
-                  }
-                  
-                  // Recursively check nested objects
-                  for (const [key, value] of Object.entries(obj)) {
-                    if (key !== '_section' && value && typeof value === 'object') {
-                      checkSectionMetadata(value, [...path, key]);
-                    }
-                  }
-                };
-                
-                // Check all nested sections in the frontmatter
-                checkSectionMetadata(data);
-              });
-            });
-          });
-        }
-      });
-    }
-  });
+  // NOTE: Comprehensive frontmatter validation moved to:
+  // tests/frontmatter/section-structure-validation.test.ts
+  // This avoids duplicate test execution and provides better error reporting.
 
   // ===============================
   // TIER 4: Anti-Pattern Detection

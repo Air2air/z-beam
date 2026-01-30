@@ -21,7 +21,7 @@ describe('Constants', () => {
     });
 
     test('should have descriptive site description', () => {
-      expect(SITE_CONFIG.description).toBe('Professional laser cleaning for industrial surface prep, rust removal, and eco-friendly solutions. Aerospace and automotive applications.');
+      expect(SITE_CONFIG.description).toBe('Industrial laser cleaning equipment rental with training and support. Self-service laser systems for rust removal, surface prep, and coating removal. Hourly and project-based rental options.');
     });
 
     test('should return localhost URL in development', () => {

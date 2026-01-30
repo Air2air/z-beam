@@ -52,7 +52,7 @@ export default function NotFound() {
             Go to Home
           </Link>
           <Link
-            href="/services"
+            href="/rental"
             style={{
               padding: '1rem 2rem',
               backgroundColor: '#374151',
@@ -63,7 +63,7 @@ export default function NotFound() {
               boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)'
             }}
           >
-            View Services
+            Equipment Rental
           </Link>
         </div>
       </div>

@@ -23,7 +23,7 @@ const mockMaterialData = {
   subcategory: 'non-ferrous',
   serviceOffering: {
     enabled: true,
-    type: 'professionalCleaning',
+    type: 'equipmentRental',
     materialSpecific: {
       estimatedHoursMin: 2,
       estimatedHoursTypical: 6
@@ -35,7 +35,7 @@ describe('Google Merchant Feed Generation', () => {
   describe('Product ID Generation', () => {
     it('should generate unique product IDs with service type suffix', () => {
       const slug = 'aluminum-laser-cleaning';
-      const serviceType = 'professionalCleaning';
+      const serviceType = 'equipmentRental';
       const expectedId = `${slug}-${serviceType}`;
       
       // Simulate ID generation
@@ -46,12 +46,11 @@ describe('Google Merchant Feed Generation', () => {
       expect(productId).toContain(serviceType);
     });
 
-    it('should create different IDs for different service types', () => {
+    it('should generate consistent IDs for equipment rental service', () => {
       const slug = 'aluminum-laser-cleaning';
-      const profId = `${slug}-professionalCleaning`;
       const rentId = `${slug}-equipmentRental`;
       
-      expect(profId).not.toBe(rentId);
+      expect(rentId).toBe('aluminum-laser-cleaning-equipmentRental');
     });
   });
 

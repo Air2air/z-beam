@@ -134,8 +134,8 @@ export default function ConfirmSchedulingPage() {
           <div className="mt-12 text-center">
             <p className="text-sm text-gray-500 dark:text-gray-400">
               While you wait, learn more about{' '}
-              <Link href="/services" className="text-orange-600 hover:text-orange-700 dark:text-blue-400 dark:hover:text-blue-300">
-                our services
+              <Link href="/rental" className="text-orange-600 hover:text-orange-700 dark:text-blue-400 dark:hover:text-blue-300">
+                equipment rental
               </Link>
               {' '}or explore our{' '}
               <Link href="/materials" className="text-orange-600 hover:text-orange-700 dark:text-blue-400 dark:hover:text-blue-300">

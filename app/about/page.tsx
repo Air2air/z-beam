@@ -6,14 +6,14 @@ import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '@/app/config/site';
 
 export const metadata = {
-  title: 'California Laser Cleaning Experts | Z-Beam Since 2020',
-  description: `California precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process. Trusted for critical applications.`,
+  title: 'Laser Cleaning Equipment Rental Experts | Z-Beam Since 2020',
+  description: `Industrial laser cleaning equipment rental since 2020. Self-service solutions for aerospace, marine & heritage projects. EPA-compliant, zero-waste technology. Training and support included.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
   },
   openGraph: {
-    title: 'California Laser Cleaning Experts Since 2020 | Z-Beam',
-    description: `California precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process.`,
+    title: 'Laser Cleaning Equipment Rental Since 2020 | Z-Beam',
+    description: `Industrial equipment rental since 2020. Self-service laser cleaning for 500+ aerospace, marine & heritage projects. Training and support included.`,
     url: `${SITE_CONFIG.url}/about`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -28,8 +28,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'California Laser Cleaning Experts Since 2020 | Z-Beam',
-    description: `Precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste.`,
+    title: 'Laser Cleaning Equipment Rental Since 2020 | Z-Beam',
+    description: `Industrial equipment rental since 2020. Self-service for 500+ projects. Training and support included. EPA-compliant.`,
   },
 };
 
@@ -61,14 +61,14 @@ export default async function AboutPage() {
   const aboutSchema = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: 'About Z-Beam Laser Cleaning',
-    description: 'Learn about Z-Beam\'s mission, team, and expertise in laser cleaning technology for industrial applications',
+    name: 'About Z-Beam Equipment Rental',
+    description: 'Learn about Z-Beam\'s industrial laser cleaning equipment rental service with comprehensive training and technical support',
     url: `${SITE_CONFIG.url}/about`,
     mainEntity: {
       '@type': 'Organization',
       '@id': `${SITE_CONFIG.url}/#organization`,
       name: SITE_CONFIG.name,
-      description: 'California precision laser cleaning since 2020',
+      description: 'Industrial laser cleaning equipment rental with training and support since 2020',
       url: SITE_CONFIG.url,
       foundingDate: '2020',
       numberOfEmployees: {

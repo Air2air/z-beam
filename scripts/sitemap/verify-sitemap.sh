@@ -56,7 +56,7 @@ echo ""
 
 # Check static routes
 echo "4️⃣  Validating static routes..."
-REQUIRED_ROUTES=("about" "services" "rental" "partners" "contact" "search")
+REQUIRED_ROUTES=("about" "rental" "partners" "contact" "search")
 MISSING_ROUTES=()
 
 for route in "${REQUIRED_ROUTES[@]}"; do

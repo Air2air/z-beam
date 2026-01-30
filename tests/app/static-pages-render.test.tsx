@@ -14,16 +14,16 @@ import { ArticleMetadata } from '@/types';
 // SKIPPED: Static pages architecture changed to use static-pages/*.yaml
 // These tests need to be updated to match the new content loading system
 describe.skip('Static Pages Rendering Integration', () => {
-  describe('Services Page Rendering', () => {
-    it.skip('should render services page content without "being prepared" message', async () => {
+  describe('Rental Page Rendering', () => {
+    it.skip('should render rental page content without "being prepared" message', async () => {
       // SKIPPED: Static pages now use static-pages/*.yaml instead of content/components/
-      const { metadata, components } = await loadPageData('services');
+      const { metadata, components } = await loadPageData('rental');
       
       const { container } = render(
         <Layout
           components={components}
           metadata={metadata as unknown as ArticleMetadata}
-          slug="services"
+          slug="rental"
         />
       );
 
@@ -36,7 +36,7 @@ describe.skip('Static Pages Rendering Integration', () => {
     });
 
     it('should have non-empty components object', async () => {
-      const { components } = await loadPageData('services');
+      const { components } = await loadPageData('rental');
       
       expect(components).toBeDefined();
       expect(Object.keys(components)).not.toHaveLength(0);

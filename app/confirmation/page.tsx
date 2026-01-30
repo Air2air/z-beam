@@ -104,10 +104,10 @@ export default function ConfirmationPage() {
               Return to Home
             </Link>
             <Link
-              href="/services"
+              href="/rental"
               className="inline-flex items-center justify-center font-medium rounded-md transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 bg-gray-700 hover:bg-gray-600 focus-visible:ring-gray-500 focus-visible:ring-offset-gray-900 text-white px-6 py-3 text-base"
             >
-              Learn More About Our Services
+              Learn More About Equipment Rental
             </Link>
           </div>
         </div>

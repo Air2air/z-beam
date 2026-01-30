@@ -91,13 +91,6 @@ export default function sitemap(): SitemapEntry[] {
       alternates: getAlternates(`${baseUrl}/about`),
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,
-      priority: SITEMAP_PRIORITIES.MONEY_PAGES,
-      alternates: getAlternates(`${baseUrl}/services`),
-    },
-    {
       url: `${baseUrl}/rental`,
       lastModified: new Date(),
       changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,

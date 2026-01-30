@@ -11,7 +11,7 @@ import type { StandardGridProps, NavItem } from '@/types';
 export const SITE_CONFIG = {
   name: 'Z-Beam Laser Cleaning',
   shortName: 'Z-Beam',
-  description: 'Professional laser cleaning for industrial surface prep, rust removal, and eco-friendly solutions. Aerospace and automotive applications.',
+  description: 'Industrial laser cleaning equipment rental with training and support. Self-service laser systems for rust removal, surface prep, and coating removal. Hourly and project-based rental options.',
   url: process.env.NODE_ENV === 'production' 
     ? 'https://www.z-beam.com' 
     : 'http://localhost:3000',
@@ -43,21 +43,24 @@ export const SITE_CONFIG = {
   
   // Service Pricing (hourly rates in USD)
   pricing: {
-    professionalCleaning: {
-      hourlyRate: 390,
-      currency: 'USD',
-      label: 'Professional Laser Cleaning',
-      unit: 'hour',
-      description: 'On-site professional laser cleaning service with experienced technicians',
-      sku: 'Z-BEAM-CLEAN'
-    },
     equipmentRental: {
-      hourlyRate: 320,
+      hourlyRate: {
+        min: 325,
+        max: 475,
+        standard: 390  // Most common rate
+      },
       currency: 'USD',
       label: 'Equipment Rental',
       unit: 'hour',
-      description: 'Self-service equipment rental with training and support included',
-      sku: 'ZB-EQUIP-RENT'
+      minimumHours: 2,
+      description: 'Professional laser cleaning equipment delivered to your location with training and support included. Rates vary by location and equipment type. 2-hour minimum.',
+      sku: 'ZB-EQUIP-RENT',
+      rateFactors: [
+        'Equipment type and power',
+        'Delivery distance',
+        'Duration of rental',
+        'Weekend vs weekday'
+      ]
     }
   },
   
@@ -289,34 +292,34 @@ export const BUSINESS_CONFIG = {
 
   services: [
     {
-      name: "Industrial Laser Cleaning",
-      description: "Advanced laser cleaning technology for industrial surface preparation, rust removal, and contamination elimination",
-      category: "Industrial Cleaning"
+      name: "Laser Cleaning Equipment Rental",
+      description: "Self-service industrial laser cleaning equipment with comprehensive training, technical support, and safety guidance",
+      category: "Equipment Rental"
     },
     {
-      name: "Metal Surface Restoration", 
-      description: "Precision laser cleaning for aluminum, steel, copper, and other metals without chemical or abrasive damage",
-      category: "Metal Treatment"
+      name: "Hourly Equipment Rental",
+      description: "Flexible hourly rental of professional laser cleaning systems for short-term projects and testing",
+      category: "Short-Term Rental"
     },
     {
-      name: "Paint and Coating Removal",
-      description: "Eco-friendly laser removal of paint, coatings, and surface treatments with precision control", 
-      category: "Surface Treatment"
+      name: "Daily and Weekly Equipment Rental",
+      description: "Extended rental options for larger projects with discounted daily and weekly rates",
+      category: "Extended Rental"
     },
     {
-      name: "Rust and Corrosion Treatment",
-      description: "Complete rust removal and corrosion treatment using state-of-the-art laser technology",
-      category: "Corrosion Control"
+      name: "On-Site Training and Setup",
+      description: "Comprehensive equipment training, safety protocols, and operational guidance included with all rentals",
+      category: "Training Services"
     },
     {
-      name: "Heritage and Restoration Cleaning",
-      description: "Delicate laser cleaning for historical monuments, sculptures, and heritage restoration projects",
-      category: "Heritage Restoration"
+      name: "Technical Support and Consultation",
+      description: "Remote and on-site technical support during rental period to ensure optimal results",
+      category: "Support Services"
     },
     {
-      name: "Automotive and Aerospace Cleaning",
-      description: "Specialized laser cleaning services for automotive parts, aerospace components, and precision machinery",
-      category: "Specialized Applications"
+      name: "Equipment Delivery and Pickup",
+      description: "Full-service delivery, setup, and pickup of laser cleaning equipment across California and Western states",
+      category: "Logistics"
     }
   ],
 
@@ -580,21 +583,9 @@ export function createCategoryHeader(title: string, itemCount: number) {
  */
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
-    name: "Services",
-    href: "/services",
-    description: "Explore our laser cleaning services",
-    dropdown: [
-      {
-        name: "Rental",
-        href: "/rental",
-        description: "Rent professional laser cleaning equipment"
-      },
-      {
-        name: "Services",
-        href: "/services",
-        description: "Our laser cleaning services"
-      },
-    ]
+    name: "Rentals",
+    href: "/rental",
+    description: "Rent professional laser cleaning equipment"
   },
   {
     name: "About Us",
@@ -726,7 +717,7 @@ export function generateOrganizationSchema() {
     
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Laser Cleaning Services",
+      "name": "Laser Cleaning Equipment Rental",
       "itemListElement": BUSINESS_CONFIG.services.map(service => ({
         "@type": "Offer",
         "itemOffered": {
@@ -734,18 +725,18 @@ export function generateOrganizationSchema() {
           "name": service.name,
           "description": service.description
         },
-        "price": String(SITE_CONFIG.pricing.professionalCleaning.hourlyRate),
-        "priceCurrency": SITE_CONFIG.pricing.professionalCleaning.currency,
+        "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
+        "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
         "image": `${SITE_CONFIG.url}/images/services/${service.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": String(SITE_CONFIG.pricing.professionalCleaning.hourlyRate),
-          "priceCurrency": SITE_CONFIG.pricing.professionalCleaning.currency,
+          "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
+          "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
           "unitCode": "HUR"
         },
         "availability": "https://schema.org/InStock",
-        "url": `${SITE_CONFIG.url}/services`,
-        "category": "Laser Cleaning Service"
+        "url": `${SITE_CONFIG.url}/rental`,
+        "category": "Equipment Rental Service"
       }))
     },
     

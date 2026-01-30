@@ -68,13 +68,13 @@ const settingsPageData = {
 
 const servicePageData = {
   frontmatter: {
-    title: 'Professional Cleaning Services',
-    description: 'Industrial laser cleaning services',
+    title: 'Equipment Rental Services',
+    description: 'Industrial laser cleaning equipment rental',
     serviceOffering: {
       enabled: true,
-      type: 'professionalCleaning',
+      type: 'equipmentRental',
       materialSpecific: {
-        estimatedHoursMin: 1,
+        estimatedHoursMin: 2,
         estimatedHoursTypical: 4,
         targetContaminants: ['rust', 'paint', 'oxide']
       }

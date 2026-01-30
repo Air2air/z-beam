@@ -46,9 +46,9 @@ describe('Schema Helpers', () => {
           frontmatter: {
             serviceOffering: {
               enabled: true,
-              type: 'professionalCleaning',
+              type: 'equipmentRental',
               materialSpecific: {
-                estimatedHoursMin: 1,
+                estimatedHoursMin: 2,
                 estimatedHoursTypical: 3,
                 targetContaminants: ['rust', 'paint']
               }
@@ -78,7 +78,7 @@ describe('Schema Helpers', () => {
           frontmatter: {
             serviceOffering: {
               enabled: false,
-              type: 'professionalCleaning'
+              type: 'equipmentRental'
             }
           }
         };
@@ -131,7 +131,7 @@ describe('Schema Helpers', () => {
         frontmatter: {
           serviceOffering: {
             enabled: true,
-            type: 'professionalCleaning'
+            type: 'equipmentRental'
           }
         }
       };

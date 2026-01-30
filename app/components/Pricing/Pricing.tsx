@@ -9,32 +9,26 @@ interface PricingProps {
 }
 
 /**
- * Pricing component - consolidated pricing cards for professional services and equipment rental
+ * Pricing component - equipment rental pricing card
  * Supports two variants:
- * - 'simple': Basic cards without additional details
- * - 'detailed': Cards with feature lists (used for material-specific pages)
+ * - 'simple': Basic card without additional details
+ * - 'detailed': Card with feature list (used for material-specific pages)
  */
 export function Pricing({ 
   materialName = '', 
   variant = 'simple' 
 }: PricingProps) {
-  const { professionalCleaning, equipmentRental } = SITE_CONFIG.pricing;
+  const { equipmentRental } = SITE_CONFIG.pricing;
   const isDetailed = variant === 'detailed';
   
-  const features = {
-    professional: [
-      'Experienced technicians',
-      'All equipment provided',
-      'Guaranteed results',
-      'Safety compliance included',
-    ],
-    equipment: [
-      'Professional-grade equipment',
-      'Training & safety gear included',
-      'Technical support available',
-      'Flexible rental periods',
-    ],
-  };
+  const features = [
+    'Professional-grade equipment',
+    'Delivered to your location',
+    'Training & safety gear included',
+    '24/7 technical support',
+    'Flexible rental periods',
+    '2-hour minimum rental',
+  ];
 
   const PricingCard = ({ 
     title, 
@@ -87,9 +81,9 @@ export function Pricing({
         </div>
       </div>
       
-      {isDetailed && features[title.toLowerCase() as keyof typeof features] && (
+      {isDetailed && (
         <ul className="space-y-2 mb-6 text-sm text-gray-700">
-          {features[title.toLowerCase() as keyof typeof features].map((feature, i) => (
+          {features.map((feature, i) => (
             <li key={i} className="flex items-start">
               <span className="text-green-500 mr-2">✓</span>
               {feature}
@@ -109,44 +103,32 @@ export function Pricing({
 
   const containerClass = isDetailed ? 
     'bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 my-12 border border-gray-200' :
-    `grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE} my-12`;
+    'my-12 max-w-2xl mx-auto';
 
   return (
     <div className={containerClass}>
       {isDetailed && materialName && (
         <h2 className="text-2xl font-bold mb-6 text-gray-900 w-full">
-          {materialName} Laser Cleaning Services
+          {materialName} Laser Cleaning Equipment Rental
         </h2>
       )}
       
-      <div className={`grid md:grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
-        <PricingCard
-          title="Professional Service"
-          description="Expert technicians, on-site service"
-          price={professionalCleaning.hourlyRate}
-          unit={professionalCleaning.unit}
-          href="/contact"
-          ctaText="Request Professional Service"
-          color="text-blue-600"
-        />
-        
-        <PricingCard
-          title="Equipment Rental"
-          description="Self-service with training & support"
-          price={equipmentRental.hourlyRate}
-          unit={equipmentRental.unit}
-          href="/rental"
-          ctaText="Rent Equipment"
-          color="text-green-600"
-        />
-      </div>
+      <PricingCard
+        title="Equipment Rental"
+        description={`Delivered to your location • ${equipmentRental.minimumHours || 2}-hour minimum`}
+        price={typeof equipmentRental.hourlyRate === 'object' ? equipmentRental.hourlyRate.standard : equipmentRental.hourlyRate}
+        unit={equipmentRental.unit}
+        href="/rental"
+        ctaText="Request Equipment Rental"
+        color="text-green-600"
+      />
       
       {isDetailed && (
         <div className="mt-6 text-center w-full">
           <p className="text-sm text-gray-600">
-            Not sure which option is right for you?{' '}
+            Questions about equipment rental?{' '}
             <a href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
-              Contact us for a free consultation
+              Contact us for details and availability
             </a>
           </p>
         </div>

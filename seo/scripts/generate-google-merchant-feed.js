@@ -15,19 +15,13 @@ const SITE_NAME = 'Z-Beam';
 
 // Service pricing configuration (matches app/config/site.ts)
 const SERVICE_PRICING = {
-  professionalCleaning: {
-    hourlyRate: 390,
-    currency: 'USD',
-    label: 'Professional Laser Cleaning',
-    sku: 'Z-BEAM-CLEAN',
-    description: 'On-site professional laser cleaning service with experienced technicians'
-  },
   equipmentRental: {
-    hourlyRate: 320,
+    hourlyRate: 390,
     currency: 'USD',
     label: 'Equipment Rental',
     sku: 'ZB-EQUIP-RENT',
-    description: 'Self-service equipment rental with training and support included'
+    minimumHours: 2,
+    description: 'Professional laser cleaning equipment delivered to your location with training and support included'
   }
 };
 
@@ -72,7 +66,7 @@ function collectMaterials() {
           const data = yaml.load(content);
           
           if (data && data.serviceOffering && data.serviceOffering.enabled) {
-            const serviceType = data.serviceOffering.type || 'professionalCleaning';
+            const serviceType = data.serviceOffering.type || 'equipmentRental';
             const pricing = SERVICE_PRICING[serviceType];
             const materialSpecific = data.serviceOffering.materialSpecific || {};
             

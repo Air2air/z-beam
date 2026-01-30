@@ -226,7 +226,7 @@ export function Navbar() {
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         role="menuitem"
                         className={`
-                          flex items-end px-3 pb-1 text-[15px] font-medium min-h-[44px]
+                          inline-flex items-center px-3 pb-1 text-[15px] font-medium min-h-[44px]
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive

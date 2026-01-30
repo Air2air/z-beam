@@ -56,7 +56,7 @@ describe('Workiz Integration', () => {
       const confirmationPagePath = path.join(process.cwd(), 'app', 'confirmation', 'page.tsx');
       const content = fs.readFileSync(confirmationPagePath, 'utf-8');
       expect(content).toContain('Return to Home');
-      expect(content).toContain('Learn More About Our Services');
+      expect(content).toContain('Learn More About Equipment Rental');
     });
   });
 

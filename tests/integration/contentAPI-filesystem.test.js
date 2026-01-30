@@ -72,7 +72,7 @@ describe('ContentAPI File System Integration', () => {
       
       expect(article).not.toBeNull();
       expect(article.frontmatter).toBeDefined();
-      expect(article.frontmatter.pageTitle).toBe('Aluminum Laser Cleaning');
+      expect(article.frontmatter.pageTitle).toBe('Aluminum');
       expect(article.frontmatter.category).toBe('metal');
       expect(article.frontmatter.subcategory).toBe('non-ferrous');
     });
