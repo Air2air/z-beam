@@ -382,7 +382,53 @@ export const BUSINESS_CONFIG = {
     paymentMethods: ["Credit Card", "Bank Transfer", "Check", "Invoice"],
     languages: ["English"],
     deliveryArea: "Arizona, California, Nevada, and Oregon",
-    travelRadius: 500
+    travelRadius: 500,
+    
+    // Google Business Profile attributes
+    businessAttributes: {
+      accessibility: {
+        wheelchairAccessible: false, // Service area business - equipment accessible
+        parkingAvailable: false, // Service delivery model
+        publicTransportNearby: false // Service delivery model
+      },
+      amenities: {
+        wifiAvailable: false, // Service delivery model
+        creditCardsAccepted: true,
+        freeCancellation: false, // Equipment rental has cancellation terms
+        onlineBooking: true,
+        emergencyService: true, // 24/7 for existing customers
+        freeQuotes: true,
+        deliveryAvailable: true,
+        pickupAvailable: true,
+        mobileService: true
+      },
+      serviceType: {
+        appointmentRequired: true,
+        onlineEstimates: true,
+        phoneEstimates: true,
+        websiteEstimates: true,
+        serviceAtYourLocation: true, // Primary service model
+        pickupDelivery: true,
+        consultationRequired: true
+      },
+      safety: {
+        requiresMask: false, // Outdoor industrial work
+        temperatureCheck: false,
+        staffFullyVaccinated: true,
+        sanitizingBetweenCustomers: true // Equipment sanitized
+      }
+    },
+    
+    // Primary Google Business category
+    googleBusinessCategory: "Industrial Equipment Supplier",
+    
+    // Additional Google Business categories
+    googleAdditionalCategories: [
+      "Equipment Rental Service",
+      "Industrial Cleaning Service", 
+      "Safety Equipment Supplier",
+      "Technical Consulting Service"
+    ]
   },
 
   credentials: [
@@ -435,6 +481,27 @@ export const BUSINESS_CONFIG = {
       ogImage: "/images/og-image.jpg",
       twitterCard: "/images/twitter-card.jpg"
     },
+    
+    // Google Business Profile photos
+    businessPhotos: {
+      logo: "/images/logo/avatar-600.png",
+      cover: "/images/hero-image.jpg",
+      interior: [], // Service business - no interior photos needed
+      exterior: [], // Service area business
+      atWork: [
+        // Add photos of equipment in action
+        // Add before/after project photos  
+        // Add team training photos
+      ],
+      team: [
+        // Add team member photos if desired
+      ],
+      products: [
+        // Add laser cleaning equipment photos
+        // Add result examples
+      ]
+    },
+    
     colors: {
       primary: "#1f2937",
       secondary: "#3b82f6",
@@ -448,6 +515,36 @@ export const BUSINESS_CONFIG = {
     "rust removal",
     "surface preparation",
     "metal restoration",
+    "paint removal",
+    "coating removal", 
+    "corrosion treatment",
+    "heritage restoration",
+    "precision cleaning"
+  ],
+  
+  // Google Business Profile posts and updates
+  googleBusinessPosts: {
+    postTypes: ["What's New", "Events", "Offers", "Products"],
+    suggestedPosts: [
+      {
+        type: "What's New",
+        title: "New Laser Cleaning Equipment Available",
+        description: "Latest generation equipment with improved safety features and efficiency"
+      },
+      {
+        type: "Products", 
+        title: "Rust Removal Services",
+        description: "Professional rust removal for industrial equipment and heritage restoration"
+      },
+      {
+        type: "Offers",
+        title: "Free Equipment Delivery & Pickup", 
+        description: "Mobile delivery and pickup service included. Call or visit website for estimates"
+      }
+    ],
+    updateFrequency: "Weekly",
+    contentFocus: ["Mobile delivery service", "Equipment updates", "Free estimates", "Industrial applications", "Safety training"]
+  },
     "paint removal",
     "coating removal",
     "corrosion treatment",
