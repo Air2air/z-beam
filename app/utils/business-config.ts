@@ -117,43 +117,79 @@ const BUSINESS_CONFIG_OLD = {
   serviceArea: [
     {
       type: "State",
-      name: "Arizona" // Expanded service area
+      name: "Arizona", // Expanded service area
+      coverage: "Statewide",
+      radius: 500, // miles from Phoenix
+      priority: "secondary"
     },
     {
       type: "State",
-      name: "California" // Primary service area
+      name: "California", // Primary service area
+      coverage: "Statewide", 
+      radius: 500, // miles from Bay Area
+      priority: "primary"
     },
     {
       type: "State",
-      name: "Nevada" // Expanded service area
+      name: "Nevada", // Expanded service area
+      coverage: "Statewide",
+      radius: 500, // miles from Las Vegas
+      priority: "secondary"
     },
     {
       type: "State",
-      name: "Oregon" // Expanded service area
+      name: "Oregon", // Expanded service area
+      coverage: "Statewide",
+      radius: 500, // miles from Portland
+      priority: "secondary"
     },
     {
       type: "Place",
-      name: "San Francisco Bay Area" // Primary metro area
+      name: "San Francisco Bay Area", // Primary metro area
+      coverage: "Metro + 100 mile radius",
+      cities: ["San Francisco", "Oakland", "San Jose", "Fremont", "Hayward", "Sunnyvale"],
+      responseTime: "Same day available",
+      priority: "primary"
+    },
+    {
+      type: "Place", 
+      name: "Los Angeles Metropolitan Area", // Major CA metro
+      coverage: "Metro + 100 mile radius",
+      cities: ["Los Angeles", "Long Beach", "Anaheim", "Santa Ana", "Riverside", "San Bernardino"],
+      responseTime: "1-2 days",
+      priority: "primary"
     },
     {
       type: "Place",
-      name: "Los Angeles Metropolitan Area" // Major CA metro
+      name: "Phoenix Metropolitan Area", // Arizona metro
+      coverage: "Metro + 150 mile radius", 
+      cities: ["Phoenix", "Mesa", "Chandler", "Scottsdale", "Glendale", "Tempe"],
+      responseTime: "2-3 days",
+      priority: "secondary"
     },
     {
       type: "Place",
-      name: "Phoenix Metropolitan Area" // Arizona metro
+      name: "Portland Metropolitan Area", // Oregon metro
+      coverage: "Metro + 150 mile radius",
+      cities: ["Portland", "Gresham", "Hillsboro", "Beaverton", "Bend"],
+      responseTime: "2-3 days", 
+      priority: "secondary"
     },
     {
       type: "Place",
-      name: "Portland Metropolitan Area" // Oregon metro
+      name: "Las Vegas Metropolitan Area", // Nevada metro
+      coverage: "Metro + 150 mile radius",
+      cities: ["Las Vegas", "Henderson", "North Las Vegas", "Reno"],
+      responseTime: "2-3 days",
+      priority: "secondary"
     },
     {
       type: "Place",
-      name: "Las Vegas Metropolitan Area" // Nevada metro
-    },
-    {
-      type: "Place",
-      name: "Sacramento Metropolitan Area" // Northern CA metro
+      name: "Sacramento Metropolitan Area", // Northern CA metro
+      coverage: "Metro + 100 mile radius",
+      cities: ["Sacramento", "Elk Grove", "Roseville", "Folsom", "Davis"],
+      responseTime: "1-2 days",
+      priority: "primary"
     }
   ],
 
@@ -166,7 +202,22 @@ const BUSINESS_CONFIG_OLD = {
     deliveryArea: "Arizona, California, Nevada, and Oregon", // Updated delivery/service area
     
     // Travel radius for services (in miles)
-    travelRadius: 500 // Updated: Expanded travel radius for multi-state coverage
+    travelRadius: 500, // Updated: Expanded travel radius for multi-state coverage
+    
+    // Service availability by region
+    serviceAvailability: {
+      primary: "Same day to 2 days", // CA metro areas
+      secondary: "2-3 days", // Other states
+      remote: "3-5 days" // Edge of 500-mile radius
+    },
+    
+    // Emergency/priority service
+    emergencyService: {
+      available: true,
+      areas: ["San Francisco Bay Area", "Los Angeles Metropolitan Area"],
+      responseTime: "4-6 hours",
+      surcharge: "50% additional"
+    }
   },
 
   // === PROFESSIONAL CREDENTIALS ===
