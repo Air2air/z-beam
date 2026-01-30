@@ -544,23 +544,7 @@ export const BUSINESS_CONFIG = {
     ],
     updateFrequency: "Weekly",
     contentFocus: ["Mobile delivery service", "Equipment updates", "Free estimates", "Industrial applications", "Safety training"]
-  },
-    "paint removal",
-    "coating removal",
-    "corrosion treatment",
-    "heritage restoration",
-    "precision cleaning",
-    "eco-friendly cleaning",
-    "non-abrasive cleaning",
-    "aluminum cleaning",
-    "steel cleaning",
-    "copper cleaning",
-    "automotive cleaning",
-    "aerospace cleaning",
-    "laser technology",
-    "surface treatment",
-    "industrial services"
-  ]
+  }
 } as const;
 
 /**
