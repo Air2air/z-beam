@@ -598,11 +598,6 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
         description: "Our trusted partners"
       },
       {
-        name: "About",
-        href: "/about",
-        description: "About Z-Beam"
-      },
-      {
         name: "Contact Us",
         href: "/contact",
         description: "Get in touch with our team"
