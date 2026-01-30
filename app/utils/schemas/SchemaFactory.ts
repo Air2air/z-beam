@@ -972,7 +972,6 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         'offerCount': 3,
         'availability': 'https://schema.org/InStock',
         'url': pageUrl,
-        'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
         'seller': {
           '@type': 'Organization',
           'name': SITE_CONFIG.name,
@@ -1093,7 +1092,6 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         },
         'availability': 'https://schema.org/InStock',
         'url': pageUrl,
-        'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
         'seller': {
           '@type': 'Organization',
           'name': SITE_CONFIG.name,
