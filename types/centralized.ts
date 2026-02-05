@@ -98,10 +98,15 @@ export type UrlContentType = 'material' | 'service' | 'article' | 'page' | 'prod
  * Author information structure - enhanced comprehensive version
  * Standardized field names to eliminate redundancy
  * 
+ * Architecture notes:
+ * - z-beam-generator source data: Uses `authorId: number` (1-4) as top-level field
+ * - z-beam frontmatter: Full author object with `author.id: number` (enriched during export)
+ * - Validation: Checks for 'author.id' (nested field) in frontmatter
+ * 
  * @preferred Use `Author` - this is the canonical type name
  */
 export interface Author {
-  id?: string | number; // Support both string and number IDs
+  id: number; // Author registry ID (1-4) - REQUIRED in frontmatter
   slug?: string; // Added from AuthorMetadata for routing
   name: string;
   title?: string;

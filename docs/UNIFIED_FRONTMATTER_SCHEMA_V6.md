@@ -55,14 +55,16 @@ images:
 # ===================================
 # SECTION 6: AUTHOR (Enriched Object)
 # ===================================
+# Source data (z-beam-generator): authorId: number (1-4)
+# Frontmatter (z-beam): Full author object enriched during export
 author:                       # Full author object (enriched from authorId during export)
-  id: number                  # Author registry ID (1-4)
-  name: string
-  country: string
-  title: string
-  jobTitle: string
-  expertise: string[]
-  # ... additional fields (20+ total, see enrichment layer)
+  id: number                  # Author registry ID (1-4) - REQUIRED
+  name: string                # Full name
+  country: string             # Country code
+  title: string               # Academic title (Ph.D., etc.)
+  jobTitle: string            # Professional title
+  expertise: string[]         # Areas of expertise
+  # ... additional fields (20+ total, see author registry)
 
 # ===================================
 # SECTION 7: DOMAIN-SPECIFIC DATA
@@ -267,8 +269,9 @@ relationships:
 - ❌ `card.*` → UI presentation logic (belongs in components)
 - ❌ `eeat.*` → Move to author registry
 - ✅ `author.*` (full object) → Enriched from `authorId` during export
-- Source data: Uses `authorId` numeric reference (1-4)
-- Frontmatter: Contains full `author` object with all fields
+  - **Source data (z-beam-generator)**: Uses `authorId: number` (1-4)
+  - **Frontmatter (z-beam)**: Contains full `author` object with `author.id` field
+  - **Validation**: Checks for `author.id` (nested field) in frontmatter
 - ❌ `relationships.*.*.presentation` → UI logic
 - ❌ `relationships.*.*._section.*` → UI metadata
 - ❌ `components.*` → Domain-specific content in description
