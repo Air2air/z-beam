@@ -12,76 +12,74 @@
  */
 
 import { ArticleMetadata, BreadcrumbItem } from '@/types';
+import { normalizeForUrl } from './urlBuilder';
 
 /**
- * Generate breadcrumb navigation from metadata with fullPath support
+ * Generate breadcrumb navigation from metadata
  * 
- * Priority:
- * 1. Explicit breadcrumb array from metadata (if complete)
- * 2. Build from fullPath if breadcrumbs are incomplete (missing categories)
- * 3. Fallback to Home only
- * 
- * @param metadata - Article metadata from YAML
- * @param pathname - Current URL pathname (unused, kept for backward compatibility)
- * @returns Array of breadcrumb items with label and href
+ * @param metadata - Article metadata from YAML with explicit breadcrumb array
+ * @param _pathname - Current URL pathname (unused, kept for backward compatibility)
+ * @returns Array of breadcrumb items or null if no valid breadcrumbs
  */
 export function generateBreadcrumbs(
   metadata: Partial<ArticleMetadata> | null,
   _pathname: string
 ): BreadcrumbItem[] | null {
-  // Use explicit breadcrumb array from metadata
   const breadcrumbArray = metadata?.breadcrumb;
   
-  if (breadcrumbArray && Array.isArray(breadcrumbArray)) {
-    // Validate that breadcrumb items have required fields
-    const validBreadcrumbs = breadcrumbArray.filter(
-      (item: any) => item && typeof item.label === 'string' && typeof item.href === 'string'
-    );
-    
-    if (validBreadcrumbs.length > 0) {
-      return validBreadcrumbs;
-    }
+  if (!breadcrumbArray || !Array.isArray(breadcrumbArray)) {
+    return null;
+  }
+
+  // Filter valid breadcrumb items
+  const validBreadcrumbs = breadcrumbArray.filter(
+    (item: any) => item && typeof item.label === 'string' && typeof item.href === 'string'
+  );
+  
+  if (validBreadcrumbs.length === 0) {
+    return null;
   }
   
-  // Return null to signal Breadcrumbs component to generate from URL
-  return null;
+  return validBreadcrumbs;
 }
 
 /**
- * Build breadcrumbs from fullPath by extracting categories
- * Example: /settings/metal/non-ferrous/aluminum-settings
- * Returns: Home → Settings → Metal → Non-Ferrous → Aluminum
+ * Ensure pageTitle is the last breadcrumb item
  */
-function _buildBreadcrumbsFromPath(fullPath: string): BreadcrumbItem[] {
-  const breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
+function ensurePageTitleAsLastBreadcrumb(
+  breadcrumbs: BreadcrumbItem[],
+  pageTitle: string,
+  fullPath?: string
+): void {
+  // If last breadcrumb already has the pageTitle, don't modify
+  if (breadcrumbs.length > 0 && breadcrumbs[breadcrumbs.length - 1].label === pageTitle) {
+    return;
+  }
+
+  const currentPath = normalizeHref(fullPath);
   
-  const segments = fullPath.split('/').filter(Boolean);
-  let currentPath = '';
+  // Find existing pageTitle breadcrumb
+  const existingIndex = breadcrumbs.findIndex(crumb => crumb.label === pageTitle);
   
-  for (let i = 0; i < segments.length; i++) {
-    const segment = segments[i];
-    currentPath += `/${segment}`;
-    
-    // Convert segment to label (capitalize, replace hyphens)
-    let label = segment
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-    
-    // Remove common suffixes from last segment if present
-    if (i === segments.length - 1) {
-      label = label
-        .replace(/ Laser Cleaning$/, '')
-        .replace(/ Settings$/, '');
-    }
-    
-    // For the last segment, use empty href (current page)
-    const href = i === segments.length - 1 ? '' : currentPath;
-    
-    breadcrumbs.push({ label, href });
+  if (existingIndex !== -1) {
+    // Remove existing pageTitle and add to end
+    breadcrumbs.splice(existingIndex, 1);
   }
   
-  return breadcrumbs;
+  // Add or replace last breadcrumb with pageTitle
+  if (breadcrumbs.length > 0 && breadcrumbs[breadcrumbs.length - 1].href === currentPath) {
+    breadcrumbs[breadcrumbs.length - 1].label = pageTitle;
+  } else {
+    breadcrumbs.push({ label: pageTitle, href: currentPath });
+  }
+}
+
+/**
+ * Normalize href path for consistency
+ */
+function normalizeHref(path?: string): string {
+  if (!path) return '';
+  return path.startsWith('/') ? path : `/${path}`;
 }
 
 /**
