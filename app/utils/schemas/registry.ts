@@ -95,12 +95,10 @@ export function generateServiceSchema(options?: {
   pricing?: typeof SITE_CONFIG.pricing.equipmentRental;
 }): SchemaOrgBase {
   const pricing = options?.pricing || SITE_CONFIG.pricing.equipmentRental;
-  const serviceName = options?.serviceName || pricing.label;
-  const description = options?.description || pricing.description;
+  const serviceName = options?.serviceName || pricing.packages.outdoor.label;
+  const description = options?.description || pricing.packages.outdoor.description;
 
-  const hourlyRate = typeof pricing.hourlyRate === 'object' 
-    ? pricing.hourlyRate.standard 
-    : pricing.hourlyRate;
+  const hourlyRate = pricing.packages.outdoor.hourlyRate;
 
   return {
     '@type': 'Service',
@@ -143,11 +141,11 @@ export function generateServiceSchema(options?: {
     },
     'offers': {
       '@type': 'Offer',
-      'price': pricing.hourlyRate,
+      'price': pricing.packages.outdoor.hourlyRate,
       'priceCurrency': pricing.currency,
       'priceSpecification': {
         '@type': 'UnitPriceSpecification',
-        'price': pricing.hourlyRate,
+        'price': pricing.packages.outdoor.hourlyRate,
         'priceCurrency': pricing.currency,
         'unitText': pricing.unit
       },

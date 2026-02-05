@@ -796,12 +796,12 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       },
       'offers': {
         '@type': 'Offer',
-        'price': String(SITE_CONFIG.pricing.equipmentRental.hourlyRate.standard),
+        'price': String(SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate),
         'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
         'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
         'priceSpecification': {
           '@type': 'UnitPriceSpecification',
-          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate.standard,
+          'price': SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
           'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
           'unitText': SITE_CONFIG.pricing.equipmentRental.unit
         },
@@ -954,8 +954,8 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       },
       'offers': {
         '@type': 'AggregateOffer',
-        'lowPrice': String(SITE_CONFIG.pricing.equipmentRental.hourlyRate.min),
-        'highPrice': String(SITE_CONFIG.pricing.equipmentRental.hourlyRate.max),
+        'lowPrice': String(SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate),
+        'highPrice': String(SITE_CONFIG.pricing.equipmentRental.packages.indoor.hourlyRate),
         'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
         'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
         'priceSpecification': {
@@ -965,8 +965,8 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
             'value': 1,
             'unitText': SITE_CONFIG.pricing.equipmentRental.unit
           },
-          'minPrice': SITE_CONFIG.pricing.equipmentRental.hourlyRate.min,
-          'maxPrice': SITE_CONFIG.pricing.equipmentRental.hourlyRate.max,
+          'minPrice': SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
+          'maxPrice': SITE_CONFIG.pricing.equipmentRental.packages.indoor.hourlyRate,
           'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency
         },
         'offerCount': 3,
@@ -1081,12 +1081,12 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       },
       'offers': {
         '@type': 'Offer',
-        'price': String(SITE_CONFIG.pricing.equipmentRental.hourlyRate.standard * 0.5),
+        'price': String(SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate * 0.5),
         'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
         'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
         'priceSpecification': {
           '@type': 'UnitPriceSpecification',
-          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate.standard * 0.5,
+          'price': SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate * 0.5,
           'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
           'unitText': 'per configuration session'
         },
@@ -1340,7 +1340,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
     // Calculate price range from hours estimates
     const minHours = materialSpecific.estimatedHoursMin || 1;
     const typicalHours = materialSpecific.estimatedHoursTypical || 3;
-    const hourlyRate = typeof pricing.hourlyRate === 'object' ? pricing.hourlyRate.standard : pricing.hourlyRate;
+    const hourlyRate = pricing.packages.outdoor.hourlyRate;
     const minPrice = minHours * hourlyRate;
     const maxPrice = typicalHours * hourlyRate;
     
@@ -1355,8 +1355,8 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
     return {
       '@type': 'Service',
       '@id': `${pageUrl}#service`,
-      'name': `${pricing.label} for ${materialName}`,
-      'description': `${pricing.description}${contaminantText}`,
+      'name': `${pricing.packages.outdoor.label} for ${materialName}`,
+      'description': `${pricing.packages.outdoor.description}${contaminantText}`,
       'provider': {
         '@type': 'Organization',
         '@id': `${baseUrl}#organization`,
@@ -1373,7 +1373,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
         'sku': pricing.sku,
         'priceSpecification': {
           '@type': 'UnitPriceSpecification',
-          'price': pricing.hourlyRate,
+          'price': pricing.packages.outdoor.hourlyRate,
           'priceCurrency': pricing.currency,
           'unitCode': 'HUR',
           'unitText': 'per hour'

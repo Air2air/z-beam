@@ -107,8 +107,8 @@ export default async function HomePage() {
           },
           offers: {
             '@type': 'AggregateOffer',
-            lowPrice: SITE_CONFIG.pricing.equipmentRental.hourlyRate.min,
-            highPrice: SITE_CONFIG.pricing.equipmentRental.hourlyRate.max,
+            lowPrice: SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
+            highPrice: SITE_CONFIG.pricing.equipmentRental.packages.indoor.hourlyRate,
             priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
             priceValidUntil: '2026-12-31',
             availability: 'https://schema.org/InStock',
