@@ -146,7 +146,7 @@ interface MaterialData {
 - Use snake_case: `material_type`, `date_created`, `is_active`
 
 ### Frontmatter Fields
-- Use camelCase: `metaDescription`, `datePublished`, `materialType`
+- Use camelCase: `pageDescription`, `datePublished`, `materialType`
 
 ## 10. Git Convention
 

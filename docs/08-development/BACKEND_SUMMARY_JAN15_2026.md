@@ -135,7 +135,7 @@ All helper functions now defensively check all wrapper types.
 
 **SEO**
 - ✅ pageTitle: "Aluminum"
-- ✅ metaDescription: Truncated description
+- ✅ pageDescription: Truncated description
 - ✅ pageDescription: Markdown formatted
 
 ### ❌ Missing Sections

@@ -22,8 +22,9 @@ const FRONTMATTER_DIR = path.join(process.cwd(), 'frontmatter/materials');
 const PAGES_DIR = path.join(process.cwd(), 'static-pages');
 
 // Required fields for complete metadata
+// Normalized naming: all pages use pageTitle and pageDescription
 const REQUIRED_FIELDS = {
-  material: ['name', 'pageTitle', 'pageDescription', 'category', 'images', 'author'],
+  material: ['pageTitle', 'pageDescription', 'category', 'images', 'authorId'],
   page: ['pageTitle', 'pageDescription']
 };
 
@@ -62,17 +63,9 @@ class MetadataValidator {
 
       this.stats.filesChecked++;
 
-      // Check required fields
+      // Check required fields (strict - no backwards compatibility)
       const requiredFields = REQUIRED_FIELDS[type] || REQUIRED_FIELDS.material;
       const missingFields = requiredFields.filter(field => {
-        // Special handling for title/pageTitle - allow either one
-        if (field === 'pageTitle') {
-          return !data.pageTitle && !data.title;
-        }
-        // Special handling for description field - pages can use either pageDescription or metaDescription
-        if (field === 'pageDescription' && type === 'page') {
-          return !data.pageDescription && !data.metaDescription;
-        }
         const value = this.getNestedValue(data, field);
         return !value;
       });

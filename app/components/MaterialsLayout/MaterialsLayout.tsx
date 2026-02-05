@@ -54,6 +54,11 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const industryApplications = relationships?.operational?.industryApplications;
   const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items;
   const contaminatedBy = relationships?.interactions?.contaminatedBy?.items;
+  
+  // FAIL-FAST: Throw if required relationship data is missing
+  if (!contaminatedBy || !Array.isArray(contaminatedBy)) {
+    throw new Error(`Missing or invalid contaminatedBy data for material: ${materialName}`);
+  }
 
   const sections: SectionConfig[] = [
     {
@@ -117,12 +122,13 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
     },
     {
       component: RelatedMaterials,
+      condition: relationships?.discovery?.relatedMaterials?._section?.sectionTitle,
       props: {
         currentSlug: slug,
         category,
         subcategory,
         maxItems: 6,
-        sectionTitle: relationships?.discovery?.relatedMaterials?._section?.sectionTitle,
+        sectionTitle: relationships?.discovery?.relatedMaterials?._section?.sectionTitle || 'Related Materials',
         sectionDescription: relationships?.discovery?.relatedMaterials?._section?.sectionDescription,
       }
     },
@@ -141,8 +147,8 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
           frequency: item.frequency,
           severity: item.severity,
         })),
-        title: relationships?.interactions?.contaminatedBy?._section?.sectionTitle || `Contaminants found on ${materialName}`,
-        description: relationships?.interactions?.contaminatedBy?._section?.sectionDescription || `Common contaminants requiring removal from ${materialName} surfaces`,
+        title: relationships?.interactions?.contaminatedBy?._section?.sectionTitle,
+        description: relationships?.interactions?.contaminatedBy?._section?.sectionDescription,
         icon: relationships?.interactions?.contaminatedBy?._section?.icon,
         variant: 'relationship' as const,
         columns: 3,

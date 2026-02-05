@@ -41,8 +41,8 @@ export async function RelatedMaterials({
   const formattedSubcategory = capitalizeWords(subcategory.replace(/-/g, ' '));
   
   // Use provided title/description or fall back to defaults
-  const title = sectionTitle || `Other ${formattedSubcategory} Materials`;
-  const description = sectionDescription || `Explore other ${formattedSubcategory.toLowerCase()} materials suitable for laser cleaning applications`;
+  const title = sectionTitle;
+  const description = sectionDescription;
   
   return (
     <BaseSection

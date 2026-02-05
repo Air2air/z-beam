@@ -180,8 +180,8 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
         items: sourceContaminants
           .sort(sortByFrequency)
           .map(contaminantLinkageToGridItem),
-        title: sourceContaminantsRaw?._section?.sectionTitle || `Source contaminants for ${compoundName}`,
-        description: sourceContaminantsRaw?._section?.sectionDescription || `Contaminants that produce ${compoundName} during laser cleaning`,
+        title: sourceContaminantsRaw?._section?.sectionTitle,
+        description: sourceContaminantsRaw?._section?.sectionDescription,
         cardComponent: ContaminantCard,
       }
     },

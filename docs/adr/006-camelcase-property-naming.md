@@ -59,7 +59,7 @@ All property names in YAML frontmatter files will use JavaScript/TypeScript came
 ### Neutral
 - **Script Maintenance**: Both normalization scripts still needed but with clear separation:
   - `normalize-property-names.js` - Structural properties (materialProperties, machineSettings)
-  - `standardize-frontmatter-naming.js` - Metadata fields (pageDescription, metaDescription)
+  - `standardize-frontmatter-naming.js` - Metadata fields (pageDescription)
 
 ## Alternatives Considered
 
