@@ -24,7 +24,7 @@ const PAGES_DIR = path.join(process.cwd(), 'static-pages');
 // Required fields for complete metadata
 // Normalized naming: all pages use pageTitle and pageDescription
 const REQUIRED_FIELDS = {
-  material: ['pageTitle', 'pageDescription', 'category', 'images', 'authorId'],
+  material: ['pageTitle', 'pageDescription', 'category', 'images'],
   page: ['pageTitle', 'pageDescription']
 };
 

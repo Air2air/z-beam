@@ -13,6 +13,16 @@
 import { Collapsible } from "../Collapsible";
 import type { ExpertAnswersProps, ExpertAnswerItem } from '@/types';
 
+// Extend ExpertAnswersProps to require sectionMetadata
+interface ExpertAnswersComponentProps extends ExpertAnswersProps {
+  sectionMetadata: {
+    sectionTitle: string;
+    sectionDescription?: string;
+    icon?: string;
+    order?: number;
+  };
+}
+
 /**
  * Format expert information for display in description
  */
@@ -138,10 +148,11 @@ function buildAnswerDescription(answer: ExpertAnswerItem): string {
  */
 export function ExpertAnswers({
   materialName,
+  sectionMetadata,
   answers = [],
   defaultExpert,
   className = "",
-}: ExpertAnswersProps) {
+}: ExpertAnswersComponentProps) {
   if (!answers || answers.length === 0) return null;
 
   // Sort: accepted answers first, then by upvotes
@@ -167,13 +178,11 @@ export function ExpertAnswers({
     };
   });
 
-  // Section metadata
-  const sectionMetadata = {
-    sectionTitle: `Expert Troubleshooting: ${materialName}`,
-    sectionDescription: 'Professional answers from verified laser cleaning experts',
-    icon: 'warning',
-    order: 85
-  };
+  // 🔥 MANDATORY (Jan 15, 2026): Section metadata MUST come from frontmatter _section
+  // FAIL-FAST: This component should receive sectionMetadata prop from parent
+  if (!sectionMetadata?.sectionTitle) {
+    throw new Error(`Missing _section.sectionTitle for Expert Troubleshooting (${materialName})`);
+  }
 
   return (
     <div className={className}>

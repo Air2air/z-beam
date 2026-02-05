@@ -572,13 +572,15 @@ export function SettingsLayout({
         showFullDataset={true}
       />
 
-      {/* Parameter Interaction Network - at bottom for reference */}
-      <ParameterRelationships 
-        parameters={paramData || []}
-        materialName={settings.name}
-        heroImage={heroImage}
-        materialLink={materialLink}
-      />
+      {/* Parameter Interaction Network - only show if parameters exist */}
+      {paramData && paramData.length > 0 && (
+        <ParameterRelationships 
+          parameters={paramData}
+          materialName={settings.name}
+          heroImage={heroImage}
+          materialLink={materialLink}
+        />
+      )}
 
       {/* Material groups (from relationships.materials.groups) */}
       {(relationships?.materials?.groups ? Object.values(relationships.materials.groups) : []).map((group: any, index: number) => (

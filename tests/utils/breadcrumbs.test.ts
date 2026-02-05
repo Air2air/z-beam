@@ -18,15 +18,16 @@ describe('Breadcrumbs', () => {
         breadcrumb: [
           { label: 'Home', href: '/' },
           { label: 'Materials', href: '/materials' },
-          { label: 'Aluminum', href: '/materials/aluminum' },
+          { label: 'Aluminum Laser Cleaning', href: '/materials/aluminum-laser-cleaning' },
         ],
+        pageTitle: 'Aluminum Laser Cleaning'
       } as Partial<ArticleMetadata>;
 
       const result = generateBreadcrumbs(frontmatter, '/materials/aluminum');
       expect(result).toEqual(frontmatter.breadcrumb);
     });
 
-    it('should filter invalid breadcrumb items', () => {
+    it('should filter invalid breadcrumb items and add pageTitle if missing', () => {
       const frontmatter = {
         breadcrumb: [
           { label: 'Home', href: '/' },
@@ -35,12 +36,16 @@ describe('Breadcrumbs', () => {
           null as any, // Invalid
           { href: '/no-label' } as any, // Invalid - no label
         ],
+        pageTitle: 'Test Page Title',
+        fullPath: '/test/path'
       } as Partial<ArticleMetadata>;
 
       const result = generateBreadcrumbs(frontmatter, '/test');
-      expect(result.length).toBe(2);
+      expect(result.length).toBe(3);
       expect(result[0].label).toBe('Home');
       expect(result[1].label).toBe('Valid');
+      expect(result[2].label).toBe('Test Page Title'); // pageTitle added as last breadcrumb
+      expect(result[2].href).toBe('/test/path');
     });
 
     it('should return null when no explicit breadcrumb', () => {
@@ -54,6 +59,46 @@ describe('Breadcrumbs', () => {
       
       // Current implementation returns null when no explicit breadcrumb
       expect(result).toBeNull();
+    });
+
+    it('should ensure pageTitle is always the last breadcrumb', () => {
+      const frontmatter = {
+        breadcrumb: [
+          { label: 'Home', href: '/' },
+          { label: 'Materials', href: '/materials' },
+          { label: 'Metal', href: '/materials/metal' },
+          { label: 'Old Page Name', href: '/materials/metal/aluminum' },
+        ],
+        pageTitle: 'Aluminum Laser Cleaning',
+        fullPath: '/materials/metal/aluminum'
+      } as Partial<ArticleMetadata>;
+
+      const result = generateBreadcrumbs(frontmatter, '/materials/metal/aluminum');
+      
+      // pageTitle should replace the last breadcrumb
+      expect(result.length).toBe(4);
+      expect(result[3].label).toBe('Aluminum Laser Cleaning');
+      expect(result[3].href).toBe('/materials/metal/aluminum');
+    });
+
+    it('should move existing pageTitle breadcrumb to the end', () => {
+      const frontmatter = {
+        breadcrumb: [
+          { label: 'Home', href: '/' },
+          { label: 'Materials', href: '/materials' },
+          { label: 'Aluminum Laser Cleaning', href: '/materials/metal/aluminum' }, // pageTitle exists but not at end
+          { label: 'Metal', href: '/materials/metal' },
+        ],
+        pageTitle: 'Aluminum Laser Cleaning',
+        fullPath: '/materials/metal/aluminum'
+      } as Partial<ArticleMetadata>;
+
+      const result = generateBreadcrumbs(frontmatter, '/materials/metal/aluminum');
+      
+      // pageTitle should be moved to the end
+      expect(result.length).toBe(4);
+      expect(result[3].label).toBe('Aluminum Laser Cleaning');
+      expect(result[2].label).toBe('Metal'); // This should now be second to last
     });
 
     it('should return null without explicit breadcrumb', () => {

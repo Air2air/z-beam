@@ -1,17 +1,25 @@
 id: vocs-compound
-contentType: compound
-schemaVersion: 6.0.0
 name: Volatile Organic Compounds
+displayName: Volatile Organic Compounds Compound
 category: irritant
 subcategory: organic_vapor
-datePublished: '2026-01-06'
-dateModified: '2026-01-22T00:31:51.137152+00:00'
-description: >-
-  Vocs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:43:56.770537+00:00'
+contentType: compound
+schemaVersion: 5.0.0
+fullPath: /compounds/irritant/organic-vapor/vocs-compound
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Irritant
+  href: /compounds/irritant
+- label: Organic Vapor
+  href: /compounds/irritant/organic-vapor
+pageTitle: Volatile Organic Compounds Compound
+pageDescription: Vocs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
   requirements.
-meta:
-  title: Volatile Organic Compounds
-  path: /compounds/irritant/organic_vapor/vocs-compound
 images:
   hero:
     url: /images/compound/vocs-compound-hero.jpg
@@ -23,46 +31,711 @@ images:
     alt: Volatile Organic Compounds microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 2
-properties:
-  formula: Various
-  casNumber: N/A
-  molecularWeight: 16
-  phase: unknown
-  hazardClass: irritant
-safety:
-  exposureLimit: null
-  unit: ppm
-  hazardLevel: unknown
-  symptoms: []
-  firstAid: >-
-    If you've been exposed to a VOCs compound irritant, act fast. Get to fresh air right away. That clears your lungs
-    from the fumes. Breath deeply but steadily—don't panic.
-
-
-    Skin touched it? Rinse under cool running water. Do this for a good while. Soap helps if it's mild, but skip harsh
-    stuff. Pat dry gently after.
-
-
-    Eyes stinging? Flush them with clean water. Hold lids open and let water flow over. Keep going until irritation
-    fades. No rubbing—that makes it worse.
-
-
-    Felt sick or dizzy? Sit down and rest. Sip water slowly if swallowing happened. Avoid eating or drinking right away.
-
-
-    Call poison control or a doctor quick. Tell them exactly what compound and how much exposure. Better safe than sorry
-    with these sneaky irritants. In the shop, always glove up and vent well to dodge this hassle.
-physical:
-  boilingPoint: null
-  meltingPoint: null
-  density: null
-  solubility: null
 relationships:
-  contaminants:
-    producedBy: []
-  materials:
-    affectsCorrosion: []
-    affectsHealth: []
-pageTitle: Volatile Organic Compounds
-pageDescription: Volatile Organic Compounds laser cleaning guide. Technical specifications and applications.
+  identity:
+    chemicalProperties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: vocs-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+    physicalProperties:
+      presentation: descriptive
+      items:
+      - boilingPoint: Variable (<260°C by EPA definition)
+        meltingPoint: Variable
+        vaporPressure: High (>0.01 kPa @ 25°C by definition)
+        vaporDensity: Variable, typically >1 (heavier than air)
+        specificGravity: Variable (0.7-1.6 typical)
+        flashPoint: Variable (many <38°C)
+        autoignitionTemp: Variable (200-600°C typical)
+        explosiveLimits: Variable depending on compound
+        appearance: Colorless to colored liquids or gases
+        odor: Variable - sweet, pungent, solvent-like, or odorless
+      _section:
+        icon: flask
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
+    synonymsIdentifiers:
+      presentation: descriptive
+      items:
+      - synonyms:
+        - Organic vapors
+        - Organic solvents
+        - VOC mixture
+        - Hydrocarbon vapors
+        commonTradeNames:
+        - Paint thinners
+        - Degreasers
+        - Cleaning solvents
+        otherIdentifiers:
+          rtecsNumber: Specific to individual VOC
+          ecNumber: Specific to individual VOC
+          pubchemCid: Specific to individual VOC
+      _section:
+        icon: tag
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
+  safety:
+    healthEffects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Respiratory irritation, headache, dizziness, and nausea
+        severity: moderate
+        onset: immediate
+      - route: inhalation
+        effect: Potential neurological effects and increased cancer risk (e.g., from benzene)
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation or dermatitis
+        severity: low
+        onset: short-term
+      - route: eye_contact
+        effect: Eye irritation, redness, and tearing
+        severity: moderate
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal upset and systemic toxicity
+        severity: high
+        onset: short-term
+      _section:
+        icon: heart-pulse
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
+    ppeRequirements:
+      presentation: descriptive
+      items:
+      - respiratory: Organic vapor respirator with appropriate cartridge for known VOC concentrations. SCBA for unknown mixtures
+          or high concentrations.
+        skin: Nitrile or butyl rubber gloves depending on specific VOC. Chemical-resistant clothing for liquid contact.
+        eye: Chemical safety goggles, face shield for splash hazard.
+        minimumLevel: Level C for known low concentrations, Level B for unknown mixtures or high vapor concentrations
+        specialNotes: VOCs vary widely in toxicity. Mixture effects unpredictable. Some VOCs carcinogenic (benzene, formaldehyde).
+          Others neurotoxic (toluene, xylene). Identify specific VOCs when possible.
+      _section:
+        icon: shield-check
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
+    emergencyResponse:
+      presentation: descriptive
+      items:
+      - fireHazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel to ignition sources. Explosive
+          mixtures possible.
+        fireSuppression: Use dry chemical, CO2, foam appropriate for specific VOC. Water spray to cool containers. Prevent
+          runoff contamination.
+        spillProcedures: Eliminate ignition sources. Ventilate area. Identify VOCs if possible. Contain with absorbent. Dispose
+          as hazardous waste. Monitor air quality.
+        exposureImmediateActions: 'Remove to fresh air. Eyes: flush with water. Remove contaminated clothing. Wash skin. Seek
+          medical attention - inform physician of specific VOCs if known. Monitor for delayed effects.'
+        environmentalHazards: Many VOCs toxic to aquatic life. Contribute to ozone formation and smog. Bioaccumulate. Contaminate
+          groundwater.
+        specialHazards: Complex mixtures with unpredictable effects. Some carcinogenic (benzene, formaldehyde, 1,3-butadiene).
+          Others neurotoxic (toluene, xylene, styrene). Respiratory irritants. Contribute to indoor air quality problems.
+          Chronic exposure health effects vary widely.
+      _section:
+        icon: exclamation-triangle
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
+    exposureLimits:
+      presentation: descriptive
+      items:
+      - oshaPelPpm: null
+        oshaPelMgM3: null
+        nioshRelPpm: null
+        nioshRelMgM3: null
+        acgihTlvPpm: null
+        acgihTlvMgM3: 100
+        workplaceExposure:
+          oshaPel:
+            twa8Hr: Variable by specific VOC. No general limit.
+            stel15Min: Variable
+            ceiling: Variable
+          nioshRel:
+            twa8Hr: Variable by specific VOC
+            stel15Min: Variable
+            ceiling: Variable
+            idlh: Variable
+          acgihTlv:
+            twa8Hr: Variable by specific VOC. TLVs exist for individual compounds.
+            stel15Min: Variable
+            ceiling: Variable
+          biologicalExposureIndices:
+          - metabolite: Variable metabolites depending on VOC
+            specimen: Urine or blood
+            timing: End of shift
+            beiValue: Specific to individual VOC
+      _section:
+        icon: gauge
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
+    storageRequirements:
+      presentation: descriptive
+      items:
+      - temperatureRange: Cool storage below 25°C typical. Refrigerate if highly volatile.
+        ventilation: Local exhaust ventilation. Outdoor storage preferred for large quantities.
+        incompatibilities:
+        - 'Variable - check specific VOC SDS. Generally: oxidizers, strong acids, strong bases'
+        containerMaterial: Depends on specific VOC. Metal or glass typically. Check compatibility.
+        segregation: Separate from oxidizers. Flammable storage if applicable.
+        quantityLimits: Follow NFPA 30 for flammable/combustible liquids. Minimize quantities.
+        specialRequirements: Label with specific VOC contents. Post appropriate hazard signs. Secondary containment for liquids.
+          Gas detection for enclosed spaces. Emergency procedures.
+      _section:
+        icon: warehouse
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
+    regulatoryClassification:
+      presentation: descriptive
+      items:
+      - unNumber: Variable by specific VOC
+        dotHazardClass: Variable (commonly Class 3 Flammable)
+        dotLabel: Variable
+        nfpaCodes:
+          health: 1-4 (Variable)
+          flammability: 1-4 (Variable)
+          reactivity: 0-2 (Variable)
+          special: Variable
+        epaHazardCategories:
+        - Variable - may include carcinogenicity, neurotoxicity, reproductive toxicity, aquatic toxicity
+        saraTitleIii: Many VOCs listed
+        cerclaRq: Variable by specific VOC
+        rcraCode: Many VOCs have codes (U-series, F-series)
+      _section:
+        icon: book-law
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
+  environmental:
+    environmentalImpact:
+      presentation: descriptive
+      items:
+      - aquaticToxicity: 'Variable. Many VOCs toxic to aquatic life (LC50: 1-1000 mg/L range).'
+        biodegradability: Variable. Some readily biodegradable, others persistent.
+        bioaccumulation: 'Variable. Log Kow range: -1 to 7. Lipophilic VOCs bioaccumulate.'
+        soilMobility: Variable. Many volatile from soil. Some adsorb strongly.
+        atmosphericFate: 'Photochemical reactions. Form ozone and smog. Atmospheric half-life: hours to months. Major air
+          quality concern.'
+        ozoneDepletion: Some VOCs deplete ozone (CFCs, halons - now banned)
+        globalWarmingPotential: Some VOCs are greenhouse gases
+        reportableReleases:
+          water: Variable by specific VOC (1-5000 lbs typical)
+          air: Variable by specific VOC. VOC emissions regulated.
+      _section:
+        icon: leaf
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
+  detectionMonitoring:
+    detectionMonitoring:
+      presentation: descriptive
+      items:
+      - sensorTypes:
+        - Photoionization detector (PID)
+        - Flame ionization detector (FID)
+        - Metal oxide semiconductor
+        - Infrared
+        - Gas chromatography
+        detectionRange: 0.1-10,000 ppm depending on sensor and VOC
+        alarmSetpoints:
+          low: Variable - set to specific VOC TLV or mixture assessment
+          high: Variable - typically 2x TLV or STEL
+          evacuate: Variable - set to IDLH of most hazardous component
+        colorimetricTubes:
+        - VOC-specific tubes available (benzene, toluene, xylene, etc.)
+        - General organic vapor tubes
+        analyticalMethods:
+        - method: EPA Method TO-15
+          technique: GC-MS (canister sampling)
+          detectionLimit: ppb levels for most VOCs
+        - method: NIOSH 1501
+          technique: GC-FID (charcoal tube sampling)
+          detectionLimit: Variable, typically 0.01-0.1 ppm
+        - method: EPA Method 8260
+          technique: GC-MS (water samples)
+          detectionLimit: µg/L levels
+        odorThreshold: Variable. Some VOCs odorless (benzene), others pungent at low ppm. Olfactory fatigue common. Do not
+          rely on odor.
+      _section:
+        icon: radar
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
+  interactions:
+    producedFromContaminants:
+      presentation: card
+      items:
+      - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
+        frequency: very_common
+        severity: moderate
+        typicalContext: Vaporization of paint solvents and binders
+      - id: graffiti-paint-contamination
+        name: Graffiti and Spray Paint
+        title: Graffiti and Spray Paint
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/graffiti-paint-contamination
+        image: /images/contaminant/graffiti-paint-contamination-hero.jpg
+        description: ''
+        frequency: very_common
+        severity: moderate
+        typicalContext: Release of spray paint solvents
+      - id: adhesive-residue-contamination
+        name: Adhesive Residue / Tape Marks
+        title: Adhesive Residue / Tape Marks Laser Cleaning
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/adhesive-residue-contamination
+        image: /images/contaminant/adhesive-residue-contamination-hero.jpg
+        description: 'Adhesive-residue-contamination, it sticks firmly to surfaces during removal processes. This organic
+          residue forms uneven patches because adhesives break down and leave behind sticky films. In observations, formation
+          happens quickly after peeling, so layers build up irregularly on metals and plastics. During exposure to handling,
+          contamination spreads and adheres tightly, creating patterns that vary by material.
+
+
+          Treatment with laser cleaning faces distinct challenges here. Residue resists ablation because it chars easily and
+          smokes, so complete removal requires careful pulses to avoid damaging the base. On metals, this contamination, it
+          bonds strongly and needs multiple passes for clearance, while on plastics, it softens first and then lifts away.
+          After application of laser, surfaces show cleaner states, but traces still remain in crevices from the data. Process
+          achieves better results on smooth areas, so preparation helps in tackling these patterns.'
+        frequency: very_common
+        severity: moderate
+        typicalContext: Release of adhesive solvents
+      - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        title: Industrial Oil / Grease Buildup Laser Cleaning
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: ''
+        frequency: very_common
+        severity: moderate
+        typicalContext: Vaporization of hydrocarbon compounds
+      - id: silicone-buildup-contamination
+        name: Silicone Sealant Buildup
+        title: Silicone Sealant Buildup
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
+        image: /images/contaminant/silicone-buildup-contamination-hero.jpg
+        description: ''
+        frequency: common
+        severity: moderate
+        typicalContext: Thermal breakdown of silicone polymers
+      - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
+        frequency: common
+        severity: moderate
+        typicalContext: Pyrolysis products
+      - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        title: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: ''
+        frequency: common
+        severity: moderate
+        typicalContext: Thermal decomposition products
+      - id: anti-seize-contamination
+        name: Anti-Seize Compound
+        title: Anti-Seize Compound
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/anti-seize-contamination
+        image: /images/contaminant/anti-seize-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Anti-Seize Compound
+      - id: biological-stains-contamination
+        name: Organic Biofilm Deposits
+        title: Organic Biofilm Deposits
+        category: biological
+        subcategory: deposit
+        url: /contaminants/biological/deposit/biological-stains-contamination
+        image: /images/contaminant/biological-stains-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Organic Biofilm Deposits
+      - id: cutting-fluid-contamination
+        name: Machining Coolant Residue
+        title: Machining Coolant Residue
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
+        image: /images/contaminant/cutting-fluid-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Machining Coolant Residue
+      - id: epoxy-residue-contamination
+        name: Epoxy Resin Deposits
+        title: Epoxy Resin Deposits
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/epoxy-residue-contamination
+        image: /images/contaminant/epoxy-residue-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Epoxy Resin Deposits
+      - id: fuel-varnish-contamination
+        name: Fuel System Varnish
+        title: Fuel System Varnish
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/fuel-varnish-contamination
+        image: /images/contaminant/fuel-varnish-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Fuel System Varnish
+      - id: gasket-material-contamination
+        name: Gasket Material Residue
+        title: Gasket Material Residue
+        category: organic-residue
+        subcategory: adhesive
+        url: /contaminants/organic-residue/adhesive/gasket-material-contamination
+        image: /images/contaminant/gasket-material-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Gasket Material Residue
+      - id: grease-deposits-contamination
+        name: Heavy Machinery Grease
+        title: Heavy Machinery Grease
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/grease-deposits-contamination
+        image: /images/contaminant/grease-deposits-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Heavy Machinery Grease
+      - id: ink-stains-contamination
+        name: Printing Ink Residue
+        title: Printing Ink Residue
+        category: organic-residue
+        subcategory: marking
+        url: /contaminants/organic-residue/marking/ink-stains-contamination
+        image: /images/contaminant/ink-stains-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Printing Ink Residue
+      - id: pcb-contamination
+        name: PCB Oil Contamination
+        title: PCB Oil Contamination
+        category: chemical-residue
+        subcategory: industrial
+        url: /contaminants/chemical-residue/industrial/pcb-contamination
+        image: /images/contaminant/pcb-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of PCB Oil Contamination
+      - id: powder-coating-contamination
+        name: Powder Coating Buildup
+        title: Powder Coating Buildup
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/powder-coating-contamination
+        image: /images/contaminant/powder-coating-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Powder Coating Buildup
+      - id: primer-coating-contamination
+        name: Paint Primer Layers
+        title: Paint Primer Layers
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/primer-coating-contamination
+        image: /images/contaminant/primer-coating-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Paint Primer Layers
+      - id: quench-oil-contamination
+        name: Quenching Oil Residue
+        title: Quenching Oil Residue
+        category: thermal-damage
+        subcategory: scale
+        url: /contaminants/thermal-damage/scale/quench-oil-contamination
+        image: /images/contaminant/quench-oil-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Quenching Oil Residue
+      - id: solder-flux-contamination
+        name: Soldering Flux Residue
+        title: Soldering Flux Residue
+        category: organic-residue
+        subcategory: lubricant
+        url: /contaminants/organic-residue/lubricant/solder-flux-contamination
+        image: /images/contaminant/solder-flux-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Soldering Flux Residue
+      - id: tree-sap-contamination
+        name: Tree Sap and Resin
+        title: Tree Sap and Resin
+        category: organic-residue
+        subcategory: natural
+        url: /contaminants/organic-residue/natural/tree-sap-contamination
+        image: /images/contaminant/tree-sap-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Tree Sap and Resin
+      - id: uv-chalking-contamination
+        name: UV Photodegradation / Polymer Chalking
+        title: UV Photodegradation / Polymer Chalking Laser Cleaning
+        category: aging
+        subcategory: photodegradation
+        url: /contaminants/aging/photodegradation/uv-chalking-contamination
+        image: /images/contaminant/uv-chalking-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of UV Photodegradation / Polymer Chalking
+      - id: wood-rot-contamination
+        name: Wood Rot / Fungal Biodegradation
+        title: Wood Rot / Fungal Biodegradation Laser Cleaning
+        category: biological
+        subcategory: growth
+        url: /contaminants/biological/growth/wood-rot-contamination
+        image: /images/contaminant/wood-rot-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: moderate
+        typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+    reactivity:
+      presentation: descriptive
+      items:
+      - stability: Variable. Many stable under normal conditions. Some polymerize or degrade.
+        polymerization: Some VOCs polymerize (styrene, acrylates). Check individual compounds.
+        incompatibleMaterials:
+        - 'Variable - commonly: oxidizers, strong acids, strong bases, reactive metals'
+        hazardousDecomposition:
+        - Carbon monoxide
+        - Carbon dioxide
+        - Variable toxic gases depending on compound
+        conditionsToAvoid:
+        - Heat
+        - Ignition sources
+        - Incompatible materials
+        - Oxidizers
+        reactivityHazard: Variable. Many form explosive mixtures with air. Some react violently with oxidizers. Peroxide formation
+          possible in ethers.
+      _section:
+        icon: atom
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
+author:
+  id: 2
+  name: Alessandro Moretti
+  country: Italy
+  countryDisplay: Italy
+  title: Ph.D.
+  sex: m
+  jobTitle: Materials Engineer
+  expertise:
+  - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
+card:
+  default:
+    heading: Volatile Organic Compounds
+    subtitle: irritant / organic_vapor
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: flask
+  contaminationContext:
+    heading: Volatile Organic Compounds
+    subtitle: Emission Product
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: alert-triangle
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
+    content: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs
+      at the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment,
+      such as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face
+      masks), along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors
+      to ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take
+      breaks in fresh air if concentrations rise.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+hazardClass: irritant
+chemicalFormula: Various
+casNumber: N/A
+molecularWeight: 16.0
+healthEffects: When handling VOCs compounds in industrial settings, the standout trait is their easy evaporation into the
+  air. This volatility turns them into airborne irritants fast. You'll breathe them in without noticing at first. So you must
+  ventilate well right away. They sting eyes and throats mid-exposure, causing quick discomfort during mixing or application
+  tasks. But good masks solve that—keep air flowing and symptoms drop. In laser cleaning ops, this evaporation spikes heat,
+  worsening irritation if you're not suited up. Overall, it pushes us to prioritize sealed spaces for safer material work.
+healthEffectsKeywords:
+- respiratory_irritation
+- neurological_effects
+- variable_toxicity
+- mixture_effects
+exposureGuidelines: 'Handling volatile organic compounds in materials work always starts with recognizing the risks—they''re
+  sneaky irritants that can sneak up on you through vapors or skin contact, leading to headaches, eye sting, or worse if you''re
+  not careful. That''s why exposure guidelines emphasize staying alert in any setup.
+
+
+  First off, these compounds often show up in paints, solvents, or adhesives because of their quick-evaporating nature, which
+  makes them handy for industrial tasks like coating metal parts or cleaning machinery. But that same volatility turns them
+  into airborne troublemakers, so the key is limiting direct contact. Wear gloves made from nitrile or similar barriers whenever
+  you''re mixing or applying them; it prevents the stuff from soaking into your skin and causing redness or itching. In bigger
+  operations, like factories using them for surface treatments, ensure good airflow with local exhaust fans to pull those
+  fumes away before they build up.
+
+
+  When it comes to laser cleaning—think stripping rust or grime off tools with precise beams—these compounds shine as post-process
+  rinses or carriers, but watch out for heat-generated vapors. The process can vaporize residues, releasing irritants that
+  irritate lungs if inhaled deeply. Always operate in well-ventilated spaces, maybe under a hood, and use respirators fitted
+  with organic vapor cartridges for anything beyond light duty. Short bursts of exposure beat long sessions; step back often
+  to clear your head.
+
+
+  Overall, these guidelines boil down to prevention: store them in sealed containers away from sparks, since they''re flammable
+  too, and train everyone on spill response—neutralize with absorbents right away. If symptoms hit like dizziness or throat
+  burn, get fresh air and seek medical advice without delay. Sticking to these habits keeps the benefits of these versatile
+  materials without the downsides.'
+detectionMethods: "Spotting volatile organic compounds in materials sets them apart from stable solids right away—their tendency\
+  \ to evaporate means you catch whiffs or traces that linger in the air, unlike inert stuff that stays put without a fuss.\
+  \ Simple sniff tests work in a pinch for quick checks during handling, but they fall short for precision in busy workshops.\
+  \ Turning to electronic noses, those mimic human senses with smart sensors picking up faint odors from surfaces freshly\
+  \ cleaned or exposed. \n\nIn industrial setups, photoionization detectors shine by zapping air samples with light to ionize\
+  \ the volatiles, revealing their presence without much hassle. These tools integrate smoothly into production lines, ensuring\
+  \ irritants don't build up unnoticed around machinery. \n\nLaser-based methods stand out for cleaning checks; a focused\
+  \ beam interacts with the compound's signature, vaporizing residues while scanning for leftovers in real time. This approach\
+  \ contrasts sharply with wet wipes or solvents, which might spread contaminants further, offering a cleaner, contact-free\
+  \ way to verify surfaces post-treatment. Operators appreciate how it flags irritant hotspots swiftly, keeping workflows\
+  \ safe and efficient."
+firstAid: 'If you''ve been exposed to a VOCs compound irritant, act fast. Get to fresh air right away. That clears your lungs
+  from the fumes. Breath deeply but steadily—don''t panic.
+
+
+  Skin touched it? Rinse under cool running water. Do this for a good while. Soap helps if it''s mild, but skip harsh stuff.
+  Pat dry gently after.
+
+
+  Eyes stinging? Flush them with clean water. Hold lids open and let water flow over. Keep going until irritation fades. No
+  rubbing—that makes it worse.
+
+
+  Felt sick or dizzy? Sit down and rest. Sip water slowly if swallowing happened. Avoid eating or drinking right away.
+
+
+  Call poison control or a doctor quick. Tell them exactly what compound and how much exposure. Better safe than sorry with
+  these sneaky irritants. In the shop, always glove up and vent well to dodge this hassle.'
+ppeRequirements: Handling VOCs compounds demands solid PPE choices. Gloves shield your skin from irritation—nitrile works
+  best, keeps things dry. Goggles protect eyes; vapors sting quick. Respirators filter out fumes—full-face ones seal tight
+  for heavy exposure. Suits or aprons block splashes in industrial spots. Avoid cotton gear; it soaks up and worsens contact.
+  In laser cleaning jobs, add ventilation hoods. Stay covered, breathe easy.
+monitoringRequired: true
+typicalConcentrationRange: 10-100 mg/m³
+sourcesInLaserCleaning:
+- organic_material_vaporization
+- polymer_decomposition
+- solvent_evaporation
+title: Volatile Organic Compounds

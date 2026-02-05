@@ -108,7 +108,10 @@ function generateBreadcrumbsFromUrl(pathname: string | null): BreadcrumbItem[] {
     "rental",
     "partners",
     "search",
-    "materials"
+    "materials",
+    "contaminants",
+    "compounds",
+    "settings"
   ]);
   
   let currentPathAccumulator = ""; // To build hrefs correctly

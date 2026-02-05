@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Author } from '@/app/components/Author/Author';
 import { ArticleMetadata } from '@/types/centralized';
-import { SITE_CONFIG } from '@/app/utils/constants';
+import { SITE_CONFIG } from '@/config';
 
 // Mock Next.js Image component
 jest.mock('next/image', () => ({

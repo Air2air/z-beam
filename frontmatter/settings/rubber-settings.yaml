@@ -1,23 +1,30 @@
 id: rubber-settings
-contentType: setting
-schemaVersion: 6.0.0
 name: Rubber
+displayName: Rubber Settings
 category: composite
 subcategory: fiber-reinforced
-datePublished: '2026-01-06'
-dateModified: '2026-01-30T02:39:27.468308+00:00'
-description: >-
-  When laser cleaning rubber, you'll want to begin with the lowest possible power settings to account for its
-  exceptional flexibility and low heat tolerance. This material absorbs laser energy quickly due to its dark surface
-  properties, which allows contaminants to remove effectively without deep penetration into the base layer. Rubber's
-  elasticity means it deforms under heat rather than cracking, so you must control scan speeds to prevent warping during
-  multiple passes. We've found that short pulses restore surface integrity while exposing underlying fibers cleanly.
-  Make sure you monitor for signs of softening, as excessive energy reduces durability and leads to material
-  breakdown—always test on a small area first to adjust accordingly.
-meta:
-  title: Rubber
-  description: Rubber laser cleaning guide. Technical specifications and applications.
-  path: /settings/composite/fiber-reinforced/rubber-settings
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:44:40.352942+00:00'
+contentType: setting
+schemaVersion: 5.0.0
+fullPath: /settings/composite/fiber-reinforced/rubber-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Composite
+  href: /settings/composite
+- label: Fiber Reinforced
+  href: /settings/composite/fiber-reinforced
+pageTitle: Rubber Settings
+pageDescription: When laser cleaning rubber, you'll want to begin with the lowest possible power settings to account for its
+  exceptional flexibility and low heat tolerance. This material absorbs laser energy quickly due to its dark surface properties,
+  which allows contaminants to remove effectively without deep penetration into the base layer. Rubber's elasticity means
+  it deforms under heat rather than cracking, so you must control scan speeds to prevent warping during multiple passes. We've
+  found that short pulses restore surface integrity while exposing underlying fibers cleanly. Make sure you monitor for signs
+  of softening, as excessive energy reduces durability and leads to material breakdown—always test on a small area first to
+  adjust accordingly.
 images:
   hero:
     url: /images/settings/rubber-settings-hero.jpg
@@ -29,45 +36,187 @@ images:
     alt: Rubber microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 4
-machine:
-  power:
-    min: null
-    max: null
-    optimal: null
-    unit: W
-  pulseEnergy:
-    min: null
-    max: null
-    optimal: null
-  frequency:
-    min: 1
-    max: 200
-    optimal: null
-  scanSpeed:
-    min: 10
-    max: 5000
-    optimal: null
-application:
-  thickness:
-    min: null
-    max: null
-  passes:
-    typical: null
-    max: null
-  cooling:
-    required: false
-    method: null
 relationships:
-  materials:
-    optimizedFor: []
-  contaminants:
-    effective:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    removesContaminants:
+      presentation: card
+      items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  regulatory:
-    standards:
-      - osha-ppe-requirements
-      - ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    worksOnMaterials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational:
+    commonChallenges:
+      presentation: descriptive
+      items:
+      - thermalManagement:
+        - id: matrix-degradation
+          type: challenge
+        - id: anisotropic-thermal
+          type: challenge
+        contaminationChallenges:
+        - id: resin-contaminant-removal
+          type: challenge
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+card:
+  default:
+    heading: Laser Cleaning Settings
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: default
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
+machineSettings:
+  wavelength:
+    description: Near-infrared wavelength for optimal rubber absorption and minimal substrate damage
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: 'Smaller spots for precise cleaning on rubber surfaces; 100-200 μm for fine detail (e.g., molds), larger
+      for broad areas. 200 μm recommended for uniform coverage without overlap issues. Source: Equipment specifications from
+      Trumpf and Adapt Laser Systems; process optimization in Surface and Coatings Technology (2022).'
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 0.5
+    unit: J/cm²
+    description: 'Low fluence to stay below rubber damage threshold (~0.5-1 J/cm² for ablation onset); 0.1-0.5 J/cm² for light
+      contaminants, up to 1 J/cm² for heavy. Conservative for safe cleaning. Source: Ablation threshold studies in Journal
+      of Applied Physics (2017) on elastomers; uncertainty noted for specific rubber types due to variability in composition.'
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective industrial cleaning; picosecond (ps) or femtosecond (fs)
+      for ultra-minimal HAZ but less common for rubber. 20 ns balances ablation of contaminants with low heat input. Source:
+      Laser physics in Applied Surface Science (2019) on polymer cleaning thresholds; ns pulses avoid melting unlike longer
+      durations.'
+  scanSpeed:
+    min: 10
+    max: 5000
+    value: 5000
+    unit: mm/s
+    description: 'High speeds minimize heat accumulation on low-thermal-conductivity rubber; slower for heavy contamination
+      (1000-3000 mm/s), faster for light (5000-10000 mm/s). Recommended 5000 mm/s for balance. Source: Industry standards
+      from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020) for surface prep.'
+  passCount:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Multi-pass for thorough removal of stubborn contaminants on rubber; single pass for light soiling, 2-3 for
+      typical industrial prep. Recommended 2 passes to ensure completeness without damage. Source: Industry practice in case
+      studies from Rubber & Plastics News (2020); multi-pass approaches in laser cleaning guidelines from SPIE proceedings.'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: '50% overlap ensures uniform coverage and contaminant removal on irregular rubber surfaces; lower (30%) for
+      speed, higher (70-80%) for heavy contamination. Balances efficiency and evenness. Source: Process optimization studies
+      in Optics and Laser Technology (2019); typical range from manufacturer guidelines like those from CleanLaser.'
+  laserPower:
+    description: Optimal average power for rubber cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 150
+    value: 50
+    unit: W
+    description: 'Low power to prevent thermal degradation of rubber (low melting point ~100-200°C); typical range from industrial
+      fiber lasers for polymers. Recommended start at 50W for light contamination. Source: IPG Photonics specs for cleaning
+      delicate substrates; academic review in Optics and Lasers in Engineering (2018) on polymer ablation.'
+  frequency:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: 'Moderate rates for effective contaminant removal without excessive heat buildup in rubber; higher rates
+      (>50 kHz) speed up process but risk accumulation. Trade-off noted in literature. Source: Academic literature in Lasers
+      in Manufacturing and Materials Processing (2021); typical for 1064 nm fiber lasers from Coherent specs.'
+componentSummary: These settings use moderate power and short nanosecond pulses at 1064 nm to delicately ablate contaminants
+  from heat-sensitive rubber, avoiding melting or degradation while ensuring effective cleaning.

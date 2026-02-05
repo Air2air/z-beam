@@ -1,21 +1,28 @@
 id: dysprosium-settings
-contentType: setting
-schemaVersion: 6.0.0
 name: Dysprosium
+displayName: Dysprosium Settings
 category: rare-earth
 subcategory: lanthanide
-datePublished: '2026-01-06'
-dateModified: '2026-01-30T02:39:24.481683+00:00'
-description: >-
-  When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity. This
-  shiny surface bounces most energy away, so start low to build absorption gradually. We've found that keeps the dense
-  material from overheating locally, given its poor heat spreading. Watch out mid-process for uneven spots—adjust scan
-  speed slower there to avoid pitting. Finish with multiple light passes. This brings back the finish without warping
-  its tough structure.
-meta:
-  title: Dysprosium
-  description: Dysprosium laser cleaning guide. Technical specifications and applications.
-  path: /settings/rare-earth/lanthanide/dysprosium-settings
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:44:37.205536+00:00'
+contentType: setting
+schemaVersion: 5.0.0
+fullPath: /settings/rare-earth/lanthanide/dysprosium-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Rare Earth
+  href: /settings/rare-earth
+- label: Lanthanide
+  href: /settings/rare-earth/lanthanide
+pageTitle: Dysprosium Settings
+pageDescription: When laser cleaning Dysprosium, we typically begin with a gentle power setup to handle its high reflectivity.
+  This shiny surface bounces most energy away, so start low to build absorption gradually. We've found that keeps the dense
+  material from overheating locally, given its poor heat spreading. Watch out mid-process for uneven spots—adjust scan speed
+  slower there to avoid pitting. Finish with multiple light passes. This brings back the finish without warping its tough
+  structure.
 images:
   hero:
     url: /images/settings/dysprosium-settings-hero.jpg
@@ -27,45 +34,228 @@ images:
     alt: Dysprosium microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 2
-machine:
-  power:
-    min: null
-    max: null
-    optimal: null
-    unit: W
-  pulseEnergy:
-    min: null
-    max: null
-    optimal: null
-  frequency:
-    min: 1
-    max: 200
-    optimal: null
-  scanSpeed:
-    min: 10
-    max: 5000
-    optimal: null
-application:
-  thickness:
-    min: null
-    max: null
-  passes:
-    typical: null
-    max: null
-  cooling:
-    required: false
-    method: null
 relationships:
-  materials:
-    optimizedFor: []
-  contaminants:
-    effective:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    removesContaminants:
+      presentation: card
+      items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  regulatory:
-    standards:
-      - osha-ppe-requirements
-      - ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    worksOnMaterials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational:
+    commonChallenges:
+      presentation: descriptive
+      items:
+      - thermalManagement:
+        - challenge: Rapid oxidation and pyrophoricity
+          severity: critical
+          thresholdTemperature: Above 150-300°C causes spontaneous ignition in air
+          impact: Rare-earth metals oxidize rapidly forming insulating oxide layer; fine particles pyrophoric
+          solutions:
+          - Process in inert atmosphere (argon or nitrogen) or high vacuum
+          - Use pulse mode with 10-15 second cooling to prevent sustained heating
+          - Keep surface temperature below 150°C monitored with IR camera
+          - Have fire suppression ready for pyrophoric materials
+          - Immediate passivation after cleaning to prevent further oxidation
+        - challenge: Variable thermal properties across series
+          severity: medium
+          propertyValue: 3-8 mm²/s thermal diffusivity (2.7x variation)
+          impact: Different lanthanides require different cooling strategies
+          solutions:
+          - Light lanthanides (La, Ce, Pr) require more cooling time
+          - Heavy lanthanides (Dy, Er, Yb) tolerate slightly higher power
+          - Adjust parameters by specific element, not just category
+          - Test on small area to determine optimal cooling requirements
+        contaminationChallenges:
+        - challenge: High-value material recovery
+          severity: medium
+          impact: Rare-earth elements extremely valuable; contamination removal must preserve material
+          solutions:
+          - First pass 15W very slow (500 mm/s) for assessment
+          - Gradual power increase (15W → 25W → 35W) across multiple passes
+          - Collect all ablated material for potential recovery
+          - Document process for traceability and quality control
+          - Consider chemical pre-treatment to reduce laser exposure
+        - challenge: Strategic material handling requirements
+          severity: medium
+          impact: Export-controlled materials require documentation and secure handling
+          solutions:
+          - Clean in controlled access facility
+          - Document all processing parameters and material quantities
+          - Secure storage of cleaned materials
+          - Follow applicable export control regulations
+          - Chain of custody documentation for high-value materials
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
+author:
+  id: 2
+  name: Alessandro Moretti
+  country: Italy
+  countryDisplay: Italy
+  title: Ph.D.
+  sex: m
+  jobTitle: Materials Engineer
+  expertise:
+  - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
+card:
+  default:
+    heading: Laser Cleaning Settings
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: default
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
+machineSettings:
+  wavelength:
+    description: Near-IR wavelength optimized for Dysprosium's absorption characteristics
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: 'Beam diameter for precise industrial cleaning; smaller for fine details on Dysprosium components, larger
+      for broad areas. 200 μm recommended for balanced energy distribution and minimal distortion on soft metal. Source: Equipment
+      specifications from Coherent and Trumpf lasers for metal surface prep.'
+  fluenceThreshold:
+    description: Minimum fluence required for effective Dysprosium oxide removal
+    unit: J/cm²
+    value: 2.5
+    min: 0.3
+    max: 4.5
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning of Dysprosium; picosecond (ps) or femtosecond reduces
+      HAZ but increases cost. 20 ns minimizes thermal diffusion in low-conductivity metal while ablating surface layers. Source:
+      Laser physics research on metal ablation thresholds (e.g., Appl. Surf. Sci. reviews on ns vs. ps for rare earths).'
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Effective speeds for contaminant removal on Dysprosium; slower for heavy contamination (e.g., oxides), faster
+      for light. Recommended 1500 mm/s optimizes fluence delivery without excessive heat buildup. Conservative for uniform
+      coverage on soft, reflective surfaces. Source: Industry standards from laser cleaning manuals (e.g., Adapt Laser Systems)
+      and process optimization in Opt. Lasers Eng.'
+  passCount:
+    min: 1
+    max: 10
+    unit: passes
+    value: 2
+    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete Dysprosium
+      cleaning to ensure uniformity without over-processing reflective surfaces. Source: Industry case studies on iterative
+      laser cleaning (e.g., Proc. SPIE on multi-pass optimization for metals).'
+  overlapRatio:
+    min: 10
+    max: 90
+    unit: '%'
+    value: 60
+    description: 'Ensures uniform coverage; 60% recommended for Dysprosium to avoid gaps or streaks on large areas while preventing
+      excessive overlap heating. Typical range from process studies. Source: Optimization studies in J. Laser Appl. and laser
+      scanning guidelines from scanning head manufacturers like Scanlab.'
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    value: 1.5
+    description: 'Fluence range for safe contaminant removal; Dysprosium damage threshold estimated ~2-4 J/cm² based on similar
+      lanthanides. Recommended 1.5 J/cm² for cleaning without ablation of base metal, considering reflectivity and thermal
+      properties. Conservative due to limited specific data. Source: Ablation threshold studies (e.g., Phys. Rev. B on rare
+      earth metals; general metal cleaning in Laser Ablation and Its Applications).'
+  laserPower:
+    description: Optimal average power for Dysprosium oxide removal without substrate damage
+    unit: W
+    value: 95
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 500
+    value: 200
+    unit: W
+    description: 'Typical range for industrial laser cleaning of reflective metals like Dysprosium at 1064 nm to ablate contaminants
+      without substrate melting (melting point ~1412°C). Starting at 200 W balances efficiency and safety; higher risks thermal
+      damage due to moderate thermal conductivity (~10.7 W/m·K). Source: General Nd:YAG laser specs from IPG Photonics and
+      studies on rare earth metal processing (e.g., J. Appl. Phys. on lanthanide ablation).'
+  frequency:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: 'Standard for pulsed cleaning to achieve high throughput; 50 kHz recommended for Dysprosium to balance speed
+      and avoid heat accumulation on reflective surfaces (high reflectivity ~70% at 1064 nm). Higher rates increase efficiency
+      but risk subsurface heating. Source: Academic literature on pulse train effects (e.g., J. Phys. D: Appl. Phys. on metal
+      cleaning).'
+componentSummary: These settings utilize a 1064 nm wavelength for strong absorption by Dysprosium's oxide contaminants, with
+  200 W power and 12 ns pulses to ablate residues efficiently while minimizing thermal damage to the soft, reactive metal.

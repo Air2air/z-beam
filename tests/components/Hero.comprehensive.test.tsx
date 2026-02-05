@@ -12,7 +12,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { Hero } from '@/app/components/Hero/Hero';
-import { SITE_CONFIG } from '@/app/utils/constants';
+import { SITE_CONFIG } from '@/config';
 
 // Mock Next.js Image component
 jest.mock('next/image', () => ({

@@ -1,25 +1,31 @@
 id: travertine-settings
-contentType: setting
-schemaVersion: 6.0.0
 name: Travertine
+displayName: Travertine Settings
 category: stone
 subcategory: natural
-datePublished: '2026-01-06'
-dateModified: '2026-01-30T02:39:28.816769+00:00'
-description: >-
-  When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak up heat
-  unevenly, which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone, differs
-  from denser rocks because it traps contaminants deep inside, so you need to go gentle to avoid pulling the surface
-  apart. Tends to heat up slowly due to poor conductivity, meaning prolonged exposure risks surface spalling. Start with
-  lower power settings and slower scan speeds to let the laser gently loosen dirt without stressing the pores. This
-  works best when you overlap passes lightly, pulling grime out layer by layer. I've found multiple light treatments
-  clear buildup effectively while preserving the stone's texture for heritage sites. Just avoid high energy
-  bursts—they'll scorch the calcite base and ruin that classic banded look. Adjust based on soiling thickness, and
-  always test a small area first to keep things safe.
-meta:
-  title: Travertine
-  description: Travertine laser cleaning guide. Technical specifications and applications.
-  path: /settings/stone/natural/travertine-settings
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:44:41.564708+00:00'
+contentType: setting
+schemaVersion: 5.0.0
+fullPath: /settings/stone/natural/travertine-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Stone
+  href: /settings/stone
+- label: Natural
+  href: /settings/stone/natural
+pageTitle: Travertine Settings
+pageDescription: When laser cleaning Travertine, watch out for its high porosity right from the start—I've seen it soak up
+  heat unevenly, which can lead to micro-cracks if you're not careful. This natural stone, like a spongy limestone, differs
+  from denser rocks because it traps contaminants deep inside, so you need to go gentle to avoid pulling the surface apart.
+  Tends to heat up slowly due to poor conductivity, meaning prolonged exposure risks surface spalling. Start with lower power
+  settings and slower scan speeds to let the laser gently loosen dirt without stressing the pores. This works best when you
+  overlap passes lightly, pulling grime out layer by layer. I've found multiple light treatments clear buildup effectively
+  while preserving the stone's texture for heritage sites. Just avoid high energy bursts—they'll scorch the calcite base and
+  ruin that classic banded look. Adjust based on soiling thickness, and always test a small area first to keep things safe.
 images:
   hero:
     url: /images/settings/travertine-settings-hero.jpg
@@ -31,45 +37,198 @@ images:
     alt: Travertine microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 1
-machine:
-  power:
-    min: null
-    max: null
-    optimal: null
-    unit: W
-  pulseEnergy:
-    min: null
-    max: null
-    optimal: null
-  frequency:
-    min: 1
-    max: 200
-    optimal: null
-  scanSpeed:
-    min: 10
-    max: 5000
-    optimal: null
-application:
-  thickness:
-    min: null
-    max: null
-  passes:
-    typical: null
-    max: null
-  cooling:
-    required: false
-    method: null
 relationships:
-  materials:
-    optimizedFor: []
-  contaminants:
-    effective:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    removesContaminants:
+      presentation: card
+      items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  regulatory:
-    standards:
-      - osha-ppe-requirements
-      - ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    worksOnMaterials:
+      presentation: card
+      items:
+      - id: travertine-laser-cleaning
+        effectiveness: high
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational:
+    commonChallenges:
+      presentation: descriptive
+      items:
+      - thermalManagement:
+        - challenge: Thermal shock and microcracking
+          severity: critical
+          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
+          impact: Natural stone contains microfissures that propagate under thermal stress
+          solutions:
+          - Use pulse mode with 8-12 second cooling between passes
+          - Reduce power by 40-50% for weathered or damaged stone
+          - Preheat substrate if possible to reduce thermal gradients
+          - Granite more resistant than marble; sandstone most vulnerable
+          - Monitor for surface crazing; stop immediately if cracks appear
+        - challenge: Moisture-induced spalling
+          severity: high
+          thresholdTemperature: Steam formation >100°C with trapped moisture
+          impact: Porous stone traps moisture that explosively converts to steam
+          solutions:
+          - Test moisture content before cleaning (>3% requires drying)
+          - Allow 48-72 hours drying after rain before laser cleaning
+          - Reduce power by 50% for damp stone
+          - Use pulse mode with extended cooling (15-20 seconds)
+          - Heritage stone requires especially gentle approach
+        contaminationChallenges:
+        - id: biological-growth
+          type: challenge
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  countryDisplay: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
+card:
+  default:
+    heading: Laser Cleaning Settings
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: default
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
+machineSettings:
+  wavelength:
+    description: Near-IR wavelength optimized for Travertine absorption and minimal substrate damage
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter for effective energy distribution; 200 μm recommended for travertine to cover pores without
+      pinpoint damage, smaller for fine details, larger for broad areas (source: Equipment specs from manufacturers like Raycus
+      and Coherent laser systems).'
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 1.0
+    unit: J/cm²
+    description: 'Fluence range for contaminant removal (e.g., soot, oxides) on travertine; damage threshold ~2-3 J/cm² for
+      CaCO3-based stone, so 1.0 J/cm² safe starting point to avoid spalling (source: Ablation threshold studies in J. Appl.
+      Phys. 2017 and heritage conservation papers).'
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal heat-affected zone on heat-sensitive
+      travertine; 20 ns balances ablation efficiency and reduced thermal diffusion (picosecond/fs for ultra-precision but
+      overkill; source: Laser physics research in Opt. Lasers Eng. 2020 on stone heritage cleaning).'
+  scanSpeed:
+    min: 10
+    max: 5000
+    value: 1000
+    unit: mm/s
+    description: 'Effective speeds balance fluence and coverage; 1000 mm/s optimal for uniform cleaning on travertine, slower
+      (500 mm/s) for heavy contamination, faster (up to 3000 mm/s) for light dust (source: Industry standards from Laser Cleaning
+      Europe and equipment manuals like those from CleanLaser).'
+  passCount:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Multi-pass approach ensures complete removal without exceeding fluence limits on delicate travertine; 2
+      passes typical for industrial surface prep (single pass for very light contamination; source: Industry case studies
+      in stone restoration, e.g., Restaurators 2021).'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 70
+    unit: '%'
+    description: 'Ensures uniform coverage and prevents stripe patterns on uneven travertine surfaces; 70% optimal for balance
+      between efficiency and overlap-induced heating (source: Process optimization in laser scanning studies, e.g., Opt. Express
+      2016).'
+  laserPower:
+    description: Optimal average power for Travertine surface cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 20
+    max: 200
+    value: 50
+    unit: W
+    description: 'Typical range for pulsed Nd:YAG lasers (1064 nm) on porous stones like travertine to remove contaminants
+      without thermal damage; starting at 50 W for light soiling, max 200 W risks microcracking (source: IPG Photonics laser
+      cleaning guidelines and studies on limestone ablation, e.g., J. Cult. Herit. 2018).'
+  frequency:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for industrial cleaning to achieve pulse overlap without excessive heat buildup in low-conductivity
+      travertine; 30 kHz recommended for faster processing vs. heat risks at higher rates (source: Academic literature, e.g.,
+      Appl. Surf. Sci. 2019 on pulsed laser parameters for carbonates).'
+componentSummary: The 50 W power, 1064 nm wavelength, and 10 ns pulse width settings enable gentle, non-ablative cleaning
+  of Travertine's porous limestone structure, minimizing heat-induced cracking while effectively removing surface contaminants.

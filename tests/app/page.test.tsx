@@ -4,7 +4,7 @@
  * Tests critical app router functionality and metadata generation
  */
 
-import { SITE_CONFIG } from '@/app/utils/constants';
+import { SITE_CONFIG } from '@/config';
 
 // Mock contentAPI
 jest.mock('../../app/utils/contentAPI', () => ({

@@ -1,20 +1,27 @@
 id: tool-steel-settings
-contentType: setting
-schemaVersion: 6.0.0
 name: Tool Steel
+displayName: Tool Steel Settings
 category: metal
 subcategory: alloy
-datePublished: '2026-01-06'
-dateModified: '2026-01-30T02:39:28.773145+00:00'
-description: >-
-  When laser cleaning Tool Steel, watch its toughness first—it resists buildup removal more than softer alloys like mild
-  steel. I've seen overheating cause surface cracks if you rush. Start slow with the laser on low power. This clears
-  rust gently without warping. Tool Steel's heat resistance shines here, unlike brittle metals. Scan in even passes.
-  Overlap spots by half. Finish with a quick check for smoothness. It restores tools perfectly.
-meta:
-  title: Tool Steel
-  description: Tool Steel laser cleaning guide. Technical specifications and applications.
-  path: /settings/metal/alloy/tool-steel-settings
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:44:41.522259+00:00'
+contentType: setting
+schemaVersion: 5.0.0
+fullPath: /settings/metal/alloy/tool-steel-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Metal
+  href: /settings/metal
+- label: Alloy
+  href: /settings/metal/alloy
+pageTitle: Tool Steel Settings
+pageDescription: When laser cleaning Tool Steel, watch its toughness first—it resists buildup removal more than softer alloys
+  like mild steel. I've seen overheating cause surface cracks if you rush. Start slow with the laser on low power. This clears
+  rust gently without warping. Tool Steel's heat resistance shines here, unlike brittle metals. Scan in even passes. Overlap
+  spots by half. Finish with a quick check for smoothness. It restores tools perfectly.
 images:
   hero:
     url: /images/settings/tool-steel-settings-hero.jpg
@@ -26,45 +33,186 @@ images:
     alt: Tool Steel microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 2
-machine:
-  power:
-    min: null
-    max: null
-    optimal: null
-    unit: W
-  pulseEnergy:
-    min: null
-    max: null
-    optimal: null
-  frequency:
-    min: 1
-    max: 200
-    optimal: null
-  scanSpeed:
-    min: 10
-    max: 5000
-    optimal: null
-application:
-  thickness:
-    min: null
-    max: null
-  passes:
-    typical: null
-    max: null
-  cooling:
-    required: false
-    method: null
 relationships:
-  materials:
-    optimizedFor: []
-  contaminants:
-    effective:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    removesContaminants:
+      presentation: card
+      items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  regulatory:
-    standards:
-      - osha-ppe-requirements
-      - ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    worksOnMaterials:
+      presentation: card
+      items:
+      - id: steel-laser-cleaning
+        effectiveness: high
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational:
+    commonChallenges:
+      presentation: descriptive
+      items:
+      - thermalManagement:
+        - id: high-thermal-conductivity
+          type: challenge
+        - id: melting-haz
+          type: challenge
+        contaminationChallenges:
+        - id: rust-oxide-removal
+          type: challenge
+        - id: oil-grease-removal
+          type: challenge
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
+author:
+  id: 2
+  name: Alessandro Moretti
+  country: Italy
+  countryDisplay: Italy
+  title: Ph.D.
+  sex: m
+  jobTitle: Materials Engineer
+  expertise:
+  - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
+card:
+  default:
+    heading: Laser Cleaning Settings
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: default
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
+machineSettings:
+  wavelength:
+    description: Near-IR wavelength with good absorption in Tool Steel oxides and contaminants
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Beam diameter range for cleaning tool steel; smaller for fine details (e.g., tool edges), larger for broad
+      surfaces; 200 μm recommended for balanced resolution and coverage. Source: Equipment specifications from Coherent and
+      Trumpf laser systems for industrial metal processing.'
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for safe contaminant ablation on tool steel (reflectivity ~0.4 at 1064 nm); below damage threshold
+      of ~4-5 J/cm² to prevent surface pitting. Source: Ablation threshold studies in Surface and Coatings Technology (2017)
+      for alloy steels, conservative for tool steel''s hardness.'
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 50
+    unit: ns
+    description: 'Nanosecond regime typical for industrial cleaning to achieve ablation with minimal heat-affected zone (HAZ
+      <10 μm on tool steel); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. Source: Laser
+      physics research in Applied Surface Science (2020) showing ns pulses optimal for metals with high thermal conductivity
+      like tool steel.'
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Range for effective contaminant removal on tool steel, slower for heavy rust/oil, faster for light dust;
+      2000 mm/s optimal for uniform cleaning at moderate power. Source: Industry standards from Laserax equipment manuals
+      and studies in Optics and Lasers in Engineering (2018) on steel ablation.'
+  passCount:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass for heavy oxide layers on tool steel; 2 passes typical for
+      complete removal without substrate damage. Source: Industry case studies in Proceedings of SPIE (2021) on laser cleaning
+      of hardened steels.'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 50
+    unit: '%'
+    description: 'Overlap ensures uniform fluence distribution on reflective tool steel surfaces; 50% recommended for even
+      cleaning without gaps or over-ablation. Source: Process optimization studies in Lasers in Manufacturing and Materials
+      Processing (2019), standard for scanned beam paths.'
+  laserPower:
+    description: Optimal average power for Tool Steel oxide removal without substrate damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 1000
+    value: 200
+    unit: W
+    description: 'Typical range for industrial 1064 nm laser cleaning of tool steels to remove contaminants without excessive
+      heating; recommended starting value balances efficiency and safety. Source: IPG Photonics YLR series specs for metal
+      surface preparation (50-500 W common), with max limited to avoid melting (tool steel melting point ~1400-1500°C).'
+  frequency:
+    min: 1
+    max: 200
+    value: 50
+    unit: kHz
+    description: 'Typical for pulsed fiber lasers in cleaning; 50 kHz recommended for tool steel to enable fast processing
+      while limiting heat accumulation (trade-off: higher rates increase speed but risk thermal buildup). Source: Academic
+      literature in Journal of Laser Applications (2019) on pulse train effects in metal cleaning.'
+componentSummary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width suit Tool Steel by providing sufficient energy
+  for contaminant ablation while short pulses minimize thermal distortion on its hard, heat-resistant surface.

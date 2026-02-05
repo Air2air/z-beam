@@ -4,6 +4,8 @@
 
 This document describes the frontmatter-driven breadcrumb system that provides consistent navigation across all page types (material pages, static pages, and category pages).
 
+**Key Principle: The last breadcrumb item is ALWAYS the pageTitle.**
+
 ## Frontmatter Schema
 
 ### Material Pages
@@ -12,6 +14,7 @@ For material pages (e.g., `aluminum-laser-cleaning.yaml`), breadcrumbs can be co
 
 #### 1. Explicit Breadcrumb Array (Highest Priority)
 ```yaml
+pageTitle: "Aluminum Laser Cleaning"
 breadcrumb:
   - label: Home
     href: /
@@ -19,30 +22,31 @@ breadcrumb:
     href: /materials
   - label: Metals
     href: /materials/metal
-  - label: Aluminum
-    href: /aluminum-laser-cleaning
+  - label: "Aluminum Laser Cleaning"  # ALWAYS the pageTitle
+    href: /materials/metal/aluminum-laser-cleaning
 ```
 
 #### 2. Auto-Generate from Category/Subcategory (Medium Priority)
 ```yaml
 category: metal
 subcategory: non-ferrous
-name: Aluminum
-# Auto-generates: Home > Materials > Metal > Non-Ferrous > Aluminum
+pageTitle: "Aluminum Laser Cleaning"
+# Auto-generates: Home > Materials > Metal > Non-Ferrous > Aluminum Laser Cleaning
 ```
 
 #### 3. URL Fallback (Lowest Priority)
-If no `breadcrumb` field or `category` exists, breadcrumbs are generated from the URL path.
+If no `breadcrumb` field or `category` exists, breadcrumbs are generated from the URL path, with pageTitle as the final item.
 
 ### Static Pages
 
 For static pages (e.g., `services.yaml`), use explicit breadcrumb array:
 
 ```yaml
+pageTitle: "Our Services"
 breadcrumb:
   - label: Home
     href: /
-  - label: Services
+  - label: "Our Services"  # ALWAYS the pageTitle
     href: /services
 ```
 

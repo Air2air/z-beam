@@ -63,6 +63,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={mockAnswers}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -77,6 +81,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={[]}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -88,6 +96,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={undefined as any}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -101,6 +113,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={mockAnswers}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -123,6 +139,10 @@ describe('ExpertAnswersPanel', () => {
           answers={answersWithoutExpert}
           entityName="Aluminum"
           defaultExpert={mockExpert}
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -143,6 +163,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={answersWithoutExpert}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -157,6 +181,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={mockAnswers}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -170,6 +198,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={mockAnswers}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -194,6 +226,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={answersWithoutAccepted}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -209,6 +245,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={mockAnswers}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -228,6 +268,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={answersWithoutSeverity}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -242,6 +286,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={mockAnswers}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -257,6 +305,10 @@ describe('ExpertAnswersPanel', () => {
         <ExpertAnswersPanel
           answers={mockAnswers}
           entityName="Aluminum"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 
@@ -276,6 +328,10 @@ describe('ExpertAnswersPanel', () => {
           answers={mockAnswers}
           entityName="Aluminum"
           className="custom-class"
+          sectionMetadata={{
+            sectionTitle: 'Expert Answers',
+            sectionDescription: 'Expert insights and recommendations for Aluminum laser cleaning'
+          }}
         />
       );
 

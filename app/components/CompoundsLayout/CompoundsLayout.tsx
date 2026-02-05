@@ -1,9 +1,9 @@
 // app/components/CompoundsLayout/CompoundsLayout.tsx
 // Specialized layout for hazardous compound pages
+// Refactored Feb 4, 2026 to use consolidated relationship utilities
 
 import React from 'react';
 import { BaseContentLayout } from '../BaseContentLayout';
-import { CardGrid } from '../CardGrid';
 import { ContaminantCard } from '../ContaminantCard';
 import { ScheduleCards } from '../Schedule/ScheduleCards';
 import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
@@ -12,12 +12,14 @@ import { InfoCard } from '../InfoCard/InfoCard';
 import { BaseSection } from '../BaseSection/BaseSection';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
+import { SectionConfigBuilder } from '@/app/utils/sectionConfigBuilder';
 import { contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { getRelationshipSection } from '@/app/utils/relationshipHelpers';
 import { Beaker, Thermometer, Activity, FileText } from 'lucide-react';
-import type { SectionConfig, CompoundsLayoutProps } from '@/types';
+import { CardGrid } from '../CardGrid';
+import type { CompoundsLayoutProps, SectionConfig } from '@/types';
 
 // Re-export for convenience
 export type { CompoundsLayoutProps };

@@ -1,5 +1,6 @@
 // app/components/MaterialsLayout/MaterialsLayout.tsx
 // Specialized layout for materials pages using consolidated BaseContentLayout
+// Refactored Feb 4, 2026 to use consolidated relationship utilities
 
 import React from 'react';
 import { BaseContentLayout } from '../BaseContentLayout';
@@ -10,11 +11,11 @@ import { LaserMaterialInteraction } from '../LaserMaterialInteraction/LaserMater
 import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialCharacteristics';
 import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetDownloader from '../Dataset/MaterialDatasetDownloader';
-import { CardGrid } from '../CardGrid';
 import { Micro } from '../Micro/Micro';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { getHeroImageUrl } from '@/app/utils/relationshipHelpers';
-import type { SectionConfig } from '../BaseContentLayout';
+import { SectionConfigBuilder } from '@/app/utils/sectionConfigBuilder';
+import { getRelationshipItems } from '@/types/relationships';
 import type { LayoutProps } from '@/types';
 
 interface MaterialsLayoutProps extends LayoutProps {
@@ -53,15 +54,18 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   const faq = Array.isArray(rawFaq) ? rawFaq : (typeof rawFaq === 'string' ? rawFaq : rawFaq?.items);
   const industryApplications = relationships?.operational?.industryApplications;
   const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items;
-  const contaminatedBy = relationships?.interactions?.contaminatedBy?.items;
+  
+  // Use consolidated relationship accessor
+  const contaminatedBy = getRelationshipItems(relationships, 'interactions', 'contaminatedBy');
   
   // FAIL-FAST: Throw if required relationship data is missing
   if (!contaminatedBy || !Array.isArray(contaminatedBy)) {
     throw new Error(`Missing or invalid contaminatedBy data for material: ${materialName}`);
   }
 
-  const sections: SectionConfig[] = [
-    {
+  // Build sections using consolidated builder pattern
+  const sections = new SectionConfigBuilder()
+    .addComponent({
       component: LaserMaterialInteraction,
       props: {
         materialName,
@@ -70,8 +74,8 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         subcategory,
         slug,
       }
-    },
-    {
+    })
+    .addComponent({
       component: MaterialCharacteristics,
       props: {
         materialName,
@@ -80,17 +84,18 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         subcategory,
         slug,
       }
-    },
-    // Micro section - positioned after Material Characteristics
-    {
-      component: Micro,
-      condition: () => !!(metadata as any)?.components?.micro || !!(metadata as any)?.micro,
-      props: {
-        frontmatter: metadata as any,
-        config: {}
+    })
+    .addConditional(
+      !!(metadata as any)?.components?.micro || !!(metadata as any)?.micro,
+      {
+        component: Micro,
+        props: {
+          frontmatter: metadata as any,
+          config: {}
+        }
       }
-    },
-    {
+    )
+    .addComponent({
       component: RegulatoryStandards,
       props: {
         standards: regulatoryStandards,
@@ -98,64 +103,55 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         heroImage,
         thumbnailLink,
       }
-    },
-    {
-      component: IndustryApplicationsPanel,
-      condition: !!industryApplications,
-      props: {
-        applications: industryApplications,
-        entityName: materialName,
-        variant: 'materials' as const,
-        sectionMetadata: industryApplications?._section,
+    })
+    .addConditional(
+      !!industryApplications,
+      {
+        component: IndustryApplicationsPanel,
+        props: {
+          applications: industryApplications,
+          entityName: materialName,
+          variant: 'materials' as const,
+          sectionMetadata: industryApplications?._section,
+        }
       }
-    },
-    {
-      component: FAQPanel,
-      condition: !!faq && (typeof faq === 'string' ? faq.length > 0 : faq.length > 0),
-      props: {
-        faq: faq,
-        entityName: materialName,
-        variant: 'faq' as const,
-        sectionTitle: (metadata as any)?.faq?._section?.sectionTitle,
-        sectionDescription: (metadata as any)?.faq?._section?.sectionDescription,
+    )
+    .addConditional(
+      !!faq && (typeof faq === 'string' ? faq.length > 0 : faq.length > 0),
+      {
+        component: FAQPanel,
+        props: {
+          faq: faq,
+          entityName: materialName,
+          variant: 'faq' as const,
+          sectionTitle: (metadata as any)?.faq?._section?.sectionTitle,
+          sectionDescription: (metadata as any)?.faq?._section?.sectionDescription,
+        }
       }
-    },
-    {
-      component: RelatedMaterials,
-      condition: relationships?.discovery?.relatedMaterials?._section?.sectionTitle,
-      props: {
-        currentSlug: slug,
-        category,
-        subcategory,
-        maxItems: 6,
-        sectionTitle: relationships?.discovery?.relatedMaterials?._section?.sectionTitle || 'Related Materials',
-        sectionDescription: relationships?.discovery?.relatedMaterials?._section?.sectionDescription,
+    )
+    .addConditional(
+      relationships?.discovery?.relatedMaterials?._section?.sectionTitle,
+      {
+        component: RelatedMaterials,
+        props: {
+          currentSlug: slug,
+          category,
+          subcategory,
+          maxItems: 6,
+          sectionTitle: relationships?.discovery?.relatedMaterials?._section?.sectionTitle || 'Related Materials',
+          sectionDescription: relationships?.discovery?.relatedMaterials?._section?.sectionDescription,
+        }
       }
-    },
-    // Contaminant cards - complete data from frontmatter denormalization
-    {
-      component: CardGrid,
-      condition: contaminatedBy.length > 0,
-      props: {
-        items: contaminatedBy.map((item: any) => ({
-          href: item.url,
-          slug: item.id,
-          imageUrl: item.image,
-          title: item.name,
-          category: item.category,
-          subcategory: item.subcategory,
-          frequency: item.frequency,
-          severity: item.severity,
-        })),
-        title: relationships?.interactions?.contaminatedBy?._section?.sectionTitle,
-        description: relationships?.interactions?.contaminatedBy?._section?.sectionDescription,
-        icon: relationships?.interactions?.contaminatedBy?._section?.icon,
-        variant: 'relationship' as const,
-        columns: 3,
-      }
-    },
-    // Dataset downloader at bottom
-    {
+    )
+    // Use consolidated relationship CardGrid builder
+    .addRelationshipCardGrid(
+      relationships,
+      'interactions',
+      'contaminatedBy',
+      'contaminant',
+      materialName || ''
+    )
+    .addComponent({
       component: MaterialDatasetDownloader,
       props: {
         materialName,
@@ -168,13 +164,12 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         regulatoryStandards: regulatoryStandards,
         showFullDataset: true,
       }
-    },
-    // ScheduleCards MUST be last section for all layouts
-    {
+    })
+    .addComponent({
       component: ScheduleCards,
       props: {}
-    },
-  ];
+    })
+    .build();
   
   return (
     <BaseContentLayout

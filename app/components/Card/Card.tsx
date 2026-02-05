@@ -159,7 +159,7 @@ export function MaterialCard({
         
         {/* Relationship Card - Metadata display OR Standard Material Card - Image with overlay */}
         <div className={`relative w-full h-full bg-secondary`}>
-          {variant === 'relationship' && relationshipData ? (
+          {variant === 'relationship' && relationshipData && relationshipData.items?.length > 0 ? (
             /* Relationship metadata display */
             <div className="absolute-inset flex flex-col justify-center items-center p-4 bg-tertiary">
               <div className="w-full space-y-2">

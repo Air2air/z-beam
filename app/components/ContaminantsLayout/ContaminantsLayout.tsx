@@ -1,22 +1,23 @@
 // app/components/ContaminantsLayout/ContaminantsLayout.tsx
 // Specialized layout for contaminant pages using consolidated BaseContentLayout
+// Refactored Feb 4, 2026 to use consolidated relationship utilities
 
 import React from 'react';
 import { BaseContentLayout } from '../BaseContentLayout';
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { ScheduleCards } from '../Schedule/ScheduleCards';
-import { CardGrid } from '../CardGrid';
 import { SafetyDataPanel } from '../SafetyDataPanel/SafetyDataPanel';
 import { DescriptiveDataPanel } from '../DescriptiveDataPanel';
 import { Collapsible } from '../Collapsible';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import ContaminantDatasetDownloader from '../Dataset/ContaminantDatasetDownloader';
-import type { ContaminantsLayoutProps, SectionConfig } from '@/types';
+import { SectionConfigBuilder } from '@/app/utils/sectionConfigBuilder';
+import type { ContaminantsLayoutProps } from '@/types';
 
 /**
- * Denormalized compound item structure
- * After backend denormalization, each compound will have all required fields
+ * Denormalized compound item structure (legacy - use types/relationships.ts)
+ * @deprecated Use CompoundRelationshipItem from @/types
  */
 interface DenormalizedCompoundItem {
   id: string;
@@ -32,8 +33,8 @@ interface DenormalizedCompoundItem {
 }
 
 /**
- * Denormalized material item structure (Phase 2)
- * After backend denormalization, each material will have all 8 required fields
+ * Denormalized material item structure (legacy - use types/relationships.ts)
+ * @deprecated Use MaterialRelationshipItem from @/types
  */
 interface DenormalizedMaterialItem {
   id: string;
@@ -64,119 +65,96 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items || [];
   const safetyData = relationships?.safety || {};
   
-  // Relationship data - complete from frontmatter
-  const producesCompounds = relationships?.interactions?.producesCompounds?.items || [];
-  const affectsMaterials = relationships?.interactions?.affectsMaterials?.items || [];
+  // Relationship data - extracted via accessors (no longer needed individually)
   const visualCharacteristics = relationships?.descriptive?.visualCharacteristics || {};
   const laserProperties = relationships?.technical?.laserProperties || {};
 
-  // Configure sections for BaseContentLayout
-  const sections: SectionConfig[] = [
-    // Relationship cards for produces_compounds (interactions.produces_compounds or technical.produces_compounds)
-    {
-      component: CardGrid,
-      condition: producesCompounds.length > 0,
-      props: {
-        items: (producesCompounds as DenormalizedCompoundItem[]).map(c => ({
-          slug: c.id,
-          href: c.url,
-          title: c.title,
-          imageUrl: c.image,
-          imageAlt: c.title,
-          category: c.category,
-          metadata: {
-            phase: c.phase,
-            hazard_level: c.hazardLevel,
+  // Build sections using consolidated builder pattern
+  const sections = new SectionConfigBuilder()
+    // Use consolidated relationship CardGrid builder for compounds
+    .addRelationshipCardGrid(
+      relationships,
+      'interactions',
+      'producesCompounds',
+      'compound',
+      contaminantName
+    )
+    .addConditional(
+      !!safetyData,
+      {
+        component: SafetyDataPanel,
+        props: { 
+          safetyData,
+          compounds: [],
+          collapsible: true,
+          entityName: contaminantName
+        }
+      }
+    )
+    .addConditional(
+      regulatoryStandards.length > 0,
+      {
+        component: RegulatoryStandards,
+        props: {
+          standards: regulatoryStandards,
+          heroImage,
+          thumbnailLink,
+        }
+      }
+    )
+    // Use consolidated relationship CardGrid builder for materials
+    .addRelationshipCardGrid(
+      relationships,
+      'interactions',
+      'affectsMaterials',
+      'material',
+      contaminantName
+    )
+    .addConditional(
+      !!industryApplications,
+      {
+        component: IndustryApplicationsPanel,
+        props: {
+          applications: industryApplications,
+          entityName: contaminantName,
+          variant: 'contaminants' as const,
+        }
+      }
+    )
+    .addConditional(
+      !!visualCharacteristics,
+      {
+        component: visualCharacteristics?.presentation === 'descriptive' ? Collapsible : DescriptiveDataPanel,
+        props: {
+          items: visualCharacteristics?.items || [],
+          sectionMetadata: {
+            ...visualCharacteristics?.frontmatter,
+            title: `Visual characteristics of ${contaminantName}`,
           },
-        })),
-        title: relationships?.interactions?.producesCompounds?._section?.sectionTitle || `Compounds produced by ${contaminantName}`,
-        description: relationships?.interactions?.producesCompounds?._section?.sectionDescription || `Hazardous compounds produced during laser cleaning of ${contaminantName}`,
-        icon: relationships?.interactions?.producesCompounds?._section?.icon,
-        variant: 'relationship' as const,
+        }
       }
-    },
-    {
-      component: SafetyDataPanel,
-      condition: !!safetyData,
-      props: { 
-        safetyData,
-        compounds: [], // Compounds now rendered by dedicated CardGrid section above
-        collapsible: true,
-        entityName: contaminantName
+    )
+    .addConditional(
+      !!laserProperties,
+      {
+        component: DescriptiveDataPanel,
+        props: {
+          items: laserProperties?.items || [],
+          sectionMetadata: laserProperties?.frontmatter,
+        }
       }
-    },
-    {
-      component: RegulatoryStandards,
-      condition: regulatoryStandards.length > 0,
-      props: {
-        standards: regulatoryStandards,
-        heroImage,
-        thumbnailLink,
+    )
+    .addConditional(
+      process.env.NODE_ENV === 'development',
+      {
+        component: RelationshipsDump,
+        props: {
+          relationships,
+          entityName: contaminantName,
+        }
       }
-    },
-    // Relationship cards for found_on_materials
-    {
-      component: CardGrid,
-      condition: affectsMaterials.length > 0,
-      props: {
-        items: (affectsMaterials as DenormalizedMaterialItem[]).map(m => ({
-          slug: m.id,
-          href: m.url,
-          title: m.name,
-          imageUrl: m.image,
-          imageAlt: m.name,
-          category: m.category,
-          metadata: {
-            frequency: m.frequency,
-            difficulty: m.difficulty,
-          },
-        })),
-        title: relationships?.interactions?.affectsMaterials?._section?.sectionTitle || `Materials affected by ${contaminantName}`,
-        description: relationships?.interactions?.affectsMaterials?._section?.sectionDescription || `Materials where ${contaminantName} commonly appears`,
-        icon: relationships?.interactions?.affectsMaterials?._section?.icon,
-        variant: 'relationship' as const,
-      }
-    },
-    {
-      component: IndustryApplicationsPanel,
-      condition: !!industryApplications,
-      props: {
-        applications: industryApplications,
-        entityName: contaminantName,
-        variant: 'contaminants' as const,
-      }
-    },
-    // Visual characteristics - collapsible or descriptive based on presentation
-    {
-      component: visualCharacteristics?.presentation === 'descriptive' ? Collapsible : DescriptiveDataPanel,
-      condition: !!visualCharacteristics,
-      props: {
-        items: visualCharacteristics?.items || [],
-        sectionMetadata: {
-          ...visualCharacteristics?.frontmatter,
-          title: `Visual characteristics of ${contaminantName}`,
-        },
-      }
-    },
-    {
-      component: DescriptiveDataPanel,
-      condition: !!laserProperties,
-      props: {
-        items: laserProperties?.items || [],
-        sectionMetadata: laserProperties?.frontmatter,
-      }
-    },
-    // DUMP ALL RELATIONSHIPS FOR ANALYSIS (development only)
-    {
-      component: RelationshipsDump,
-      condition: () => process.env.NODE_ENV === 'development',
-      props: {
-        relationships,
-        entityName: contaminantName,
-      }
-    },
-    // Dataset downloader at bottom
-    {
+    )
+    .addComponent({
       component: ContaminantDatasetDownloader,
       props: {
         contaminantName,
@@ -192,13 +170,12 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
         regulatoryStandards: (metadata as any)?.regulatoryStandards || relationships?.regulatory_standards,
         showFullDataset: true,
       }
-    },
-    // ScheduleCards MUST be last section for all layouts
-    {
+    })
+    .addComponent({
       component: ScheduleCards,
       props: {}
-    },
-  ];
+    })
+    .build();
   
   return (
     <BaseContentLayout

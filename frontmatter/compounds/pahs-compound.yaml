@@ -1,17 +1,25 @@
 id: pahs-compound
-contentType: compound
-schemaVersion: 6.0.0
 name: Polycyclic Aromatic Hydrocarbons
+displayName: Polycyclic Aromatic Hydrocarbons Compound
 category: carcinogen
 subcategory: aromatic_hydrocarbon
-datePublished: '2026-01-06'
-dateModified: '2026-01-22T00:31:50.092227+00:00'
-description: >-
-  Pahs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:43:55.900052+00:00'
+contentType: compound
+schemaVersion: 5.0.0
+fullPath: /compounds/carcinogen/aromatic-hydrocarbon/pahs-compound
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Carcinogen
+  href: /compounds/carcinogen
+- label: Aromatic Hydrocarbon
+  href: /compounds/carcinogen/aromatic-hydrocarbon
+pageTitle: Polycyclic Aromatic Hydrocarbons Compound
+pageDescription: Pahs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective equipment
   requirements.
-meta:
-  title: Polycyclic Aromatic Hydrocarbons
-  path: /compounds/carcinogen/aromatic_hydrocarbon/pahs-compound
 images:
   hero:
     url: /images/compound/pahs-compound-hero.jpg
@@ -23,45 +31,374 @@ images:
     alt: Polycyclic Aromatic Hydrocarbons microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 3
-properties:
-  formula: Various
-  casNumber: N/A
-  molecularWeight: 128.17
-  phase: unknown
-  hazardClass: carcinogenic
-safety:
-  exposureLimit: null
-  unit: ppm
-  hazardLevel: unknown
-  symptoms: []
-  firstAid: >-
-    If someone encounters polycyclic aromatic hydrocarbons through skin contact, rinse the affected area thoroughly
-    under running water using mild soap right away. Pat dry gently afterward to avoid irritation. 
-
-
-    For eye exposure, flush both eyes continuously with lukewarm water for several minutes, holding the eyelids open to
-    ensure full coverage. Seek immediate medical evaluation, as these compounds can linger and cause ongoing harm. 
-
-
-    Breathing in fumes or dust from PAHs demands fresh air exposure without delay—move the person to a well-ventilated
-    spot and loosen any tight clothing around the neck or chest. Monitor for breathing difficulties. 
-
-
-    In case of swallowing, do not try to induce vomiting, which could worsen internal damage. Offer sips of water if
-    conscious and alert, then contact poison control or rush to emergency services. These substances act as carcinogens,
-    so professional treatment is crucial every time, even if symptoms seem mild at first. Always prioritize calling for
-    expert help over home remedies alone.
-physical:
-  boilingPoint: null
-  meltingPoint: null
-  density: null
-  solubility: null
 relationships:
-  contaminants:
-    producedBy: []
-  materials:
-    affectsCorrosion: []
-    affectsHealth: []
-pageTitle: Polycyclic Aromatic Hydrocarbons
-pageDescription: Polycyclic Aromatic Hydrocarbons laser cleaning guide. Technical specifications and applications.
+  identity:
+    chemicalProperties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: pahs-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+  safety:
+    healthEffects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation and increased risk of lung cancer
+        severity: high
+        onset: long-term
+      - route: skin_contact
+        effect: Skin irritation, dermatitis, and potential for skin cancer
+        severity: moderate
+        onset: short-term
+      - route: eye_contact
+        effect: Eye irritation and conjunctivitis
+        severity: low
+        onset: immediate
+      - route: ingestion
+        effect: Gastrointestinal upset and systemic toxicity leading to cancer risk
+        severity: high
+        onset: long-term
+      _section:
+        icon: heart-pulse
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        order: 5
+        variant: default
+    ppeRequirements:
+      presentation: descriptive
+      items:
+      - type: ppe_requirements
+        id: particulate-carcinogen
+        overrides:
+          specificCompound: Polycyclic Aromatic Hydrocarbons
+          pelPpm: null
+      _section:
+        icon: shield-check
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        order: 10
+        variant: default
+    emergencyResponse:
+      presentation: descriptive
+      items:
+      - type: emergency_response
+        id: flammable-gas-extremely
+        overrides:
+          specificCompound: Polycyclic Aromatic Hydrocarbons
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for handling emergencies involving this compound
+        order: 15
+        variant: default
+    exposureLimits:
+      presentation: descriptive
+      items:
+      - oshaPelPpm: null
+        oshaPelMgM3: 0.2
+        nioshRelPpm: null
+        nioshRelMgM3: 0.1
+        acgihTlvPpm: null
+        acgihTlvMgM3: 0.2
+      _section:
+        icon: gauge
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 20
+        variant: default
+  environmental:
+    environmentalImpact:
+      presentation: descriptive
+      items:
+      - type: environmental_impact
+        id: pahs-environmental-data
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Environmental hazards, ecological effects, and disposal considerations
+        icon: leaf
+        order: 1
+        variant: warning
+  detectionMonitoring:
+    detectionMonitoring:
+      presentation: descriptive
+      items:
+      - type: detectionMonitoring
+        id: pahs-monitoring-methods
+      _section:
+        sectionTitle: Monitoring Systems
+        sectionDescription: Real-time monitoring equipment and workplace air sampling methods
+        icon: activity
+        order: 2
+        variant: default
+  interactions:
+    producedFromContaminants:
+      presentation: card
+      items:
+      - id: carbon-buildup-contamination
+        name: Carbon Deposit Buildup
+        title: Carbon Deposit Buildup
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-buildup-contamination
+        image: /images/contaminant/carbon-buildup-contamination-hero.jpg
+        description: ''
+        frequency: very_common
+        severity: high
+        typicalContext: Vaporization and reformation of existing PAHs
+      - id: carbon-soot-contamination
+        name: Carbon Soot Deposits
+        title: Carbon Soot Deposits
+        category: organic-residue
+        subcategory: other
+        url: /contaminants/organic-residue/other/carbon-soot-contamination
+        image: /images/contaminant/carbon-soot-contamination-hero.jpg
+        description: ''
+        frequency: very_common
+        severity: high
+        typicalContext: Pre-existing PAHs from incomplete combustion
+      - id: fire-damage-contamination
+        name: Fire and Smoke Damage
+        title: Fire and Smoke Damage
+        category: thermal-damage
+        subcategory: fire
+        url: /contaminants/thermal-damage/fire/fire-damage-contamination
+        image: /images/contaminant/fire-damage-contamination-hero.jpg
+        description: ''
+        frequency: very_common
+        severity: high
+        typicalContext: Pre-existing PAHs from fire events
+      - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
+        frequency: common
+        severity: high
+        typicalContext: Pyrolysis produces PAHs
+      - id: paint-residue-contamination
+        name: Paint Residue / Coating Failure
+        title: Paint Residue / Coating Failure Laser Cleaning
+        category: inorganic-coating
+        subcategory: paint
+        url: /contaminants/inorganic-coating/paint/paint-residue-contamination
+        image: /images/contaminant/paint-residue-contamination-hero.jpg
+        description: ''
+        frequency: common
+        severity: moderate
+        typicalContext: Incomplete combustion of organic binders
+      - id: plastic-residue-contamination
+        name: Degraded Polymer Deposits
+        title: Degraded Polymer Deposits
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/plastic-residue-contamination
+        image: /images/contaminant/plastic-residue-contamination-hero.jpg
+        description: ''
+        frequency: common
+        severity: moderate
+        typicalContext: Thermal degradation of aromatic polymers
+      - id: bitumen-tar-contamination
+        name: Bitumen and Tar Coatings
+        title: Bitumen and Tar Coatings
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/bitumen-tar-contamination
+        image: /images/contaminant/bitumen-tar-contamination-hero.jpg
+        description: ''
+        frequency: very_common
+        severity: high
+        typicalContext: Bitumen is rich in PAHs
+      - id: exhaust-residue-contamination
+        name: Exhaust System Deposits
+        title: Exhaust System Deposits
+        category: thermal-damage
+        subcategory: fire
+        url: /contaminants/thermal-damage/fire/exhaust-residue-contamination
+        image: /images/contaminant/exhaust-residue-contamination-hero.jpg
+        description: ''
+        frequency: unknown
+        severity: high
+        typicalContext: Laser removal of Exhaust System Deposits
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+author:
+  id: 3
+  name: Ikmanda Roswati
+  country: Indonesia
+  countryDisplay: Indonesia
+  title: Ph.D.
+  sex: m
+  jobTitle: Junior Research Scientist in Laser Physics
+  expertise:
+  - Ultrafast Laser Physics and Material Interactions
+  affiliation:
+    name: Bandung Institute of Technology
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Physics, ITB, 2020
+  - 2+ years in ultrafast laser research including ASEAN optics workshops
+  - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
+  email: info@z-beam.com
+  image: /images/author/ikmanda-roswati.jpg
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
+  url: https://z-beam.com/authors/ikmanda-roswati
+  sameAs:
+  - https://linkedin.com/in/ikmanda-roswati-physicist
+  - https://www.academia.edu/profile/IkmandaRoswati
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
+  slug: ikmanda-roswati
+card:
+  default:
+    heading: Polycyclic Aromatic Hydrocarbons
+    subtitle: carcinogen / aromatic_hydrocarbon
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: flask
+  contaminationContext:
+    heading: Polycyclic Aromatic Hydrocarbons
+    subtitle: Emission Product
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: N/A
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: alert-triangle
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I best protect myself from PAH exposure during the process?
+    content: Always prioritize engineering controls like local exhaust ventilation or fume extractors positioned near the
+      laser work area to capture PAH vapors and particulates at the source, reducing inhalation risks in industrial settings.
+      Wear appropriate personal protective equipment, including a NIOSH-approved respirator with organic vapor cartridges,
+      nitrile gloves, and protective eyewear, especially when cleaning surfaces that may release PAHs from organic residues
+      or coatings. Monitor air quality regularly with real-time detectors for PAHs, and ensure exposure stays below OSHA's
+      permissible limits (e.g., 0.2 mg/m³ for coal tar pitch volatiles as a proxy), stopping work if levels approach thresholds.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+hazardClass: carcinogenic
+chemicalFormula: Various
+casNumber: N/A
+molecularWeight: 128.17
+healthEffects: 'When working with PAHs in industrial settings, prioritize ventilation right away to minimize inhalation risks.
+  These compounds tend to release vapors during processing, and that exposure can lead to serious long-term health issues
+  over time. I''ve handled them in coating applications, where the key is keeping direct contact to a minimum because they
+  absorb into the skin easily, potentially causing irritation or worse cellular damage.
+
+
+  In laser cleaning scenarios, the heat can volatilize PAHs from surfaces like contaminated metals, so you must seal off the
+  area completely. This prevents the fine particles from becoming airborne, which they''ve done in my past setups, leading
+  to respiratory irritation for anyone nearby without proper masks. What works best is integrating a full containment system
+  from the start, allowing the process to break down residues without scattering them further. Avoid rushing the cool-down
+  phase, as residual compounds linger and heighten absorption chances through unprotected skin. Overall, treating PAHs demands
+  that cautious approach to dodge their well-known carcinogenic effects in prolonged use.'
+healthEffectsKeywords:
+- lung_cancer
+- skin_cancer
+- mutagenic
+- reproductive_toxicity
+exposureGuidelines: While many industrial compounds offer straightforward handling routines, PAHs stand out due to their persistent
+  nature in environments and strong links to health risks like cancer, demanding stricter precautions that set them apart
+  from less reactive materials and ultimately protect workers over long-term operations. In settings where PAHs appear in
+  fuels, coatings, or manufacturing byproducts, guidelines emphasize enclosing processes to curb airborne spread, pairing
+  this with routine air monitoring that flags any unusual buildup without waiting for symptoms to emerge. Personal defenses
+  ramp up too—think full-body suits, respirators fitted for particulates, and gloves that resist permeation—ensuring skin
+  and lungs stay shielded during mixing or cleanup tasks, a step that contrasts sharply with milder solvents requiring only
+  basic ventilation. For laser cleaning applications, where PAHs might cling to surfaces like rusted metal or stained stone,
+  operators must isolate beams in ventilated booths to avoid vaporizing residues into breathable haze, following up with decontamination
+  washes that neutralize traces before resuming work. Training sessions drill home the carcinogen angle, urging immediate
+  medical checks for any suspected contact and prohibiting eating or smoking near sites, habits that could amplify risks in
+  ways simpler compounds rarely do. Overall, these measures foster safer industrial flows by prioritizing containment and
+  awareness, turning potential hazards into managed elements of production.
+detectionMethods: 'PAHs stand out for their stubborn grip on surfaces, making detection a puzzle in polluted environments.
+  Spotting these compounds often relies on how they glow under certain lights, a trait that fluorescence techniques exploit
+  cleverly. Imagine shining a specific wavelength to make hidden contaminants light up like neon signs in the dark—quick and
+  non-destructive for quick field checks.
+
+
+  Gas chromatography pairs up with mass spectrometry to separate and identify these tricky molecules based on their unique
+  fragmentation patterns. It''s like sorting puzzle pieces by shape and weight, ideal for air or soil samples in industrial
+  zones where PAHs sneak into the mix from burning fuels or manufacturing runoff.
+
+
+  Infrared spectroscopy picks up on their vibrational signatures, revealing molecular fingerprints without needing to touch
+  the sample. This method shines in labs monitoring factory emissions, helping pinpoint sources before they spread.
+
+
+  For laser cleaning scenarios, techniques like laser-induced breakdown spectroscopy zap tiny spots to create plasma sparks,
+  analyzing the emitted light for PAH clues. It''s precise for stripping away grime from historical artifacts or machinery
+  while simultaneously detecting embedded carcinogens, blending cleanup with safety scans.
+
+
+  Electrochemical sensors offer portable options, detecting PAHs through electrical signals when they interact with electrodes.
+  Handy for on-site industrial inspections, they alert workers to contamination risks without bulky gear.
+
+
+  Overall, these approaches leverage the compounds'' aromatic nature and reactivity, ensuring early warnings in applications
+  from environmental cleanup to urban air quality control.'
+firstAid: "If someone encounters polycyclic aromatic hydrocarbons through skin contact, rinse the affected area thoroughly\
+  \ under running water using mild soap right away. Pat dry gently afterward to avoid irritation. \n\nFor eye exposure, flush\
+  \ both eyes continuously with lukewarm water for several minutes, holding the eyelids open to ensure full coverage. Seek\
+  \ immediate medical evaluation, as these compounds can linger and cause ongoing harm. \n\nBreathing in fumes or dust from\
+  \ PAHs demands fresh air exposure without delay—move the person to a well-ventilated spot and loosen any tight clothing\
+  \ around the neck or chest. Monitor for breathing difficulties. \n\nIn case of swallowing, do not try to induce vomiting,\
+  \ which could worsen internal damage. Offer sips of water if conscious and alert, then contact poison control or rush to\
+  \ emergency services. These substances act as carcinogens, so professional treatment is crucial every time, even if symptoms\
+  \ seem mild at first. Always prioritize calling for expert help over home remedies alone."
+ppeRequirements: Handling PAHs demands solid PPE setup, especially since these compounds stick around in materials like coatings
+  or residues from industrial processes. Gloves made of nitrile or neoprene keep hands safe from skin contact, as PAHs can
+  seep through thinner barriers. Full-body suits, the kind that cover everything without gaps, shield against splashes or
+  vapors during mixing or application tasks. Respirators fitted with organic vapor cartridges filter out those fine particles
+  and fumes—crucial when you're dealing with heated materials where PAHs volatilize easily. Eye protection like sealed goggles
+  prevents irritation from any airborne bits, and boot covers stop tracking contaminants around. In laser cleaning scenarios,
+  where high-energy beams strip PAHs from surfaces like metal or stone, add flame-resistant layers to the suit to handle potential
+  sparks or heat buildup nearby. Always layer up like this to minimize exposure risks, drawing from jobsites where skipping
+  even one piece led to health headaches down the line. Avoid cotton-based gear; it absorbs too readily and turns into a hazard
+  itself.
+monitoringRequired: true
+typicalConcentrationRange: 0.1-2 mg/m³
+sourcesInLaserCleaning:
+- organic_material_incomplete_combustion
+- carbon_rich_contamination
+- high_temperature_pyrolysis
+title: Polycyclic Aromatic Hydrocarbons

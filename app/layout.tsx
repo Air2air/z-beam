@@ -36,7 +36,7 @@ const CookieConsent = dynamic(() => import("./components/CookieConsent").then(mo
   ssr: false,
   loading: () => null,
 });
-import { SITE_CONFIG } from "./utils/constants";
+import { SITE_CONFIG } from "./config/site";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { schemaRegistry } from "./utils/schemas/registry";
 import { Suspense } from 'react';

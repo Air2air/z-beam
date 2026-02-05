@@ -1,22 +1,30 @@
 id: grease-deposits-contamination
-contentType: contaminant
-schemaVersion: 6.0.0
 name: Heavy Machinery Grease
+displayName: Heavy Machinery Grease Contaminants
 category: organic-residue
 subcategory: petroleum
-datePublished: '2026-01-06'
-dateModified: '2026-02-02T02:25:20.638377+00:00'
-description: >-
-  Grease deposits contamination poses a tough challenge in laser cleaning setups. These organic residues build up in
-  uneven, sticky layers on surfaces like metals or machinery parts. They form through repeated exposure to oils and
-  lubricants, often seeping into cracks and holding on tightly. In practice, this creates unique patterns—think patchy
-  films that resist even blasts from lasers. Removal turns out tricky because grease absorbs energy unevenly, sometimes
-  carbonizing instead of clearing away cleanly. On steel, it typically burns off with a solid finish, but on aluminum,
-  it demands dialed-in pulses to avoid spreading residue. Overall, operators must work out material-specific strategies
-  to cut down on rework and achieve reliable results.
-meta:
-  title: Heavy Machinery Grease
-  path: /contaminants/organic-residue/petroleum/grease-deposits-contamination
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:43:14.444678+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/organic-residue/petroleum/grease-deposits-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Petroleum
+  href: /contaminants/organic-residue/petroleum
+pageTitle: Heavy Machinery Grease Contaminants
+pageDescription: Grease deposits contamination poses a tough challenge in laser cleaning setups. These organic residues build
+  up in uneven, sticky layers on surfaces like metals or machinery parts. They form through repeated exposure to oils and
+  lubricants, often seeping into cracks and holding on tightly. In practice, this creates unique patterns—think patchy films
+  that resist even blasts from lasers. Removal turns out tricky because grease absorbs energy unevenly, sometimes carbonizing
+  instead of clearing away cleanly. On steel, it typically burns off with a solid finish, but on aluminum, it demands dialed-in
+  pulses to avoid spreading residue. Overall, operators must work out material-specific strategies to cut down on rework and
+  achieve reliable results.
 images:
   hero:
     url: /images/contaminant/grease-deposits-contamination-hero.jpg
@@ -28,190 +36,505 @@ images:
     alt: Heavy Machinery Grease microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 4
-properties:
-  validMaterials:
-    - aluminum-laser-cleaning
-    - cast-iron-laser-cleaning
-    - iron-laser-cleaning
-    - steel-laser-cleaning
-  prohibitedMaterials:
-    - Nylon
-    - Plastics
-    - Wood
-composition:
-  - Mineral Oil
-  - Lithium Soap
-  - PTFE
-laser:
-  wavelength:
-    - 1064
-    - 532
-  fluence:
-    min: 0.8
-    max: 1.4
-    optimal: 1.1
-  pulseWidth:
-    min: 50
-    max: 200
-    optimal: 100
-  scanSpeed:
-    min: 500
-    max: 2000
-    optimal: 1000
-  passes:
-    optimal: 2
-    maxEffective: 3
-    efficiency: 0.85
-  thermal:
-    ablationThreshold: 0.8
-    decomposition: 350
-    vaporization: 450
-safety:
-  fireRisk: moderate
-  toxicGas: high
-  ppe:
-    respiratory: PAPR
-    eye: goggles
-    skin: full_suit
-  compounds:
-    - id: acrolein-compound
-      phase: gas
-      hazard: toxic
-      concentration: 2.5
-      limit: 0.23
-    - id: formaldehyde-compound
-      phase: gas
-      hazard: carcinogenic
-      concentration: 1.8
-      limit: 0.37
-    - id: benzene-compound
-      phase: gas
-      hazard: carcinogenic
-      concentration: 0.9
-      limit: 0.32
-    - id: toluene-compound
-      phase: gas
-      hazard: toxic
-      concentration: 3.2
-      limit: 75
-    - id: polycyclic-aromatic-hydrocarbons-(pahs)-compound
-      phase: gas
-      hazard: carcinogenic
-      concentration: 1.1
-      limit: 0.2
-    - id: carbon-monoxide-compound
-      phase: gas
-      hazard: toxic
-      concentration: 15
-      limit: 29
-  ventilation:
-    airChanges: 12
-    velocity: 0.5
-    filter: carbon
-appearance:
-  ceramic:
-    color: dark
-    texture: smooth
-    pattern: spots-streaks
-    coverage: light-localized
-  composite:
-    color: dark
-    texture: sticky
-    pattern: irregular-patches
-    coverage: uneven-partial
-  concrete:
-    color: dark
-    texture: unknown
-    pattern: irregular-spots
-    coverage: unknown
-  fabric:
-    color: dark
-    texture: unknown
-    pattern: unknown
-    coverage: localized
-  glass:
-    color: unknown
-    texture: unknown
-    pattern: streaks
-    coverage: minimal-uneven
-  metal:
-    color: dark-brown-black
-    texture: sticky
-    pattern: irregular-streaks
-    coverage: partial
-  mineral:
-    color: dark
-    texture: unknown
-    pattern: spots
-    coverage: uneven
-  plastic:
-    color: dark
-    texture: unknown
-    pattern: patches-uniform
-    coverage: unknown
-  rubber:
-    color: dark
-    texture: unknown
-    pattern: patches-uniform
-    coverage: light-heavy
-  semiconductor:
-    color: unknown
-    texture: unknown
-    pattern: spots-uniform
-    coverage: minimal
-  specialty:
-    color: dark
-    texture: sticky
-    pattern: spots-streaks
-    coverage: minimal-uneven
-  stone:
-    color: dark
-    texture: unknown
-    pattern: irregular-spots
-    coverage: unknown
-  wood:
-    color: dark
-    texture: unknown
-    pattern: localized-spots
-    coverage: uneven-minimal
 relationships:
-  materials:
-    common:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety regulations and compliance standards for this contaminant
+        icon: shield-check
+        order: 20
+        variant: default
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Fire & Explosion Risk
+        sectionDescription: Fire and explosion hazards during laser cleaning
+        icon: flame
+        order: 21
+        variant: warning
+    fumesGenerated:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Fumes Generated
+        sectionDescription: Hazardous fumes produced during laser removal
+        icon: cloud
+        order: 22
+        variant: warning
+    particulateGeneration:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Particulate Generation
+        sectionDescription: Airborne particles and dust created during cleaning
+        icon: wind
+        order: 23
+        variant: warning
+    ppeRequirements:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: PPE Requirements
+        sectionDescription: Required personal protective equipment
+        icon: shield
+        order: 24
+        variant: default
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Toxic Gas Risk
+        sectionDescription: Toxic gases that may be released during removal
+        icon: alert-triangle
+        order: 25
+        variant: danger
+    ventilationRequirements:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Ventilation Requirements
+        sectionDescription: Required ventilation and air filtration systems
+        icon: wind
+        order: 26
+        variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Visibility Hazard
+        sectionDescription: Smoke and debris affecting operator visibility
+        icon: eye-off
+        order: 27
+        variant: warning
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+  interactions:
+    producesCompounds:
+      presentation: card
+      items:
+      - id: carbon-dioxide-compound
+        title: Carbon Dioxide
+        name: Carbon Dioxide
+        category: asphyxiant
+        subcategory: simple_asphyxiant
+        url: /compounds/asphyxiant/simple_asphyxiant/carbon-dioxide-compound
+        image: /images/compound/carbon-dioxide-compound-hero.jpg
+        description: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      - id: water-vapor-compound
+        title: Water Vapor
+        name: Water Vapor
+        category: vapor
+        subcategory: inert
+        url: /compounds/vapor/inert/water-vapor-compound
+        image: /images/compound/water-vapor-compound-hero.jpg
+        description: Water Vapor Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      - id: carbon-ash-compound
+        title: Carbon Ash
+        name: Carbon Ash
+        category: particulate
+        subcategory: carbon-based
+        url: /compounds/particulate/carbon-based/carbon-ash-compound
+        image: /images/compound/carbon-ash-compound-hero.jpg
+        description: Carbon Ash Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      - id: vocs-compound
+        title: Volatile Organic Compounds
+        name: Volatile Organic Compounds
+        category: irritant
+        subcategory: organic_vapor
+        url: /compounds/irritant/organic_vapor/vocs-compound
+        image: /images/compound/vocs-compound-hero.jpg
+        description: Vocs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      _section:
+        sectionTitle: Produced Compounds
+        sectionDescription: Hazardous compounds produced during laser cleaning
+        icon: flask-conical
+        order: 10
+        variant: warning
+    affectsMaterials:
+      presentation: card
+      items:
       - id: steel-laser-cleaning
+        name: Steel
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/steel-laser-cleaning
+        image: /images/material/steel-laser-cleaning-hero.jpg
+        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
+          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: very_common
         difficulty: moderate
       - id: aluminum-laser-cleaning
+        name: Aluminum
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+        image: /images/material/aluminum-laser-cleaning-hero.jpg
+        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: very_common
         difficulty: moderate
       - id: brass-laser-cleaning
+        name: Brass
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/brass-laser-cleaning
+        image: /images/material/brass-laser-cleaning-hero.jpg
+        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
+          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: very_common
         difficulty: moderate
       - id: bronze-laser-cleaning
+        name: Bronze
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/bronze-laser-cleaning
+        image: /images/material/bronze-laser-cleaning-hero.jpg
+        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
+          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: very_common
         difficulty: moderate
       - id: copper-laser-cleaning
+        name: Copper
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/copper-laser-cleaning
+        image: /images/material/copper-laser-cleaning-hero.jpg
+        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
+          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: very_common
         difficulty: moderate
-    prohibited:
-      - Nylon
-      - Plastics
-      - Wood
-  compounds:
-    produces:
-      - id: carbon-dioxide-compound
-        phase: unknown
-        hazard: unknown
-      - id: water-vapor-compound
-        phase: unknown
-        hazard: unknown
-      - id: carbon-ash-compound
-        phase: unknown
-        hazard: unknown
-      - id: vocs-compound
-        phase: unknown
-        hazard: unknown
-  settings:
-    recommended: []
-pageTitle: Heavy Machinery Grease
-pageDescription: Heavy Machinery Grease laser cleaning guide. Technical specifications and applications.
+      _section:
+        sectionTitle: Affected Materials
+        sectionDescription: Materials where this contaminant commonly appears
+        icon: layers
+        order: 11
+        variant: default
+  visual:
+    appearanceOnCategories:
+      presentation: descriptive
+      items:
+      - appearanceOnCategories:
+          ceramic:
+            appearance: Grease shows as dark, greasy smears with a shiny, wet look and a smooth, oily texture on the glazed
+              surface.
+            coverage: Coverage is generally light and localized, varying from thin films to thicker accumulations in crevices.
+            pattern: It tends to form spots or streaks, particularly around rims or handles, with smearing from use or cleaning.
+          composite:
+            appearance: Grease manifests as dark, greasy areas that may seep into pores, creating a shiny, wet appearance
+              and a sticky feel.
+            coverage: Coverage is usually uneven and partial, with variations based on composite porosity and exposure levels.
+            pattern: It typically appears as irregular patches or streaks, influenced by the material's texture and fiber
+              orientation.
+          concrete:
+            appearance: Grease manifests as dark, oily patches that penetrate the porous surface, creating a glossy, damp
+              look and a slick feel.
+            coverage: Coverage is generally patchy and low to moderate, varying with concrete texture and exposure to spills.
+            pattern: It forms irregular spots or streaks, often in high-traffic areas, with potential for pooling in cracks
+              or low spots.
+          fabric:
+            appearance: Grease appears as dark, greasy stains that soak into fibers, giving a wet, shiny spot with a oily,
+              stiff texture.
+            coverage: Coverage is typically localized and sparse, limited to contact areas, with high variation in stain intensity.
+            pattern: It usually forms blotches or smears, often with feathering edges, and may spread along weave patterns.
+          glass:
+            appearance: Grease appears as translucent to opaque smudges with a rainbow-like sheen, feeling slick and reducing
+              transparency.
+            coverage: Coverage is usually minimal and uneven, often in small areas like edges or contact points, with high
+              variation.
+            pattern: It commonly forms streaks and fingerprints from handling, or as droplets and smears from splattering.
+          metal:
+            appearance: Grease appears as a thick, dark brown or black coating with a glossy, oily sheen and a sticky, viscous
+              texture.
+            coverage: Coverage is typically partial, varying from thin films on surfaces to thick accumulations in crevices,
+              depending on usage.
+            pattern: It often forms irregular streaks and patches, concentrated around moving parts or joints, with drips
+              and smears from application.
+          mineral:
+            appearance: Grease shows as dark, oily coatings that may fill crevices, giving a shiny, wet appearance and a slippery
+              texture.
+            coverage: Coverage is usually sparse and uneven, dependent on mineral hardness and porosity, often limited to
+              surface contact.
+            pattern: It typically appears as spots or smears, concentrated on exposed surfaces, with minimal spreading on
+              non-porous types.
+          plastic:
+            appearance: Grease appears as dark, oily stains that bead up or spread, giving a glossy finish and a slippery,
+              tacky texture.
+            coverage: Coverage ranges from sparse spots to moderate, even layers, depending on surface smoothness and contact
+              duration.
+            pattern: It often forms droplets, smears, or patches, with potential for uniform thin layers on smooth surfaces.
+          rubber:
+            appearance: Grease shows as dark, oily coatings that can be absorbed, resulting in a glossy, swollen look and
+              a greasy, flexible texture.
+            coverage: Coverage varies from light films to heavy layers, commonly uneven due to rubber's absorbency and movement.
+            pattern: It often forms smears or patches, especially on exposed surfaces, with potential for uniform coverage
+              on flexible parts.
+          semiconductor:
+            appearance: Grease appears as thin, oily films or droplets with a slight sheen, potentially causing hazing and
+              a slick, contaminating texture.
+            coverage: Coverage is minimal and highly variable, typically sparse to avoid interference, but can be uniform
+              in contaminated zones.
+            pattern: It often forms micro-spots or uniform layers, particularly on sensitive areas, with smearing from handling.
+          specialty:
+            appearance: Grease manifests variably, often as dark, greasy marks with a shiny finish and sticky texture, tailored
+              to the material's properties.
+            coverage: Coverage ranges from minimal to moderate, uneven and context-dependent, adapting to the material's unique
+              requirements.
+            pattern: It forms patterns based on application, such as spots or streaks, influenced by the specialty surface
+              characteristics.
+          stone:
+            appearance: Grease manifests as dark, oily patches that contrast with the stone's surface, creating a glossy,
+              wet appearance and a slippery feel.
+            coverage: Coverage is typically patchy and low, confined to exposed areas, and varies with surface porosity and
+              exposure.
+            pattern: It forms irregular spots or smears, often concentrated in depressions or along edges, with potential
+              for runoff patterns.
+          wood:
+            appearance: Grease shows as dark, greasy stains that penetrate the grain, giving a wet, shiny look and a slick,
+              oily texture.
+            coverage: Coverage is generally sparse and uneven, limited to areas of direct contact or spillage, with minimal
+              spread.
+            pattern: It usually appears as localized spots or patches, often with smearing from contact, and may follow the
+              wood grain in streaks.
+      _section:
+        sectionTitle: Visual Appearance
+        sectionDescription: How this contaminant appears on different material categories
+        icon: eye
+        order: 50
+        variant: default
+  operational:
+    laserProperties:
+      presentation: descriptive
+      items:
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.4
+            minJCm2: 0.8
+            recommendedJCm2: 1.1
+          overlapPercentage: 50
+          polarization: circular
+          pulseDurationRange:
+            maxNs: 200
+            minNs: 50
+            recommendedNs: 100
+          repetitionRateKhz:
+            max: 100
+            min: 20
+            recommended: 50
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spotSizeMm:
+            max: 0.2
+            min: 0.05
+            recommended: 0.1
+          wavelengthPreference:
+          - 1064
+          - 532
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 850
+            wavelength355Nm: 18500
+            wavelength532Nm: 4200
+          reflectivity:
+            wavelength1064Nm: 0.12
+            wavelength355Nm: 0.04
+            wavelength532Nm: 0.08
+          refractiveIndex:
+            imaginaryPart: 0.15
+            realPart: 1.48
+          transmissionDepth: 11.8
+        removalCharacteristics:
+          byproducts:
+          - compound: carbon-dioxide
+            hazardLevel: low
+            phase: gas
+          - compound: water-vapor
+            hazardLevel: low
+            phase: gas
+          - compound: carbon-ash
+            hazardLevel: moderate
+            phase: solid
+          - compound: vocs
+            hazardLevel: moderate
+            phase: gas
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 480
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 3
+            optimalPasses: 2
+            singlePass: 0.85
+          secondaryMechanisms:
+          - photochemical
+          - mechanical_spallation
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: none
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: moderate
+            description: Combustible materials present, risk elevated in confined spaces or high-power settings
+            mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
+          fumesGenerated:
+          - compound: Acrolein
+            concentrationMgM3: 2.5
+            exposureLimitMgM3: 0.23
+            hazardClass: toxic
+          - compound: Formaldehyde
+            concentrationMgM3: 1.8
+            exposureLimitMgM3: 0.37
+            hazardClass: carcinogenic
+          - compound: Benzene
+            concentrationMgM3: 0.9
+            exposureLimitMgM3: 0.32
+            hazardClass: carcinogenic
+          - compound: Toluene
+            concentrationMgM3: 3.2
+            exposureLimitMgM3: 75
+            hazardClass: toxic
+          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+            concentrationMgM3: 1.1
+            exposureLimitMgM3: 0.2
+            hazardClass: carcinogenic
+          - compound: Carbon Monoxide
+            concentrationMgM3: 15
+            exposureLimitMgM3: 29
+            hazardClass: toxic
+          particulateGeneration:
+            respirableFraction: 0.7
+            sizeRangeUm:
+            - 0.1
+            - 10
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: full_suit
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser may cause surface damage or discoloration on certain metals
+          - Potential for substrate heating and thermal stress
+          - Reflective surfaces may create beam hazards
+          toxicGasRisk:
+            severity: high
+            primaryHazards:
+            - compound: Acrolein
+              concentrationMgM3: 2.5
+              hazardClass: toxic
+            - compound: Formaldehyde
+              concentrationMgM3: 1.8
+              hazardClass: carcinogenic
+            - compound: Benzene
+              concentrationMgM3: 0.9
+              hazardClass: carcinogenic
+            - compound: Toluene
+              concentrationMgM3: 3.2
+              hazardClass: toxic
+            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+              concentrationMgM3: 1.1
+              hazardClass: carcinogenic
+            description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Benzene - requires enhanced protection'
+            mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
+              Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: carbon
+            minimumAirChangesPerHour: 12
+            rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with carbon
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 2.5
+            pulseDuration10Ns: 1.2
+            wavelength1064Nm: 0.8
+          decompositionTemperature: 350
+          heatAffectedZoneDepth: 15
+          meltingPoint: null
+          specificHeat: 2000
+          thermalConductivity: 0.15
+          thermalDiffusivity: 0.08
+          vaporizationTemperature: 450
+      _section:
+        sectionTitle: Laser Removal Properties
+        sectionDescription: Laser parameters and removal characteristics
+        icon: zap
+        order: 40
+        variant: default
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+validMaterials:
+- aluminum-laser-cleaning
+- cast-iron-laser-cleaning
+- iron-laser-cleaning
+- steel-laser-cleaning
+composition:
+- Mineral Oil
+- Lithium Soap
+- PTFE
+prohibitedMaterials:
+- Nylon
+- Plastics
+- Wood

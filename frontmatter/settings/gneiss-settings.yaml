@@ -1,18 +1,25 @@
 id: gneiss-settings
-contentType: setting
-schemaVersion: 6.0.0
 name: Gneiss
+displayName: Gneiss Settings
 category: stone
 subcategory: metamorphic
-datePublished: '2026-01-06'
-dateModified: '2026-01-30T02:39:29.791831+00:00'
-description: >-
-  Before laser cleaning, Gneiss surfaces require careful parameter selection After cleaning, Gneiss surfaces show
-  restored appearance with controlled parameters
-meta:
-  title: Gneiss
-  description: Gneiss laser cleaning guide. Technical specifications and applications.
-  path: /settings/stone/metamorphic/gneiss-settings
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:44:42.507578+00:00'
+contentType: setting
+schemaVersion: 5.0.0
+fullPath: /settings/stone/metamorphic/gneiss-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Stone
+  href: /settings/stone
+- label: Metamorphic
+  href: /settings/stone/metamorphic
+pageTitle: Gneiss Settings
+pageDescription: Before laser cleaning, Gneiss surfaces require careful parameter selection After cleaning, Gneiss surfaces
+  show restored appearance with controlled parameters
 images:
   hero:
     url: /images/settings/gneiss-settings-hero.jpg
@@ -24,45 +31,183 @@ images:
     alt: Gneiss microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 4
-machine:
-  power:
-    min: null
-    max: null
-    optimal: null
-    unit: W
-  pulseEnergy:
-    min: null
-    max: null
-    optimal: null
-  frequency:
-    min: 1
-    max: 200
-    optimal: null
-  scanSpeed:
-    min: 10
-    max: 5000
-    optimal: null
-application:
-  thickness:
-    min: null
-    max: null
-  passes:
-    typical: null
-    max: null
-  cooling:
-    required: false
-    method: null
 relationships:
-  materials:
-    optimizedFor: []
-  contaminants:
-    effective:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    removesContaminants:
+      presentation: card
+      items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  regulatory:
-    standards:
-      - osha-ppe-requirements
-      - ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    worksOnMaterials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational:
+    commonChallenges:
+      presentation: descriptive
+      items:
+      - - Requires careful power calibration to prevent material damage
+        - Monitor surface temperature during processing
+        - Verify cleaning effectiveness through inspection
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+card:
+  default:
+    heading: Laser Cleaning Settings
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: default
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
+machineSettings:
+  wavelength:
+    value: 1064
+    unit: nm
+    description: Near-IR wavelength for stone cleaning
+    min: 355
+    max: 10640
+  spotSize:
+    min: 0.1
+    max: 500
+    value: 200
+    unit: μm
+    description: 'Typical beam diameters for precise industrial cleaning; smaller for fine details, larger for broad areas.
+      Recommended 200 μm for Gneiss to ensure uniform coverage on textured surfaces. Source: Equipment specifications from
+      Coherent and Trumpf lasers for stone applications.'
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 2
+    unit: J/cm²
+    description: 'Fluence range for safe contaminant removal; Gneiss damage threshold ~6-8 J/cm² due to high melting point
+      (~1200°C). Recommended 2 J/cm² for effective cleaning below threshold. Conservative estimates for industrial use. Source:
+      Ablation threshold studies in Opt. Express (2017) on metamorphic rocks like Gneiss/granite.'
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 20
+    unit: ns
+    description: 'Nanosecond regime preferred for Gneiss cleaning to ablate contaminants with minimal heat-affected zone (HAZ);
+      picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost—ns sufficient for industrial use. Recommended
+      20 ns avoids excessive heat buildup in low-conductivity Gneiss. Source: Laser physics research in Appl. Surf. Sci. (2019)
+      on stone ablation thresholds.'
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 1500
+    description: 'Range for effective contaminant removal on rocky surfaces; slower for heavy contamination (e.g., rust or
+      oils), faster for light dust. Recommended 1500 mm/s for optimal balance on Gneiss to prevent overheating. Source: Industry
+      standards from Laserax manuals; case studies on granite-like materials in Opt. Lasers Eng. (2020).'
+  passCount:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass for heavy layers; recommended 2 passes for complete removal
+      on Gneiss without risking substrate erosion. Source: Industry practice in cultural heritage cleaning case studies (e.g.,
+      granite analogs) from Restaurators (2019); adaptable to industrial.'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 'Ensures uniform coverage; 60% recommended for Gneiss to avoid gaps on irregular surfaces while minimizing
+      over-processing and heat buildup. Typical range from process optimization. Source: Studies in Laser Ablation and Surf.
+      Process. (2022) on optimizing scan patterns for stones.'
+  laserPower:
+    value: 90
+    unit: W
+    description: Optimal power for stone surface restoration
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 1000
+    value: 200
+    unit: W
+    description: 'Typical range for industrial cleaning of hard stones like Gneiss using 1064 nm lasers to remove contaminants
+      without substrate damage; starting at 200 W balances efficiency and safety. Conservative max to avoid thermal cracking
+      given Gneiss''s low thermal conductivity (~2 W/mK). Source: IPG Photonics equipment specs for stone cleaning; academic
+      review in ''Laser Cleaning of Stone Surfaces'' (J. Appl. Phys., 2018).'
+  frequency:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 50
+    description: 'Typical for pulsed 1064 nm lasers in cleaning; higher rates speed up process but risk heat accumulation
+      on reflective, low-conductivity Gneiss (reflectivity ~20-30% at 1064 nm). Recommended 50 kHz for efficient cleaning
+      without thermal damage. Source: Academic literature in J. Laser Appl. (2021) on rock surface preparation.'
+componentSummary: These settings use moderate power and short 10 ns pulses at 1064 nm to enable precise ablation of contaminants
+  from Gneiss, minimizing thermal damage to its heterogeneous, foliated mineral structure.

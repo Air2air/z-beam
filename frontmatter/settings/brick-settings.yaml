@@ -1,25 +1,31 @@
 id: brick-settings
-contentType: setting
-schemaVersion: 6.0.0
 name: Brick
+displayName: Brick Settings
 category: masonry
 subcategory: general
-datePublished: '2026-01-06'
-dateModified: '2026-01-30T02:39:23.790736+00:00'
-description: >-
-  When laser cleaning brick, start by preparing the surface to account for its porous structure, which can trap
-  contaminants deeply and require multiple passes for thorough removal. You must begin with lower power settings to
-  match its moderate thermal conductivity, ensuring heat stays localized without spreading to cause uneven expansion or
-  micro-cracks in the brittle matrix. As you adjust the scan speed, keep it steady to leverage the material's high heat
-  resistance, which allows effective restoration of historical facades or industrial surfaces without compromising
-  structural integrity. Make sure you overlap passes generously, since brick's density helps absorb laser energy well,
-  revealing clean layers progressively. In applications like cultural heritage restoration, this approach exposes
-  original textures safely. Finally, watch for potential spalling on aged bricks—reduce energy density if surface
-  flaking appears to avoid deeper damage.
-meta:
-  title: Brick
-  description: Brick laser cleaning guide. Technical specifications and applications.
-  path: /settings/masonry/general/brick-settings
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:44:36.601636+00:00'
+contentType: setting
+schemaVersion: 5.0.0
+fullPath: /settings/masonry/general/brick-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Masonry
+  href: /settings/masonry
+- label: General
+  href: /settings/masonry/general
+pageTitle: Brick Settings
+pageDescription: When laser cleaning brick, start by preparing the surface to account for its porous structure, which can
+  trap contaminants deeply and require multiple passes for thorough removal. You must begin with lower power settings to match
+  its moderate thermal conductivity, ensuring heat stays localized without spreading to cause uneven expansion or micro-cracks
+  in the brittle matrix. As you adjust the scan speed, keep it steady to leverage the material's high heat resistance, which
+  allows effective restoration of historical facades or industrial surfaces without compromising structural integrity. Make
+  sure you overlap passes generously, since brick's density helps absorb laser energy well, revealing clean layers progressively.
+  In applications like cultural heritage restoration, this approach exposes original textures safely. Finally, watch for potential
+  spalling on aged bricks—reduce energy density if surface flaking appears to avoid deeper damage.
 images:
   hero:
     url: /images/settings/brick-settings-hero.jpg
@@ -31,45 +37,192 @@ images:
     alt: Brick microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 4
-machine:
-  power:
-    min: null
-    max: null
-    optimal: null
-    unit: W
-  pulseEnergy:
-    min: null
-    max: null
-    optimal: null
-  frequency:
-    min: 1
-    max: 200
-    optimal: null
-  scanSpeed:
-    min: 10
-    max: 5000
-    optimal: null
-application:
-  thickness:
-    min: null
-    max: null
-  passes:
-    typical: null
-    max: null
-  cooling:
-    required: false
-    method: null
 relationships:
-  materials:
-    optimizedFor: []
-  contaminants:
-    effective:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    removesContaminants:
+      presentation: card
+      items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  regulatory:
-    standards:
-      - osha-ppe-requirements
-      - ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    worksOnMaterials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational:
+    commonChallenges:
+      presentation: descriptive
+      items:
+      - thermalManagement:
+        - id: moisture-spalling
+          type: challenge
+        - id: low-thermal-diffusivity
+          type: challenge
+        contaminationChallenges:
+        - id: paint-coating-removal
+          type: challenge
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
+author:
+  id: 4
+  name: Todd Dunning
+  country: United States
+  countryDisplay: United States
+  title: MA
+  sex: m
+  jobTitle: Junior Optical Materials Specialist
+  expertise:
+  - Optical Materials for Laser Systems
+  affiliation:
+    name: Coherent Inc.
+    type: Organization
+  credentials:
+  - BA Physics, UC Irvine, 2017
+  - Hands-on at JPL optics internship, 2018
+  - MA Optics and Photonics, UC Irvine, 2019
+  - 3+ years in laser systems development
+  - Hands-on experience with optical fabrication
+  email: info@z-beam.com
+  image: /images/author/todd-dunning.jpg
+  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
+  url: https://z-beam.com/authors/todd-dunning
+  sameAs:
+  - https://linkedin.com/in/todd-dunning-optics
+  - https://spie.org/profile/Todd.Dunning
+  personaFile: usa_persona.yaml
+  formattingFile: usa_formatting.yaml
+  slug: todd-dunning
+card:
+  default:
+    heading: Laser Cleaning Settings
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: default
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
+machineSettings:
+  wavelength:
+    description: Near-infrared wavelength for optimal brick absorption and minimal substrate damage
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    min: 0.1
+    max: 2400
+    value: 2000
+    unit: μm
+    description: 'Beam diameter range for industrial cleaning; smaller (0.5-1 mm) for detailed work, larger (2-5 mm) for broad
+      brick surfaces. Recommended 2 mm for uniform coverage on rough brick texture. Source: Equipment specifications from
+      Coherent and Trumpf laser systems for surface preparation; optimized in process studies (Lasers in Engineering, 2019).'
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    value: 1.5
+    unit: J/cm²
+    description: 'Fluence range for safe ablation of organic/inorganic contaminants on brick; damage threshold ~3-5 J/cm²
+      to avoid surface cracking or vitrification. Recommended 1.5 J/cm² for effective cleaning below threshold. Source: Ablation
+      threshold studies in Journal of Applied Physics (2016) on fired clay materials; conservative for brick''s porosity and
+      reflectivity (~20-30% at 1064 nm).'
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    unit: ns
+    value: 20
+    description: 'Nanosecond regime (5-100 ns) preferred for brick to ablate contaminants via photothermal effects with minimal
+      heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 20
+      ns for balance. Source: Laser physics research in Applied Surface Science (2017) on stone ablation thresholds; avoids
+      fs due to brick''s high damage risk from shockwaves.'
+  scanSpeed:
+    min: 10
+    max: 5000
+    value: 500
+    unit: mm/s
+    description: 'Effective speeds for contaminant removal on porous brick; slower (100-500 mm/s) for heavy soiling like soot,
+      faster (500-2000 mm/s) for light dust. Recommended 500 mm/s optimizes cleaning rate while minimizing heat buildup. Source:
+      Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cultural Heritage (2018) on brick
+      restoration.'
+  passCount:
+    min: 1
+    max: 10
+    value: 2
+    unit: passes
+    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers to ensure complete removal without
+      excessive energy. Recommended 2 passes for brick to achieve uniform results while staying below damage threshold. Source:
+      Industry practice in restoration case studies (e.g., European Commission reports on laser cleaning of masonry, 2020);
+      avoids overexposure on porous surfaces.'
+  overlapRatio:
+    min: 10
+    max: 90
+    value: 60
+    unit: '%'
+    description: 'Overlap ensures uniform coverage on uneven brick; 30-50% for speed, 60-80% for thorough cleaning of pores.
+      Recommended 60% for optimal uniformity without redundancy. Source: Process optimization studies in Applied Optics (2015)
+      on scan strategies for stone; standard in manufacturer guidelines (e.g., Laserax equipment manuals).'
+  laserPower:
+    description: Optimal average power for brick surface cleaning without thermal damage
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 1000
+    value: 200
+    unit: W
+    description: 'Typical range for 1064 nm Nd:YAG lasers in stone/brick cleaning to remove contaminants without thermal damage;
+      starting at 200W balances efficiency and safety. Max avoids cracking due to brick''s low thermal conductivity (~0.8
+      W/mK). Source: Manufacturer specs from IPG Photonics (e.g., YLR series for restoration); academic review in ''Laser
+      Cleaning of Stone Surfaces'' (Optics & Lasers in Engineering, 2015).'
+  frequency:
+    min: 1
+    max: 200
+    value: 30
+    unit: kHz
+    description: 'Typical for pulsed cleaning to control energy delivery; 10-50 kHz for brick prevents heat accumulation in
+      low-conductivity material, while higher rates speed up process but risk thermal stress. Recommended 30 kHz for optimal
+      throughput. Source: Academic literature in Optics Express (2014) on pulse repetition effects in cultural heritage cleaning;
+      trade-off noted in manufacturer manuals (e.g., Adapt Laser Systems).'
+componentSummary: The 200 W power at 1064 nm with 10 ns pulses effectively ablates contaminants from brick's porous surface
+  while minimizing thermal damage and cracking through precise, short-duration energy delivery.

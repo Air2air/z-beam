@@ -100,9 +100,17 @@ describe('YAML → TypeScript Integration', () => {
         const content = fs.readFileSync(file, 'utf8');
         const data = yaml.load(content) as any;
         
-        expect(data.authorId).toBeDefined();
-        expect(typeof data.authorId).toBe('number');
-        // Settings files use authorId (numeric reference), not full author object
+        // Settings files may have either authorId (source) or author.id (exported)
+        const hasAuthorId = 'authorId' in data;
+        const hasAuthor = 'author' in data && typeof data.author === 'object';
+        expect(hasAuthorId || hasAuthor).toBe(true);
+        
+        if (hasAuthorId) {
+          expect(typeof data.authorId).toBe('number');
+        } else if (hasAuthor) {
+          expect(data.author.id).toBeDefined();
+          expect(typeof data.author.id).toBe('number');
+        }
       }
     });
 

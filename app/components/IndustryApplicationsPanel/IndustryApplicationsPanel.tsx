@@ -54,12 +54,14 @@ export function IndustryApplicationsPanel({
 
   if (items.length === 0) return null;
 
-  // Get section metadata - prefer prop over nested structure (use fallbacks if missing)
-  const finalMetadata = sectionMetadata || applications._section || applications.sectionMetadata || {
-    sectionTitle: 'Industry Applications',
-    sectionDescription: `Common industrial applications for ${variant}`,
-    icon: 'industry'
-  };
+  // Get section metadata - prefer prop over nested structure
+  // 🔥 MANDATORY (Jan 15, 2026): NO hardcoded fallbacks for section metadata
+  const finalMetadata = sectionMetadata || applications._section || applications.sectionMetadata;
+  
+  // FAIL-FAST: Throw if _section metadata missing (TIER 1 policy)
+  if (!finalMetadata?.sectionTitle) {
+    throw new Error(`Missing _section.sectionTitle for Industry Applications (${variant})`);
+  }
 
   // Check presentation type (default to 'card' for simple list display)
   const presentationType = applications.presentation || 'card';

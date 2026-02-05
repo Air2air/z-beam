@@ -5,7 +5,7 @@
 
 import { render, screen } from '@testing-library/react';
 import RootLayout, { metadata, viewport } from '@/app/layout';
-import { SITE_CONFIG } from '@/app/utils/constants';
+import { SITE_CONFIG } from '@/config';
 
 // Mock fonts
 jest.mock('@/app/config/fonts', () => ({

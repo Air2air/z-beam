@@ -259,7 +259,9 @@ relationships:
 - ❌ `breadcrumb` → Generate from category/subcategory
 - ❌ `card.*` → UI presentation logic (belongs in components)
 - ❌ `eeat.*` → Move to author registry
-- ❌ `author.*` (full object) → Use `authorId` reference only
+- ✅ `author.*` (full object) → Enriched from `authorId` during export
+- Source data: Uses `authorId` numeric reference (1-4)
+- Frontmatter: Contains full `author` object with all fields
 - ❌ `relationships.*.*.presentation` → UI logic
 - ❌ `relationships.*.*._section.*` → UI metadata
 - ❌ `components.*` → Domain-specific content in description
@@ -350,7 +352,12 @@ interface UniversalFrontmatter {
   };
   
   // Section 6: Author
-  authorId: number;            // 1-4
+  author: {                    // Full object (enriched during export)
+    id: number;                // 1-4
+    name: string;
+    country: string;
+    // ... additional fields
+  };
   
   // Section 7: Domain-specific
   properties?: Record<string, any>;

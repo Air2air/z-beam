@@ -1,23 +1,35 @@
 id: industrial-oil-contamination
-contentType: contaminant
-schemaVersion: 6.0.0
 name: Industrial Oil / Grease Buildup
+displayName: Industrial Oil / Grease Buildup Contaminants
 category: organic-residue
 subcategory: petroleum
-datePublished: '2026-01-06'
-dateModified: '2026-02-02T02:25:20.774579+00:00'
-description: >-
-  Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments, forming
-  irregular films that cling to metal surfaces, influenced from prolonged exposure to lubricants and coolants. These
-  patterns, they exhibit regional variations, such as thicker deposits in high-friction zones, which leads to uneven
-  adhesion dependent from substrate roughness. In laser cleaning applications, the removal challenges arise because this
-  contamination persists under initial pulses, requiring modulated intensities to vaporize without substrate damage. On
-  ferrous materials, it shows stronger bonding that demands higher energy thresholds, whereas on non-ferrous alloys, the
-  process yields cleaner ablation, though residues may redistribute if not controlled. It appears that such behaviors
-  complicate uniform treatment, emphasizing the need for tailored parameters to achieve effective restoration.
-meta:
-  title: Industrial Oil / Grease Buildup Laser Cleaning
-  path: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:43:14.551901+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Organic Residue
+  href: /contaminants/organic-residue
+- label: Petroleum
+  href: /contaminants/organic-residue/petroleum
+pageTitle: Industrial Oil / Grease Buildup Contaminants
+pageDescription: Industrial oil contamination, it manifests as tenacious organic residues in manufacturing environments, forming
+  irregular films that cling to metal surfaces, influenced from prolonged exposure to lubricants and coolants. These patterns,
+  they exhibit regional variations, such as thicker deposits in high-friction zones, which leads to uneven adhesion dependent
+  from substrate roughness. In laser cleaning applications, the removal challenges arise because this contamination persists
+  under initial pulses, requiring modulated intensities to vaporize without substrate damage. On ferrous materials, it shows
+  stronger bonding that demands higher energy thresholds, whereas on non-ferrous alloys, the process yields cleaner ablation,
+  though residues may redistribute if not controlled. It appears that such behaviors complicate uniform treatment, emphasizing
+  the need for tailored parameters to achieve effective restoration.
+micro:
+  after: Post-cleaning reveals restored surface with industrial oil / grease buildup successfully removed through precise
+    laser ablation.
+  before: Surface shows contamination from industrial oil / grease buildup affecting material appearance and properties.
 images:
   hero:
     url: /images/contaminant/industrial-oil-contamination-hero.jpg
@@ -29,170 +41,736 @@ images:
     alt: Industrial Oil / Grease Buildup microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 2
-properties:
-  validMaterials: []
-  prohibitedMaterials: []
-composition: []
-laser:
-  wavelength:
-    - 1064
-    - 532
-  fluence:
-    min: 0.3
-    max: 1.2
-    optimal: 0.7
-  pulseWidth:
-    min: 10
-    max: 200
-    optimal: 50
-  scanSpeed:
-    min: 500
-    max: 2000
-    optimal: 1000
-  passes:
-    optimal: 2
-    maxEffective: 3
-    efficiency: 0.85
-  thermal:
-    ablationThreshold: 0.8
-    decomposition: 350
-    vaporization: 450
-safety:
-  fireRisk: low
-  toxicGas: moderate
-  ppe:
-    respiratory: PAPR
-    eye: goggles
-    skin: gloves
-  compounds:
-    - id: acrolein-compound
-      phase: gas
-      hazard: toxic
-      concentration: 2.5
-      limit: 0.23
-    - id: formaldehyde-compound
-      phase: gas
-      hazard: carcinogenic
-      concentration: 1.8
-      limit: 0.37
-    - id: benzene-compound
-      phase: gas
-      hazard: carcinogenic
-      concentration: 0.8
-      limit: 0.32
-    - id: polycyclic-aromatic-hydrocarbons-(pahs)-compound
-      phase: gas
-      hazard: carcinogenic
-      concentration: 1.2
-      limit: 0.2
-  ventilation:
-    airChanges: 12
-    velocity: 0.5
-    filter: carbon
-appearance:
-  ceramic:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  composite:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  concrete:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  fabric:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  glass:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  metal:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  mineral:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  plastic:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  rubber:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  semiconductor:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  specialty:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  stone:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  wood:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
 relationships:
-  materials:
-    common:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety regulations and compliance standards for this contaminant
+        icon: shield-check
+        order: 20
+        variant: default
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Fire & Explosion Risk
+        sectionDescription: Fire and explosion hazards during laser cleaning
+        icon: flame
+        order: 21
+        variant: warning
+    fumesGenerated:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Fumes Generated
+        sectionDescription: Hazardous fumes produced during laser removal
+        icon: cloud
+        order: 22
+        variant: warning
+    particulateGeneration:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Particulate Generation
+        sectionDescription: Airborne particles and dust created during cleaning
+        icon: wind
+        order: 23
+        variant: warning
+    ppeRequirements:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: PPE Requirements
+        sectionDescription: Required personal protective equipment
+        icon: shield
+        order: 24
+        variant: default
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Toxic Gas Risk
+        sectionDescription: Toxic gases that may be released during removal
+        icon: alert-triangle
+        order: 25
+        variant: danger
+    ventilationRequirements:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Ventilation Requirements
+        sectionDescription: Required ventilation and air filtration systems
+        icon: wind
+        order: 26
+        variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Visibility Hazard
+        sectionDescription: Smoke and debris affecting operator visibility
+        icon: eye-off
+        order: 27
+        variant: warning
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+  interactions:
+    producesCompounds:
+      presentation: card
+      items:
+      - id: carbon-dioxide-compound
+        title: Carbon Dioxide
+        name: Carbon Dioxide
+        category: asphyxiant
+        subcategory: simple_asphyxiant
+        url: /compounds/asphyxiant/simple_asphyxiant/carbon-dioxide-compound
+        image: /images/compound/carbon-dioxide-compound-hero.jpg
+        description: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      - id: water-vapor-compound
+        title: Water Vapor
+        name: Water Vapor
+        category: vapor
+        subcategory: inert
+        url: /compounds/vapor/inert/water-vapor-compound
+        image: /images/compound/water-vapor-compound-hero.jpg
+        description: Water Vapor Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      - id: carbon-monoxide-compound
+        title: Carbon Monoxide
+        name: Carbon Monoxide
+        category: toxic_gas
+        subcategory: asphyxiant
+        url: /compounds/toxic_gas/asphyxiant/carbon-monoxide-compound
+        image: /images/compound/carbon-monoxide-compound-hero.jpg
+        description: Carbon Monoxide Compound safety information for laser cleaning. Health hazards, exposure limits, and
+          protective equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      - id: carbon-particulates-compound
+        title: Carbon Particulates
+        name: Carbon Particulates
+        category: particulate
+        subcategory: carbon-based
+        url: /compounds/particulate/carbon-based/carbon-particulates-compound
+        image: /images/compound/carbon-particulates-compound-hero.jpg
+        description: Carbon Particulates Compound safety information for laser cleaning. Health hazards, exposure limits,
+          and protective equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      - id: vocs-compound
+        title: Volatile Organic Compounds
+        name: Volatile Organic Compounds
+        category: irritant
+        subcategory: organic_vapor
+        url: /compounds/irritant/organic_vapor/vocs-compound
+        image: /images/compound/vocs-compound-hero.jpg
+        description: Vocs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      _section:
+        sectionTitle: Produced Compounds
+        sectionDescription: Hazardous compounds produced during laser cleaning
+        icon: flask-conical
+        order: 10
+        variant: warning
+    affectsMaterials:
+      presentation: card
+      items:
       - id: steel-laser-cleaning
+        name: Steel
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/steel-laser-cleaning
+        image: /images/material/steel-laser-cleaning-hero.jpg
+        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
+          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: very_common
         difficulty: moderate
       - id: aluminum-laser-cleaning
+        name: Aluminum
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+        image: /images/material/aluminum-laser-cleaning-hero.jpg
+        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: very_common
         difficulty: moderate
       - id: brass-laser-cleaning
+        name: Brass
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/brass-laser-cleaning
+        image: /images/material/brass-laser-cleaning-hero.jpg
+        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
+          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: very_common
         difficulty: moderate
       - id: bronze-laser-cleaning
+        name: Bronze
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/bronze-laser-cleaning
+        image: /images/material/bronze-laser-cleaning-hero.jpg
+        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
+          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: very_common
         difficulty: moderate
       - id: copper-laser-cleaning
+        name: Copper
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/copper-laser-cleaning
+        image: /images/material/copper-laser-cleaning-hero.jpg
+        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
+          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: very_common
         difficulty: moderate
-    prohibited: []
-  compounds:
-    produces:
-      - id: carbon-dioxide-compound
-        phase: unknown
-        hazard: unknown
-      - id: water-vapor-compound
-        phase: unknown
-        hazard: unknown
-      - id: carbon-monoxide-compound
-        phase: unknown
-        hazard: unknown
-      - id: carbon-particulates-compound
-        phase: unknown
-        hazard: unknown
-      - id: vocs-compound
-        phase: unknown
-        hazard: unknown
-  settings:
-    recommended: []
-pageTitle: Industrial Oil / Grease Buildup
-pageDescription: Surface shows contamination from industrial oil / grease buildup affecting material appearance and properties.
+      _section:
+        sectionTitle: Affected Materials
+        sectionDescription: Materials where this contaminant commonly appears
+        icon: layers
+        order: 11
+        variant: default
+  visual:
+    appearanceOnCategories:
+      presentation: descriptive
+      items:
+      - appearanceOnCategories:
+          ceramic:
+            agedAppearance: Fresh contamination appears as a thin, glossy film. Aged contamination becomes thicker, darker,
+              and more matte. It often hardens and forms a crusty or gummy residue that is difficult to remove. The color
+              darkens significantly, and the surface becomes rougher due to the accumulation of dirt and debris.
+            buildupProgression: Buildup typically starts as a thin film at contact points or near the source of contamination.
+              It then spreads outwards, often following edges and crevices. Over time, the film thickens and darkens due to
+              oxidation and the accumulation of dirt and debris. Point sources expand outwards, and layering effects can occur
+              with repeated contamination events. This process can take hours for a visible film to form, days for noticeable
+              discoloration, and months for a significant buildup to develop.
+            colorVariations: Fresh contamination often appears as a translucent or light amber/honey color. As it ages and
+              oxidizes, it darkens to shades of brownish-yellow, dark brown, and eventually black. In some cases, especially
+              with metalworking fluids, a greenish-brown tint can be present due to the presence of dissolved metals.
+            commonPatterns: Oil and grease tend to accumulate in low-lying areas, crevices, and edges due to gravity and surface
+              tension. Initial contamination often appears as localized spots or streaks near the source of the leak or application.
+              Over time, these spots can coalesce and spread, forming a more uniform coating, especially on horizontal surfaces.
+            concentrationVariations: Concentration tends to be heavier at edges, corners, and in crevices where oil and grease
+              can accumulate. Horizontal surfaces often have a more uniform coating than vertical surfaces, where gravity
+              causes drips and runs. Exposed areas may have less buildup due to washing or wiping, while sheltered areas accumulate
+              more.
+            coverageRanges: 'Sparse (<10% coverage): barely visible sheen, very thin film. Light (10-30%): patchy distribution,
+              thin layer, slight discoloration. Moderate (30-60%): noticeable coating, thicker layer, distinct discoloration.
+              Heavy (60-85%): significant buildup, thick and sticky layer, dark color. Extreme (>85%): almost complete coverage,
+              very thick crust, heavily soiled appearance.'
+            description: Industrial oil and grease buildup on ceramic surfaces typically presents as a discolored, often darkened,
+              coating that can range from a barely visible sheen to a thick, sticky layer. The color is usually darker than
+              the original ceramic, and the texture varies from smooth and oily to rough and crusty depending on the age and
+              type of contaminant.
+            distributionPatterns: 'Common distribution patterns include: edge accumulation (along joints and seams), point
+              source spreading (radiating outwards from a leak), gradient from source (decreasing concentration with distance),
+              patchy/spotty (uneven distribution due to inconsistent application), streaky/linear (resulting from drips or
+              runs), and localized concentrations (in crevices and corners).'
+            edgeCenterBehavior: Industrial Oil / Grease Buildup preferentially accumulates at edges and in crevices on ceramic
+              surfaces. This is due to surface tension effects, where the oil/grease is drawn to the edges and corners. The
+              edges act as barriers, preventing the oil from spreading further and leading to buildup. Center areas may have
+              a thinner, more uniform coating, especially on horizontal surfaces.
+            geometryEffects: Surface geometry significantly affects distribution. Oil and grease accumulate in corners and
+              crevices due to surface tension and capillary action. Flat areas allow for pooling, while vertical surfaces
+              promote dripping. Edges act as barriers, preventing the oil from spreading further and leading to buildup. Depressions
+              and grooves fill up with the contaminant.
+            gravityInfluence: Gravity plays a significant role. Downward flow behavior is evident in drip marks and vertical
+              streaking. Pooling occurs at bottom edges and on horizontal surfaces. Runs develop down slopes. Oil and grease
+              can hang from overhead surfaces, forming droplets that eventually detach.
+            lightingEffects: Under direct sunlight, fresh oil and grease can exhibit a slight sheen or gloss. Indoor fluorescent
+              lighting may reveal subtle color variations and surface irregularities. Aged contamination tends to have a matte
+              finish and absorbs light, making it appear darker and less reflective. Iridescence is rare but possible with
+              very thin films.
+            textureDetails: The texture can range from smooth and oily when fresh, to sticky and tacky as it begins to dry,
+              and eventually hard and crusty as it ages and oxidizes. Dust and debris often become embedded in the grease,
+              creating a rough, sandpaper-like surface. At a microscopic level, the buildup may exhibit a layered or striated
+              structure due to repeated applications and drying cycles.
+            thicknessRange: The thickness can range from a thin film of a few micrometers (µm) to a heavy buildup of several
+              millimeters (mm). A light coating might be paper-thin, while a heavy buildup could be coin-thick or thicker
+              in extreme cases.
+            typicalFormations: 'Typical formations include: drip marks (vertical streaks caused by gravity), runs/streaks
+              (similar to drip marks but less defined), pools/puddles (on horizontal surfaces), thin films (early stages of
+              contamination), thick crusts (aged, hardened buildup), discrete patches (isolated areas of contamination), spots/dots
+              (small, localized deposits), and stains (discoloration of the ceramic surface).'
+            uniformityAssessment: The distribution is typically moderately patchy to highly variable/irregular. Perfect uniformity
+              is rare due to variations in surface roughness, application methods, and environmental factors. The non-uniformity
+              is caused by the interplay of gravity, surface tension, and the viscosity of the oil/grease.
+          composite:
+            colorVariations: Dark gray to black stains, brown discoloration, variations following fiber orientation and resin
+              distribution
+            commonPatterns: Fiber-aligned streaks, resin-rich area darkening, edge wicking, and patchy distribution
+            coverageRanges: 'Light: isolated fiber darkening; Moderate: partial surface coverage with pattern emphasis; Heavy:
+              extensive staining with deep wicking'
+            description: Industrial oil and grease on composite materials appears as dark, irregular stains that highlight
+              the underlying fiber structure and resin patterns. The contamination penetrates along fiber-matrix interfaces
+              and can cause visible darkening of the composite surface. Laser cleaning requires understanding of the composite's
+              layered structure and thermal properties.
+            distributionPatterns: Follows fiber orientation, concentrates at edges and cut surfaces, spreads through capillary
+              action along fibers
+            edgeCenterBehavior: Strong preference for edges and cut surfaces where fibers are exposed
+            geometryEffects: Enhanced along fiber directions, accumulates in woven patterns, follows composite layup geometry
+            gravityInfluence: Vertical wicking along fibers, pooling in resin-rich areas, downward migration
+            textureDetails: Uneven surface with contamination following fiber patterns; may show wicking along fiber directions
+          concrete:
+            colorVariations: Dark gray to black, brownish tones from aged oil, variations following aggregate distribution
+            commonPatterns: Irregular blotches, drip trails, aggregate highlighting, and capillary rise patterns
+            coverageRanges: 'Light: surface spots; Moderate: connected patches with some penetration; Heavy: extensive darkening
+              with deep subsurface contamination'
+            description: Oil and grease contamination on concrete appears as dark, penetrating stains that highlight the porous
+              aggregate structure and surface texture. The buildup creates deep, irregular patches that darken the cement
+              matrix and can penetrate several millimeters. Laser cleaning must address both surface film and subsurface penetration
+              in the porous concrete structure.
+            distributionPatterns: Rapid penetration into pores, follows surface cracks and imperfections, spreads through
+              capillary action
+            edgeCenterBehavior: Prefers edges and cracks where penetration is enhanced
+            geometryEffects: Enhanced in textured surfaces, follows crack patterns, accumulates in joints and low spots
+            gravityInfluence: Vertical drip patterns, pooling in depressions, capillary rise from below
+            textureDetails: Dark, glossy patches on surface with deep penetration into pores; highlights aggregate boundaries
+          fabric:
+            colorVariations: Dark brown to black stains, oil-ring patterns, variations following fabric dye and weave
+            commonPatterns: Concentric saturation rings, weave pattern emphasis, edge wicking, and contact transfer marks
+            coverageRanges: 'Light: isolated spots with minimal wicking; Moderate: connected stains with visible pattern;
+              Heavy: extensive saturation with deep penetration'
+            description: Industrial oil and grease on fabrics appear as dark, irregular stains that follow the weave pattern
+              and create visible saturation rings. The contamination causes darkening of fibers and creates a greasy, matte
+              appearance with potential for wicking along threads. Laser cleaning requires careful energy control to avoid
+              fabric damage while removing embedded contamination.
+            distributionPatterns: Rapid wicking along threads, follows weave direction, spreads through capillary action
+            edgeCenterBehavior: Prefers edges and seams where wicking is enhanced
+            geometryEffects: Enhanced along weave directions, follows fabric texture, accumulates in seams and folds
+            gravityInfluence: Downward wicking along vertical fabrics, pooling in folded areas
+            textureDetails: Greasy, matte surface with stiffened areas; shows fiber saturation and wicking patterns
+          glass:
+            colorVariations: Rainbow interference colors, yellowish to brown translucent films, dark opaque areas in heavy
+              buildup
+            commonPatterns: Uniform films, smeared streaks, fingerprint-like patterns, and concentric rings from droplet impacts
+            coverageRanges: 'Light: thin interference films; Moderate: partial opacity with visible streaks; Heavy: nearly
+              opaque with thick accumulation'
+            description: Industrial oil and grease on glass surfaces forms translucent to opaque films that create rainbow
+              interference patterns and reduce transparency. The contamination appears as smeared layers with visible thickness
+              variations, often showing Newton's rings under certain lighting conditions. Laser cleaning requires precise
+              control to avoid thermal stress in the glass substrate.
+            distributionPatterns: Forms continuous films, follows application or wiping directions, accumulates at edges
+            edgeCenterBehavior: Tends to accumulate at edges and corners due to surface tension, but can form uniform films
+            geometryEffects: Enhanced buildup in corners and recesses, follows surface curvature, accumulates around imperfections
+            gravityInfluence: Sagging and dripping on vertical surfaces, pooling at bottom edges, thinning on upper areas
+            textureDetails: Smooth, slippery surface with visible film thickness variations; shows interference patterns and
+              light scattering
+          metal:
+            agedAppearance: Fresh contamination appears as a thin, often transparent film that is easily wiped away. Over
+              time, it darkens in color, thickens, and becomes more viscous or solid. Aged contamination is often more difficult
+              to remove, forming a hard, crusty layer that may require specialized cleaning methods. Oxidation and polymerization
+              contribute to the hardening and darkening process.
+            buildupProgression: 'Starts as a thin, often invisible film that gradually thickens over time. Begins at contact
+              points (e.g., leaks, drips) and spreads outward. Accumulation is often faster at edges and in crevices. Layering
+              effects can occur with repeated exposure. Seasonal variations in temperature and humidity can affect the rate
+              of buildup and oxidation. Timeframes: Noticeable film within hours, visible buildup within days, significant
+              crusting within months.'
+            colorVariations: 'Fresh: Translucent amber or light yellow. Mildly Aged: Light brown to tan. Moderately Aged:
+              Medium to dark brown, sometimes with reddish hues due to rust staining. Heavily Aged: Dark brown to black, often
+              with greenish or greyish tinges from oxidation or microbial growth. Heat-affected: Blueish-black or iridescent.'
+            commonPatterns: Drip marks on vertical surfaces, pooling in low-lying areas, accumulation in corners and crevices,
+              and a general tendency to spread from the point of origin. Streaks and runs are common on inclined surfaces.
+              Flat horizontal surfaces often exhibit a more uniform coating, while vertical surfaces show more pronounced
+              gravitational effects.
+            concentrationVariations: 'Heavy concentration: Corners, crevices, low-lying areas, and areas directly below the
+              source of contamination. Light concentration: Elevated surfaces, areas exposed to airflow, and areas that have
+              been partially cleaned. Vertical surfaces tend to have a gradient from top (lighter) to bottom (heavier) due
+              to gravity.'
+            coverageRanges: 'Sparse (<10% coverage): Isolated spots or streaks, barely visible film. Light (10-30%): Thin,
+              patchy coating, easily wiped away. Moderate (30-60%): Visible coating, some areas still clean, requires more
+              effort to remove. Heavy (60-85%): Thick, continuous coating, difficult to remove. Extreme (>85%): Very thick,
+              encrusted layer, may obscure the underlying surface features.'
+            description: Industrial oil and grease buildup on metal surfaces typically presents as a discolored, often glossy
+              or matte coating that can range from a barely perceptible film to a thick, crusty layer. The color varies depending
+              on the type of oil/grease, contaminants present, and age, but generally progresses from light to dark shades.
+              Coverage patterns are highly variable, influenced by gravity, surface geometry, and the source of contamination.
+            distributionPatterns: 'Common patterns include: Point source spreading (radial pattern from a leak), Streaky/linear
+              (from dripping or wiping), Edge accumulation (due to surface tension), Gradient from source (decreasing thickness
+              with distance), Patchy/spotty (uneven application or removal), and Uniform coating (rare, but possible with
+              intentional application).'
+            edgeCenterBehavior: Preferentially accumulates at edges and in corners due to surface tension. The oil/grease
+              tends to 'wick' towards the edges, creating a visible line or buildup. Center areas may have a thinner, more
+              uniform coating, especially on flat surfaces.
+            geometryEffects: Accumulates in corners and crevices due to surface tension and capillary action. Pools on flat
+              areas, especially horizontal surfaces. Drips on vertical surfaces, creating streaks. Collects at edges, forming
+              a visible line. Follows contours of the surface, accentuating imperfections. Fills depressions and small holes.
+            gravityInfluence: Strong downward flow behavior on vertical and inclined surfaces. Pooling at bottom edges and
+              in low-lying areas. Drip marks from top to bottom. Vertical streaking is a common manifestation of gravitational
+              effects. Settling on horizontal surfaces, creating a more uniform coating.
+            lightingEffects: Fresh oil/grease often exhibits a glossy or wet appearance under direct lighting, reflecting
+              light specularly. As it ages and oxidizes, the surface becomes more matte and absorbs more light. Iridescence
+              or rainbow effects can be observed in thin films due to interference. Under fluorescent lighting, the color
+              may appear slightly different compared to sunlight.
+            textureDetails: 'Fresh: Slippery, oily, and smooth to the touch. Mildly Aged: Slightly sticky or tacky. Moderately
+              Aged: Greasy, waxy, or slightly crusty. Heavily Aged: Hard, crusty, gummy, or tar-like. May contain embedded
+              particulate matter, creating a rough surface. Can also be powdery if the oil has dried and oxidized.'
+            thicknessRange: 'Thin film: 0.1 - 10 micrometers. Moderate buildup: 10 - 100 micrometers. Heavy buildup: 100 micrometers
+              - 1 millimeter. Extreme buildup: > 1 millimeter (coin-thick or greater).'
+            typicalFormations: Drip marks, runs/streaks, pools/puddles, thin films, thick crusts, discrete patches, spots/dots,
+              stains, and buildups are all common. The specific formation depends on the viscosity of the oil/grease, the
+              surface orientation, and the environmental conditions. Thick crusts form from repeated exposure and oxidation.
+            uniformityAssessment: Highly variable/irregular. The distribution is rarely perfectly uniform due to variations
+              in surface roughness, temperature gradients, airflow, and the method of contamination. Gravity and surface tension
+              play significant roles in creating non-uniform patterns.
+          mineral:
+            colorVariations: Dark gray to black coatings, sometimes with iridescent films, variations based on mineral composition
+            commonPatterns: Irregular coatings, crystal face selectivity, edge accumulation, and reaction patterns
+            coverageRanges: 'Light: partial surface films; Moderate: significant coverage with pattern emphasis; Heavy: complete
+              coating with potential chemical interaction'
+            description: Industrial oil and grease on mineral surfaces appear as dark, irregular coatings that can alter the
+              natural mineral luster and create surface films. The contamination forms adherent layers that may interact chemically
+              with certain minerals, causing discoloration and surface modification. Laser cleaning requires understanding
+              of mineral-specific absorption and thermal properties.
+            distributionPatterns: Follows crystal structures, concentrates on specific crystal faces, spreads through surface
+              wetting
+            edgeCenterBehavior: Prefers edges and crystal boundaries, but can be face-selective on well-formed crystals
+            geometryEffects: Enhanced on specific crystal faces, follows cleavage planes, accumulates in surface imperfections
+            gravityInfluence: Drip patterns on vertical surfaces, pooling in depressions, thinning on upper crystal faces
+            textureDetails: Adherent films that may alter natural mineral texture; shows interference patterns on crystalline
+              surfaces
+          plastic:
+            colorVariations: Darkening of natural plastic color, yellowish to brown stains, rainbow effects on transparent
+              plastics
+            commonPatterns: Irregular patches, drip marks, contact transfer patterns, and stress crack initiation points
+            coverageRanges: 'Light: isolated contact points; Moderate: connected areas with visible discoloration; Heavy:
+              complete surface coverage with potential substrate damage'
+            description: Oil and grease contamination on plastics appears as glossy, wet-looking patches that can cause surface
+              crazing or chemical etching over time. The buildup creates visible discoloration and may lead to stress cracking
+              in some polymer types. Laser cleaning must consider the plastic's thermal sensitivity and potential for surface
+              degradation.
+            distributionPatterns: Spreads along surface imperfections, concentrates at stress points, follows manufacturing
+              marks
+            edgeCenterBehavior: Prefers edges and stress concentration points, but can be uniform from immersion
+            geometryEffects: Enhanced in molded details, follows surface texture, accumulates in recesses and joints
+            gravityInfluence: Drip patterns evident, accumulation in low points, thinning on vertical surfaces
+            textureDetails: Slick, glossy surface that may show swelling or minor surface degradation; some plastics develop
+              hazy appearance
+          rubber:
+            colorVariations: Dark brown to black, sometimes with bluish tint on light-colored rubbers, uniform darkening
+            commonPatterns: Uniform darkening, contact transfer marks, swelling patterns, and crack initiation sites
+            coverageRanges: 'Light: surface film; Moderate: partial absorption with swelling; Heavy: complete saturation with
+              significant volume increase'
+            description: Oil and grease contamination on rubber surfaces appears as dark, swollen areas with increased gloss
+              and potential surface degradation. The buildup causes visible darkening and can lead to surface tackiness or
+              swelling depending on rubber composition. Laser cleaning must account for the rubber's high absorption and potential
+              for thermal damage.
+            distributionPatterns: Rapid surface spreading, deep absorption, follows surface imperfections
+            edgeCenterBehavior: Generally uniform due to high absorption, but edges may show accelerated degradation
+            geometryEffects: Enhanced in textured surfaces, follows manufacturing marks, accumulates in recessed areas
+            gravityInfluence: Minimal effect due to rapid absorption, though pooling can occur on horizontal surfaces
+            textureDetails: Swollen, glossy surface that may become tacky; shows absorption patterns and potential cracking
+          semiconductor:
+            colorVariations: Rainbow interference colors, localized dark spots, thin film optical effects
+            commonPatterns: Microscopic droplets, interference fringes, contact transfer marks, and pattern-dependent accumulation
+            coverageRanges: 'Light: isolated microscopic contamination; Moderate: partial film formation; Heavy: nearly continuous
+              films with multiple layers'
+            description: Oil and grease contamination on semiconductor surfaces appears as thin, irregular films that create
+              visible interference patterns and surface defects. The buildup causes localized darkening and can create nucleation
+              sites for further contamination. Laser cleaning requires extreme precision to avoid damaging the sensitive semiconductor
+              surface and underlying structures.
+            distributionPatterns: Forms discontinuous films, follows surface energy variations, concentrates at defects
+            edgeCenterBehavior: Prefers edges and pattern boundaries due to surface energy effects
+            geometryEffects: Enhanced at pattern edges, follows surface topography, accumulates in recessed features
+            gravityInfluence: Minimal due to small scale, though larger droplets show gravitational effects
+            textureDetails: Ultra-thin films with interference patterns; may show droplet formation and contact angle variations
+          specialty:
+            colorVariations: 'Material-dependent: dark films on light materials, interference effects on nanostructured surfaces,
+              unique optical responses'
+            commonPatterns: Material-specific distribution, nanostructure highlighting, edge effects, and unique wetting behaviors
+            coverageRanges: 'Light: minimal surface films; Moderate: partial coverage with pattern emphasis; Heavy: extensive
+              contamination affecting material properties'
+            description: Industrial oil and grease on specialty materials appear as contamination that highlights the unique
+              surface properties and nanostructures of these advanced materials. The buildup creates visible films or localized
+              staining that can significantly impact material performance. Laser cleaning requires specialized parameters
+              tailored to each material's unique thermal and optical properties.
+            distributionPatterns: Follows surface energy patterns, material-specific wetting, nanostructure-dependent spreading
+            edgeCenterBehavior: 'Highly material-dependent: may prefer edges, be uniform, or show unique distribution patterns'
+            geometryEffects: 'Material-specific: enhanced at nanoscale features, follows unique surface architectures, accumulates
+              in designed structures'
+            gravityInfluence: Varies by scale and material properties, from minimal to significant effects
+            textureDetails: 'Varies by material: thin films on smooth surfaces, penetration into porous structures, pattern-dependent
+              accumulation'
+          stone:
+            colorVariations: Dark gray to black on light stones, brownish-black on darker stones, sometimes greenish from
+              oxidized lubricants
+            commonPatterns: Irregular blotches, drip trails, edge accumulation, and spiderweb patterns following stone veining
+            coverageRanges: 'Light: isolated stains and spots; Moderate: connected patches covering significant areas; Heavy:
+              extensive darkening with deep penetration'
+            description: Oil and grease contamination on stone surfaces appears as dark, irregular stains that contrast sharply
+              with the natural stone coloration. The buildup creates glossy patches on polished surfaces and dark, matte areas
+              on rough stone, with penetration varying by stone porosity. Laser cleaning must account for differential absorption
+              between contaminated and clean stone areas.
+            distributionPatterns: Concentrates in porous areas and natural fissures, spreads radially from contamination points
+            edgeCenterBehavior: Prefers edges and joints where capillary action occurs, but can be center-concentrated from
+              direct spills
+            geometryEffects: Accumulates in carved details, follows natural veining patterns, enhanced in textured or rough
+              surfaces
+            gravityInfluence: Clear vertical drip patterns, pooling in depressions, downward migration on vertical surfaces
+            textureDetails: Glossy film on polished surfaces, matte darkening on rough stone, with oil filling microscopic
+              pores and fissures
+          wood:
+            colorVariations: Dark brown to black, amber tones, yellowish hues from aged grease, with variations depending
+              on wood species and oil type
+            commonPatterns: Concentrated spots along grain lines, irregular patches, drip trails, and absorption patterns
+              following wood anatomy
+            coverageRanges: 'Light: isolated spots along grain; Moderate: partial grain coverage with film formation; Heavy:
+              complete surface saturation with deep penetration'
+            description: Industrial oil and grease buildup on wood surfaces appears as dark, glossy patches that penetrate
+              the porous grain structure. The contamination creates uneven discoloration and often darkens the natural wood
+              tone while forming a semi-transparent film on the surface. In laser cleaning applications, the oil absorption
+              into wood fibers creates subsurface contamination that requires careful energy management.
+            distributionPatterns: Follows wood grain direction, concentrates in porous areas, spreads through capillary action
+              along fibers
+            edgeCenterBehavior: Prefers edges and end grain due to higher absorption, but can be uniform on sealed surfaces
+            geometryEffects: Enhanced absorption at end grain, follows complex grain patterns, accumulates in carved or textured
+              areas
+            gravityInfluence: Drip patterns form vertical streaks; pooling occurs in horizontal depressions
+            textureDetails: Slick, glossy surface with embedded contamination in wood pores; creates uneven texture where
+              oil fills natural grain patterns
+        colorRange:
+        - black
+        - brown
+        - amber
+        - dark gray
+        texture: greasy, sticky, slippery
+        thickness: thin film to thick deposits
+      _section:
+        sectionTitle: Visual Appearance
+        sectionDescription: How this contaminant appears on different material categories
+        icon: eye
+        order: 50
+        variant: default
+  operational:
+    laserProperties:
+      presentation: descriptive
+      items:
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.2
+            minJCm2: 0.3
+            recommendedJCm2: 0.7
+          overlapPercentage: 50
+          polarization: circular
+          pulseDurationRange:
+            maxNs: 200
+            minNs: 10
+            recommendedNs: 50
+          repetitionRateKhz:
+            max: 200
+            min: 20
+            recommended: 50
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spotSizeMm:
+            max: 0.1
+            min: 0.02
+            recommended: 0.05
+          wavelengthPreference:
+          - 1064
+          - 532
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 1200
+            wavelength355Nm: 28000
+            wavelength532Nm: 4500
+          reflectivity:
+            wavelength1064Nm: 0.05
+            wavelength355Nm: 0.02
+            wavelength532Nm: 0.03
+          refractiveIndex:
+            imaginaryPart: 0.08
+            realPart: 1.47
+          transmissionDepth: 8.3
+        removalCharacteristics:
+          byproducts:
+          - compound: carbon-dioxide
+            hazardLevel: low
+            phase: gas
+          - compound: water-vapor
+            hazardLevel: low
+            phase: gas
+          - compound: carbon-monoxide
+            hazardLevel: moderate
+            phase: gas
+          - compound: carbon-particulates
+            hazardLevel: moderate
+            phase: solid
+          - compound: vocs
+            hazardLevel: moderate
+            phase: gas
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 480
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 3
+            optimalPasses: 2
+            singlePass: 0.85
+          secondaryMechanisms:
+          - photochemical
+          - mechanical_spallation
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: none
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Acrolein
+            concentrationMgM3: 2.5
+            exposureLimitMgM3: 0.23
+            hazardClass: toxic
+          - compound: Formaldehyde
+            concentrationMgM3: 1.8
+            exposureLimitMgM3: 0.37
+            hazardClass: carcinogenic
+          - compound: Benzene
+            concentrationMgM3: 0.8
+            exposureLimitMgM3: 0.32
+            hazardClass: carcinogenic
+          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+            concentrationMgM3: 1.2
+            exposureLimitMgM3: 0.2
+            hazardClass: carcinogenic
+          particulateGeneration:
+            respirableFraction: 0.7
+            sizeRangeUm:
+            - 0.1
+            - 10.0
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: PAPR
+            skinProtection: gloves
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Laser parameters must be optimized to avoid substrate damage and excessive fume generation
+          - Test cleaning parameters on small area first to assess fume production
+          - Avoid laser cleaning on thin or heat-sensitive materials
+          toxicGasRisk:
+            severity: moderate
+            primaryHazards:
+            - compound: Acrolein
+              concentrationMgM3: 2.5
+              hazardClass: toxic
+            - compound: Formaldehyde
+              concentrationMgM3: 1.8
+              hazardClass: carcinogenic
+            - compound: Benzene
+              concentrationMgM3: 0.8
+              hazardClass: carcinogenic
+            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
+              concentrationMgM3: 1.2
+              hazardClass: carcinogenic
+            description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Benzene - requires enhanced protection'
+            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
+              WARNING: Formaldehyde, Benzene - known carcinogen(s), minimize exposure'
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: carbon
+            minimumAirChangesPerHour: 12
+            rationale: Standard industrial ventilation (12 ACH) for particulate control
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 1.2
+            pulseDuration10Ns: 0.6
+            wavelength1064Nm: 0.8
+          decompositionTemperature: 350
+          heatAffectedZoneDepth: 15
+          meltingPoint: N/A
+          specificHeat: 2000
+          thermalConductivity: 0.15
+          thermalDiffusivity: 0.075
+          vaporizationTemperature: 450
+      _section:
+        sectionTitle: Laser Removal Properties
+        sectionDescription: Laser parameters and removal characteristics
+        icon: zap
+        order: 40
+        variant: default
+author:
+  id: 2
+  name: Alessandro Moretti
+  country: Italy
+  countryDisplay: Italy
+  title: Ph.D.
+  sex: m
+  jobTitle: Materials Engineer
+  expertise:
+  - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
+validMaterials: []
+title: Industrial Oil / Grease Buildup Laser Cleaning
+realismNotes: Oil/grease appears on MACHINERY parts, not randomly on all materials. Context is critical.
+conditionalRules:
+- rule: Only valid in machinery/industrial equipment context
+- rule: NOT valid on decorative items, furniture, or non-machinery plastic parts
+- rule: Attracts dirt and grime (appears grimy, not just oily)
+contextRequired: true
+invalidWithoutContext:
+- decorative_plastics
+- wood_furniture
+- ceramic_decorations
+- architectural_elements
+validContexts:
+- machinery
+- moving_parts
+- bearings
+- gears
+- hydraulic_systems
+- automotive
+- manufacturing_equipment

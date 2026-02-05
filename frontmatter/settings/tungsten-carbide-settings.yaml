@@ -1,25 +1,29 @@
 id: tungsten-carbide-settings
-contentType: setting
-schemaVersion: 6.0.0
 name: Tungsten Carbide
+displayName: Tungsten Carbide Settings
 category: ceramic
 subcategory: carbide
-datePublished: '2026-01-06'
-dateModified: '2026-01-30T02:39:28.904646+00:00'
-description: >-
-  When laser cleaning Tungsten Carbide, we've found you must start low on power to avoid cracking its brittle surface
-  right away. This material's extreme hardness makes contaminants stick tough, so begin with a gentle pass to loosen
-  dirt without scratching the base. We've typically set the beam to a focused spot and slow scan speed, letting its good
-  heat spread evenly so you don't overheat edges. Unlike softer metals, its low expansion keeps shapes stable, but watch
-  for buildup—multiple light passes restore that tool-sharp finish in aerospace parts. Just ease up if you spot any
-  haze; it cleans clean without residue. 
-
-
-  Yi-Chun Lin, Ph.D.
-meta:
-  title: Tungsten Carbide
-  description: Tungsten Carbide laser cleaning guide. Technical specifications and applications.
-  path: /settings/ceramic/carbide/tungsten-carbide-settings
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:44:41.657220+00:00'
+contentType: setting
+schemaVersion: 5.0.0
+fullPath: /settings/ceramic/carbide/tungsten-carbide-settings
+breadcrumb:
+- label: Home
+  href: /
+- label: Settings
+  href: /settings
+- label: Ceramic
+  href: /settings/ceramic
+- label: Carbide
+  href: /settings/ceramic/carbide
+pageTitle: Tungsten Carbide Settings
+pageDescription: "When laser cleaning Tungsten Carbide, we've found you must start low on power to avoid cracking its brittle\
+  \ surface right away. This material's extreme hardness makes contaminants stick tough, so begin with a gentle pass to loosen\
+  \ dirt without scratching the base. We've typically set the beam to a focused spot and slow scan speed, letting its good\
+  \ heat spread evenly so you don't overheat edges. Unlike softer metals, its low expansion keeps shapes stable, but watch\
+  \ for buildup—multiple light passes restore that tool-sharp finish in aerospace parts. Just ease up if you spot any haze;\
+  \ it cleans clean without residue. \n\nYi-Chun Lin, Ph.D."
 images:
   hero:
     url: /images/settings/tungsten-carbide-settings-hero.jpg
@@ -31,45 +35,207 @@ images:
     alt: Tungsten Carbide microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 3
-machine:
-  power:
-    min: null
-    max: null
-    optimal: null
-    unit: W
-  pulseEnergy:
-    min: null
-    max: null
-    optimal: null
-  frequency:
-    min: 1
-    max: 200
-    optimal: null
-  scanSpeed:
-    min: 10
-    max: 5000
-    optimal: null
-application:
-  thickness:
-    min: null
-    max: null
-  passes:
-    typical: null
-    max: null
-  cooling:
-    required: false
-    method: null
 relationships:
-  materials:
-    optimizedFor: []
-  contaminants:
-    effective:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        icon: shield-check
+        order: 1
+        variant: default
+  interactions:
+    removesContaminants:
+      presentation: card
+      items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-  regulatory:
-    standards:
-      - osha-ppe-requirements
-      - ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        icon: droplet-off
+        order: 1
+        variant: default
+    worksOnMaterials:
+      presentation: card
+      items:
+      - id: oak-laser-cleaning
+        effectiveness: medium
+      - id: maple-laser-cleaning
+        effectiveness: medium
+      - id: pine-laser-cleaning
+        effectiveness: medium
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        icon: box
+        order: 2
+        variant: default
+  operational:
+    commonChallenges:
+      presentation: descriptive
+      items:
+      - thermalManagement:
+        - challenge: Thermal shock and cracking
+          severity: critical
+          thresholdTemperature: ΔT > 200-300°C rapid cooling
+          impact: Ceramics crack catastrophically from rapid temperature changes due to low thermal expansion
+          solutions:
+          - Use pulse mode with 3-5 second cooling between passes
+          - Gradual power ramping (start 50W, increase 10W per pass)
+          - Preheat substrate to reduce thermal gradients
+          - Monitor for surface crazing; stop immediately if cracks appear
+        - challenge: Variable thermal conductivity
+          severity: medium
+          propertyValue: 0.8-120 W/m·K (150x variation between materials)
+          impact: SiC/WC conduct heat well, but alumina/zirconia accumulate heat rapidly
+          solutions:
+          - Low conductivity ceramics (alumina, zirconia) require 50% longer cooling
+          - High conductivity ceramics (SiC, WC) tolerate higher power
+          - Test on scrap to determine cooling requirements
+        contaminationChallenges:
+        - id: coating-residue-removal
+          type: challenge
+      _section:
+        icon: triangle-exclamation
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        order: 5
+        variant: warning
+author:
+  id: 3
+  name: Ikmanda Roswati
+  country: Indonesia
+  countryDisplay: Indonesia
+  title: Ph.D.
+  sex: m
+  jobTitle: Junior Research Scientist in Laser Physics
+  expertise:
+  - Ultrafast Laser Physics and Material Interactions
+  affiliation:
+    name: Bandung Institute of Technology
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Physics, ITB, 2020
+  - 2+ years in ultrafast laser research including ASEAN optics workshops
+  - Assisted in international optics projects
+  languages:
+  - English
+  - Bahasa Indonesia
+  email: info@z-beam.com
+  image: /images/author/ikmanda-roswati.jpg
+  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
+    optics setup
+  url: https://z-beam.com/authors/ikmanda-roswati
+  sameAs:
+  - https://linkedin.com/in/ikmanda-roswati-physicist
+  - https://www.academia.edu/profile/IkmandaRoswati
+  personaFile: indonesia_persona.yaml
+  formattingFile: indonesia_formatting.yaml
+  slug: ikmanda-roswati
+card:
+  default:
+    heading: Laser Cleaning Settings
+    subtitle: Machine Settings
+    badge:
+      text: Optimized
+      variant: default
+    metric:
+      value: 100-300
+      unit: W
+      legend: Power Range
+    severity: low
+    icon: settings
+machineSettings:
+  wavelength:
+    description: Near-infrared wavelength for optimal Tungsten Carbide absorption
+    unit: nm
+    value: 1064
+    min: 355
+    max: 10640
+  spotSize:
+    min: 0.1
+    max: 500
+    unit: μm
+    value: 200
+    description: 'Beam diameter range for cleaning; smaller (50-200 μm) for fine detail on WC tools, larger (200-500 μm) for
+      broad surface prep. 200 μm recommended for uniform coverage on hard, reflective surfaces. Source: Equipment specifications
+      from Adapt Laser Systems; process optimization in Surface and Coatings Technology (2022).'
+  energyDensity:
+    min: 0.1
+    max: 20.0
+    unit: J/cm²
+    value: 2
+    description: 'Fluence range below WC damage threshold (~5-10 J/cm² at 1064 nm) for contaminant removal; 0.5-2 J/cm² for
+      light cleaning, up to 5 for heavy. Recommended 2 J/cm² ensures safe ablation of oxides without melting. Source: Ablation
+      threshold studies in Journal of Applied Physics (2017) for Tungsten Carbide; conservative for reflectivity reducing
+      absorption.'
+  pulseWidth:
+    min: 0.1
+    max: 1000
+    value: 50
+    unit: ns
+    description: 'Nanosecond regime (5-200 ns) preferred for industrial cleaning of WC to ablate contaminants while minimizing
+      heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier. 50 ns balances energy
+      deposition on reflective WC. Source: Laser physics research in Applied Surface Science (2019) on pulse duration effects
+      for ceramics; avoids fs due to WC''s thermal properties.'
+  scanSpeed:
+    min: 10
+    max: 5000
+    unit: mm/s
+    value: 2000
+    description: 'Effective range for 1064 nm cleaning; slower speeds (500-1500 mm/s) for heavy contamination like oxides,
+      faster (2000-5000 mm/s) for light surface prep. Recommended 2000 mm/s optimizes fluence delivery on WC''s conductive
+      surface. Source: Industry standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020)
+      for carbide tool cleaning.'
+  passCount:
+    min: 1
+    max: 10
+    unit: passes
+    value: 3
+    description: 'Single pass for light contamination, multi-pass (2-5) for complete removal of heavy layers on WC; up to
+      10 for thick coatings. 3 passes recommended for industrial prep to ensure uniformity without excessive exposure. Source:
+      Industry practice in case studies from Journal of Manufacturing Processes (2019); avoids over-processing WC''s durable
+      surface.'
+  overlapRatio:
+    min: 10
+    max: 90
+    unit: '%'
+    value: 60
+    description: 'Typical 30-80% for uniform scan coverage; 50-70% optimal for WC to prevent gaps in contaminant removal while
+      minimizing heat buildup. 60% balances efficiency and even fluence distribution. Source: Process optimization studies
+      in Optics and Laser Technology (2020); standard in scanning software like those from CleanLaser GmbH.'
+  laserPower:
+    description: Optimal average power for Tungsten Carbide oxide layer removal
+    unit: W
+    value: 100
+    min: 1.0
+    max: 120
+  laserPowerAlternative:
+    min: 50
+    max: 500
+    value: 150
+    unit: W
+    description: 'Typical range for industrial cleaning of hard materials like Tungsten Carbide to remove contaminants without
+      ablation; starting at 100-200W to balance efficiency and safety. Max limited to avoid thermal damage given WC''s high
+      melting point (~2870°C) and reflectivity at 1064 nm. Source: IPG Photonics YLR series specs for cleaning applications;
+      academic review in Optics and Lasers in Engineering (2018) on metal cleaning thresholds.'
+  frequency:
+    min: 1
+    max: 200
+    unit: kHz
+    value: 30
+    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates increase speed but risk heat accumulation on WC''s
+      moderate thermal conductivity (~80 W/m·K). 30 kHz recommended for controlled overlap without overheating. Trade-off:
+      high freq faster but monitor for substrate damage. Source: Academic literature in Lasers in Manufacturing and Materials
+      Processing (2021); Coherent Armonia series specs.'
+componentSummary: These settings utilize moderate power and short nanosecond pulses at 1064 nm to ablate contaminants from
+  hard Tungsten Carbide without causing thermal cracking or substrate damage.

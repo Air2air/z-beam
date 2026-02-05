@@ -1,22 +1,29 @@
 id: rust-oxidation-contamination
-contentType: contaminant
-schemaVersion: 6.0.0
 name: Rust / Iron Oxide Formation
+displayName: Rust / Iron Oxide Formation Contaminants
 category: oxidation
 subcategory: ferrous
-datePublished: '2026-01-06'
-dateModified: '2026-02-02T02:25:22.846361+00:00'
-description: >-
-  Rust forms through oxidation on metal surfaces exposed to moisture and air. Layer develops unevenly, so patterns
-  appear patchy in humid regions. Before cleaning, contamination adheres tightly to base material. Laser treatment
-  targets this buildup, but challenges arise from irregular thickness. Heat from beam vaporizes oxide quickly on iron,
-  yet aluminum shows slower response because of denser layer. Removal achieves clean surface, and so process prevents
-  further corrosion. In observations, material-specific behavior influences efficiency—steel cleans effectively during
-  short pulses, while copper requires careful control to avoid residue. After ablation, uniformity exhibits on treated
-  areas.
-meta:
-  title: Rust / Iron Oxide Formation
-  path: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:43:16.533632+00:00'
+contentType: contaminant
+schemaVersion: 5.0.0
+fullPath: /contaminants/oxidation/ferrous/rust-oxidation-contamination
+breadcrumb:
+- label: Home
+  href: /
+- label: Contaminants
+  href: /contaminants
+- label: Oxidation
+  href: /contaminants/oxidation
+- label: Ferrous
+  href: /contaminants/oxidation/ferrous
+pageTitle: Rust / Iron Oxide Formation Contaminants
+pageDescription: Rust forms through oxidation on metal surfaces exposed to moisture and air. Layer develops unevenly, so patterns
+  appear patchy in humid regions. Before cleaning, contamination adheres tightly to base material. Laser treatment targets
+  this buildup, but challenges arise from irregular thickness. Heat from beam vaporizes oxide quickly on iron, yet aluminum
+  shows slower response because of denser layer. Removal achieves clean surface, and so process prevents further corrosion.
+  In observations, material-specific behavior influences efficiency—steel cleans effectively during short pulses, while copper
+  requires careful control to avoid residue. After ablation, uniformity exhibits on treated areas.
 images:
   hero:
     url: /images/contaminant/rust-oxidation-contamination-hero.jpg
@@ -28,185 +35,595 @@ images:
     alt: Rust / Iron Oxide Formation microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 1
-properties:
-  validMaterials:
-    - cast-iron-laser-cleaning
-    - iron-laser-cleaning
-    - steel-laser-cleaning
-  prohibitedMaterials:
-    - Aluminum
-    - Brass
-    - Bronze
-    - Ceramics
-    - Copper
-    - Glass
-    - Plastics
-    - Stainless Steel
-    - Wood
-composition:
-  - Fe₂O₃
-laser:
-  wavelength:
-    - 1064
-    - 532
-  fluence:
-    min: 0.8
-    max: 1.4
-    optimal: 1.1
-  pulseWidth:
-    min: 10
-    max: 100
-    optimal: 30
-  scanSpeed:
-    min: 500
-    max: 2000
-    optimal: 1000
-  passes:
-    optimal: 2
-    maxEffective: 3
-    efficiency: 0.85
-  thermal:
-    ablationThreshold: 1.8
-    decomposition: 450
-    vaporization: 2850
-safety:
-  fireRisk: low
-  toxicGas: low
-  ppe:
-    respiratory: half_mask
-    eye: goggles
-    skin: gloves
-  compounds:
-    - id: iron-oxide-fume-compound
-      phase: gas
-      hazard: irritant
-      concentration: 5
-      limit: 5
-    - id: ozone-compound
-      phase: gas
-      hazard: irritant
-      concentration: 0.1
-      limit: 0.1
-  ventilation:
-    airChanges: 10
-    velocity: 0.5
-    filter: HEPA
-appearance:
-  ceramic:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  composite:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  concrete:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  fabric:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  glass:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  metal:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  mineral:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  plastic:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  rubber:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  semiconductor:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  specialty:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  stone:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
-  wood:
-    color: unknown
-    texture: unknown
-    pattern: unknown
-    coverage: unknown
 relationships:
-  materials:
-    common:
+  safety:
+    regulatoryStandards:
+      presentation: card
+      items:
+      - type: regulatory_standards
+        id: osha-ppe-requirements
+      - type: regulatory_standards
+        id: ansi-z136-1-laser-safety
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety regulations and compliance standards for this contaminant
+        icon: shield-check
+        order: 20
+        variant: default
+    fireExplosionRisk:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Fire & Explosion Risk
+        sectionDescription: Fire and explosion hazards during laser cleaning
+        icon: flame
+        order: 21
+        variant: warning
+    fumesGenerated:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Fumes Generated
+        sectionDescription: Hazardous fumes produced during laser removal
+        icon: cloud
+        order: 22
+        variant: warning
+    particulateGeneration:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Particulate Generation
+        sectionDescription: Airborne particles and dust created during cleaning
+        icon: wind
+        order: 23
+        variant: warning
+    ppeRequirements:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: PPE Requirements
+        sectionDescription: Required personal protective equipment
+        icon: shield
+        order: 24
+        variant: default
+    toxicGasRisk:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Toxic Gas Risk
+        sectionDescription: Toxic gases that may be released during removal
+        icon: alert-triangle
+        order: 25
+        variant: danger
+    ventilationRequirements:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Ventilation Requirements
+        sectionDescription: Required ventilation and air filtration systems
+        icon: wind
+        order: 26
+        variant: default
+    visibilityHazard:
+      presentation: descriptive
+      items: []
+      _section:
+        sectionTitle: Visibility Hazard
+        sectionDescription: Smoke and debris affecting operator visibility
+        icon: eye-off
+        order: 27
+        variant: warning
+    substrateCompatibilityWarnings:
+      presentation: card
+      items: []
+      _section:
+        sectionTitle: Substrate Compatibility
+        sectionDescription: Material compatibility warnings and precautions
+        icon: alert-circle
+        order: 28
+        variant: warning
+  interactions:
+    producesCompounds:
+      presentation: card
+      items:
+      - id: iron-oxide-compound
+        title: Iron Oxide Fume
+        name: Iron Oxide Fume
+        category: metal_fume
+        subcategory: metal-oxide
+        url: /compounds/metal_fume/metal-oxide/iron-oxide-compound
+        image: /images/compound/iron-oxide-compound-hero.jpg
+        description: Iron Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+          equipment requirements.
+        phase: unknown
+        hazardLevel: unknown
+      _section:
+        sectionTitle: Produced Compounds
+        sectionDescription: Hazardous compounds produced during laser cleaning
+        icon: flask-conical
+        order: 10
+        variant: warning
+    affectsMaterials:
+      presentation: card
+      items:
       - id: steel-laser-cleaning
+        name: Steel
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/steel-laser-cleaning
+        image: /images/material/steel-laser-cleaning-hero.jpg
+        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
+          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: very_common
         difficulty: moderate
       - id: iron-laser-cleaning
+        name: Iron
+        category: metal
+        subcategory: ferrous
+        url: /materials/metal/ferrous/iron-laser-cleaning
+        image: /images/material/iron-laser-cleaning-hero.jpg
+        description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid
+          strength and heat tolerance that keeps the base material intact while removing rust or grime, b...
         frequency: very_common
         difficulty: moderate
       - id: stainless-steel-316-laser-cleaning
+        name: Stainless Steel 316
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
+        image: /images/material/stainless-steel-316-laser-cleaning-hero.jpg
+        description: When laser cleaning Stainless Steel 316, rely on its superior corrosion resistance to keep surfaces intact
+          in salty or chemical environments, and always adjust the power to avoid unnecessary heat b...
         frequency: common
         difficulty: moderate
       - id: aluminum-laser-cleaning
+        name: Aluminum
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
+        image: /images/material/aluminum-laser-cleaning-hero.jpg
+        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: very_common
         difficulty: moderate
       - id: copper-laser-cleaning
+        name: Copper
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/copper-laser-cleaning
+        image: /images/material/copper-laser-cleaning-hero.jpg
+        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
+          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: common
         difficulty: moderate
       - id: brass-laser-cleaning
+        name: Brass
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/brass-laser-cleaning
+        image: /images/material/brass-laser-cleaning-hero.jpg
+        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
+          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: common
         difficulty: moderate
       - id: bronze-laser-cleaning
+        name: Bronze
+        category: metal
+        subcategory: non-ferrous
+        url: /materials/metal/non-ferrous/bronze-laser-cleaning
+        image: /images/material/bronze-laser-cleaning-hero.jpg
+        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
+          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: common
         difficulty: moderate
       - id: titanium-laser-cleaning
+        name: Titanium
+        category: metal
+        subcategory: specialty
+        url: /materials/metal/specialty/titanium-laser-cleaning
+        image: /images/material/titanium-laser-cleaning-hero.jpg
+        description: Titanium excels in laser cleaning applications because of its exceptional corrosion resistance and lightweight
+          structure, which set it apart from denser metals prone to rapid degradation. After tre...
         frequency: common
         difficulty: moderate
       - id: zinc-laser-cleaning
+        name: Zinc
+        category: metal
+        subcategory: alloy
+        url: /materials/metal/alloy/zinc-laser-cleaning
+        image: /images/material/zinc-laser-cleaning-hero.jpg
+        description: Zinc for laser cleaning, high reflectivity of material protects substrate from thermal damage. Contaminants
+          absorb energy and vaporize easily, thus process yields clean surface without affecting un...
         frequency: common
         difficulty: moderate
       - id: nickel-laser-cleaning
+        name: Nickel
+        category: metal
+        subcategory: specialty
+        url: /materials/metal/specialty/nickel-laser-cleaning
+        image: /images/material/nickel-laser-cleaning-hero.jpg
+        description: Nickel stands out in laser cleaning applications thanks to its solid balance of reflectivity and absorptivity,
+          which lets operators dial in precise energy absorption without excessive heat buildup....
         frequency: common
         difficulty: moderate
-    prohibited:
-      - Aluminum
-      - Brass
-      - Bronze
-      - Ceramics
-      - Copper
-      - Glass
-      - Plastics
-      - Stainless Steel
-      - Wood
-  compounds:
-    produces:
-      - id: iron-oxide-compound
-        phase: unknown
-        hazard: unknown
-  settings:
-    recommended: []
-pageTitle: Rust / Iron Oxide Formation
-pageDescription: Rust / Iron Oxide Formation laser cleaning guide. Technical specifications and applications.
+      _section:
+        sectionTitle: Affected Materials
+        sectionDescription: Materials where this contaminant commonly appears
+        icon: layers
+        order: 11
+        variant: default
+  visual:
+    appearanceOnCategories:
+      presentation: descriptive
+      items:
+      - appearanceOnCategories:
+          ceramic:
+            colorVariations: Reddish-brown, orange, yellow-brown, with possible black iron manganese compounds
+            commonPatterns: Spotting, streaking, edge staining, crazing-following patterns on glazed surfaces
+            coverageRanges: 'Light: isolated spots and faint staining; Moderate: significant surface coverage; Heavy: deep
+              penetration and pervasive discoloration'
+            description: Iron oxide appears as reddish-brown staining that can either surface-deposit on glazed ceramics or
+              penetrate unglazed porous bodies. The contamination creates contrasting discoloration against the ceramic substrate,
+              often following surface imperfections or porosity patterns.
+            distributionPatterns: Follows surface defects and porosity; migrates with water through unglazed bodies
+            edgeCenterBehavior: Prefers edges and unglazed areas; glazed centers show more uniform distribution
+            geometryEffects: Accumulates in recessed areas and joints; complex shapes show varied deposition patterns
+            gravityInfluence: Downward streaking from water flow; puddle formation creates concentrated staining
+            textureDetails: Glazed surfaces show smooth staining; unglazed surfaces may show gritty deposits or deep penetration
+          composite:
+            colorVariations: Reddish-brown, orange, with possible variation based on composite coloring
+            commonPatterns: Fiber-following streaks, edge staining, blotchy patches, interface migration
+            coverageRanges: 'Light: isolated staining along fibers; Moderate: significant interface coverage; Heavy: pervasive
+              discoloration throughout composite'
+            description: Iron oxide appears as reddish-brown staining that can surface-deposit or penetrate along fiber-matrix
+              interfaces in composites. The contamination often follows fiber patterns and can create distinctive streaking
+              along reinforcement directions.
+            distributionPatterns: Follows fiber directions and matrix imperfections; migrates along interfaces
+            edgeCenterBehavior: Prefers edges and cut surfaces where fibers are exposed; center shows more uniform distribution
+            geometryEffects: Complex shapes show fiber-direction patterns; flat laminates exhibit more uniform distribution
+            gravityInfluence: Downward migration along fibers; water-assisted spreading
+            textureDetails: Surface deposits feel gritty; penetrated stains may follow fiber texture without significant surface
+              change
+          concrete:
+            colorVariations: Reddish-brown, orange, yellow-ochre, with possible black iron sulfide compounds
+            commonPatterns: Crack-following streaks, efflorescence patterns, water runoff lines, blotchy patches
+            coverageRanges: 'Light: isolated staining along cracks; Moderate: significant surface coverage; Heavy: deep penetration
+              throughout concrete'
+            description: Iron oxide appears as reddish-brown to yellow staining that can surface-deposit or penetrate deep
+              into the porous concrete matrix. The contamination often follows crack patterns and creates unsightly discoloration
+              that contrasts with the gray concrete substrate.
+            distributionPatterns: Follows porosity and crack networks; migrates with water through concrete matrix
+            edgeCenterBehavior: Prefers edges, joints, and crack networks; center areas may show more uniform staining
+            geometryEffects: Accumulates in low points and joints; vertical surfaces show clear runoff patterns
+            gravityInfluence: Strong downward migration through pores; water flow dictates distribution
+            textureDetails: Surface deposits feel gritty; penetrated stains show no texture change but permanent coloration
+          fabric:
+            colorVariations: Reddish-brown, orange, rust-red, with possible darker tones from fiber interactions
+            commonPatterns: Weave-following patterns, water spot rings, streaking, splash marks
+            coverageRanges: 'Light: faint discoloration along fibers; Moderate: distinct staining patterns; Heavy: complete
+              saturation and color change'
+            description: Iron oxide appears as reddish-brown stains that penetrate fabric fibers, creating permanent discoloration
+              that follows the weave pattern. The contamination can range from faint discoloration to intense, saturated staining
+              that obscures the original fabric color.
+            distributionPatterns: Follows fiber absorption and capillary action; migrates with moisture
+            edgeCenterBehavior: Prefers edges and seams where moisture concentrates; center shows more diffuse staining
+            geometryEffects: Folds and creases show concentrated staining; flat areas exhibit more uniform distribution
+            gravityInfluence: Strong downward migration and streaking; puddle formation creates concentrated staining
+            textureDetails: Penetrates fibers without significant texture change; may feel slightly stiffer if heavily contaminated
+          glass:
+            colorVariations: Reddish-brown, orange, yellow-brown, with iridescent interference colors in thin films
+            commonPatterns: Water spots, streaking, uniform films, edge accumulation, splash patterns
+            coverageRanges: 'Light: isolated spots and faint films; Moderate: partial surface coverage with visible staining;
+              Heavy: opaque reddish coating'
+            description: Iron oxide contamination on glass appears as reddish-brown films or spots that typically adhere to
+              the surface rather than penetrating. The contamination can range from thin, uniform films to concentrated spots
+              and streaks, often with iridescent effects in thin layers.
+            distributionPatterns: Surface adhesion following moisture paths; particulate settling creates random spotting
+            edgeCenterBehavior: Prefers edges and corners where water accumulates; center areas show more uniform film formation
+            geometryEffects: Accumulates in corners and low points; curved surfaces show runoff concentration; flat surfaces
+              exhibit uniform deposition
+            gravityInfluence: Downward streaking from water runoff; particulate settling creates bottom-heavy distribution
+            textureDetails: Smooth films or gritty particulate deposits; may feel slightly rough if particles are present
+          metal:
+            colorVariations: Reddish-brown, orange-red, yellow-brown, black (for magnetite), with possible iridescent hues
+              in advanced stages
+            commonPatterns: Spotting, pitting, uniform coatings, streaking from water runoff, concentric rings around initiation
+              points
+            coverageRanges: 'Light: isolated spots and small patches; Moderate: interconnected patches covering significant
+              areas; Heavy: complete surface coverage with thick scale formation'
+            description: Rust appears as reddish-brown to orange corrosion products that form irregular patches or uniform
+              coatings on metal surfaces. The contamination typically starts as small specks that grow into larger flaky or
+              powdery deposits, often with raised, textured surfaces that can obscure the underlying metal substrate.
+            distributionPatterns: Begins at nucleation sites and spreads radially; follows surface defects, scratches, and
+              areas of residual stress
+            edgeCenterBehavior: Prefers edges, corners, and sharp features due to higher stress concentrations and easier
+              oxygen access
+            geometryEffects: Accelerated at sharp edges, corners, and complex geometries; flat surfaces show more uniform
+              distribution; recessed areas may show concentrated pitting
+            gravityInfluence: Water-assisted rusting shows downward streaking; dry oxidation tends to be more uniform regardless
+              of orientation
+            textureDetails: Rough, flaky, porous, and often powdery surface with variable thickness; can range from fine powder
+              to thick, layered scales
+          mineral:
+            colorVariations: Reddish-brown, orange, yellow, with possible black iron oxides depending on oxidation state
+            commonPatterns: Crystal-face coatings, cleavage-following stains, surface films, alteration rims
+            coverageRanges: 'Light: partial surface staining; Moderate: significant coating coverage; Heavy: complete surface
+              alteration'
+            description: Iron oxide contamination on minerals appears as reddish-brown coatings or staining that can either
+              surface-deposit or form through mineral alteration. The contamination creates contrasting coloration against
+              the native mineral substrate, often following crystal boundaries and cleavage planes.
+            distributionPatterns: Follows crystal boundaries and structural weaknesses; surface deposition on exposed faces
+            edgeCenterBehavior: Prefers edges and crystal terminations; center crystal faces show more uniform distribution
+            geometryEffects: Crystal morphology dictates distribution; flat faces show uniform coatings; edges show concentrated
+              staining
+            gravityInfluence: Minimal effect except in water-assisted deposition; mainly surface chemistry controlled
+            textureDetails: Surface coatings may be powdery or crystalline; staining follows mineral structure without texture
+              change
+          plastic:
+            colorVariations: Reddish-brown, orange, with possible lighter tones on light-colored plastics
+            commonPatterns: Uniform films, spotting, streaking from water, static-induced patterns
+            coverageRanges: 'Light: faint discoloration or isolated spots; Moderate: partial surface coverage; Heavy: opaque
+              reddish coating'
+            description: Iron oxide contamination on plastics appears as reddish-brown surface deposits that typically do
+              not penetrate the non-porous substrate. The contamination forms as particulate films or stains that adhere to
+              the surface, often following static charge patterns or surface energy variations.
+            distributionPatterns: Surface adhesion following moisture or static patterns; minimal penetration into substrate
+            edgeCenterBehavior: Prefers edges and high-surface-energy areas; center shows more uniform distribution
+            geometryEffects: Accumulates in recesses and low points; complex geometries show varied deposition
+            gravityInfluence: Downward streaking from water; particulate settling creates bottom accumulation
+            textureDetails: Smooth films or fine particulate deposits; may feel slightly gritty if particles are large
+          rubber:
+            colorVariations: Reddish-brown, orange, with possible darker tones on black rubber
+            commonPatterns: Uniform films, compression patterns, edge accumulation, splash marks
+            coverageRanges: 'Light: faint surface discoloration; Moderate: distinct staining; Heavy: deep reddish coating'
+            description: Iron oxide contamination on rubber appears as reddish-brown surface staining that can penetrate slightly
+              into porous rubber compounds. The contamination creates contrasting discoloration against the dark rubber substrate,
+              often following surface imperfections or compression patterns.
+            distributionPatterns: Surface adhesion with slight penetration; follows surface energy variations
+            edgeCenterBehavior: Prefers edges and high-contact areas; center shows more uniform distribution
+            geometryEffects: Accumulates in grooves and low points; curved surfaces show runoff patterns
+            gravityInfluence: Downward streaking from water; minimal effect on dry deposition
+            textureDetails: Smooth surface staining with possible slight penetration; may feel unchanged or slightly powdery
+          semiconductor:
+            colorVariations: Reddish-brown, orange, with interference colors in thin films
+            commonPatterns: Random particulate distribution, uniform films, edge accumulation, process-induced patterns
+            coverageRanges: 'Light: isolated particles; Moderate: significant surface coverage; Heavy: continuous films'
+            description: Iron oxide appears as reddish-brown particulate contamination or thin films that can critically affect
+              semiconductor performance. The contamination typically forms as discrete particles or uniform films on the highly
+              polished surfaces, creating visible discoloration and surface defects.
+            distributionPatterns: Surface adhesion following process conditions; particulate settling creates random distribution
+            edgeCenterBehavior: Prefers edges and high-surface-energy areas; center shows more uniform distribution
+            geometryEffects: Accumulates in recessed features; planar surfaces show uniform deposition
+            gravityInfluence: Particulate settling creates bottom-heavy distribution; minimal effect on film formation
+            textureDetails: Particulate deposits feel gritty; thin films remain smooth but discolored
+          specialty:
+            colorVariations: Reddish-brown, orange, with material-dependent appearance variations
+            commonPatterns: 'Material-specific patterns: aerogel shows uniform staining, graphene shows random particulate,
+              alloys show localized corrosion'
+            coverageRanges: 'Light: minimal surface affect; Moderate: significant discoloration; Heavy: complete surface alteration'
+            description: Iron oxide contamination on specialty materials appears as reddish-brown surface deposits whose characteristics
+              vary significantly with material properties. On aerogel, it appears as superficial staining; on graphene, as
+              particulate contamination; on advanced alloys, as localized corrosion products.
+            distributionPatterns: Follows material-specific surface properties and reactivity
+            edgeCenterBehavior: 'Material-dependent: aerogel shows uniform distribution, graphene shows edge preference, alloys
+              show stress concentration areas'
+            geometryEffects: Highly material-dependent; follows specific surface characteristics and reactivity
+            gravityInfluence: Varies by material density and surface properties
+            textureDetails: 'Varies by material: aerogel shows minimal texture change, graphene shows particulate deposits,
+              alloys show corrosion textures'
+          stone:
+            colorVariations: Reddish-brown, orange, yellow-ochre, brown, with possible black iron sulfide compounds
+            commonPatterns: Streaking from water flow, concentric rings around iron sources, blotchy patches, efflorescence
+              patterns
+            coverageRanges: 'Light: isolated streaks or spots; Moderate: interconnected staining covering significant areas;
+              Heavy: pervasive discoloration throughout stone'
+            description: Iron oxide appears as reddish-brown to yellow staining that can either surface-deposit or penetrate
+              porous stone substrates. The contamination often creates unsightly streaks and blotches that contrast sharply
+              with the natural stone coloration, particularly noticeable on light-colored stones.
+            distributionPatterns: Follows natural fissures and porosity; migrates with water movement through stone matrix
+            edgeCenterBehavior: Prefers edges and joints where water accumulates; center areas may show more uniform staining
+            geometryEffects: Accumulates in recesses and low points; vertical surfaces show runoff patterns; porous stones
+              show deeper penetration
+            gravityInfluence: Clear downward streaking patterns; water flow dictates distribution
+            textureDetails: Surface deposits feel gritty or sandy; penetrated stains show no textural change but permanent
+              coloration
+          wood:
+            colorVariations: Reddish-brown, orange-brown, dark brown, with possible blue-black tones from tannin reactions
+            commonPatterns: Streaking from water runoff, blotchy patches, grain-following patterns, drip marks
+            coverageRanges: 'Light: faint discoloration along grain; Moderate: distinct staining covering portions of surface;
+              Heavy: deep, pervasive staining throughout wood structure'
+            description: Iron oxide contamination on wood appears as reddish-brown stains that penetrate the porous surface,
+              creating permanent discoloration. The stains often follow the wood grain pattern and can appear as either diffuse
+              blotches or concentrated streaks where iron-rich water has contacted the surface.
+            distributionPatterns: Follows moisture paths and wood grain; concentrates in areas of water accumulation or contact
+              with iron objects
+            edgeCenterBehavior: Prefers edges and end grain where moisture absorption is highest; center areas may show more
+              diffuse staining
+            geometryEffects: End grain absorbs more contamination; curved surfaces show runoff patterns; flat surfaces exhibit
+              pooling effects
+            gravityInfluence: Strong downward streaking from water runoff; puddle formation creates concentrated staining
+            textureDetails: Stains penetrate wood fibers without significantly altering surface texture; may feel slightly
+              rougher if iron particles are deposited
+      _section:
+        sectionTitle: Visual Appearance
+        sectionDescription: How this contaminant appears on different material categories
+        icon: eye
+        order: 50
+        variant: default
+  operational:
+    laserProperties:
+      presentation: descriptive
+      items:
+      - laserParameters:
+          beamProfile: flat_top
+          fluenceRange:
+            maxJCm2: 1.4
+            minJCm2: 0.8
+            recommendedJCm2: 1.1
+          overlapPercentage: 50
+          polarization: circular
+          pulseDurationRange:
+            maxNs: 100
+            minNs: 10
+            recommendedNs: 30
+          repetitionRateKhz:
+            max: 100
+            min: 20
+            recommended: 50
+          safetyMarginFactor: 0.7
+          scanSpeedMmS:
+            max: 2000
+            min: 500
+            recommended: 1000
+          spotSizeMm:
+            max: 0.2
+            min: 0.05
+            recommended: 0.1
+          wavelengthPreference:
+          - 1064
+          - 532
+        opticalProperties:
+          absorptionCoefficient:
+            wavelength1064Nm: 8500
+            wavelength355Nm: 185000
+            wavelength532Nm: 42000
+          reflectivity:
+            wavelength1064Nm: 0.35
+            wavelength355Nm: 0.07
+            wavelength532Nm: 0.18
+          refractiveIndex:
+            imaginaryPart: 0.8
+            realPart: 2.9
+          transmissionDepth: 1.2
+        removalCharacteristics:
+          byproducts:
+          - compound: iron-oxide
+            hazardLevel: moderate
+            phase: solid
+          - compound: O2
+            hazardLevel: low
+            phase: gas
+          damageRiskToSubstrate: low
+          primaryMechanism: thermal_ablation
+          processSpeed:
+            areaCoverageRateCm2Min: 480
+            typicalScanSpeedMmS: 800
+          removalEfficiency:
+            diminishingReturnsAfter: 3
+            optimalPasses: 2
+            singlePass: 0.85
+          secondaryMechanisms:
+          - mechanical_spallation
+          - photochemical
+          surfaceQualityAfterRemoval:
+            colorChange: 'no'
+            residualStress: compressive
+            roughnessIncrease: minimal
+        safetyData:
+          fireExplosionRisk:
+            severity: low
+            description: Minimal fire risk with standard precautions and adequate ventilation
+            mitigation: Standard fire safety precautions, extinguisher available within 15m
+          fumesGenerated:
+          - compound: Iron Oxide Fume
+            concentrationMgM3: 5.0
+            exposureLimitMgM3: 5.0
+            hazardClass: irritant
+          - compound: Ozone
+            concentrationMgM3: 0.1
+            exposureLimitMgM3: 0.1
+            hazardClass: irritant
+          particulateGeneration:
+            respirableFraction: 0.8
+            sizeRangeUm:
+            - 0.1
+            - 10.0
+          ppeRequirements:
+            eyeProtection: goggles
+            respiratory: half_mask
+            skinProtection: gloves
+            rationale: Standard protection against workplace hazards
+          substrateCompatibilityWarnings:
+          - Avoid laser cleaning on painted surfaces containing lead or chromates
+          - Ensure substrate is free of oils, solvents, or other contaminants that may produce toxic fumes
+          - Check for galvanized coatings that may produce zinc oxide fume
+          toxicGasRisk:
+            severity: low
+            primaryHazards: []
+            description: Minimal gas generation, nuisance particulates only
+            mitigation: N95 or P100 respirator for particulate control, standard ventilation
+          ventilationRequirements:
+            exhaustVelocityMS: 0.5
+            filtrationType: HEPA
+            minimumAirChangesPerHour: 10
+            rationale: Standard industrial ventilation (10 ACH) for particulate control
+          visibilityHazard:
+            severity: moderate
+            description: Moderate visibility reduction (40-60%), significant particulate haze
+            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
+            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
+            relatedField: particulate_generation.respirable_fraction
+        thermalProperties:
+          ablationThreshold:
+            pulseDuration100Ns: 2.5
+            pulseDuration10Ns: 1.2
+            wavelength1064Nm: 1.8
+          decompositionTemperature: 450
+          heatAffectedZoneDepth: 15
+          meltingPoint: 1538
+          specificHeat: 650
+          thermalConductivity: 0.5
+          thermalDiffusivity: 0.8
+          vaporizationTemperature: 2850
+      _section:
+        sectionTitle: Laser Removal Properties
+        sectionDescription: Laser parameters and removal characteristics
+        icon: zap
+        order: 40
+        variant: default
+author:
+  id: 1
+  name: Yi-Chun Lin
+  country: Taiwan
+  countryDisplay: Taiwan
+  title: Ph.D.
+  sex: f
+  jobTitle: Laser Processing Engineer
+  expertise:
+  - Laser Materials Processing
+  affiliation:
+    name: National Taiwan University
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Engineering, National Taiwan University, 2018
+  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
+  - 3+ years in laser processing R&D
+  - Assisted in projects on ultrafast laser applications
+  email: info@z-beam.com
+  image: /images/author/yi-chun-lin.jpg
+  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
+  url: https://z-beam.com/authors/yi-chun-lin
+  sameAs:
+  - https://scholar.google.com/citations?user=ghi789
+  - https://linkedin.com/in/yi-chun-lin-engineer
+  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
+  personaFile: taiwan_persona.yaml
+  formattingFile: taiwan_formatting.yaml
+  slug: yi-chun-lin
+validMaterials:
+- cast-iron-laser-cleaning
+- iron-laser-cleaning
+- steel-laser-cleaning
+composition:
+- Fe₂O₃
+prohibitedMaterials:
+- Aluminum
+- Brass
+- Bronze
+- Ceramics
+- Copper
+- Glass
+- Plastics
+- Stainless Steel
+- Wood
+researchTimestamp: '2025-11-26T01:57:36.567081Z'
+researchVersion: '1.0'

@@ -37,7 +37,7 @@ The breadcrumb component has been optimized to meet all major web standards incl
     {/* ... */}
     <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
       <Link href="/current" aria-current="page" itemProp="item">
-        <span itemProp="name">Current Page</span>
+        <span itemProp="name">{pageTitle}</span> {/* Final breadcrumb is always pageTitle */}
       </Link>
       <meta itemProp="position" content="3" />
     </li>
@@ -384,6 +384,11 @@ This utility is used by:
   - NVDA (Windows): Announces "Breadcrumb navigation, list of 3 items"
   - JAWS (Windows): Reads each link with position
   - VoiceOver (Mac): Identifies current page with aria-current
+
+- [ ] **PageTitle as Final Breadcrumb**
+  - Verify last breadcrumb item is always the pageTitle
+  - Check that pageTitle appears at end even if present elsewhere
+  - Confirm pageTitle is never duplicated in breadcrumb trail
 
 - [ ] **Responsive Design**
   - Test on mobile (320px width)

@@ -3,7 +3,24 @@
 // This file consolidates all types from centralized.ts
 
 // Re-export everything from centralized.ts (SINGLE SOURCE OF TRUTH)
+// EXCEPT SectionMetadata which is exported from relationships.ts to avoid duplicate
 export * from './centralized';
+
+// ============================================================================
+// RELATIONSHIP TYPES AND UTILITIES (NEW - Feb 4, 2026)
+// ============================================================================
+// Consolidated relationship types and accessor functions
+// Note: SectionMetadata from relationships.ts takes precedence over centralized.ts
+export type { 
+  RelationshipCategory, 
+  RelationshipKey, 
+  SectionMetadata,  // Takes precedence over centralized.ts version
+  RelationshipData,
+  DenormalizedRelationshipItem,
+  MaterialRelationshipItem,
+  CompoundRelationshipItem,
+  ContaminantRelationshipItem
+} from './relationships';
 
 // ============================================================================
 // SCHEMA GENERATOR TYPES - From app/utils/schemas/generators/types.ts
@@ -49,6 +66,7 @@ export type {
 // CARD SCHEMA TYPES (NEW - Dec 22, 2025)
 // ============================================================================
 // Card presentation schema for all entities with context-specific variants
+// Note: RelationshipKey exported from relationships.ts instead to avoid duplicate
 export type {
   CardBadge,
   CardMetric,
@@ -58,7 +76,7 @@ export type {
   PresentationType,
   RelationshipSection,
   RelationshipItem,
-  RelationshipKey,
+  // RelationshipKey,  // Commented out - use from relationships.ts
   FrontmatterRelationshipsNew,
   EntityFrontmatter,
 } from './card-schema';

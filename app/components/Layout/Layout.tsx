@@ -170,6 +170,12 @@ export function Layout(props: LayoutProps) {
             <ExpertAnswers
               materialName={metadata.name}
               answers={metadata.expertAnswers}
+              sectionMetadata={{
+                sectionTitle: 'Expert Answers',
+                sectionDescription: `Expert insights on ${metadata.name}`,
+                icon: 'expert',
+                order: 90
+              }}
               defaultExpert={metadata.author ? {
                 name: metadata.author.name,
                 title: metadata.author.title,

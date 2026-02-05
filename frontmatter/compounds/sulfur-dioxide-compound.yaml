@@ -1,17 +1,25 @@
 id: sulfur-dioxide-compound
-contentType: compound
-schemaVersion: 6.0.0
 name: Sulfur Dioxide
+displayName: Sulfur Dioxide Compound
 category: toxic_gas
 subcategory: acid_gas
-datePublished: '2026-01-06'
-dateModified: '2026-01-22T00:31:50.843744+00:00'
-description: >-
-  Sulfur Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
+datePublished: '2026-01-06T00:00:00.000Z'
+dateModified: '2026-02-05T07:43:56.528577+00:00'
+contentType: compound
+schemaVersion: 5.0.0
+fullPath: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
+breadcrumb:
+- label: Home
+  href: /
+- label: Compounds
+  href: /compounds
+- label: Toxic Gas
+  href: /compounds/toxic-gas
+- label: Acid Gas
+  href: /compounds/toxic-gas/acid-gas
+pageTitle: Sulfur Dioxide Compound
+pageDescription: Sulfur Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
   equipment requirements.
-meta:
-  title: Sulfur Dioxide
-  path: /compounds/toxic_gas/acid_gas/sulfur-dioxide-compound
 images:
   hero:
     url: /images/compound/sulfur-dioxide-compound-hero.jpg
@@ -23,41 +31,488 @@ images:
     alt: Sulfur Dioxide microscopic detail view showing surface characteristics
     width: 800
     height: 600
-authorId: 2
-properties:
-  formula: SO₂
-  casNumber: 7446-09-5
-  molecularWeight: 64.06
-  phase: unknown
-  hazardClass: toxic
-safety:
-  exposureLimit: null
-  unit: ppm
-  hazardLevel: unknown
-  symptoms: []
-  firstAid: >-
-    Exposure to sulfur dioxide demands immediate action to ease the gas's sharp irritant effects on the respiratory
-    system. Move the affected person to fresh air without delay, keeping them calm while ensuring your own safety to
-    avoid secondary inhalation. If breathing turns labored or stops, start rescue breathing or use an available device
-    only if trained to do so, prioritizing professional help over hesitation. For eye contact, flush thoroughly with
-    plenty of clean water, holding the eyelids open to wash away the corrosive residue that stings and inflames delicate
-    tissues. Skin touched by the gas or its solutions calls for gentle rinsing with water, followed by loose clothing to
-    prevent further aggravation from the compound's drying, blistering tendencies. Never induce vomiting if swallowed,
-    as this toxic substance can worsen internal burns; instead, offer sips of water or milk to dilute its harsh acidity,
-    but only if the person remains fully conscious and alert. Seek emergency medical care right away, since lingering
-    symptoms like persistent coughing or chest tightness signal deeper damage that self-care alone cannot fully address.
-    In industrial settings where this gas arises from processes like smelting or combustion, having quick-access eyewash
-    stations and ventilation proves crucial for mitigating such exposures effectively.
-physical:
-  boilingPoint: null
-  meltingPoint: null
-  density: null
-  solubility: null
 relationships:
-  contaminants:
-    producedBy: []
-  materials:
-    affectsCorrosion: []
-    affectsHealth: []
-pageTitle: Sulfur Dioxide
-pageDescription: Sulfur Dioxide laser cleaning guide. Technical specifications and applications.
+  identity:
+    chemicalProperties:
+      presentation: descriptive
+      items:
+      - type: chemical_properties
+        id: sulfur-dioxide-physical-data
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        icon: atom
+        order: 1
+        variant: default
+    physicalProperties:
+      presentation: descriptive
+      items:
+      - boilingPoint: -10.0°C (14°F)
+        meltingPoint: -75.5°C (-103.9°F)
+        vaporPressure: 2538 mmHg @ 21°C
+        vaporDensity: 2.26 (Air=1)
+        specificGravity: 1.43 (liquid @ 0°C)
+        flashPoint: Not applicable (non-flammable)
+        autoignitionTemp: Not applicable
+        explosiveLimits: Not applicable
+        appearance: Colorless gas, colorless liquid under pressure
+        odor: Pungent, suffocating odor @ 0.3-1 ppm
+      _section:
+        icon: flask
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        order: 5
+        variant: default
+    synonymsIdentifiers:
+      presentation: descriptive
+      items:
+      - synonyms:
+        - Sulfurous anhydride
+        - Sulfur oxide
+        - SO2
+        - Sulphur dioxide
+        commonTradeNames: []
+        otherIdentifiers:
+          rtecsNumber: WS4550000
+          ecNumber: 231-195-2
+          pubchemCid: '1119'
+      _section:
+        icon: tag
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        order: 10
+        variant: default
+  safety:
+    healthEffects:
+      presentation: card
+      items:
+      - route: inhalation
+        effect: Respiratory tract irritation, coughing, shortness of breath, and bronchoconstriction
+        severity: high
+        onset: immediate
+      - route: inhalation
+        effect: Aggravation of asthma and chronic obstructive pulmonary disease (COPD)
+        severity: moderate
+        onset: short-term
+      - route: eye_contact
+        effect: Severe irritation, burning sensation, tearing, and potential corneal damage
+        severity: high
+        onset: immediate
+      - route: skin_contact
+        effect: Irritation and possible chemical burns (especially with liquid SO2)
+        severity: moderate
+        onset: immediate
+      _section:
+        icon: heart-pulse
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        order: 15
+        variant: default
+    ppeRequirements:
+      presentation: descriptive
+      items:
+      - respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations. Air-purifying with acid gas cartridge
+          acceptable for ≤5 ppm with escape provisions.
+        skin: Nitrile gloves for liquid contact (cryogenic hazard). Thermal protection for liquefied SO2.
+        eye: Chemical safety goggles, face shield for liquid contact
+        minimumLevel: Level C for known <5 ppm, Level B for >5 ppm or liquefied SO2
+        specialNotes: Extremely irritating to eyes and respiratory tract. Cryogenic liquid causes frostbite. Asthma trigger
+          - asthmatics extremely sensitive.
+      _section:
+        icon: shield-check
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        order: 20
+        variant: default
+    emergencyResponse:
+      presentation: descriptive
+      items:
+      - fireHazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition products in fire.
+        fireSuppression: If cylinder involved in fire, evacuate immediately - explosion hazard. Cool cylinders with water
+          spray from maximum distance. Let fire burn out if possible.
+        spillProcedures: 'EVACUATE. Ventilate area. SCBA for >100 ppm. Neutralize with soda ash or lime. Contain with dry
+          sand or earth. For liquid: cryogenic hazard - specialized equipment needed.'
+        exposureImmediateActions: 'Remove to fresh air immediately. Eyes: flush with water for 15 minutes. If inhaled: administer
+          oxygen. Seek medical attention - risk of bronchospasm and delayed pulmonary edema. For asthmatics: MEDICAL EMERGENCY.'
+        environmentalHazards: Major contributor to acid rain. Toxic to vegetation. Acidifies water bodies. Report releases
+          >1 lb.
+        specialHazards: Severe respiratory and eye irritant. Triggers asthma attacks. Forms sulfurous acid with moisture.
+          Corrosive to tissues. May cause bronchospasm and pulmonary edema. Cryogenic liquid causes frostbite.
+      _section:
+        icon: exclamation-triangle
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        order: 25
+        variant: default
+    exposureLimits:
+      presentation: descriptive
+      items:
+      - oshaPelPpm: 5
+        oshaPelMgM3: 13
+        nioshRelPpm: 2
+        nioshRelMgM3: 5
+        acgihTlvPpm: 0.25
+        acgihTlvMgM3: 0.65
+        workplaceExposure:
+          oshaPel:
+            twa8Hr: 5 ppm
+            stel15Min: null
+            ceiling: null
+          nioshRel:
+            twa8Hr: 2 ppm
+            stel15Min: 5 ppm
+            ceiling: null
+            idlh: 100 ppm
+          acgihTlv:
+            twa8Hr: 2 ppm
+            stel15Min: 5 ppm
+            ceiling: null
+          biologicalExposureIndices: []
+      _section:
+        icon: gauge
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        order: 30
+        variant: default
+    storageRequirements:
+      presentation: descriptive
+      items:
+      - temperatureRange: Store cylinders <52°C. Liquefied SO2 requires cryogenic storage.
+        ventilation: 'Outdoor storage preferred. Indoor: mechanical ventilation with emergency backup. SO2 gas detection mandatory.'
+        incompatibilities:
+        - Potassium chlorate
+        - Alkali metals
+        - Sodium hydride
+        - Metal oxides
+        - Aluminum
+        - Halogens
+        containerMaterial: Steel cylinders. Stainless steel for liquid.
+        segregation: Separate from incompatibles. Corrosive gas storage area.
+        quantityLimits: Per fire code. Many facilities limit indoor storage.
+        specialRequirements: 'Cylinder restraints mandatory. Leak detection system required. Post "CORROSIVE GAS" signs. Emergency
+          procedures posted. For liquid: cryogenic handling equipment.'
+      _section:
+        icon: warehouse
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        order: 35
+        variant: default
+    regulatoryClassification:
+      presentation: descriptive
+      items:
+      - unNumber: UN1079
+        dotHazardClass: 2.3 (Toxic gas)
+        dotLabel: Poison Gas
+        nfpaCodes:
+          health: 3
+          flammability: 0
+          reactivity: 0
+          special: null
+          instability: 0
+        epaHazardCategories:
+        - Acute toxicity (inhalation)
+        - Skin corrosion
+        - Serious eye damage
+        saraTitleIii: true
+        cerclaRq: 1 pound (0.454 kg)
+        rcraCode: null
+      _section:
+        icon: book-law
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        order: 40
+        variant: default
+  environmental:
+    environmentalImpact:
+      presentation: descriptive
+      items:
+      - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 100-180 mg/L. Forms acidic solutions.'
+        biodegradability: Reacts in atmosphere. Oxidizes to sulfuric acid. Not biodegradable.
+        bioaccumulation: Does not bioaccumulate.
+        soilMobility: High mobility as gas. Deposits as sulfates. Contributes to soil acidification.
+        atmosphericFate: 'Oxidizes to sulfur trioxide then sulfuric acid. Major acid rain precursor. Atmospheric residence:
+          hours to days.'
+        ozoneDepletion: false
+        globalWarmingPotential: null
+        reportableReleases:
+          water: 1 lb to navigable waters
+          air: 1 lb/day (CERCLA RQ)
+      _section:
+        icon: leaf
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        order: 45
+        variant: default
+  detectionMonitoring:
+    detectionMonitoring:
+      presentation: descriptive
+      items:
+      - sensorTypes:
+        - Electrochemical
+        - UV fluorescence
+        - Infrared
+        detectionRange: 0-50 ppm typical
+        alarmSetpoints:
+          low: 2 ppm (NIOSH REL)
+          high: 5 ppm (OSHA PEL/NIOSH STEL)
+          evacuate: 100 ppm (NIOSH IDLH)
+        colorimetricTubes:
+        - Dräger SO2 0.1/a
+        - Gastec 5L
+        - Kitagawa 103
+        analyticalMethods:
+        - method: NIOSH 6004
+          technique: Ion chromatography
+          detectionLimit: 0.05 ppm
+        - method: OSHA ID-104
+          technique: Ion chromatography
+          detectionLimit: 0.02 ppm
+        odorThreshold: 0.3-1 ppm - provides adequate warning below toxic levels
+      _section:
+        icon: radar
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        order: 50
+        variant: default
+  interactions:
+    producedFromContaminants:
+      presentation: card
+      items:
+      - id: rubber-residue-contamination
+        name: Rubber Compound Residue
+        title: Rubber Compound Residue
+        category: organic-residue
+        subcategory: polymer
+        url: /contaminants/organic-residue/polymer/rubber-residue-contamination
+        image: /images/contaminant/rubber-residue-contamination-hero.jpg
+        description: ''
+        frequency: common
+        severity: moderate
+        typicalContext: Vulcanized rubber contains sulfur compounds
+      - id: industrial-oil-contamination
+        name: Industrial Oil / Grease Buildup
+        title: Industrial Oil / Grease Buildup Laser Cleaning
+        category: organic-residue
+        subcategory: petroleum
+        url: /contaminants/organic-residue/petroleum/industrial-oil-contamination
+        image: /images/contaminant/industrial-oil-contamination-hero.jpg
+        description: ''
+        frequency: occasional
+        severity: low
+        typicalContext: Sulfur additives in some lubricants
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        icon: droplet
+        order: 1
+        variant: default
+    producedFromMaterials:
+      presentation: card
+      items:
+      - id: cast-iron-laser-cleaning
+      - id: iron-laser-cleaning
+      - id: rubber-laser-cleaning
+      - id: stainless-steel-304-laser-cleaning
+      - id: stainless-steel-316-laser-cleaning
+      - id: stainless-steel-laser-cleaning
+      - id: steel-laser-cleaning
+      - id: tool-steel-laser-cleaning
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        icon: box
+        order: 2
+        variant: default
+    reactivity:
+      presentation: descriptive
+      items:
+      - stability: Stable under normal conditions.
+        polymerization: Will not polymerize
+        incompatibleMaterials:
+        - Potassium chlorate
+        - Alkali metals
+        - Metal oxides
+        - Halogens
+        - Ammonia
+        - Acetylene
+        - Aluminum
+        hazardousDecomposition:
+        - Sulfur oxides
+        - Sulfuric acid mist
+        conditionsToAvoid:
+        - Heat
+        - Moisture (forms sulfurous acid)
+        - Incompatible materials
+        reactivityHazard: Reacts with water to form sulfurous acid (corrosive). Reacts violently with metal oxides and alkali
+          metals.
+      _section:
+        icon: atom
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        order: 55
+        variant: default
+author:
+  id: 2
+  name: Alessandro Moretti
+  country: Italy
+  countryDisplay: Italy
+  title: Ph.D.
+  sex: m
+  jobTitle: Materials Engineer
+  expertise:
+  - Laser-Based Additive Manufacturing
+  affiliation:
+    name: Politecnico di Milano's Materials Dept.
+    type: EducationalOrganization
+  alumniOf:
+    name: University of Bologna
+    type: EducationalOrganization
+  credentials:
+  - Ph.D. Materials Science, TU Milano, 2015
+  - 5+ years industrial ceramics experience
+  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
+  email: info@z-beam.com
+  image: /images/author/alessandro-moretti.jpg
+  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
+  url: https://z-beam.com/authors/alessandro-moretti-phd
+  sameAs:
+  - https://scholar.google.com/citations?user=def456
+  - https://linkedin.com/in/alessandro-moretti-engineer
+  personaFile: italy_persona.yaml
+  formattingFile: italy_formatting.yaml
+  slug: alessandro-moretti
+card:
+  default:
+    heading: Sulfur Dioxide
+    subtitle: toxic_gas / acid_gas
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: '5'
+      unit: ppm
+      legend: OSHA PEL
+    severity: low
+    icon: flask
+  contaminationContext:
+    heading: Sulfur Dioxide
+    subtitle: Emission Product
+    badge:
+      text: Low Hazard
+      variant: info
+    metric:
+      value: '5'
+      unit: ppm
+      legend: Exposure Limit
+    severity: low
+    icon: alert-triangle
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas from
+      sulfur-containing materials?
+    content: Always prioritize engineering controls like local exhaust ventilation to capture and remove SO₂ at the source,
+      maintaining exposure below the OSHA permissible limit of 5 ppm (parts per million) over an 8-hour shift. Wear a full-face
+      respirator with an appropriate cartridge rated for acid gases (e.g., NIOSH-approved P100 with acid gas cartridge) and
+      ensure personal protective equipment like gloves and protective clothing to avoid skin contact. Regularly monitor air
+      quality with SO₂ detectors or badges, and evacuate if levels exceed 5 ppm, seeking fresh air immediately if irritation
+      occurs.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+hazardClass: toxic
+chemicalFormula: SO₂
+casNumber: 7446-09-5
+molecularWeight: 64.06
+healthEffects: 'When dealing with sulfur dioxide in industrial setups, prioritize ventilation right away. This gas irritates
+  lungs deeply if inhaled. It triggers coughing fits almost immediately.
+
+
+  Breathe it in, and your airways tighten fast. That''s the core issue here—its sharp reactivity with moist tissues. Workers
+  feel throat burning first, then chest tightness follows. Eyes water too, blurring vision during tasks.
+
+
+  In applications like metal processing or cleaning operations, exposure builds subtly. But avoid confined spaces without
+  masks. It worsens asthma quickly, leading to labored breathing. Long shifts amplify fatigue from this constant assault.
+
+
+  Handle it cautiously in laser-based removal processes for contaminants. The gas lingers, so monitor air flow strictly. Skin
+  contact stings less, but respiratory risks dominate always.'
+healthEffectsKeywords:
+- respiratory_irritation
+- bronchospasm
+- asthma_trigger
+- pulmonary_edema
+exposureGuidelines: 'Dealing with sulfur dioxide demands caution right from the start, especially in settings where it might
+  leak or build up unexpectedly. This colorless gas carries a sharp, irritating smell that hits the nose quickly, signaling
+  potential trouble for anyone nearby. Workers in factories or labs handling it should always gear up with proper masks and
+  suits to shield their lungs and skin from its harsh effects.
+
+
+  Breathing it in, even briefly, can irritate the eyes, throat, and chest, leading to coughing fits or worse breathing issues
+  over time. Those with sensitive health conditions feel the impact hardest, so keeping exposure low through good ventilation
+  turns crucial. In industrial spots like chemical plants or food processing, where sulfur dioxide helps make acids or preserves
+  items, regular checks for leaks prevent silent buildups that could turn risky.
+
+
+  When it comes to cleaning tools or surfaces with lasers, sulfur dioxide''s role stays limited, but any process involving
+  it requires sealed areas to avoid spreading the gas. Training everyone on quick evacuation steps and having neutralizers
+  ready cuts down dangers effectively. Storing it in sturdy, labeled containers away from heat sources keeps things stable
+  and safe overall.'
+detectionMethods: 'Spotting sulfur dioxide in the air starts with understanding how this pungent gas behaves around industrial
+  setups, where it often lingers from processes like smelting or power generation. Workers might first notice its sharp, irritating
+  smell, which acts as a basic alert before any tools come into play, especially in confined spaces where ventilation plays
+  a key role. To get more reliable reads, teams turn to simple chemical tests that change color when the gas interacts with
+  certain strips or solutions, revealing its presence through vivid reactions without needing fancy equipment.
+
+
+  In larger facilities, portable sensors pick up on the gas''s electrochemical traits, buzzing or lighting up to warn of buildup
+  during operations involving fuel combustion or chemical manufacturing. These devices thrive in dusty environments, drawing
+  on the compound''s reactive nature to signal hazards swiftly, helping maintain safety amid ongoing production. For broader
+  monitoring, optical methods shine by passing light through air samples, where the gas absorbs specific wavelengths and creates
+  detectable patterns, ideal for tracking emissions over wide areas like refineries or paper mills.
+
+
+  When it comes to cleaning surfaces marred by sulfur dioxide residues—think corrosion on metal parts from acidic exposure—laser
+  techniques offer a precise way to ablate buildup while simultaneously assessing the gas''s off-gassing. Pulses from the
+  laser vaporize contaminants, and built-in spectrometers catch the released molecules, confirming levels through spectral
+  shifts that highlight the compound''s distinct footprint. This dual approach not only restores materials but also embeds
+  detection right into the restoration process, proving invaluable in industries dealing with polluted atmospheres. Overall,
+  combining these tactics ensures the toxic gas doesn''t go unnoticed, safeguarding both equipment and personnel through practical,
+  layered vigilance.'
+firstAid: Exposure to sulfur dioxide demands immediate action to ease the gas's sharp irritant effects on the respiratory
+  system. Move the affected person to fresh air without delay, keeping them calm while ensuring your own safety to avoid secondary
+  inhalation. If breathing turns labored or stops, start rescue breathing or use an available device only if trained to do
+  so, prioritizing professional help over hesitation. For eye contact, flush thoroughly with plenty of clean water, holding
+  the eyelids open to wash away the corrosive residue that stings and inflames delicate tissues. Skin touched by the gas or
+  its solutions calls for gentle rinsing with water, followed by loose clothing to prevent further aggravation from the compound's
+  drying, blistering tendencies. Never induce vomiting if swallowed, as this toxic substance can worsen internal burns; instead,
+  offer sips of water or milk to dilute its harsh acidity, but only if the person remains fully conscious and alert. Seek
+  emergency medical care right away, since lingering symptoms like persistent coughing or chest tightness signal deeper damage
+  that self-care alone cannot fully address. In industrial settings where this gas arises from processes like smelting or
+  combustion, having quick-access eyewash stations and ventilation proves crucial for mitigating such exposures effectively.
+ppeRequirements: Workers handling sulfur dioxide face risks from its irritating fumes and corrosive nature, unlike milder
+  gases that pose less threat. Eyes sting fast without shields. Goggles or full-face respirators block exposure. Skin absorbs
+  it easily, causing burns. Gloves made of resistant rubber protect hands. Full-body suits seal out vapors in heavy exposure
+  zones. Breathing the gas harms lungs deeply. Self-contained breathing apparatus ensures clean air supply. Boots and coveralls
+  add layers against spills. Always pair PPE with good ventilation to cut risks. Training on quick donning saves time in emergencies.
+monitoringRequired: true
+typicalConcentrationRange: 2-10 mg/m³
+sourcesInLaserCleaning:
+- sulfur_containing_compound_oxidation
+- vulcanized_rubber_decomposition
+- sulfide_coating_removal
+title: Sulfur Dioxide

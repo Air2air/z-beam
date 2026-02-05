@@ -638,6 +638,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
   return (
     <BaseSection
       title="Parameter Relationships"
+      description="Shows how changing one parameter physically affects others. Click any node to see its downstream impacts and role."
       icon={getSectionIcon('machine-settings')}
       variant="dark"
     >

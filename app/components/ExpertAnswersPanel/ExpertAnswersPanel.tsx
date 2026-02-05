@@ -46,6 +46,13 @@ interface ExpertAnswersPanelProps {
   entityName?: string;  // Optional - not currently used but kept for future context
   /** Default expert if individual answers don't specify one */
   defaultExpert?: ExpertInfo;
+  /** Section metadata from frontmatter _section field (REQUIRED) */
+  sectionMetadata: {
+    sectionTitle: string;
+    sectionDescription?: string;
+    icon?: string;
+    order?: number;
+  };
   /** Optional CSS classes */
   className?: string;
   /** Analytics tracking function */
@@ -103,6 +110,7 @@ export function ExpertAnswersPanel({
   answers,
   entityName,
   defaultExpert,
+  sectionMetadata,
   className = '',
   onQuestionClick: _onQuestionClick
 }: ExpertAnswersPanelProps) {
@@ -150,13 +158,11 @@ export function ExpertAnswersPanel({
     };
   });
 
-  // Section metadata
-  const sectionMetadata = {
-    sectionTitle: 'Expert Answers',
-    sectionDescription: `Expert insights and professional guidance on ${entityName}`,
-    icon: 'expert',
-    order: 90
-  };
+  // 🔥 MANDATORY (Jan 15, 2026): Section metadata MUST come from frontmatter _section
+  // FAIL-FAST: This component should receive sectionMetadata prop from parent
+  if (!sectionMetadata?.sectionTitle) {
+    throw new Error(`Missing _section.sectionTitle for Expert Answers (${entityName})`);
+  }
 
   return (
     <div className={className}>

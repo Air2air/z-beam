@@ -3,21 +3,32 @@
  * Breadcrumb Migration Script
  * 
  * Adds explicit breadcrumb arrays to all YAML files that don't have them.
+ * The final breadcrumb item is ALWAYS the pageTitle.
  * 
  * For static pages:
- *   Home -> Page
+ *   Home -> Page Title
  * 
  * For materials:
- *   Home -> Materials -> Category -> Subcategory -> Material
+ *   Home -> Materials -> Category -> Subcategory -> Page Title
+ * 
+ * For contaminants:
+ *   Home -> Contaminants -> Category -> Subcategory -> Page Title
+ * 
+ * For compounds:
+ *   Home -> Compounds -> Category -> Subcategory -> Page Title
+ * 
+ * For settings:
+ *   Home -> Settings -> Category -> Subcategory -> Page Title
  * 
  * Usage:
  *   npm run migrate:breadcrumbs
  *   npm run migrate:breadcrumbs -- --dry-run  # Preview changes without writing
  */
 
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 import * as yaml from 'js-yaml';
+import { normalizeForUrl } from '../app/utils/urlBuilder';
 
 interface BreadcrumbItem {
   label: string;
@@ -26,104 +37,73 @@ interface BreadcrumbItem {
 
 const STATIC_PAGES_DIR = 'static-pages';
 const MATERIALS_DIR = 'frontmatter/materials';
+const CONTAMINANTS_DIR = 'frontmatter/contaminants';
+const COMPOUNDS_DIR = 'frontmatter/compounds';
+const SETTINGS_DIR = 'frontmatter/settings';
 
 /**
- * Generate breadcrumbs for a material using fullPath
+ * Generate breadcrumbs for any domain using fullPath and pageTitle
  */
-function generateMaterialBreadcrumbs(
-  name: string,
-  category: string,
-  subcategory: string,
-  slug?: string,
-  fullPath?: string
+function generateDomainBreadcrumbs(
+  pageTitle: string,
+  fullPath?: string,
+  domain?: string
 ): BreadcrumbItem[] {
-  const breadcrumbs: BreadcrumbItem[] = [
-    { label: 'Home', href: '/' }
-  ];
+  const breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
   
-  // If fullPath exists, parse it to build accurate breadcrumbs
   if (fullPath) {
-    const pathParts = fullPath.split('/').filter(p => p); // ['materials', 'metal', 'non-ferrous', 'aluminum-laser-cleaning']
+    const pathParts = fullPath.split('/').filter(Boolean);
     
-    if (pathParts.length > 0 && pathParts[0] === 'materials') {
-      breadcrumbs.push({ label: 'Materials', href: '/materials' });
+    // Build breadcrumbs from path segments
+    for (let i = 0; i < pathParts.length; i++) {
+      const segment = pathParts[i];
+      const label = segmentToLabel(segment);
+      const href = '/' + pathParts.slice(0, i + 1).map(s => normalizeForUrl(s)).join('/');
       
-      // Build breadcrumb for each path segment
-      for (let i = 1; i < pathParts.length; i++) {
-        const segment = pathParts[i];
-        const isLast = i === pathParts.length - 1;
-        
-        // Convert slug to display label
-        const label = isLast 
-          ? name // Use actual name for the material itself
-          : segment.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-        
-        // Build href from cumulative path
-        const href = '/' + pathParts.slice(0, i + 1).join('/');
-        
-        breadcrumbs.push({ label, href });
-      }
-      
-      return breadcrumbs;
+      breadcrumbs.push({ label, href });
     }
-  }
-  
-  // Fallback to old logic if no fullPath
-  breadcrumbs.push({ label: 'Materials', href: '/materials' });
-  
-  // Capitalize category for display
-  const categoryLabel = category
-    .split('-')
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ');
-  
-  const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
-  breadcrumbs.push({
-    label: categoryLabel,
-    href: `/materials/${categorySlug}`
-  });
-  
-  // Add subcategory if present
-  if (subcategory) {
-    const subcategoryLabel = subcategory
-      .split('-')
-      .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-      .join(' ');
     
-    const subcategorySlug = subcategory.toLowerCase().replace(/\s+/g, '-');
-    breadcrumbs.push({
-      label: subcategoryLabel,
-      href: `/materials/${categorySlug}/${subcategorySlug}`
-    });
+    // Ensure last breadcrumb has pageTitle
+    if (breadcrumbs.length > 1) {
+      breadcrumbs[breadcrumbs.length - 1].label = pageTitle;
+    }
+  } else if (domain) {
+    // Fallback for domain-only
+    const domainLabel = segmentToLabel(domain);
+    breadcrumbs.push({ label: domainLabel, href: `/${normalizeForUrl(domain)}` });
+    breadcrumbs.push({ label: pageTitle, href: '' });
+  } else {
+    // Minimal fallback
+    breadcrumbs.push({ label: pageTitle, href: '' });
   }
-  
-  // Add material itself
-  const materialSlug = slug || name.toLowerCase().replace(/\s+/g, '-');
-  breadcrumbs.push({
-    label: name,
-    href: subcategory
-      ? `/materials/${categorySlug}/${subcategory.toLowerCase().replace(/\s+/g, '-')}/${materialSlug}`
-      : `/materials/${categorySlug}/${materialSlug}`
-  });
   
   return breadcrumbs;
 }
 
 /**
- * Generate breadcrumbs for a static page
+ * Convert URL segment to display label
+ */
+function segmentToLabel(segment: string): string {
+  return segment
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+/**
+ * Generate breadcrumbs for a static page using pageTitle
  */
 function generateStaticPageBreadcrumbs(
-  title: string,
+  pageTitle: string,
   slug: string
 ): BreadcrumbItem[] {
-  // Home page gets no breadcrumb (it IS the breadcrumb root)
   if (slug === 'home' || slug === '/') {
-    return [];
+    return []; // Home page gets no breadcrumb
   }
   
   return [
     { label: 'Home', href: '/' },
-    { label: title, href: `/${slug}` }
+    { label: pageTitle, href: `/${normalizeForUrl(slug)}` }
   ];
 }
 
@@ -181,7 +161,7 @@ function insertBreadcrumbIntoYaml(
  */
 function processFile(
   filePath: string,
-  isMaterial: boolean,
+  domainType: 'materials' | 'contaminants' | 'compounds' | 'settings' | 'static',
   dryRun: boolean
 ): { processed: boolean; added: boolean; error?: string } {
   try {
@@ -195,33 +175,34 @@ function processFile(
     
     let breadcrumbs: BreadcrumbItem[] = [];
     
-    if (isMaterial) {
-      // Material file
-      const { name, category, subcategory, slug, fullPath } = data;
-      
-      if (!name || !category) {
-        return {
-          processed: false,
-          added: false,
-          error: 'Missing required fields (name, category)'
-        };
-      }
-      
-      breadcrumbs = generateMaterialBreadcrumbs(name, category, subcategory, slug, fullPath);
-    } else {
+    if (domainType === 'static') {
       // Static page
-      const title = data.title || data.name;
+      const pageTitle = data.pageTitle || data.title || data.name;
       const slug = data.slug || path.basename(filePath, '.yaml');
       
-      if (!title) {
+      if (!pageTitle) {
         return {
           processed: false,
           added: false,
-          error: 'Missing title field'
+          error: 'Missing pageTitle/title field'
         };
       }
       
-      breadcrumbs = generateStaticPageBreadcrumbs(title, slug);
+      breadcrumbs = generateStaticPageBreadcrumbs(pageTitle, slug);
+    } else {
+      // Domain pages (materials, contaminants, compounds, settings)
+      const pageTitle = data.pageTitle;
+      const fullPath = data.fullPath;
+      
+      if (!pageTitle) {
+        return {
+          processed: false,
+          added: false,
+          error: 'Missing pageTitle field'
+        };
+      }
+      
+      breadcrumbs = generateDomainBreadcrumbs(pageTitle, fullPath, domainType);
     }
     
     // Insert breadcrumb into YAML content
@@ -246,7 +227,7 @@ function processFile(
  */
 function processDirectory(
   directory: string,
-  isMaterial: boolean,
+  domainType: 'materials' | 'contaminants' | 'compounds' | 'settings' | 'static',
   dryRun: boolean
 ): { total: number; added: number; errors: string[] } {
   const results = { total: 0, added: 0, errors: [] as string[] };
@@ -261,7 +242,7 @@ function processDirectory(
   
   for (const file of files) {
     const filePath = path.join(directory, file);
-    const result = processFile(filePath, isMaterial, dryRun);
+    const result = processFile(filePath, domainType, dryRun);
     
     if (result.added) {
       results.added++;
@@ -287,39 +268,66 @@ async function main() {
   console.log('🔧 Breadcrumb Migration Script');
   console.log(`Mode: ${dryRun ? 'DRY RUN (no files will be modified)' : 'LIVE (files will be updated)'}\n`);
   
+  const allResults = {
+    static: { total: 0, added: 0, errors: [] as string[] },
+    materials: { total: 0, added: 0, errors: [] as string[] },
+    contaminants: { total: 0, added: 0, errors: [] as string[] },
+    compounds: { total: 0, added: 0, errors: [] as string[] },
+    settings: { total: 0, added: 0, errors: [] as string[] }
+  };
+  
   // Process static pages
   console.log('Processing static pages...');
-  const staticResults = processDirectory(STATIC_PAGES_DIR, false, dryRun);
+  allResults.static = processDirectory(STATIC_PAGES_DIR, 'static', dryRun);
   
+  // Process materials
   console.log('\nProcessing materials...');
-  const materialResults = processDirectory(MATERIALS_DIR, true, dryRun);
+  allResults.materials = processDirectory(MATERIALS_DIR, 'materials', dryRun);
+  
+  // Process contaminants
+  console.log('\nProcessing contaminants...');
+  allResults.contaminants = processDirectory(CONTAMINANTS_DIR, 'contaminants', dryRun);
+  
+  // Process compounds
+  console.log('\nProcessing compounds...');
+  allResults.compounds = processDirectory(COMPOUNDS_DIR, 'compounds', dryRun);
+  
+  // Process settings
+  console.log('\nProcessing settings...');
+  allResults.settings = processDirectory(SETTINGS_DIR, 'settings', dryRun);
   
   // Summary
   console.log(`\n${'='.repeat(80)}`);
   console.log('Migration Summary');
   console.log(`${'='.repeat(80)}\n`);
   
-  console.log(`Static Pages:`);
-  console.log(`  Total: ${staticResults.total}`);
-  console.log(`  Added breadcrumbs: ${staticResults.added}`);
-  console.log(`  Errors: ${staticResults.errors.length}`);
+  const domains = ['static', 'materials', 'contaminants', 'compounds', 'settings'] as const;
   
-  console.log(`\nMaterials:`);
-  console.log(`  Total: ${materialResults.total}`);
-  console.log(`  Added breadcrumbs: ${materialResults.added}`);
-  console.log(`  Errors: ${materialResults.errors.length}`);
+  for (const domain of domains) {
+    const results = allResults[domain];
+    const domainName = domain === 'static' ? 'Static Pages' : domain.charAt(0).toUpperCase() + domain.slice(1);
+    
+    console.log(`${domainName}:`);
+    console.log(`  Total: ${results.total}`);
+    console.log(`  Added breadcrumbs: ${results.added}`);
+    console.log(`  Errors: ${results.errors.length}`);
+    console.log();
+  }
   
-  const totalAdded = staticResults.added + materialResults.added;
-  const totalErrors = staticResults.errors.length + materialResults.errors.length;
+  const totalFiles = domains.reduce((sum, domain) => sum + allResults[domain].total, 0);
+  const totalAdded = domains.reduce((sum, domain) => sum + allResults[domain].added, 0);
+  const totalErrors = domains.reduce((sum, domain) => sum + allResults[domain].errors.length, 0);
   
-  console.log(`\nOverall:`);
-  console.log(`  Total files processed: ${staticResults.total + materialResults.total}`);
+  console.log(`Overall:`);
+  console.log(`  Total files processed: ${totalFiles}`);
   console.log(`  Breadcrumbs added: ${totalAdded}`);
   console.log(`  Errors: ${totalErrors}`);
   
   if (totalErrors > 0) {
     console.log(`\n❌ Errors encountered:`);
-    [...staticResults.errors, ...materialResults.errors].forEach(e => console.log(`  - ${e}`));
+    domains.forEach(domain => {
+      allResults[domain].errors.forEach(e => console.log(`  - ${domain}: ${e}`));
+    });
   }
   
   if (dryRun && totalAdded > 0) {

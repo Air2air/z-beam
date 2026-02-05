@@ -7,7 +7,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { getAllArticleSlugs, loadComponentData, getArticle } from '@/app/utils/contentAPI';
 import { createMetadata } from '@/app/utils/metadata';
 import HomePage, { generateMetadata } from '@/app/page';
-import { SITE_CONFIG } from '@/app/utils/constants';
+import { SITE_CONFIG } from '@/config';
 
 // Mock external dependencies
 jest.mock('../../app/utils/contentAPI', () => ({
