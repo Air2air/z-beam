@@ -1,6 +1,7 @@
 // app/about/page.tsx
 import { Layout } from '../components/Layout/Layout';
 import { JsonLD } from '../components/JsonLD/JsonLD';
+import { RentalPricingBanner } from '../components/RentalPricing';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '@/app/config/site';
@@ -104,7 +105,9 @@ export default async function AboutPage() {
         components={components}
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="about"
-      />
+      >
+        <RentalPricingBanner />
+      </Layout>
     </>
   );
 }

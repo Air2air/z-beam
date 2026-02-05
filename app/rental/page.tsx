@@ -8,13 +8,13 @@ import type { ContentCardItem } from '@/types';
 
 export const metadata = {
   title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
-  description: 'Professional laser cleaning equipment delivered to your location in California. $390/hour, 2-hour minimum. Includes training, safety gear, and 24/7 support. Flexible rental periods.',
+  description: 'Professional laser cleaning equipment delivered to your location in California. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum. Includes training, safety gear, and 24/7 support.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/rental`,
   },
   openGraph: {
     title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
-    description: 'Professional laser cleaning equipment delivered to your location. $390/hour, 2-hour minimum. Training and support included.',
+    description: 'Professional laser cleaning equipment delivered to your location. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum. Training and support included.',
     url: `${SITE_CONFIG.url}/rental`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -30,12 +30,13 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
-    description: 'Professional laser equipment delivered to your location in California. $390/hour, 2-hour minimum.',
+    description: 'Professional laser equipment delivered to your location in California. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum.',
   },
 };
 
 export default function RentalPage() {
   const pricing = SITE_CONFIG.pricing.equipmentRental;
+  const { packages, minimumHours, currency } = pricing;
   
   // Load rental page configuration from pre-loaded static data
   const pageConfig = RENTAL_DATA;
@@ -44,12 +45,12 @@ export default function RentalPage() {
   const rentalSchema = {
     '@context': 'https://schema.org',
     '@graph': [
-      // Main Service Schema
+      // Main Service Schema - Outdoor Package
       {
         '@type': 'Service',
-        '@id': `${SITE_CONFIG.url}/rental#service`,
-        'name': pricing.label,
-        'description': 'Professional laser cleaning equipment delivered to your location with flexible rental terms. Rent Netalux Needle® and Jango® systems for industrial applications. Includes equipment delivery, on-site training, 24/7 technical support, and all necessary safety equipment. $390/hour with 2-hour minimum. Perfect for project-based needs without capital expense.',
+        '@id': `${SITE_CONFIG.url}/rental#outdoor-service`,
+        'name': packages.outdoor.label,
+        'description': `${packages.outdoor.description}. $${packages.outdoor.hourlyRate}/hour with ${minimumHours}-hour minimum. Includes equipment delivery, on-site training, 24/7 technical support, and all necessary safety equipment.`,
         'provider': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
@@ -65,7 +66,7 @@ export default function RentalPage() {
             'addressCountry': SITE_CONFIG.address.country
           }
         },
-        'serviceType': 'Equipment Rental',
+        'serviceType': 'Equipment Rental - Outdoor',
         'areaServed': {
           '@type': 'Country',
           'name': 'United States'
@@ -86,12 +87,12 @@ export default function RentalPage() {
         },
         'offers': {
           '@type': 'Offer',
-          'price': pricing.hourlyRate,
-          'priceCurrency': pricing.currency,
+          'price': packages.outdoor.hourlyRate,
+          'priceCurrency': currency,
           'priceSpecification': {
             '@type': 'UnitPriceSpecification',
-            'price': pricing.hourlyRate,
-            'priceCurrency': pricing.currency,
+            'price': packages.outdoor.hourlyRate,
+            'priceCurrency': currency,
             'unitText': pricing.unit,
             'referenceQuantity': {
               '@type': 'QuantitativeValue',
@@ -107,36 +108,73 @@ export default function RentalPage() {
           },
           'eligibleDuration': {
             '@type': 'QuantitativeValue',
-            'value': 2,
+            'value': minimumHours,
             'unitText': 'hour',
-            'minValue': 2
-          },
-          'additionalProperty': [
-            {
-              '@type': 'PropertyValue',
-              'name': 'Rental Terms',
-              'value': '2-hour minimum, flexible daily/weekly/monthly rates available'
-            },
-            {
-              '@type': 'PropertyValue',
-              'name': 'Included Services',
-              'value': 'Equipment delivery, on-site training, safety gear, 24/7 technical support'
-            },
-            {
-              '@type': 'PropertyValue',
-              'name': 'Service Area',
-              'value': 'California - equipment delivered to your location'
-            }
-          ]
+            'minValue': minimumHours
+          }
         },
         'category': [
           'Equipment Rental',
           'Laser Cleaning Equipment',
-          'Industrial Equipment',
-          'Netalux Systems'
+          'Outdoor Applications'
         ],
-        'termsOfService': `${SITE_CONFIG.url}/rental`,
-        'slogan': 'Premium Equipment, Flexible Terms'
+        'termsOfService': `${SITE_CONFIG.url}/rental`
+      },
+      
+      // Main Service Schema - Indoor Package
+      {
+        '@type': 'Service',
+        '@id': `${SITE_CONFIG.url}/rental#indoor-service`,
+        'name': packages.indoor.label,
+        'description': `${packages.indoor.description}. $${packages.indoor.hourlyRate}/hour with ${minimumHours}-hour minimum. Includes equipment delivery, on-site training, 24/7 technical support, and all necessary safety equipment.`,
+        'provider': {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}#organization`
+        },
+        'serviceType': 'Equipment Rental - Indoor',
+        'areaServed': {
+          '@type': 'Country',
+          'name': 'United States'
+        },
+        'availableChannel': {
+          '@type': 'ServiceChannel',
+          'serviceUrl': `${SITE_CONFIG.url}/contact`,
+          'servicePhone': SITE_CONFIG.contact.sales.phoneHref
+        },
+        'offers': {
+          '@type': 'Offer',
+          'price': packages.indoor.hourlyRate,
+          'priceCurrency': currency,
+          'priceSpecification': {
+            '@type': 'UnitPriceSpecification',
+            'price': packages.indoor.hourlyRate,
+            'priceCurrency': currency,
+            'unitText': pricing.unit,
+            'referenceQuantity': {
+              '@type': 'QuantitativeValue',
+              'value': 1,
+              'unitText': pricing.unit
+            }
+          },
+          'availability': 'https://schema.org/InStock',
+          'url': `${SITE_CONFIG.url}/rental`,
+          'seller': {
+            '@type': 'Organization',
+            '@id': `${SITE_CONFIG.url}#organization`
+          },
+          'eligibleDuration': {
+            '@type': 'QuantitativeValue',
+            'value': minimumHours,
+            'unitText': 'hour',
+            'minValue': minimumHours
+          }
+        },
+        'category': [
+          'Equipment Rental',
+          'Laser Cleaning Equipment',
+          'Indoor Applications'
+        ],
+        'termsOfService': `${SITE_CONFIG.url}/rental`
       },
       
       // Product Schema for Rental Equipment
@@ -144,24 +182,29 @@ export default function RentalPage() {
         '@type': 'Product',
         '@id': `${SITE_CONFIG.url}/rental#equipment`,
         'name': 'Laser Cleaning Equipment',
-        'description': 'Professional Netalux laser cleaning systems delivered to your location for rent. State-of-the-art technology for rust removal, coating removal, and surface preparation. $390/hour with 2-hour minimum.',
+        'description': `Professional Netalux laser cleaning systems delivered to your location for rent. Choose from Outdoor Package ($${packages.outdoor.hourlyRate}/hour) or Indoor Package ($${packages.indoor.hourlyRate}/hour). ${minimumHours}-hour minimum.`,
         'brand': {
           '@type': 'Brand',
           'name': 'Netalux'
         },
-        'offers': {
-          '@type': 'Offer',
-          'price': pricing.hourlyRate,
-          'priceCurrency': pricing.currency,
-          'priceSpecification': {
-            '@type': 'UnitPriceSpecification',
-            'price': pricing.hourlyRate,
-            'priceCurrency': pricing.currency,
-            'unitText': pricing.unit
+        'offers': [
+          {
+            '@type': 'Offer',
+            'name': packages.outdoor.label,
+            'price': packages.outdoor.hourlyRate,
+            'priceCurrency': currency,
+            'availability': 'https://schema.org/InStock',
+            'url': `${SITE_CONFIG.url}/rental`
           },
-          'availability': 'https://schema.org/InStock',
-          'url': `${SITE_CONFIG.url}/rental`
-        },
+          {
+            '@type': 'Offer',
+            'name': packages.indoor.label,
+            'price': packages.indoor.hourlyRate,
+            'priceCurrency': currency,
+            'availability': 'https://schema.org/InStock',
+            'url': `${SITE_CONFIG.url}/rental`
+          }
+        ],
         'category': 'Industrial Laser Equipment'
       },
       

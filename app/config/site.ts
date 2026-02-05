@@ -44,23 +44,23 @@ export const SITE_CONFIG = {
   // Service Pricing (hourly rates in USD)
   pricing: {
     equipmentRental: {
-      hourlyRate: {
-        min: 325,
-        max: 475,
-        standard: 390  // Most common rate
+      packages: {
+        outdoor: {
+          hourlyRate: 390,
+          label: 'Outdoor Package',
+          description: 'Professional laser cleaning equipment for outdoor applications'
+        },
+        indoor: {
+          hourlyRate: 460,
+          label: 'Indoor Package',
+          description: 'Professional laser cleaning equipment for indoor applications'
+        }
       },
       currency: 'USD',
-      label: 'Equipment Rental',
       unit: 'hour',
       minimumHours: 2,
-      description: 'Professional laser cleaning equipment delivered to your location with training and support included. Rates vary by location and equipment type. 2-hour minimum.',
-      sku: 'ZB-EQUIP-RENT',
-      rateFactors: [
-        'Equipment type and power',
-        'Delivery distance',
-        'Duration of rental',
-        'Weekend vs weekday'
-      ]
+      description: 'Professional laser cleaning equipment delivered to your location with training and support included. Choose from Outdoor ($390/hr) or Indoor ($460/hr) packages. 2-hour minimum.',
+      sku: 'ZB-EQUIP-RENT'
     }
   },
   

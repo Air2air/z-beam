@@ -120,8 +120,8 @@ export default async function HomePage() {
             },
             priceSpecification: {
               '@type': 'UnitPriceSpecification',
-              minPrice: SITE_CONFIG.pricing.equipmentRental.hourlyRate.min,
-              maxPrice: SITE_CONFIG.pricing.equipmentRental.hourlyRate.max,
+              minPrice: SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
+              maxPrice: SITE_CONFIG.pricing.equipmentRental.packages.indoor.hourlyRate,
               priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
               unitText: SITE_CONFIG.pricing.equipmentRental.unit,
               referenceQuantity: {

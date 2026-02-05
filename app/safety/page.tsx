@@ -1,6 +1,7 @@
 // app/safety/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from '../components/JsonLD/JsonLD';
+import { RentalPricingBanner } from '../components/RentalPricing';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
@@ -89,6 +90,8 @@ export default async function SafetyPage() {
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="safety"
       >
+        <RentalPricingBanner />
+        
         {/* Overview */}
         <div className="mt-8">
           <BaseSection
