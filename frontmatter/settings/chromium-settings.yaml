@@ -1,32 +1,24 @@
 id: chromium-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Chromium
-displayName: Chromium Laser Cleaning Settings
 category: metal
 subcategory: specialty
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:24.245743+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/metal/specialty/chromium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Specialty
-  href: /settings/metal/specialty
-pageTitle: Chromium
-pageDescription: When laser cleaning chromium, watch out for its high reflectivity, which scatters more energy than you'll
-  see with less shiny metals like iron or nickel. We've found this makes the process less efficient at first, so we typically
-  start with controlled power levels to ensure the beam couples effectively without wasting shots. Unlike softer coatings
-  that ablate easily, chromium's exceptional hardness demands a focused approach to avoid uneven removal that could expose
-  underlying layers prematurely. In our experience, this reflective nature sets it apart in applications like stainless steel
-  production or wear-resistant tooling, where we adjust scan speeds to prevent overheating spots. We recommend multiple passes
-  with good overlap to restore surfaces cleanly, reducing the risk of micro-cracks from thermal buildup. This way, you reveal
-  a polished finish while preserving the material's corrosion resistance.
-metaDescription: Chromium laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning chromium, watch out for its high reflectivity, which scatters more energy than you'll see with
+  less shiny metals like iron or nickel. We've found this makes the process less efficient at first, so we typically
+  start with controlled power levels to ensure the beam couples effectively without wasting shots. Unlike softer
+  coatings that ablate easily, chromium's exceptional hardness demands a focused approach to avoid uneven removal that
+  could expose underlying layers prematurely. In our experience, this reflective nature sets it apart in applications
+  like stainless steel production or wear-resistant tooling, where we adjust scan speeds to prevent overheating spots.
+  We recommend multiple passes with good overlap to restore surfaces cleanly, reducing the risk of micro-cracks from
+  thermal buildup. This way, you reveal a polished finish while preserving the material's corrosion resistance.
+meta:
+  title: Chromium
+  description: Chromium laser cleaning guide. Technical specifications and applications.
+  path: /settings/metal/specialty/chromium-settings
 images:
   hero:
     url: /images/settings/chromium-settings-hero.jpg
@@ -38,194 +30,45 @@ images:
     alt: Chromium microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  countryDisplay: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 4
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contaminationChallenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength with good Chromium absorption for efficient cleaning
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Typical beam diameter for precise industrial cleaning; smaller (100-200 μm) for fine details, larger (300-500
-      μm) for broad areas. 200 μm recommended for uniform Chromium surface preparation. Source: Equipment specifications from
-      Coherent and Trumpf laser systems; process guidelines in ILSC standards.'
-  fluenceThreshold:
-    description: Minimum fluence required for effective Chromium oxide removal
-    unit: J/cm²
-    value: 2.5
-    min: 0.3
-    max: 4.5
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime (5-100 ns) standard for industrial cleaning to ablate contaminants with minimal HAZ; picosecond
-      (ps) or femtosecond (fs) for ultra-precise work but less common industrially. 20 ns recommended for Chromium to limit
-      thermal diffusion. Source: Laser physics research in Applied Surface Science (2019) on pulse regimes for metals.'
-  scanSpeed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective range for contamination removal; slower for heavy oxides (500-1000 mm/s), faster for light contaminants
-      (2000-5000 mm/s). Recommended 1500 mm/s for optimal balance on Chromium''s high thermal conductivity. Source: Industry
-      standards from Laserax equipment manuals; case studies in Journal of Cleaner Production (2020).'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
-      removal on Chromium without excessive exposure. Source: Industry practice in case studies from Laser Cleaning International
-      reports and Applied Optics (2020).'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: 'Typical 30-80% for uniform coverage and to avoid gaps/striping; 60% recommended for even energy distribution
-      on Chromium''s conductive surface. Source: Process optimization studies in Lasers in Manufacturing and Materials Processing
-      (2019).'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range below Chromium''s ablation threshold (~4 J/cm² at 1064 nm) for safe contaminant removal; damage
-      threshold ~2-5 J/cm² depending on pulses. 1.5 J/cm² recommended to account for high reflectivity (~60% at 1064 nm).
-      Source: Ablation threshold studies in Journal of Applied Physics (2017) and Surface & Coatings Technology (2022).'
-  laserPower:
-    description: Optimal average power for Chromium oxide removal without substrate damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 1000
-    value: 200
-    unit: W
-    description: 'Typical range for industrial laser cleaning of reflective metals like Chromium to avoid excessive heating;
-      starting at 200W balances efficiency and safety. Max limited to prevent substrate melting (mp ~1907°C). Source: IPG
-      Photonics specs for Yb-fiber lasers at 1064 nm; studies in Optics and Lasers in Engineering (2018) on metal cleaning.'
-  frequency:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning; higher rates increase speed but risk heat accumulation on reflective
-      Chromium. 50 kHz recommended for efficient coverage without overheating. Trade-off: high freq accelerates process but
-      requires monitoring. Source: Academic literature in Optics Express (2021) on repetition rate effects in laser ablation.'
-componentSummary: The 200 W power, 1064 nm wavelength, and 10 ns pulses optimize contaminant ablation on Chromium by maximizing
-  absorption while minimizing thermal damage to its reflective, corrosion-resistant surface.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

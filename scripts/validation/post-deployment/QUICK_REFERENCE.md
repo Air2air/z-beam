@@ -66,7 +66,7 @@ npm run verify:sitemap                # Sitemap only
 
 ### 2. Content Validation
 - ✅ All 153 materials have complete frontmatter
-- ✅ camelCase naming (pageTitle, pageDescription, metaDescription)
+- ✅ camelCase naming (pageTitle, pageDescription)
 - ✅ Metadata sync between YAML and pages
 - ✅ Breadcrumbs present and valid
 - ✅ No duplicate content

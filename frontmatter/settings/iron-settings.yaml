@@ -1,32 +1,24 @@
 id: iron-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Iron
-displayName: Iron Laser Cleaning Settings
 category: metal
 subcategory: ferrous
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:25.477607+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/metal/ferrous/iron-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Ferrous
-  href: /settings/metal/ferrous
-pageTitle: Iron
-pageDescription: When laser cleaning iron, watch out for its strong thermal conductivity right from the start—it spreads heat
-  quickly across the surface, so you must use controlled, lower power settings to prevent warping or unintended melting in
-  thicker sections. I've seen this property make iron a solid choice for heavy-duty jobs like restoring marine parts or automotive
-  frames, as it absorbs laser energy well enough to clear rust and scale without deep penetration. What sets iron apart from
-  non-ferrous metals is its tendency to oxidize easily, which means you should follow up with a pass that minimizes re-exposure
-  to air, keeping the beam focused and speed steady. Tends to shine in cultural heritage work too, where its durability lets
-  you strip contaminants gently. Just avoid rushing the process; overlap scans moderately to ensure even coverage without
-  hotspots.
-metaDescription: Iron laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning iron, watch out for its strong thermal conductivity right from the start—it spreads heat quickly
+  across the surface, so you must use controlled, lower power settings to prevent warping or unintended melting in
+  thicker sections. I've seen this property make iron a solid choice for heavy-duty jobs like restoring marine parts or
+  automotive frames, as it absorbs laser energy well enough to clear rust and scale without deep penetration. What sets
+  iron apart from non-ferrous metals is its tendency to oxidize easily, which means you should follow up with a pass
+  that minimizes re-exposure to air, keeping the beam focused and speed steady. Tends to shine in cultural heritage work
+  too, where its durability lets you strip contaminants gently. Just avoid rushing the process; overlap scans moderately
+  to ensure even coverage without hotspots.
+meta:
+  title: Iron
+  description: Iron laser cleaning guide. Technical specifications and applications.
+  path: /settings/metal/ferrous/iron-settings
 images:
   hero:
     url: /images/settings/iron-settings-hero.jpg
@@ -38,188 +30,45 @@ images:
     alt: Iron microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  countryDisplay: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
-  slug: ikmanda-roswati
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 3
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: iron-laser-cleaning
-        effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contaminationChallenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength with good absorption in Iron oxides and minimal substrate damage
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for industrial applications; smaller (100-200 μm) for precise surface prep on iron,
-      larger for broad area cleaning. 200 μm recommended for uniform energy distribution on iron surfaces, avoiding hotspots.
-      Source: Equipment specs from Raycus and Coherent lasers, per Journal of Laser Applications (2019).'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for safe removal of contaminants (e.g., rust, paint) on iron without ablating substrate; damage
-      threshold ~2-4 J/cm² for iron at 1064 nm. 1.5 J/cm² recommended for effective cleaning below threshold, considering
-      iron''s absorption. Source: Ablation studies in Optics Express (2017) and Surface & Coatings Technology (2022).'
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    value: 30
-    unit: ns
-    description: 'Nanosecond regime preferred for iron cleaning to provide sufficient energy for contaminant ablation with
-      minimal thermal diffusion (due to iron''s high conductivity ~80 W/m·K); picosecond (ps) or femtosecond reduces HAZ further
-      but increases cost. 30 ns balances efficacy and safety. Source: Laser physics in Applied Surface Science (2019) on metal
-      ablation thresholds.'
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: 'Effective range for contamination removal on iron; higher speeds (e.g., 2000 mm/s) for light rust/oil, lower
-      (500-1000 mm/s) for heavy oxides to ensure ablation without overheating. Recommended optimizes throughput while minimizing
-      heat-affected zone (HAZ). Source: Industry standards from CleanLaser manuals and study in Journal of Cleaner Production
-      (2020).'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination (e.g., oils), multi-pass (2-3) for heavy rust on iron to achieve complete
-      removal without increasing fluence. 2 passes recommended for industrial prep, allowing progressive cleaning. Source:
-      Case studies in Industrial Laser Solutions (2020) and practical guidelines from laser cleaning consortia.'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 70
-    unit: '%'
-    description: 'Ensures uniform coverage during scanning on iron; 70% recommended for even fluence distribution and to prevent
-      gaps in cleaning, especially for irregular surfaces. Lower for faster processes, higher for thoroughness. Source: Process
-      optimization in Applied Optics (2018) and manufacturer guidelines from Adapt Laser Systems.'
-  laserPower:
-    description: Optimal average power for Iron oxide removal without substrate damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 1000
-    value: 200
-    unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning of metals like iron; starting at 200W balances efficiency
-      and safety to avoid melting (iron melting point ~1538°C). Max limited to prevent substrate damage via thermal conduction.
-      Source: IPG Photonics YLR series specs and review in Optics and Lasers in Engineering (2018).'
-  frequency:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Common for pulsed cleaning of reflective metals like iron (reflectivity ~40-60% at 1064 nm); 30 kHz recommended
-      for efficient pulse overlap without excessive heat accumulation, which could lead to oxidation. Higher rates speed up
-      process but risk thermal buildup. Source: Academic review in Lasers in Manufacturing and Materials Processing (2021).'
-componentSummary: For iron, the 200 W power and 10 ns pulses at 1064 nm wavelength enable efficient contaminant ablation with
-  minimal thermal penetration, protecting the metal's structural integrity during cleaning.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

@@ -144,7 +144,7 @@ export async function generateItemMetadata(
     // Note: 'description' field is DEPRECATED - do not use
     const metadataWithTitle = {
       ...articleMeta,
-      title: articleMeta.pageTitle || articleMeta.displayName || articleMeta.title || articleMeta.name,
+      title: articleMeta.displayTitle || articleMeta.displayName || articleMeta.title || articleMeta.name,
       description: articleMeta.metaDescription || articleMeta.pageDescription || '',
       canonical: canonicalUrl
     };

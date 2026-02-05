@@ -1,30 +1,22 @@
 id: rosewood-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Rosewood
-displayName: Rosewood Laser Cleaning Settings
 category: wood
 subcategory: hardwood
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:27.424818+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/wood/hardwood/rosewood-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Wood
-  href: /settings/wood
-- label: Hardwood
-  href: /settings/wood/hardwood
-pageTitle: Rosewood
-pageDescription: When laser cleaning Rosewood, watch its notable porosity right away—it can trap contaminants deep inside,
-  leading to uneven results if you blast too aggressively. I've seen this hardwood absorb laser energy better than many denser
-  woods like oak, so it heats up quickly without much reflection. This works best when you start with gentler passes to avoid
-  scorching the surface grains. Tends to clean smoothly for cultural artifacts or instruments because of its natural oils
-  that resist charring, unlike softer pines. Just keep scans slow and overlap spots well to pull out embedded dirt without
-  cracking the fibers.
-metaDescription: Rosewood laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning Rosewood, watch its notable porosity right away—it can trap contaminants deep inside, leading to
+  uneven results if you blast too aggressively. I've seen this hardwood absorb laser energy better than many denser
+  woods like oak, so it heats up quickly without much reflection. This works best when you start with gentler passes to
+  avoid scorching the surface grains. Tends to clean smoothly for cultural artifacts or instruments because of its
+  natural oils that resist charring, unlike softer pines. Just keep scans slow and overlap spots well to pull out
+  embedded dirt without cracking the fibers.
+meta:
+  title: Rosewood
+  description: Rosewood laser cleaning guide. Technical specifications and applications.
+  path: /settings/wood/hardwood/rosewood-settings
 images:
   hero:
     url: /images/settings/rosewood-settings-hero.jpg
@@ -36,190 +28,45 @@ images:
     alt: Rosewood microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 1
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - id: charring-carbonization
-          type: challenge
-        - id: slow-thermal-diffusivity
-          type: challenge
-        contaminationChallenges:
-        - id: varnish-coating-removal
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-infrared wavelength for optimal absorption in Rosewood lignin and cellulose
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    value: 300
-    unit: μm
-    description: 'Smaller spots for fine surface preparation on detailed rosewood; larger for broad areas. 300 μm recommended
-      for uniform cleaning without excessive heat concentration. Source: Manufacturer specs (e.g., Laserax equipment for organics).'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 1.0
-    unit: J/cm²
-    description: 'Fluence below rosewood damage threshold (~3 J/cm² at 1064 nm) for safe contaminant removal; conservative
-      for reflectivity (~10-20% at NIR). Source: Ablation threshold studies on hardwoods (Journal of Applied Physics, 2017).'
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    value: 15
-    unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) on organic materials
-      like rosewood; picosecond/femtosecond for ultra-precision but costlier. 15 ns balances ablation and thermal control.
-      Source: Laser physics reviews (Optics & Lasers in Engineering, 2018).'
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 500
-    description: 'Slower speeds for light contamination (e.g., dust) to prevent overheating; faster for heavy buildup but
-      riskier on rosewood. Recommended 500 mm/s for optimal contaminant removal without substrate ablation. Source: Industry
-      manuals for IPG Photonics cleaners.'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Multi-pass for layered contamination on rosewood to ensure complete removal without single-pass overload;
-      2 passes typical for industrial prep. Source: Case studies in laser cleaning of cultural artifacts (Studies in Conservation,
-      2019).'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 70
-    unit: '%'
-    description: 'Higher overlap ensures uniform coverage and prevents streaking on irregular wood surfaces; 70% optimal for
-      rosewood to minimize passes while avoiding overlap-induced damage. Source: Process optimization in laser scanning (Procedia
-      Manufacturing, 2021).'
-  dwellTime:
-    description: Optimal dwell time per spot for effective material interaction
-    unit: ms
-    value: 0.2
-    min: 0.2
-    max: 200
-  laserPower:
-    description: Optimal average power for Rosewood surface cleaning without charring
-    unit: W
-    value: 45
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 10
-    max: 100
-    value: 30
-    unit: W
-    description: 'Typical range for delicate wood cleaning to avoid thermal damage; starting at 30W balances efficiency and
-      safety for rosewood''s low thermal conductivity (~0.15 W/mK). Source: Adapted from wood restoration studies using Nd:YAG
-      lasers (e.g., Journal of Cultural Heritage, 2015).'
-  frequency:
-    min: 1
-    max: 200
-    value: 20
-    unit: kHz
-    description: 'Lower rates reduce heat accumulation in low-conductivity rosewood; higher rates speed up cleaning but increase
-      burn risk. 20 kHz recommended for effective pulsed cleaning. Source: Academic literature on wood laser ablation (Applied
-      Surface Science, 2020).'
-componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate surface contaminants
-  from Rosewood while minimizing charring and preserving its delicate grain structure.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

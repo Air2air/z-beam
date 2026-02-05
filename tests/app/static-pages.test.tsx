@@ -131,11 +131,11 @@ describe('Static Pages Content Loading', () => {
         // Should not be empty
         expect(content.length).toBeGreaterThan(0);
         
-        // Should have title
-        expect(content).toContain('title:');
+        // Should have pageTitle (normalized field name)
+        expect(content).toContain('pageTitle:');
         
-        // Should have description
-        expect(content).toContain('description:');
+        // Should have pageDescription (normalized field name)
+        expect(content).toContain('pageDescription:');
       });
     });
   });

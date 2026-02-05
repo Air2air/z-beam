@@ -1,30 +1,23 @@
 id: quartzite-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Quartzite
-displayName: Quartzite Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:27.246793+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/stone/sedimentary/quartzite-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stone
-  href: /settings/stone
-- label: Sedimentary
-  href: /settings/stone/sedimentary
-pageTitle: Quartzite
-pageDescription: When laser cleaning Quartzite, the biggest challenge is its extreme hardness. This tough stone resists contaminants
-  well, but it demands careful energy control to avoid surface cracks. I've seen setups where rushed power ramps cause micro-fractures,
-  so start slow with gentle pulses. Its low porosity helps—dirt doesn't sink deep, making removal straightforward once you
-  dial in. Unlike softer stones, Quartzite holds heat unevenly, so keep passes light and spaced. This works best when you
-  focus on steady scanning without overlap buildup. Tends to shine up nicely after a few rounds. Just watch the edges at the
-  end; overdoing dwell time there can lead to unwanted chipping, so ease off power gradually.
-metaDescription: Quartzite laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning Quartzite, the biggest challenge is its extreme hardness. This tough stone resists contaminants
+  well, but it demands careful energy control to avoid surface cracks. I've seen setups where rushed power ramps cause
+  micro-fractures, so start slow with gentle pulses. Its low porosity helps—dirt doesn't sink deep, making removal
+  straightforward once you dial in. Unlike softer stones, Quartzite holds heat unevenly, so keep passes light and
+  spaced. This works best when you focus on steady scanning without overlap buildup. Tends to shine up nicely after a
+  few rounds. Just watch the edges at the end; overdoing dwell time there can lead to unwanted chipping, so ease off
+  power gradually.
+meta:
+  title: Quartzite
+  description: Quartzite laser cleaning guide. Technical specifications and applications.
+  path: /settings/stone/sedimentary/quartzite-settings
 images:
   hero:
     url: /images/settings/quartzite-settings-hero.jpg
@@ -36,219 +29,45 @@ images:
     alt: Quartzite microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 1
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - challenge: Thermal shock and microcracking
-          severity: critical
-          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-          impact: Natural stone contains microfissures that propagate under thermal stress
-          solutions:
-          - Use pulse mode with 8-12 second cooling between passes
-          - Reduce power by 40-50% for weathered or damaged stone
-          - Preheat substrate if possible to reduce thermal gradients
-          - Granite more resistant than marble; sandstone most vulnerable
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Moisture-induced spalling
-          severity: high
-          thresholdTemperature: Steam formation >100°C with trapped moisture
-          impact: Porous stone traps moisture that explosively converts to steam
-          solutions:
-          - Test moisture content before cleaning (>3% requires drying)
-          - Allow 48-72 hours drying after rain before laser cleaning
-          - Reduce power by 50% for damp stone
-          - Use pulse mode with extended cooling (15-20 seconds)
-          - Heritage stone requires especially gentle approach
-        contaminationChallenges:
-        - id: biological-growth
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength optimized for Quartzite absorption and minimal scattering
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Beam diameter range for industrial applications; smaller for fine detail cleaning (e.g., engravings on quartzite),
-      larger for broad surface prep. Recommended 200 μm provides good resolution and fluence control on reflective surfaces.
-      Source: Equipment specifications from Coherent and Trumpf laser cleaners; optimization in Surface and Coatings Technology
-      (2021).'
-  fluenceThreshold:
-    description: Minimum fluence required for effective contaminant removal from Quartzite surface
-    unit: J/cm²
-    value: 2.5
-    min: 0.3
-    max: 4.5
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    value: 30
-    unit: ns
-    description: 'Nanosecond regime preferred for quartzite cleaning to ablate contaminants via photothermal effects while
-      minimizing heat-affected zone (HAZ <10 μm); picosecond (ps) or femtosecond (fs) reduce HAZ further but increase cost.
-      Avoid fs for industrial scale. Recommended 30 ns for balance. Source: Laser physics research in Applied Surface Science
-      (2019) on SiO2-based materials; ablation studies showing ns optimal for reflectivity >80% at 1064 nm.'
-  scanSpeed:
-    min: 10
-    max: 5000
-    value: 1500
-    unit: mm/s
-    description: 'Effective range for 1064 nm cleaning on quartzite; slower for heavy contamination (e.g., rust/oil) to ensure
-      removal, faster for light dust. Recommended 1500 mm/s optimizes throughput while controlling heat input. Source: Industry
-      standards from Laserax equipment manuals; case studies in Journal of Cultural Heritage (2020) on stone surface preparation.'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination; multi-pass for heavy layers to build fluence gradually and prevent
-      thermal stress/cracking in brittle quartzite. Recommended 2 passes for most industrial removal tasks. Source: Industry
-      practice in laser cleaning case studies (e.g., restoration of natural stone, Heritage Science, 2019); manuals from Lasertec.'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: 'Ensures uniform coverage without gaps or overexposure; 60% recommended for quartzite to achieve even cleaning
-      on irregular surfaces while minimizing total energy input and HAZ. Higher for heavy contamination. Source: Process optimization
-      studies in Lasers in Manufacturing and Materials Processing (2020); typical ranges from scanning software in IPG systems.'
-  dwellTime:
-    description: Optimal dwell time per cleaning spot for effective material removal
-    unit: μs
-    value: 100
-    min: 0.2
-    max: 200
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 2
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal (e.g., oxides, organics) below quartzite damage threshold (~10-15
-      J/cm² at 1064 nm due to high reflectivity ~90%). Recommended 2 J/cm² ensures safe cleaning without ablation of substrate.
-      Conservative for heavy contamination. Source: Ablation threshold studies in Journal of Applied Physics (2015) on quartz;
-      industrial data from Adapt Laser Systems.'
-  laserPower:
-    description: Optimal average power for Quartzite cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 500
-    value: 200
-    unit: W
-    description: 'Typical range for industrial laser cleaning of hard stones like quartzite to remove contaminants without
-      substrate damage; starting at 200W balances efficiency and safety. Max avoids thermal cracking given quartzite''s low
-      thermal conductivity (~1-2 W/m·K). Source: IPG Photonics YLR series specs for stone cleaning; academic review in ''Laser
-      Cleaning of Stone Sculptures'' (Optics & Lasers in Engineering, 2018).'
-  frequency:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Typical for pulsed cleaning to achieve uniform energy delivery; higher rates speed up process but risk heat
-      accumulation on low-conductivity quartzite (melting point ~1700°C). Recommended 50 kHz avoids cumulative heating. Trade-off:
-      >50 kHz faster but monitor for microcracks. Source: Academic literature in Optics Express (2017) on repetition rate
-      effects in stone laser cleaning.'
-componentSummary: These settings employ moderate 200 W power and 10 ns pulses at 1064 nm to effectively ablate contaminants
-  from Quartzite's durable, heat-resistant quartz matrix without inducing thermal cracking.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

@@ -1,0 +1,178 @@
+# ===================================
+# EXAMPLE: Carbon Buildup Contamination
+# Schema v6.0.0 (Normalized & Simplified)
+# ===================================
+# This file demonstrates the new structure
+# File size: 780 lines → 150 lines (80.8% reduction)
+# ===================================
+
+# SECTION 1: Core Identity
+id: carbon-buildup-contamination
+contentType: contaminant
+schemaVersion: 6.0.0
+
+# SECTION 2: Basic Info
+name: Carbon Deposit Buildup
+category: organic-residue
+subcategory: other
+datePublished: 2026-01-06
+dateModified: 2026-02-02T02:25:18.643Z
+
+# SECTION 3: Content
+description: >
+  Carbon buildup contamination manifests as tenacious organic residues that
+  accumulate unevenly on surfaces, influenced from prolonged exposure to
+  combustion byproducts. This layer, dependent from environmental humidity,
+  exhibits unique regional patterns, forming denser clusters in high-wear
+  zones of metals like steel, where it penetrates microstructures. On
+  non-metals such as ceramics, the contamination persists with fibrous
+  textures, which resist laser ablation due to its low thermal conductivity.
+  Removal challenges arise, it seems, from variable absorption rates that
+  lead to incomplete vaporization, demanding precise pulse adjustments.
+  These behaviors demonstrate material-specific tenacity, complicating
+  cleaning efficiency in industrial applications.
+
+# SECTION 4: SEO
+meta:
+  title: Carbon Deposit Buildup
+  description: Carbon Deposit Buildup laser cleaning guide. Technical specifications and applications.
+  path: /contaminants/organic-residue/other/carbon-buildup-contamination
+
+# SECTION 5: Images
+images:
+  hero: carbon-buildup-contamination-hero.jpg
+  micro: carbon-buildup-contamination-micro.jpg
+
+# SECTION 6: Author
+authorId: 2
+
+# SECTION 7: Contaminant-Specific
+composition:
+  - C
+  - PAH
+  - Soot
+
+properties:
+  validMaterials:
+    - alumina-laser-cleaning
+    - aluminum-nitride-laser-cleaning
+    - stainless-steel-laser-cleaning
+    - steel-laser-cleaning
+  prohibitedMaterials:
+    - Aluminum
+    - Plastics
+
+laser:
+  wavelength:
+    - 1064
+    - 532
+  fluence:
+    min: 0.3
+    max: 1.2
+    optimal: 0.8
+  pulseWidth:
+    min: 10
+    max: 200
+    optimal: 100
+  scanSpeed:
+    min: 500
+    max: 5000
+    optimal: 2000
+  passes:
+    optimal: 2
+    maxEffective: 3
+    efficiency: 0.85
+  thermal:
+    ablationThreshold: 0.8
+    decomposition: 750
+    vaporization: 4200
+
+safety:
+  fireRisk: low
+  toxicGas: moderate
+  ppe:
+    respiratory: PAPR
+    eye: goggles
+    skin: gloves
+  compounds:
+    - id: carbon-monoxide-compound
+      phase: gas
+      hazard: toxic
+      concentration: 50-200
+      limit: 29
+    - id: carbon-dioxide-compound
+      phase: gas
+      hazard: irritant
+      concentration: 900-1800
+      limit: 9000
+    - id: polycyclic-aromatic-hydrocarbons-(pahs)-compound
+      phase: gas
+      hazard: carcinogenic
+      concentration: 0.5-5.0
+      limit: 0.2
+  ventilation:
+    airChanges: 10
+    velocity: 0.5
+    filter: dual
+
+appearance:
+  metal:
+    color: black-to-dark-gray
+    texture: powdery-flaky
+    pattern: irregular-patches
+    coverage: partial-uneven
+  ceramic:
+    color: dark-sooty
+    texture: powdery-adhered
+    pattern: patches-streaks
+    coverage: localized-uneven
+  stone:
+    color: dark-gray-to-black
+    texture: gritty-sooty
+    pattern: patchy-streaked
+    coverage: partial-variable
+
+# SECTION 8: Relationships
+relationships:
+  materials:
+    common:
+      - id: aluminum-laser-cleaning
+        frequency: moderate
+        difficulty: moderate
+      - id: steel-laser-cleaning
+        frequency: high
+        difficulty: moderate
+      - id: brass-laser-cleaning
+        frequency: moderate
+        difficulty: moderate
+      - id: bronze-laser-cleaning
+        frequency: moderate
+        difficulty: moderate
+      - id: cast-iron-laser-cleaning
+        frequency: moderate
+        difficulty: moderate
+      - id: copper-laser-cleaning
+        frequency: moderate
+        difficulty: moderate
+      - id: stainless-steel-laser-cleaning
+        frequency: moderate
+        difficulty: moderate
+      - id: titanium-laser-cleaning
+        frequency: moderate
+        difficulty: moderate
+    prohibited:
+      - Aluminum
+      - Plastics
+  compounds:
+    produces:
+      - id: carbon-dioxide-compound
+        phase: unknown
+        hazard: unknown
+      - id: carbon-monoxide-compound
+        phase: unknown
+        hazard: unknown
+      - id: carbon-particulates-compound
+        phase: unknown
+        hazard: unknown
+  settings:
+    recommended: []

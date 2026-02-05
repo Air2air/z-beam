@@ -1,33 +1,26 @@
 id: battery-corrosion-contamination
+contentType: contaminant
+schemaVersion: 6.0.0
 name: Battery Leakage Corrosion
 category: oxidation
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T02:40:35.572157+00:00'
-contentType: contaminant
-schemaVersion: 5.0.0
-fullPath: /contaminants/oxidation/battery/battery-corrosion-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Oxidation
-  href: /contaminants/oxidation
-- label: Battery
-  href: /contaminants/oxidation/battery
-pageTitle: Battery Leakage Corrosion
-pageDescription: 'Battery-corrosion-contamination, this type arises from oxidation in battery environments. Formation patterns,
-  they follow natural regional paths along electrode surfaces and electrolyte interfaces, where moisture and salts accelerate
-  layer buildup. Unique to batteries, contamination exhibits irregular clustering and pitting, thus creates uneven adhesion
-  on metal casings like aluminum or steel. Material behaviors differ; on conductive surfaces, it promotes further degradation
-  and so resists laser penetration. Removal challenges emerge here, as pulsed lasers struggle with embedded particles that
-  scatter energy, leading to incomplete stripping. After initial passes, residues still cling in crevices, demanding adjusted
-  fluence for efficacy. This contamination, it demands precise scanning to avoid substrate damage, and thus enhances cleaning
-  complexity in applications.
+subcategory: battery
+datePublished: '2026-01-06'
+dateModified: '2026-02-02T02:25:17.889071+00:00'
+description: >-
+  Battery-corrosion-contamination, this type arises from oxidation in battery environments. Formation patterns, they
+  follow natural regional paths along electrode surfaces and electrolyte interfaces, where moisture and salts accelerate
+  layer buildup. Unique to batteries, contamination exhibits irregular clustering and pitting, thus creates uneven
+  adhesion on metal casings like aluminum or steel. Material behaviors differ; on conductive surfaces, it promotes
+  further degradation and so resists laser penetration. Removal challenges emerge here, as pulsed lasers struggle with
+  embedded particles that scatter energy, leading to incomplete stripping. After initial passes, residues still cling in
+  crevices, demanding adjusted fluence for efficacy. This contamination, it demands precise scanning to avoid substrate
+  damage, and thus enhances cleaning complexity in applications.
 
 
-  Yi-Chun Lin, Ph.D. from Taiwan'
-metaDescription: Battery Leakage Corrosion laser cleaning guide. Technical specifications and applications.
+  Yi-Chun Lin, Ph.D. from Taiwan
+meta:
+  title: Battery Leakage Corrosion
+  path: /contaminants/oxidation/battery/battery-corrosion-contamination
 images:
   hero:
     url: /images/contaminant/battery-corrosion-contamination-hero.jpg
@@ -39,574 +32,183 @@ images:
     alt: Battery Leakage Corrosion microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  countryDisplay: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
-  slug: ikmanda-roswati
+authorId: 3
+properties:
+  validMaterials:
+    - brass-laser-cleaning
+    - copper-laser-cleaning
+    - steel-laser-cleaning
+  prohibitedMaterials:
+    - Aluminum
+    - Electronics
+composition:
+  - KOH
+  - K₂CO₃
+  - PbSO₄
+laser:
+  wavelength:
+    - 1064
+    - 532
+  fluence:
+    min: 0.3
+    max: 1.2
+    optimal: 0.7
+  pulseWidth:
+    min: 10
+    max: 100
+    optimal: 30
+  scanSpeed:
+    min: 500
+    max: 2000
+    optimal: 1000
+  passes:
+    optimal: 3
+    maxEffective: 4
+    efficiency: 0.65
+  thermal:
+    ablationThreshold: 1.8
+    decomposition: 280
+    vaporization: 450
+safety:
+  fireRisk: low
+  toxicGas: low
+  ppe:
+    respiratory: PAPR
+    eye: goggles
+    skin: full_suit
+  compounds:
+    - id: potassium-hydroxide-aerosol-compound
+      phase: gas
+      hazard: corrosive
+      concentration: 5-25
+      limit: 2
+    - id: manganese-oxides-compound
+      phase: gas
+      hazard: toxic
+      concentration: 3-15
+      limit: 5
+    - id: zinc-oxide-fume-compound
+      phase: gas
+      hazard: toxic
+      concentration: 2-10
+      limit: 5
+    - id: carbon-particles-compound
+      phase: gas
+      hazard: irritant
+      concentration: 10-50
+      limit: 3.5
+  ventilation:
+    airChanges: 12
+    velocity: 0.5
+    filter: HEPA
+appearance:
+  ceramic:
+    color: white
+    texture: powdery-rough
+    pattern: spots-patches
+    coverage: localized
+  composite:
+    color: white-brown
+    texture: rough
+    pattern: irregular-spots
+    coverage: localized
+  concrete:
+    color: white
+    texture: powdery-rough
+    pattern: spots-patches
+    coverage: localized-extensive
+  fabric:
+    color: white-green-brown
+    texture: unknown
+    pattern: spots-irregular
+    coverage: unknown
+  glass:
+    color: white
+    texture: rough
+    pattern: spots-streaks
+    coverage: minimal
+  metal:
+    color: white-blue
+    texture: powdery-rough
+    pattern: irregular-spots
+    coverage: localized
+  mineral:
+    color: white
+    texture: rough
+    pattern: irregular-spots
+    coverage: localized-uneven
+  plastic:
+    color: white-yellow-brown
+    texture: sticky
+    pattern: spots-patches
+    coverage: unknown
+  rubber:
+    color: white-brown
+    texture: sticky
+    pattern: spots-patches
+    coverage: unknown
+  semiconductor:
+    color: green-white
+    texture: unknown
+    pattern: spots-streaks
+    coverage: localized-minimal
+  specialty:
+    color: unknown
+    texture: unknown
+    pattern: irregular-spots
+    coverage: unknown
+  stone:
+    color: white
+    texture: rough
+    pattern: irregular-spots
+    coverage: localized
+  wood:
+    color: white-green-brown
+    texture: rough
+    pattern: spots-patches
+    coverage: unknown
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety regulations and compliance standards for this contaminant
-        icon: shield-check
-        order: 20
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fire & Explosion Risk
-        sectionDescription: Fire and explosion hazards during laser cleaning
-        icon: flame
-        order: 21
-        variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fumes Generated
-        sectionDescription: Hazardous fumes produced during laser removal
-        icon: cloud
-        order: 22
-        variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Particulate Generation
-        sectionDescription: Airborne particles and dust created during cleaning
-        icon: wind
-        order: 23
-        variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: PPE Requirements
-        sectionDescription: Required personal protective equipment
-        icon: shield
-        order: 24
-        variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Toxic Gas Risk
-        sectionDescription: Toxic gases that may be released during removal
-        icon: alert-triangle
-        order: 25
-        variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Ventilation Requirements
-        sectionDescription: Required ventilation and air filtration systems
-        icon: wind
-        order: 26
-        variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Visibility Hazard
-        sectionDescription: Smoke and debris affecting operator visibility
-        icon: eye-off
-        order: 27
-        variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  interactions:
-    producesCompounds:
-      presentation: card
-      items:
-      - id: zinc-oxide-compound
-        title: Zinc Oxide
-        name: Zinc Oxide
-        category: metal_fume
-        subcategory: metal-oxide
-        url: /compounds/metal_fume/metal-oxide/zinc-oxide-compound
-        image: /images/compound/zinc-oxide-compound-hero.jpg
-        description: Zinc Oxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      _section:
-        sectionTitle: Produced Compounds
-        sectionDescription: Hazardous compounds produced during laser cleaning
-        icon: flask-conical
-        order: 10
-        variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
-      presentation: card
-      items:
+  materials:
+    common:
       - id: steel-laser-cleaning
-        name: Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/steel-laser-cleaning
-        image: /images/material/steel-laser-cleaning-hero.jpg
-        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
-          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: very_common
         difficulty: moderate
       - id: iron-laser-cleaning
-        name: Iron
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/iron-laser-cleaning
-        image: /images/material/iron-laser-cleaning-hero.jpg
-        description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid
-          strength and heat tolerance that keeps the base material intact while removing rust or grime, b...
         frequency: very_common
         difficulty: moderate
       - id: stainless-steel-316-laser-cleaning
-        name: Stainless Steel 316
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
-        image: /images/material/stainless-steel-316-laser-cleaning-hero.jpg
-        description: When laser cleaning Stainless Steel 316, rely on its superior corrosion resistance to keep surfaces intact
-          in salty or chemical environments, and always adjust the power to avoid unnecessary heat b...
         frequency: common
         difficulty: moderate
       - id: aluminum-laser-cleaning
-        name: Aluminum
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-        image: /images/material/aluminum-laser-cleaning-hero.jpg
-        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: very_common
         difficulty: moderate
       - id: copper-laser-cleaning
-        name: Copper
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/copper-laser-cleaning
-        image: /images/material/copper-laser-cleaning-hero.jpg
-        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
-          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: common
         difficulty: moderate
       - id: brass-laser-cleaning
-        name: Brass
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/brass-laser-cleaning
-        image: /images/material/brass-laser-cleaning-hero.jpg
-        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
-          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: common
         difficulty: moderate
       - id: bronze-laser-cleaning
-        name: Bronze
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/bronze-laser-cleaning
-        image: /images/material/bronze-laser-cleaning-hero.jpg
-        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
-          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: common
         difficulty: moderate
       - id: titanium-laser-cleaning
-        name: Titanium
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/titanium-laser-cleaning
-        image: /images/material/titanium-laser-cleaning-hero.jpg
-        description: Titanium excels in laser cleaning applications because of its exceptional corrosion resistance and lightweight
-          structure, which set it apart from denser metals prone to rapid degradation. After tre...
         frequency: common
         difficulty: moderate
       - id: zinc-laser-cleaning
-        name: Zinc
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/zinc-laser-cleaning
-        image: /images/material/zinc-laser-cleaning-hero.jpg
-        description: Zinc for laser cleaning, high reflectivity of material protects substrate from thermal damage. Contaminants
-          absorb energy and vaporize easily, thus process yields clean surface without affecting un...
         frequency: common
         difficulty: moderate
       - id: nickel-laser-cleaning
-        name: Nickel
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/nickel-laser-cleaning
-        image: /images/material/nickel-laser-cleaning-hero.jpg
-        description: Nickel stands out in laser cleaning applications thanks to its solid balance of reflectivity and absorptivity,
-          which lets operators dial in precise energy absorption without excessive heat buildup....
         frequency: common
         difficulty: moderate
-      _section:
-        sectionTitle: Affected Materials
-        sectionDescription: Materials where this contaminant commonly appears
-        icon: layers
-        order: 11
-        variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  visual:
-    appearanceOnCategories:
-      presentation: descriptive
-      items:
-      - appearanceOnCategories:
-          ceramic:
-            appearance: White or colored powdery residues, potentially causing surface pitting or a dull, rough finish.
-            coverage: Localized to the area of contact, with coverage expanding if the liquid is not cleaned promptly.
-            pattern: Spots or patches, often circular around the leak point, with possible streaking.
-          composite:
-            appearance: Discoloration in white or brown shades, with possible bubbling, delamination, or a rough texture.
-            coverage: Patchy and localized, with variation based on composite composition and exposure.
-            pattern: Irregular spots or patches, often concentrated at points of leakage and along material interfaces.
-          concrete:
-            appearance: White, powdery efflorescence or colored stains, creating a rough, etched surface with possible spalling.
-            coverage: Can range from small localized areas to extensive patches, influenced by concrete porosity and exposure
-              time.
-            pattern: Spots or patches, often spreading from the leak point and following surface pores.
-          fabric:
-            appearance: Stained areas in white, green, or brown, often with a stiff, crusty texture and possible fiber damage.
-            coverage: Variable, from small spots to larger stained areas, depending on fabric absorbency and leakage amount.
-            pattern: Spots or irregular patches, with possible bleeding or streaking along the fabric weave.
-          glass:
-            appearance: Hazy, etched, or frosted areas with white or cloudy residues, often feeling rough to the touch.
-            coverage: Usually small, isolated spots with minimal spread, varying with the amount of leakage.
-            pattern: Spots or streaks where the corrosive liquid has contacted and dried.
-          metal:
-            appearance: White, blue, or greenish powdery or crusty deposits, often with a rough texture and dull finish.
-            coverage: Localized around the leak point, varying from small spots to larger areas depending on exposure.
-            pattern: Irregular spots or streaks radiating from the battery source, sometimes forming patches.
-          mineral:
-            appearance: White or colored crystalline deposits, leading to a rough, pitted surface with possible mineral alteration.
-            coverage: Localized and uneven, with coverage depending on mineral hardness and corrosion resistance.
-            pattern: Irregular spots or patches, often concentrated where the corrosive accumulates.
-          plastic:
-            appearance: Discolored areas in white, yellow, or brown, often with a sticky or cracked surface and possible deformation.
-            coverage: Varies from small spots to larger areas, depending on plastic type and corrosion severity.
-            pattern: Spots or patches that may spread, sometimes following surface contours or seams.
-          rubber:
-            appearance: Discolored, sticky, or hardened areas in white or brown, often with surface cracking or swelling.
-            coverage: Typically limited to the contact zone, with coverage increasing if the rubber absorbs the corrosive.
-            pattern: Spots or patches that may coalesce, sometimes forming streaks if the liquid runs.
-          semiconductor:
-            appearance: Discolored areas, often with corrosion products like green or white residues, and possible surface
-              pitting or delamination.
-            coverage: Highly localized to affected components, with minimal spread due to precise manufacturing.
-            pattern: Spots or fine streaks, typically following circuit paths or component boundaries.
-          specialty:
-            appearance: Varies widely; may include discoloration, residue buildup, or texture changes specific to the material,
-              such as coatings or alloys.
-            coverage: Highly variable, ranging from isolated spots to broader areas, tailored to the specialty material's
-              susceptibility.
-            pattern: Depends on material properties, often irregular spots or patches influenced by surface characteristics.
-          stone:
-            appearance: White or colored crystalline deposits, creating a rough, etched surface with possible discoloration.
-            coverage: Localized and patchy, with coverage depending on stone porosity and exposure duration.
-            pattern: Irregular spots or patches, often concentrated where the corrosive liquid pools.
-          wood:
-            appearance: Discolored stains in white, green, or brown hues, often with a raised, rough texture and possible
-              surface degradation.
-            coverage: Typically limited to the contact area, with variation based on wood porosity and liquid spread.
-            pattern: Spots or patches that follow the wood grain, with streaks if the liquid runs.
-      _section:
-        sectionTitle: Visual Appearance
-        sectionDescription: How this contaminant appears on different material categories
-        icon: eye
-        order: 50
-        variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  operational:
-    laserProperties:
-      presentation: descriptive
-      items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.2
-            minJCm2: 0.3
-            recommendedJCm2: 0.7
-          overlapPercentage: 50
-          polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 10
-            recommendedNs: 30
-          repetitionRateKhz:
-            max: 100
-            min: 20
-            recommended: 50
-          safetyMarginFactor: 0.7
-          scanSpeedMmS:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spotSizeMm:
-            max: 0.1
-            min: 0.03
-            recommended: 0.05
-          wavelengthPreference:
-          - 1064
-          - 532
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 850
-            wavelength532Nm: 12500
-          reflectivity:
-            wavelength1064Nm: 0.15
-            wavelength355Nm: 0.03
-            wavelength532Nm: 0.08
-          refractiveIndex:
-            imaginaryPart: 0.22
-            realPart: 1.85
-          transmissionDepth: 11.8
-        removalCharacteristics:
-          byproducts:
-          - compound: KOH
-            hazardLevel: moderate
-            phase: gas
-          - compound: K2CO3
-            hazardLevel: low
-            phase: solid
-          - compound: MnO2
-            hazardLevel: low
-            phase: solid
-          - compound: zinc-oxide
-            hazardLevel: low
-            phase: solid
-          damageRiskToSubstrate: medium
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 120
-            typicalScanSpeedMmS: 800
-          removalEfficiency:
-            diminishingReturnsAfter: 4
-            optimalPasses: 3
-            singlePass: 0.65
-          secondaryMechanisms:
-          - photochemical
-          - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'yes'
-            residualStress: compressive
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumesGenerated:
-          - compound: Potassium hydroxide aerosol
-            concentrationMgM3: 5-25
-            exposureLimitMgM3: 2
-            hazardClass: corrosive
-          - compound: Manganese oxides
-            concentrationMgM3: 3-15
-            exposureLimitMgM3: 5
-            hazardClass: toxic
-          - compound: Zinc oxide fume
-            concentrationMgM3: 2-10
-            exposureLimitMgM3: 5
-            hazardClass: toxic
-          - compound: Carbon particles
-            concentrationMgM3: 10-50
-            exposureLimitMgM3: 3.5
-            hazardClass: irritant
-          particulateGeneration:
-            respirableFraction: 0.7
-            sizeRangeUm:
-            - 0.1
-            - 10
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: PAPR
-            skinProtection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - Laser may reactivate corrosive compounds on metal surfaces
-          - Thermal decomposition may create secondary contamination
-          - Moisture in corrosion products may cause steam explosions
-          toxicGasRisk:
-            severity: low
-            primaryHazards:
-            - compound: Manganese oxides
-              concentrationMgM3: 3-15
-              hazardClass: toxic
-            - compound: Zinc oxide fume
-              concentrationMgM3: 2-10
-              hazardClass: toxic
-            description: Manganese oxides and Zinc oxide fume generation - multiple toxic compounds
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: HEPA
-            minimumAirChangesPerHour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 0.9
-            pulseDuration10Ns: 1.2
-            wavelength1064Nm: 1.8
-          decompositionTemperature: 280
-          heatAffectedZoneDepth: 15
-          meltingPoint: null
-          specificHeat: 850
-          thermalConductivity: 0.35
-          thermalDiffusivity: 0.12
-          vaporizationTemperature: 450
-      _section:
-        sectionTitle: Laser Removal Properties
-        sectionDescription: Laser parameters and removal characteristics
-        icon: zap
-        order: 40
-        variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-displayName: Battery Leakage Corrosion
-subcategory: battery
-validMaterials:
-- brass-laser-cleaning
-- copper-laser-cleaning
-- steel-laser-cleaning
-composition:
-- KOH
-- K₂CO₃
-- PbSO₄
-prohibitedMaterials:
-- Aluminum
-- Electronics
+    prohibited:
+      - Aluminum
+      - Electronics
+  compounds:
+    produces:
+      - id: zinc-oxide-compound
+        phase: unknown
+        hazard: unknown
+  settings:
+    recommended: []
+pageTitle: Battery Leakage Corrosion
+pageDescription: Battery Leakage Corrosion laser cleaning guide. Technical specifications and applications.

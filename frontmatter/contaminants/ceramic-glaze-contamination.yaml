@@ -1,34 +1,27 @@
 id: ceramic-glaze-contamination
+contentType: contaminant
+schemaVersion: 6.0.0
 name: Ceramic Glaze Deposits
 category: inorganic-coating
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T02:40:36.655658+00:00'
-contentType: contaminant
-schemaVersion: 5.0.0
-fullPath: /contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Inorganic Coating
-  href: /contaminants/inorganic-coating
-- label: Ceramic
-  href: /contaminants/inorganic-coating/ceramic
-pageTitle: Ceramic Glaze Deposits
-pageDescription: 'During laser cleaning setup on ceramic surfaces, contamination forms as inorganic coating layer on glaze.
-  Buildup occurs because environmental exposure traps particles, and so unique patterns emerge with irregular spreading along
+subcategory: ceramic
+datePublished: '2026-01-06'
+dateModified: '2026-02-02T02:25:18.866271+00:00'
+description: >-
+  During laser cleaning setup on ceramic surfaces, contamination forms as inorganic coating layer on glaze. Buildup
+  occurs because environmental exposure traps particles, and so unique patterns emerge with irregular spreading along
   glaze cracks. Surface exhibits uneven adhesion, where contaminants bond strongly due to glaze porosity.
 
 
-  After formation, removal challenges arise from material-specific behaviors. Glaze resists laser energy, so ablation demands
-  precise control to avoid cracking. Treatment removes layers effectively, but residue clings in textured areas, requiring
-  multiple passes. In observations, process achieves clean surface uniformity, yet heat buildup so intervals prevent damage
-  to underlying ceramic. Results are obtained from tests on samples.
+  After formation, removal challenges arise from material-specific behaviors. Glaze resists laser energy, so ablation
+  demands precise control to avoid cracking. Treatment removes layers effectively, but residue clings in textured areas,
+  requiring multiple passes. In observations, process achieves clean surface uniformity, yet heat buildup so intervals
+  prevent damage to underlying ceramic. Results are obtained from tests on samples.
 
 
-  Ikmanda Roswati, Ph.D. from Indonesia'
-metaDescription: Ceramic Glaze Deposits laser cleaning guide. Technical specifications and applications.
+  Ikmanda Roswati, Ph.D. from Indonesia
+meta:
+  title: Ceramic Glaze Deposits
+  path: /contaminants/inorganic-coating/ceramic/ceramic-glaze-contamination
 images:
   hero:
     url: /images/contaminant/ceramic-glaze-contamination-hero.jpg
@@ -40,815 +33,253 @@ images:
     alt: Ceramic Glaze Deposits microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
+authorId: 1
+properties:
+  validMaterials:
+    - alumina-laser-cleaning
+    - aluminum-nitride-laser-cleaning
+    - basalt-laser-cleaning
+    - bluestone-laser-cleaning
+    - boron-carbide-laser-cleaning
+    - boron-nitride-laser-cleaning
+    - granite-laser-cleaning
+    - limestone-laser-cleaning
+    - marble-laser-cleaning
+    - porcelain-laser-cleaning
+    - quartzite-laser-cleaning
+    - sandstone-laser-cleaning
+    - silicon-carbide-sic-laser-cleaning
+    - silicon-nitride-laser-cleaning
+    - slate-laser-cleaning
+    - soapstone-laser-cleaning
+    - travertine-laser-cleaning
+    - zirconia-laser-cleaning
+  prohibitedMaterials:
+    - Glass
+    - Metal
+composition:
+  - SiO₂
+  - Al₂O₃
+  - Fluxes
+laser:
+  wavelength:
+    - 1064
+    - 532
+  fluence:
+    min: 0.8
+    max: 1.5
+    optimal: 1.1
+  pulseWidth:
+    min: 10
+    max: 100
+    optimal: 30
+  scanSpeed:
+    min: 500
+    max: 2000
+    optimal: 1000
+  passes:
+    optimal: 4
+    maxEffective: 6
+    efficiency: 0.3
+  thermal:
+    ablationThreshold: 2.8
+    decomposition: 1200
+    vaporization: 1800
+safety:
+  fireRisk: low
+  toxicGas: low
+  ppe:
+    respiratory: PAPR
+    eye: goggles
+    skin: gloves
+  compounds:
+    - id: silicon-dioxide-(crystalline-silica)-compound
+      phase: gas
+      hazard: toxic
+      concentration: 5
+      limit: 0.025
+    - id: lead-oxide-compound
+      phase: gas
+      hazard: toxic
+      concentration: 0.5
+      limit: 0.05
+    - id: metal-oxides-(various)-compound
+      phase: gas
+      hazard: irritant
+      concentration: 2
+      limit: 5
+  ventilation:
+    airChanges: 12
+    velocity: 0.5
+    filter: HEPA
+appearance:
+  ceramic:
+    color: unknown
+    texture: smooth
+    pattern: uniform
+    coverage: unknown
+  composite:
+    color: unknown
+    texture: unknown
+    pattern: patches-streaks
+    coverage: partial-light
+  concrete:
+    color: gray
+    texture: rough
+    pattern: irregular-patches
+    coverage: partial-light
+  fabric:
+    color: unknown
+    texture: unknown
+    pattern: spots-streaks
+    coverage: minimal
+  glass:
+    color: unknown
+    texture: smooth
+    pattern: uniform-streaks
+    coverage: localized
+  metal:
+    color: unknown
+    texture: smooth
+    pattern: irregular-patches
+    coverage: partial-uneven
+  mineral:
+    color: unknown
+    texture: smooth
+    pattern: unknown
+    coverage: uneven-partial
+  plastic:
+    color: unknown
+    texture: smooth
+    pattern: irregular-spots
+    coverage: minimal-uneven
+  rubber:
+    color: unknown
+    texture: flaky
+    pattern: spots
+    coverage: uneven
+  semiconductor:
+    color: unknown
+    texture: unknown
+    pattern: spots
+    coverage: minimal
+  specialty:
+    color: unknown
+    texture: unknown
+    pattern: patches-streaks
+    coverage: partial-minimal
+  stone:
+    color: unknown
+    texture: smooth
+    pattern: patches-streaks
+    coverage: partial-light
+  wood:
+    color: unknown
+    texture: unknown
+    pattern: patches-uniform
+    coverage: uneven-minimal
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety regulations and compliance standards for this contaminant
-        icon: shield-check
-        order: 20
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fire & Explosion Risk
-        sectionDescription: Fire and explosion hazards during laser cleaning
-        icon: flame
-        order: 21
-        variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fumes Generated
-        sectionDescription: Hazardous fumes produced during laser removal
-        icon: cloud
-        order: 22
-        variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Particulate Generation
-        sectionDescription: Airborne particles and dust created during cleaning
-        icon: wind
-        order: 23
-        variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: PPE Requirements
-        sectionDescription: Required personal protective equipment
-        icon: shield
-        order: 24
-        variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Toxic Gas Risk
-        sectionDescription: Toxic gases that may be released during removal
-        icon: alert-triangle
-        order: 25
-        variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Ventilation Requirements
-        sectionDescription: Required ventilation and air filtration systems
-        icon: wind
-        order: 26
-        variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Visibility Hazard
-        sectionDescription: Smoke and debris affecting operator visibility
-        icon: eye-off
-        order: 27
-        variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  interactions:
-    producesCompounds:
-      presentation: card
-      items:
-      - id: nanoparticulates-compound
-        title: Nanoparticulates
-        name: Nanoparticulates
-        category: particulate
-        subcategory: nanomaterial
-        url: /compounds/particulate/nanomaterial/nanoparticulates-compound
-        image: /images/compound/nanoparticulates-compound-hero.jpg
-        description: Nanoparticulates Compound safety information for laser cleaning. Health hazards, exposure limits, and
-          protective equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      _section:
-        sectionTitle: Produced Compounds
-        sectionDescription: Hazardous compounds produced during laser cleaning
-        icon: flask-conical
-        order: 10
-        variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
-      presentation: card
-      items:
+  materials:
+    common:
       - id: aluminum-laser-cleaning
-        name: Aluminum
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-        image: /images/material/aluminum-laser-cleaning-hero.jpg
-        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: moderate
         difficulty: moderate
       - id: brass-laser-cleaning
-        name: Brass
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/brass-laser-cleaning
-        image: /images/material/brass-laser-cleaning-hero.jpg
-        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
-          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: moderate
         difficulty: moderate
       - id: brick-laser-cleaning
-        name: Brick
-        category: masonry
-        subcategory: general
-        url: /materials/masonry/general/brick-laser-cleaning
-        image: /images/material/brick-laser-cleaning-hero.jpg
-        description: When laser cleaning brick, we've found that its thermal stability lets us remove surface contaminants
-          effectively while preserving the material's long-term structural integrity
         frequency: moderate
         difficulty: moderate
       - id: bronze-laser-cleaning
-        name: Bronze
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/bronze-laser-cleaning
-        image: /images/material/bronze-laser-cleaning-hero.jpg
-        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
-          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: moderate
         difficulty: moderate
       - id: cast-iron-laser-cleaning
-        name: Cast Iron
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/cast-iron-laser-cleaning
-        image: /images/material/cast-iron-laser-cleaning-hero.jpg
-        description: When cleaning cast iron, we've found its inherent porosity serves as a natural benefit, pulling in laser
-          energy to break loose tough rust and scale on heavy industrial components, but you need to b...
         frequency: moderate
         difficulty: moderate
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
-        name: Ceramic Matrix Composites CMCs
-        category: composite
-        subcategory: fiber-reinforced
-        url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
-        image: /images/material/ceramic-matrix-composites-cmcs-laser-cleaning-hero.jpg
-        description: When working with Ceramic Matrix Composites in high-heat environments, prioritize their superior toughness
-          that resists cracking under thermal stress, allowing them to surpass brittle traditional c...
         frequency: moderate
         difficulty: moderate
       - id: concrete-laser-cleaning
-        name: Concrete
-        category: masonry
-        subcategory: general
-        url: /materials/masonry/general/concrete-laser-cleaning
-        image: /images/material/concrete-laser-cleaning-hero.jpg
-        description: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and
-          restore durability, all while preserving its structural integrity.
         frequency: moderate
         difficulty: moderate
       - id: copper-laser-cleaning
-        name: Copper
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/copper-laser-cleaning
-        image: /images/material/copper-laser-cleaning-hero.jpg
-        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
-          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: moderate
         difficulty: moderate
       - id: granite-laser-cleaning
-        name: Granite
-        category: stone
-        subcategory: igneous
-        url: /materials/stone/igneous/granite-laser-cleaning
-        image: /images/material/granite-laser-cleaning-hero.jpg
-        description: When laser cleaning granite surfaces in architectural restoration, we typically adjust the scan speed
-          to match its dense and heat-resistant composition, which exposes underlying details without com...
         frequency: moderate
         difficulty: moderate
       - id: iron-laser-cleaning
-        name: Iron
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/iron-laser-cleaning
-        image: /images/material/iron-laser-cleaning-hero.jpg
-        description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid
-          strength and heat tolerance that keeps the base material intact while removing rust or grime, b...
         frequency: moderate
         difficulty: moderate
       - id: limestone-laser-cleaning
-        name: Limestone
-        category: stone
-        subcategory: sedimentary
-        url: /materials/stone/sedimentary/limestone-laser-cleaning
-        image: /images/material/limestone-laser-cleaning-hero.jpg
-        description: Compared to denser granites, limestone's porous structure absorbs contaminants more readily during laser
-          cleaning and resists cracking from heat buildup, so you'll preserve surface details without ...
         frequency: moderate
         difficulty: moderate
       - id: magnesium-laser-cleaning
-        name: Magnesium
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/magnesium-laser-cleaning
-        image: /images/material/magnesium-laser-cleaning-hero.jpg
-        description: When laser cleaning magnesium, I've found it works best to start with lower power settings, as its lightweight
-          nature and high reflectivity set it apart from denser metals like steel. This allows q...
         frequency: moderate
         difficulty: moderate
       - id: marble-laser-cleaning
-        name: Marble
-        category: stone
-        subcategory: metamorphic
-        url: /materials/stone/metamorphic/marble-laser-cleaning
-        image: /images/material/marble-laser-cleaning-hero.jpg
-        description: When laser cleaning marble, I've found it keeps its elegant veins steady through low-energy passes that
-          strip away grime mid-process, all without risking cracks from excess heat buildup.
         frequency: moderate
         difficulty: moderate
       - id: nickel-laser-cleaning
-        name: Nickel
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/nickel-laser-cleaning
-        image: /images/material/nickel-laser-cleaning-hero.jpg
-        description: Nickel stands out in laser cleaning applications thanks to its solid balance of reflectivity and absorptivity,
-          which lets operators dial in precise energy absorption without excessive heat buildup....
         frequency: moderate
         difficulty: moderate
       - id: porcelain-laser-cleaning
-        name: Porcelain
-        category: ceramic
-        subcategory: oxide
-        url: /materials/ceramic/oxide/porcelain-laser-cleaning
-        image: /images/material/porcelain-laser-cleaning-hero.jpg
-        description: We've found porcelain sets itself apart from standard ceramics with its impressively low porosity and
-          excellent corrosion resistance, supporting dependable use in tough settings like medical device...
         frequency: moderate
         difficulty: moderate
       - id: sandstone-laser-cleaning
-        name: Sandstone
-        category: stone
-        subcategory: sedimentary
-        url: /materials/stone/sedimentary/sandstone-laser-cleaning
-        image: /images/material/sandstone-laser-cleaning-hero.jpg
-        description: When restoring sandstone in cultural heritage projects, we typically start with low-power laser passes
-          to gently remove surface buildup from its porous structure, ensuring the stone's natural integ...
         frequency: moderate
         difficulty: moderate
       - id: slate-laser-cleaning
-        name: Slate
-        category: stone
-        subcategory: metamorphic
-        url: /materials/stone/metamorphic/slate-laser-cleaning
-        image: /images/material/slate-laser-cleaning-hero.jpg
-        description: In restoring delicate slate artifacts for cultural heritage projects, the biggest hurdle is clearing
-          away grime without splitting its layered makeup, but I've noticed how its natural thermal stabil...
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-laser-cleaning
-        name: Stainless Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-        image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-        description: When laser cleaning stainless steel, start by adjusting the power to manage its natural resistance to
-          oxidation, which preserves surfaces in harsh marine or chemical environments. Be sure to avoid ...
         frequency: moderate
         difficulty: moderate
       - id: steel-laser-cleaning
-        name: Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/steel-laser-cleaning
-        image: /images/material/steel-laser-cleaning-hero.jpg
-        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
-          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: moderate
         difficulty: moderate
       - id: terracotta-laser-cleaning
-        name: Terracotta
-        category: masonry
-        subcategory: concrete
-        url: /materials/masonry/concrete/terracotta-laser-cleaning
-        image: /images/material/terracotta-laser-cleaning-hero.jpg
-        description: We've found that terracotta cleans up nicely with laser treatment in heritage projects because its natural
-          heat resistance keeps the structure intact during the process. Its low conductivity focuse...
         frequency: moderate
         difficulty: moderate
       - id: titanium-laser-cleaning
-        name: Titanium
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/titanium-laser-cleaning
-        image: /images/material/titanium-laser-cleaning-hero.jpg
-        description: Titanium excels in laser cleaning applications because of its exceptional corrosion resistance and lightweight
-          structure, which set it apart from denser metals prone to rapid degradation. After tre...
         frequency: moderate
         difficulty: moderate
       - id: titanium-carbide-laser-cleaning
-        name: Titanium Carbide
-        category: ceramic
-        subcategory: carbide
-        url: /materials/ceramic/carbide/titanium-carbide-laser-cleaning
-        image: /images/material/titanium-carbide-laser-cleaning-hero.jpg
-        description: When laser cleaning Titanium Carbide components, we typically begin by precisely calibrating the setup
-          to accommodate its remarkable heat resistance and low thermal expansion, ensuring no warping o...
         frequency: moderate
         difficulty: moderate
       - id: tool-steel-laser-cleaning
-        name: Tool Steel
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/tool-steel-laser-cleaning
-        image: /images/material/tool-steel-laser-cleaning-hero.jpg
-        description: Tool steel excels with its exceptional hardness and heat resistance, allowing tools to keep sharp edges
-          intact during intense machining operations without deforming or weakening.
         frequency: moderate
         difficulty: moderate
       - id: zinc-laser-cleaning
-        name: Zinc
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/zinc-laser-cleaning
-        image: /images/material/zinc-laser-cleaning-hero.jpg
-        description: Zinc for laser cleaning, high reflectivity of material protects substrate from thermal damage. Contaminants
-          absorb energy and vaporize easily, thus process yields clean surface without affecting un...
         frequency: moderate
         difficulty: moderate
       - id: titanium-alloy-ti-6al-4v-laser-cleaning
-        name: Titanium Alloy (Ti-6Al-4V)
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
-        image: /images/material/titanium-alloy-ti-6al-4v-laser-cleaning-hero.jpg
-        description: Titanium alloy Ti-6Al-4V shows superior corrosion resistance and high strength, so laser cleaning removes
-          surface contaminants effectively while surface maintains durability for industrial uses.
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-316-laser-cleaning
-        name: Stainless Steel 316
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
-        image: /images/material/stainless-steel-316-laser-cleaning-hero.jpg
-        description: When laser cleaning Stainless Steel 316, rely on its superior corrosion resistance to keep surfaces intact
-          in salty or chemical environments, and always adjust the power to avoid unnecessary heat b...
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-304-laser-cleaning
-        name: Stainless Steel 304
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
-        image: /images/material/stainless-steel-304-laser-cleaning-hero.jpg
-        description: When laser cleaning stainless steel 304, watch out for how it holds heat longer than carbon steels. I've
-          seen that cause uneven surfaces if you push too hard. But its strong corrosion resistance re...
         frequency: moderate
         difficulty: moderate
       - id: aluminum-bronze-laser-cleaning
-        name: Aluminum Bronze
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
-        image: /images/material/aluminum-bronze-laser-cleaning-hero.jpg
-        description: Aluminum Bronze acts as strong, corrosion-resistant alloy for laser cleaning. Its durability withstands
-          heat during treatment, so contaminants remove easily from surface. Hardness poses challenge, ...
         frequency: moderate
         difficulty: moderate
       - id: aluminum-nitride-laser-cleaning
-        name: Aluminum Nitride
-        category: ceramic
-        subcategory: technical
-        url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-        image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-        description: When laser cleaning Aluminum Nitride, I've seen it hold up remarkably well under intense heat, thanks
-          to its superior thermal stability and insulating qualities—just watch for any potential surface...
         frequency: moderate
         difficulty: moderate
       - id: titanium-nitride-laser-cleaning
-        name: Titanium Nitride
-        category: ceramic
-        subcategory: coating
-        url: /materials/ceramic/coating/titanium-nitride-laser-cleaning
-        image: /images/material/titanium-nitride-laser-cleaning-hero.jpg
-        description: In our experience, the main challenge for titanium nitride in high-wear applications stems from routine
-          abrasion and exposure to tough conditions, but its exceptional hardness and corrosion resista...
         frequency: moderate
         difficulty: moderate
-      _section:
-        sectionTitle: Affected Materials
-        sectionDescription: Materials where this contaminant commonly appears
-        icon: layers
-        order: 11
-        variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  visual:
-    appearanceOnCategories:
-      presentation: descriptive
-      items:
-      - appearanceOnCategories:
-          ceramic:
-            appearance: As the intended surface, ceramic glaze appears as a vitrified, glossy coating that bonds seamlessly,
-              displaying consistent colors and a smooth, hard texture.
-            coverage: Coverage is usually complete and even, forming a continuous protective layer across the ceramic body
-              after firing.
-            pattern: It is typically applied in uniform layers or decorative designs, resulting in even distribution without
-              random spotting when properly fired.
-          composite:
-            appearance: On composites, ceramic glaze deposits appear as a heterogeneous layer that may not integrate well,
-              showing glossy areas mixed with the composite's texture and colors.
-            coverage: Coverage is typically partial and inconsistent, varying from light coatings to thicker accumulations
-              in porous or rough regions.
-            pattern: They distribute in random patches or streaks, influenced by the composite's varied material components
-              and surface properties.
-          concrete:
-            appearance: Ceramic glaze on concrete surfaces looks like a hard, glossy film that may fill pores, displaying
-              colors that stand out against the rough, gray background of concrete.
-            coverage: Coverage is partial and variable, ranging from light coatings in high spots to thicker layers in recessed
-              areas, depending on application.
-            pattern: Deposits often form in irregular patches or drips, influenced by concrete's porosity and surface texture,
-              rather than being uniform.
-          fabric:
-            appearance: On fabric, ceramic glaze deposits appear as stiff, crusty areas that can be colorful but brittle,
-              altering the fabric's soft texture and potentially causing discoloration.
-            coverage: Coverage is sparse and patchy, often minimal due to fabric absorption, with high variation and potential
-              for flaking during use.
-            pattern: They typically show as random spots or streaks, following the weave pattern and not forming a continuous
-              layer.
-          glass:
-            appearance: On glass, ceramic glaze deposits appear as fused, translucent or opaque layers that can create a frosted
-              or colored effect, often with a smooth, glossy finish.
-            coverage: Coverage can range from thin, even films to thicker, localized areas, with high variation based on intent
-              and application technique.
-            pattern: They usually distribute in uniform coats or deliberate patterns if applied artistically, but accidental
-              contamination may show as streaks or spots.
-          metal:
-            appearance: Ceramic glaze deposits on metal appear as glossy, often colorful coatings that can range from smooth
-              to slightly textured, depending on the glaze composition and application.
-            coverage: Coverage is usually partial, varying from small spots to larger areas, with uneven distribution due
-              to adhesion differences on metal surfaces.
-            pattern: They typically form in irregular patches or streaks, often concentrated in areas where glaze was applied
-              or dripped, rather than uniformly distributed.
-          mineral:
-            appearance: On minerals, ceramic glaze deposits appear as a fused, glassy coating that can enhance or mask natural
-              colors and crystal structures, feeling smooth and hard.
-            coverage: Coverage is typically uneven and partial, with spots of dense glaze interspersed with bare areas, influenced
-              by mineral composition.
-            pattern: They distribute in blotchy areas or follow mineral cleavage planes, not covering the surface evenly due
-              to varying absorption.
-          plastic:
-            appearance: Ceramic glaze on plastic looks like a brittle, often cracked film that may not adhere well, showing
-              glossy colors that contrast with the plastic's smooth surface.
-            coverage: Coverage is minimal and uneven, often limited to surface contact points, with high variation and potential
-              for flaking off.
-            pattern: Deposits form in irregular spots or peeling patches, as glaze does not fuse with plastic, leading to
-              poor distribution.
-          rubber:
-            appearance: Ceramic glaze on rubber surfaces looks like a non-adherent, flaky coating that can appear glossy but
-              often cracks due to rubber's flexibility, contrasting with its matte finish.
-            coverage: Coverage is very low and uneven, usually limited to superficial contact, with significant variation
-              and easy detachment.
-            pattern: It forms in isolated spots or smears, as glaze does not bond well, resulting in erratic distribution
-              without uniformity.
-          semiconductor:
-            appearance: Ceramic glaze on semiconductors looks like an unwanted, insulating layer that may be glossy or matte,
-              potentially interfering with electronic properties and appearing as a foreign coating.
-            coverage: Coverage is usually minimal and highly variable, considered a defect with sparse, isolated deposits
-              that can affect performance.
-            pattern: It forms in random contaminants such as spots or thin films, often from processing errors, without intentional
-              distribution patterns.
-          specialty:
-            appearance: On specialty materials like advanced alloys or polymers, ceramic glaze deposits appear as incongruous,
-              often brittle coatings that may not integrate, showing glossy finishes against the base material's unique properties.
-            coverage: Coverage is partial and inconsistent, varying widely with material type, often minimal and considered
-              contamination rather than functional.
-            pattern: Distribution is erratic, forming in patches or streaks based on surface compatibility, without uniformity
-              due to material-specific reactions.
-          stone:
-            appearance: Ceramic glaze on stone surfaces presents as a glassy, often vibrant film that can enhance or obscure
-              the stone's natural color and texture, feeling smooth to the touch.
-            coverage: Coverage is typically partial and variable, ranging from light speckling to dense areas, depending on
-              application methods and stone type.
-            pattern: It tends to form in blotchy patches or streaks, influenced by the stone's roughness and absorption, rather
-              than covering it evenly.
-          wood:
-            appearance: On wood, ceramic glaze deposits look like shiny, hardened layers that may crack or peel, with colors
-              contrasting against the natural grain and texture of the wood.
-            coverage: Coverage is generally sparse and uneven, limited by wood's porosity, resulting in isolated areas with
-              minimal to moderate glaze accumulation.
-            pattern: Deposits often appear as random patches or drips, following the wood's surface irregularities and not
-              forming a uniform layer.
-      _section:
-        sectionTitle: Visual Appearance
-        sectionDescription: How this contaminant appears on different material categories
-        icon: eye
-        order: 50
-        variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  operational:
-    laserProperties:
-      presentation: descriptive
-      items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.5
-            minJCm2: 0.8
-            recommendedJCm2: 1.1
-          overlapPercentage: 50
-          polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 10
-            recommendedNs: 30
-          repetitionRateKhz:
-            max: 200
-            min: 20
-            recommended: 50
-          safetyMarginFactor: 0.7
-          scanSpeedMmS:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spotSizeMm:
-            max: 0.1
-            min: 0.03
-            recommended: 0.05
-          wavelengthPreference:
-          - 1064
-          - 532
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 1200
-            wavelength355Nm: 28000
-            wavelength532Nm: 4500
-          reflectivity:
-            wavelength1064Nm: 0.25
-            wavelength355Nm: 0.08
-            wavelength532Nm: 0.15
-          refractiveIndex:
-            imaginaryPart: 0.012
-            realPart: 1.65
-          transmissionDepth: 8.3
-        removalCharacteristics:
-          byproducts:
-          - compound: nanoparticulates
-            hazardLevel: moderate
-            phase: solid
-          - compound: Metal oxide vapors
-            hazardLevel: moderate
-            phase: gas
-          - compound: Glaze fragments
-            hazardLevel: low
-            phase: solid
-          damageRiskToSubstrate: medium
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 240
-            typicalScanSpeedMmS: 800
-          removalEfficiency:
-            diminishingReturnsAfter: 6
-            optimalPasses: 4
-            singlePass: 0.3
-          secondaryMechanisms:
-          - thermal_stress_fracturing
-          - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: compressive
-            roughnessIncrease: moderate
-        safetyData:
-          fireExplosionRisk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumesGenerated:
-          - compound: Silicon Dioxide (crystalline silica)
-            concentrationMgM3: 5.0
-            exposureLimitMgM3: 0.025
-            hazardClass: toxic
-          - compound: Lead Oxide
-            concentrationMgM3: 0.5
-            exposureLimitMgM3: 0.05
-            hazardClass: toxic
-          - compound: Metal Oxides (various)
-            concentrationMgM3: 2.0
-            exposureLimitMgM3: 5.0
-            hazardClass: irritant
-          particulateGeneration:
-            respirableFraction: 0.7
-            sizeRangeUm:
-            - 0.1
-            - 10.0
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: PAPR
-            skinProtection: gloves
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - Thermal shock may cause substrate damage or fragmentation
-          - Incomplete removal may create respirable dust during cleanup
-          - Potential for reflective surfaces to redirect laser energy
-          toxicGasRisk:
-            severity: low
-            primaryHazards:
-            - compound: Silicon Dioxide (crystalline silica)
-              concentrationMgM3: 5.0
-              hazardClass: toxic
-            - compound: Lead Oxide
-              concentrationMgM3: 0.5
-              hazardClass: toxic
-            description: Silicon Dioxide (crystalline silica) and Lead Oxide generation - multiple toxic compounds
-            mitigation: N95 or P100 respirator for particulate control, standard ventilation
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: HEPA
-            minimumAirChangesPerHour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 4.5
-            pulseDuration10Ns: 3.2
-            wavelength1064Nm: 2.8
-          decompositionTemperature: 1200
-          heatAffectedZoneDepth: 25
-          meltingPoint: 1100
-          specificHeat: 850
-          thermalConductivity: 1.2
-          thermalDiffusivity: 0.8
-          vaporizationTemperature: 1800
-      _section:
-        sectionTitle: Laser Removal Properties
-        sectionDescription: Laser parameters and removal characteristics
-        icon: zap
-        order: 40
-        variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-displayName: Ceramic Glaze Deposits
-subcategory: ceramic
-validMaterials:
-- alumina-laser-cleaning
-- aluminum-nitride-laser-cleaning
-- basalt-laser-cleaning
-- bluestone-laser-cleaning
-- boron-carbide-laser-cleaning
-- boron-nitride-laser-cleaning
-- granite-laser-cleaning
-- limestone-laser-cleaning
-- marble-laser-cleaning
-- porcelain-laser-cleaning
-- quartzite-laser-cleaning
-- sandstone-laser-cleaning
-- silicon-carbide-sic-laser-cleaning
-- silicon-nitride-laser-cleaning
-- slate-laser-cleaning
-- soapstone-laser-cleaning
-- travertine-laser-cleaning
-- zirconia-laser-cleaning
-composition:
-- SiO₂
-- Al₂O₃
-- Fluxes
-prohibitedMaterials:
-- Glass
-- Metal
+    prohibited:
+      - Glass
+      - Metal
+  compounds:
+    produces:
+      - id: nanoparticulates-compound
+        phase: unknown
+        hazard: unknown
+  settings:
+    recommended: []
+pageTitle: Ceramic Glaze Deposits
+pageDescription: Ceramic Glaze Deposits laser cleaning guide. Technical specifications and applications.

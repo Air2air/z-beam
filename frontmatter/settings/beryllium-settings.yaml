@@ -1,34 +1,26 @@
 id: beryllium-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Beryllium
-displayName: Beryllium Laser Cleaning Settings
 category: metal
 subcategory: specialty
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:23.484531+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/metal/specialty/beryllium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Specialty
-  href: /settings/metal/specialty
-pageTitle: Beryllium
-pageDescription: When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because
-  Beryllium's exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure
-  effective contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser alloys,
-  means you should start with adjusted pulse durations and slower scan speeds so the surface has time to absorb just enough
-  heat for cleaning, while its lightweight nature allows rapid cooling that prevents warping if you control the overlap carefully.
-  Beryllium's superior thermal conductivity spreads heat quickly across the material, which helps avoid localized damage but
-  requires you to monitor passes closely to prevent overexposure. You also need to watch its brittleness compared to tougher
-  steels, as sudden temperature shifts can lead to micro-cracks during the process. In the end, always end sessions with a
-  cool-down period and inspect for any subsurface stress, since overlooking this can compromise the material's integrity in
-  high-stakes applications like aerospace components.
-metaDescription: Beryllium laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning Beryllium, you must first contrast it with more common metals like aluminum, because Beryllium's
+  exceptional reflectivity sends most laser energy bouncing away, demanding a completely different setup to ensure
+  effective contaminant removal without wasting power. This high reflectivity, unlike the better absorption in denser
+  alloys, means you should start with adjusted pulse durations and slower scan speeds so the surface has time to absorb
+  just enough heat for cleaning, while its lightweight nature allows rapid cooling that prevents warping if you control
+  the overlap carefully. Beryllium's superior thermal conductivity spreads heat quickly across the material, which helps
+  avoid localized damage but requires you to monitor passes closely to prevent overexposure. You also need to watch its
+  brittleness compared to tougher steels, as sudden temperature shifts can lead to micro-cracks during the process. In
+  the end, always end sessions with a cool-down period and inspect for any subsurface stress, since overlooking this can
+  compromise the material's integrity in high-stakes applications like aerospace components.
+meta:
+  title: Beryllium
+  description: Beryllium laser cleaning guide. Technical specifications and applications.
+  path: /settings/metal/specialty/beryllium-settings
 images:
   hero:
     url: /images/settings/beryllium-settings-hero.jpg
@@ -40,194 +32,45 @@ images:
     alt: Beryllium microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 1
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contaminationChallenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength optimized for Beryllium thermal absorption characteristics
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: '100-500 μm beam diameter for cleaning; 200 μm recommended for Beryllium in industrial surface prep to ensure
-      uniform energy delivery without pinpoint damage; smaller for fine details, larger for broad areas. Source: Coherent
-      Inc. laser cleaning system specifications.'
-  fluenceThreshold:
-    description: Fluence threshold for Beryllium oxide removal without substrate damage
-    unit: J/cm²
-    value: 2.5
-    min: 0.3
-    max: 4.5
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime (5-100 ns) typical for industrial cleaning to ablate contaminants while minimizing heat-affected
-      zone (HAZ); 20 ns recommended for Beryllium to limit thermal diffusion given its conductivity; picosecond (ps) or femtosecond
-      (fs) for ultra-precise but costlier applications. Source: Laser physics review in Opt. Lasers Eng. 120, 102-115 (2019).'
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1000
-    description: 'Range for effective contaminant removal without excessive heat accumulation; 1000 mm/s recommended for optimal
-      balance on Beryllium''s high thermal conductivity (216 W/mK); slower (200-500 mm/s) for heavy contamination, faster
-      (up to 3000 mm/s) for light. Source: Laserax equipment manuals and J. Laser Appl. 32, 022064 (2020).'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: '1-5 passes typical for complete removal; 2 passes recommended for Beryllium to achieve thorough cleaning
-      of contaminants while avoiding cumulative thermal stress; single pass for light layers, multi for heavy. Source: Industry
-      case studies in Proc. SPIE 11080, 110800M (2019).'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: '30-80% overlap for uniform coverage in scanning; 50% recommended for Beryllium to ensure even fluence distribution
-      and prevent gaps, optimizing for its reflective properties. Source: Process optimization in Surf. Coat. Technol. 378,
-      124-130 (2019).'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for contaminant removal on metals; Beryllium ablation threshold ~2-3 J/cm² at 1064 nm, so
-      1.5 J/cm² recommended for safe cleaning below damage; higher for heavy contamination but conservative due to reflectivity.
-      Source: Ablation threshold studies in J. Phys. D: Appl. Phys. 52, 395301 (2019).'
-  laserPower:
-    description: Optimal average power range for Beryllium oxide layer removal
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 500
-    value: 150
-    unit: W
-    description: 'Typical range for 1064 nm Nd:YAG lasers in metal cleaning to balance efficiency and heat input; starting
-      at 150 W for Beryllium due to high reflectivity (~70% at 1064 nm) reducing absorption; max avoids substrate melting
-      (1287°C) per studies on reflective metals (e.g., SPIE Proc. Vol. 10912, 2019). Source: IPG Photonics YLR series specs.'
-  frequency:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: '10-100 kHz for cleaning applications; 50 kHz recommended for Beryllium to achieve fast processing without
-      significant heat buildup (high freq increases speed but risks accumulation on reflective surfaces); trade-off noted
-      in ablation efficiency. Source: Academic study in Appl. Surf. Sci. 475, 245-252 (2019).'
-componentSummary: These settings employ moderate 150 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants
-  from Beryllium, minimizing thermal stress on its brittle, low-conductivity surface.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

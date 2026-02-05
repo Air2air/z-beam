@@ -329,7 +329,7 @@ export const BUSINESS_CONFIG = {
     wednesday: { open: "09:00", close: "18:00" },
     thursday: { open: "09:00", close: "18:00" },
     friday: { open: "09:00", close: "18:00" },
-    saturday: { open: "10:00", close: "16:00" },
+    saturday: { open: "closed", close: "closed" },
     sunday: { open: "closed", close: "closed" }
   },
 
@@ -827,12 +827,6 @@ export function generateOrganizationSchema() {
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": BUSINESS_CONFIG.hours.monday.open,
         "closes": BUSINESS_CONFIG.hours.monday.close
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": BUSINESS_CONFIG.hours.saturday.open,
-        "closes": BUSINESS_CONFIG.hours.saturday.close
       }
     ],
     

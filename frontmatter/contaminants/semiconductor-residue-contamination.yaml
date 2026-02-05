@@ -1,29 +1,22 @@
 id: semiconductor-residue-contamination
+contentType: contaminant
+schemaVersion: 6.0.0
 name: Semiconductor Processing Residue
 category: chemical-residue
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T02:40:41.818265+00:00'
-contentType: contaminant
-schemaVersion: 5.0.0
-fullPath: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Chemical Residue
-  href: /contaminants/chemical-residue
-- label: Industrial
-  href: /contaminants/chemical-residue/industrial
-pageTitle: Semiconductor Processing Residue
-pageDescription: 'Semiconductor residue contamination typically builds up during wafer processing, forming thin, uneven layers
-  that cling tightly to silicon surfaces. These residues, often chemical byproducts from etching or deposition steps, create
-  unique patterns—spotty clusters in high-heat zones or streaky films along processing edges. In practice, they pose distinct
-  removal challenges for laser cleaning, as the residues absorb energy unevenly, risking substrate damage if pulses ramp up
-  too quickly. Material-specific behaviors vary: on doped silicon, residues hold up better due to altered surface chemistry,
-  while on oxides, they clear more readily but leave faint traces. Overall, dialing in laser parameters addresses these issues,
-  achieving a clean finish without compromising device integrity.'
-metaDescription: Semiconductor Processing Residue laser cleaning guide. Technical specifications and applications.
+subcategory: industrial
+datePublished: '2026-01-06'
+dateModified: '2026-02-02T02:25:23.054914+00:00'
+description: >-
+  Semiconductor residue contamination typically builds up during wafer processing, forming thin, uneven layers that
+  cling tightly to silicon surfaces. These residues, often chemical byproducts from etching or deposition steps, create
+  unique patterns—spotty clusters in high-heat zones or streaky films along processing edges. In practice, they pose
+  distinct removal challenges for laser cleaning, as the residues absorb energy unevenly, risking substrate damage if
+  pulses ramp up too quickly. Material-specific behaviors vary: on doped silicon, residues hold up better due to altered
+  surface chemistry, while on oxides, they clear more readily but leave faint traces. Overall, dialing in laser
+  parameters addresses these issues, achieving a clean finish without compromising device integrity.
+meta:
+  title: Semiconductor Processing Residue
+  path: /contaminants/chemical-residue/industrial/semiconductor-residue-contamination
 images:
   hero:
     url: /images/contaminant/semiconductor-residue-contamination-hero.jpg
@@ -35,854 +28,262 @@ images:
     alt: Semiconductor Processing Residue microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  countryDisplay: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
+authorId: 4
+properties:
+  validMaterials:
+    - alumina-laser-cleaning
+    - aluminum-nitride-laser-cleaning
+    - boron-carbide-laser-cleaning
+    - boron-nitride-laser-cleaning
+    - silicon-carbide-sic-laser-cleaning
+    - silicon-nitride-laser-cleaning
+    - zirconia-laser-cleaning
+  prohibitedMaterials:
+    - Flexible Substrates
+    - Soft Materials
+composition:
+  - SiO₂
+  - Si₃N₄
+  - Photoresist
+  - Metal Films
+laser:
+  wavelength:
+    - 1064
+    - 532
+  fluence:
+    min: 0.3
+    max: 1.2
+    optimal: 0.7
+  pulseWidth:
+    min: 4
+    max: 100
+    optimal: 10
+  scanSpeed:
+    min: 500
+    max: 2000
+    optimal: 1000
+  passes:
+    optimal: 2
+    maxEffective: 3
+    efficiency: 0.85
+  thermal:
+    ablationThreshold: 0.8
+    decomposition: 450
+    vaporization: 600
+safety:
+  fireRisk: low
+  toxicGas: high
+  ppe:
+    respiratory: PAPR
+    eye: goggles
+    skin: full_suit
+  compounds:
+    - id: hydrogen-fluoride-compound
+      phase: gas
+      hazard: corrosive
+      concentration: 2.5
+      limit: 2.5
+    - id: arsine-compound
+      phase: gas
+      hazard: toxic
+      concentration: 0.05
+      limit: 0.16
+    - id: phosphine-compound
+      phase: gas
+      hazard: toxic
+      concentration: 0.1
+      limit: 0.42
+    - id: silicon-tetrafluoride-compound
+      phase: gas
+      hazard: irritant
+      concentration: 15
+      limit: 34
+    - id: metal-oxides-(arsenic,-antimony)-compound
+      phase: gas
+      hazard: toxic
+      concentration: 1.2
+      limit: 0.01
+  ventilation:
+    airChanges: 12
+    velocity: 0.5
+    filter: scrubber
+appearance:
+  ceramic:
+    color: white-white
+    texture: powdery
+    pattern: irregular-spots
+    coverage: uneven
+  composite:
+    color: white-gray
+    texture: unknown
+    pattern: irregular-patches
+    coverage: uneven-minimal
+  concrete:
+    color: white-gray
+    texture: smooth
+    pattern: irregular-spots
+    coverage: partial
+  fabric:
+    color: white-gray
+    texture: powdery
+    pattern: irregular-spots
+    coverage: uneven
+  glass:
+    color: white-gray
+    texture: sticky
+    pattern: streaks-spots
+    coverage: partial-light
+  metal:
+    color: gray-white
+    texture: sticky-powdery
+    pattern: irregular-spots
+    coverage: partial
+  mineral:
+    color: white-gray
+    texture: powdery
+    pattern: irregular-spots
+    coverage: uneven-minimal
+  plastic:
+    color: gray-white
+    texture: unknown
+    pattern: spots-streaks
+    coverage: partial
+  rubber:
+    color: gray-white
+    texture: powdery-sticky
+    pattern: streaks-spots
+    coverage: partial-light
+  semiconductor:
+    color: gray-white
+    texture: sticky
+    pattern: uniform-spots
+    coverage: minimal-partial
+  specialty:
+    color: unknown
+    texture: rough
+    pattern: irregular-spots
+    coverage: partial-uneven
+  stone:
+    color: white-gray
+    texture: unknown
+    pattern: irregular-spots
+    coverage: unknown
+  wood:
+    color: unknown
+    texture: unknown
+    pattern: patches-streaks
+    coverage: uneven-minimal
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety regulations and compliance standards for this contaminant
-        icon: shield-check
-        order: 20
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fire & Explosion Risk
-        sectionDescription: Fire and explosion hazards during laser cleaning
-        icon: flame
-        order: 21
-        variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fumes Generated
-        sectionDescription: Hazardous fumes produced during laser removal
-        icon: cloud
-        order: 22
-        variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Particulate Generation
-        sectionDescription: Airborne particles and dust created during cleaning
-        icon: wind
-        order: 23
-        variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: PPE Requirements
-        sectionDescription: Required personal protective equipment
-        icon: shield
-        order: 24
-        variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Toxic Gas Risk
-        sectionDescription: Toxic gases that may be released during removal
-        icon: alert-triangle
-        order: 25
-        variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Ventilation Requirements
-        sectionDescription: Required ventilation and air filtration systems
-        icon: wind
-        order: 26
-        variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Visibility Hazard
-        sectionDescription: Smoke and debris affecting operator visibility
-        icon: eye-off
-        order: 27
-        variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  interactions:
-    producesCompounds:
-      presentation: card
-      items:
-      - id: carbon-dioxide-compound
-        title: Carbon Dioxide
-        name: Carbon Dioxide
-        category: asphyxiant
-        subcategory: simple_asphyxiant
-        url: /compounds/asphyxiant/simple_asphyxiant/carbon-dioxide-compound
-        image: /images/compound/carbon-dioxide-compound-hero.jpg
-        description: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: water-vapor-compound
-        title: Water Vapor
-        name: Water Vapor
-        category: vapor
-        subcategory: inert
-        url: /compounds/vapor/inert/water-vapor-compound
-        image: /images/compound/water-vapor-compound-hero.jpg
-        description: Water Vapor Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: organic-residues-compound
-        title: Organic Residues
-        name: Organic Residues
-        category: particulate
-        subcategory: organic
-        url: /compounds/particulate/organic/organic-residues-compound
-        image: /images/compound/organic-residues-compound-hero.jpg
-        description: Organic Residues Compound safety information for laser cleaning. Health hazards, exposure limits, and
-          protective equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: nanoparticulates-compound
-        title: Nanoparticulates
-        name: Nanoparticulates
-        category: particulate
-        subcategory: nanomaterial
-        url: /compounds/particulate/nanomaterial/nanoparticulates-compound
-        image: /images/compound/nanoparticulates-compound-hero.jpg
-        description: Nanoparticulates Compound safety information for laser cleaning. Health hazards, exposure limits, and
-          protective equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      _section:
-        sectionTitle: Produced Compounds
-        sectionDescription: Hazardous compounds produced during laser cleaning
-        icon: flask-conical
-        order: 10
-        variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
-      presentation: card
-      items:
+  materials:
+    common:
       - id: aluminum-laser-cleaning
-        name: Aluminum
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-        image: /images/material/aluminum-laser-cleaning-hero.jpg
-        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: moderate
         difficulty: moderate
       - id: brass-laser-cleaning
-        name: Brass
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/brass-laser-cleaning
-        image: /images/material/brass-laser-cleaning-hero.jpg
-        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
-          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: moderate
         difficulty: moderate
       - id: brick-laser-cleaning
-        name: Brick
-        category: masonry
-        subcategory: general
-        url: /materials/masonry/general/brick-laser-cleaning
-        image: /images/material/brick-laser-cleaning-hero.jpg
-        description: When laser cleaning brick, we've found that its thermal stability lets us remove surface contaminants
-          effectively while preserving the material's long-term structural integrity
         frequency: moderate
         difficulty: moderate
       - id: bronze-laser-cleaning
-        name: Bronze
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/bronze-laser-cleaning
-        image: /images/material/bronze-laser-cleaning-hero.jpg
-        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
-          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: moderate
         difficulty: moderate
       - id: cast-iron-laser-cleaning
-        name: Cast Iron
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/cast-iron-laser-cleaning
-        image: /images/material/cast-iron-laser-cleaning-hero.jpg
-        description: When cleaning cast iron, we've found its inherent porosity serves as a natural benefit, pulling in laser
-          energy to break loose tough rust and scale on heavy industrial components, but you need to b...
         frequency: moderate
         difficulty: moderate
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
-        name: Ceramic Matrix Composites CMCs
-        category: composite
-        subcategory: fiber-reinforced
-        url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
-        image: /images/material/ceramic-matrix-composites-cmcs-laser-cleaning-hero.jpg
-        description: When working with Ceramic Matrix Composites in high-heat environments, prioritize their superior toughness
-          that resists cracking under thermal stress, allowing them to surpass brittle traditional c...
         frequency: moderate
         difficulty: moderate
       - id: concrete-laser-cleaning
-        name: Concrete
-        category: masonry
-        subcategory: general
-        url: /materials/masonry/general/concrete-laser-cleaning
-        image: /images/material/concrete-laser-cleaning-hero.jpg
-        description: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and
-          restore durability, all while preserving its structural integrity.
         frequency: moderate
         difficulty: moderate
       - id: copper-laser-cleaning
-        name: Copper
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/copper-laser-cleaning
-        image: /images/material/copper-laser-cleaning-hero.jpg
-        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
-          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: moderate
         difficulty: moderate
       - id: granite-laser-cleaning
-        name: Granite
-        category: stone
-        subcategory: igneous
-        url: /materials/stone/igneous/granite-laser-cleaning
-        image: /images/material/granite-laser-cleaning-hero.jpg
-        description: When laser cleaning granite surfaces in architectural restoration, we typically adjust the scan speed
-          to match its dense and heat-resistant composition, which exposes underlying details without com...
         frequency: moderate
         difficulty: moderate
       - id: iron-laser-cleaning
-        name: Iron
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/iron-laser-cleaning
-        image: /images/material/iron-laser-cleaning-hero.jpg
-        description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid
-          strength and heat tolerance that keeps the base material intact while removing rust or grime, b...
         frequency: moderate
         difficulty: moderate
       - id: limestone-laser-cleaning
-        name: Limestone
-        category: stone
-        subcategory: sedimentary
-        url: /materials/stone/sedimentary/limestone-laser-cleaning
-        image: /images/material/limestone-laser-cleaning-hero.jpg
-        description: Compared to denser granites, limestone's porous structure absorbs contaminants more readily during laser
-          cleaning and resists cracking from heat buildup, so you'll preserve surface details without ...
         frequency: moderate
         difficulty: moderate
       - id: magnesium-laser-cleaning
-        name: Magnesium
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/magnesium-laser-cleaning
-        image: /images/material/magnesium-laser-cleaning-hero.jpg
-        description: When laser cleaning magnesium, I've found it works best to start with lower power settings, as its lightweight
-          nature and high reflectivity set it apart from denser metals like steel. This allows q...
         frequency: moderate
         difficulty: moderate
       - id: marble-laser-cleaning
-        name: Marble
-        category: stone
-        subcategory: metamorphic
-        url: /materials/stone/metamorphic/marble-laser-cleaning
-        image: /images/material/marble-laser-cleaning-hero.jpg
-        description: When laser cleaning marble, I've found it keeps its elegant veins steady through low-energy passes that
-          strip away grime mid-process, all without risking cracks from excess heat buildup.
         frequency: moderate
         difficulty: moderate
       - id: nickel-laser-cleaning
-        name: Nickel
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/nickel-laser-cleaning
-        image: /images/material/nickel-laser-cleaning-hero.jpg
-        description: Nickel stands out in laser cleaning applications thanks to its solid balance of reflectivity and absorptivity,
-          which lets operators dial in precise energy absorption without excessive heat buildup....
         frequency: moderate
         difficulty: moderate
       - id: porcelain-laser-cleaning
-        name: Porcelain
-        category: ceramic
-        subcategory: oxide
-        url: /materials/ceramic/oxide/porcelain-laser-cleaning
-        image: /images/material/porcelain-laser-cleaning-hero.jpg
-        description: We've found porcelain sets itself apart from standard ceramics with its impressively low porosity and
-          excellent corrosion resistance, supporting dependable use in tough settings like medical device...
         frequency: moderate
         difficulty: moderate
       - id: sandstone-laser-cleaning
-        name: Sandstone
-        category: stone
-        subcategory: sedimentary
-        url: /materials/stone/sedimentary/sandstone-laser-cleaning
-        image: /images/material/sandstone-laser-cleaning-hero.jpg
-        description: When restoring sandstone in cultural heritage projects, we typically start with low-power laser passes
-          to gently remove surface buildup from its porous structure, ensuring the stone's natural integ...
         frequency: moderate
         difficulty: moderate
       - id: slate-laser-cleaning
-        name: Slate
-        category: stone
-        subcategory: metamorphic
-        url: /materials/stone/metamorphic/slate-laser-cleaning
-        image: /images/material/slate-laser-cleaning-hero.jpg
-        description: In restoring delicate slate artifacts for cultural heritage projects, the biggest hurdle is clearing
-          away grime without splitting its layered makeup, but I've noticed how its natural thermal stabil...
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-laser-cleaning
-        name: Stainless Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-        image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-        description: When laser cleaning stainless steel, start by adjusting the power to manage its natural resistance to
-          oxidation, which preserves surfaces in harsh marine or chemical environments. Be sure to avoid ...
         frequency: moderate
         difficulty: moderate
       - id: steel-laser-cleaning
-        name: Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/steel-laser-cleaning
-        image: /images/material/steel-laser-cleaning-hero.jpg
-        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
-          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: moderate
         difficulty: moderate
       - id: terracotta-laser-cleaning
-        name: Terracotta
-        category: masonry
-        subcategory: concrete
-        url: /materials/masonry/concrete/terracotta-laser-cleaning
-        image: /images/material/terracotta-laser-cleaning-hero.jpg
-        description: We've found that terracotta cleans up nicely with laser treatment in heritage projects because its natural
-          heat resistance keeps the structure intact during the process. Its low conductivity focuse...
         frequency: moderate
         difficulty: moderate
       - id: titanium-laser-cleaning
-        name: Titanium
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/titanium-laser-cleaning
-        image: /images/material/titanium-laser-cleaning-hero.jpg
-        description: Titanium excels in laser cleaning applications because of its exceptional corrosion resistance and lightweight
-          structure, which set it apart from denser metals prone to rapid degradation. After tre...
         frequency: moderate
         difficulty: moderate
       - id: titanium-carbide-laser-cleaning
-        name: Titanium Carbide
-        category: ceramic
-        subcategory: carbide
-        url: /materials/ceramic/carbide/titanium-carbide-laser-cleaning
-        image: /images/material/titanium-carbide-laser-cleaning-hero.jpg
-        description: When laser cleaning Titanium Carbide components, we typically begin by precisely calibrating the setup
-          to accommodate its remarkable heat resistance and low thermal expansion, ensuring no warping o...
         frequency: moderate
         difficulty: moderate
       - id: tool-steel-laser-cleaning
-        name: Tool Steel
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/tool-steel-laser-cleaning
-        image: /images/material/tool-steel-laser-cleaning-hero.jpg
-        description: Tool steel excels with its exceptional hardness and heat resistance, allowing tools to keep sharp edges
-          intact during intense machining operations without deforming or weakening.
         frequency: moderate
         difficulty: moderate
       - id: zinc-laser-cleaning
-        name: Zinc
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/zinc-laser-cleaning
-        image: /images/material/zinc-laser-cleaning-hero.jpg
-        description: Zinc for laser cleaning, high reflectivity of material protects substrate from thermal damage. Contaminants
-          absorb energy and vaporize easily, thus process yields clean surface without affecting un...
         frequency: moderate
         difficulty: moderate
       - id: titanium-alloy-ti-6al-4v-laser-cleaning
-        name: Titanium Alloy (Ti-6Al-4V)
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
-        image: /images/material/titanium-alloy-ti-6al-4v-laser-cleaning-hero.jpg
-        description: Titanium alloy Ti-6Al-4V shows superior corrosion resistance and high strength, so laser cleaning removes
-          surface contaminants effectively while surface maintains durability for industrial uses.
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-316-laser-cleaning
-        name: Stainless Steel 316
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
-        image: /images/material/stainless-steel-316-laser-cleaning-hero.jpg
-        description: When laser cleaning Stainless Steel 316, rely on its superior corrosion resistance to keep surfaces intact
-          in salty or chemical environments, and always adjust the power to avoid unnecessary heat b...
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-304-laser-cleaning
-        name: Stainless Steel 304
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
-        image: /images/material/stainless-steel-304-laser-cleaning-hero.jpg
-        description: When laser cleaning stainless steel 304, watch out for how it holds heat longer than carbon steels. I've
-          seen that cause uneven surfaces if you push too hard. But its strong corrosion resistance re...
         frequency: moderate
         difficulty: moderate
       - id: aluminum-bronze-laser-cleaning
-        name: Aluminum Bronze
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
-        image: /images/material/aluminum-bronze-laser-cleaning-hero.jpg
-        description: Aluminum Bronze acts as strong, corrosion-resistant alloy for laser cleaning. Its durability withstands
-          heat during treatment, so contaminants remove easily from surface. Hardness poses challenge, ...
         frequency: moderate
         difficulty: moderate
       - id: aluminum-nitride-laser-cleaning
-        name: Aluminum Nitride
-        category: ceramic
-        subcategory: technical
-        url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-        image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-        description: When laser cleaning Aluminum Nitride, I've seen it hold up remarkably well under intense heat, thanks
-          to its superior thermal stability and insulating qualities—just watch for any potential surface...
         frequency: moderate
         difficulty: moderate
       - id: titanium-nitride-laser-cleaning
-        name: Titanium Nitride
-        category: ceramic
-        subcategory: coating
-        url: /materials/ceramic/coating/titanium-nitride-laser-cleaning
-        image: /images/material/titanium-nitride-laser-cleaning-hero.jpg
-        description: In our experience, the main challenge for titanium nitride in high-wear applications stems from routine
-          abrasion and exposure to tough conditions, but its exceptional hardness and corrosion resista...
         frequency: moderate
         difficulty: moderate
-      _section:
-        sectionTitle: Affected Materials
-        sectionDescription: Materials where this contaminant commonly appears
-        icon: layers
-        order: 11
-        variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  visual:
-    appearanceOnCategories:
-      presentation: descriptive
-      items:
-      - appearanceOnCategories:
-          ceramic:
-            appearance: Residue on ceramic surfaces often shows as a dull, filmy layer or slight discoloration in white or
-              off-white shades, which can mask the glossy finish and feel powdery or slick.
-            coverage: Coverage is typically low to moderate and uneven, with more residue in textured regions and less on
-              smooth, glazed surfaces.
-            pattern: It tends to distribute in irregular spots, patches, or streaks, frequently accumulating in grooves or
-              unglazed areas, and is not uniform.
-          composite:
-            appearance: Semiconductor residue on composites often looks like a hazy, discolored film in white or gray tones,
-              which can obscure surface details and feel slightly adhesive or gritty.
-            coverage: Coverage is typically uneven and moderate, with higher amounts in fibrous or layered sections, and minimal
-              on sealed surfaces.
-            pattern: Distribution is irregular, with patches, spots, or streaks that may follow material interfaces or porous
-              zones, and it is seldom uniform.
-          concrete:
-            appearance: On concrete, semiconductor residue often manifests as a chalky, dusty, or slightly oily film in white
-              or gray hues, which can darken the surface and feel gritty or smooth.
-            coverage: Coverage is usually partial and varied, from sparse dusting to moderate patches, with higher accumulation
-              in cracks or unsealed areas.
-            pattern: Distribution is typically irregular, with spots, streaks, or patches that cluster in porous or rough
-              textures, and it does not cover uniformly.
-          fabric:
-            appearance: Residue on fabric may show as faint staining, a powdery deposit, or a greasy film in white or light
-              gray colors, often making fibers look matted and feeling slightly stiff or tacky.
-            coverage: Coverage is generally low to moderate and uneven, with more residue in dense or absorbent areas, and
-              less on smooth, synthetic fabrics.
-            pattern: It tends to appear in irregular spots, streaks, or patches, frequently following weave patterns or accumulating
-              in folds, and is rarely uniform.
-          glass:
-            appearance: On glass, semiconductor residue typically appears as a subtle haze, streaks, or faint discoloration
-              in white or gray tones, often making the surface look less transparent and feeling slightly sticky.
-            coverage: Coverage is usually partial and variable, from light streaking to localized patches, with minimal residue
-              on well-cleaned central areas.
-            pattern: It commonly forms streaks, spots, or smears, especially along edges or where handling occurred, and is
-              rarely uniform across the pane.
-          metal:
-            appearance: Semiconductor processing residue on metal often appears as a dull, hazy film or faint discoloration,
-              typically in shades of gray, white, or yellowish, with a slightly sticky or powdery texture.
-            coverage: Coverage is usually partial and variable, ranging from sparse spots to moderate patches, with higher
-              accumulation in recessed or less-cleaned regions.
-            pattern: It commonly forms irregular spots, streaks, or patches, often concentrated near edges or handling areas,
-              rather than being uniform across the surface.
-          mineral:
-            appearance: Residue on mineral surfaces may appear as a faint, cloudy, or discolored layer in white, gray, or
-              yellowish tones, often dulling the natural shine and feeling slightly adhesive or powdery.
-            coverage: Coverage is typically low to moderate and uneven, with more residue in fissures or rough spots, and
-              minimal on polished facets.
-            pattern: It commonly forms irregular spots, smears, or patches, especially along cleavage planes or inclusions,
-              and is not uniform.
-          plastic:
-            appearance: On plastic, the residue may appear as a cloudy, greasy film or faint staining in gray or white colors,
-              often reducing clarity and leaving a slightly tacky or smeared feel.
-            coverage: Coverage is generally partial and varied, from isolated smudges to larger patches, with accumulation
-              in static-prone or rough areas.
-            pattern: It usually forms spots, streaks, or smudges, particularly near seams or handled spots, and does not spread
-              uniformly.
-          rubber:
-            appearance: On rubber, the residue commonly appears as a dull, oily, or powdery coating in gray or white shades,
-              which can reduce elasticity visibility and feel sticky or chalky.
-            coverage: Coverage is usually partial and variable, ranging from light films to concentrated patches, with more
-              in textured or flexible regions.
-            pattern: It often forms blotches, streaks, or spots, especially in creases or high-contact areas, and is not uniformly
-              distributed.
-          semiconductor:
-            appearance: On semiconductor materials, residue often appears as microscopic films, particles, or discoloration
-              in gray, white, or rainbow hues, which can interfere with electronic properties and feel imperceptibly thin
-              or sticky.
-            coverage: Coverage is typically minimal but critical, ranging from isolated defects to partial films, with variation
-              based on processing steps and cleaning efficacy.
-            pattern: Distribution is usually non-uniform, with spots, streaks, or localized contamination at feature edges
-              or deposition sites, rather than covering the wafer evenly.
-          specialty:
-            appearance: For specialty materials like advanced polymers or coatings, residue may show as a subtle haze, discoloration,
-              or film in variable colors, often altering functional properties and feeling slightly tacky or rough.
-            coverage: Coverage is generally partial and uneven, with amounts varying from light films to concentrated areas,
-              depending on surface treatment and exposure.
-            pattern: It tends to form irregular patterns such as spots, streaks, or patches, influenced by material heterogeneity,
-              and is rarely uniform.
-          stone:
-            appearance: Residue on stone surfaces often manifests as a faint, chalky, or oily film in white, gray, or yellowish
-              hues, which can reduce the natural luster and feel slightly tacky.
-            coverage: It generally covers small to moderate areas unevenly, with higher concentrations in pores or crevices,
-              and less on smooth, polished sections.
-            pattern: Distribution is usually irregular, with spots, smears, or patches that may cluster in textured or rough
-              areas, and it seldom covers the surface uniformly.
-          wood:
-            appearance: On wood, the residue may show as a cloudy, whitish, or translucent film that can obscure the natural
-              grain, sometimes feeling slightly greasy or gritty to the touch.
-            coverage: Coverage is typically low to moderate and uneven, with more residue in cracks or unfinished sections,
-              and minimal on sealed surfaces.
-            pattern: It tends to appear in blotchy patches or streaks, often following the wood grain or accumulating in porous
-              areas, and is rarely uniform.
-      _section:
-        sectionTitle: Visual Appearance
-        sectionDescription: How this contaminant appears on different material categories
-        icon: eye
-        order: 50
-        variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  operational:
-    laserProperties:
-      presentation: descriptive
-      items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.2
-            minJCm2: 0.3
-            recommendedJCm2: 0.7
-          overlapPercentage: 50
-          polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 4
-            recommendedNs: 10
-          repetitionRateKhz:
-            max: 200
-            min: 20
-            recommended: 50
-          safetyMarginFactor: 0.7
-          scanSpeedMmS:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spotSizeMm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelengthPreference:
-          - 1064
-          - 532
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 8500
-            wavelength355Nm: 185000
-            wavelength532Nm: 42000
-          reflectivity:
-            wavelength1064Nm: 0.15
-            wavelength355Nm: 0.03
-            wavelength532Nm: 0.08
-          refractiveIndex:
-            imaginaryPart: 0.12
-            realPart: 1.65
-          transmissionDepth: 1.2
-        removalCharacteristics:
-          byproducts:
-          - compound: carbon-dioxide
-            hazardLevel: low
-            phase: gas
-          - compound: water-vapor
-            hazardLevel: low
-            phase: gas
-          - compound: organic-residues
-            hazardLevel: moderate
-            phase: gas
-          - compound: nanoparticulates
-            hazardLevel: moderate
-            phase: solid
-          damageRiskToSubstrate: low
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 120
-            typicalScanSpeedMmS: 500
-          removalEfficiency:
-            diminishingReturnsAfter: 3
-            optimalPasses: 2
-            singlePass: 0.85
-          secondaryMechanisms:
-          - photochemical
-          - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: compressive
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumesGenerated:
-          - compound: Hydrogen Fluoride
-            concentrationMgM3: 2.5
-            exposureLimitMgM3: 2.5
-            hazardClass: corrosive
-          - compound: Arsine
-            concentrationMgM3: 0.05
-            exposureLimitMgM3: 0.16
-            hazardClass: toxic
-          - compound: Phosphine
-            concentrationMgM3: 0.1
-            exposureLimitMgM3: 0.42
-            hazardClass: toxic
-          - compound: Silicon Tetrafluoride
-            concentrationMgM3: 15.0
-            exposureLimitMgM3: 34.0
-            hazardClass: irritant
-          - compound: Metal oxides (arsenic, antimony)
-            concentrationMgM3: 1.2
-            exposureLimitMgM3: 0.01
-            hazardClass: toxic
-          particulateGeneration:
-            respirableFraction: 0.85
-            sizeRangeUm:
-            - 0.1
-            - 10.0
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: PAPR
-            skinProtection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - Laser parameters must be optimized to prevent substrate damage and excessive fume generation
-          - Residue composition varies significantly by semiconductor process - require material analysis
-          - Dopant materials (arsenic, phosphorus, boron) create highly toxic decomposition products
-          toxicGasRisk:
-            severity: high
-            primaryHazards:
-            - compound: Arsine
-              concentrationMgM3: 0.05
-              hazardClass: toxic
-            - compound: Phosphine
-              concentrationMgM3: 0.1
-              hazardClass: toxic
-            - compound: Metal oxides (arsenic, antimony)
-              concentrationMgM3: 1.2
-              hazardClass: toxic
-            description: 'Multiple toxic compounds detected: Arsine, Phosphine, Metal oxides (arsenic, antimony) - requires
-              enhanced protection'
-            mitigation: Full-face respirator with appropriate cartridges, gas detection system, medical monitoring
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: scrubber
-            minimumAirChangesPerHour: 12
-            rationale: Enhanced ventilation required due to toxic gas generation - 12 ACH with scrubber
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.85 (85% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 1.2
-            pulseDuration10Ns: 0.6
-            wavelength1064Nm: 0.8
-          decompositionTemperature: 450
-          heatAffectedZoneDepth: 15
-          meltingPoint: null
-          specificHeat: 1200
-          thermalConductivity: 0.35
-          thermalDiffusivity: 0.25
-          vaporizationTemperature: 600
-      _section:
-        sectionTitle: Laser Removal Properties
-        sectionDescription: Laser parameters and removal characteristics
-        icon: zap
-        order: 40
-        variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-displayName: Semiconductor Processing Residue
-subcategory: industrial
-validMaterials:
-- alumina-laser-cleaning
-- aluminum-nitride-laser-cleaning
-- boron-carbide-laser-cleaning
-- boron-nitride-laser-cleaning
-- silicon-carbide-sic-laser-cleaning
-- silicon-nitride-laser-cleaning
-- zirconia-laser-cleaning
-composition:
-- SiO₂
-- Si₃N₄
-- Photoresist
-- Metal Films
-prohibitedMaterials:
-- Flexible Substrates
-- Soft Materials
+    prohibited:
+      - Flexible Substrates
+      - Soft Materials
+  compounds:
+    produces:
+      - id: carbon-dioxide-compound
+        phase: unknown
+        hazard: unknown
+      - id: water-vapor-compound
+        phase: unknown
+        hazard: unknown
+      - id: organic-residues-compound
+        phase: unknown
+        hazard: unknown
+      - id: nanoparticulates-compound
+        phase: unknown
+        hazard: unknown
+  settings:
+    recommended: []
+pageTitle: Semiconductor Processing Residue
+pageDescription: Semiconductor Processing Residue laser cleaning guide. Technical specifications and applications.

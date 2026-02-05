@@ -54,7 +54,7 @@ npm run validate:production:comprehensive --skip-external=false
 - [ ] All 153 materials have complete metadata
 - [ ] `pageTitle` field present (camelCase)
 - [ ] `pageDescription` field present (camelCase)
-- [ ] `metaDescription` field present (camelCase)
+- [ ] `pageDescription` field present (camelCase)
 - [ ] Author data present
 - [ ] Images load correctly
 

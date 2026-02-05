@@ -1,33 +1,26 @@
 id: electroplating-residue-contamination
+contentType: contaminant
+schemaVersion: 6.0.0
 name: Electroplating Solution Residue
 category: metallic-coating
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T02:40:37.695097+00:00'
-contentType: contaminant
-schemaVersion: 5.0.0
-fullPath: /contaminants/metallic-coating/plating/electroplating-residue-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Metallic Coating
-  href: /contaminants/metallic-coating
-- label: Plating
-  href: /contaminants/metallic-coating/plating
-pageTitle: Electroplating Solution Residue
-pageDescription: 'Electroplating residue contamination forms during plating process. It adheres tightly to metallic surfaces
-  as thin, uneven layers. These residues, they originate from electrolyte remnants and metal ions. Formation patterns show
-  clustering on edges and crevices, thus creating irregular deposits. On copper substrates, contamination spreads broadly
-  and resists initial cleaning. Nickel surfaces exhibit denser buildup, so removal demands higher energy. Laser cleaning faces
-  challenges here. Residues bond strongly, thus ablation risks substrate melting. Material behaviors differ: steel shows cracking
-  under heat, while aluminum softens quickly. After laser application, some areas still retain spots. This contamination,
-  it complicates uniform treatment and demands precise pulse control. Challenges arise from thermal conductivity variations,
-  so efficiency drops on heat-sensitive bases.
+subcategory: plating
+datePublished: '2026-01-06'
+dateModified: '2026-02-02T02:25:19.738287+00:00'
+description: >-
+  Electroplating residue contamination forms during plating process. It adheres tightly to metallic surfaces as thin,
+  uneven layers. These residues, they originate from electrolyte remnants and metal ions. Formation patterns show
+  clustering on edges and crevices, thus creating irregular deposits. On copper substrates, contamination spreads
+  broadly and resists initial cleaning. Nickel surfaces exhibit denser buildup, so removal demands higher energy. Laser
+  cleaning faces challenges here. Residues bond strongly, thus ablation risks substrate melting. Material behaviors
+  differ: steel shows cracking under heat, while aluminum softens quickly. After laser application, some areas still
+  retain spots. This contamination, it complicates uniform treatment and demands precise pulse control. Challenges arise
+  from thermal conductivity variations, so efficiency drops on heat-sensitive bases.
 
 
-  Yi-Chun Lin, Ph.D. from Taiwan'
-metaDescription: Electroplating Solution Residue laser cleaning guide. Technical specifications and applications.
+  Yi-Chun Lin, Ph.D. from Taiwan
+meta:
+  title: Electroplating Solution Residue
+  path: /contaminants/metallic-coating/plating/electroplating-residue-contamination
 images:
   hero:
     url: /images/contaminant/electroplating-residue-contamination-hero.jpg
@@ -39,841 +32,257 @@ images:
     alt: Electroplating Solution Residue microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  countryDisplay: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
-  slug: ikmanda-roswati
+authorId: 3
+properties:
+  validMaterials:
+    - brass-laser-cleaning
+    - copper-laser-cleaning
+    - steel-laser-cleaning
+  prohibitedMaterials:
+    - Aluminum
+    - Plastics
+composition:
+  - Cyanides
+  - Metal Salts
+  - Brighteners
+laser:
+  wavelength:
+    - 1064
+    - 532
+  fluence:
+    min: 0.3
+    max: 1.2
+    optimal: 0.8
+  pulseWidth:
+    min: 10
+    max: 100
+    optimal: 30
+  scanSpeed:
+    min: 500
+    max: 2000
+    optimal: 1000
+  passes:
+    optimal: 2
+    maxEffective: 3
+    efficiency: 0.7
+  thermal:
+    ablationThreshold: 0.8
+    decomposition: 300
+    vaporization: 450
+safety:
+  fireRisk: low
+  toxicGas: high
+  ppe:
+    respiratory: PAPR
+    eye: goggles
+    skin: full_suit
+  compounds:
+    - id: nickel-compounds-(as-ni)-compound
+      phase: gas
+      hazard: carcinogenic
+      concentration: 0.5-5.0
+      limit: 0.1
+    - id: chromium-vi-compounds-compound
+      phase: gas
+      hazard: carcinogenic
+      concentration: 0.1-2.0
+      limit: 0.005
+    - id: cyanide-compounds-(as-cn)-compound
+      phase: gas
+      hazard: toxic
+      concentration: 0.5-3.0
+      limit: 5
+    - id: hydrogen-cyanide-compound
+      phase: gas
+      hazard: toxic
+      concentration: 0.1-1.0
+      limit: 11
+    - id: metal-oxides-(mixed)-compound
+      phase: gas
+      hazard: irritant
+      concentration: 2.0-10.0
+      limit: 5
+  ventilation:
+    airChanges: 15
+    velocity: 0.5
+    filter: carbon
+appearance:
+  ceramic:
+    color: unknown
+    texture: unknown
+    pattern: unknown
+    coverage: partial
+  composite:
+    color: unknown
+    texture: unknown
+    pattern: irregular-patches
+    coverage: unknown
+  concrete:
+    color: unknown
+    texture: powdery
+    pattern: unknown
+    coverage: partial
+  fabric:
+    color: unknown
+    texture: unknown
+    pattern: unknown
+    coverage: uneven-minimal
+  glass:
+    color: unknown
+    texture: unknown
+    pattern: uniform-irregular
+    coverage: partial
+  metal:
+    color: unknown
+    texture: unknown
+    pattern: irregular-streaks
+    coverage: partial-uneven
+  mineral:
+    color: unknown
+    texture: unknown
+    pattern: irregular-spots
+    coverage: uneven-minimal
+  plastic:
+    color: unknown
+    texture: powdery
+    pattern: patches
+    coverage: uneven
+  rubber:
+    color: unknown
+    texture: sticky
+    pattern: streaks
+    coverage: localized
+  semiconductor:
+    color: unknown
+    texture: unknown
+    pattern: uniform-localized
+    coverage: unknown
+  specialty:
+    color: unknown
+    texture: unknown
+    pattern: unknown
+    coverage: uneven
+  stone:
+    color: unknown
+    texture: unknown
+    pattern: unknown
+    coverage: uneven-minimal
+  wood:
+    color: unknown
+    texture: sticky
+    pattern: spots-streaks
+    coverage: localized
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety regulations and compliance standards for this contaminant
-        icon: shield-check
-        order: 20
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fire & Explosion Risk
-        sectionDescription: Fire and explosion hazards during laser cleaning
-        icon: flame
-        order: 21
-        variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fumes Generated
-        sectionDescription: Hazardous fumes produced during laser removal
-        icon: cloud
-        order: 22
-        variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Particulate Generation
-        sectionDescription: Airborne particles and dust created during cleaning
-        icon: wind
-        order: 23
-        variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: PPE Requirements
-        sectionDescription: Required personal protective equipment
-        icon: shield
-        order: 24
-        variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Toxic Gas Risk
-        sectionDescription: Toxic gases that may be released during removal
-        icon: alert-triangle
-        order: 25
-        variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Ventilation Requirements
-        sectionDescription: Required ventilation and air filtration systems
-        icon: wind
-        order: 26
-        variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Visibility Hazard
-        sectionDescription: Smoke and debris affecting operator visibility
-        icon: eye-off
-        order: 27
-        variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  interactions:
-    producesCompounds:
-      presentation: card
-      items:
-      - id: metal-oxides-mixed-compound
-        title: Metal Oxides (Mixed)
-        name: Metal Oxides (Mixed)
-        category: particulate
-        subcategory: metal-oxide
-        url: /compounds/particulate/metal-oxide/metal-oxides-mixed-compound
-        image: /images/compound/metal-oxides-mixed-compound-hero.jpg
-        description: Metal Oxides Mixed Compound safety information for laser cleaning. Health hazards, exposure limits, and
-          protective equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: carbon-dioxide-compound
-        title: Carbon Dioxide
-        name: Carbon Dioxide
-        category: asphyxiant
-        subcategory: simple_asphyxiant
-        url: /compounds/asphyxiant/simple_asphyxiant/carbon-dioxide-compound
-        image: /images/compound/carbon-dioxide-compound-hero.jpg
-        description: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: water-vapor-compound
-        title: Water Vapor
-        name: Water Vapor
-        category: vapor
-        subcategory: inert
-        url: /compounds/vapor/inert/water-vapor-compound
-        image: /images/compound/water-vapor-compound-hero.jpg
-        description: Water Vapor Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: nitrogen-oxides-compound
-        title: Nitrogen Oxides
-        name: Nitrogen Oxides
-        category: toxic_gas
-        subcategory: oxidizing_gas
-        url: /compounds/toxic_gas/oxidizing_gas/nitrogen-oxides-compound
-        image: /images/compound/nitrogen-oxides-compound-hero.jpg
-        description: Nitrogen Oxides Compound safety information for laser cleaning. Health hazards, exposure limits, and
-          protective equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      _section:
-        sectionTitle: Produced Compounds
-        sectionDescription: Hazardous compounds produced during laser cleaning
-        icon: flask-conical
-        order: 10
-        variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
-      presentation: card
-      items:
+  materials:
+    common:
       - id: aluminum-laser-cleaning
-        name: Aluminum
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-        image: /images/material/aluminum-laser-cleaning-hero.jpg
-        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: moderate
         difficulty: moderate
       - id: brass-laser-cleaning
-        name: Brass
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/brass-laser-cleaning
-        image: /images/material/brass-laser-cleaning-hero.jpg
-        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
-          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: moderate
         difficulty: moderate
       - id: brick-laser-cleaning
-        name: Brick
-        category: masonry
-        subcategory: general
-        url: /materials/masonry/general/brick-laser-cleaning
-        image: /images/material/brick-laser-cleaning-hero.jpg
-        description: When laser cleaning brick, we've found that its thermal stability lets us remove surface contaminants
-          effectively while preserving the material's long-term structural integrity
         frequency: moderate
         difficulty: moderate
       - id: bronze-laser-cleaning
-        name: Bronze
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/bronze-laser-cleaning
-        image: /images/material/bronze-laser-cleaning-hero.jpg
-        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
-          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: moderate
         difficulty: moderate
       - id: cast-iron-laser-cleaning
-        name: Cast Iron
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/cast-iron-laser-cleaning
-        image: /images/material/cast-iron-laser-cleaning-hero.jpg
-        description: When cleaning cast iron, we've found its inherent porosity serves as a natural benefit, pulling in laser
-          energy to break loose tough rust and scale on heavy industrial components, but you need to b...
         frequency: moderate
         difficulty: moderate
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
-        name: Ceramic Matrix Composites CMCs
-        category: composite
-        subcategory: fiber-reinforced
-        url: /materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning
-        image: /images/material/ceramic-matrix-composites-cmcs-laser-cleaning-hero.jpg
-        description: When working with Ceramic Matrix Composites in high-heat environments, prioritize their superior toughness
-          that resists cracking under thermal stress, allowing them to surpass brittle traditional c...
         frequency: moderate
         difficulty: moderate
       - id: concrete-laser-cleaning
-        name: Concrete
-        category: masonry
-        subcategory: general
-        url: /materials/masonry/general/concrete-laser-cleaning
-        image: /images/material/concrete-laser-cleaning-hero.jpg
-        description: When laser cleaning concrete, begin with controlled beam passes to strip away surface contaminants and
-          restore durability, all while preserving its structural integrity.
         frequency: moderate
         difficulty: moderate
       - id: copper-laser-cleaning
-        name: Copper
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/copper-laser-cleaning
-        image: /images/material/copper-laser-cleaning-hero.jpg
-        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
-          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: moderate
         difficulty: moderate
       - id: granite-laser-cleaning
-        name: Granite
-        category: stone
-        subcategory: igneous
-        url: /materials/stone/igneous/granite-laser-cleaning
-        image: /images/material/granite-laser-cleaning-hero.jpg
-        description: When laser cleaning granite surfaces in architectural restoration, we typically adjust the scan speed
-          to match its dense and heat-resistant composition, which exposes underlying details without com...
         frequency: moderate
         difficulty: moderate
       - id: iron-laser-cleaning
-        name: Iron
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/iron-laser-cleaning
-        image: /images/material/iron-laser-cleaning-hero.jpg
-        description: When laser cleaning iron, you'll want to start with steady power levels to make the most of its solid
-          strength and heat tolerance that keeps the base material intact while removing rust or grime, b...
         frequency: moderate
         difficulty: moderate
       - id: limestone-laser-cleaning
-        name: Limestone
-        category: stone
-        subcategory: sedimentary
-        url: /materials/stone/sedimentary/limestone-laser-cleaning
-        image: /images/material/limestone-laser-cleaning-hero.jpg
-        description: Compared to denser granites, limestone's porous structure absorbs contaminants more readily during laser
-          cleaning and resists cracking from heat buildup, so you'll preserve surface details without ...
         frequency: moderate
         difficulty: moderate
       - id: magnesium-laser-cleaning
-        name: Magnesium
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/magnesium-laser-cleaning
-        image: /images/material/magnesium-laser-cleaning-hero.jpg
-        description: When laser cleaning magnesium, I've found it works best to start with lower power settings, as its lightweight
-          nature and high reflectivity set it apart from denser metals like steel. This allows q...
         frequency: moderate
         difficulty: moderate
       - id: marble-laser-cleaning
-        name: Marble
-        category: stone
-        subcategory: metamorphic
-        url: /materials/stone/metamorphic/marble-laser-cleaning
-        image: /images/material/marble-laser-cleaning-hero.jpg
-        description: When laser cleaning marble, I've found it keeps its elegant veins steady through low-energy passes that
-          strip away grime mid-process, all without risking cracks from excess heat buildup.
         frequency: moderate
         difficulty: moderate
       - id: nickel-laser-cleaning
-        name: Nickel
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/nickel-laser-cleaning
-        image: /images/material/nickel-laser-cleaning-hero.jpg
-        description: Nickel stands out in laser cleaning applications thanks to its solid balance of reflectivity and absorptivity,
-          which lets operators dial in precise energy absorption without excessive heat buildup....
         frequency: moderate
         difficulty: moderate
       - id: porcelain-laser-cleaning
-        name: Porcelain
-        category: ceramic
-        subcategory: oxide
-        url: /materials/ceramic/oxide/porcelain-laser-cleaning
-        image: /images/material/porcelain-laser-cleaning-hero.jpg
-        description: We've found porcelain sets itself apart from standard ceramics with its impressively low porosity and
-          excellent corrosion resistance, supporting dependable use in tough settings like medical device...
         frequency: moderate
         difficulty: moderate
       - id: sandstone-laser-cleaning
-        name: Sandstone
-        category: stone
-        subcategory: sedimentary
-        url: /materials/stone/sedimentary/sandstone-laser-cleaning
-        image: /images/material/sandstone-laser-cleaning-hero.jpg
-        description: When restoring sandstone in cultural heritage projects, we typically start with low-power laser passes
-          to gently remove surface buildup from its porous structure, ensuring the stone's natural integ...
         frequency: moderate
         difficulty: moderate
       - id: slate-laser-cleaning
-        name: Slate
-        category: stone
-        subcategory: metamorphic
-        url: /materials/stone/metamorphic/slate-laser-cleaning
-        image: /images/material/slate-laser-cleaning-hero.jpg
-        description: In restoring delicate slate artifacts for cultural heritage projects, the biggest hurdle is clearing
-          away grime without splitting its layered makeup, but I've noticed how its natural thermal stabil...
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-laser-cleaning
-        name: Stainless Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/stainless-steel-laser-cleaning
-        image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-        description: When laser cleaning stainless steel, start by adjusting the power to manage its natural resistance to
-          oxidation, which preserves surfaces in harsh marine or chemical environments. Be sure to avoid ...
         frequency: moderate
         difficulty: moderate
       - id: steel-laser-cleaning
-        name: Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/steel-laser-cleaning
-        image: /images/material/steel-laser-cleaning-hero.jpg
-        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
-          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: moderate
         difficulty: moderate
       - id: terracotta-laser-cleaning
-        name: Terracotta
-        category: masonry
-        subcategory: concrete
-        url: /materials/masonry/concrete/terracotta-laser-cleaning
-        image: /images/material/terracotta-laser-cleaning-hero.jpg
-        description: We've found that terracotta cleans up nicely with laser treatment in heritage projects because its natural
-          heat resistance keeps the structure intact during the process. Its low conductivity focuse...
         frequency: moderate
         difficulty: moderate
       - id: titanium-laser-cleaning
-        name: Titanium
-        category: metal
-        subcategory: specialty
-        url: /materials/metal/specialty/titanium-laser-cleaning
-        image: /images/material/titanium-laser-cleaning-hero.jpg
-        description: Titanium excels in laser cleaning applications because of its exceptional corrosion resistance and lightweight
-          structure, which set it apart from denser metals prone to rapid degradation. After tre...
         frequency: moderate
         difficulty: moderate
       - id: titanium-carbide-laser-cleaning
-        name: Titanium Carbide
-        category: ceramic
-        subcategory: carbide
-        url: /materials/ceramic/carbide/titanium-carbide-laser-cleaning
-        image: /images/material/titanium-carbide-laser-cleaning-hero.jpg
-        description: When laser cleaning Titanium Carbide components, we typically begin by precisely calibrating the setup
-          to accommodate its remarkable heat resistance and low thermal expansion, ensuring no warping o...
         frequency: moderate
         difficulty: moderate
       - id: tool-steel-laser-cleaning
-        name: Tool Steel
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/tool-steel-laser-cleaning
-        image: /images/material/tool-steel-laser-cleaning-hero.jpg
-        description: Tool steel excels with its exceptional hardness and heat resistance, allowing tools to keep sharp edges
-          intact during intense machining operations without deforming or weakening.
         frequency: moderate
         difficulty: moderate
       - id: zinc-laser-cleaning
-        name: Zinc
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/zinc-laser-cleaning
-        image: /images/material/zinc-laser-cleaning-hero.jpg
-        description: Zinc for laser cleaning, high reflectivity of material protects substrate from thermal damage. Contaminants
-          absorb energy and vaporize easily, thus process yields clean surface without affecting un...
         frequency: moderate
         difficulty: moderate
       - id: titanium-alloy-ti-6al-4v-laser-cleaning
-        name: Titanium Alloy (Ti-6Al-4V)
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
-        image: /images/material/titanium-alloy-ti-6al-4v-laser-cleaning-hero.jpg
-        description: Titanium alloy Ti-6Al-4V shows superior corrosion resistance and high strength, so laser cleaning removes
-          surface contaminants effectively while surface maintains durability for industrial uses.
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-316-laser-cleaning
-        name: Stainless Steel 316
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/stainless-steel-316-laser-cleaning
-        image: /images/material/stainless-steel-316-laser-cleaning-hero.jpg
-        description: When laser cleaning Stainless Steel 316, rely on its superior corrosion resistance to keep surfaces intact
-          in salty or chemical environments, and always adjust the power to avoid unnecessary heat b...
         frequency: moderate
         difficulty: moderate
       - id: stainless-steel-304-laser-cleaning
-        name: Stainless Steel 304
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/stainless-steel-304-laser-cleaning
-        image: /images/material/stainless-steel-304-laser-cleaning-hero.jpg
-        description: When laser cleaning stainless steel 304, watch out for how it holds heat longer than carbon steels. I've
-          seen that cause uneven surfaces if you push too hard. But its strong corrosion resistance re...
         frequency: moderate
         difficulty: moderate
       - id: aluminum-bronze-laser-cleaning
-        name: Aluminum Bronze
-        category: metal
-        subcategory: alloy
-        url: /materials/metal/alloy/aluminum-bronze-laser-cleaning
-        image: /images/material/aluminum-bronze-laser-cleaning-hero.jpg
-        description: Aluminum Bronze acts as strong, corrosion-resistant alloy for laser cleaning. Its durability withstands
-          heat during treatment, so contaminants remove easily from surface. Hardness poses challenge, ...
         frequency: moderate
         difficulty: moderate
       - id: aluminum-nitride-laser-cleaning
-        name: Aluminum Nitride
-        category: ceramic
-        subcategory: technical
-        url: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
-        image: /images/material/aluminum-nitride-laser-cleaning-hero.jpg
-        description: When laser cleaning Aluminum Nitride, I've seen it hold up remarkably well under intense heat, thanks
-          to its superior thermal stability and insulating qualities—just watch for any potential surface...
         frequency: moderate
         difficulty: moderate
       - id: titanium-nitride-laser-cleaning
-        name: Titanium Nitride
-        category: ceramic
-        subcategory: coating
-        url: /materials/ceramic/coating/titanium-nitride-laser-cleaning
-        image: /images/material/titanium-nitride-laser-cleaning-hero.jpg
-        description: In our experience, the main challenge for titanium nitride in high-wear applications stems from routine
-          abrasion and exposure to tough conditions, but its exceptional hardness and corrosion resista...
         frequency: moderate
         difficulty: moderate
-      _section:
-        sectionTitle: Affected Materials
-        sectionDescription: Materials where this contaminant commonly appears
-        icon: layers
-        order: 11
-        variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  visual:
-    appearanceOnCategories:
-      presentation: descriptive
-      items:
-      - appearanceOnCategories:
-          ceramic:
-            appearance: It presents as shiny, metallic coatings or dull stains, often in colors like gold or nickel, that
-              may flake or peel on glazed surfaces.
-            coverage: Coverage is usually partial and inconsistent, with higher amounts in porous regions and less on smooth,
-              glazed parts.
-            pattern: Patterns are often spotty or streaky, concentrating in unglazed areas or along cracks where absorption
-              occurs.
-          composite:
-            appearance: It shows as blotchy, metallic stains or films that may highlight fiber or filler patterns, altering
-              the composite's uniform look.
-            coverage: Coverage is variable and patchy, often concentrated in porous or rough zones of the composite.
-            pattern: Distribution is irregular, with patches or streaks that align with material heterogeneity, such as along
-              fiber boundaries.
-          concrete:
-            appearance: Residue appears as glossy, metallic films or powdery deposits that can darken or stain the concrete,
-              often in speckled patterns.
-            coverage: Coverage is usually partial and varied, with dense spots in textured regions and little on smooth surfaces.
-            pattern: It distributes patchily, concentrating in pores, cracks, or rough areas where residue adheres more easily.
-          fabric:
-            appearance: It manifests as stiff, discolored patches with metallic sheens or stains, potentially hardening the
-              fabric and altering its color.
-            coverage: Coverage is typically low and uneven, with isolated patches and minimal overall spread.
-            pattern: Patterns are spotty or streaky, following weave patterns or areas of direct contact with the solution.
-          glass:
-            appearance: Residue appears as iridescent, cloudy, or rainbow-hued films, sometimes with gritty textures that
-              reduce transparency and clarity.
-            coverage: Coverage can range from nearly uniform thin layers to partial streaks, with variation based on application
-              method.
-            pattern: It forms uniform thin films or irregular streaks, often outlining drip marks or edges where solution
-              dried.
-          metal:
-            appearance: Electroplating residue appears as dull, discolored patches or streaks, often with a hazy or cloudy
-              finish that contrasts with the metal's natural luster.
-            coverage: Coverage is usually partial and uneven, ranging from small spots to larger areas, with significant variation
-              across the surface.
-            pattern: It typically forms irregular streaks or patches, following the flow paths of the solution during application
-              or drying.
-          mineral:
-            appearance: It shows as shiny, metallic coatings or dull films that may obscure crystal faces or natural colors,
-              sometimes with a crusty texture.
-            coverage: Coverage is often low and uneven, focusing on exposed or fractured areas with minimal uniform spread.
-            pattern: Patterns are irregular, with spots or streaks following mineral cleavage planes or surface imperfections.
-          plastic:
-            appearance: Residue appears as oily, smeared films or powdery deposits in metallic shades, potentially causing
-              discoloration or a tacky feel on the plastic.
-            coverage: Coverage is typically low and uneven, with spots and streaks that vary widely across the material.
-            pattern: It distributes as random patches or smears, often following surface contours or static charge areas.
-          rubber:
-            appearance: Residue appears as sticky, shiny coatings or dull crusts in metallic colors, which can penetrate and
-              discolor the rubber surface.
-            coverage: Coverage is generally sparse and localized, with high variation due to rubber's elasticity and surface
-              texture.
-            pattern: It forms blotches or streaks, often in creases or textured areas where solution is trapped.
-          semiconductor:
-            appearance: Residue appears as thin, hazy films or speckles in metallic hues, which can interfere with electrical
-              properties and surface smoothness.
-            coverage: Coverage ranges from nearly uniform micro-layers to isolated patches, with precise variation critical
-              for performance.
-            pattern: It forms uniform thin layers or localized spots, often aligned with processing steps or contamination
-              sources.
-          specialty:
-            appearance: Residue varies widely but often appears as irregular metallic stains or films, tailored to the material's
-              unique properties like conductivity or reflectivity.
-            coverage: Coverage is highly variable and specific, designed for functional needs but often uneven in practice.
-            pattern: Distribution is material-dependent, typically patchy or streaky, influenced by surface treatments and
-              environmental factors.
-          stone:
-            appearance: It shows up as glossy or matte films, often in metallic colors, creating a speckled or stained look
-              that may obscure the stone's natural texture.
-            coverage: Coverage is typically low to moderate and uneven, with dense patches in recessed areas and minimal coverage
-              on smooth surfaces.
-            pattern: Distribution is patchy or streaky, following surface irregularities and crevices where residue accumulates.
-          wood:
-            appearance: Residue manifests as shiny, sticky, or crusty deposits, often in metallic hues like silver or copper,
-              and can darken or stain the wood surface.
-            coverage: Coverage is generally sparse and localized, with high variation depending on wood porosity and exposure.
-            pattern: It appears as random spots or streaks, concentrating in grain patterns or low-lying areas where solution
-              pools.
-      _section:
-        sectionTitle: Visual Appearance
-        sectionDescription: How this contaminant appears on different material categories
-        icon: eye
-        order: 50
-        variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  operational:
-    laserProperties:
-      presentation: descriptive
-      items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.2
-            minJCm2: 0.3
-            recommendedJCm2: 0.8
-          overlapPercentage: 50
-          polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 10
-            recommendedNs: 30
-          repetitionRateKhz:
-            max: 100
-            min: 20
-            recommended: 50
-          safetyMarginFactor: 0.7
-          scanSpeedMmS:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spotSizeMm:
-            max: 0.2
-            min: 0.05
-            recommended: 0.1
-          wavelengthPreference:
-          - 1064
-          - 532
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 850
-            wavelength355Nm: 18500
-            wavelength532Nm: 4200
-          reflectivity:
-            wavelength1064Nm: 0.15
-            wavelength355Nm: 0.02
-            wavelength532Nm: 0.08
-          refractiveIndex:
-            imaginaryPart: 0.12
-            realPart: 1.65
-          transmissionDepth: 11.8
-        removalCharacteristics:
-          byproducts:
-          - compound: metal-oxides-mixed
-            hazardLevel: moderate
-            phase: solid
-          - compound: carbon-dioxide
-            hazardLevel: low
-            phase: gas
-          - compound: water-vapor
-            hazardLevel: low
-            phase: gas
-          - compound: nitrogen-oxides
-            hazardLevel: moderate
-            phase: gas
-          damageRiskToSubstrate: low
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 240
-            typicalScanSpeedMmS: 800
-          removalEfficiency:
-            diminishingReturnsAfter: 3
-            optimalPasses: 2
-            singlePass: 0.7
-          secondaryMechanisms:
-          - photochemical
-          - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: compressive
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: low
-            description: Minimal fire risk with standard precautions and adequate ventilation
-            mitigation: Standard fire safety precautions, extinguisher available within 15m
-          fumesGenerated:
-          - compound: Nickel compounds (as Ni)
-            concentrationMgM3: 0.5-5.0
-            exposureLimitMgM3: 0.1
-            hazardClass: carcinogenic
-          - compound: Chromium VI compounds
-            concentrationMgM3: 0.1-2.0
-            exposureLimitMgM3: 0.005
-            hazardClass: carcinogenic
-          - compound: Cyanide compounds (as CN)
-            concentrationMgM3: 0.5-3.0
-            exposureLimitMgM3: 5.0
-            hazardClass: toxic
-          - compound: Hydrogen cyanide
-            concentrationMgM3: 0.1-1.0
-            exposureLimitMgM3: 11.0
-            hazardClass: toxic
-          - compound: Metal oxides (mixed)
-            concentrationMgM3: 2.0-10.0
-            exposureLimitMgM3: 5.0
-            hazardClass: irritant
-          particulateGeneration:
-            respirableFraction: 0.7
-            sizeRangeUm:
-            - 0.1
-            - 10.0
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: PAPR
-            skinProtection: full_suit
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - Laser cleaning may generate toxic hydrogen cyanide gas from cyanide-based plating residues
-          - Thermal decomposition of chromium-plated surfaces can produce carcinogenic hexavalent chromium
-          - Nickel compounds become airborne and present inhalation cancer risk
-          toxicGasRisk:
-            severity: high
-            primaryHazards:
-            - compound: Nickel compounds (as Ni)
-              concentrationMgM3: 0.5-5.0
-              hazardClass: carcinogenic
-            - compound: Chromium VI compounds
-              concentrationMgM3: 0.1-2.0
-              hazardClass: carcinogenic
-            - compound: Cyanide compounds (as CN)
-              concentrationMgM3: 0.5-3.0
-              hazardClass: toxic
-            - compound: Hydrogen cyanide
-              concentrationMgM3: 0.1-1.0
-              hazardClass: toxic
-            description: 'Multiple toxic compounds detected: Nickel compounds (as Ni), Chromium VI compounds, Cyanide compounds
-              (as CN) - requires enhanced protection'
-            mitigation: 'Full-face respirator with appropriate cartridges, gas detection system, medical monitoring. WARNING:
-              Nickel compounds (as Ni), Chromium VI compounds - known carcinogen(s), minimize exposure'
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: carbon
-            minimumAirChangesPerHour: 15
-            rationale: Enhanced ventilation required due to toxic gas generation - 15 ACH with carbon
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.70 (70% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 1.2
-            pulseDuration10Ns: 0.6
-            wavelength1064Nm: 0.8
-          decompositionTemperature: 300
-          heatAffectedZoneDepth: 15
-          meltingPoint: null
-          specificHeat: 1200
-          thermalConductivity: 0.15
-          thermalDiffusivity: 0.12
-          vaporizationTemperature: 450
-      _section:
-        sectionTitle: Laser Removal Properties
-        sectionDescription: Laser parameters and removal characteristics
-        icon: zap
-        order: 40
-        variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-displayName: Electroplating Solution Residue
-subcategory: plating
-validMaterials:
-- brass-laser-cleaning
-- copper-laser-cleaning
-- steel-laser-cleaning
-composition:
-- Cyanides
-- Metal Salts
-- Brighteners
-prohibitedMaterials:
-- Aluminum
-- Plastics
+    prohibited:
+      - Aluminum
+      - Plastics
+  compounds:
+    produces:
+      - id: metal-oxides-mixed-compound
+        phase: unknown
+        hazard: unknown
+      - id: carbon-dioxide-compound
+        phase: unknown
+        hazard: unknown
+      - id: water-vapor-compound
+        phase: unknown
+        hazard: unknown
+      - id: nitrogen-oxides-compound
+        phase: unknown
+        hazard: unknown
+  settings:
+    recommended: []
+pageTitle: Electroplating Solution Residue
+pageDescription: Electroplating Solution Residue laser cleaning guide. Technical specifications and applications.

@@ -1,31 +1,23 @@
 id: cast-iron-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Cast Iron
-displayName: Cast Iron Laser Cleaning Settings
 category: metal
 subcategory: ferrous
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:23.975448+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/metal/ferrous/cast-iron-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Ferrous
-  href: /settings/metal/ferrous
-pageTitle: Cast Iron
-pageDescription: When laser cleaning cast iron, I've seen how its embedded graphite flakes set it apart from smoother steels,
-  drawing in laser energy unevenly and speeding up contaminant removal while risking uneven heating in those spots. This works
-  best when you focus the beam to gently abrade surface rust or scale, restoring that durable base without digging into the
-  matrix. Tends to handle heat well up to moderate levels, so you can push through multiple layers of buildup from industrial
-  use like machinery parts. But watch out mid-process—its slight porosity might trap residues if you ramp up too fast, leading
-  to incomplete cleans or weak spots, so dial back intensity and add passes for even coverage. Overall, this approach preserves
-  its tough compressive nature, avoiding cracks in heavy-duty applications.
-metaDescription: Cast Iron laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning cast iron, I've seen how its embedded graphite flakes set it apart from smoother steels, drawing
+  in laser energy unevenly and speeding up contaminant removal while risking uneven heating in those spots. This works
+  best when you focus the beam to gently abrade surface rust or scale, restoring that durable base without digging into
+  the matrix. Tends to handle heat well up to moderate levels, so you can push through multiple layers of buildup from
+  industrial use like machinery parts. But watch out mid-process—its slight porosity might trap residues if you ramp up
+  too fast, leading to incomplete cleans or weak spots, so dial back intensity and add passes for even coverage.
+  Overall, this approach preserves its tough compressive nature, avoiding cracks in heavy-duty applications.
+meta:
+  title: Cast Iron
+  description: Cast Iron laser cleaning guide. Technical specifications and applications.
+  path: /settings/metal/ferrous/cast-iron-settings
 images:
   hero:
     url: /images/settings/cast-iron-settings-hero.jpg
@@ -37,194 +29,45 @@ images:
     alt: Cast Iron microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  countryDisplay: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
-  slug: ikmanda-roswati
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 3
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: iron-laser-cleaning
-        effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contaminationChallenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-infrared wavelength optimized for Cast Iron absorption and rust removal
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Beam diameter range for industrial scanners; smaller for fine details (e.g., crevices in castings), larger
-      for broad areas. 200 μm recommended for uniform coverage on rough cast iron surfaces without excessive overlap heating.
-      Source: Equipment specifications from Coherent and Trumpf laser systems; process optimization in Surface and Coatings
-      Technology (2022).'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence range for safe removal of contaminants like rust or paint on cast iron; damage threshold ~2-4 J/cm²
-      to avoid pitting or melting. 1.5 J/cm² recommended for effective cleaning below ablation threshold of cast iron (~3
-      J/cm² at 1064 nm). Conservative due to cast iron''s variable surface roughness. Source: Ablation threshold studies in
-      Journal of Applied Physics (2017); SPIE proceedings on laser cleaning.'
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 50
-    description: 'Nanosecond regime dominant for industrial cleaning of cast iron to achieve plasma-induced ablation with
-      low heat-affected zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 50 ns
-      recommended to minimize thermal diffusion in cast iron (reflectivity ~40% at 1064 nm). Source: Laser physics research
-      in Applied Surface Science (2019); avoids fs due to overkill for contamination removal.'
-  scanSpeed:
-    min: 10
-    max: 5000
-    value: 2000
-    unit: mm/s
-    description: 'Effective range for 1064 nm cleaning on cast iron; slower for heavy contamination (e.g., thick rust) to
-      ensure ablation, faster for light oils. Recommended 2000 mm/s for optimal throughput with minimal heat input, considering
-      cast iron''s high thermal conductivity (~50 W/m·K). Source: Industry standards from Laserax equipment manuals; case
-      studies in Journal of Cleaner Production (2020).'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Typically 1-3 passes for light to moderate contamination on cast iron; multi-pass for layered buildup (e.g.,
-      old paint). 2 passes recommended for complete removal while minimizing total energy input and HAZ. Single pass viable
-      for thin rust. Source: Industry practice from case studies in International Journal of Advanced Manufacturing Technology
-      (2019); manufacturer guidelines.'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 60
-    unit: '%'
-    description: 'Standard range for scan line overlap to ensure uniform fluence distribution; 60% recommended for cast iron
-      to achieve even cleaning on irregular surfaces without gaps or over-ablation. Higher (70-80%) for heavy contamination.
-      Source: Process optimization studies in Optics and Laser Technology (2020); based on Gaussian beam profiles in cleaning
-      simulations.'
-  laserPower:
-    description: Optimal average power for Cast Iron oxide removal without substrate damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 1000
-    value: 200
-    unit: W
-    description: 'Typical range for industrial cleaning of cast iron to remove rust or contaminants without substrate damage;
-      starting at 200W balances efficiency and safety. Max limited to avoid melting (cast iron melting point ~1150-1300°C).
-      Source: IPG Photonics laser cleaning systems specs for metal surfaces; academic review in Optics and Lasers in Engineering
-      (2018).'
-  frequency:
-    min: 1
-    max: 200
-    value: 100
-    unit: kHz
-    description: 'Standard range for pulsed fiber lasers in metal cleaning; 100 kHz balances cleaning speed and heat accumulation
-      on cast iron, where high rates (>150 kHz) risk subsurface heating despite good conductivity. Trade-off: higher freq
-      accelerates process but increases cumulative fluence. Source: Academic literature in Lasers in Manufacturing and Materials
-      Processing (2021).'
-componentSummary: These settings deliver moderate power with short nanosecond pulses at 1064 nm to efficiently remove rust
-  from cast iron while minimizing heat buildup and preventing surface cracking in this brittle alloy.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

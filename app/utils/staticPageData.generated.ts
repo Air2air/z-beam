@@ -462,6 +462,20 @@ export const RENTAL_DATA = {
         "<strong>Portable design</strong> 84.9 lbs; 3HP motor with 265 CFM airflow; e-flow auto-adjustment extends filter life; HMI with filter alarm; dual-stage filtration.",
         "<strong>H-class certified</strong> HEPA filter (EN1822); OSHA silica dust compliant (29 CFR 1926.1153); EPA hazardous dust guidelines."
       ]
+    },
+    {
+      "order": 5,
+      "heading": "Husqvarna C-3000 pre-extractor",
+      "text": "Advanced pre-separation system reduces filter loading by up to 80%, extending primary HEPA filter life and maximizing dust extraction efficiency for heavy-duty laser cleaning operations.",
+      "image": {
+        "url": "/images/pages/separator.jpg",
+        "alt": "Husqvarna C-3000 pre-extractor dust collection system"
+      },
+      "imagePosition": "right" as const,
+      "details": [
+        "<strong>High-capacity design</strong> Cyclonic pre-separation technology; 80% filter load reduction; 350 CFM airflow compatibility; quick-release collection bin for easy disposal.",
+        "<strong>Industrial certified</strong> Compatible with DE 120 and similar extractors; meets OSHA ventilation standards; reduces maintenance costs and downtime."
+      ]
     }
   ]
 };

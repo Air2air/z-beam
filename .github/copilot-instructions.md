@@ -331,7 +331,7 @@ Understanding rule severity helps prioritize fixes and avoid introducing worse p
 
 ### Decision: Should I use a default value?
 ```
-Is this frontmatter data (pageDescription, metaDescription, title, etc)?
+Is this frontmatter data (pageTitle, pageDescription, etc)?
 ├─ YES → ❌ FAIL FAST (throw Error - data MUST come from YAML)
 └─ NO → Is this a config/setup issue?
     ├─ YES → ❌ FAIL FAST (throw ConfigurationError)

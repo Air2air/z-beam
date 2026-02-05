@@ -1,32 +1,24 @@
 id: polyvinyl-chloride-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Polyvinyl Chloride
-displayName: Polyvinyl Chloride Laser Cleaning Settings
 category: plastic
 subcategory: thermoplastic
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:26.930663+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/plastic/thermoplastic/polyvinyl-chloride-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Plastic
-  href: /settings/plastic
-- label: Thermoplastic
-  href: /settings/plastic/thermoplastic
-pageTitle: Polyvinyl Chloride
-pageDescription: When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's a
-  thermoplastic that softens quickly under intense energy, leading to warping or melting if you're not careful. This makes
-  it different from metals, where heat spreads out fast; here, the energy stays localized because it doesn't conduct heat
-  well, so you risk damaging the surface before buildup even clears. Start with reduced power to build up gradually, and keep
-  scan speeds high to limit exposure time on any spot. You'll find it absorbs laser light readily, which helps remove contaminants
-  efficiently without much reflection loss, but always test on a small area first to avoid pitting. For best results, use
-  multiple light passes with good overlap, letting it cool between them—this restores the smooth finish on pipes or panels
-  without compromising its corrosion resistance or flexibility.
-metaDescription: Polyvinyl Chloride laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning polyvinyl chloride, you must watch its low heat tolerance right from the start—it's a
+  thermoplastic that softens quickly under intense energy, leading to warping or melting if you're not careful. This
+  makes it different from metals, where heat spreads out fast; here, the energy stays localized because it doesn't
+  conduct heat well, so you risk damaging the surface before buildup even clears. Start with reduced power to build up
+  gradually, and keep scan speeds high to limit exposure time on any spot. You'll find it absorbs laser light readily,
+  which helps remove contaminants efficiently without much reflection loss, but always test on a small area first to
+  avoid pitting. For best results, use multiple light passes with good overlap, letting it cool between them—this
+  restores the smooth finish on pipes or panels without compromising its corrosion resistance or flexibility.
+meta:
+  title: Polyvinyl Chloride
+  description: Polyvinyl Chloride laser cleaning guide. Technical specifications and applications.
+  path: /settings/plastic/thermoplastic/polyvinyl-chloride-settings
 images:
   hero:
     url: /images/settings/polyvinyl-chloride-settings-hero.jpg
@@ -38,203 +30,45 @@ images:
     alt: Polyvinyl Chloride microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 2
-  name: Alessandro Moretti
-  country: Italy
-  countryDisplay: Italy
-  title: Ph.D.
-  sex: m
-  jobTitle: Materials Engineer
-  expertise:
-  - Laser-Based Additive Manufacturing
-  affiliation:
-    name: Politecnico di Milano's Materials Dept.
-    type: EducationalOrganization
-  alumniOf:
-    name: University of Bologna
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Science, TU Milano, 2015
-  - 5+ years industrial ceramics experience
-  - Assisted in EU Horizon 2020 laser additive projects, 2016-2019
-  email: info@z-beam.com
-  image: /images/author/alessandro-moretti.jpg
-  imageAlt: Alessandro Moretti, Ph.D., Materials Engineer at Politecnico di Milano's Materials Dept., in research lab
-  url: https://z-beam.com/authors/alessandro-moretti-phd
-  sameAs:
-  - https://scholar.google.com/citations?user=def456
-  - https://linkedin.com/in/alessandro-moretti-engineer
-  personaFile: italy_persona.yaml
-  formattingFile: italy_formatting.yaml
-  slug: alessandro-moretti
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 2
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - challenge: Low melting/degradation temperatures
-          severity: high
-          thresholdRange: 80-300°C depending on polymer type
-          impact: Melting, warping, or chemical degradation at low temperatures
-          solutions:
-          - Use lowest power settings (20-40W)
-          - Fast scan speeds (2000-4000 mm/s)
-          - Pulse mode with extended cooling (5-10 seconds between passes)
-        - challenge: Outgassing and fume generation
-          severity: high
-          impact: Toxic fumes, smoke, and potential fire hazard
-          solutions:
-          - Mandatory fume extraction system
-          - Work in well-ventilated areas
-          - Monitor for smoke/discoloration
-        contaminationChallenges:
-        - challenge: Coating and label removal
-          severity: medium
-          impact: Adhesives melt and smear rather than ablate cleanly
-          solutions:
-          - Use UV wavelength (355nm) for better photochemical ablation
-          - Multiple gentle passes instead of single high-power pass
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength for optimal PVC absorption and minimal substrate damage
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 150
-    description: 'Beam diameter for effective coverage; smaller (50-100 μm) for fine details, larger (200-300 μm) for broad
-      areas; 150 μm recommended for uniform PVC surface preparation without pinpoint damage. Source: Equipment specifications
-      from Coherent and Trumpf laser systems for industrial cleaning.'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 0.3
-    unit: J/cm²
-    description: 'Fluence range for safe ablation of contaminants on polymers; PVC damage threshold ~0.5 J/cm²; recommended
-      0.3 J/cm² for cleaning without substrate degradation, considering low thermal conductivity (0.19 W/mK). Source: Ablation
-      threshold studies in Journal of Applied Physics (2017) for PVC at 1064 nm.'
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    value: 30
-    unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning of polymers to minimize heat-affected zone (HAZ); picosecond
-      (ps) or femtosecond for ultra-precision but costlier; 30 ns optimal for PVC to enable photothermal ablation without
-      excessive melting. Source: Laser physics research in Applied Surface Science (2019) on polymer thresholds; avoids fs/ps
-      due to equipment availability.'
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1000
-    description: 'Effective for contamination removal without overheating; slower (500-1000 mm/s) for heavy contamination,
-      faster (2000-3000 mm/s) for light; recommended 1000 mm/s balances efficiency and safety for PVC''s poor thermal conductivity.
-      Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cleaner Production (2020).'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-4) for heavy; 2 passes recommended for complete PVC cleaning
-      to ensure removal without cumulative heat damage. Source: Industry practice in case studies from Surface and Coatings
-      Technology (2022); avoids excessive passes due to PVC''s heat sensitivity.'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 50
-    unit: '%'
-    description: 'Ensures uniform coverage without gaps or over-ablation; 50% optimal for PVC to prevent uneven heating and
-      maintain surface integrity during scanning. Source: Process optimization studies in Lasers in Manufacturing and Materials
-      Processing (2020); typical 30-80% range for polymer applications.'
-  laserPower:
-    description: Optimal average power for PVC cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 10
-    max: 200
-    value: 50
-    unit: W
-    description: 'Typical range for polymer cleaning to avoid thermal damage; starting at 50 W for PVC''s low melting point
-      (~160°C); max safe ~150 W to prevent substrate melting. Source: IPG Photonics specs for fiber lasers in polymer applications;
-      studies in Optics and Lasers in Engineering (2018) on PVC ablation.'
-  frequency:
-    min: 1
-    max: 200
-    value: 30
-    unit: kHz
-    description: 'Typical for pulsed cleaning; 20-50 kHz recommended for PVC to achieve fast processing while limiting heat
-      accumulation from low reflectivity (~5-10% at 1064 nm); higher rates increase speed but risk thermal buildup. Source:
-      Academic literature in Optics Express (2021) on repetition rate effects in polymer laser cleaning.'
-componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
-  from heat-sensitive PVC without causing melting or deformation.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

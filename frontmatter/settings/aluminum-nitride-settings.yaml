@@ -1,26 +1,18 @@
 id: aluminum-nitride-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Aluminum Nitride
-displayName: Aluminum Nitride Laser Cleaning Settings
 category: ceramic
 subcategory: technical
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:29.486442+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/ceramic/technical/aluminum-nitride-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Ceramic
-  href: /settings/ceramic
-- label: Technical
-  href: /settings/ceramic/technical
-pageTitle: Aluminum Nitride
-pageDescription: Before laser cleaning, Aluminum Nitride surfaces require careful parameter selection After cleaning, Aluminum
-  Nitride surfaces show restored appearance with controlled parameters
-metaDescription: Aluminum Nitride laser cleaning guide. Technical specifications and applications.
+description: >-
+  Before laser cleaning, Aluminum Nitride surfaces require careful parameter selection After cleaning, Aluminum Nitride
+  surfaces show restored appearance with controlled parameters
+meta:
+  title: Aluminum Nitride
+  description: Aluminum Nitride laser cleaning guide. Technical specifications and applications.
+  path: /settings/ceramic/technical/aluminum-nitride-settings
 images:
   hero:
     url: /images/settings/aluminum-nitride-settings-hero.jpg
@@ -32,175 +24,45 @@ images:
     alt: Aluminum Nitride microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 4
-  name: Todd Dunning
-  country: United States
-  countryDisplay: United States
-  title: MA
-  sex: m
-  jobTitle: Junior Optical Materials Specialist
-  expertise:
-  - Optical Materials for Laser Systems
-  affiliation:
-    name: Coherent Inc.
-    type: Organization
-  credentials:
-  - BA Physics, UC Irvine, 2017
-  - Hands-on at JPL optics internship, 2018
-  - MA Optics and Photonics, UC Irvine, 2019
-  - 3+ years in laser systems development
-  - Hands-on experience with optical fabrication
-  email: info@z-beam.com
-  image: /images/author/todd-dunning.jpg
-  imageAlt: Todd Dunning, MA, Junior Optical Materials Specialist at Coherent Inc., with precision optics tools
-  url: https://z-beam.com/authors/todd-dunning
-  sameAs:
-  - https://linkedin.com/in/todd-dunning-optics
-  - https://spie.org/profile/Todd.Dunning
-  personaFile: usa_persona.yaml
-  formattingFile: usa_formatting.yaml
-  slug: todd-dunning
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 4
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: aluminum-laser-cleaning
-        effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - - Requires careful power calibration to prevent material damage
-        - Monitor surface temperature during processing
-        - Verify cleaning effectiveness through inspection
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    value: 1064
-    unit: nm
-    description: Near-IR wavelength for optimal absorption
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: 'Beam diameter for uniform cleaning; smaller (50-100 μm) for fine details, larger (200-500 μm) for area prep
-      on AlN. 200 μm recommended for industrial surface preparation. Source: Manufacturer specs from Coherent and Trumpf laser
-      systems.'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    value: 1.5
-    description: 'Fluence range for safe contaminant ablation on AlN; damage threshold ~2-3 J/cm² at 1064 nm due to AlN''s
-      high melting point and reflectivity. 1.5 J/cm² recommended for cleaning without substrate harm. Source: Ablation threshold
-      studies in Journal of Applied Physics for nitrides.'
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: 'Nanosecond regime preferred for AlN cleaning to minimize heat-affected zone (HAZ) due to high thermal conductivity;
-      picosecond (ps) or femtosecond for ultra-precision but less common industrially. 20 ns recommended for low HAZ. Source:
-      Laser physics studies in Optics & Laser Technology (e.g., ns pulses for ceramics).'
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: 'Effective speeds for contaminant removal on AlN; slower for heavy contamination (500-1000 mm/s), faster
-      for light (2000-5000 mm/s). Recommended 2000 mm/s for optimal balance. Source: Industry standards from Laserax equipment
-      manuals.'
-  passCount:
-    min: 1
-    max: 10
-    unit: passes
-    value: 2
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete AlN cleaning
-      to ensure uniformity without overexposure. Source: Industry case studies in laser cleaning of ceramics (e.g., SPIE proceedings).'
-  overlapRatio:
-    min: 10
-    max: 90
-    unit: '%'
-    value: 60
-    description: 'Ensures uniform coverage; 60% recommended for AlN to avoid gaps or overheating, typical range 30-80% based
-      on contamination. Source: Process optimization in Journal of Laser Applications.'
-  laserPower:
-    value: 80
-    unit: W
-    description: Optimal average power for ceramic cleaning
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 20
-    max: 200
-    value: 100
-    unit: W
-    description: 'Typical range for industrial cleaning of ceramics like AlN to avoid thermal damage; starting at 100 W balances
-      efficiency and safety. Max ~200 W before risking substrate ablation. Source: IPG Photonics laser cleaning systems specs
-      for delicate materials.'
-  frequency:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 50
-    description: 'Typical for 1064 nm cleaning; 50 kHz recommended for AlN to achieve fast cleaning without excessive heat
-      accumulation, trading off speed vs. thermal load. Higher rates (>80 kHz) increase heat on reflective AlN. Source: Academic
-      literature in Applied Surface Science on pulse repetition effects.'
-componentSummary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to delicately ablate contaminants
-  from Aluminum Nitride, preventing thermal cracking in its brittle ceramic structure.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

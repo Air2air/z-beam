@@ -1,30 +1,22 @@
 id: soapstone-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Soapstone
-displayName: Soapstone Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:28.051246+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/stone/sedimentary/soapstone-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stone
-  href: /settings/stone
-- label: Sedimentary
-  href: /settings/stone/sedimentary
-pageTitle: Soapstone
-pageDescription: When cleaning Soapstone, unlike tougher stones like granite, we find its softness sets it apart right away.
-  That talc-rich makeup makes it prone to surface scratching if you're not careful, so start with gentler laser passes to
-  lift dirt without gouging the finish. We've seen this low resistance to wear lead to quick contaminant removal, but watch
-  out mid-process for any uneven heating that could cause micro-cracks—dial back intensity there. Its steady heat handling
-  keeps things stable overall, letting us restore heritage pieces smoothly in just a couple sweeps. In our experience, this
-  approach preserves the subtle texture that makes Soapstone ideal for sculptures.
-metaDescription: Soapstone laser cleaning guide. Technical specifications and applications.
+description: >-
+  When cleaning Soapstone, unlike tougher stones like granite, we find its softness sets it apart right away. That
+  talc-rich makeup makes it prone to surface scratching if you're not careful, so start with gentler laser passes to
+  lift dirt without gouging the finish. We've seen this low resistance to wear lead to quick contaminant removal, but
+  watch out mid-process for any uneven heating that could cause micro-cracks—dial back intensity there. Its steady heat
+  handling keeps things stable overall, letting us restore heritage pieces smoothly in just a couple sweeps. In our
+  experience, this approach preserves the subtle texture that makes Soapstone ideal for sculptures.
+meta:
+  title: Soapstone
+  description: Soapstone laser cleaning guide. Technical specifications and applications.
+  path: /settings/stone/sedimentary/soapstone-settings
 images:
   hero:
     url: /images/settings/soapstone-settings-hero.jpg
@@ -36,206 +28,45 @@ images:
     alt: Soapstone microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  countryDisplay: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
-  slug: ikmanda-roswati
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 3
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - challenge: Thermal shock and microcracking
-          severity: critical
-          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-          impact: Natural stone contains microfissures that propagate under thermal stress
-          solutions:
-          - Use pulse mode with 8-12 second cooling between passes
-          - Reduce power by 40-50% for weathered or damaged stone
-          - Preheat substrate if possible to reduce thermal gradients
-          - Granite more resistant than marble; sandstone most vulnerable
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Moisture-induced spalling
-          severity: high
-          thresholdTemperature: Steam formation >100°C with trapped moisture
-          impact: Porous stone traps moisture that explosively converts to steam
-          solutions:
-          - Test moisture content before cleaning (>3% requires drying)
-          - Allow 48-72 hours drying after rain before laser cleaning
-          - Reduce power by 50% for damp stone
-          - Use pulse mode with extended cooling (15-20 seconds)
-          - Heritage stone requires especially gentle approach
-        contaminationChallenges:
-        - id: biological-growth
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength optimized for Soapstone mineral absorption
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    value: 200
-    unit: μm
-    description: 'Smaller spots for precise cleaning on soapstone''s textured surface; range for fine detail (smaller) vs.
-      large areas. 200 μm recommended for uniform coverage without overheating. Source: Equipment specifications from laser
-      cleaning systems (e.g., CleanLaser CL series).'
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    value: 1.5
-    unit: J/cm²
-    description: 'Fluence below soapstone''s ablation threshold (~4-5 J/cm² estimated for talc-based minerals) for safe contaminant
-      removal; conservative range due to variable reflectivity at 1064 nm. Recommended 1.5 J/cm² for effective cleaning without
-      substrate damage. Source: Ablation threshold studies in J. Appl. Phys. (2017) on silicate rocks; uncertainty noted for
-      exact soapstone composition.'
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    value: 20
-    unit: ns
-    description: 'Nanosecond regime preferred for 1064 nm cleaning of minerals to minimize heat-affected zone (HAZ); picosecond/femtosecond
-      for ultra-precision but less common industrially. 20 ns recommended for soapstone''s low melting point (~1300°C) to
-      reduce thermal diffusion. Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation thresholds.'
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 1000
-    description: 'Slower speeds for effective contaminant removal on delicate soapstone surfaces; range adjusts for light
-      (faster) vs. heavy contamination. Recommended 1000 mm/s balances efficiency and safety. Source: Industry standards from
-      laser cleaning equipment manuals (e.g., Adapt Laser Systems) and process optimization studies.'
-  passCount:
-    min: 1
-    max: 10
-    value: 2
-    unit: passes
-    description: 'Multi-pass for thorough removal of contaminants on porous soapstone; single pass for light dirt, up to 5
-      for heavy. Recommended 2 passes to ensure complete cleaning while minimizing exposure. Source: Industry case studies
-      on stone restoration (e.g., Restaurators 2020).'
-  overlapRatio:
-    min: 10
-    max: 90
-    value: 70
-    unit: '%'
-    description: 'Higher overlap ensures uniform coverage on irregular soapstone surfaces; 50-80% typical for even energy
-      distribution. 70% recommended to avoid gaps without excessive passes. Source: Process optimization studies in laser
-      scanning (e.g., Precis. Eng. 2016).'
-  laserPower:
-    description: Optimal average power for Soapstone cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 300
-    value: 100
-    unit: W
-    description: 'Typical range for industrial cleaning of soft stones like soapstone to avoid thermal damage; starting at
-      100 W for controlled ablation. Max limited by soapstone''s low thermal conductivity (~0.2 W/mK) to prevent cracking.
-      Source: General Nd:YAG laser specs from manufacturers like IPG Photonics and academic reviews on stone conservation
-      (e.g., J. Cult. Herit. 2018).'
-  frequency:
-    min: 1
-    max: 200
-    value: 50
-    unit: kHz
-    description: 'Mid-range frequencies for efficient cleaning without excessive heat buildup on low-conductivity soapstone;
-      higher rates speed up process but risk accumulation. 50 kHz balances speed and safety. Source: Academic literature on
-      pulsed laser cleaning (e.g., Appl. Surf. Sci. 2019).'
-componentSummary: The 100 W power, 1064 nm wavelength, and 10 ns pulse width settings provide gentle, precise ablation for
-  Soapstone, minimizing thermal damage to its soft, talc-rich composition while effectively removing contaminants.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

@@ -100,9 +100,9 @@ describe('YAML → TypeScript Integration', () => {
         const content = fs.readFileSync(file, 'utf8');
         const data = yaml.load(content) as any;
         
-        expect(data.author).toBeDefined();
-        expect(data.author).toHaveProperty('id');
-        // Note: author.name exists in full author object, not in abbreviated form
+        expect(data.authorId).toBeDefined();
+        expect(typeof data.authorId).toBe('number');
+        // Settings files use authorId (numeric reference), not full author object
       }
     });
 

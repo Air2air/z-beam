@@ -1,29 +1,22 @@
 id: quench-oil-contamination
+contentType: contaminant
+schemaVersion: 6.0.0
 name: Quenching Oil Residue
 category: thermal-damage
-datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-01-19T02:40:41.209940+00:00'
-contentType: contaminant
-schemaVersion: 5.0.0
-fullPath: /contaminants/thermal-damage/scale/quench-oil-contamination
-breadcrumb:
-- label: Home
-  href: /
-- label: Contaminants
-  href: /contaminants
-- label: Thermal Damage
-  href: /contaminants/thermal-damage
-- label: Scale
-  href: /contaminants/thermal-damage/scale
-pageTitle: Quenching Oil Residue
-pageDescription: After quenching, oil contamination forms uneven layers on metal surfaces, because rapid cooling traps residues
-  in pores and cracks. This buildup exhibits unique patterns, such as patchy films that harden during exposure to heat, and
-  so removal becomes challenging in laser cleaning. Contamination adheres strongly to ferrous materials, where it penetrates
-  deeply and resists vaporization, while on non-ferrous alloys, layer releases more easily yet leaves oily traces. During
-  laser application, thermal damage arises so operators adjust pulses to avoid substrate harm. Process removes contamination
-  effectively, as scans show cleaner surfaces after treatment, and results are obtained from repeated tests on samples. Surface
-  achieves uniformity in observations.
-metaDescription: Quenching Oil Residue laser cleaning guide. Technical specifications and applications.
+subcategory: scale
+datePublished: '2026-01-06'
+dateModified: '2026-02-02T02:25:22.589926+00:00'
+description: >-
+  After quenching, oil contamination forms uneven layers on metal surfaces, because rapid cooling traps residues in
+  pores and cracks. This buildup exhibits unique patterns, such as patchy films that harden during exposure to heat, and
+  so removal becomes challenging in laser cleaning. Contamination adheres strongly to ferrous materials, where it
+  penetrates deeply and resists vaporization, while on non-ferrous alloys, layer releases more easily yet leaves oily
+  traces. During laser application, thermal damage arises so operators adjust pulses to avoid substrate harm. Process
+  removes contamination effectively, as scans show cleaner surfaces after treatment, and results are obtained from
+  repeated tests on samples. Surface achieves uniformity in observations.
+meta:
+  title: Quenching Oil Residue
+  path: /contaminants/thermal-damage/scale/quench-oil-contamination
 images:
   hero:
     url: /images/contaminant/quench-oil-contamination-hero.jpg
@@ -35,591 +28,179 @@ images:
     alt: Quenching Oil Residue microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
+authorId: 1
+properties:
+  validMaterials:
+    - steel-laser-cleaning
+    - tool-steel-laser-cleaning
+  prohibitedMaterials:
+    - Aluminum
+    - Plastics
+composition:
+  - Carbonized Oil
+  - PAH
+  - Additives
+laser:
+  wavelength:
+    - 532
+    - 1064
+  fluence:
+    min: 0.3
+    max: 1.2
+    optimal: 0.8
+  pulseWidth:
+    min: 10
+    max: 100
+    optimal: 30
+  scanSpeed:
+    min: 500
+    max: 2000
+    optimal: 1000
+  passes:
+    optimal: 2
+    maxEffective: 3
+    efficiency: 0.85
+  thermal:
+    ablationThreshold: 0.8
+    decomposition: 400
+    vaporization: 300
+safety:
+  fireRisk: moderate
+  toxicGas: moderate
+  ppe:
+    respiratory: PAPR
+    eye: goggles
+    skin: gloves
+  compounds:
+    - id: acrolein-compound
+      phase: gas
+      hazard: toxic
+      concentration: 2.5
+      limit: 0.23
+    - id: formaldehyde-compound
+      phase: gas
+      hazard: carcinogenic
+      concentration: 1.8
+      limit: 0.37
+    - id: carbon-monoxide-compound
+      phase: gas
+      hazard: toxic
+      concentration: 15
+      limit: 29
+    - id: polycyclic-aromatic-hydrocarbons-(pahs)-compound
+      phase: gas
+      hazard: carcinogenic
+      concentration: 0.5
+      limit: 0.2
+  ventilation:
+    airChanges: 12
+    velocity: 0.5
+    filter: carbon
+appearance:
+  ceramic:
+    color: dark-black-brown
+    texture: sticky
+    pattern: spots-patches
+    coverage: extensive
+  composite:
+    color: dark
+    texture: unknown
+    pattern: irregular-patches
+    coverage: unknown
+  concrete:
+    color: dark-black-brown
+    texture: unknown
+    pattern: irregular-spots
+    coverage: localized-extensive
+  fabric:
+    color: dark-brown-black
+    texture: unknown
+    pattern: streaks-irregular
+    coverage: uneven
+  glass:
+    color: dark
+    texture: unknown
+    pattern: streaks-uniform
+    coverage: light-heavy
+  metal:
+    color: dark-black-brown
+    texture: sticky
+    pattern: irregular-spots
+    coverage: localized-extensive
+  mineral:
+    color: dark-black-brown
+    texture: rough
+    pattern: spots-streaks
+    coverage: localized-uneven
+  plastic:
+    color: dark-gray-black
+    texture: unknown
+    pattern: spots-streaks
+    coverage: light-full
+  rubber:
+    color: dark-black-brown
+    texture: unknown
+    pattern: spots-uniform
+    coverage: localized-uneven
+  semiconductor:
+    color: unknown
+    texture: unknown
+    pattern: uniform-spots
+    coverage: minimal
+  specialty:
+    color: dark
+    texture: unknown
+    pattern: uniform
+    coverage: localized-uneven
+  stone:
+    color: dark-black-brown
+    texture: unknown
+    pattern: irregular-spots
+    coverage: localized
+  wood:
+    color: dark-brown-black
+    texture: unknown
+    pattern: patches-streaks
+    coverage: uneven
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety regulations and compliance standards for this contaminant
-        icon: shield-check
-        order: 20
-        variant: default
-        sectionMetadata:
-          relationshipType: regulatoryStandards
-          group: safety
-          domain: contaminants
-          icon: shield-check
-          order: 20
-          variant: default
-          schemaDescription: OSHA, ANSI, and ISO compliance requirements
-    fireExplosionRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fire & Explosion Risk
-        sectionDescription: Fire and explosion hazards during laser cleaning
-        icon: flame
-        order: 21
-        variant: warning
-        sectionMetadata:
-          relationshipType: fireExplosionRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    fumesGenerated:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Fumes Generated
-        sectionDescription: Hazardous fumes produced during laser removal
-        icon: cloud
-        order: 22
-        variant: warning
-        sectionMetadata:
-          relationshipType: fumesGenerated
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    particulateGeneration:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Particulate Generation
-        sectionDescription: Airborne particles and dust created during cleaning
-        icon: wind
-        order: 23
-        variant: warning
-        sectionMetadata:
-          relationshipType: particulateGeneration
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ppeRequirements:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: PPE Requirements
-        sectionDescription: Required personal protective equipment
-        icon: shield
-        order: 24
-        variant: default
-        sectionMetadata:
-          relationshipType: ppeRequirements
-          group: safety
-          domain: contaminants
-          icon: hard-hat
-          order: 22
-          variant: default
-          schemaDescription: Personal protective equipment needed
-    toxicGasRisk:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Toxic Gas Risk
-        sectionDescription: Toxic gases that may be released during removal
-        icon: alert-triangle
-        order: 25
-        variant: danger
-        sectionMetadata:
-          relationshipType: toxicGasRisk
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    ventilationRequirements:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Ventilation Requirements
-        sectionDescription: Required ventilation and air filtration systems
-        icon: wind
-        order: 26
-        variant: default
-        sectionMetadata:
-          relationshipType: ventilationRequirements
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    visibilityHazard:
-      presentation: descriptive
-      items: []
-      _section:
-        sectionTitle: Visibility Hazard
-        sectionDescription: Smoke and debris affecting operator visibility
-        icon: eye-off
-        order: 27
-        variant: warning
-        sectionMetadata:
-          relationshipType: visibilityHazard
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    substrateCompatibilityWarnings:
-      presentation: card
-      items: []
-      _section:
-        sectionTitle: Substrate Compatibility
-        sectionDescription: Material compatibility warnings and precautions
-        icon: alert-circle
-        order: 28
-        variant: warning
-        sectionMetadata:
-          relationshipType: substrateCompatibilityWarnings
-          group: safety
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  interactions:
-    producesCompounds:
-      presentation: card
-      items:
-      - id: carbon-dioxide-compound
-        title: Carbon Dioxide
-        name: Carbon Dioxide
-        category: asphyxiant
-        subcategory: simple_asphyxiant
-        url: /compounds/asphyxiant/simple_asphyxiant/carbon-dioxide-compound
-        image: /images/compound/carbon-dioxide-compound-hero.jpg
-        description: Carbon Dioxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: water-vapor-compound
-        title: Water Vapor
-        name: Water Vapor
-        category: vapor
-        subcategory: inert
-        url: /compounds/vapor/inert/water-vapor-compound
-        image: /images/compound/water-vapor-compound-hero.jpg
-        description: Water Vapor Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: carbon-monoxide-compound
-        title: Carbon Monoxide
-        name: Carbon Monoxide
-        category: toxic_gas
-        subcategory: asphyxiant
-        url: /compounds/toxic_gas/asphyxiant/carbon-monoxide-compound
-        image: /images/compound/carbon-monoxide-compound-hero.jpg
-        description: Carbon Monoxide Compound safety information for laser cleaning. Health hazards, exposure limits, and
-          protective equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: vocs-compound
-        title: Volatile Organic Compounds
-        name: Volatile Organic Compounds
-        category: irritant
-        subcategory: organic_vapor
-        url: /compounds/irritant/organic_vapor/vocs-compound
-        image: /images/compound/vocs-compound-hero.jpg
-        description: Vocs Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      - id: carbon-ash-compound
-        title: Carbon Ash
-        name: Carbon Ash
-        category: particulate
-        subcategory: carbon-based
-        url: /compounds/particulate/carbon-based/carbon-ash-compound
-        image: /images/compound/carbon-ash-compound-hero.jpg
-        description: Carbon Ash Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-          equipment requirements.
-        phase: unknown
-        hazardLevel: unknown
-      _section:
-        sectionTitle: Produced Compounds
-        sectionDescription: Hazardous compounds produced during laser cleaning
-        icon: flask-conical
-        order: 10
-        variant: warning
-        sectionMetadata:
-          relationshipType: producesCompounds
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-    affectsMaterials:
-      presentation: card
-      items:
+  materials:
+    common:
       - id: steel-laser-cleaning
-        name: Steel
-        category: metal
-        subcategory: ferrous
-        url: /materials/metal/ferrous/steel-laser-cleaning
-        image: /images/material/steel-laser-cleaning-hero.jpg
-        description: Steel, for laser cleaning applications, manifests tenacious oxidation resistance that safeguards the
-          substrate during contaminant removal, which leads to efficient restoration without structural co...
         frequency: very_common
         difficulty: moderate
       - id: aluminum-laser-cleaning
-        name: Aluminum
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/aluminum-laser-cleaning
-        image: /images/material/aluminum-laser-cleaning-hero.jpg
-        description: This is a TEST description for Aluminum, generated to verify domain-aware save functionality.
         frequency: very_common
         difficulty: moderate
       - id: brass-laser-cleaning
-        name: Brass
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/brass-laser-cleaning
-        image: /images/material/brass-laser-cleaning-hero.jpg
-        description: Brass, as non-ferrous metal, shows high reflectivity during laser cleaning, so treatment removes surface
-          oxidation and contamination from marine or plumbing uses without deep substrate damage. Beca...
         frequency: very_common
         difficulty: moderate
       - id: bronze-laser-cleaning
-        name: Bronze
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/bronze-laser-cleaning
-        image: /images/material/bronze-laser-cleaning-hero.jpg
-        description: Bronze, it demonstrates exceptional oxidation resistance in laser cleaning processes, where contaminants
-          are removed without disrupting the protective patina that forms naturally. This tenacity, di...
         frequency: very_common
         difficulty: moderate
       - id: copper-laser-cleaning
-        name: Copper
-        category: metal
-        subcategory: non-ferrous
-        url: /materials/metal/non-ferrous/copper-laser-cleaning
-        image: /images/material/copper-laser-cleaning-hero.jpg
-        description: Unlike ferrous metals that soak up laser energy and risk warping under heat, copper stands out with its
-          exceptional reflectivity, which bounces away most pulses for targeted contaminant removal wit...
         frequency: very_common
         difficulty: moderate
-      _section:
-        sectionTitle: Affected Materials
-        sectionDescription: Materials where this contaminant commonly appears
-        icon: layers
-        order: 11
-        variant: default
-        sectionMetadata:
-          relationshipType: affectsMaterials
-          group: interactions
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  visual:
-    appearanceOnCategories:
-      presentation: descriptive
-      items:
-      - appearanceOnCategories:
-          ceramic:
-            appearance: Dark, greasy residues that may appear as black or brown spots, often with a slick or sticky texture
-              on glazed or unglazed surfaces.
-            coverage: Varies from sparse spots to extensive areas, with non-uniform distribution common in industrial settings.
-            pattern: Typically forms spots or patches, sometimes uniform if applied evenly, but often irregular.
-          composite:
-            appearance: Dark, oily residues that may seep into layers, causing discoloration and a greasy texture, varying
-              with composite materials.
-            coverage: Typically patchy and non-uniform, covering small to moderate areas with variation based on material
-              composition.
-            pattern: Forms irregular patches or streaks, often following fiber orientations or surface imperfections.
-          concrete:
-            appearance: Dark, oily stains that penetrate pores, appearing as black or brown patches with a greasy, often persistent
-              residue.
-            coverage: Varies from small, localized areas to extensive sections, often non-uniform due to surface roughness.
-            pattern: Typically forms irregular spots or patches, spreading through cracks and porous regions.
-          fabric:
-            appearance: Dark, oily patches that stain fibers, appearing as brown or black spots with a greasy, often permanent
-              texture.
-            coverage: Generally patchy and uneven, covering small to large areas depending on spill size and fabric type.
-            pattern: Forms blotches, streaks, or irregular patches, following fabric weave or absorption paths.
-          glass:
-            appearance: Transparent to dark oily films or streaks that reduce clarity, appearing as smudges with a greasy
-              sheen.
-            coverage: Can range from light, even films to heavy, streaky coverage, often varying with application and cleaning.
-            pattern: Manifests as streaks, smears, or uniform thin layers, especially on smooth surfaces.
-          metal:
-            appearance: Dark, oily stains with a glossy or matte finish, often appearing as black or brown residues that can
-              feel sticky or greasy.
-            coverage: Varies from localized spots to extensive areas, depending on exposure; often non-uniform with higher
-              concentrations in contact zones.
-            pattern: Typically forms irregular spots, streaks, or patches, especially in crevices or on surfaces exposed to
-              quenching processes.
-          mineral:
-            appearance: Dark, oily residues that may coat surfaces, appearing as black or brown stains with a slick texture
-              on crystalline or rough minerals.
-            coverage: Usually localized and uneven, covering small areas with variation based on mineral porosity and exposure.
-            pattern: Forms spots, streaks, or patches, often concentrated in fissures or on exposed faces.
-          plastic:
-            appearance: Oily, dark stains that can cause discoloration to gray or black, often with a greasy feel and potential
-              for surface dulling.
-            coverage: Ranges from light, patchy areas to full coverage, depending on exposure; often uneven due to material
-              non-porosity.
-            pattern: Appears as spots, streaks, or smears, with possible uniform coating if submerged or sprayed.
-          rubber:
-            appearance: Dark, greasy stains that can cause swelling or softening, appearing as black or brown spots with a
-              slick surface.
-            coverage: Varies from localized spots to widespread areas, often uneven due to rubber's absorbent nature.
-            pattern: Manifests as spots, smears, or uniform layers, especially in flexed or exposed areas.
-          semiconductor:
-            appearance: Thin, oily films that may appear as faint darkening or smudges, potentially interfering with electronic
-              properties and leaving a greasy residue.
-            coverage: Ranges from minimal, even coatings to patchy areas, typically controlled but variable in contamination
-              events.
-            pattern: Manifests as uniform layers or micro-spots, often spread evenly during processing but can be irregular.
-          specialty:
-            appearance: Dark, oily residues tailored to material specifics, such as coatings on advanced alloys or polymers,
-              appearing as greasy stains with variable colors.
-            coverage: Highly variable, from precise, localized application to broad, uneven coverage, influenced by specialty
-              requirements.
-            pattern: Varies widely; can be uniform, spotted, or streaked, depending on application method and material properties.
-          stone:
-            appearance: Dark, oily stains that can appear as black or brown spots, often leaving a shiny or dull residue on
-              porous surfaces.
-            coverage: Generally localized to small areas, but can vary widely; often non-uniform due to surface porosity.
-            pattern: Forms irregular spots or patches, with potential for spreading along cracks or porous regions.
-          wood:
-            appearance: Dark, greasy patches that may penetrate the grain, causing discoloration to brown or black and a slick
-              texture.
-            coverage: Usually patchy and uneven, covering small to moderate areas with variation based on absorption and surface
-              treatment.
-            pattern: Appears as blotchy patches or streaks, following the wood grain or pooling in low areas.
-      _section:
-        sectionTitle: Visual Appearance
-        sectionDescription: How this contaminant appears on different material categories
-        icon: eye
-        order: 50
-        variant: default
-        sectionMetadata:
-          relationshipType: appearanceOnCategories
-          group: visual
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-  operational:
-    laserProperties:
-      presentation: descriptive
-      items:
-      - laserParameters:
-          beamProfile: flat_top
-          fluenceRange:
-            maxJCm2: 1.2
-            minJCm2: 0.3
-            recommendedJCm2: 0.8
-          overlapPercentage: 50
-          polarization: circular
-          pulseDurationRange:
-            maxNs: 100
-            minNs: 10
-            recommendedNs: 30
-          repetitionRateKhz:
-            max: 100
-            min: 20
-            recommended: 50
-          safetyMarginFactor: 0.7
-          scanSpeedMmS:
-            max: 2000
-            min: 500
-            recommended: 1000
-          spotSizeMm:
-            max: 0.1
-            min: 0.02
-            recommended: 0.05
-          wavelengthPreference:
-          - 532
-          - 1064
-        opticalProperties:
-          absorptionCoefficient:
-            wavelength1064Nm: 850
-            wavelength355Nm: 18500
-            wavelength532Nm: 4200
-          reflectivity:
-            wavelength1064Nm: 0.12
-            wavelength355Nm: 0.03
-            wavelength532Nm: 0.08
-          refractiveIndex:
-            imaginaryPart: 0.022
-            realPart: 1.48
-          transmissionDepth: 11.8
-        removalCharacteristics:
-          byproducts:
-          - compound: carbon-dioxide
-            hazardLevel: low
-            phase: gas
-          - compound: water-vapor
-            hazardLevel: low
-            phase: gas
-          - compound: carbon-monoxide
-            hazardLevel: moderate
-            phase: gas
-          - compound: vocs
-            hazardLevel: moderate
-            phase: gas
-          - compound: carbon-ash
-            hazardLevel: low
-            phase: solid
-          damageRiskToSubstrate: low
-          primaryMechanism: thermal_ablation
-          processSpeed:
-            areaCoverageRateCm2Min: 240
-            typicalScanSpeedMmS: 800
-          removalEfficiency:
-            diminishingReturnsAfter: 3
-            optimalPasses: 2
-            singlePass: 0.85
-          secondaryMechanisms:
-          - photochemical
-          - mechanical_spallation
-          surfaceQualityAfterRemoval:
-            colorChange: 'no'
-            residualStress: compressive
-            roughnessIncrease: minimal
-        safetyData:
-          fireExplosionRisk:
-            severity: moderate
-            description: Combustible materials present, risk elevated in confined spaces or high-power settings
-            mitigation: Fire extinguisher accessible, adequate ventilation, monitor substrate temperature
-          fumesGenerated:
-          - compound: Acrolein
-            concentrationMgM3: 2.5
-            exposureLimitMgM3: 0.23
-            hazardClass: toxic
-          - compound: Formaldehyde
-            concentrationMgM3: 1.8
-            exposureLimitMgM3: 0.37
-            hazardClass: carcinogenic
-          - compound: Carbon Monoxide
-            concentrationMgM3: 15.0
-            exposureLimitMgM3: 29.0
-            hazardClass: toxic
-          - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-            concentrationMgM3: 0.5
-            exposureLimitMgM3: 0.2
-            hazardClass: carcinogenic
-          particulateGeneration:
-            respirableFraction: 0.8
-            sizeRangeUm:
-            - 0.1
-            - 10.0
-          ppeRequirements:
-            eyeProtection: goggles
-            respiratory: PAPR
-            skinProtection: gloves
-            rationale: Standard protection against workplace hazards
-          substrateCompatibilityWarnings:
-          - Thermal loading may cause substrate damage on thin metals
-          - Residual oil can ignite if laser parameters are too aggressive
-          - Surface discoloration possible on some materials
-          toxicGasRisk:
-            severity: moderate
-            primaryHazards:
-            - compound: Acrolein
-              concentrationMgM3: 2.5
-              hazardClass: toxic
-            - compound: Formaldehyde
-              concentrationMgM3: 1.8
-              hazardClass: carcinogenic
-            - compound: Carbon Monoxide
-              concentrationMgM3: 15.0
-              hazardClass: toxic
-            - compound: Polycyclic Aromatic Hydrocarbons (PAHs)
-              concentrationMgM3: 0.5
-              hazardClass: carcinogenic
-            description: 'Multiple toxic compounds detected: Acrolein, Formaldehyde, Carbon Monoxide - requires enhanced protection'
-            mitigation: 'Half-face or full-face respirator with organic vapor/particulate cartridges, adequate ventilation.
-              WARNING: Formaldehyde, Polycyclic Aromatic Hydrocarbons (PAHs) - known carcinogen(s), minimize exposure'
-          ventilationRequirements:
-            exhaustVelocityMS: 0.5
-            filtrationType: carbon
-            minimumAirChangesPerHour: 12
-            rationale: Standard industrial ventilation (12 ACH) for particulate control
-          visibilityHazard:
-            severity: moderate
-            description: Moderate visibility reduction (40-60%), significant particulate haze
-            source: 'Respirable fraction: 0.80 (80% of particles <10μm)'
-            mitigation: Ensure clear sight lines, use source extraction, maintain awareness of surroundings
-            relatedField: particulate_generation.respirable_fraction
-        thermalProperties:
-          ablationThreshold:
-            pulseDuration100Ns: 1.2
-            pulseDuration10Ns: 0.6
-            wavelength1064Nm: 0.8
-          decompositionTemperature: 400
-          heatAffectedZoneDepth: 15
-          meltingPoint: null
-          specificHeat: 2000
-          thermalConductivity: 0.15
-          thermalDiffusivity: 0.08
-          vaporizationTemperature: 300
-      _section:
-        sectionTitle: Laser Removal Properties
-        sectionDescription: Laser parameters and removal characteristics
-        icon: zap
-        order: 40
-        variant: default
-        sectionMetadata:
-          relationshipType: laserProperties
-          group: operational
-          domain: contaminants
-          icon: circle-help
-          order: 999
-          variant: default
-displayName: Quenching Oil Residue
-subcategory: scale
-validMaterials:
-- steel-laser-cleaning
-- tool-steel-laser-cleaning
-composition:
-- Carbonized Oil
-- PAH
-- Additives
-prohibitedMaterials:
-- Aluminum
-- Plastics
+    prohibited:
+      - Aluminum
+      - Plastics
+  compounds:
+    produces:
+      - id: carbon-dioxide-compound
+        phase: unknown
+        hazard: unknown
+      - id: water-vapor-compound
+        phase: unknown
+        hazard: unknown
+      - id: carbon-monoxide-compound
+        phase: unknown
+        hazard: unknown
+      - id: vocs-compound
+        phase: unknown
+        hazard: unknown
+      - id: carbon-ash-compound
+        phase: unknown
+        hazard: unknown
+  settings:
+    recommended: []
+pageTitle: Quenching Oil Residue
+pageDescription: Quenching Oil Residue laser cleaning guide. Technical specifications and applications.

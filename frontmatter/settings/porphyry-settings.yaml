@@ -1,33 +1,25 @@
 id: porphyry-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Porphyry
-displayName: Porphyry Laser Cleaning Settings
 category: stone
 subcategory: sedimentary
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:27.065153+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/stone/sedimentary/porphyry-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Stone
-  href: /settings/stone
-- label: Sedimentary
-  href: /settings/stone/sedimentary
-pageTitle: Porphyry
-pageDescription: We've found that when laser cleaning Porphyry, you need to start conservatively with power levels to prevent
-  any surface cracking from its uneven crystal structure, which can trap heat unevenly compared to smoother granites. In our
-  experience, this durable stone responds well because of its low porosity and strong compressive hold—it absorbs laser energy
-  steadily without letting contaminants seep back in, unlike more porous limestones that demand extra passes. We typically
-  use a focused beam with moderate speed and overlap to gently lift away grime while preserving the natural polish, since
-  Porphyry's heat resistance lets it handle short bursts without warping. But watch out for overdoing the intensity early
-  on; its moderate conductivity means heat builds up if you rush, so adjust by slowing the scan and adding passes to avoid
-  subtle fissures that show up later in heritage pieces. This approach restores the stone's finish cleanly for architectural
-  or cultural work.
-metaDescription: Porphyry laser cleaning guide. Technical specifications and applications.
+description: >-
+  We've found that when laser cleaning Porphyry, you need to start conservatively with power levels to prevent any
+  surface cracking from its uneven crystal structure, which can trap heat unevenly compared to smoother granites. In our
+  experience, this durable stone responds well because of its low porosity and strong compressive hold—it absorbs laser
+  energy steadily without letting contaminants seep back in, unlike more porous limestones that demand extra passes. We
+  typically use a focused beam with moderate speed and overlap to gently lift away grime while preserving the natural
+  polish, since Porphyry's heat resistance lets it handle short bursts without warping. But watch out for overdoing the
+  intensity early on; its moderate conductivity means heat builds up if you rush, so adjust by slowing the scan and
+  adding passes to avoid subtle fissures that show up later in heritage pieces. This approach restores the stone's
+  finish cleanly for architectural or cultural work.
+meta:
+  title: Porphyry
+  description: Porphyry laser cleaning guide. Technical specifications and applications.
+  path: /settings/stone/sedimentary/porphyry-settings
 images:
   hero:
     url: /images/settings/porphyry-settings-hero.jpg
@@ -39,202 +31,45 @@ images:
     alt: Porphyry microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 3
-  name: Ikmanda Roswati
-  country: Indonesia
-  countryDisplay: Indonesia
-  title: Ph.D.
-  sex: m
-  jobTitle: Junior Research Scientist in Laser Physics
-  expertise:
-  - Ultrafast Laser Physics and Material Interactions
-  affiliation:
-    name: Bandung Institute of Technology
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Physics, ITB, 2020
-  - 2+ years in ultrafast laser research including ASEAN optics workshops
-  - Assisted in international optics projects
-  languages:
-  - English
-  - Bahasa Indonesia
-  email: info@z-beam.com
-  image: /images/author/ikmanda-roswati.jpg
-  imageAlt: Ikmanda Roswati, Ph.D., Junior Research Scientist in Laser Physics at Bandung Institute of Technology, fieldwork
-    optics setup
-  url: https://z-beam.com/authors/ikmanda-roswati
-  sameAs:
-  - https://linkedin.com/in/ikmanda-roswati-physicist
-  - https://www.academia.edu/profile/IkmandaRoswati
-  personaFile: indonesia_persona.yaml
-  formattingFile: indonesia_formatting.yaml
-  slug: ikmanda-roswati
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 3
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - challenge: Thermal shock and microcracking
-          severity: critical
-          thresholdTemperature: ΔT > 50-150°C rapid cooling (stone-dependent)
-          impact: Natural stone contains microfissures that propagate under thermal stress
-          solutions:
-          - Use pulse mode with 8-12 second cooling between passes
-          - Reduce power by 40-50% for weathered or damaged stone
-          - Preheat substrate if possible to reduce thermal gradients
-          - Granite more resistant than marble; sandstone most vulnerable
-          - Monitor for surface crazing; stop immediately if cracks appear
-        - challenge: Moisture-induced spalling
-          severity: high
-          thresholdTemperature: Steam formation >100°C with trapped moisture
-          impact: Porous stone traps moisture that explosively converts to steam
-          solutions:
-          - Test moisture content before cleaning (>3% requires drying)
-          - Allow 48-72 hours drying after rain before laser cleaning
-          - Reduce power by 50% for damp stone
-          - Use pulse mode with extended cooling (15-20 seconds)
-          - Heritage stone requires especially gentle approach
-        contaminationChallenges:
-        - id: biological-growth
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength optimized for Porphyry mineral absorption characteristics
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: Beam diameter for industrial cleaning; 200 μm recommended for porphyry surface preparation, balancing fine
-      detail and large-area coverage; smaller for precision, larger for broad contamination (Laserax equipment specifications).
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    value: 1.5
-    description: Fluence range for safe contaminant ablation on porphyry; 1.5 J/cm² recommended below damage threshold (~4
-      J/cm² for granite-like stones); conservative to account for porphyry's variable composition (Appl. Surf. Sci. 2017 ablation
-      threshold study).
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: Nanosecond regime preferred for cost-effective cleaning of porphyry; 20 ns minimizes heat-affected zone (HAZ)
-      due to porphyry's high melting point (~1300°C) and reflectivity; picosecond (ps) or femtosecond (fs) for ultra-precise
-      but less common industrially (Laser Phys. 2015 study on stone ablation).
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 500
-    description: Effective for contamination removal on hard stones; 500 mm/s recommended for optimal balance of cleaning
-      efficiency and heat dissipation; slower (100-500 mm/s) for heavy contamination, faster (1000-2000 mm/s) for light; based
-      on industry standards from Adapt Laser Systems manuals.
-  passCount:
-    min: 1
-    max: 10
-    unit: passes
-    value: 2
-    description: Typically 1-2 passes for light industrial contamination on durable stones like porphyry; multi-pass for heavy
-      buildup to ensure complete removal without exceeding safe fluence; from case studies in stone restoration (J. Laser
-      Appl. 2020).
-  overlapRatio:
-    min: 10
-    max: 90
-    unit: '%'
-    value: 70
-    description: Ensures uniform coverage on irregular porphyry surfaces; 70% recommended for even cleaning without gaps or
-      over-ablation; typical 50-80% in process optimization (Opt. Express 2016 study on scan strategies).
-  laserPower:
-    description: Optimal average power for Porphyry surface cleaning without thermal damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 500
-    unit: W
-    value: 100
-    description: Typical range for industrial 1064 nm Nd:YAG lasers cleaning stone surfaces like porphyry; starting at 100
-      W for light contamination to avoid thermal damage given porphyry's low thermal conductivity (~2.5 W/mK); max safe below
-      500 W to prevent substrate cracking (e.g., IPG Photonics YLR series specs; academic review in J. Cult. Herit. 2018).
-  frequency:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 30
-    description: Standard for 1064 nm cleaning; 30 kHz recommended for porphyry to achieve fast processing without excessive
-      heat accumulation; higher rates (>50 kHz) speed up but risk thermal buildup on low-conductivity stones (Opt. Lasers
-      Eng. 2019).
-componentSummary: For cleaning Porphyry, the 100 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise
-  contaminant removal while minimizing thermal damage to the durable yet brittle igneous rock.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety

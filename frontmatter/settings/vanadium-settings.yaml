@@ -1,29 +1,21 @@
 id: vanadium-settings
+contentType: setting
+schemaVersion: 6.0.0
 name: Vanadium
-displayName: Vanadium Laser Cleaning Settings
 category: metal
 subcategory: alloy
-datePublished: '2026-01-06T00:00:00.000Z'
+datePublished: '2026-01-06'
 dateModified: '2026-01-30T02:39:28.995031+00:00'
-contentType: setting
-schemaVersion: 5.0.0
-fullPath: /settings/metal/alloy/vanadium-settings
-breadcrumb:
-- label: Home
-  href: /
-- label: Settings
-  href: /settings
-- label: Metal
-  href: /settings/metal
-- label: Alloy
-  href: /settings/metal/alloy
-pageTitle: Vanadium
-pageDescription: When laser cleaning vanadium, make sure you watch its moderate reflectivity right from the start—unlike highly
-  reflective metals like copper, it absorbs energy better but still scatters some light, so you must lower the power initially
-  to prevent uneven heating. This difference means you can ramp up faster than with shiny alloys, but always scan slowly to
-  avoid surface pitting. Its strong corrosion resistance helps keep the cleaned area intact, just overlap passes generously
-  for full coverage.
-metaDescription: Vanadium laser cleaning guide. Technical specifications and applications.
+description: >-
+  When laser cleaning vanadium, make sure you watch its moderate reflectivity right from the start—unlike highly
+  reflective metals like copper, it absorbs energy better but still scatters some light, so you must lower the power
+  initially to prevent uneven heating. This difference means you can ramp up faster than with shiny alloys, but always
+  scan slowly to avoid surface pitting. Its strong corrosion resistance helps keep the cleaned area intact, just overlap
+  passes generously for full coverage.
+meta:
+  title: Vanadium
+  description: Vanadium laser cleaning guide. Technical specifications and applications.
+  path: /settings/metal/alloy/vanadium-settings
 images:
   hero:
     url: /images/settings/vanadium-settings-hero.jpg
@@ -35,189 +27,45 @@ images:
     alt: Vanadium microscopic detail view showing surface characteristics
     width: 800
     height: 600
-author:
-  id: 1
-  name: Yi-Chun Lin
-  country: Taiwan
-  countryDisplay: Taiwan
-  title: Ph.D.
-  sex: f
-  jobTitle: Laser Processing Engineer
-  expertise:
-  - Laser Materials Processing
-  affiliation:
-    name: National Taiwan University
-    type: EducationalOrganization
-  credentials:
-  - Ph.D. Materials Engineering, National Taiwan University, 2018
-  - Post-Ph.D. fellowship at TSMC's laser fab lab, 2018-2020
-  - 3+ years in laser processing R&D
-  - Assisted in projects on ultrafast laser applications
-  email: info@z-beam.com
-  image: /images/author/yi-chun-lin.jpg
-  imageAlt: Yi-Chun Lin, Ph.D., Laser Processing Engineer at National Taiwan University, in lab setting
-  url: https://z-beam.com/authors/yi-chun-lin
-  sameAs:
-  - https://scholar.google.com/citations?user=ghi789
-  - https://linkedin.com/in/yi-chun-lin-engineer
-  - https://www.researchgate.net/profile/Yi-Chun-Lin-2
-  personaFile: taiwan_persona.yaml
-  formattingFile: taiwan_formatting.yaml
-  slug: yi-chun-lin
-card:
-  default:
-    heading: Laser Cleaning Settings
-    subtitle: Machine Settings
-    badge:
-      text: Optimized
-      variant: default
-    metric:
-      value: 100-300
-      unit: W
-      legend: Power Range
-    severity: low
-    icon: settings
+authorId: 1
+machine:
+  power:
+    min: null
+    max: null
+    optimal: null
+    unit: W
+  pulseEnergy:
+    min: null
+    max: null
+    optimal: null
+  frequency:
+    min: 1
+    max: 200
+    optimal: null
+  scanSpeed:
+    min: 10
+    max: 5000
+    optimal: null
+application:
+  thickness:
+    min: null
+    max: null
+  passes:
+    typical: null
+    max: null
+  cooling:
+    required: false
+    method: null
 relationships:
-  safety:
-    regulatoryStandards:
-      presentation: card
-      items:
-      - type: regulatory_standards
-        id: osha-ppe-requirements
-      - type: regulatory_standards
-        id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
-  interactions:
-    removesContaminants:
-      presentation: card
-      items:
+  materials:
+    optimizedFor: []
+  contaminants:
+    effective:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
-    worksOnMaterials:
-      presentation: card
-      items:
-      - id: oak-laser-cleaning
-        effectiveness: medium
-      - id: maple-laser-cleaning
-        effectiveness: medium
-      - id: pine-laser-cleaning
-        effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
-  operational:
-    commonChallenges:
-      presentation: descriptive
-      items:
-      - thermalManagement:
-        - id: high-thermal-conductivity
-          type: challenge
-        - id: melting-haz
-          type: challenge
-        contaminationChallenges:
-        - id: rust-oxide-removal
-          type: challenge
-        - id: oil-grease-removal
-          type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
-machineSettings:
-  wavelength:
-    description: Near-IR wavelength for optimal Vanadium absorption and thermal processing
-    unit: nm
-    value: 1064
-    min: 355
-    max: 10640
-  spotSize:
-    min: 0.1
-    max: 500
-    unit: μm
-    value: 200
-    description: Beam diameter for precise cleaning; smaller for fine details (100-200 μm), larger for broad areas (300-500
-      μm). 200 μm recommended for uniform coverage on vanadium surfaces. From equipment specifications (e.g., SPI Lasers systems
-      for industrial cleaning).
-  energyDensity:
-    min: 0.1
-    max: 20.0
-    unit: J/cm²
-    value: 1.5
-    description: Fluence range for contaminant removal without substrate damage; vanadium damage threshold ~4-5 J/cm² at 1064
-      nm due to high reflectivity (~60%). 1.5 J/cm² safe for cleaning. Based on ablation threshold studies for transition
-      metals (e.g., Lorazo et al., Phys. Rev. B, 2003; generalized for vanadium).
-  pulseWidth:
-    min: 0.1
-    max: 1000
-    unit: ns
-    value: 20
-    description: Nanosecond regime preferred for industrial cleaning of metals to achieve ablation without deep penetration;
-      picosecond (ps) or femtosecond for minimal HAZ but higher cost. 20 ns recommended for vanadium to limit thermal effects
-      due to its reflectivity at 1064 nm. Supported by laser physics studies (e.g., Anisimov et al., Appl. Surf. Sci., 2015
-      on metal ablation thresholds).
-  scanSpeed:
-    min: 10
-    max: 5000
-    unit: mm/s
-    value: 2000
-    description: Effective speeds for contamination removal on metals; slower for heavy contamination (500-1000 mm/s), faster
-      for light (2000-5000 mm/s). Recommended 2000 mm/s balances efficiency and uniformity for vanadium's high thermal conductivity.
-      From industry standards in laser cleaning manuals (e.g., Laserax equipment guidelines).
-  passCount:
-    min: 1
-    max: 10
-    unit: passes
-    value: 2
-    description: Single pass for light contamination, multi-pass for heavy layers; 2 passes typical for complete removal on
-      metals like vanadium without over-processing. From industry case studies on surface preparation (e.g., reports from
-      Adapt Laser Systems).
-  overlapRatio:
-    min: 10
-    max: 90
-    unit: '%'
-    value: 70
-    description: Ensures uniform coverage and avoids gaps in scan lines; 70% recommended for consistent cleaning on reflective,
-      conductive vanadium to prevent uneven heating. Typical range from process optimization studies (e.g., Zhou et al., Opt.
-      Lasers Eng., 2020 on scan strategies).
-  laserPower:
-    description: Optimal average power for Vanadium oxide removal without substrate damage
-    unit: W
-    value: 100
-    min: 1.0
-    max: 120
-  laserPowerAlternative:
-    min: 50
-    max: 500
-    value: 200
-    unit: W
-    description: Typical range for pulsed laser cleaning of reflective metals like vanadium to avoid excessive heat input;
-      starting at 100-200W recommended to prevent melting (melting point ~1910°C). Based on manufacturer specs from IPG Photonics
-      and Coherent for 1064 nm systems used in metal surface preparation.
-  frequency:
-    min: 1
-    max: 200
-    unit: kHz
-    value: 50
-    description: Standard for pulsed cleaning to ensure pulse overlap without excessive heat accumulation on heat-conductive
-      vanadium; higher rates (>50 kHz) speed up process but risk thermal buildup. 50 kHz optimal trade-off. From academic
-      literature on Nd:YAG cleaning (e.g., Kumar et al., J. Laser Appl., 2018).
-componentSummary: These settings use moderate 200 W power and 10 ns pulses at 1064 nm to effectively ablate contaminants from
-  Vanadium's high-melting-point surface while minimizing thermal distortion and oxidation risks.
+  regulatory:
+    standards:
+      - osha-ppe-requirements
+      - ansi-z136-1-laser-safety
