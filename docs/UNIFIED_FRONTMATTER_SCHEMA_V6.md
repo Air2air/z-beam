@@ -53,9 +53,16 @@ images:
   micro: string               # Filename only
 
 # ===================================
-# SECTION 6: AUTHOR (Reference)
+# SECTION 6: AUTHOR (Enriched Object)
 # ===================================
-authorId: number              # Reference to author registry
+author:                       # Full author object (enriched from authorId during export)
+  id: number                  # Author registry ID (1-4)
+  name: string
+  country: string
+  title: string
+  jobTitle: string
+  expertise: string[]
+  # ... additional fields (20+ total, see enrichment layer)
 
 # ===================================
 # SECTION 7: DOMAIN-SPECIFIC DATA

@@ -23,8 +23,9 @@ const PAGES_DIR = path.join(process.cwd(), 'static-pages');
 
 // Required fields for complete metadata
 // Normalized naming: all pages use pageTitle and pageDescription
+// Author field: frontmatter uses author.id (nested), source data uses authorId (top-level)
 const REQUIRED_FIELDS = {
-  material: ['pageTitle', 'pageDescription', 'category', 'images'],
+  material: ['pageTitle', 'pageDescription', 'category', 'images', 'author.id'],
   page: ['pageTitle', 'pageDescription']
 };
 
