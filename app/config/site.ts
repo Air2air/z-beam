@@ -801,12 +801,12 @@ export function generateOrganizationSchema() {
           "name": service.name,
           "description": service.description
         },
-        "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
+        "price": String(SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate),
         "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
         "image": `${SITE_CONFIG.url}/images/services/${service.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
+          "price": String(SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate),
           "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
           "unitCode": "HUR"
         },

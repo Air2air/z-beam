@@ -1232,11 +1232,11 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       },
       'offers': {
         '@type': 'Offer',
-        'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+        'price': SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
         'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
         'priceSpecification': {
           '@type': 'UnitPriceSpecification',
-          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+          'price': SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
           'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
           'unitText': SITE_CONFIG.pricing.equipmentRental.unit,
           'referenceQuantity': {
