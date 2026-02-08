@@ -113,8 +113,8 @@ function getRelativeValueColor(value: number, allValues: number[], higherIsBette
   }
   
   let hue: number;
-  let saturation = 75;
-  let lightness = 60 - (position * 15);
+  const saturation = 75;
+  const lightness = 60 - (position * 15);
   
   if (position <= 0.5) {
     hue = 120 - (position * 2 * 90);
@@ -222,12 +222,6 @@ function getDamageBadgeStyle(dotColor: string): React.CSSProperties {
     backgroundColor,
     color: textColor
   };
-  
-  if (damageText.includes('high')) {
-    return { text: damage, dotColor: 'bg-red-600', label: 'High' };
-  }
-  
-  return { text: damage, dotColor: 'bg-gray-600', label: 'N/A' };
 }
 
 // Helper function to calculate average from range string (e.g., "50 - 150" -> 100)
