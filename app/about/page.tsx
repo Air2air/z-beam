@@ -1,19 +1,19 @@
 // app/about/page.tsx
 import { Layout } from '../components/Layout/Layout';
 import { JsonLD } from '../components/JsonLD/JsonLD';
-import { RentalPricingBanner } from '../components/RentalPricing';
+// import { RentalPackagesBanner } from '../components/RentalPackages';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '@/app/config/site';
 
 export const metadata = {
-  title: 'Laser Cleaning Equipment Rental Experts | Z-Beam Since 2020',
+  title: 'Laser Cleaning Equipment Rental Experts Since 2020',
   description: `Industrial laser cleaning equipment rental since 2020. Self-service solutions for aerospace, marine & heritage projects. EPA-compliant, zero-waste technology. Training and support included.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
   },
   openGraph: {
-    title: 'Laser Cleaning Equipment Rental Since 2020 | Z-Beam',
+    title: 'Laser Cleaning Equipment Rental Since 2020',
     description: `Industrial equipment rental since 2020. Self-service laser cleaning for 500+ aerospace, marine & heritage projects. Training and support included.`,
     url: `${SITE_CONFIG.url}/about`,
     siteName: SITE_CONFIG.name,
@@ -52,6 +52,12 @@ export default async function AboutPage() {
       {
         '@type': 'ListItem',
         position: 2,
+        name: 'About Us',
+        item: `${SITE_CONFIG.url}/about`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
         name: 'About',
         item: `${SITE_CONFIG.url}/about`
       }
@@ -106,7 +112,7 @@ export default async function AboutPage() {
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="about"
       >
-        <RentalPricingBanner />
+        {/* <RentalPackagesBanner /> */}
       </Layout>
     </>
   );

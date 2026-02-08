@@ -40,6 +40,11 @@ export function generateBreadcrumbs(
     return null;
   }
   
+  // Ensure pageTitle is the last breadcrumb if pageTitle and fullPath exist
+  if (metadata?.pageTitle && metadata?.fullPath) {
+    ensurePageTitleAsLastBreadcrumb(validBreadcrumbs, metadata.pageTitle, metadata.fullPath);
+  }
+  
   return validBreadcrumbs;
 }
 

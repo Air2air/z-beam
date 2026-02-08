@@ -559,7 +559,8 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
   const frontmatter = getMetadata(data);
   const { pageUrl, baseUrl, currentDate } = context;
   
-  const title = frontmatter.title || data.title;
+  // Check multiple title fields: title, pageTitle, name (materials use name + pageTitle)
+  const title = frontmatter.title || frontmatter.pageTitle || frontmatter.name || data.title;
   const description = frontmatter.description || frontmatter.pageDescription || data.description;
   
   if (!title || !description) return null;
@@ -865,29 +866,102 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
     // Build safety properties array
     const safetyProperties: any[] = [];
     if (safetyData) {
+      // Risk assessments
       if (safetyData.fire_explosion_risk) {
         safetyProperties.push({
           '@type': 'PropertyValue',
-          'propertyID': 'fire_explosion_risk',
+          'propertyID': 'safety:fireExplosionRisk',
           'name': 'Fire/Explosion Risk',
-          'value': safetyData.fire_explosion_risk
+          'value': safetyData.fire_explosion_risk,
+          'description': 'Fire and explosion risk level during laser cleaning process'
         });
       }
       if (safetyData.toxic_gas_risk) {
         safetyProperties.push({
           '@type': 'PropertyValue',
-          'propertyID': 'toxic_gas_risk',
+          'propertyID': 'safety:toxicGasRisk',
           'name': 'Toxic Gas Risk',
-          'value': safetyData.toxic_gas_risk
+          'value': safetyData.toxic_gas_risk,
+          'description': 'Risk of toxic gas generation during laser ablation'
         });
       }
       if (safetyData.visibility_hazard) {
         safetyProperties.push({
           '@type': 'PropertyValue',
-          'propertyID': 'visibility_hazard',
+          'propertyID': 'safety:visibilityHazard',
           'name': 'Visibility Hazard',
-          'value': safetyData.visibility_hazard
+          'value': safetyData.visibility_hazard,
+          'description': 'Smoke or fume generation affecting operator visibility'
         });
+      }
+      
+      // PPE Requirements
+      if (safetyData.ppe_requirements) {
+        const ppeItems: string[] = [];
+        if (safetyData.ppe_requirements.respiratory) {
+          ppeItems.push(safetyData.ppe_requirements.respiratory);
+        }
+        if (safetyData.ppe_requirements.eye_protection) {
+          ppeItems.push(safetyData.ppe_requirements.eye_protection);
+        }
+        if (safetyData.ppe_requirements.skin_protection) {
+          ppeItems.push(safetyData.ppe_requirements.skin_protection);
+        }
+        if (safetyData.ppe_requirements.hearing_protection) {
+          ppeItems.push(safetyData.ppe_requirements.hearing_protection);
+        }
+        if (ppeItems.length > 0) {
+          safetyProperties.push({
+            '@type': 'PropertyValue',
+            'propertyID': 'safety:requiredPPE',
+            'name': 'Required Personal Protective Equipment',
+            'value': ppeItems.join('; '),
+            'description': 'Personal protective equipment required for safe laser cleaning operations'
+          });
+        }
+      }
+      
+      // Ventilation Requirements
+      if (safetyData.ventilation_requirements) {
+        const ventItems: string[] = [];
+        if (safetyData.ventilation_requirements.minimum_air_changes_per_hour) {
+          ventItems.push(`${safetyData.ventilation_requirements.minimum_air_changes_per_hour} ACH`);
+        }
+        if (safetyData.ventilation_requirements.exhaust_velocity_m_s) {
+          ventItems.push(`${safetyData.ventilation_requirements.exhaust_velocity_m_s} m/s exhaust velocity`);
+        }
+        if (safetyData.ventilation_requirements.filtration_type) {
+          ventItems.push(`${safetyData.ventilation_requirements.filtration_type} filtration`);
+        }
+        if (ventItems.length > 0) {
+          safetyProperties.push({
+            '@type': 'PropertyValue',
+            'propertyID': 'safety:ventilationRequirements',
+            'name': 'Ventilation Requirements',
+            'value': ventItems.join(', '),
+            'description': 'Required ventilation specifications for safe contaminant removal'
+          });
+        }
+      }
+      
+      // Particulate Generation
+      if (safetyData.particulate_generation) {
+        const partItems: string[] = [];
+        if (safetyData.particulate_generation.particle_size_range_um) {
+          partItems.push(`Particle size: ${safetyData.particulate_generation.particle_size_range_um} μm`);
+        }
+        if (safetyData.particulate_generation.respirable_fraction_percent) {
+          partItems.push(`Respirable fraction: ${safetyData.particulate_generation.respirable_fraction_percent}%`);
+        }
+        if (partItems.length > 0) {
+          safetyProperties.push({
+            '@type': 'PropertyValue',
+            'propertyID': 'safety:particulateGeneration',
+            'name': 'Particulate Generation',
+            'value': partItems.join(', '),
+            'description': 'Airborne particulate characteristics generated during laser cleaning'
+          });
+        }
       }
     }
     
@@ -903,8 +977,10 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       });
     }
     
-    // Build safety consideration text
+    // Build comprehensive safety consideration text
     let safetyConsideration: string | undefined;
+    const safetyNotes: string[] = [];
+    
     if (safetyData?.ppe_requirements) {
       const ppeItems: string[] = [];
       if (safetyData.ppe_requirements.respiratory) {
@@ -913,9 +989,37 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       if (safetyData.ppe_requirements.eye_protection) {
         ppeItems.push(`Eye Protection: ${safetyData.ppe_requirements.eye_protection}`);
       }
-      if (ppeItems.length > 0) {
-        safetyConsideration = `Required PPE: ${ppeItems.join(', ')}.`;
+      if (safetyData.ppe_requirements.skin_protection) {
+        ppeItems.push(`Skin Protection: ${safetyData.ppe_requirements.skin_protection}`);
       }
+      if (ppeItems.length > 0) {
+        safetyNotes.push(`Required PPE: ${ppeItems.join(', ')}`);
+      }
+    }
+    
+    if (safetyData?.ventilation_requirements) {
+      const ventItems: string[] = [];
+      if (safetyData.ventilation_requirements.minimum_air_changes_per_hour) {
+        ventItems.push(`minimum ${safetyData.ventilation_requirements.minimum_air_changes_per_hour} ACH`);
+      }
+      if (safetyData.ventilation_requirements.filtration_type) {
+        ventItems.push(`${safetyData.ventilation_requirements.filtration_type} filtration`);
+      }
+      if (ventItems.length > 0) {
+        safetyNotes.push(`Ventilation: ${ventItems.join(', ')}`);
+      }
+    }
+    
+    if (safetyData?.fire_explosion_risk && safetyData.fire_explosion_risk !== 'low') {
+      safetyNotes.push(`Fire/explosion risk: ${safetyData.fire_explosion_risk}`);
+    }
+    
+    if (safetyData?.toxic_gas_risk && safetyData.toxic_gas_risk !== 'low') {
+      safetyNotes.push(`Toxic gas risk: ${safetyData.toxic_gas_risk}`);
+    }
+    
+    if (safetyNotes.length > 0) {
+      safetyConsideration = safetyNotes.join('. ') + '.';
     }
     
     products.push({

@@ -1,6 +1,7 @@
 // app/partners/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { ContentSection } from "../components/ContentCard";import { RentalPricingBanner } from '../components/RentalPricing';import { SITE_CONFIG } from "@/app/config/site";
+import { ContentSection } from "../components/ContentCard";// import { RentalPackagesBanner } from '../components/RentalPackages';
+import { SITE_CONFIG } from "@/app/config/site";
 import { PARTNERS_DATA } from '@/app/utils/staticPageData.generated';
 import type { ContentCardItem, ArticleMetadata } from '@/types';
 
@@ -74,7 +75,7 @@ export default function PartnersPage() {
       metadata={pageConfig as ArticleMetadata}
       slug="partners"
     >
-      <RentalPricingBanner />
+      {/* <RentalPackagesBanner /> */}
       
       {pageConfig.contentCards && pageConfig.contentCards.length > 0 && (
         <ContentSection items={pageConfig.contentCards as ContentCardItem[]} />

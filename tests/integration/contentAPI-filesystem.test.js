@@ -62,7 +62,7 @@ describe('ContentAPI File System Integration', () => {
       expect(article).not.toBeNull();
       expect(article).toBeDefined();
       expect(article.frontmatter).toBeDefined();
-      expect(article.frontmatter.pageTitle).toBe('Granite');
+      expect(article.frontmatter.pageTitle).toBe('Granite Laser Cleaning');
       expect(article.frontmatter.category).toBe('stone');
       expect(article.frontmatter.subcategory).toBe('igneous');
     });
@@ -72,7 +72,7 @@ describe('ContentAPI File System Integration', () => {
       
       expect(article).not.toBeNull();
       expect(article.frontmatter).toBeDefined();
-      expect(article.frontmatter.pageTitle).toBe('Aluminum');
+      expect(article.frontmatter.pageTitle).toBe('Aluminum Laser Cleaning');
       expect(article.frontmatter.category).toBe('metal');
       expect(article.frontmatter.subcategory).toBe('non-ferrous');
     });
@@ -82,7 +82,7 @@ describe('ContentAPI File System Integration', () => {
       
       expect(article).not.toBeNull();
       expect(article.frontmatter).toBeDefined();
-      expect(article.frontmatter.pageTitle).toBe('Alumina');
+      expect(article.frontmatter.pageTitle).toBe('Alumina Laser Cleaning');
       expect(article.frontmatter.category).toBe('ceramic');
       expect(article.frontmatter.subcategory).toBe('oxide');
     });

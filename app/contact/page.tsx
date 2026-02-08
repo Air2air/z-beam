@@ -1,7 +1,7 @@
 // app/contact/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from "../components/JsonLD/JsonLD";
-import { RentalPricingBanner } from '../components/RentalPricing';
+// import { RentalPackagesBanner } from '../components/RentalPackages';
 import { loadStaticPage } from '@/app/utils/staticPageLoader';
 import { ArticleMetadata } from "@/types";
 import Link from "next/link";
@@ -134,7 +134,7 @@ export default function ContactPage() {
         }
         slug="contact"
       >
-        <RentalPricingBanner />
+        {/* <RentalPackagesBanner /> */}
         
         <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_GAP_RESPONSIVE} mt-8 items-start`}>
           {/* Workiz Service Request Form */}

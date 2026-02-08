@@ -1,20 +1,24 @@
 // app/rental/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
+import { ComparisonTable } from "../components/ComparisonTable";
+import type { ComparisonMethod } from "../components/ComparisonTable";
+import { BaseSection } from "../components/BaseSection";
 import { SITE_CONFIG } from "@/app/config/site";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { RENTAL_DATA } from '@/app/utils/staticPageData.generated';
 import type { ContentCardItem } from '@/types';
+import comparisonMethodsData from '@/data/comparison-methods.json';
 
 export const metadata = {
-  title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
-  description: 'Professional laser cleaning equipment delivered to your location in California. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum. Includes training, safety gear, and 24/7 support.',
+  title: 'Laser Equipment Rental | Delivered to Your Location',
+  description: 'Professional laser equipment delivered to your location in California. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum with training and support.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/rental`,
   },
   openGraph: {
-    title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
-    description: 'Professional laser cleaning equipment delivered to your location. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum. Training and support included.',
+    title: 'Laser Equipment Rental | Delivered to Your Location',
+    description: 'Professional laser equipment delivered to your location. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum with training and support.',
     url: `${SITE_CONFIG.url}/rental`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -29,9 +33,32 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Laser Equipment Rental | Delivered to Your Location | Z-Beam',
-    description: 'Professional laser equipment delivered to your location in California. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum.',
+    title: 'Laser Equipment Rental | Delivered to Your Location',
+    description: 'Professional laser equipment delivered to your location. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum with training and support.',
   },
+};
+
+// Image Schema for rental page
+const imageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  '@id': `${SITE_CONFIG.url}/images/pages/rental.png#image`,
+  'contentUrl': `${SITE_CONFIG.url}/images/pages/rental.png`,
+  'url': `${SITE_CONFIG.url}/images/pages/rental.png`,
+  'width': '1200',
+  'height': '630',
+  'caption': 'Laser Cleaning Equipment Rental - Professional equipment delivered to your location',
+  'description': 'Professional laser cleaning equipment rental services with outdoor and indoor packages',
+  'creator': {
+    '@type': 'Organization',
+    '@id': `${SITE_CONFIG.url}#organization`,
+    'name': SITE_CONFIG.name,
+    'url': SITE_CONFIG.url
+  },
+  'copyrightNotice': `© ${new Date().getFullYear()} ${SITE_CONFIG.name}. All rights reserved.`,
+  'creditText': SITE_CONFIG.name,
+  'license': `${SITE_CONFIG.url}/terms`,
+  'acquireLicensePage': `${SITE_CONFIG.url}/contact`
 };
 
 export default function RentalPage() {
@@ -40,6 +67,9 @@ export default function RentalPage() {
   
   // Load rental page configuration from pre-loaded static data
   const pageConfig = RENTAL_DATA;
+  
+  // Silicon Valley Comparison Data - loaded from JSON
+  const siliconValleyComparison: ComparisonMethod[] = comparisonMethodsData as ComparisonMethod[];
   
   // Equipment Rental Service JSON-LD Schema
   const rentalSchema = {
@@ -222,6 +252,12 @@ export default function RentalPage() {
           {
             '@type': 'ListItem',
             'position': 2,
+            'name': 'Services',
+            'item': `${SITE_CONFIG.url}/rental`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
             'name': 'Equipment Rental',
             'item': `${SITE_CONFIG.url}/rental`
           }
@@ -245,7 +281,10 @@ export default function RentalPage() {
         'mainEntity': {
           '@id': `${SITE_CONFIG.url}/rental#service`
         }
-      }
+      },
+      
+      // Image Schema
+      imageSchema
     ]
   };
   
@@ -258,9 +297,15 @@ export default function RentalPage() {
         metadata={pageConfig}
         slug="rental"
       >
-        {pageConfig.contentCards && pageConfig.contentCards.length > 0 && (
-          <ContentSection items={pageConfig.contentCards as ContentCardItem[]} />
-        )}
+        <BaseSection
+          title="Silicon Valley Cleaning Methods Comparison"
+          description="Averaged costs and effectiveness of different cleaning and surface prep methods"
+        >
+          <ComparisonTable
+            methods={siliconValleyComparison}
+            highlightMethod="Laser Cleaning"
+          />
+        </BaseSection>
       </Layout>
     </>
   );

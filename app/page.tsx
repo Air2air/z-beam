@@ -149,8 +149,8 @@ export default async function HomePage() {
           '@type': 'WebPage',
           '@id': `${SITE_CONFIG.url}/#webpage`,
           url: SITE_CONFIG.url,
-          name: pageTitle,
-          description: homeConfig.description || SITE_CONFIG.description,
+          name: homeConfig.pageTitle || pageTitle || SITE_CONFIG.name,
+          description: homeConfig.pageDescription || homeConfig.description || SITE_CONFIG.description,
           isPartOf: {
             '@type': 'WebSite',
             '@id': `${SITE_CONFIG.url}/#website`

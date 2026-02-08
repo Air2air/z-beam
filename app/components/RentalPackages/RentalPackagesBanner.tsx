@@ -1,8 +1,8 @@
-// app/components/RentalPricing/RentalPricingBanner.tsx
+// app/components/RentalPackages/RentalPackagesBanner.tsx
 import Link from 'next/link';
 import { SITE_CONFIG } from '@/app/config/site';
 
-export interface RentalPricingBannerProps {
+export interface RentalPackagesBannerProps {
   variant?: 'compact' | 'full';
 }
 
@@ -12,7 +12,7 @@ export interface RentalPricingBannerProps {
  * Displays rental package information with link to rental page.
  * Can be placed at top of static pages for quick rental info access.
  */
-export function RentalPricingBanner({ variant = 'compact' }: RentalPricingBannerProps) {
+export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBannerProps) {
   const { packages, minimumHours } = SITE_CONFIG.pricing.equipmentRental;
   
   return (

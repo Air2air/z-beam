@@ -664,9 +664,21 @@ export function createCategoryHeader(title: string, itemCount: number) {
  */
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
-    name: "Rentals",
+    name: "Services",
     href: "/rental",
-    description: "Rent professional laser cleaning equipment"
+    description: "Our laser cleaning services",
+    dropdown: [
+      {
+        name: "Rentals",
+        href: "/rental",
+        description: "Rent professional laser cleaning equipment"
+      },
+      {
+        name: "Equipment",
+        href: "/equipment",
+        description: "Laser cleaning equipment information"
+      },
+    ]
   },
   {
     name: "About Us",

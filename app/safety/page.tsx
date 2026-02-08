@@ -90,7 +90,7 @@ export default async function SafetyPage() {
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="safety"
       >
-        <RentalPricingBanner />
+        {/* <RentalPackagesBanner /> */}
         
         {/* Overview */}
         <div className="mt-8">
