@@ -21,7 +21,7 @@ describe('Constants', () => {
     });
 
     test('should have descriptive site description', () => {
-      expect(SITE_CONFIG.description).toBe('Industrial laser cleaning equipment rental with training and support. Self-service laser systems for rust removal, surface prep, and coating removal. Hourly and project-based rental options.');
+      expect(SITE_CONFIG.description).toBe('San Francisco Bay Area industrial laser cleaning equipment rental with training and support. Serving Silicon Valley, East Bay, Peninsula, North Bay, and secondary coverage throughout California. Self-service laser systems for rust removal, surface prep, and coating removal.');
     });
 
     test('should return localhost URL in development', () => {

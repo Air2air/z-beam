@@ -12,13 +12,13 @@ import comparisonMethodsData from '@/data/comparison-methods.json';
 
 export const metadata = {
   title: 'Laser Equipment Rental | Delivered to Your Location',
-  description: 'Professional laser equipment delivered to your location in California. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum with training and support.',
+  description: 'Professional laser equipment delivered to your location in California. Starting at $390/hr with 2-hour minimum. Includes training and support.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/rental`,
   },
   openGraph: {
     title: 'Laser Equipment Rental | Delivered to Your Location',
-    description: 'Professional laser equipment delivered to your location. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum with training and support.',
+    description: 'Professional laser equipment delivered to your location. Starting at $390/hr with 2-hour minimum. Includes training and support.',
     url: `${SITE_CONFIG.url}/rental`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -34,7 +34,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Laser Equipment Rental | Delivered to Your Location',
-    description: 'Professional laser equipment delivered to your location. Outdoor: $390/hr, Indoor: $460/hr. 2-hour minimum with training and support.',
+    description: 'Professional laser equipment delivered to your location. Starting at $390/hr with 2-hour minimum. Includes training and support.',
   },
 };
 
@@ -48,7 +48,7 @@ const imageSchema = {
   'width': '1200',
   'height': '630',
   'caption': 'Laser Cleaning Equipment Rental - Professional equipment delivered to your location',
-  'description': 'Professional laser cleaning equipment rental services with outdoor and indoor packages',
+  'description': 'Professional laser cleaning equipment rental services starting at $390/hour',
   'creator': {
     '@type': 'Organization',
     '@id': `${SITE_CONFIG.url}#organization`,
@@ -63,7 +63,7 @@ const imageSchema = {
 
 export default function RentalPage() {
   const pricing = SITE_CONFIG.pricing.equipmentRental;
-  const { packages, minimumHours, currency } = pricing;
+  const { hourlyRate, minimumHours, currency } = pricing;
   
   // Load rental page configuration from pre-loaded static data
   const pageConfig = RENTAL_DATA;
@@ -75,12 +75,12 @@ export default function RentalPage() {
   const rentalSchema = {
     '@context': 'https://schema.org',
     '@graph': [
-      // Main Service Schema - Outdoor Package
+      // Main Equipment Rental Service Schema
       {
         '@type': 'Service',
-        '@id': `${SITE_CONFIG.url}/rental#outdoor-service`,
-        'name': packages.outdoor.label,
-        'description': `${packages.outdoor.description}. $${packages.outdoor.hourlyRate}/hour with ${minimumHours}-hour minimum. Includes equipment delivery, on-site training, 24/7 technical support, and all necessary safety equipment.`,
+        '@id': `${SITE_CONFIG.url}/rental#service`,
+        'name': 'Laser Cleaning Equipment Rental',
+        'description': `Professional laser cleaning equipment rental service. Starting at $${hourlyRate}/hour with ${minimumHours}-hour minimum. Includes equipment delivery, on-site training, 24/7 technical support, and all necessary safety equipment.`,
         'provider': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
@@ -96,7 +96,7 @@ export default function RentalPage() {
             'addressCountry': SITE_CONFIG.address.country
           }
         },
-        'serviceType': 'Equipment Rental - Outdoor',
+        'serviceType': 'Equipment Rental',
         'areaServed': {
           '@type': 'Country',
           'name': 'United States'
@@ -117,11 +117,11 @@ export default function RentalPage() {
         },
         'offers': {
           '@type': 'Offer',
-          'price': packages.outdoor.hourlyRate,
+          'price': hourlyRate,
           'priceCurrency': currency,
           'priceSpecification': {
             '@type': 'UnitPriceSpecification',
-            'price': packages.outdoor.hourlyRate,
+            'price': hourlyRate,
             'priceCurrency': currency,
             'unitText': pricing.unit,
             'referenceQuantity': {
@@ -145,64 +145,7 @@ export default function RentalPage() {
         },
         'category': [
           'Equipment Rental',
-          'Laser Cleaning Equipment',
-          'Outdoor Applications'
-        ],
-        'termsOfService': `${SITE_CONFIG.url}/rental`
-      },
-      
-      // Main Service Schema - Indoor Package
-      {
-        '@type': 'Service',
-        '@id': `${SITE_CONFIG.url}/rental#indoor-service`,
-        'name': packages.indoor.label,
-        'description': `${packages.indoor.description}. $${packages.indoor.hourlyRate}/hour with ${minimumHours}-hour minimum. Includes equipment delivery, on-site training, 24/7 technical support, and all necessary safety equipment.`,
-        'provider': {
-          '@type': 'Organization',
-          '@id': `${SITE_CONFIG.url}#organization`
-        },
-        'serviceType': 'Equipment Rental - Indoor',
-        'areaServed': {
-          '@type': 'Country',
-          'name': 'United States'
-        },
-        'availableChannel': {
-          '@type': 'ServiceChannel',
-          'serviceUrl': `${SITE_CONFIG.url}/contact`,
-          'servicePhone': SITE_CONFIG.contact.sales.phoneHref
-        },
-        'offers': {
-          '@type': 'Offer',
-          'price': packages.indoor.hourlyRate,
-          'priceCurrency': currency,
-          'priceSpecification': {
-            '@type': 'UnitPriceSpecification',
-            'price': packages.indoor.hourlyRate,
-            'priceCurrency': currency,
-            'unitText': pricing.unit,
-            'referenceQuantity': {
-              '@type': 'QuantitativeValue',
-              'value': 1,
-              'unitText': pricing.unit
-            }
-          },
-          'availability': 'https://schema.org/InStock',
-          'url': `${SITE_CONFIG.url}/rental`,
-          'seller': {
-            '@type': 'Organization',
-            '@id': `${SITE_CONFIG.url}#organization`
-          },
-          'eligibleDuration': {
-            '@type': 'QuantitativeValue',
-            'value': minimumHours,
-            'unitText': 'hour',
-            'minValue': minimumHours
-          }
-        },
-        'category': [
-          'Equipment Rental',
-          'Laser Cleaning Equipment',
-          'Indoor Applications'
+          'Laser Cleaning Equipment'
         ],
         'termsOfService': `${SITE_CONFIG.url}/rental`
       },
@@ -212,29 +155,19 @@ export default function RentalPage() {
         '@type': 'Product',
         '@id': `${SITE_CONFIG.url}/rental#equipment`,
         'name': 'Laser Cleaning Equipment',
-        'description': `Professional Netalux laser cleaning systems delivered to your location for rent. Choose from Outdoor Package ($${packages.outdoor.hourlyRate}/hour) or Indoor Package ($${packages.indoor.hourlyRate}/hour). ${minimumHours}-hour minimum.`,
+        'description': `Professional Netalux laser cleaning systems delivered to your location for rent. Starting at $${hourlyRate}/hour with ${minimumHours}-hour minimum.`,
         'brand': {
           '@type': 'Brand',
           'name': 'Netalux'
         },
-        'offers': [
-          {
-            '@type': 'Offer',
-            'name': packages.outdoor.label,
-            'price': packages.outdoor.hourlyRate,
-            'priceCurrency': currency,
-            'availability': 'https://schema.org/InStock',
-            'url': `${SITE_CONFIG.url}/rental`
-          },
-          {
-            '@type': 'Offer',
-            'name': packages.indoor.label,
-            'price': packages.indoor.hourlyRate,
-            'priceCurrency': currency,
-            'availability': 'https://schema.org/InStock',
-            'url': `${SITE_CONFIG.url}/rental`
-          }
-        ],
+        'offers': {
+          '@type': 'Offer',
+          'name': 'Laser Cleaning Equipment Rental',
+          'price': hourlyRate,
+          'priceCurrency': currency,
+          'availability': 'https://schema.org/InStock',
+          'url': `${SITE_CONFIG.url}/rental`
+        },
         'category': 'Industrial Laser Equipment'
       },
       
@@ -298,8 +231,8 @@ export default function RentalPage() {
         slug="rental"
       >
         <BaseSection
-          title="Silicon Valley Cleaning Methods Comparison"
-          description="Averaged costs and effectiveness of different cleaning and surface prep methods"
+          title="Surface Cleaning Comparison"
+          description="Researched averages among California service providers. Greater ranges will exist"
         >
           <ComparisonTable
             methods={siliconValleyComparison}

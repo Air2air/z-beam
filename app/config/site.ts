@@ -11,7 +11,7 @@ import type { StandardGridProps, NavItem } from '@/types';
 export const SITE_CONFIG = {
   name: 'Z-Beam Laser Cleaning',
   shortName: 'Z-Beam',
-  description: 'Industrial laser cleaning equipment rental with training and support. Self-service laser systems for rust removal, surface prep, and coating removal. Hourly and project-based rental options.',
+  description: 'San Francisco Bay Area industrial laser cleaning equipment rental with training and support. Serving Silicon Valley, East Bay, Peninsula, North Bay, and secondary coverage throughout California. Self-service laser systems for rust removal, surface prep, and coating removal.',
   url: process.env.NODE_ENV === 'production' 
     ? 'https://www.z-beam.com' 
     : 'http://localhost:3000',
@@ -44,22 +44,11 @@ export const SITE_CONFIG = {
   // Service Pricing (hourly rates in USD)
   pricing: {
     equipmentRental: {
-      packages: {
-        outdoor: {
-          hourlyRate: 390,
-          label: 'Outdoor Package',
-          description: 'Professional laser cleaning equipment for outdoor applications'
-        },
-        indoor: {
-          hourlyRate: 460,
-          label: 'Indoor Package',
-          description: 'Professional laser cleaning equipment for indoor applications'
-        }
-      },
+      hourlyRate: 390,
       currency: 'USD',
       unit: 'hour',
       minimumHours: 2,
-      description: 'Professional laser cleaning equipment delivered to your location with training and support included. Choose from Outdoor ($390/hr) or Indoor ($460/hr) packages. 2-hour minimum.',
+      description: 'Professional laser cleaning equipment delivered throughout the San Francisco Bay Area and California with training and support included. Based in Belmont, CA serving Silicon Valley, Peninsula, East Bay, and North Bay. Starting at $390/hour with 2-hour minimum.',
       sku: 'ZB-EQUIP-RENT'
     }
   },
@@ -334,13 +323,30 @@ export const BUSINESS_CONFIG = {
   },
 
   serviceArea: [
+    // Primary Market - San Francisco Bay Area
     {
-      type: "State",
-      name: "Arizona"
+      type: "Place",
+      name: "San Francisco Bay Area",
+      isPrimary: true,
+      subregions: ["Silicon Valley", "Peninsula", "East Bay", "North Bay", "South Bay"]
     },
+    // Secondary California Markets
     {
       type: "State",
       name: "California"
+    },
+    {
+      type: "Place",
+      name: "Sacramento Metropolitan Area"
+    },
+    {
+      type: "Place",
+      name: "Los Angeles Metropolitan Area"
+    },
+    // Extended Western Regional Coverage
+    {
+      type: "State",
+      name: "Arizona"
     },
     {
       type: "State",
@@ -349,14 +355,6 @@ export const BUSINESS_CONFIG = {
     {
       type: "State",
       name: "Oregon"
-    },
-    {
-      type: "Place",
-      name: "San Francisco Bay Area"
-    },
-    {
-      type: "Place",
-      name: "Los Angeles Metropolitan Area"
     },
     {
       type: "Place",
@@ -369,10 +367,6 @@ export const BUSINESS_CONFIG = {
     {
       type: "Place",
       name: "Las Vegas Metropolitan Area"
-    },
-    {
-      type: "Place",
-      name: "Sacramento Metropolitan Area"
     }
   ],
 
@@ -381,8 +375,9 @@ export const BUSINESS_CONFIG = {
     priceRange: "$$$",
     paymentMethods: ["Credit Card", "Bank Transfer", "Check", "Invoice"],
     languages: ["English"],
-    deliveryArea: "Arizona, California, Nevada, and Oregon",
+    deliveryArea: "San Francisco Bay Area (primary), California (secondary), and extended coverage to Arizona, Nevada, and Oregon",
     travelRadius: 500,
+    primaryServiceRadius: 50, // Miles from Belmont, CA - Bay Area focus
     
     // Google Business Profile attributes
     businessAttributes: {
@@ -528,22 +523,36 @@ export const BUSINESS_CONFIG = {
     suggestedPosts: [
       {
         type: "What's New",
-        title: "New Laser Cleaning Equipment Available",
-        description: "Latest generation equipment with improved safety features and efficiency"
+        title: "Serving San Francisco Bay Area with Professional Laser Cleaning",
+        description: "Based in Belmont, CA. Same-day delivery throughout Silicon Valley, Peninsula, East Bay, and North Bay. Latest generation equipment with improved safety features."
       },
       {
         type: "Products", 
-        title: "Rust Removal Services",
-        description: "Professional rust removal for industrial equipment and heritage restoration"
+        title: "Industrial Rust Removal - Bay Area Service",
+        description: "Professional rust removal for manufacturing, aerospace, and heritage restoration. Serving San Jose, Oakland, San Francisco, and surrounding communities."
       },
       {
         type: "Offers",
-        title: "Free Equipment Delivery & Pickup", 
-        description: "Mobile delivery and pickup service included. Call or visit website for estimates"
+        title: "Free Bay Area Equipment Delivery & Pickup", 
+        description: "Complimentary delivery and pickup throughout the San Francisco Bay Area. Same-day service available for Peninsula and South Bay locations. Call (650) 590-5040 or visit website for estimates."
+      },
+      {
+        type: "What's New",
+        title: "California Regional Coverage Available",
+        description: "Extended service coverage to Sacramento, Los Angeles, and select locations throughout California. Contact us for availability and scheduling."
       }
     ],
     updateFrequency: "Weekly",
-    contentFocus: ["Mobile delivery service", "Equipment updates", "Free estimates", "Industrial applications", "Safety training"]
+    contentFocus: [
+      "Bay Area mobile delivery",
+      "Silicon Valley service",
+      "Same-day Peninsula delivery",
+      "California coverage",
+      "Equipment updates",
+      "Free estimates",
+      "Industrial applications",
+      "Safety training"
+    ]
   }
 } as const;
 
@@ -813,12 +822,12 @@ export function generateOrganizationSchema() {
           "name": service.name,
           "description": service.description
         },
-        "price": String(SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate),
+        "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
         "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
         "image": `${SITE_CONFIG.url}/images/services/${service.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": String(SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate),
+          "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
           "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
           "unitCode": "HUR"
         },
@@ -828,10 +837,37 @@ export function generateOrganizationSchema() {
       }))
     },
     
-    "areaServed": BUSINESS_CONFIG.serviceArea.map(area => ({
-      "@type": area.type,
-      "name": area.name
-    })),
+    "areaServed": BUSINESS_CONFIG.serviceArea.map(area => {
+      const areaObject: any = {
+        "@type": area.type,
+        "name": area.name
+      };
+      
+      // Add Bay Area geo-targeting with specific coordinates and subregions
+      if (area.name === "San Francisco Bay Area") {
+        areaObject.geo = {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.5202,  // Belmont, CA
+            "longitude": -122.2758
+          },
+          "geoRadius": "50 mi"  // Primary service radius
+        };
+        areaObject.containedInPlace = {
+          "@type": "State",
+          "name": "California"
+        };
+        areaObject.description = "Primary service area including Silicon Valley, Peninsula, East Bay, North Bay, and South Bay communities";
+      }
+      
+      // Add California secondary market note
+      if (area.type === "State" && area.name === "California") {
+        areaObject.description = "Secondary coverage throughout California including Sacramento and Los Angeles metropolitan areas";
+      }
+      
+      return areaObject;
+    }),
     
     "openingHoursSpecification": [
       {

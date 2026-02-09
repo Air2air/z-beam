@@ -106,22 +106,19 @@ export default async function HomePage() {
             name: SITE_CONFIG.name
           },
           offers: {
-            '@type': 'AggregateOffer',
-            lowPrice: SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
-            highPrice: SITE_CONFIG.pricing.equipmentRental.packages.indoor.hourlyRate,
+            '@type': 'Offer',
+            price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
             priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
             priceValidUntil: '2026-12-31',
             availability: 'https://schema.org/InStock',
             url: `${SITE_CONFIG.url}/rental`,
-            offerCount: 3,
             seller: {
               '@type': 'Organization',
               '@id': `${SITE_CONFIG.url}/#organization`
             },
             priceSpecification: {
               '@type': 'UnitPriceSpecification',
-              minPrice: SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
-              maxPrice: SITE_CONFIG.pricing.equipmentRental.packages.indoor.hourlyRate,
+              price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
               priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
               unitText: SITE_CONFIG.pricing.equipmentRental.unit,
               referenceQuantity: {

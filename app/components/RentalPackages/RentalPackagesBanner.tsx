@@ -13,7 +13,7 @@ export interface RentalPackagesBannerProps {
  * Can be placed at top of static pages for quick rental info access.
  */
 export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBannerProps) {
-  const { packages, minimumHours } = SITE_CONFIG.pricing.equipmentRental;
+  const { hourlyRate, minimumHours } = SITE_CONFIG.pricing.equipmentRental;
   
   return (
     <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg mb-8">
@@ -32,7 +32,7 @@ export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBann
                   strokeLinecap="round" 
                   strokeLinejoin="round" 
                   strokeWidth={2} 
-                  d="M13 10V3L4 14h7v7l9-11h-7z" 
+                  d="M13 10V3L4 14h7v7l9-11h-7" 
                 />
               </svg>
               <div>
@@ -41,17 +41,10 @@ export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBann
               </div>
             </div>
             
-            <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center">
               <div className="text-center">
-                <div className="text-2xl font-bold">${packages.outdoor.hourlyRate}/hr</div>
-                <div className="text-sm text-blue-100">Outdoor</div>
-              </div>
-              
-              <div className="h-12 w-px bg-blue-400 hidden sm:block" aria-hidden="true" />
-              
-              <div className="text-center">
-                <div className="text-2xl font-bold">${packages.indoor.hourlyRate}/hr</div>
-                <div className="text-sm text-blue-100">Indoor</div>
+                <div className="text-3xl font-bold">Starting at ${hourlyRate}/hr</div>
+                <div className="text-sm text-blue-100">Professional laser cleaning equipment</div>
               </div>
             </div>
           </div>

@@ -149,12 +149,12 @@ export function generateProductSchema(options: ProductSchemaOptions) {
     offers: {
       '@type': 'Offer',
       url: pageUrl,
-      price: SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
+      price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
       priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
       availability: 'https://schema.org/InStock',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate,
+        price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
         priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
         unitText: SITE_CONFIG.pricing.equipmentRental.unit,
         referenceQuantity: {
@@ -168,7 +168,7 @@ export function generateProductSchema(options: ProductSchemaOptions) {
         name: SITE_CONFIG.name,
         url: SITE_CONFIG.url
       },
-      description: `${SITE_CONFIG.pricing.equipmentRental.description} for ${name}. $${SITE_CONFIG.pricing.equipmentRental.packages.outdoor.hourlyRate}/${SITE_CONFIG.pricing.equipmentRental.unit}, ${SITE_CONFIG.pricing.equipmentRental.minimumHours || 2}-hour minimum. Delivered to your location.`
+      description: `${SITE_CONFIG.pricing.equipmentRental.description} for ${name}. $${SITE_CONFIG.pricing.equipmentRental.hourlyRate}/${SITE_CONFIG.pricing.equipmentRental.unit}, ${SITE_CONFIG.pricing.equipmentRental.minimumHours || 2}-hour minimum. Delivered to your location.`
     }
   };
 }

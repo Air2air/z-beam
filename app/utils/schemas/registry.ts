@@ -95,10 +95,10 @@ export function generateServiceSchema(options?: {
   pricing?: typeof SITE_CONFIG.pricing.equipmentRental;
 }): SchemaOrgBase {
   const pricing = options?.pricing || SITE_CONFIG.pricing.equipmentRental;
-  const serviceName = options?.serviceName || pricing.packages.outdoor.label;
-  const description = options?.description || pricing.packages.outdoor.description;
+  const serviceName = options?.serviceName || 'Laser Cleaning Equipment Rental';
+  const description = options?.description || pricing.description;
 
-  const hourlyRate = pricing.packages.outdoor.hourlyRate;
+  const hourlyRate = pricing.hourlyRate;
 
   return {
     '@type': 'Service',
@@ -141,11 +141,11 @@ export function generateServiceSchema(options?: {
     },
     'offers': {
       '@type': 'Offer',
-      'price': pricing.packages.outdoor.hourlyRate,
+      'price': pricing.hourlyRate,
       'priceCurrency': pricing.currency,
       'priceSpecification': {
         '@type': 'UnitPriceSpecification',
-        'price': pricing.packages.outdoor.hourlyRate,
+        'price': pricing.hourlyRate,
         'priceCurrency': pricing.currency,
         'unitText': pricing.unit
       },

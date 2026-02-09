@@ -116,7 +116,7 @@ export function Pricing({
       <PricingCard
         title="Equipment Rental"
         description={`Delivered to your location • ${equipmentRental.minimumHours || 2}-hour minimum`}
-        price={equipmentRental.packages.outdoor.hourlyRate}
+        price={equipmentRental.hourlyRate}
         unit={equipmentRental.unit}
         href="/rental"
         ctaText="Request Equipment Rental"

@@ -36,7 +36,7 @@ export const metadata = {
 
 export default function EquipmentPage() {
   const pricing = SITE_CONFIG.pricing.equipmentRental;
-  const { packages, minimumHours, currency } = pricing;
+  const { hourlyRate, minimumHours, currency } = pricing;
   
   // Load equipment page configuration from pre-loaded static data
   // Note: Using RENTAL_DATA as placeholder - should be updated to EQUIPMENT_DATA when available
