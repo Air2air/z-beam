@@ -288,6 +288,9 @@ node scripts/validation/post-deployment/validate-production-comprehensive.js [op
 - `--skip-performance` - Skip PageSpeed/Core Web Vitals check
 - `--skip-accessibility` - Skip accessibility checks
 - `--max-urls=<n>` - Limit sitemap crawl size for smoke runs (default: full sitemap)
+- `--compare-url=<url>` - Compare production URL behavior against a second deploy URL (preview/staging parity)
+- `--require-rich-results` - Fail if required rich-results schema fields are missing
+- `--strict-seo` - Treat SEO warnings in strict categories as deployment blockers
 
 **Examples:**
 ```bash
@@ -296,6 +299,12 @@ npm run validate:production:comprehensive
 
 # Fast smoke test for CI triage
 node scripts/validation/post-deployment/validate-production-comprehensive.js --skip-external --max-urls=50
+
+# Strict SEO gating (canonical/indexability/schema warnings fail build)
+npm run validate:production:strict-seo
+
+# Production vs preview parity (set COMPARE_URL first)
+COMPARE_URL=https://<preview-domain> npm run validate:production:parity
 ```
 
 jobs:

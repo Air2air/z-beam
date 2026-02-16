@@ -43,12 +43,15 @@ const args = process.argv.slice(2).reduce((acc, arg) => {
 }, {});
 
 const TARGET_URL = args.url || DEFAULT_URL;
+const COMPARE_URL = args['compare-url'] || null;
 const SKIP_EXTERNAL = args['skip-external'] || false;
 const SKIP_PERFORMANCE = args['skip-performance'] || false;
 const SKIP_ACCESSIBILITY = args['skip-accessibility'] || false;
 const REPORT_FORMAT = args.report || 'console';
 const OUTPUT_FILE = args.output;
 const MAX_URLS = Number(args['max-urls'] || 0); // 0 = no limit
+const STRICT_SEO = args['strict-seo'] || false;
+const REQUIRE_RICH_RESULTS = args['require-rich-results'] || false;
 
 const CRITICAL_ROUTES = [
   '/',
@@ -61,6 +64,18 @@ const CRITICAL_ROUTES = [
 ];
 
 const SITEMAP_URL = '/sitemap.xml';
+
+const RICH_RESULT_REQUIRED_FIELDS = {
+  Dataset: ['name', 'description', 'url'],
+  Product: ['name', 'description'],
+  Article: ['headline'],
+  HowTo: ['name'],
+  BreadcrumbList: ['itemListElement'],
+  WebPage: ['name', 'url'],
+  Organization: ['name'],
+  LocalBusiness: ['name'],
+  Service: ['name'],
+};
 
 // Results object
 const results = {
@@ -651,6 +666,158 @@ async function checkFullSiteStructuredDataCoverage() {
     console.log(`   Score: ${results.categories['schema-coverage'].score}%`);
   } catch (error) {
     addResult('schema-coverage', 'Full-Site Structured Data Coverage', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.35 RICH-RESULTS READINESS (Schema Property Completeness)
+// ============================================================================
+async function checkRichResultsReadiness() {
+  console.log('\n🏅 2.35 RICH-RESULTS READINESS');
+  console.log('─'.repeat(60));
+
+  try {
+    const sitemapUrls = await getSitemapUrls();
+    let checkedSchemas = 0;
+    let missingFieldCount = 0;
+
+    for (const url of sitemapUrls) {
+      const { data: html, status } = await fetch(url, { timeout: 20000 });
+      if (status < 200 || status >= 300) continue;
+
+      const schemas = extractJsonLdScripts(html).filter((schemaObj) => !schemaObj.__parseError);
+      for (const schemaObj of schemas) {
+        const types = Array.isArray(schemaObj['@type'])
+          ? schemaObj['@type']
+          : schemaObj['@type']
+            ? [schemaObj['@type']]
+            : [];
+
+        for (const schemaType of types) {
+          const requiredFields = RICH_RESULT_REQUIRED_FIELDS[schemaType];
+          if (!requiredFields) continue;
+
+          checkedSchemas++;
+          const missingFields = requiredFields.filter((field) => {
+            const value = schemaObj[field];
+            if (Array.isArray(value)) return value.length === 0;
+            return value === undefined || value === null || value === '';
+          });
+
+          if (missingFields.length > 0) {
+            missingFieldCount++;
+            addResult(
+              'rich-results',
+              `${schemaType} Required Fields ${url}`,
+              false,
+              `Missing: ${missingFields.join(', ')}`
+            );
+          } else {
+            addResult(
+              'rich-results',
+              `${schemaType} Required Fields ${url}`,
+              true,
+              'All required fields present'
+            );
+          }
+        }
+      }
+    }
+
+    addResult(
+      'rich-results',
+      'Schema Objects Evaluated',
+      checkedSchemas > 0,
+      `${checkedSchemas} schema object(s) checked against rich-results field rules`
+    );
+
+    addResult(
+      'rich-results',
+      'Required Fields Completeness',
+      missingFieldCount === 0,
+      missingFieldCount === 0
+        ? 'No required rich-results schema fields missing'
+        : `${missingFieldCount} schema object(s) missing required fields`
+    );
+
+    calculateCategoryScore('rich-results');
+    console.log(`   Score: ${results.categories['rich-results'].score}%`);
+  } catch (error) {
+    addResult('rich-results', 'Rich-Results Readiness', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.36 DEPLOY PARITY CHECK (Production vs Comparison URL)
+// ============================================================================
+async function checkDeployParity() {
+  if (!COMPARE_URL) {
+    console.log('\n⏩ 2.36 DEPLOY PARITY CHECK (Skipped: no --compare-url provided)');
+    return;
+  }
+
+  console.log('\n🪞 2.36 DEPLOY PARITY CHECK');
+  console.log('─'.repeat(60));
+  console.log(`   Comparing ${TARGET_URL} ↔ ${COMPARE_URL}`);
+
+  try {
+    const baseUrl = new URL(TARGET_URL);
+    const compareBase = new URL(COMPARE_URL);
+
+    const sitemapUrls = await getSitemapUrls();
+
+    for (const prodUrl of sitemapUrls) {
+      const prodPath = new URL(prodUrl).pathname;
+      const compareUrl = `${compareBase.origin}${prodPath}`;
+
+      const [prodResp, compareResp] = await Promise.all([
+        fetch(prodUrl, { timeout: 20000 }),
+        fetch(compareUrl, { timeout: 20000 }),
+      ]);
+
+      addResult(
+        'deploy-parity',
+        `Status parity ${prodPath}`,
+        prodResp.status === compareResp.status,
+        `prod=${prodResp.status}, compare=${compareResp.status}`
+      );
+
+      if (prodResp.status >= 200 && prodResp.status < 300 && compareResp.status >= 200 && compareResp.status < 300) {
+        const prodCanonical = extractCanonical(prodResp.data);
+        const compareCanonicalRaw = extractCanonical(compareResp.data);
+        const compareCanonical = compareCanonicalRaw
+          ? normalizeSiteUrl(compareCanonicalRaw.replace(compareBase.origin, baseUrl.origin))
+          : null;
+
+        addResult(
+          'deploy-parity',
+          `Canonical parity ${prodPath}`,
+          prodCanonical === compareCanonical,
+          `prod=${prodCanonical || 'none'}, compare=${compareCanonical || 'none'}`
+        );
+
+        addResult(
+          'deploy-parity',
+          `Indexability parity ${prodPath}`,
+          hasNoindex(prodResp.data) === hasNoindex(compareResp.data),
+          `prodNoindex=${hasNoindex(prodResp.data)}, compareNoindex=${hasNoindex(compareResp.data)}`
+        );
+      }
+    }
+
+    addResult(
+      'deploy-parity',
+      'Parity Scope',
+      true,
+      `${sitemapUrls.length} URL(s) compared${MAX_URLS > 0 ? ` (limited by --max-urls=${MAX_URLS})` : ''}`
+    );
+
+    calculateCategoryScore('deploy-parity');
+    console.log(`   Score: ${results.categories['deploy-parity'].score}%`);
+  } catch (error) {
+    addResult('deploy-parity', 'Deploy Parity Check', false, error.message);
     console.error(`   ❌ Error: ${error.message}`);
   }
 }
@@ -1365,6 +1532,18 @@ function generateSummary() {
       }
     });
   }
+
+  if (STRICT_SEO || REQUIRE_RICH_RESULTS) {
+    console.log('\n🧱 STRICT SEO GATING');
+    console.log('─'.repeat(60));
+
+    if (STRICT_SEO) {
+      console.log('   • strict-seo: enabled');
+    }
+    if (REQUIRE_RICH_RESULTS) {
+      console.log('   • require-rich-results: enabled');
+    }
+  }
   
   console.log('\n' + '═'.repeat(60));
 }
@@ -1384,7 +1563,9 @@ function generateSummary() {
   await checkCriticalRouteHealth();
   await checkFullSiteIndexability();
   await checkFullSiteStructuredDataCoverage();
+  await checkRichResultsReadiness();
   await checkFullSiteInternalLinks();
+  await checkDeployParity();
   await checkContextualLinking();
   await checkStructuredData();
   await checkContentSchemas();
@@ -1411,7 +1592,27 @@ function generateSummary() {
   }
   
   // Exit with appropriate code
-  const exitCode = results.summary.failed > 0 ? 1 : 0;
+  let exitCode = results.summary.failed > 0 ? 1 : 0;
+
+  if (REQUIRE_RICH_RESULTS) {
+    const richResultsCategory = results.categories['rich-results'];
+    if (!richResultsCategory || richResultsCategory.failed > 0) {
+      exitCode = 1;
+    }
+  }
+
+  if (STRICT_SEO) {
+    const strictCategories = ['seo-metadata', 'indexability', 'schema-coverage', 'rich-results', 'internal-links', 'route-health'];
+    for (const category of strictCategories) {
+      const categoryResults = results.categories[category];
+      if (!categoryResults) continue;
+      if (categoryResults.failed > 0 || categoryResults.warnings > 0) {
+        exitCode = 1;
+        break;
+      }
+    }
+  }
+
   process.exit(exitCode);
 })();
 
