@@ -82,11 +82,25 @@ async function resolveLinkedInPersonId(accessToken: string): Promise<string> {
   });
 
   const data = (await response.json()) as { id?: string; message?: string };
-  if (!response.ok || !data.id) {
-    throw new Error(`Unable to resolve LinkedIn member ID: ${data.message || `HTTP ${response.status}`}`);
+  if (response.ok && data.id) {
+    return data.id;
   }
 
-  return data.id;
+  const userInfoResponse = await fetch('https://api.linkedin.com/v2/userinfo', {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
+
+  const userInfoData = (await userInfoResponse.json()) as { sub?: string; message?: string };
+  if (userInfoResponse.ok && userInfoData.sub) {
+    return userInfoData.sub;
+  }
+
+  throw new Error(
+    `Unable to resolve LinkedIn member ID: ${data.message || `HTTP ${response.status}`}; userinfo fallback failed: ${userInfoData.message || `HTTP ${userInfoResponse.status}`}`
+  );
 }
 
 function resolveFacebookPageId(): string {
