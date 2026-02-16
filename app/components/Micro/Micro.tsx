@@ -177,7 +177,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
         {(microData.before || microData.after) && (
           <div className={`grid-2col-md ${GRID_GAP_RESPONSIVE}`}>
             {microData.before && (
-              <div className="p-6 md:p-8 card-background rounded-md">
+              <div className="p-4 md:p-5 card-background rounded-md">
                 <h4>
                   Before Treatment
                 </h4>
@@ -187,7 +187,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
               </div>
             )}
             {microData.after && (
-              <div className="p-6 md:p-8 card-background rounded-md">
+              <div className="p-4 md:p-5 card-background rounded-md">
                 <h4>
                   After Treatment
                 </h4>

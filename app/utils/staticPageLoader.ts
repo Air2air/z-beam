@@ -327,7 +327,7 @@ export function loadStaticPageContent(
       ? frontmatter.sections
           .flatMap((section: any) => (Array.isArray(section?.items) ? section.items : []))
           .map((item: any, index: number): ContentCardItem => ({
-            order: item?.order ?? index + 1,
+            order: typeof item?.order === 'number' ? item.order : undefined,
             heading: item?.heading ?? '',
             text: item?.text ?? '',
             image: item?.image,

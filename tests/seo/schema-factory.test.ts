@@ -231,12 +231,12 @@ describe('SchemaFactory', () => {
   });
 
   describe('Conditional Schema Generation', () => {
-    it('skips Article schema on settings pages', () => {
+    it('includes canonical Article schema on settings pages', () => {
       const factory = new SchemaFactory(settingsPageData, 'settings/aluminum');
       const result = factory.generate();
       
       const article = result['@graph'].find((s: any) => s['@type'] === 'Article');
-      expect(article).toBeUndefined();
+      expect(article).toBeDefined();
     });
 
     it('skips TechArticle on non-settings pages', () => {

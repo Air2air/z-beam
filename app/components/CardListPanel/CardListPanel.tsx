@@ -65,7 +65,7 @@ function CardListItem({ item }: { item: CardListItem }) {
   const displayContent = item.content || item.description;
 
   return (
-    <li className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+    <li className="card-background rounded-md p-3 md:p-4 hover:shadow-md transition-shadow duration-200">
       <h3 className="text-lg text-secondary font-semibold mb-1">
         {displayTitle}
       </h3>

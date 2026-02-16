@@ -206,7 +206,7 @@ describe('ContentSection Component', () => {
       const { container } = render(<ContentSection items={[]} />);
       
       expect(container.querySelector('.content-section')).toBeInTheDocument();
-      expect(container.querySelectorAll('.space-y-8 > *')).toHaveLength(0);
+      expect(container.querySelectorAll('.space-y-6 > *')).toHaveLength(0);
     });
   });
 
@@ -223,7 +223,7 @@ describe('ContentSection Component', () => {
       const { container } = render(<ContentSection items={items} />);
       
       expect(container.querySelector('.content-section')).toBeInTheDocument();
-      expect(container.querySelector('.space-y-8')).toBeInTheDocument();
+      expect(container.querySelector('.space-y-6')).toBeInTheDocument();
     });
 
     it('should pass variant to BaseSection', () => {

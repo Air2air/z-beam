@@ -56,7 +56,7 @@ export function RegulatoryStandards({
                 href={standard.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col w-full card-background rounded-md p-4 hover:shadow-lg transition-all duration-200 group"
+                className="flex flex-col w-full card-background rounded-md p-3 md:p-4 hover:shadow-lg transition-all duration-200 group"
               >
                 <article className="flex items-start gap-4 flex-1">
                   {/* Logo */}
@@ -104,7 +104,7 @@ export function RegulatoryStandards({
                 <span className="sr-only">View official documentation (opens in new tab)</span>
               </Link>
             ) : (
-              <div className="flex flex-col w-full card-background rounded-md p-4">
+              <div className="flex flex-col w-full card-background rounded-md p-3 md:p-4">
                 <article className="flex items-start gap-4 flex-1">
                   {/* Logo */}
                   {standard.image && (

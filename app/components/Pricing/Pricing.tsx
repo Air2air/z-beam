@@ -49,8 +49,8 @@ export function Pricing({
     featureList?: string[];
   }) => (
     <div className={isDetailed ? 
-      'bg-white rounded-md p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow' :
-      'card-background rounded-md p-6 shadow-md border card-enhanced-hover transition-all duration-300 ease-out'
+      'bg-white rounded-md p-4 md:p-5 shadow-sm border border-gray-200 hover:shadow-md transition-shadow' :
+      'card-background rounded-md p-4 md:p-5 shadow-md border card-enhanced-hover transition-all duration-300 ease-out'
     }>
       <div className="flex items-start justify-between mb-4">
         <div>
@@ -102,7 +102,7 @@ export function Pricing({
   );
 
   const containerClass = isDetailed ? 
-    'bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 my-12 border border-gray-200' :
+    'bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 md:p-7 my-10 border border-gray-200' :
     'my-12 max-w-2xl mx-auto';
 
   return (

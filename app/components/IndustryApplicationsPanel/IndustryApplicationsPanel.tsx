@@ -75,7 +75,7 @@ export function IndustryApplicationsPanel({
       >
         <ul className="grid-2col gap-2 sm:gap-3 md:gap-4 lg:gap-6 list-none">
           {items.map((item: CardListItem) => (
-            <li key={item.id} className="card-background rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+            <li key={item.id} className="card-background rounded-md p-3 md:p-4 hover:shadow-md transition-shadow duration-200">
               <h3 className="text-lg text-secondary font-semibold mb-1">
                 {item.title || item.name}
               </h3>

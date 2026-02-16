@@ -35,6 +35,7 @@ import type { ContentCardProps } from '@/types';
 export function ContentCard({
   heading,
   text,
+  href,
   order,
   category,
   details,
@@ -63,6 +64,12 @@ export function ContentCard({
   const isImageLeft = imagePosition === 'left';
   const hasOrder = order !== undefined;
   const hasDetails = details && details.length > 0;
+  const hasHref = typeof href === 'string' && href.trim().length > 0;
+  const normalizedHref = hasHref ? href.trim() : undefined;
+  const canNavigateCard = !!normalizedHref;
+  const destinationUrl = normalizedHref || websiteUrl || undefined;
+  const isInternalDestination = !!destinationUrl && destinationUrl.startsWith('/');
+  const interactiveCardClasses = hasHref ? 'card-enhanced-hover transition-smooth cursor-pointer' : '';
   
   // Determine card type for semantic context
   const cardType = hasOrder ? 'workflow step' : category ? 'benefit' : 'information callout';
@@ -76,11 +83,33 @@ export function ContentCard({
   const variantClasses = {
     default: {
       container: 'card-background',
-      outer: 'p-6 md:p-8 mb-6 rounded-md',
+      outer: 'p-4 md:p-5 mb-4 rounded-md',
+      header: 'mb-4',
+      gridGap: 'gap-4 md:gap-6',
+      text: 'text-base',
+      details: 'space-y-2',
+      imageFrame: 'aspect-video',
+      imageWrapper: 'w-full',
     },
     inline: {
       container: '',
-      outer: 'py-6 md:py-8 mb-6',
+      outer: 'py-4 md:py-5 mb-4',
+      header: 'mb-4',
+      gridGap: 'gap-4 md:gap-6',
+      text: 'text-base',
+      details: 'space-y-2',
+      imageFrame: 'aspect-video',
+      imageWrapper: 'w-full',
+    },
+    compact: {
+      container: 'card-background',
+      outer: 'p-3 md:p-4 mb-3 rounded-md',
+      header: 'mb-3',
+      gridGap: 'gap-3 md:gap-4',
+      text: 'text-base',
+      details: 'space-y-1',
+      imageFrame: 'aspect-video',
+      imageWrapper: 'w-[88%] md:w-[84%] mx-auto',
     },
   };
 
@@ -97,9 +126,26 @@ export function ContentCard({
       data-has-image={!!image}
       itemScope
       itemType="https://schema.org/Article"
-      className={`${variantClasses[variant].container} ${variantClasses[variant].outer} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2`}
+      className={`${variantClasses[variant].container} ${variantClasses[variant].outer} relative focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 ${interactiveCardClasses}`}
       tabIndex={0}
     >
+      {canNavigateCard && normalizedHref && (
+        isInternalDestination ? (
+          <Link
+            href={normalizedHref}
+            aria-label={`View ${heading}`}
+            className="absolute inset-0 z-30 rounded-md"
+          />
+        ) : (
+          <a
+            href={normalizedHref.startsWith('http') ? normalizedHref : `https://${normalizedHref}`}
+            aria-label={`View ${heading}`}
+            className="absolute inset-0 z-30 rounded-md"
+          />
+        )
+      )}
+
+      <div>
       {/* Screen Reader Only - Comprehensive Description */}
       <div id={descId} className="sr-only">
         {hasOrder && `Step ${order}: `}
@@ -110,7 +156,7 @@ export function ContentCard({
       </div>
       {/* Optional Header with Order Number - Spans full width */}
       {hasOrder && (
-        <header className="flex items-center gap-4 mb-6">
+        <header className={`flex items-center gap-4 ${variantClasses[variant].header}`}>
           {/* Order Number Badge */}
           <div 
             className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl font-bold text-gray-100 bg-gray-800 rounded-full shadow-lg"
@@ -147,7 +193,7 @@ export function ContentCard({
       <div
         className={`flex flex-col ${
           image ? 'md:grid md:grid-cols-3' : ''
-        } gap-6 md:gap-12 items-start`}
+        } ${variantClasses[variant].gridGap} items-start`}
       >
       {/* Image - Left Side (but always first on mobile) */}
       {image && isImageLeft && (
@@ -157,26 +203,43 @@ export function ContentCard({
           aria-describedby={imageId}
           itemScope
           itemType="https://schema.org/ImageObject"
-          className="w-full flex items-center order-1 md:order-none"
+          className={`${variantClasses[variant].imageWrapper} flex items-center order-1 md:order-none`}
         >
-          {websiteUrl ? (
-            <a 
-              href={websiteUrl}
-              target="_blank"
-              className="card-enhanced-hover block relative w-full aspect-video rounded-md overflow-hidden"
-              aria-label={`Visit website (opens in new tab)`}
-            >
-              <Image
-                src={image.url}
-                alt={image.alt || `Visual illustration for ${heading}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-                itemProp="contentUrl"
-              />
-            </a>
+          {destinationUrl && !canNavigateCard ? (
+            isInternalDestination ? (
+              <Link
+                href={destinationUrl}
+                className={`block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                aria-label={`View ${heading}`}
+              >
+                <Image
+                  src={image.url}
+                  alt={image.alt || `Visual illustration for ${heading}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  itemProp="contentUrl"
+                />
+              </Link>
+            ) : (
+              <a
+                href={destinationUrl.startsWith('http') ? destinationUrl : `https://${destinationUrl}`}
+                target="_blank"
+                className={`${hasHref ? '' : 'card-enhanced-hover '}block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                aria-label={`Visit website (opens in new tab)`}
+              >
+                <Image
+                  src={image.url}
+                  alt={image.alt || `Visual illustration for ${heading}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  itemProp="contentUrl"
+                />
+              </a>
+            )
           ) : (
-            <div className="relative w-full aspect-video rounded-md overflow-hidden">
+            <div className={`relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}>
               <Image
                 src={image.url}
                 alt={image.alt || `Visual illustration for ${heading}`}
@@ -209,7 +272,7 @@ export function ContentCard({
           
           {/* Text/Description */}
           <p 
-            className={`text-base ${hasDetails ? 'mb-4' : ''}`}
+            className={`${variantClasses[variant].text} ${hasDetails ? 'mb-4' : ''}`}
             itemProp="description"
             dangerouslySetInnerHTML={{ __html: text }}
           />
@@ -218,7 +281,7 @@ export function ContentCard({
           {hasDetails && (
             <ul 
               id={detailsId}
-              className="space-y-2"
+              className={variantClasses[variant].details}
               role="list"
               aria-label={`${heading} details`}
               itemProp="itemListElement"
@@ -239,7 +302,8 @@ export function ContentCard({
                 const linkLabel = linkMatch ? linkMatch[1].trim() : '';
                 const linkUrl = linkMatch ? linkMatch[2].trim() : '';
                 const isInternalLink = linkUrl.startsWith('/');
-                const isExternalLink = linkUrl.match(/^https?:\/\//) || (!isInternalLink && linkUrl.includes('.'));
+                const isExternalLink = /^https?:\/\//i.test(linkUrl)
+                  || /^(?:[a-z0-9-]+\.)+[a-z]{2,}(?:[/:?#].*)?$/i.test(linkUrl);
                 
                 // Process link label for bold syntax too
                 const processedLinkLabel = linkLabel.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -269,7 +333,7 @@ export function ContentCard({
                         {isInternalLink ? (
                           <Link 
                             href={linkUrl}
-                            className="text-primary hover:underline"
+                            className="relative z-40 text-primary hover:underline"
                             aria-label={`View ${linkLabel}`}
                           >
                             {linkUrl}
@@ -278,7 +342,7 @@ export function ContentCard({
                           <a 
                             href={linkUrl.startsWith('http') ? linkUrl : `https://${linkUrl}`}
                             target="_blank"
-                            className="text-primary hover:underline"
+                            className="relative z-40 text-primary hover:underline"
                             aria-label={`Visit ${linkUrl} (opens in new tab)`}
                           >
                             {linkUrl}
@@ -308,26 +372,43 @@ export function ContentCard({
             aria-describedby={imageId}
             itemScope
             itemType="https://schema.org/ImageObject"
-            className="w-full flex items-center order-1 md:order-none"
+            className={`${variantClasses[variant].imageWrapper} flex items-center order-1 md:order-none`}
           >
-            {websiteUrl ? (
-              <a 
-                href={websiteUrl}
-                target="_blank"
-                className="card-enhanced-hover block relative w-full aspect-video rounded-md overflow-hidden"
-                aria-label={`Visit website (opens in new tab)`}
-              >
-                <Image
-                  src={image.url}
-                  alt={image.alt || `Visual illustration for ${heading}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  itemProp="contentUrl"
-                />
-              </a>
+            {destinationUrl && !canNavigateCard ? (
+              isInternalDestination ? (
+                <Link
+                  href={destinationUrl}
+                  className={`block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                  aria-label={`View ${heading}`}
+                >
+                  <Image
+                    src={image.url}
+                    alt={image.alt || `Visual illustration for ${heading}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    itemProp="contentUrl"
+                  />
+                </Link>
+              ) : (
+                <a 
+                  href={destinationUrl.startsWith('http') ? destinationUrl : `https://${destinationUrl}`}
+                  target="_blank"
+                  className={`${hasHref ? '' : 'card-enhanced-hover '}block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                  aria-label={`Visit website (opens in new tab)`}
+                >
+                  <Image
+                    src={image.url}
+                    alt={image.alt || `Visual illustration for ${heading}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    itemProp="contentUrl"
+                  />
+                </a>
+              )
             ) : (
-              <div className="relative w-full aspect-video rounded-md overflow-hidden">
+              <div className={`relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}>
                 <Image
                   src={image.url}
                   alt={image.alt || `Visual illustration for ${heading}`}
@@ -343,6 +424,7 @@ export function ContentCard({
             </figcaption>
           </figure>
         )}
+      </div>
       </div>
     </article>
   );

@@ -291,6 +291,7 @@ export interface ContentCardItem {
   // Core content (required)
   heading: string;
   text: string;
+  href?: string;         // Optional internal/external link for clickable heading
   
   // Optional features
   order?: number;        // If provided, renders as numbered workflow step
@@ -303,7 +304,7 @@ export interface ContentCardItem {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  variant?: 'default' | 'inline';
+  variant?: 'default' | 'inline' | 'compact';
 }
 
 /**
@@ -513,7 +514,7 @@ export interface CalloutConfig {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  variant?: 'default' | 'inline';
+  variant?: 'default' | 'inline' | 'compact';
 }
 
 /**
@@ -527,7 +528,7 @@ export interface CalloutProps {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  variant?: 'default' | 'inline';
+  variant?: 'default' | 'inline' | 'compact';
 }
 
 // ===============================
@@ -1493,6 +1494,7 @@ export interface ContentCardProps {
   // Core content
   heading: string;
   text: string;
+  href?: string;
   
   // Optional features
   order?: number;        // Workflow step number
@@ -1505,7 +1507,7 @@ export interface ContentCardProps {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  variant?: 'default' | 'inline';
+  variant?: 'default' | 'inline' | 'compact';
 }
 
 // ===============================

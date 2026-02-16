@@ -45,7 +45,7 @@ export function ContentSection({
       spacing="normal"
       className="content-section"
     >
-      <div className="space-y-8">
+      <div className="space-y-6">
         {sortedItems.map((item, index) => {
           // Support ContentCardItem (heading/text), legacy WorkflowItem (name/description), and BenefitItem (title/description)
           let heading = 'Untitled';
@@ -58,7 +58,17 @@ export function ContentSection({
           if ('text' in item && item.text) text = item.text;
           else if ('description' in item && item.description) text = item.description;
           
-          const order = 'order' in item ? item.order : undefined;
+          const href = (
+            'href' in item &&
+            typeof item.href === 'string' &&
+            item.href.trim().length > 0
+          )
+            ? item.href.trim()
+            : undefined;
+          
+          const order = (
+            'order' in item && typeof item.order === 'number'
+          ) ? item.order : undefined;
           const category = 'category' in item ? item.category : undefined;
           const details = 'details' in item ? item.details : undefined;
           const image = 'image' in item ? item.image : undefined;
@@ -72,6 +82,7 @@ export function ContentSection({
               category={category}
               heading={heading}
               text={text}
+              href={href}
               details={details}
               image={image}
               imagePosition={imagePosition}

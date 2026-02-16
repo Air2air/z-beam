@@ -119,9 +119,9 @@ export function BaseSection({
   // Spacing configurations
   const spacingConfig = {
     none: '',
-    tight: 'mb-8',
-    normal: 'mb-12',
-    loose: 'mb-16',
+    tight: 'mb-6',
+    normal: 'mb-10',
+    loose: 'mb-14',
   };
   
   // Background color classes
