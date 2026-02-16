@@ -2,22 +2,40 @@ import { mkdir, readFile, writeFile } from 'fs/promises';
 import path from 'path';
 import { SocialPost } from '@/types';
 
-const SOCIAL_DATA_DIR = path.join(process.cwd(), 'data', 'social');
-const SOCIAL_POSTS_FILE = path.join(SOCIAL_DATA_DIR, 'posts.json');
+function resolveSocialDataDir(): string {
+  const configuredDir = process.env.SOCIAL_STORE_DIR?.trim();
+  if (configuredDir) {
+    return configuredDir;
+  }
+
+  // Vercel serverless filesystem is read-only except /tmp
+  if (process.env.VERCEL === '1') {
+    return '/tmp/z-beam-social';
+  }
+
+  return path.join(process.cwd(), 'data', 'social');
+}
+
+function resolveSocialPostsFile(): string {
+  return path.join(resolveSocialDataDir(), 'posts.json');
+}
 
 async function ensureSocialStore(): Promise<void> {
-  await mkdir(SOCIAL_DATA_DIR, { recursive: true });
+  const socialDataDir = resolveSocialDataDir();
+  const socialPostsFile = resolveSocialPostsFile();
+
+  await mkdir(socialDataDir, { recursive: true });
 
   try {
-    await readFile(SOCIAL_POSTS_FILE, 'utf8');
+    await readFile(socialPostsFile, 'utf8');
   } catch {
-    await writeFile(SOCIAL_POSTS_FILE, '[]', 'utf8');
+    await writeFile(socialPostsFile, '[]', 'utf8');
   }
 }
 
 export async function getSocialPosts(): Promise<SocialPost[]> {
   await ensureSocialStore();
-  const raw = await readFile(SOCIAL_POSTS_FILE, 'utf8');
+  const raw = await readFile(resolveSocialPostsFile(), 'utf8');
   const parsed = JSON.parse(raw) as SocialPost[];
 
   return parsed.sort((a, b) => {
@@ -29,5 +47,5 @@ export async function getSocialPosts(): Promise<SocialPost[]> {
 
 export async function saveSocialPosts(posts: SocialPost[]): Promise<void> {
   await ensureSocialStore();
-  await writeFile(SOCIAL_POSTS_FILE, JSON.stringify(posts, null, 2), 'utf8');
+  await writeFile(resolveSocialPostsFile(), JSON.stringify(posts, null, 2), 'utf8');
 }
