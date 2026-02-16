@@ -1,7 +1,6 @@
 // app/schedule/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from "../components/JsonLD/JsonLD";
-import { ContentSection } from '../components/ContentCard/ContentSection';
 import { loadStaticPageContent } from "../utils/staticPageLoader";
 import { SITE_CONFIG } from "@/app/config/site";
 import { ScheduleContent } from "../components/Schedule/ScheduleContent";
@@ -82,13 +81,6 @@ export default function SchedulePage() {
         }
         slug="schedule"
       >
-        {pageConfig.contentCards?.map((card, index) => (
-          <ContentSection
-            key={index}
-            title={card.heading}
-            items={[card]}
-          />
-        ))}
         <ScheduleContent />
       </Layout>
     </>

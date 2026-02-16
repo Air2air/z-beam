@@ -3,10 +3,9 @@ import { loadStaticPageFrontmatter, StaticPageFrontmatter } from '../utils/stati
 import { generateStaticPageMetadata } from '@/lib/metadata/generators';
 import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { Layout } from '../components/Layout/Layout';
-import { ContentCard } from '../components/ContentCard';
 import { JsonLD } from '../components/JsonLD/JsonLD';
 import Link from 'next/link';
-import type { ContentCardItem, ArticleMetadata } from '@/types';
+import type { ArticleMetadata } from '@/types';
 import { ContactInfo } from '../components/Contact/ContactInfo';
 
 // Load frontmatter data
@@ -105,18 +104,6 @@ export default function ContactPage() {
         }
         slug="contact"
       >
-        {/* Content sections from frontmatter */}
-        {frontmatter.contentCards?.map((card: ContentCardItem) => (
-          <ContentCard
-            key={card.order}
-            heading={card.heading}
-            text={card.text}
-            image={card.image}
-            imagePosition={card.imagePosition}
-            details={card.details}
-          />
-        ))}
-        
         {/* <RentalPackagesBanner /> */}
         
         <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_GAP_RESPONSIVE} mt-8 items-start`}>
