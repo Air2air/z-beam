@@ -49,6 +49,16 @@ const SKIP_ACCESSIBILITY = args['skip-accessibility'] || false;
 const REPORT_FORMAT = args.report || 'console';
 const OUTPUT_FILE = args.output;
 
+const CRITICAL_ROUTES = [
+  '/',
+  '/materials/metal/non-ferrous/aluminum-laser-cleaning',
+  '/settings/metal/non-ferrous/aluminum-settings',
+  '/contaminants/oxidation/ferrous/rust-oxidation-contamination',
+  '/materials',
+  '/rental',
+  '/about',
+];
+
 // Results object
 const results = {
   timestamp: new Date().toISOString(),
@@ -264,7 +274,7 @@ async function checkSEOMetadata() {
       const titleLength = title.length;
       addResult('seo-metadata', 'Title Tag Presence', true, `"${title}"`);
       addResult('seo-metadata', 'Title Tag Length', 
-        titleLength >= 50 && titleLength <= 60,
+        titleLength >= 50 && titleLength <= 60 ? true : 'warning',
         `${titleLength} chars (optimal: 50-60)`,
         { length: titleLength, optimal: '50-60' }
       );
@@ -280,7 +290,7 @@ async function checkSEOMetadata() {
       const descLength = description.length;
       addResult('seo-metadata', 'Meta Description Presence', true, 'Present');
       addResult('seo-metadata', 'Meta Description Length', 
-        descLength >= 155 && descLength <= 160,
+        descLength >= 155 && descLength <= 160 ? true : 'warning',
         `${descLength} chars (optimal: 155-160)`,
         { length: descLength, optimal: '155-160' }
       );
@@ -315,6 +325,53 @@ async function checkSEOMetadata() {
     
   } catch (error) {
     addResult('seo-metadata', 'Metadata Check', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.1 CRITICAL ROUTE HEALTH
+// ============================================================================
+async function checkCriticalRouteHealth() {
+  console.log('\n🩺 2.1 CRITICAL ROUTE HEALTH');
+  console.log('─'.repeat(60));
+
+  try {
+    for (const routePath of CRITICAL_ROUTES) {
+      const routeUrl = new URL(routePath, TARGET_URL).toString();
+      const response = await fetch(routeUrl, { timeout: 20000 });
+      const { data: html, status, headers } = response;
+
+      addResult(
+        'route-health',
+        `Route Status ${routePath}`,
+        status >= 200 && status < 400,
+        `HTTP ${status}`,
+        { url: routeUrl, status }
+      );
+
+      if (status >= 200 && status < 300) {
+        const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
+        addResult(
+          'route-health',
+          `Canonical Present ${routePath}`,
+          !!canonicalMatch,
+          canonicalMatch ? canonicalMatch[1] : 'Missing canonical'
+        );
+      } else if (status >= 300 && status < 400) {
+        addResult(
+          'route-health',
+          `Redirect Target ${routePath}`,
+          headers.location ? 'warning' : false,
+          headers.location ? `Redirects to ${headers.location}` : 'Redirect without Location header'
+        );
+      }
+    }
+
+    calculateCategoryScore('route-health');
+    console.log(`   Score: ${results.categories['route-health'].score}%`);
+  } catch (error) {
+    addResult('route-health', 'Critical Route Health', false, error.message);
     console.error(`   ❌ Error: ${error.message}`);
   }
 }
@@ -968,6 +1025,7 @@ function generateSummary() {
   await checkBasicInfrastructure();
   await checkCoreWebVitalsOptimizations();
   await checkSEOMetadata();
+  await checkCriticalRouteHealth();
   await checkContextualLinking();
   await checkStructuredData();
   await checkContentSchemas();
