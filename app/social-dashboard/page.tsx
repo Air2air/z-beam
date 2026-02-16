@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from 'next/types';
 import SocialDashboardClient from './SocialDashboardClient';
 
 export const metadata: Metadata = {
