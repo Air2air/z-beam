@@ -48,6 +48,7 @@ const SKIP_PERFORMANCE = args['skip-performance'] || false;
 const SKIP_ACCESSIBILITY = args['skip-accessibility'] || false;
 const REPORT_FORMAT = args.report || 'console';
 const OUTPUT_FILE = args.output;
+const MAX_URLS = Number(args['max-urls'] || 0); // 0 = no limit
 
 const CRITICAL_ROUTES = [
   '/',
@@ -58,6 +59,8 @@ const CRITICAL_ROUTES = [
   '/rental',
   '/about',
 ];
+
+const SITEMAP_URL = '/sitemap.xml';
 
 // Results object
 const results = {
@@ -131,6 +134,93 @@ function calculateCategoryScore(category) {
   const score = (cat.passed + (cat.warnings * 0.5)) / total;
   cat.score = Math.round(score * 100);
   return cat.score;
+}
+
+function normalizeSiteUrl(rawUrl) {
+  try {
+    const parsed = new URL(rawUrl, TARGET_URL);
+    parsed.hash = '';
+    if (parsed.pathname !== '/' && parsed.pathname.endsWith('/')) {
+      parsed.pathname = parsed.pathname.slice(0, -1);
+    }
+    return parsed.toString();
+  } catch {
+    return rawUrl;
+  }
+}
+
+function extractCanonical(html) {
+  const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
+  return canonicalMatch ? normalizeSiteUrl(canonicalMatch[1]) : null;
+}
+
+function hasNoindex(html) {
+  const robotsMeta = html.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
+  return robotsMeta ? robotsMeta[1].toLowerCase().includes('noindex') : false;
+}
+
+function extractJsonLdScripts(html) {
+  const scriptRegex = /<script\s+type=["']application\/ld\+json["'][^>]*>(.*?)<\/script>/gis;
+  const scripts = [];
+  let match;
+
+  while ((match = scriptRegex.exec(html)) !== null) {
+    const scriptContent = match[1].trim();
+    if (!scriptContent) continue;
+
+    try {
+      const parsed = JSON.parse(scriptContent);
+      if (parsed['@graph'] && Array.isArray(parsed['@graph'])) {
+        scripts.push(...parsed['@graph']);
+      } else {
+        scripts.push(parsed);
+      }
+    } catch {
+      scripts.push({ __parseError: true, raw: scriptContent.slice(0, 200) });
+    }
+  }
+
+  return scripts;
+}
+
+function extractInternalLinks(html) {
+  const hrefRegex = /<a\s+[^>]*href=["']([^"']+)["'][^>]*>/gi;
+  const links = [];
+  let match;
+
+  while ((match = hrefRegex.exec(html)) !== null) {
+    const href = match[1].trim();
+    if (!href) continue;
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) continue;
+
+    try {
+      const absolute = new URL(href, TARGET_URL);
+      const targetBase = new URL(TARGET_URL);
+      if (absolute.origin !== targetBase.origin) continue;
+      links.push(normalizeSiteUrl(absolute.toString()));
+    } catch {
+      // Ignore malformed links here; malformed links are captured in fetch checks
+    }
+  }
+
+  return [...new Set(links)];
+}
+
+async function getSitemapUrls() {
+  const sitemapUrl = `${TARGET_URL}${SITEMAP_URL}`;
+  const response = await fetch(sitemapUrl, { timeout: 30000 });
+  const { data: xml, status } = response;
+
+  if (status !== 200) {
+    throw new Error(`Sitemap unavailable at ${sitemapUrl} (HTTP ${status})`);
+  }
+
+  const locMatches = [...xml.matchAll(/<loc>(.*?)<\/loc>/gsi)].map((m) => normalizeSiteUrl(m[1].trim()));
+  if (locMatches.length === 0) {
+    throw new Error('No <loc> entries found in sitemap.xml');
+  }
+
+  return MAX_URLS > 0 ? locMatches.slice(0, MAX_URLS) : locMatches;
 }
 
 // ============================================================================
@@ -372,6 +462,272 @@ async function checkCriticalRouteHealth() {
     console.log(`   Score: ${results.categories['route-health'].score}%`);
   } catch (error) {
     addResult('route-health', 'Critical Route Health', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.2 FULL-SITE INDEXABILITY & CANONICAL CONSISTENCY
+// ============================================================================
+async function checkFullSiteIndexability() {
+  console.log('\n🧭 2.2 FULL-SITE INDEXABILITY & CANONICAL CONSISTENCY');
+  console.log('─'.repeat(60));
+
+  try {
+    const sitemapUrls = await getSitemapUrls();
+    const redirectTargets = [];
+    let okPages = 0;
+
+    for (const url of sitemapUrls) {
+      const { data: html, status, headers } = await fetch(url, { timeout: 20000 });
+
+      addResult(
+        'indexability',
+        `URL Reachable ${url}`,
+        status >= 200 && status < 400,
+        `HTTP ${status}`
+      );
+
+      if (status >= 300 && status < 400) {
+        const location = headers.location ? normalizeSiteUrl(new URL(headers.location, TARGET_URL).toString()) : null;
+        redirectTargets.push({ from: url, to: location });
+        addResult(
+          'indexability',
+          `Redirect Has Location ${url}`,
+          location ? 'warning' : false,
+          location ? `Redirects to ${location}` : 'Missing Location header'
+        );
+        continue;
+      }
+
+      if (status >= 200 && status < 300) {
+        okPages++;
+        const canonical = extractCanonical(html);
+        const normalizedUrl = normalizeSiteUrl(url);
+
+        addResult(
+          'indexability',
+          `Canonical Present ${url}`,
+          !!canonical,
+          canonical || 'Missing canonical'
+        );
+
+        addResult(
+          'indexability',
+          `Canonical Matches ${url}`,
+          canonical === normalizedUrl,
+          canonical ? `canonical=${canonical}` : 'No canonical to compare'
+        );
+
+        addResult(
+          'indexability',
+          `Indexable ${url}`,
+          !hasNoindex(html),
+          hasNoindex(html) ? 'robots=noindex present' : 'indexable'
+        );
+      }
+    }
+
+    addResult(
+      'indexability',
+      'Sitemap Crawl Coverage',
+      true,
+      `${sitemapUrls.length} URL(s) crawled${MAX_URLS > 0 ? ` (limited by --max-urls=${MAX_URLS})` : ''}`
+    );
+
+    addResult(
+      'indexability',
+      '2xx Page Count',
+      okPages > 0,
+      `${okPages} URL(s) returned HTTP 2xx`
+    );
+
+    if (redirectTargets.length > 0) {
+      addResult(
+        'indexability',
+        'Sitemap Redirect Hygiene',
+        'warning',
+        `${redirectTargets.length} sitemap URL(s) redirect; consider using final canonical URLs in sitemap`
+      );
+    }
+
+    calculateCategoryScore('indexability');
+    console.log(`   Score: ${results.categories.indexability.score}%`);
+  } catch (error) {
+    addResult('indexability', 'Full-Site Indexability', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.3 FULL-SITE STRUCTURED DATA COVERAGE
+// ============================================================================
+async function checkFullSiteStructuredDataCoverage() {
+  console.log('\n🏗️  2.3 FULL-SITE STRUCTURED DATA COVERAGE');
+  console.log('─'.repeat(60));
+
+  try {
+    const sitemapUrls = await getSitemapUrls();
+    let pagesWithJsonLd = 0;
+    let parseFailures = 0;
+
+    for (const url of sitemapUrls) {
+      const { data: html, status } = await fetch(url, { timeout: 20000 });
+      if (status < 200 || status >= 300) continue;
+
+      const scripts = extractJsonLdScripts(html);
+      const hasParseError = scripts.some((s) => s.__parseError);
+      const validScripts = scripts.filter((s) => !s.__parseError);
+
+      if (validScripts.length > 0) pagesWithJsonLd++;
+      if (hasParseError) parseFailures++;
+
+      const typeSet = new Set();
+      for (const schemaObj of validScripts) {
+        const schemaType = schemaObj['@type'];
+        if (Array.isArray(schemaType)) schemaType.forEach((t) => typeSet.add(t));
+        else if (schemaType) typeSet.add(schemaType);
+      }
+
+      const schemaTypes = [...typeSet];
+
+      addResult(
+        'schema-coverage',
+        `JSON-LD Present ${url}`,
+        validScripts.length > 0,
+        `${validScripts.length} schema object(s)`
+      );
+
+      addResult(
+        'schema-coverage',
+        `JSON-LD Parse ${url}`,
+        !hasParseError,
+        hasParseError ? 'One or more JSON-LD blocks failed to parse' : 'All JSON-LD blocks parse'
+      );
+
+      const expectsBreadcrumb = /\/(materials|settings|contaminants|compounds)\//.test(new URL(url).pathname);
+      if (expectsBreadcrumb) {
+        addResult(
+          'schema-coverage',
+          `BreadcrumbList ${url}`,
+          schemaTypes.includes('BreadcrumbList'),
+          schemaTypes.includes('BreadcrumbList') ? 'Present' : `Missing. Found: ${schemaTypes.join(', ') || 'none'}`
+        );
+      }
+
+      const acceptablePageSchemas = [
+        'WebPage',
+        'CollectionPage',
+        'AboutPage',
+        'ContactPage',
+        'Service',
+      ];
+      const hasPageLikeSchema = acceptablePageSchemas.some((schemaType) => schemaTypes.includes(schemaType));
+      const hasInfrastructureFallback = schemaTypes.includes('WebSite') && schemaTypes.includes('LocalBusiness');
+
+      addResult(
+        'schema-coverage',
+        `Page-type schema ${url}`,
+        hasPageLikeSchema || hasInfrastructureFallback,
+        schemaTypes.join(', ') || 'No schema types found'
+      );
+    }
+
+    addResult(
+      'schema-coverage',
+      'Site JSON-LD Coverage',
+      pagesWithJsonLd > 0,
+      `${pagesWithJsonLd} crawled page(s) include JSON-LD`
+    );
+
+    addResult(
+      'schema-coverage',
+      'JSON-LD Parse Reliability',
+      parseFailures === 0,
+      parseFailures === 0 ? 'No parse failures' : `${parseFailures} page(s) contain unparseable JSON-LD`
+    );
+
+    calculateCategoryScore('schema-coverage');
+    console.log(`   Score: ${results.categories['schema-coverage'].score}%`);
+  } catch (error) {
+    addResult('schema-coverage', 'Full-Site Structured Data Coverage', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.4 FULL-SITE INTERNAL LINK INTEGRITY
+// ============================================================================
+async function checkFullSiteInternalLinks() {
+  console.log('\n🔗 2.4 FULL-SITE INTERNAL LINK INTEGRITY');
+  console.log('─'.repeat(60));
+
+  try {
+    const sitemapUrls = await getSitemapUrls();
+    const sitemapSet = new Set(sitemapUrls.map((u) => normalizeSiteUrl(u)));
+    const checkedLinkStatus = new Map();
+
+    let brokenLinks = 0;
+    let checkedLinks = 0;
+
+    for (const pageUrl of sitemapUrls) {
+      const { data: html, status } = await fetch(pageUrl, { timeout: 20000 });
+      if (status < 200 || status >= 300) continue;
+
+      const links = extractInternalLinks(html);
+      for (const link of links) {
+        // Skip static assets and API endpoints from page integrity checks
+        const pathname = new URL(link).pathname;
+        if (pathname.startsWith('/_next/') || pathname.startsWith('/api/') || pathname.match(/\.(css|js|json|xml|txt|ico|png|jpg|jpeg|webp|svg)$/i)) {
+          continue;
+        }
+
+        checkedLinks++;
+
+        // Fast path: link appears in sitemap
+        if (sitemapSet.has(link)) continue;
+
+        // Fallback path: check reachable status and cache result
+        if (!checkedLinkStatus.has(link)) {
+          try {
+            const response = await fetch(link, { timeout: 15000 });
+            checkedLinkStatus.set(link, response.status);
+          } catch {
+            checkedLinkStatus.set(link, 0);
+          }
+        }
+
+        const linkStatus = checkedLinkStatus.get(link);
+        const linkHealthy = linkStatus >= 200 && linkStatus < 400;
+        if (!linkHealthy) brokenLinks++;
+
+        addResult(
+          'internal-links',
+          `Internal Link ${pageUrl} -> ${link}`,
+          linkHealthy,
+          linkHealthy ? `HTTP ${linkStatus}` : `Broken link (HTTP ${linkStatus || 'ERR'})`
+        );
+      }
+    }
+
+    addResult(
+      'internal-links',
+      'Internal Link Coverage',
+      checkedLinks > 0,
+      `${checkedLinks} internal link(s) checked`
+    );
+
+    addResult(
+      'internal-links',
+      'Broken Internal Links',
+      brokenLinks === 0,
+      brokenLinks === 0 ? 'No broken internal links detected' : `${brokenLinks} broken internal link(s) detected`
+    );
+
+    calculateCategoryScore('internal-links');
+    console.log(`   Score: ${results.categories['internal-links'].score}%`);
+  } catch (error) {
+    addResult('internal-links', 'Full-Site Internal Link Integrity', false, error.message);
     console.error(`   ❌ Error: ${error.message}`);
   }
 }
@@ -1026,6 +1382,9 @@ function generateSummary() {
   await checkCoreWebVitalsOptimizations();
   await checkSEOMetadata();
   await checkCriticalRouteHealth();
+  await checkFullSiteIndexability();
+  await checkFullSiteStructuredDataCoverage();
+  await checkFullSiteInternalLinks();
   await checkContextualLinking();
   await checkStructuredData();
   await checkContentSchemas();

@@ -116,6 +116,24 @@ All basic tests PLUS:
 
 **Total: ~65+ validation tests**
 
+### Comprehensive Validation (`validate-production-comprehensive.js`) 🔥
+
+Includes all core checks plus full-site SEO infrastructure gate checks:
+
+- 🧭 **Full-site indexability & canonical consistency** (sitemap-driven crawl)
+  - Every sitemap URL status (2xx/3xx)
+  - Canonical presence and canonical self-consistency
+  - `noindex` detection on canonical pages
+- 🏗️ **Full-site structured data coverage**
+  - JSON-LD parse validation for crawled URLs
+  - Breadcrumb schema presence checks for deep content routes
+  - Page-type schema coverage checks
+- 🔗 **Full-site internal link integrity**
+  - Extracts internal links from crawled pages
+  - Verifies link targets via sitemap membership and live reachability
+
+This closes key production SEO gaps around sample-only checks and route-level consistency.
+
 ## 📊 Reports
 
 ### Console Output
@@ -258,6 +276,27 @@ name: Production Validation
 
 on:
   deployment_status:
+
+### Comprehensive Script
+
+```bash
+node scripts/validation/post-deployment/validate-production-comprehensive.js [options]
+```
+
+**Additional options:**
+- `--skip-external` - Skip external APIs
+- `--skip-performance` - Skip PageSpeed/Core Web Vitals check
+- `--skip-accessibility` - Skip accessibility checks
+- `--max-urls=<n>` - Limit sitemap crawl size for smoke runs (default: full sitemap)
+
+**Examples:**
+```bash
+# Full production SEO gate (all sitemap URLs)
+npm run validate:production:comprehensive
+
+# Fast smoke test for CI triage
+node scripts/validation/post-deployment/validate-production-comprehensive.js --skip-external --max-urls=50
+```
 
 jobs:
   validate:
