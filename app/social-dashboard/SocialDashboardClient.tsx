@@ -66,7 +66,6 @@ export default function SocialDashboardClient(): JSX.Element {
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const [isEnriching, setIsEnriching] = useState<boolean>(false);
-  const [publishingPostId, setPublishingPostId] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [infoMessage, setInfoMessage] = useState<string>('');
 
@@ -350,39 +349,6 @@ export default function SocialDashboardClient(): JSX.Element {
     }
   }
 
-  async function publishNow(postId: string): Promise<void> {
-    setPublishingPostId(postId);
-    setErrorMessage('');
-    setInfoMessage('');
-
-    try {
-      const post = posts.find((item) => item.id === postId);
-      const response = await fetch(`/api/social/posts/${postId}/publish`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ post })
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to publish post');
-      }
-
-      const data = (await response.json()) as SocialPostResponse;
-      setPosts((current) => current.map((post) => (post.id === postId ? data.post : post)));
-
-      if (data.error) {
-        setErrorMessage(data.error);
-      }
-    } catch (error) {
-      const message = error instanceof Error ? error.message : 'Failed to publish post';
-      setErrorMessage(message);
-    } finally {
-      setPublishingPostId('');
-    }
-  }
-
   function getPreviewForPlatform(platform: SocialPlatform): { text: string; hashtags: string[] } {
     const variant = platformVariants.find((item) => item.platform === platform);
     if (variant) {
@@ -401,6 +367,45 @@ export default function SocialDashboardClient(): JSX.Element {
   function getNativePreviewUrl(platform: SocialPlatform): string {
     const preview = getPreviewForPlatform(platform);
     const shareUrl = encodeURIComponent(linkUrl.trim() || 'https://z-beam.com');
+    const previewText = preview.hashtags.length > 0
+      ? `${preview.text}\n\n${preview.hashtags.join(' ')}`
+      : preview.text;
+    const encodedText = encodeURIComponent(previewText);
+
+    switch (platform) {
+      case 'linkedin':
+        return `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+      case 'facebook':
+        return `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+      case 'x':
+        return `https://twitter.com/intent/tweet?text=${encodedText}&url=${shareUrl}`;
+      case 'google_business':
+        return 'https://business.google.com/';
+      default:
+        return 'https://z-beam.com';
+    }
+  }
+
+  function getPostPreviewForPlatform(post: SocialPost, platform: SocialPlatform): { text: string; hashtags: string[] } {
+    const variant = post.aiMetadata?.platformVariants?.find((item) => item.platform === platform);
+    const fallbackTags = post.aiMetadata?.hashtags || post.tags || [];
+
+    if (variant) {
+      return {
+        text: variant.text,
+        hashtags: variant.hashtags
+      };
+    }
+
+    return {
+      text: post.content,
+      hashtags: fallbackTags
+    };
+  }
+
+  function getNativePreviewUrlForPost(post: SocialPost, platform: SocialPlatform): string {
+    const preview = getPostPreviewForPlatform(post, platform);
+    const shareUrl = encodeURIComponent(post.linkUrl?.trim() || 'https://z-beam.com');
     const previewText = preview.hashtags.length > 0
       ? `${preview.text}\n\n${preview.hashtags.join(' ')}`
       : preview.text;
@@ -444,11 +449,60 @@ export default function SocialDashboardClient(): JSX.Element {
     window.open(getNativePreviewUrl(platform), '_blank', 'noopener,noreferrer');
   }
 
+  async function openNativeComposerForPost(post: SocialPost, platform: SocialPlatform): Promise<void> {
+    const preview = getPostPreviewForPlatform(post, platform);
+    const previewText = preview.hashtags.length > 0
+      ? `${preview.text}\n\n${preview.hashtags.join(' ')}`
+      : preview.text;
+
+    try {
+      if (previewText.trim()) {
+        await navigator.clipboard.writeText(previewText);
+      }
+
+      const platformLabel = formatPlatformLabel(platform);
+      if (platform === 'linkedin' || platform === 'facebook' || platform === 'google_business') {
+        setInfoMessage(`${platformLabel} does not support prefilled composer text via URL. Post text has been copied to clipboard.`);
+      } else {
+        setInfoMessage(`${platformLabel} composer opened with prefilled data.`);
+      }
+    } catch {
+      setInfoMessage(`Could not copy post text automatically. Paste manually after ${formatPlatformLabel(platform)} opens.`);
+    }
+
+    window.open(getNativePreviewUrlForPost(post, platform), '_blank', 'noopener,noreferrer');
+  }
+
+  async function copyPostPackage(post: SocialPost): Promise<void> {
+    const packageText = post.platforms
+      .map((platform) => {
+        const preview = getPostPreviewForPlatform(post, platform);
+        const body = preview.hashtags.length > 0
+          ? `${preview.text}\n\n${preview.hashtags.join(' ')}`
+          : preview.text;
+        return `=== ${formatPlatformLabel(platform)} ===\n${body}`;
+      })
+      .join('\n\n');
+
+    try {
+      await navigator.clipboard.writeText(packageText);
+      setInfoMessage('Manual posting package copied to clipboard.');
+    } catch {
+      setInfoMessage('Could not copy package automatically.');
+    }
+  }
+
+  async function markPublishedManual(postId: string): Promise<void> {
+    await updatePostStatus(postId, 'published');
+    setInfoMessage('Post marked as published. Manual posting is complete when you finish sharing on each platform.');
+  }
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-8 space-y-8">
       <header className="space-y-2">
         <h1 className="text-3xl font-bold text-secondary">Social Publishing Dashboard</h1>
-        <p className="text-tertiary">Create, manage, and upload posts/images from one panel.</p>
+        <p className="text-tertiary">Create, manage, and manually copy/paste posts into each platform.</p>
+        <p className="text-xs text-amber-300">Manual mode is active: platform API publishing is disabled. Use copy + native composer buttons below.</p>
       </header>
 
       {errorMessage && (
@@ -817,12 +871,21 @@ export default function SocialDashboardClient(): JSX.Element {
                     <button
                       type="button"
                       onClick={() => {
-                        void publishNow(post.id);
+                        void copyPostPackage(post);
                       }}
-                      disabled={publishingPostId === post.id}
-                      className="w-full rounded border border-orange-500/40 bg-orange-500/10 px-3 py-1.5 text-sm text-orange-300 hover:bg-orange-500/20 disabled:opacity-50"
+                      className="w-full rounded border border-blue-500/40 bg-blue-500/10 px-3 py-1.5 text-sm text-blue-200 hover:bg-blue-500/20"
                     >
-                      {publishingPostId === post.id ? 'Publishing...' : 'Publish Now'}
+                      Copy Manual Package
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        void markPublishedManual(post.id);
+                      }}
+                      className="w-full rounded border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200 hover:bg-emerald-500/20 disabled:opacity-50"
+                    >
+                      Mark Published (Manual)
                     </button>
 
                     <button
@@ -875,6 +938,24 @@ export default function SocialDashboardClient(): JSX.Element {
                     </ul>
                   </div>
                 )}
+
+                <div className="mt-3 rounded border border-white/10 bg-primary p-3">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-tertiary">Manual Share Actions</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.platforms.map((platform) => (
+                      <button
+                        key={`manual-share-${post.id}-${platform}`}
+                        type="button"
+                        onClick={() => {
+                          void openNativeComposerForPost(post, platform);
+                        }}
+                        className="inline-flex items-center rounded-md border border-white/20 bg-secondary px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary"
+                      >
+                        Open {formatPlatformLabel(platform)} Composer
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
                 <p className="mt-3 text-xs text-tertiary">
                   Updated {new Date(post.updatedAt).toLocaleString()}
