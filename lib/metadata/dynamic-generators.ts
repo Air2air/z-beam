@@ -62,6 +62,38 @@ interface DynamicPageMetadataOptions {
   dateModified?: string;
 }
 
+function normalizeWhitespace(value: string): string {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+function removeTrailingTerm(value: string, termPattern: RegExp): string {
+  return normalizeWhitespace(value).replace(termPattern, '').trim();
+}
+
+function toSeoDescription(value: string): string {
+  const plainText = normalizeWhitespace(
+    value
+      .replace(/^#+\s+/gm, '')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/\[(.*?)\]\((.*?)\)/g, '$1')
+  );
+
+  if (plainText.length <= 160) {
+    return plainText;
+  }
+
+  const firstSentence = plainText.match(/^.{80,220}?[.!?](?:\s|$)/)?.[0]?.trim();
+  if (firstSentence && firstSentence.length >= 120 && firstSentence.length <= 180) {
+    return firstSentence;
+  }
+
+  const cut = plainText.slice(0, 157);
+  const safeCut = cut.slice(0, Math.max(cut.lastIndexOf(' '), 120)).trim();
+  return `${safeCut}...`;
+}
+
 /**
  * Generate metadata for dynamic pages (materials, contaminants, compounds, settings)
  * 
@@ -98,10 +130,11 @@ export function generateDynamicPageMetadata(options: DynamicPageMetadataOptions)
 
   const fullUrl = `${SITE_CONFIG.url}${pathname}`;
   const ogImage = image || `${SITE_CONFIG.url}/images/og-default.png`;
+  const seoDescription = toSeoDescription(description);
 
   return {
     title,
-    description,
+    description: seoDescription,
     keywords: keywords || undefined,
     author: author || undefined,
     alternates: {
@@ -109,7 +142,7 @@ export function generateDynamicPageMetadata(options: DynamicPageMetadataOptions)
     },
     openGraph: {
       title,
-      description,
+      description: seoDescription,
       url: fullUrl,
       siteName: SITE_CONFIG.name,
       locale: 'en_US',
@@ -129,7 +162,7 @@ export function generateDynamicPageMetadata(options: DynamicPageMetadataOptions)
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      description: seoDescription,
       images: [ogImage],
       creator: author ? `@${author.name.replace(/\s+/g, '')}` : undefined
     },
@@ -162,8 +195,9 @@ export function generateMaterialMetadata(options: {
     density?: string;
     hardness?: string;
   };
+  videoUrl?: string;
 }): NextMetadata {
-  const { materialName, description, slug, category, subcategory, keywords, author, dateModified, image, properties } = options;
+  const { materialName, description, slug, category, subcategory, keywords, author, dateModified, image, properties, videoUrl } = options;
   
   const categoryPath = category ? `/${category}` : '';
   const subcategoryPath = subcategory ? `/${subcategory}` : '';
@@ -202,8 +236,10 @@ export function generateMaterialMetadata(options: {
   }
   breadcrumbs.push({ name: materialName, href: pathname });
 
+  const normalizedMaterialName = removeTrailingTerm(materialName, /\s+laser\s+cleaning$/i) || materialName;
+
   const metadata = generateDynamicPageMetadata({
-    title: `${materialName} Laser Cleaning | ${SITE_CONFIG.name}`,
+    title: `${normalizedMaterialName} Laser Cleaning`,
     description,
     pathname,
     keywords: enhancedKeywords,
@@ -241,6 +277,23 @@ export function generateMaterialMetadata(options: {
           ...(properties.meltingPoint && { meltingPoint: properties.meltingPoint }),
           ...(properties.density && { density: properties.density }),
           ...(properties.hardness && { hardness: properties.hardness })
+        });
+      }
+
+      if (videoUrl) {
+        schemaData['@graph'].push({
+          '@type': 'VideoObject',
+          '@id': `${fullUrl}#video`,
+          name: `${normalizedMaterialName} Laser Cleaning Overview`,
+          description,
+          contentUrl: videoUrl,
+          embedUrl: videoUrl,
+          thumbnailUrl: image || `${SITE_CONFIG.url}/images/og-default.png`,
+          publisher: {
+            '@type': 'Organization',
+            name: SITE_CONFIG.name,
+            url: SITE_CONFIG.url
+          }
         });
       }
 
@@ -285,8 +338,13 @@ export function generateContaminantMetadata(options: {
     'surface decontamination'
   ];
 
+  const normalizedContaminantName = removeTrailingTerm(
+    removeTrailingTerm(contaminantName, /\s+contaminants?$/i),
+    /\s+contamination$/i
+  ) || contaminantName;
+
   return generateDynamicPageMetadata({
-    title: `${contaminantName} Removal | ${SITE_CONFIG.name}`,
+    title: `${normalizedContaminantName} Removal`,
     description,
     pathname,
     keywords: enhancedKeywords,
@@ -315,6 +373,9 @@ export function generateSettingsMetadata(options: {
   const subcategoryPath = subcategory ? `/${subcategory}` : '';
   const pathname = `/settings${categoryPath}${subcategoryPath}/${slug}`;
   
+  const normalizedSettingName = removeTrailingTerm(settingName, /\s+settings$/i) || settingName;
+  const seoDescription = toSeoDescription(description);
+
   const enhancedKeywords = [
     ...(keywords || []),
     `${settingName} parameters`,
@@ -323,11 +384,45 @@ export function generateSettingsMetadata(options: {
     materialType ? `${materialType} laser cleaning` : 'laser cleaning'
   ];
 
-  return generateDynamicPageMetadata({
-    title: `${settingName} Settings | ${SITE_CONFIG.name}`,
-    description,
+  const metadata = generateDynamicPageMetadata({
+    title: `${normalizedSettingName} Laser Settings`,
+    description: seoDescription,
     pathname,
     keywords: enhancedKeywords,
     dateModified
   });
+
+  const fullUrl = `${SITE_CONFIG.url}${pathname}`;
+  metadata.other = {
+    'application-ld+json': JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebPage',
+          '@id': `${fullUrl}#webpage`,
+          url: fullUrl,
+          name: `${normalizedSettingName} Laser Settings`,
+          description: seoDescription
+        },
+        {
+          '@type': 'Article',
+          '@id': `${fullUrl}#article`,
+          headline: `${normalizedSettingName} Laser Settings Guide`,
+          description: seoDescription,
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `${fullUrl}#webpage`
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: SITE_CONFIG.name,
+            url: SITE_CONFIG.url
+          },
+          ...(dateModified && { dateModified })
+        }
+      ]
+    })
+  };
+
+  return metadata;
 }

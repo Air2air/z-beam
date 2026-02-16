@@ -230,6 +230,15 @@ export class SchemaFactory {
         return isSettingsPage(context.slug);
       }
     });
+    this.register('ArticleForSettings', generateArticleSchema, {
+      priority: 79,
+      condition: (data, context) => {
+        // Also emit canonical Article schema for settings pages where technical content exists
+        const meta = getMetadata(data);
+        const hasBasicMetadata = !!(meta.title || meta.pageTitle || meta.name) && !!(meta.description || meta.pageDescription || meta.metaDescription);
+        return isSettingsPage(context.slug) && hasBasicMetadata;
+      }
+    });
     this.register('Product', generateProductSchema, {
       priority: 75,
       condition: (data) => hasProductData(data)
@@ -1972,24 +1981,31 @@ function generateQAPageSchema(data: any, context: SchemaContext): SchemaOrgBase 
  */
 function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
-  
-  // Check for explicit video URL or use default YouTube video
-  const videoUrl = data.video || data.youtubeUrl || frontmatter.video;
-  const youtubeId = videoUrl;
-  if (!youtubeId) return null;
-  
-  // Always include video schema for material pages
-  const isMaterialPage = frontmatter.materialProperties || frontmatter.category;
-  
-  if (!videoUrl && !isMaterialPage) return null;
 
-  const embedUrl = youtubeId.includes('youtube.com') || youtubeId.includes('youtu.be')
-    ? youtubeId
-    : `https://www.youtube.com/watch?v=${youtubeId}`;
-  
-  const thumbnailUrl = youtubeId.includes('youtube.com') || youtubeId.includes('youtu.be')
-    ? `https://img.youtube.com/vi/${youtubeId.split('/').pop()?.split('?')[0]}/maxresdefault.jpg`
-    : `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  // Check for explicit video URL/ID across known shapes
+  const rawVideo = data.video || data.youtubeUrl || frontmatter.video;
+  const videoString = typeof rawVideo === 'string'
+    ? rawVideo
+    : (rawVideo && typeof rawVideo === 'object'
+      ? (rawVideo.url || rawVideo.embedUrl || rawVideo.id)
+      : undefined);
+
+  // Always include video schema for technical content pages with category metadata
+  const isTechnicalPage = !!(frontmatter.materialProperties || frontmatter.machineSettings || frontmatter.category);
+
+  const youtubeIdOrUrl = videoString || (isTechnicalPage ? 't8fB3tJCfQw' : undefined);
+  if (!youtubeIdOrUrl) return null;
+
+  const isFullUrl = youtubeIdOrUrl.includes('youtube.com') || youtubeIdOrUrl.includes('youtu.be');
+  const embedUrl = isFullUrl
+    ? youtubeIdOrUrl
+    : `https://www.youtube.com/watch?v=${youtubeIdOrUrl}`;
+
+  const resolvedVideoId = isFullUrl
+    ? (youtubeIdOrUrl.split('/').pop()?.split('?')[0] || 't8fB3tJCfQw')
+    : youtubeIdOrUrl;
+
+  const thumbnailUrl = `https://img.youtube.com/vi/${resolvedVideoId}/maxresdefault.jpg`;
 
   // Enhanced material-specific video title and description
   const materialName = frontmatter.name || frontmatter.subject || data.title;
@@ -2012,7 +2028,7 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
     'name': videoTitle,
     'description': videoDescription,
     'contentUrl': embedUrl,
-    'embedUrl': `https://www.youtube.com/embed/${youtubeId}`,
+    'embedUrl': `https://www.youtube.com/embed/${resolvedVideoId}`,
     'uploadDate': uploadDate,
     'thumbnailUrl': data.videoThumbnail || thumbnailUrl,
     'duration': data.videoDuration || 'PT2M30S',
@@ -2976,15 +2992,69 @@ function generateCollectionPageSchema(data: any, _context: SchemaContext): Schem
 // ============================================================================
 
 function getMainImage(data: any): any | null {
+  const resolveCreator = (candidate: any): any => {
+    if (typeof candidate === 'string' && candidate.trim()) {
+      return {
+        '@type': 'Person',
+        'name': candidate.trim()
+      };
+    }
+
+    if (candidate && typeof candidate === 'object') {
+      const creatorName = typeof candidate.name === 'string' ? candidate.name.trim() : '';
+      const creatorType = candidate['@type'] === 'Organization' ? 'Organization' : 'Person';
+
+      if (creatorName) {
+        return {
+          '@type': creatorType,
+          'name': creatorName,
+          ...(candidate.url && { 'url': candidate.url })
+        };
+      }
+    }
+
+    const meta = getMetadata(data) as any;
+    const author = meta.author || data.author;
+    if (typeof author === 'string' && author.trim()) {
+      return {
+        '@type': 'Person',
+        'name': author.trim()
+      };
+    }
+
+    if (author && typeof author === 'object' && typeof author.name === 'string' && author.name.trim()) {
+      return {
+        '@type': 'Person',
+        'name': author.name.trim(),
+        ...(author.url && { 'url': author.url })
+      };
+    }
+
+    return {
+      '@type': 'Organization',
+      'name': SITE_CONFIG.name,
+      'url': SITE_CONFIG.url
+    };
+  };
+
+  const addImageLicenseMetadata = (image: Record<string, any>): Record<string, any> => ({
+    ...image,
+    'license': image.license || SITE_CONFIG.imageLicense.license,
+    'acquireLicensePage': image.acquireLicensePage || SITE_CONFIG.imageLicense.acquireLicensePage,
+    'creditText': image.creditText || SITE_CONFIG.imageLicense.creditText,
+    'copyrightNotice': image.copyrightNotice || SITE_CONFIG.imageLicense.copyrightNotice,
+    'creator': resolveCreator(image.creator)
+  });
+
   // From contentCards
   if (data.contentCards && Array.isArray(data.contentCards)) {
     const cardWithImage = data.contentCards.find((card: any) => card.image?.url);
     if (cardWithImage) {
-      return {
+      return addImageLicenseMetadata({
         '@type': 'ImageObject',
         'url': `${SITE_CONFIG.url}${cardWithImage.image.url}`,
         'micro': cardWithImage.image.alt || data.frontmatter?.micro?.before || data.micro?.before || data.title
-      };
+      });
     }
   }
 
@@ -2993,7 +3063,7 @@ function getMainImage(data: any): any | null {
   
   if (frontmatter.images?.hero?.url) {
     const hero = frontmatter.images.hero;
-    return {
+    return addImageLicenseMetadata({
       '@type': 'ImageObject',
       'url': `${SITE_CONFIG.url}${hero.url}`,
       'width': hero.width || 1200,  // P0 enhancement: default dimensions for rich snippets
@@ -3006,13 +3076,13 @@ function getMainImage(data: any): any | null {
       ...(hero.creditText && { 'creditText': hero.creditText }),
       ...(hero.creator && { 'creator': hero.creator }),
       ...(hero.copyrightNotice && { 'copyrightNotice': hero.copyrightNotice })
-    };
+    });
   }
   
   // Fallback to micro image if no hero
   if (frontmatter.images?.micro?.url) {
     const micro = frontmatter.images.micro;
-    return {
+    return addImageLicenseMetadata({
       '@type': 'ImageObject',
       'url': `${SITE_CONFIG.url}${micro.url}`,
       'width': micro.width || 1200,  // P0 enhancement: default dimensions for rich snippets
@@ -3025,38 +3095,38 @@ function getMainImage(data: any): any | null {
       ...(micro.creditText && { 'creditText': micro.creditText }),
       ...(micro.creator && { 'creator': micro.creator }),
       ...(micro.copyrightNotice && { 'copyrightNotice': micro.copyrightNotice })
-    };
+    });
   }
 
   // Direct image property
   if (data.image) {
-    return {
+    return addImageLicenseMetadata({
       '@type': 'ImageObject',
       'url': typeof data.image === 'string' ? data.image : `${SITE_CONFIG.url}${data.image.url}`,
       'micro': data.frontmatter?.micro?.before || data.micro?.before || data.title
-    };
+    });
   }
 
   // Fallback: Generate hero image URL from slug pattern
   const slug = data.slug || data.frontmatter?.slug;
   if (slug) {
-    return {
+    return addImageLicenseMetadata({
       '@type': 'ImageObject',
       'url': `${SITE_CONFIG.url}/images/material/${slug}-hero.jpg`,
       'width': 1200,
       'height': 630,
       'micro': data.title || data.frontmatter?.title
-    };
+    });
   }
 
   // Ultimate fallback: default OG image
-  return {
+  return addImageLicenseMetadata({
     '@type': 'ImageObject',
     'url': `${SITE_CONFIG.url}/images/og-image.jpg`,
     'width': 1200,
     'height': 630,
     'micro': 'Z-Beam Laser Cleaning'
-  };
+  });
 }
 
 function generatePersonObject(author: any, _baseUrl: string): any {

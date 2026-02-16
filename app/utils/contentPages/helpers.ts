@@ -56,10 +56,14 @@ export function generateSubcategoryMetadata(
 ) {
   const categoryLabel = categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1).replace(/_/g, ' ');
   const itemCount = subcategoryInfo[config.itemsProperty]?.length || 0;
+  const baseDescription = `${config.purposeText} ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} ${config.itemsProperty}. ${itemCount} ${config.itemsProperty} cataloged.`;
+  const description = baseDescription.length < 110
+    ? `${baseDescription} Includes practical methods, safety notes, and parameter guidance.`
+    : baseDescription;
   
   return createMetadata({
     title: `${subcategoryInfo.label} ${categoryLabel} ${config.actionText}`,
-    description: `${config.purposeText} ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} ${config.itemsProperty}. ${itemCount} ${config.itemsProperty} cataloged.`,
+    description,
     keywords: [
       `${subcategoryInfo.label} ${config.actionText.toLowerCase()}`,
       `${categoryLabel} ${config.rootPath}`,
@@ -133,9 +137,16 @@ export async function generateItemMetadata(
     
     // Extract common metadata fields
     const displayName = articleMeta.displayTitle || articleMeta.displayName || articleMeta.title || articleMeta.name;
-    const description = articleMeta.metaDescription || articleMeta.pageDescription || '';
+    const description =
+      articleMeta.metaDescription ||
+      articleMeta.description ||
+      articleMeta.pageDescription ||
+      articleMeta.summary ||
+      articleMeta.excerpt ||
+      '';
     const keywords = articleMeta.keywords || [];
     const heroImage = articleMeta.images?.hero?.url;
+    const videoUrl = articleMeta.video?.url || articleMeta.video?.embedUrl || articleMeta.videoUrl;
     const dateModified = articleMeta.dateModified;
     
     // Extract author information
@@ -156,7 +167,8 @@ export async function generateItemMetadata(
         keywords,
         author,
         dateModified,
-        image: heroImage
+        image: heroImage,
+        videoUrl
       });
     } else if (config.type === 'contaminants') {
       return generateContaminantMetadata({

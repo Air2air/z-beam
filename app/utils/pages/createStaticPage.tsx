@@ -176,19 +176,37 @@ function generatePageSpecificSchema(
   pageType: StaticPageType, 
   frontmatter: EnhancedStaticPageFrontmatter
 ): object | null {
+  const breadcrumbItems = (frontmatter.breadcrumb || [
+    { name: 'Home', href: '/' },
+    { name: pageType.charAt(0).toUpperCase() + pageType.slice(1), href: `/${pageType}` }
+  ]).map((item: any, index: number) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name || item.label,
+    item: `${SITE_CONFIG.url}${item.href || `/${pageType}`}`
+  }));
+
   switch (pageType) {
     case 'about':
       return {
         '@context': 'https://schema.org',
-        '@type': 'AboutPage',
-        name: frontmatter.pageTitle,
-        description: frontmatter.pageDescription,
-        url: `${SITE_CONFIG.url}/about`,
-        mainEntity: {
-          '@type': 'Organization',
-          name: SITE_CONFIG.name,
-          url: SITE_CONFIG.url
-        }
+        '@graph': [
+          {
+            '@type': 'AboutPage',
+            name: frontmatter.pageTitle,
+            description: frontmatter.pageDescription,
+            url: `${SITE_CONFIG.url}/about`,
+            mainEntity: {
+              '@type': 'Organization',
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url
+            }
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: breadcrumbItems
+          }
+        ]
       };
       
     case 'contact':
@@ -204,15 +222,48 @@ function generatePageSpecificSchema(
     case 'services':
       return {
         '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: frontmatter.pageTitle,
-        description: frontmatter.pageDescription,
-        provider: {
-          '@type': 'Organization',
-          name: SITE_CONFIG.name,
-          url: SITE_CONFIG.url
-        },
-        areaServed: 'United States'
+        '@graph': [
+          {
+            '@type': 'Service',
+            name: frontmatter.pageTitle,
+            description: frontmatter.pageDescription,
+            provider: {
+              '@type': 'Organization',
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url
+            },
+            areaServed: 'United States'
+          },
+          {
+            '@type': 'Product',
+            name: `${frontmatter.pageTitle} Package`,
+            description: frontmatter.pageDescription,
+            brand: {
+              '@type': 'Brand',
+              name: SITE_CONFIG.name
+            },
+            offers: {
+              '@type': 'Offer',
+              priceCurrency: 'USD',
+              availability: 'https://schema.org/InStock',
+              url: `${SITE_CONFIG.url}/${pageType}`
+            }
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: breadcrumbItems
+          },
+          {
+            '@type': 'VideoObject',
+            name: `${frontmatter.pageTitle} Overview`,
+            description: frontmatter.pageDescription,
+            thumbnailUrl: frontmatter.images?.hero?.url
+              ? `${SITE_CONFIG.url}${frontmatter.images.hero.url}`
+              : `${SITE_CONFIG.url}/images/og-default.png`,
+            contentUrl: `${SITE_CONFIG.url}/${pageType}`,
+            embedUrl: `${SITE_CONFIG.url}/${pageType}`
+          }
+        ]
       };
       
     case 'schedule':
@@ -332,6 +383,7 @@ function renderDynamicContentPage(
   return (
     <Layout
       title={frontmatter.pageTitle}
+      slug={pageType}
       rightContent={rightContent}
     >
       {shouldRenderJsonLd && pageSchema && <JsonLD data={pageSchema as Record<string, unknown>} />}
@@ -475,6 +527,7 @@ async function renderContentCardsPage(
   return (
     <Layout
       title={frontmatter.pageTitle}
+      slug={pageType}
     >
       {pageSchema && <JsonLD data={pageSchema as Record<string, unknown>} />}
       

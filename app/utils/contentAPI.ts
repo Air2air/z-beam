@@ -1170,9 +1170,9 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       title: data.title || data.pageTitle,  // Fallback to pageTitle if title not present
       pageTitle: data.pageTitle,  // Explicit pageTitle for schema generation
       subtitle: data.subtitle,
-      description: data.description,
-      metaDescription: data.meta_description, // SEO meta description (short) - converted from snake_case
-      pageDescription: data.page_description, // Long-form page content - converted from snake_case
+      description: data.description || data.metaDescription || data.pageDescription,
+      metaDescription: data.metaDescription || data.meta_description || data.description, // SEO meta description (short)
+      pageDescription: data.pageDescription || data.page_description || data.description, // Long-form page content
       slug,
       author: data.author,
       datePublished: data.datePublished,
