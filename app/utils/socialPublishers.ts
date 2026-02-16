@@ -67,6 +67,28 @@ async function resolveLinkedInOrganizationId(accessToken: string): Promise<strin
   return String(resolvedId);
 }
 
+async function resolveLinkedInPersonId(accessToken: string): Promise<string> {
+  const explicitPersonId = getEnv('LINKEDIN_PERSON_ID');
+  if (explicitPersonId) {
+    return explicitPersonId;
+  }
+
+  const response = await fetch('https://api.linkedin.com/v2/me', {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'X-Restli-Protocol-Version': '2.0.0'
+    }
+  });
+
+  const data = (await response.json()) as { id?: string; message?: string };
+  if (!response.ok || !data.id) {
+    throw new Error(`Unable to resolve LinkedIn member ID: ${data.message || `HTTP ${response.status}`}`);
+  }
+
+  return data.id;
+}
+
 function resolveFacebookPageId(): string {
   const explicitPageId = getEnv('FACEBOOK_PAGE_ID');
   if (explicitPageId) {
@@ -118,10 +140,69 @@ function toAbsoluteUrl(url: string): string {
 
 async function publishToLinkedIn(post: SocialPost): Promise<SocialPlatformPublishResult> {
   const accessToken = requireEnv('LINKEDIN_ACCESS_TOKEN');
-  const organizationId = await resolveLinkedInOrganizationId(accessToken);
+  const linkedInMode = getEnv('LINKEDIN_POST_MODE');
   const publishedAt = new Date().toISOString();
 
   const postText = buildPostText(post, 'linkedin');
+
+  if (linkedInMode === 'member') {
+    const personId = await resolveLinkedInPersonId(accessToken);
+
+    const payload: Record<string, unknown> = {
+      author: `urn:li:person:${personId}`,
+      lifecycleState: 'PUBLISHED',
+      specificContent: {
+        'com.linkedin.ugc.ShareContent': {
+          shareCommentary: {
+            text: postText
+          },
+          shareMediaCategory: post.linkUrl ? 'ARTICLE' : 'NONE',
+          ...(post.linkUrl
+            ? {
+                media: [
+                  {
+                    status: 'READY',
+                    originalUrl: post.linkUrl,
+                    title: {
+                      text: post.title
+                    }
+                  }
+                ]
+              }
+            : {})
+        }
+      },
+      visibility: {
+        'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC'
+      }
+    };
+
+    const response = await fetch('https://api.linkedin.com/v2/ugcPosts', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'X-Restli-Protocol-Version': '2.0.0',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      const body = await response.text();
+      throw new Error(`LinkedIn member publish failed (${response.status}): ${body}`);
+    }
+
+    const linkedInId = response.headers.get('x-restli-id') || undefined;
+
+    return {
+      platform: 'linkedin',
+      status: 'success',
+      externalPostId: linkedInId,
+      publishedAt
+    };
+  }
+
+  const organizationId = await resolveLinkedInOrganizationId(accessToken);
 
   const payload: Record<string, unknown> = {
     author: `urn:li:organization:${organizationId}`,

@@ -19,6 +19,12 @@ These credentials protect:
 - `LINKEDIN_ORGANIZATION_ID` (preferred numeric org ID)
 - OR `LINKEDIN_PAGE_URL` (for vanity resolution, e.g. `https://linkedin.com/company/z-beam/`)
 - Optional fallback: `LINKEDIN_ORGANIZATION_VANITY`
+- Optional mode switch: `LINKEDIN_POST_MODE=member` (uses member scope `w_member_social`)
+- Optional for member mode: `LINKEDIN_PERSON_ID` (if omitted, app resolves via `/v2/me`)
+
+#### LinkedIn mode behavior
+- Default behavior posts as organization (`urn:li:organization:*`) and requires org scopes.
+- If your app only has `w_member_social`, set `LINKEDIN_POST_MODE=member` to post as member (`urn:li:person:*`).
 
 ### Facebook
 - `FACEBOOK_PAGE_ID` (preferred)
