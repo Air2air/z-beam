@@ -126,6 +126,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
                 alt={`${capitalizedMaterial} surface analysis`}
                 width={800}
                 height={450}
+                sizes="(max-width: 768px) 100vw, 800px"
                 className="w-full h-full object-cover"
                 priority={false}
                 quality={85}

@@ -24,9 +24,9 @@ describe('SEO Comprehensive Integration', () => {
       const sitemap = fs.readFileSync(sitemapPath, 'utf-8');
       const imageCount = (sitemap.match(/<image:image>/g) || []).length;
       
-      // Should have 346 images indexed
+      // Should have ~352 images indexed (updated threshold for content growth)
       expect(imageCount).toBeGreaterThanOrEqual(340);
-      expect(imageCount).toBeLessThanOrEqual(350);
+      expect(imageCount).toBeLessThanOrEqual(360);
     });
 
     test('should have valid XML structure', () => {
@@ -76,12 +76,12 @@ describe('SEO Comprehensive Integration', () => {
   describe('Layout.tsx Core Web Vitals Integration', () => {
     const layoutPath = path.join(__dirname, '../../app/layout.tsx');
 
-    test('should contain hero image preload', () => {
+    test('should contain above-the-fold image preload', () => {
       const layout = fs.readFileSync(layoutPath, 'utf-8');
       
       expect(layout).toContain('rel="preload"');
       expect(layout).toContain('as="image"');
-      expect(layout).toContain('hero-laser-cleaning.webp');
+      expect(layout).toContain('/images/logo/logo-zbeam.png');
     });
 
     test('should contain preconnect hints', () => {

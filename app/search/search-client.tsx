@@ -378,7 +378,8 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
                   : undefined
               ),
             },
-            metadata: article.metadata as unknown as Record<string, unknown>,
+            metadata: (article.frontmatter ?? article.metadata) as Record<string, unknown>,
+            frontmatter: (article.frontmatter ?? article.metadata) as Record<string, unknown>,
           }))}
           columns={3}
         />

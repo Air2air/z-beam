@@ -31,6 +31,7 @@ export function ScheduleCards() {
                 alt=""
                 width={144}
                 height={144}
+                sizes="(max-width: 768px) 112px, (max-width: 1024px) 128px, 144px"
                 className="w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36"
                 aria-hidden="true"
               />
@@ -83,6 +84,7 @@ export function ScheduleCards() {
                 alt=""
                 width={144}
                 height={144}
+                sizes="(max-width: 768px) 112px, (max-width: 1024px) 128px, 144px"
                 className="w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36"
                 aria-hidden="true"
               />

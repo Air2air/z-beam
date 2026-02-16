@@ -8,6 +8,14 @@ import { SITE_CONFIG } from "@/app/config/site";
 
 export const dynamic = 'force-dynamic';
 
+// Viewport configuration for mobile optimization
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export const metadata = {
   title: `Search Materials | ${SITE_CONFIG.shortName}`,
   description: 'Search our comprehensive database of laser cleaning materials, processes, and technical specifications.',

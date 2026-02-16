@@ -35,6 +35,7 @@ export default function CallToAction() {
                 src="/images/van/van.png"
                 alt={`${SITE_CONFIG.shortName} service van`}
                 fill
+                sizes="(max-width: 768px) 33vw, 240px"
                 style={{ objectFit: 'contain' }}
                 className="drop-shadow-2xl"
                 priority={false}

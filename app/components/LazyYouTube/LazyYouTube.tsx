@@ -76,6 +76,8 @@ export default function LazyYouTube({
       {shouldShowIframe ? (
         <iframe
           src={buildYouTubeUrl()}
+          width="560"
+          height="315"
           className="absolute top-0 left-0 w-full h-full"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -121,7 +123,7 @@ export default function LazyYouTube({
           {/* Loading state for non-facade mode */}
           {!showFacade && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-              <div className="animate-pulse text-white text-sm">Loading video...</div>
+              <div className="text-white text-sm">Loading video...</div>
             </div>
           )}
         </div>

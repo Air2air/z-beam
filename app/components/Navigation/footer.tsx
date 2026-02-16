@@ -86,7 +86,6 @@ export default function Footer() {
                 height={50}
                 className="footer-logo"
                 sizes="150px"
-                priority
               />
             </Link>
           </div>

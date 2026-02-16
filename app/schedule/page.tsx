@@ -1,70 +1,39 @@
 // app/schedule/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { JsonLD } from "../components/JsonLD/JsonLD";
-import { loadPageData } from "../utils/contentAPI";
-import { ArticleMetadata as _ArticleMetadata } from "@/types";
+import { ContentSection } from '../components/ContentCard/ContentSection';
+import { loadStaticPageContent } from "../utils/staticPageLoader";
 import { SITE_CONFIG } from "@/app/config/site";
 import { ScheduleContent } from "../components/Schedule/ScheduleContent";
+import { generateStaticPageMetadata } from '@/lib/metadata/generators';
+import { generatePageSchema } from '@/lib/schema/generators';
 import Link from "next/link";
 
-export const metadata = {
+export const metadata = generateStaticPageMetadata({
   title: "Schedule a Service - Z-Beam Laser Cleaning",
-  description:
-    "Schedule laser cleaning services with Z-Beam. Book equipment rental, professional cleaning, or on-site services through our online booking portal.",
-  robots: {
-    index: false,
-    follow: true,
-  },
-  alternates: {
-    canonical: `${SITE_CONFIG.url}/schedule`,
-  },
-  openGraph: {
-    title: "Schedule a Service - Z-Beam Laser Cleaning",
-    description:
-      "Schedule laser cleaning services with Z-Beam. Book equipment rental, professional cleaning, or on-site services.",
-    url: `${SITE_CONFIG.url}/schedule`,
-    siteName: SITE_CONFIG.name,
-    type: "website",
-    images: [
-      {
-        url: `${SITE_CONFIG.url}/images/og-schedule.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Schedule a Service with Z-Beam",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Schedule a Service - Z-Beam Laser Cleaning",
-    description: "Schedule laser cleaning services with Z-Beam.",
-  },
-};
+  description: "Schedule laser cleaning services with Z-Beam. Book equipment rental, professional cleaning, or on-site services through our online booking portal.",
+  path: '/schedule',
+  image: '/images/og-schedule.jpg',
+  noIndex: true
+});
 
-export default async function SchedulePage() {
-  const { metadata: pageMetadata } = await loadPageData("schedule");
+export default function SchedulePage() {
+  const pageConfig = loadStaticPageContent('schedule');
 
-  // Generate schema for schedule page
-  const scheduleSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Schedule a Service",
-    description: "Schedule laser cleaning services with Z-Beam",
-    url: `${SITE_CONFIG.url}/schedule`,
-    mainEntity: {
-      "@type": "Service",
-      name: "Laser Cleaning Services",
-      description:
-        "Professional laser cleaning, equipment rental, and on-site services",
-      provider: {
-        "@type": "Organization",
-        "@id": `${SITE_CONFIG.url}/#organization`,
-        name: SITE_CONFIG.name,
-      },
-      serviceType: "Laser Cleaning",
-      areaServed: "United States",
-    },
+  // Schedule Service entity schema
+  const scheduleEntity = {
+    "@type": "Service",
+    "name": "Laser Cleaning Services",
+    "description": "Professional laser cleaning, equipment rental, and on-site services",
+    "provider": {
+      "@type": "Organization",
+      "@id": `${SITE_CONFIG.url}#organization`,
+      "name": SITE_CONFIG.name
+    }
   };
+  
+  const breadcrumbItems = [{ name: 'Home', href: '/' }, { name: 'Schedule Service', href: '/schedule' }];
+  const scheduleSchema = generatePageSchema(scheduleEntity, breadcrumbItems, 'Schedule Service', '/schedule');
 
   return (
     <>
@@ -101,16 +70,25 @@ export default async function SchedulePage() {
         }
         metadata={
           {
-            ...pageMetadata,
+            title: "Schedule with us",
+            description: "",
             breadcrumb: [
               { label: "Home", href: "/" },
               { label: "Contact", href: "/contact" },
               { label: "Schedule", href: "/schedule" },
             ],
-          } as any
+            slug: "schedule",
+          }
         }
         slug="schedule"
       >
+        {pageConfig.contentCards?.map((card, index) => (
+          <ContentSection
+            key={index}
+            title={card.heading}
+            items={[card]}
+          />
+        ))}
         <ScheduleContent />
       </Layout>
     </>

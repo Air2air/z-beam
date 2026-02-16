@@ -687,6 +687,16 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
         href: "/equipment",
         description: "Laser cleaning equipment information"
       },
+      {
+        name: "Operations",
+        href: "/operations",
+        description: "Training, filtration, and compliance"
+      },
+      {
+        name: "Comparison",
+        href: "/comparison",
+        description: "Detailed cleaning methods comparison"
+      },
     ]
   },
   {

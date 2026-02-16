@@ -9,7 +9,6 @@ import { getContentType } from '@/app/utils/relationshipHelpers';
 import { PageTitle } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
-import MicroSkeleton from '../Micro/MicroSkeleton';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Settings } from 'lucide-react';
@@ -24,7 +23,7 @@ import { BaseSection } from '../BaseSection/BaseSection';
 const _Micro = dynamic(
   () => import('../Micro/Micro').then(mod => mod.Micro),
   {
-    loading: () => <MicroSkeleton />,
+    loading: () => null,
     ssr: false,
   }
 );

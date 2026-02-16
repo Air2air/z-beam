@@ -39,7 +39,7 @@ interface EnhancedMicroYamlData extends MicroYamlData {
     email?: string;
     affiliation?: string;
     title?: string;
-    expertise?: string[];
+    expertiseAreas?: string[];
     credentials?: string[];
     experience_years?: number;
   };

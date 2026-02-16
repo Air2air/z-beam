@@ -3,6 +3,32 @@
 
 ---
 
+## 🔥 MANDATORY SEO Testing (February 14, 2026)
+
+**All pages MUST pass comprehensive SEO tests before production deployment.**
+
+**Policy Documents**:
+- **[SEO Testing Policy](../../docs/policies/SEO_TESTING_POLICY.md)** - MANDATORY compliance requirements
+- **[Testing Requirements](../../docs/testing/SEO_TESTING_REQUIREMENTS.md)** - Complete specifications
+- **[Testing Guide](../../docs/testing/SEO_TESTING_GUIDE.md)** - Implementation guide
+
+**Run Comprehensive Tests**:
+```bash
+npm run test:seo:comprehensive  # Master test suite (327+ pages)
+npm run test:seo:all            # All SEO tests with coverage
+npm run validate:seo:comprehensive  # Full validation
+```
+
+**Quality Requirements**:
+- Overall Quality Score: ≥60% (Target: 90%+)
+- Schema Presence: ≥90% of pages
+- Title/Description: 100% coverage
+- Rich Results: 100% of article pages
+
+**This guide covers post-deployment validation. Pre-deployment validation is MANDATORY via the comprehensive test suite.**
+
+---
+
 ## Quick Start
 
 ### Run Validation

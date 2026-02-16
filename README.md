@@ -8,6 +8,7 @@ This README is the single source of truth for building, maintaining, and extendi
 ### 📚 Quick Links
 - **[Development Runbook](docs/RUNBOOK.md)** - Essential procedures for common tasks
 - **[Architecture Decision Records](docs/adr/)** - Why decisions were made
+- **[SEO Testing Policy](docs/policies/SEO_TESTING_POLICY.md)** 🔥 **MANDATORY** - Comprehensive SEO testing requirements
 - **Test Status**: 121/122 suites passing (99.2%), 2,640 tests passing
 ---
 
@@ -298,6 +299,46 @@ import { SearchApiResponse, MaterialsApiResponse } from '@/types';
   - BreadcrumbsProps, ButtonProps, GridColumns, GridGap, GridContainer, StandardGridProps, NavItem, SEOMicroProps
   - All component and config files now import from `@/types`
   - 100% consolidation achieved - `types/centralized.ts` is the single source of truth
+
+### Dynamic Metadata Utilities (Feb 2026)
+
+**Location**: `lib/metadata/dynamic-generators.ts`
+
+Centralized metadata generation for 265+ dynamic content pages with domain-specific SEO optimization:
+
+```typescript
+import { 
+  generateDynamicPageMetadata,
+  generateMaterialMetadata,
+  generateContaminantMetadata,
+  generateSettingsMetadata 
+} from '@/lib/metadata/dynamic-generators';
+
+// Materials: Auto-adds "laser cleaning", "removal", "applications" keywords
+const metadata = generateMaterialMetadata({
+  materialName: 'Aluminum',
+  description: 'Professional aluminum laser cleaning...',
+  slug: 'aluminum-laser-cleaning',
+  category: 'metals',
+  keywords: ['aluminum', 'industrial'],
+  author: { name: 'Todd Dunning', title: 'Dr.', country: 'United States' }
+});
+
+// Contaminants: Auto-adds "removal", "cleaning solutions" keywords
+// Settings: Auto-adds "laser parameter", "optimization" keywords
+// Compounds: Use universal generateDynamicPageMetadata()
+```
+
+**Features**:
+- ✅ **Smart keyword enhancement** - Domain-specific auto-keywords
+- ✅ **E-E-A-T compliance** - Author attribution for expertise
+- ✅ **OpenGraph/Twitter cards** - Social media optimization
+- ✅ **Type-safe** - Full TypeScript integration
+- ✅ **Factory pattern** - Single function update affects all 265+ pages
+
+**Usage**: All dynamic pages route through `app/utils/contentPages/helpers.ts` → specialized utilities based on content type
+
+**Documentation**: See inline JSDoc comments in `lib/metadata/dynamic-generators.ts`
 
 📖 **Full Documentation**: [Type System Architecture](docs/TYPE_SYSTEM_ARCHITECTURE.md) | [Type System Audit](TYPE_SYSTEM_AUDIT.md)
 

@@ -23,12 +23,12 @@ const nextConfig = {
     } : false,
   },
 
-  // Disable type checking during build (we do it in predeploy)
+  // TypeScript and ESLint build configuration
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   },
 
   // Static optimization settings
@@ -167,6 +167,12 @@ const nextConfig = {
           ],
           destination: 'https://www.z-beam.com/:path*',
           permanent: true,
+        },
+        // Redirect /services to /rental (rental is primary service)
+        {
+          source: '/services',
+          destination: '/rental',
+          permanent: false, // 302 redirect (temporary) in case we want to change later
         },
       ];
       

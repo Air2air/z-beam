@@ -12,9 +12,9 @@ Z-Beam uses a unified **BaseSection** component as the foundation for all conten
 ```
 BaseSection (foundation)
 ├── SectionContainer (legacy wrapper, backward compatible)
-├── GridSection (specialized for grids, uses BaseSection)
 ├── ContentSection (specialized for content cards, uses BaseSection)
-└── LinkageSection (specialized for relationships, uses GridSection → BaseSection)
+├── Relationship (specialized for relationship grids, uses BaseSection)
+└── LinkageSection (compatibility wrapper → Relationship)
 ```
 
 ## BaseSection Component
@@ -124,7 +124,7 @@ No additional styling - pure content rendering. Use when you need full control o
 - `none` - No bottom margin
 - `tight` - `mb-8` (32px) - Used by SectionContainer
 - `normal` - `mb-12` (48px) - Used by ContentSection
-- `loose` - `mb-16` (64px) - Used by GridSection
+- `loose` - `mb-16` (64px) - Used by Relationship/DataGrid sections
 
 ## Legacy Components
 
@@ -145,14 +145,8 @@ No additional styling - pure content rendering. Use when you need full control o
 ```
 
 ### GridSection
-**Status**: Active, uses BaseSection internally
-**Use Case**: Specialized wrapper for grid layouts with loose spacing
-
-```tsx
-<GridSection title="Materials" description="Related materials">
-  <DataGrid items={materials} />
-</GridSection>
-```
+**Status**: Removed (February 15, 2026)
+**Replacement**: Use `Relationship` for relationship grids or `BaseSection` directly.
 
 ### ContentSection
 **Status**: Active, uses BaseSection internally
@@ -163,8 +157,8 @@ No additional styling - pure content rendering. Use when you need full control o
 ```
 
 ### LinkageSection
-**Status**: Active, uses GridSection (which uses BaseSection)
-**Use Case**: Specialized for relationship sections with conditional rendering
+**Status**: Compatibility wrapper around `Relationship`
+**Use Case**: Legacy imports only; prefer `Relationship` for new code
 
 ```tsx
 <LinkageSection
@@ -172,6 +166,18 @@ No additional styling - pure content rendering. Use when you need full control o
   title="Hazardous Compounds"
   mapper={compoundToGridItem}
 />
+
+### Relationship
+**Status**: Active, canonical relationship section component
+**Use Case**: Relationship sections with conditional rendering + `DataGrid`
+
+```tsx
+<Relationship
+  data={metadata.produces_compounds}
+  title="Hazardous Compounds"
+  mapper={compoundToGridItem}
+/>
+```
 ```
 
 ## Migration Path
@@ -222,7 +228,8 @@ BaseSection includes:
 - ✅ **Production Ready** (January 15, 2026)
 - ✅ Backward compatible with all existing section components
 - ✅ Type-safe with comprehensive TypeScript definitions
-- ✅ Used by GridSection, ContentSection, SectionContainer
+- ✅ Used by Relationship, ContentSection, SectionContainer
+- ✅ Relationship and LinkageSection now share a single implementation path
 - ✅ Zero breaking changes to existing code
 
 ---

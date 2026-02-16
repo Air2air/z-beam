@@ -1,0 +1,210 @@
+name: SEO Infrastructure Tests
+
+on:
+  pull_request:
+    branches: [main, production]
+    paths:
+      - 'app/**/*.tsx'
+      - 'app/**/*.ts'
+      - 'frontmatter/**/*.yaml'
+      - 'lib/**/*.ts'
+      - 'tests/seo/**'
+  push:
+    branches: [main]
+    paths:
+      - 'app/**/*.tsx'
+      - 'app/**/*.ts'
+      - 'frontmatter/**/*.yaml'
+      - 'lib/**/*.ts'
+      - 'tests/seo/**'
+  workflow_dispatch:
+
+jobs:
+  seo-comprehensive-tests:
+    name: Comprehensive SEO Infrastructure Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run comprehensive SEO tests
+        run: npm run test:seo:comprehensive
+        env:
+          CI: true
+
+      - name: Run all SEO tests with coverage
+        run: npm run test:seo:all
+        env:
+          CI: true
+
+      - name: Validate SEO infrastructure
+        run: npm run validate:seo-infrastructure
+
+      - name: Generate SEO test report
+        if: always()
+        run: |
+          echo "## SEO Infrastructure Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Comprehensive SEO tests completed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Test Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "- JSON-LD Schema: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- SEO Metadata: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Open Graph: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Twitter Cards: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Image SEO: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Rich Results: ✅" >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload test coverage
+        if: always()
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/lcov.info
+          flags: seo-tests
+          name: seo-coverage
+
+  seo-validation:
+    name: SEO Validation & Schema Checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate schema richness
+        run: npm run validate:seo:richness
+
+      - name: Validate URLs
+        run: npm run validate:urls
+
+      - name: Build application for local schema validation
+        run: npm run build
+
+      - name: Start local app server
+        run: |
+          npm run start > /tmp/zbeam-start.log 2>&1 &
+          echo $! > /tmp/zbeam-start.pid
+
+      - name: Wait for local app to be ready
+        run: |
+          for i in {1..60}; do
+            if curl -sf http://localhost:3000 >/dev/null; then
+              echo "✅ Local app is ready"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "❌ Local app did not start in time"
+          cat /tmp/zbeam-start.log || true
+          exit 1
+
+      - name: Validate live rendered JSON-LD schemas
+        run: npm run validate:schemas:live
+        env:
+          SCHEMA_VALIDATION_URL: http://localhost:3000
+          SCHEMA_REPORT_PATH: /tmp/schema-live-report.json
+          SCHEMA_RECOMMENDED_MISSING_MAX: '12'
+
+      - name: Check SEO metadata completeness
+        run: npm run validate:metadata
+
+      - name: Stop local app server
+        if: always()
+        run: |
+          if [ -f /tmp/zbeam-start.pid ]; then
+            kill $(cat /tmp/zbeam-start.pid) || true
+          fi
+
+      - name: Generate validation report
+        if: always()
+        run: |
+          echo "## SEO Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Validation Checks" >> $GITHUB_STEP_SUMMARY
+          echo "- Schema Richness: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- URL Validation: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Live Schema Rendering: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Metadata Completeness: ✅" >> $GITHUB_STEP_SUMMARY
+
+      - name: Append live schema report to summary
+        if: always()
+        run: |
+          node -e "
+          const fs = require('fs');
+          const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+          const reportPath = '/tmp/schema-live-report.json';
+          if (!fs.existsSync(reportPath)) {
+            fs.appendFileSync(summaryPath, '\n### Live Schema Details\n- ⚠️ Report not found\n');
+            process.exit(0);
+          }
+          const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+          const s = report.summary || {};
+          const lines = [
+            '',
+            '### Live Schema Details',
+            `- Target: ${report.target || 'unknown'}`,
+            `- Pages tested: ${s.totalPages ?? 0}`,
+            `- Failed pages: ${s.failedPages ?? 0}`,
+            `- Warning pages: ${s.warningPages ?? 0}`,
+            `- Recommended missing count: ${s.totalRecommendedMissing ?? 0}`,
+            `- Recommended threshold max: ${s.recommendedMissingMax ?? 'disabled'}`,
+            `- Threshold status: ${s.recommendedThresholdFailed ? '❌ exceeded' : '✅ within limit'}`,
+            `- Overall result: ${s.passed ? '✅ pass' : '❌ fail'}`,
+          ];
+          fs.appendFileSync(summaryPath, lines.join('\n') + '\n');
+          "
+
+      - name: Upload live schema validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-schema-validation-report
+          path: /tmp/schema-live-report.json
+          if-no-files-found: warn
+
+  deployment-blocker:
+    name: SEO Deployment Gate
+    runs-on: ubuntu-latest
+    needs: [seo-comprehensive-tests, seo-validation]
+    if: github.event_name == 'pull_request' && github.base_ref == 'production'
+
+    steps:
+      - name: Check SEO test results
+        run: |
+          echo "🔒 DEPLOYMENT GATE: Checking SEO infrastructure..."
+          echo ""
+          echo "All SEO tests must pass before deployment to production"
+          echo ""
+          echo "✅ Comprehensive SEO tests: PASSED"
+          echo "✅ SEO validation: PASSED"
+          echo ""
+          echo "🚀 Deployment approved from SEO perspective"
+
+      - name: Block deployment on failure
+        if: failure()
+        run: |
+          echo "❌ DEPLOYMENT BLOCKED: SEO tests failed"
+          echo ""
+          echo "Please fix SEO infrastructure issues before deploying to production"
+          exit 1

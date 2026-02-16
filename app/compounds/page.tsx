@@ -9,6 +9,14 @@ import { CollectionPage } from '@/app/components/CollectionPage/CollectionPage';
 export const dynamic = 'force-static';
 export const revalidate = process.env.NODE_ENV === 'production' ? 3600 : false; // 1 hour ISR in production
 
+// Viewport configuration for mobile optimization
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 const config = getContentConfig('compounds');
 
 // SEO metadata generation

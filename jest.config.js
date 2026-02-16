@@ -150,7 +150,7 @@ const customJestConfig = {
   ],
   collectCoverage: true,
   // Coverage thresholds set to prevent regression
-  // Updated: December 22, 2025 (relaxed to prevent false failures)
+  // Updated: February 15, 2026 - Removed non-existent path thresholds
   // Note: Some tests show 0% coverage due to mocking/setup issues, not actual coverage problems
   coverageThreshold: {
     global: {
@@ -159,6 +159,8 @@ const customJestConfig = {
       functions: 0,   // Relaxed from 23% - re-enable when mocking issues resolved
       lines: 0        // Relaxed from 27% - measure actual code quality separately
     }
+    // Removed non-existent paths (tests/seo/**/*.ts, lib/metadata/**/*.ts, lib/schema/**/*.ts)
+    // that were causing Jest to fail with "Coverage data not found" errors
   },
   // Enforce thresholds - fail CI if coverage drops below baseline
   coverageReporters: ['text', 'lcov', 'html'],

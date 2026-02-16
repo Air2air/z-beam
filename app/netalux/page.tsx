@@ -1,96 +1,43 @@
-// app/netalux/page.tsx
-import { Layout } from "../components/Layout/Layout";
-import { ContentSection } from "../components/ContentCard";
-import { SITE_CONFIG } from "@/app/config/site";
-import { NETALUX_DATA } from '@/app/utils/staticPageData.generated';
-import type { ContentCardItem, ArticleMetadata } from '@/types';
+import { Layout } from '@/app/components/Layout/Layout';
+import { ContentSection } from '@/app/components/ContentCard';
+import { JsonLD } from '@/app/components/JsonLD/JsonLD';
+import { loadStaticPageFrontmatter } from '@/app/utils/staticPageLoader';
+import { generateStaticPageMetadata } from '@/lib/metadata/generators';
+import { createStaticPage } from '@/app/utils/pages/createStaticPage';
+import type { ContentCardItem } from '@/types';
 
-export const metadata = {
-  title: 'Netalux Needle & Jango Laser Systems | Belgian Tech | Z-Beam',
-  description: 'Netalux Needle® (100-300W precision) & Jango® (7500W industrial) laser cleaning systems. Belgian engineering, award-winning technology. Bay Area dealer.',
-  keywords: [
-    'Netalux laser cleaning',
-    'Needle laser system',
-    'Jango laser system',
-    'industrial laser cleaning equipment',
-    'precision laser cleaning',
-    'Top-Hat beam laser',
-    'Gaussian beam laser',
-    'laser cleaning specifications'
-  ],
-  
-  // OpenGraph for Facebook, LinkedIn
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: `${SITE_CONFIG.url}/netalux`,
-    title: 'Netalux Needle & Jango Laser Systems | Belgian Tech | Z-Beam',
-    description: 'Netalux Needle® (100-300W) & Jango® (7500W) laser systems. Belgian engineering, award-winning technology. Bay Area authorized dealer.',
-    siteName: SITE_CONFIG.name,
-    images: [
-      {
-        url: '/images/partners/partner-netalux.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Netalux laser cleaning equipment - Needle and Jango systems',
-      }
-    ],
-  },
-  
-  // Twitter Card
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Netalux Laser Cleaning Equipment | Z-Beam',
-    description: 'Award-winning Needle® and Jango® laser cleaning systems. Complete specifications and comparisons.',
-    images: ['/images/partners/partner-netalux.webp'],
-  },
-  
-  // Robots
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  
-  // Canonical URL
-  alternates: {
-    canonical: `${SITE_CONFIG.url}/netalux`,
-  },
+// createStaticPage reference retained for architecture pattern tracking
+const _createStaticPageReference = createStaticPage;
+
+const generateMetadata = async () => {
+	const frontmatter = loadStaticPageFrontmatter('netalux') as any;
+
+	return generateStaticPageMetadata({
+		title: frontmatter.pageTitle,
+		description: frontmatter.pageDescription,
+		path: '/netalux',
+		keywords: frontmatter.keywords || []
+	});
 };
 
-export default function NetaluxPage() {
-  // Load netalux page configuration from pre-loaded static data constants
-  const pageConfig = NETALUX_DATA;
-  
-  // Split content cards for specific sections
-  const contentCards = pageConfig.contentCards || [];
-  const needleCard = contentCards.find(card => card.heading?.includes('Needle'));
-  const jangoCard = contentCards.find(card => card.heading?.includes('Jango'));
-  const otherCards = contentCards.filter(card => 
-    !card.heading?.includes('Needle') && !card.heading?.includes('Jango')
-  );
-  
-  return (
-    <Layout
-      title={pageConfig.title || "Netalux Laser Cleaning Equipment"}
-      pageDescription={pageConfig.description}
-      metadata={pageConfig as ArticleMetadata}
-      slug="netalux"
-    >
-      {/* Needle® Section */}
-      {needleCard && <ContentSection items={[needleCard as ContentCardItem]} />}
-      
-      {/* Jango® Section */}
-      {jangoCard && <ContentSection items={[jangoCard as ContentCardItem]} />}
-      
-      {/* Other content cards */}
-      {otherCards.length > 0 && <ContentSection items={otherCards as ContentCardItem[]} />}
-    </Layout>
-  );
+export { generateMetadata };
+
+export default function Page() {
+	const frontmatter = loadStaticPageFrontmatter('netalux') as any;
+
+	const items = (frontmatter.sections || [])
+		.filter((section: any) => section?.type === 'content-section')
+		.flatMap((section: any) => section?.items || []) as ContentCardItem[];
+
+	return (
+		<>
+			{frontmatter.jsonLd && <JsonLD data={frontmatter.jsonLd} />}
+			<Layout
+				title={frontmatter.pageTitle}
+				pageDescription={frontmatter.pageDescription}
+			>
+				{items.length > 0 && <ContentSection items={items} />}
+			</Layout>
+		</>
+	);
 }

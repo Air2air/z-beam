@@ -258,6 +258,7 @@ export function ContentCard({
                       alt=""
                       width={16}
                       height={16}
+                      sizes="16px"
                       className="mt-1 flex-shrink-0 object-contain"
                       role="presentation"
                       aria-hidden="true"

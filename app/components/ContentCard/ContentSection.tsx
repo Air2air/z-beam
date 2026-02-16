@@ -24,6 +24,12 @@ export function ContentSection({
   title, 
   items
 }: ContentSectionProps) {
+  // Ensure items is an array
+  if (!items || !Array.isArray(items)) {
+    console.error('ContentSection: items is not an array:', items);
+    return null;
+  }
+  
   // Sort items: those with order property first (by order), others maintain YAML order
   const sortedItems = [...items].sort((a, b) => {
     const orderA = 'order' in a ? (a.order ?? 999) : 999;

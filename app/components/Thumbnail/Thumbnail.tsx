@@ -59,6 +59,7 @@ export function Thumbnail({
             alt="Z-Beam Logo"
             width={150}
             height={50}
+            sizes="150px"
             className="object-contain h-[30%] w-auto opacity-40 group-hover:opacity-100 -translate-y-[40%] transition-opacity duration-300"
             priority
           />

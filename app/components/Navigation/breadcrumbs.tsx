@@ -100,34 +100,10 @@ function generateBreadcrumbsFromUrl(pathname: string | null): BreadcrumbItem[] {
   // Split the pathname into segments and filter out empty strings
   const segments = pathname.split("/").filter((segment) => segment !== "");
   
-  // Known static routes that don't need "Articles" parent
-  const knownStaticTopLevelRoutes = new Set([
-    "about",
-    "contact",
-    "services",
-    "rental",
-    "partners",
-    "search",
-    "materials",
-    "contaminants",
-    "compounds",
-    "settings"
-  ]);
-  
   let currentPathAccumulator = ""; // To build hrefs correctly
   
   segments.forEach((segment, index) => {
     currentPathAccumulator += `/${segment}`;
-    
-    // Determine if "Articles" needs to be inserted
-    const isFirstSegment = index === 0;
-    const isNotStaticRoute = !knownStaticTopLevelRoutes.has(segment);
-    const articlesAlreadyInserted = allBreadcrumbs.some(crumb => crumb.label === "Articles");
-    
-    if (isFirstSegment && isNotStaticRoute && !articlesAlreadyInserted) {
-      // Insert "Articles" before the actual slug
-      allBreadcrumbs.push({ href: "/articles", label: "Articles" });
-    }
     
     // Generate the label (e.g., "my-material" -> "My Material")
     const label = capitalizeWords(segment);

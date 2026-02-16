@@ -2,7 +2,7 @@
 
 ## Overview
 
-**BaseSection** is the unified base component for all section types in Z-Beam. It consolidates patterns from `SectionContainer`, `GridSection`, `ContentSection`, and `LinkageSection` into a single, consistent API.
+**BaseSection** is the unified base component for all section types in Z-Beam. It consolidates patterns from `SectionContainer`, `GridSection`, `ContentSection`, and relationship wrappers into a single, consistent API.
 
 ## Purpose
 
@@ -277,7 +277,8 @@ BaseSection (base)
 ├── SectionContainer (legacy wrapper, uses BaseSection)
 ├── GridSection (uses BaseSection)
 ├── ContentSection (uses BaseSection)
-└── LinkageSection (uses GridSection → BaseSection)
+├── Relationship (uses BaseSection)
+└── LinkageSection (compatibility wrapper → Relationship)
 ```
 
 ## Best Practices
@@ -310,7 +311,7 @@ BaseSection includes:
 - ✅ **Production Ready** (January 15, 2026)
 - ✅ Backward compatible with existing section components
 - ✅ Type-safe with TypeScript definitions
-- ✅ Used by GridSection, ContentSection, SectionContainer
+- ✅ Used by GridSection, ContentSection, SectionContainer, Relationship
 
 ---
 

@@ -27,6 +27,7 @@ const VALIDATION_SUITE = {
   ],
   
   '3. SEO & Schemas': [
+    { name: 'Comprehensive SEO Testing 🔥', command: 'npm run test:seo:comprehensive' },
     { name: 'SEO Infrastructure', command: 'node scripts/validation/seo/validate-seo-infrastructure.js' },
     { name: 'Schema Richness', command: 'node scripts/validation/jsonld/validate-schema-richness.js' },
     { name: 'Sitemap Verification', command: 'bash scripts/sitemap/verify-sitemap.sh' },

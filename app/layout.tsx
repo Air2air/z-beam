@@ -179,8 +179,8 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://va.vercel-scripts.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
         
-        {/* Hero image preload for better LCP */}
-        <link rel="preload" as="image" href="/images/hero-laser-cleaning.webp" />
+        {/* Above-the-fold logo preload for faster first paint in navigation */}
+        <link rel="preload" as="image" href="/images/logo/logo-zbeam.png" />
         
         {/* Defer non-critical third-party connections */}
         <link rel="dns-prefetch" href="https://img.youtube.com" />

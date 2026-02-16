@@ -42,7 +42,7 @@ export const TECHNICAL_TEAM_SCHEMA = {
 export function generateCategoryAuthorSchema(
   category: string,
   categoryLabel: string,
-  additionalExpertise?: string[]
+  additionalExpertiseAreas?: string[]
 ) {
   return {
     ...TECHNICAL_TEAM_SCHEMA,
@@ -52,7 +52,7 @@ export function generateCategoryAuthorSchema(
       'Industrial laser systems',
       'Laser ablation parameters',
       'Material properties and characteristics',
-      ...(additionalExpertise || [])
+      ...(additionalExpertiseAreas || [])
     ],
     'description': `Expert team specializing in laser cleaning research, material analysis, and industrial surface treatment applications for ${category} materials.`
   };

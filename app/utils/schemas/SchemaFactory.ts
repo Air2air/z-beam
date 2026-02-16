@@ -548,7 +548,14 @@ function generateOrganizationSchema(data: any, context: SchemaContext): SchemaOr
     '@id': `${baseUrl}#organization`,
     'name': SITE_CONFIG.name,
     'url': baseUrl,
-    'description': SITE_CONFIG.description
+    'description': SITE_CONFIG.description,
+    // SameAs property for entity recognition and Knowledge Graph entry
+    // Links organization to verified social profiles for improved brand authority
+    'sameAs': [
+      'https://www.linkedin.com/company/z-beam/',
+      'https://www.facebook.com/profile.php?id=61573280533272',
+      'https://x.com/ZBeamLaser'
+    ]
   };
 }
 
@@ -602,6 +609,15 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
     ...((getMainImage(data) && typeof getMainImage(data) === 'object') ? { 'image': getMainImage(data) } as Record<string, any> : {}),
     // E-E-A-T: Add expertise indicators (removed abstract - not in Schema.org Article spec)
     ...(frontmatter.keywords ? { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords } : {}),
+    
+    // Speakable markup for voice search optimization (Google Assistant, Alexa)
+    // Enable voice-first search results by marking content sections that answer common questions
+    ...(frontmatter.speakableSelectors && Array.isArray(frontmatter.speakableSelectors) && frontmatter.speakableSelectors.length > 0 ? {
+      'speakable': {
+        '@type': 'SpeakableSpecification',
+        'cssSelector': frontmatter.speakableSelectors
+      }
+    } : {}),
     
     // Phase 2 E-E-A-T: Advanced Trust & Authoritativeness signals
     ...((frontmatter.eeat as any)?.reviewedBy && {

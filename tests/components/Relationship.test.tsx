@@ -2,9 +2,9 @@
  * Relationship Component Tests
  * 
  * Tests the universal Relationship component that encapsulates
- * the GridSection + DataGrid pattern for rendering linkage sections.
+ * the BaseSection + DataGrid pattern for rendering linkage sections.
  * 
- * Created: December 17, 2025
+ * the BaseSection + DataGrid pattern for rendering linkage sections.
  * Related: MAXIMUM_REUSABILITY_ACHIEVED.md
  */
 

@@ -1,15 +1,15 @@
 // app/components/Relationship/Relationship.tsx
 import React from 'react';
-import { GridSection } from '@/app/components/GridSection/GridSection';
+import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import { DataGrid } from '@/app/components/DataGrid/DataGrid';
-import type { GridItem } from '@/types/centralized';
+import type { GridItem } from '@/types';
 
 /**
  * Universal component for rendering linkage sections with consistent pattern
- * Encapsulates: conditional rendering, GridSection wrapper, DataGrid configuration
+ * Encapsulates: conditional rendering, BaseSection wrapper, DataGrid configuration
  */
 
-interface RelationshipProps<T> {
+export interface RelationshipProps<T> {
   /** Data array from metadata (e.g., metadata.produces_compounds) */
   data: T[] | undefined;
   
@@ -37,7 +37,7 @@ interface RelationshipProps<T> {
  * 
  * Renders a relationship section with:
  * - Automatic conditional rendering (only shows if data exists)
- * - GridSection wrapper with title/description
+ * - BaseSection wrapper with title/description
  * - DataGrid with mapper/sorter
  * 
  * @example
@@ -64,7 +64,7 @@ export function Relationship<T>({
   }
 
   return (
-    <GridSection title={title} description={description}>
+    <BaseSection title={title} description={description} spacing="loose">
       <DataGrid
         items={data}
         mapper={mapper}
@@ -72,6 +72,6 @@ export function Relationship<T>({
         columns={columns as 2 | 3 | 4 | undefined}
         variant={variant}
       />
-    </GridSection>
+    </BaseSection>
   );
 }

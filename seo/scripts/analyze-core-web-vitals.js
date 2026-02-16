@@ -12,6 +12,13 @@ class CoreWebVitalsAnalyzer {
   constructor() {
     this.recommendations = [];
     this.issues = [];
+    this.detected = {
+      hasPreloadHint: false,
+      hasCriticalCss: false,
+      heroOptimized: false,
+      hasDynamicImports: false,
+      clsRiskCandidates: [],
+    };
     this.metrics = {
       lcp: { threshold: 2500, current: null },
       fid: { threshold: 100, current: null },
@@ -19,6 +26,80 @@ class CoreWebVitalsAnalyzer {
       fcp: { threshold: 1800, current: null },
       ttfb: { threshold: 600, current: null }
     };
+  }
+
+  /**
+   * Analyze likely CLS risks (heuristic)
+   * Evidence-based: only flag when candidate shifting containers are detected.
+   */
+  analyzeLayoutShiftRisks() {
+    console.log('🔍 Analyzing layout shift risks...\n');
+
+    const candidates = [];
+
+    this.searchFiles('./app', '.tsx', (content, filePath) => {
+      const lines = content.split('\n');
+
+      // Heuristic 1: loading/skeleton/spinner containers without explicit reserved height/aspect
+      lines.forEach((line, idx) => {
+        const normalized = line.toLowerCase();
+        const isContainerTag =
+          normalized.includes('<div') ||
+          normalized.includes('<section') ||
+          normalized.includes('<article') ||
+          normalized.includes('<aside') ||
+          normalized.includes('<main');
+        if (!isContainerTag) return;
+
+        const classMatch = line.match(/className\s*=\s*["'`]([^"'`]+)["'`]/i);
+        const classValue = (classMatch?.[1] || '').toLowerCase();
+        const isLoadingContainer =
+          classValue.includes('loading') ||
+          classValue.includes('skeleton') ||
+          classValue.includes('spinner') ||
+          classValue.includes('animate-pulse');
+
+        if (!isLoadingContainer) return;
+
+        const reservesSpace =
+          classValue.includes('min-h') ||
+          classValue.includes('h-[') ||
+          /\bh-(\d+|full|screen)\b/.test(classValue) ||
+          classValue.includes('aspect-') ||
+          normalized.includes('minheight') ||
+          normalized.includes('height:');
+
+        if (!reservesSpace) {
+          candidates.push({
+            file: filePath,
+            line: idx + 1,
+            reason: 'Loading/skeleton container without explicit reserved height/aspect',
+          });
+        }
+      });
+
+      // Heuristic 2: iframe/embed tags without explicit dimensions/aspect handling
+      const iframeMatches = [...content.matchAll(/<iframe[\s\S]*?>/g)];
+      iframeMatches.forEach((match) => {
+        const tag = match[0].toLowerCase();
+        const hasDimensions = tag.includes('width=') && tag.includes('height=');
+        const hasAspectClass = tag.includes('aspect-');
+
+        if (!hasDimensions && !hasAspectClass) {
+          const line = content.slice(0, match.index).split('\n').length;
+          candidates.push({
+            file: filePath,
+            line,
+            reason: 'Iframe/embed without explicit dimensions or aspect ratio handling',
+          });
+        }
+      });
+    });
+
+    this.detected.clsRiskCandidates = candidates;
+
+    console.log(`   CLS risk candidates: ${candidates.length}`);
+    console.log('✅ Layout shift risks analyzed\n');
   }
   
   /**
@@ -78,6 +159,10 @@ class CoreWebVitalsAnalyzer {
       if (!fs.existsSync(layoutPath)) return;
       
       const layout = fs.readFileSync(layoutPath, 'utf-8');
+
+      this.detected.hasPreloadHint = layout.includes('rel="preload"');
+      this.detected.hasCriticalCss = layout.includes('<style') || layout.includes('Critical CSS');
+      this.detected.hasDynamicImports = layout.includes('dynamic(() => import(');
       
       // Check for preconnect hints
       if (!layout.includes('rel="preconnect"')) {
@@ -110,7 +195,7 @@ class CoreWebVitalsAnalyzer {
       }
       
       // Check for critical CSS
-      if (!layout.includes('<style') && !layout.includes('Critical CSS')) {
+      if (!this.detected.hasCriticalCss) {
         this.recommendations.push({
           priority: 'high',
           category: 'FCP',
@@ -152,17 +237,48 @@ class CoreWebVitalsAnalyzer {
     
     const priorityPercent = Math.round((findings.withPriority / findings.totalImages) * 100) || 0;
     const sizesPercent = Math.round((findings.withSizes / findings.totalImages) * 100) || 0;
+
+    const heroFilePath = './app/components/Hero/Hero.tsx';
+    if (fs.existsSync(heroFilePath)) {
+      const heroContent = fs.readFileSync(heroFilePath, 'utf-8');
+      this.detected.heroOptimized = heroContent.includes('priority') && heroContent.includes('sizes=');
+    }
+
+    // Heuristic: prioritize above-the-fold image components, not all images globally
+    const criticalImageFiles = [
+      './app/components/Hero/Hero.tsx',
+      './app/components/Navigation/nav.tsx'
+    ];
+    const missingCriticalPriority = criticalImageFiles.filter((filePath) => {
+      if (!fs.existsSync(filePath)) return false;
+      const fileContent = fs.readFileSync(filePath, 'utf-8');
+      return !fileContent.includes('priority');
+    });
     
     console.log(`   Total images: ${findings.totalImages}`);
     console.log(`   With priority: ${findings.withPriority} (${priorityPercent}%)`);
     console.log(`   With sizes: ${findings.withSizes} (${sizesPercent}%)`);
     
-    if (priorityPercent < 50) {
+    if (missingCriticalPriority.length > 0) {
       this.issues.push({
         severity: 'high',
         category: 'LCP',
-        issue: 'Most images missing priority attribute',
-        recommendation: 'Add priority attribute to above-fold images'
+        issue: `Critical above-the-fold image components missing priority (${missingCriticalPriority.length})`,
+        recommendation: 'Add priority attribute to hero/navigation images rendered above the fold'
+      });
+    } else if (findings.withPriority === 0 && findings.totalImages > 0) {
+      this.issues.push({
+        severity: 'high',
+        category: 'LCP',
+        issue: 'No images use priority attribute',
+        recommendation: 'Add priority to at least one above-the-fold image (hero or primary logo)'
+      });
+    } else if (priorityPercent < 20) {
+      this.recommendations.push({
+        priority: 'medium',
+        category: 'LCP',
+        recommendation: 'Review if any additional above-the-fold images need priority',
+        details: 'Below-the-fold images should remain lazy-loaded to protect bandwidth and TTI'
       });
     }
     
@@ -240,25 +356,28 @@ class CoreWebVitalsAnalyzer {
    */
   generateRecommendations() {
     console.log('📋 Generating recommendations...\n');
-    
+
     // Resource hints
-    this.recommendations.push({
-      priority: 'critical',
-      category: 'LCP',
-      recommendation: 'Add preload hints for critical resources',
-      code: `
+    if (!this.detected.hasPreloadHint) {
+      this.recommendations.push({
+        priority: 'critical',
+        category: 'LCP',
+        recommendation: 'Add preload hints for critical resources',
+        code: `
 // In app/layout.tsx
 <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
 <link rel="preload" href="/images/hero.webp" as="image" />
       `.trim()
-    });
+      });
+    }
     
     // Critical CSS
-    this.recommendations.push({
-      priority: 'critical',
-      category: 'FCP',
-      recommendation: 'Inline critical CSS',
-      code: `
+    if (!this.detected.hasCriticalCss) {
+      this.recommendations.push({
+        priority: 'critical',
+        category: 'FCP',
+        recommendation: 'Inline critical CSS',
+        code: `
 // Extract critical CSS and inline in <head>
 <style dangerouslySetInnerHTML={{
   __html: \`
@@ -268,14 +387,16 @@ class CoreWebVitalsAnalyzer {
   \`
 }} />
       `.trim()
-    });
+      });
+    }
     
     // Image optimization
-    this.recommendations.push({
-      priority: 'high',
-      category: 'LCP/CLS',
-      recommendation: 'Optimize hero images',
-      code: `
+    if (!this.detected.heroOptimized) {
+      this.recommendations.push({
+        priority: 'high',
+        category: 'LCP/CLS',
+        recommendation: 'Optimize hero images',
+        code: `
 // Add to hero images
 <Image 
   src="/hero.webp"
@@ -286,33 +407,45 @@ class CoreWebVitalsAnalyzer {
   height={600}
 />
       `.trim()
-    });
+      });
+    }
     
-    // Layout shift prevention
-    this.recommendations.push({
-      priority: 'high',
-      category: 'CLS',
-      recommendation: 'Reserve space for dynamic content',
-      code: `
+    // Layout shift prevention (evidence-based)
+    if (this.detected.clsRiskCandidates.length > 0) {
+      const sampleCandidates = this.detected.clsRiskCandidates
+        .slice(0, 3)
+        .map((c) => `${c.file}:${c.line}`)
+        .join(', ');
+
+      this.recommendations.push({
+        priority: 'high',
+        category: 'CLS',
+        recommendation: `Reserve space for dynamic content (${this.detected.clsRiskCandidates.length} candidate${this.detected.clsRiskCandidates.length === 1 ? '' : 's'})`,
+        code: `
 // Add min-height to prevent layout shift
 <div style={{ minHeight: '300px' }}>
   {/* Dynamic content */}
 </div>
       `.trim()
-    });
+      ,
+        details: `Sample locations: ${sampleCandidates}`
+      });
+    }
     
     // Lazy loading
-    this.recommendations.push({
-      priority: 'medium',
-      category: 'FCP/TTI',
-      recommendation: 'Lazy load below-fold components',
-      code: `
+    if (!this.detected.hasDynamicImports) {
+      this.recommendations.push({
+        priority: 'medium',
+        category: 'FCP/TTI',
+        recommendation: 'Lazy load below-fold components',
+        code: `
 // Use dynamic imports
 const BelowFoldComponent = dynamic(() => import('./BelowFoldComponent'), {
   loading: () => <div>Loading...</div>
 });
       `.trim()
-    });
+      });
+    }
   }
   
   /**
@@ -428,6 +561,7 @@ async function main() {
   analyzer.analyzeNextConfig();
   analyzer.analyzeLayout();
   analyzer.analyzeImages();
+  analyzer.analyzeLayoutShiftRisks();
   analyzer.analyzeBundleSize();
   analyzer.generateRecommendations();
   

@@ -1,52 +1,27 @@
-// app/contact/page.tsx
-import { Layout } from "../components/Layout/Layout";
-import { JsonLD } from "../components/JsonLD/JsonLD";
-// import { RentalPackagesBanner } from '../components/RentalPackages';
-import { loadStaticPage } from '@/app/utils/staticPageLoader';
-import { ArticleMetadata } from "@/types";
-import Link from "next/link";
+// Contact page with custom form integration
+import { loadStaticPageFrontmatter, StaticPageFrontmatter } from '../utils/staticPageLoader';
+import { generateStaticPageMetadata } from '@/lib/metadata/generators';
+import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { Layout } from '../components/Layout/Layout';
+import { ContentCard } from '../components/ContentCard';
+import { JsonLD } from '../components/JsonLD/JsonLD';
+import Link from 'next/link';
+import type { ContentCardItem, ArticleMetadata } from '@/types';
+import { ContactInfo } from '../components/Contact/ContactInfo';
 
-import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from "@/app/config/site";
-import { ContactInfo } from "../components/Contact/ContactInfo";
+// Load frontmatter data
+const frontmatter = loadStaticPageFrontmatter('contact') as StaticPageFrontmatter;
 
-export const metadata = {
-  title: "Get a Free Quote | Bay Area Laser Cleaning | Z-Beam",
-  description:
-    "Precision laser cleaning quotes for aerospace, marine, automotive & heritage projects. No chemicals, no substrate damage. Same-day response. Bay Area mobile service.",
-  robots: {
-    index: false,
-    follow: true,
-  },
-  alternates: {
-    canonical: `${SITE_CONFIG.url}/contact`,
-  },
-  openGraph: {
-    title: "Get a Free Quote | Bay Area Laser Cleaning | Z-Beam",
-    description:
-      "Precision laser cleaning quotes for aerospace, marine, automotive & heritage. No chemicals, no substrate damage. Same-day response.",
-    url: `${SITE_CONFIG.url}/contact`,
-    siteName: SITE_CONFIG.name,
-    type: "website",
-    images: [
-      {
-        url: `${SITE_CONFIG.url}/images/og-contact.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Contact Z-Beam",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Get a Free Quote | Bay Area Laser Cleaning | Z-Beam",
-    description:
-      "Precision laser cleaning for aerospace, marine, automotive & heritage. No chemicals, no damage. Same-day response.",
-  },
-};
+export const metadata = generateStaticPageMetadata({
+  title: frontmatter.pageTitle,
+  description: frontmatter.pageDescription,
+  path: '/contact',
+  image: frontmatter.images?.hero?.url || `${SITE_CONFIG.url}/images/pages/contact.jpg`,
+  keywords: frontmatter.keywords || []
+});
 
 // Default export - the page component
 export default function ContactPage() {
-  const pageMetadata = loadStaticPage<ArticleMetadata>('contact.yaml');
 
   // Generate ContactPage schema
   const contactSchema = {
@@ -93,8 +68,8 @@ export default function ContactPage() {
     <>
       <JsonLD data={contactSchema} />
       <Layout
-        title="Send us a Z-mail"
-        description=""
+        title={frontmatter.pageTitle}
+        description={frontmatter.pageDescription}
         rightContent={
           <Link
             href="/schedule"
@@ -124,16 +99,24 @@ export default function ContactPage() {
         }
         metadata={
           {
-            ...pageMetadata,
-            breadcrumb: [
-              { label: "Home", href: "/" },
-              { label: "Schedule", href: "/schedule" },
-              { label: "Contact", href: "/contact" },
-            ],
+            breadcrumb: frontmatter.breadcrumb || [],
+            images: frontmatter.images
           } as unknown as ArticleMetadata
         }
         slug="contact"
       >
+        {/* Content sections from frontmatter */}
+        {frontmatter.contentCards?.map((card: ContentCardItem) => (
+          <ContentCard
+            key={card.order}
+            heading={card.heading}
+            text={card.text}
+            image={card.image}
+            imagePosition={card.imagePosition}
+            details={card.details}
+          />
+        ))}
+        
         {/* <RentalPackagesBanner /> */}
         
         <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_GAP_RESPONSIVE} mt-8 items-start`}>

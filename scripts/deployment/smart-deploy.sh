@@ -48,6 +48,14 @@ deploy_production() {
         return 1
     fi
     
+    # Schema validation checkpoint
+    log "🔍 Validating JSON-LD schemas..."
+    if ! ./validate-jsonld-quality.sh; then
+        error "Schema validation failed - aborting deployment"
+        return 1
+    fi
+    success "Schema validation passed"
+    
     # Check if we're on main branch
     local current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
     log "📍 Current branch: $current_branch"

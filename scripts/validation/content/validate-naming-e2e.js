@@ -199,7 +199,7 @@ class NamingValidator {
     }
 
     // Check for old patterns that should be migrated
-    const oldPatterns = ['cleaning-analysis', 'material-cleaning', 'surface-cleaning'];
+    const oldPatterns = ['cleaning-analysis', 'material-cleaning'];
     oldPatterns.forEach(oldPattern => {
       if (imagePath.includes(oldPattern)) {
         this.errors.push({

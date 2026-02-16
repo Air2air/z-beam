@@ -1147,8 +1147,10 @@ export interface CardItem {
   badge?: BadgeData;
   tags?: string[];
   category?: string;
+  /** @deprecated Prefer `frontmatter` for card payloads. */
   metadata?: ArticleMetadata | Record<string, unknown>;
   article?: Article | null;
+  /** Canonical content payload for card rendering. */
   frontmatter?: Record<string, unknown>;
 }
 
@@ -1979,7 +1981,9 @@ export interface GridItem {
   category?: string;
   subcategory?: string;
   articleType?: string;
+  /** @deprecated Prefer `frontmatter` for grid payloads. */
   metadata?: ArticleMetadata | Record<string, unknown>;
+  /** Canonical content payload for cards, search, and relationship grids. */
   frontmatter?: Record<string, unknown>;
   badge?: BadgeData;
   imageUrl?: string;
@@ -2672,7 +2676,7 @@ export interface MaterialFiltersProps {
 /**
  * BaseSection component props
  * Unified base component for all section types - consolidates patterns from:
- * SectionContainer (archived), GridSection, ContentSection, and LinkageSection
+ * SectionContainer (archived), ContentSection, Relationship, and LinkageSection
  * 
  * Replaces the legacy SectionContainer which has been archived to:
  * app/components/legacy/SectionContainer_Deprecated/
@@ -4139,14 +4143,6 @@ export interface PropertyData {
   max?: number;
 }
 
-export interface ResearchPageProps {
-  data: any;
-  category: string;
-  subcategory: string;
-  materialSlug: string;
-  property: string;
-}
-
 export interface SafetyWarningProps {
   materialName: string;
   warningText?: string;
@@ -4387,20 +4383,6 @@ export interface DataGridProps<T> {
   className?: string;
   mapper?: (item: T) => GridItem;
   sorter?: (a: T, b: T) => number;
-}
-
-/**
- * Hazardous compounds grid props
- */
-export interface HazardousCompoundsGridProps {
-  compounds: EnhancedCompound[];
-  title?: string;
-  columns?: 2 | 3 | 4;
-  showConcentrations?: boolean;
-  showExceedsWarnings?: boolean;
-  filterBySeverity?: 'severe' | 'high' | 'moderate' | 'low';
-  sortBy?: 'severity' | 'frequency' | 'alphabetical';
-  className?: string;
 }
 
 /**

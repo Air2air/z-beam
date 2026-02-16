@@ -14,6 +14,14 @@ import yaml from 'js-yaml';
 export const dynamic = 'force-static';
 export const revalidate = false; // Never revalidate in production
 
+// Viewport configuration for mobile optimization
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 // Generate metadata from home.yaml
 export async function generateMetadata() {
   try {

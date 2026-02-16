@@ -6,6 +6,12 @@ import { SITE_CONFIG } from '@/app/config';
 import { createMetadata } from '@/app/utils/metadata';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
 import { getMetadata } from '@/app/utils/schemas/helpers';
+import { 
+  generateMaterialMetadata, 
+  generateContaminantMetadata,
+  generateSettingsMetadata,
+  generateDynamicPageMetadata
+} from '@/lib/metadata/dynamic-generators';
 
 /**
  * Generate metadata for category pages
@@ -67,6 +73,7 @@ export function generateSubcategoryMetadata(
 
 /**
  * Generate metadata for individual item pages
+ * Uses centralized dynamic metadata utilities for consistency
  */
 export async function generateItemMetadata(
   config: ContentTypeConfig,
@@ -91,22 +98,10 @@ export async function generateItemMetadata(
       };
     }
     
-    // All domains use consistent metadata structure (normalized)
     // Use backward compatibility helper to access frontmatter/metadata
     const articleMeta = getMetadata(article) as Record<string, any>;
     
-    // Debug: Check if metaDescription exists
-    console.log(`[METADATA] ${itemSlug}:`, {
-      type: config.type,
-      hasMetaDescription: !!articleMeta.metaDescription,
-      hasDescription: !!articleMeta.description,
-      hasPageDescription: !!articleMeta.pageDescription,
-      metaDescription: articleMeta.metaDescription,
-      description_preview: articleMeta.description?.substring(0, 50)
-    });
-    
     // Extract category and subcategory from fullPath (primary source for all domains)
-    // Support both fullPath (camelCase) and full_path (snake_case) for backward compatibility
     let articleCategory: string | undefined;
     let articleSubcategory: string | undefined;
     
@@ -119,7 +114,7 @@ export async function generateItemMetadata(
         articleSubcategory = pathParts[2];
       }
     } else {
-      // Fallback to explicit fields (shouldn't happen in production)
+      // Fallback to explicit fields
       articleCategory = (articleMeta.category && typeof articleMeta.category === 'string') 
         ? normalizeForUrl(articleMeta.category) 
         : undefined;
@@ -136,27 +131,63 @@ export async function generateItemMetadata(
       };
     }
     
-    const canonicalUrl = `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`;
+    // Extract common metadata fields
+    const displayName = articleMeta.displayTitle || articleMeta.displayName || articleMeta.title || articleMeta.name;
+    const description = articleMeta.metaDescription || articleMeta.pageDescription || '';
+    const keywords = articleMeta.keywords || [];
+    const heroImage = articleMeta.images?.hero?.url;
+    const dateModified = articleMeta.dateModified;
     
-    // Ensure title and description fields exist for metadata generation across all domains
-    // Prioritize metaDescription (SEO-optimized, concise) over pageDescription (full content)
-    // Applies to: materials, contaminants, compounds, settings
-    // Note: 'description' field is DEPRECATED - do not use
-    const metadataWithTitle = {
-      ...articleMeta,
-      title: articleMeta.displayTitle || articleMeta.displayName || articleMeta.title || articleMeta.name,
-      description: articleMeta.metaDescription || articleMeta.pageDescription || '',
-      canonical: canonicalUrl
-    };
+    // Extract author information
+    const author = articleMeta.author ? {
+      name: articleMeta.author.name,
+      title: articleMeta.author.title,
+      country: articleMeta.author.country
+    } : undefined;
     
-    const baseMetadata = createMetadata(metadataWithTitle as any);
-    
-    return {
-      ...baseMetadata,
-      alternates: {
-        canonical: canonicalUrl
-      }
-    };
+    // Use domain-specific metadata generators
+    if (config.type === 'materials') {
+      return generateMaterialMetadata({
+        materialName: displayName,
+        description,
+        slug: itemSlug,
+        category: categorySlug,
+        keywords,
+        author,
+        dateModified,
+        image: heroImage
+      });
+    } else if (config.type === 'contaminants') {
+      return generateContaminantMetadata({
+        contaminantName: displayName,
+        description,
+        slug: itemSlug,
+        category: categorySlug,
+        keywords,
+        dateModified,
+        image: heroImage
+      });
+    } else if (config.type === 'settings') {
+      return generateSettingsMetadata({
+        settingName: displayName,
+        description,
+        slug: itemSlug,
+        materialType: categorySlug,
+        keywords,
+        dateModified
+      });
+    } else {
+      // Compounds or other types - use generic dynamic metadata
+      return generateDynamicPageMetadata({
+        title: `${displayName} | ${SITE_CONFIG.name}`,
+        description,
+        pathname: `/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`,
+        keywords,
+        image: heroImage,
+        author,
+        dateModified
+      });
+    }
   } catch (error) {
     console.error(`Error generating metadata for ${itemSlug}:`, error);
     return {

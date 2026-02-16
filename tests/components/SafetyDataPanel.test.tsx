@@ -48,15 +48,6 @@ jest.mock('@/app/components/SectionTitle/SectionTitle', () => ({
   ),
 }));
 
-jest.mock('@/app/components/GridSection', () => ({
-  GridSection: ({ title, children }: { title: string; children: React.ReactNode }) => (
-    <div data-testid="grid-section">
-      <h3>{title}</h3>
-      {children}
-    </div>
-  ),
-}));
-
 jest.mock('@/app/components/CompoundSafetyGrid', () => ({
   CompoundSafetyGrid: () => <div data-testid="compound-safety-grid">Compound Grid</div>,
 }));

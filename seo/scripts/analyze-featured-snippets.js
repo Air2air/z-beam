@@ -18,6 +18,51 @@ function extractQuestions(content) {
 }
 
 /**
+ * Extract "Question: ..." blocks from plain text FAQ content
+ */
+function extractQuestionBlocks(text) {
+  if (!text || typeof text !== 'string') return [];
+
+  const regex = /Question:\s*([^\n?]+\?)([\s\S]*?)(?=\n\s*Question:|$)/gim;
+  const blocks = [];
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    const question = match[1].trim();
+    const answer = match[2].trim();
+    blocks.push({ question, answer });
+  }
+
+  return blocks;
+}
+
+/**
+ * Analyze pre-extracted answer text
+ */
+function analyzeProvidedAnswer(answerText) {
+  if (!answerText || typeof answerText !== 'string') {
+    return {
+      answer: '',
+      wordCount: 0,
+      optimal: false,
+      tooShort: true,
+      tooLong: false
+    };
+  }
+
+  const cleaned = answerText.replace(/\s+/g, ' ').trim();
+  const wordCount = cleaned ? cleaned.split(/\s+/).length : 0;
+
+  return {
+    answer: cleaned,
+    wordCount,
+    optimal: wordCount >= 40 && wordCount <= 60,
+    tooShort: wordCount < 40,
+    tooLong: wordCount > 60
+  };
+}
+
+/**
  * Check if answer follows question (40-60 words optimal)
  */
 function analyzeAnswer(content, question) {
@@ -56,6 +101,67 @@ function hasStructuredFormat(content, question) {
 }
 
 /**
+ * Check for list/table formats inside provided text
+ */
+function hasStructuredFormatInText(text) {
+  if (!text || typeof text !== 'string') {
+    return { hasList: false, hasTable: false };
+  }
+
+  return {
+    hasList: /^[\s]*[-*]\s+/m.test(text) || /^\d+\.\s+/m.test(text),
+    hasTable: /\|.*\|/.test(text)
+  };
+}
+
+/**
+ * Extract question/answer candidates from frontmatter structures
+ */
+function extractStructuredQA(frontmatter) {
+  const candidates = [];
+
+  // FAQ collapsible blocks: faq.items[].content with "Question: ..."
+  if (frontmatter?.faq?.items && Array.isArray(frontmatter.faq.items)) {
+    frontmatter.faq.items.forEach(item => {
+      // Standard FAQ structure: title/question + content/answer
+      if (item?.title && typeof item.title === 'string' && item.title.includes('?')) {
+        candidates.push({
+          source: 'faq.items.title',
+          question: item.title.trim(),
+          answer: item.content ? String(item.content).trim() : ''
+        });
+      }
+
+      if (item?.content && typeof item.content === 'string') {
+        const blocks = extractQuestionBlocks(item.content);
+        blocks.forEach(block => {
+          candidates.push({
+            source: 'faq.items.content',
+            question: block.question,
+            answer: block.answer
+          });
+        });
+      }
+    });
+  }
+
+  // expert_answers[] objects with explicit question/answer keys
+  if (frontmatter?.expert_answers && Array.isArray(frontmatter.expert_answers)) {
+    frontmatter.expert_answers.forEach(item => {
+      if (item && typeof item === 'object' && item.question) {
+        candidates.push({
+          source: 'expert_answers',
+          question: String(item.question).trim(),
+          answer: item.answer ? String(item.answer).trim() : ''
+        });
+      }
+    });
+  }
+
+  return candidates;
+}
+
+/**
  * Analyze frontmatter file for featured snippet potential
  */
 async function analyzeFrontmatter(filePath) {
@@ -75,10 +181,11 @@ async function analyzeFrontmatter(filePath) {
     return null;
   }
   
-  const questions = extractQuestions(body);
+  const markdownQuestions = extractQuestions(body);
+  const structuredQA = extractStructuredQA(frontmatter);
   const analysis = [];
   
-  questions.forEach(question => {
+  markdownQuestions.forEach(question => {
     const answer = analyzeAnswer(body, question);
     const formats = hasStructuredFormat(body, question);
     
@@ -101,11 +208,35 @@ async function analyzeFrontmatter(filePath) {
       lastItem.recommendations.push('Consider adding a list or table format');
     }
   });
+
+  structuredQA.forEach(item => {
+    const answer = analyzeProvidedAnswer(item.answer);
+    const formats = hasStructuredFormatInText(item.answer);
+
+    analysis.push({
+      question: item.question,
+      ...answer,
+      ...formats,
+      source: item.source,
+      recommendations: []
+    });
+
+    const lastItem = analysis[analysis.length - 1];
+    if (lastItem.tooShort) {
+      lastItem.recommendations.push('Expand answer to 40-60 words');
+    }
+    if (lastItem.tooLong) {
+      lastItem.recommendations.push('Condense answer to 40-60 words');
+    }
+    if (!lastItem.hasList && !lastItem.hasTable) {
+      lastItem.recommendations.push('Consider adding a list or table format');
+    }
+  });
   
   return {
     file: filePath,
-    title: frontmatter.title || frontmatter.name,
-    questionsFound: questions.length,
+    title: frontmatter.title || frontmatter.pageTitle || frontmatter.name || path.basename(filePath),
+    questionsFound: analysis.length,
     analysis
   };
 }
@@ -170,10 +301,13 @@ function printReport(results) {
   const optimalQuestions = results.reduce((sum, r) => 
     sum + r.analysis.filter(q => q.optimal).length, 0
   );
+  const optimalPercent = totalQuestions > 0
+    ? Math.round((optimalQuestions / totalQuestions) * 100)
+    : 0;
   
   console.log('\n📈 Summary:');
   console.log(`   Total questions: ${totalQuestions}`);
-  console.log(`   Optimal format: ${optimalQuestions} (${Math.round(optimalQuestions / totalQuestions * 100)}%)`);
+  console.log(`   Optimal format: ${optimalQuestions} (${optimalPercent}%)`);
   console.log(`   Need optimization: ${totalQuestions - optimalQuestions}\n`);
 }
 

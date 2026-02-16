@@ -1,12 +1,8 @@
 // app/contaminants/loading.tsx
 // Loading state for contaminants listing page
 
-import CardGridSkeleton from '@/app/components/CardGrid/CardGridSkeleton';
+import { LoadingState } from '@/app/components/LoadingState';
 
 export default function ContaminantsLoading() {
-  return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <CardGridSkeleton count={9} showTitle={true} titleText="Contaminants" />
-    </div>
-  );
+  return <LoadingState message="Loading contaminants..." />;
 }

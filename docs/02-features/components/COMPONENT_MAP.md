@@ -91,7 +91,7 @@ InfoCard.tsx (app/components/InfoCard/) ⭐ SAFETY DISPLAY
 └── AI Note: Generic card for label/value pairs, consistent styling with RiskCard
 
 SafetyDataPanel.tsx (app/components/SafetyDataPanel/) ⭐ UNIFIED GRID
-├── Uses: RiskCard, InfoCard, GridSection, CompoundSafetyGrid
+├── Uses: RiskCard, InfoCard, BaseSection, CompoundSafetyGrid
 ├── Types: SafetyDataPanelProps { safetyData, compounds?, className }
 ├── Purpose: Comprehensive safety display for materials with unified grid
 ├── Layout: 3-column responsive grid (3→2→1 cols)

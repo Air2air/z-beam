@@ -143,7 +143,7 @@
 **Validation:**
 - ✅ 100% Schema Validity
 - ✅ Basic SEO coverage
-- ⚠️ Could add Service schema to /services page
+- ✅ Service schema implemented on /services page (Priority 1 complete)
 
 **Status:** ✅ **Production Ready** with optional enhancements
 
@@ -430,7 +430,8 @@ npm run validate:jsonld
 **Impact:** E-E-A-T 28% → 45%, Rich snippets maintain 100%
 
 ### P2 - Static Pages (30 min - Optional)
-- Add Service schema to /services page
+- ✅ Service schema added to /services page (Priority 1 complete)
+- ✅ TechnicalArticle schema added to /safety page (Priority 4 complete)
 - Add ContactPoint to Organization
 - Add sameAs social links
 

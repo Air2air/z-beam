@@ -33,6 +33,7 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
           alt={`${SITE_CONFIG.shortName} logo`}
           width={60}
           height={60}
+          sizes="60px"
           className="text-orange-500"
           style={{ filter: 'brightness(0) saturate(100%) invert(53%) sepia(89%) saturate(2476%) hue-rotate(1deg) brightness(103%) contrast(101%)' }}
           unoptimized
@@ -74,6 +75,7 @@ export function MicroImage({ imageSource, materialName, alt, seoData }: MicroIma
         alt={optimizedAlt}
         width={800}
         height={450}
+        sizes="(max-width: 768px) 100vw, 800px"
         className="w-full h-auto rounded-md"
         priority={false}
         quality={85}

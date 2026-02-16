@@ -119,21 +119,27 @@ describe('JSON-LD Architecture Enforcement', () => {
     ];
 
     staticPages.forEach(pagePath => {
-      it(`${pagePath} should use Layout component`, () => {
+      it(`${pagePath} should use createStaticPage factory`, () => {
         const fullPath = join(process.cwd(), pagePath);
         const content = readFileSync(fullPath, 'utf-8');
         
-        expect(content).toContain('Layout');
-        expect(content).toContain('slug=');
+        expect(content).toContain('createStaticPage');
+        expect(content).toContain('generateMetadata');
       });
 
-      it(`${pagePath} should load YAML configuration`, () => {
+      it(`${pagePath} should export metadata and page component`, () => {
         const fullPath = join(process.cwd(), pagePath);
         const content = readFileSync(fullPath, 'utf-8');
         
-        // Should load configuration from pre-loaded static data constants
-        expect(content).toMatch(/_DATA/);
-        expect(content).toContain('pageConfig');
+        // Should use factory pattern that exports both (accepts either pattern)
+        const hasExportSyntax = content.includes('export { generateMetadata }');
+        const hasDestructuring = content.includes('export const { generateMetadata');
+        expect(hasExportSyntax || hasDestructuring).toBe(true);
+        
+        // Check for default export (either explicit or via destructuring)
+        const hasExplicitDefault = content.includes('export default');
+        const hasDestructuredDefault = content.includes('default:');
+        expect(hasExplicitDefault || hasDestructuredDefault).toBe(true);
       });
     });
   });
