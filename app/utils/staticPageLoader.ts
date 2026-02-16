@@ -300,6 +300,15 @@ export function loadStaticPageContent(
   description: string;
   contentCards: ContentCardItem[];
   slug: string;
+  clickableCards?: Array<{
+    href: string;
+    heading: string;
+    text: string;
+    image: {
+      url: string;
+      alt: string;
+    };
+  }>;
   additionalContent?: Record<string, {
     title?: string;
     content: string;
@@ -313,11 +322,26 @@ export function loadStaticPageContent(
   if (useFrontmatter) {
     // Load from frontmatter YAML in the page directory
     const frontmatter = loadStaticPageFrontmatter(pageDirectory) as any;
+
+    const sectionsAsCards = Array.isArray(frontmatter.sections)
+      ? frontmatter.sections
+          .flatMap((section: any) => (Array.isArray(section?.items) ? section.items : []))
+          .map((item: any, index: number): ContentCardItem => ({
+            order: item?.order ?? index + 1,
+            heading: item?.heading ?? '',
+            text: item?.text ?? '',
+            image: item?.image,
+            imagePosition: item?.imagePosition,
+            details: Array.isArray(item?.details) ? item.details : []
+          }))
+      : [];
+
     return {
       title: frontmatter.pageTitle || frontmatter.title || '',
       description: frontmatter.pageDescription || frontmatter.description || '',
-      contentCards: frontmatter.contentCards || [],
+      contentCards: frontmatter.contentCards || sectionsAsCards,
       slug: frontmatter.slug || pageDirectory,
+      clickableCards: frontmatter.clickableCards,
       additionalContent: undefined // Not supported for frontmatter mode yet
     };
   } else if (enhanced) {

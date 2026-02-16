@@ -18,7 +18,7 @@ export const metadata = generateStaticPageMetadata({
 });
 
 export default function SchedulePage() {
-  const pageConfig = loadStaticPageContent('schedule');
+  const pageConfig = loadStaticPageContent('schedule', false, true);
 
   // Schedule Service entity schema
   const scheduleEntity = {
@@ -39,8 +39,8 @@ export default function SchedulePage() {
     <>
       <JsonLD data={scheduleSchema} />
       <Layout
-        title="Schedule with us"
-        description=""
+        title={pageConfig.title}
+        description={pageConfig.description}
         rightContent={
           <Link
             href="/contact"
@@ -70,8 +70,8 @@ export default function SchedulePage() {
         }
         metadata={
           {
-            title: "Schedule with us",
-            description: "",
+            title: pageConfig.title,
+            description: pageConfig.description,
             breadcrumb: [
               { label: "Home", href: "/" },
               { label: "Contact", href: "/contact" },

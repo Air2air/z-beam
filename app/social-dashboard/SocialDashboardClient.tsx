@@ -68,6 +68,7 @@ export default function SocialDashboardClient(): JSX.Element {
   const [isEnriching, setIsEnriching] = useState<boolean>(false);
   const [publishingPostId, setPublishingPostId] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string>('');
+  const [infoMessage, setInfoMessage] = useState<string>('');
 
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
@@ -413,6 +414,30 @@ export default function SocialDashboardClient(): JSX.Element {
     }
   }
 
+  async function openNativeComposer(platform: SocialPlatform): Promise<void> {
+    const preview = getPreviewForPlatform(platform);
+    const previewText = preview.hashtags.length > 0
+      ? `${preview.text}\n\n${preview.hashtags.join(' ')}`
+      : preview.text;
+
+    try {
+      if (previewText.trim()) {
+        await navigator.clipboard.writeText(previewText);
+      }
+
+      const platformLabel = formatPlatformLabel(platform);
+      if (platform === 'linkedin' || platform === 'facebook' || platform === 'google_business') {
+        setInfoMessage(`${platformLabel} does not support prefilled composer text via URL. Post text has been copied to clipboard.`);
+      } else {
+        setInfoMessage(`${platformLabel} composer opened with prefilled data.`);
+      }
+    } catch {
+      setInfoMessage(`Could not copy post text automatically. Paste manually after ${formatPlatformLabel(platform)} opens.`);
+    }
+
+    window.open(getNativePreviewUrl(platform), '_blank', 'noopener,noreferrer');
+  }
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-8 space-y-8">
       <header className="space-y-2">
@@ -423,6 +448,12 @@ export default function SocialDashboardClient(): JSX.Element {
       {errorMessage && (
         <div className="rounded-md border border-red-500/40 bg-red-900/20 px-4 py-3 text-sm text-red-200">
           {errorMessage}
+        </div>
+      )}
+
+      {infoMessage && (
+        <div className="rounded-md border border-blue-500/40 bg-blue-900/20 px-4 py-3 text-sm text-blue-100">
+          {infoMessage}
         </div>
       )}
 
@@ -576,7 +607,7 @@ export default function SocialDashboardClient(): JSX.Element {
             <button
               type="button"
               onClick={() => {
-                window.open(getNativePreviewUrl(platforms[0] || 'linkedin'), '_blank', 'noopener,noreferrer');
+                void openNativeComposer(platforms[0] || 'linkedin');
               }}
               className="inline-flex items-center rounded-md border border-white/20 bg-secondary px-4 py-2 text-sm font-semibold text-primary hover:bg-primary"
             >
@@ -589,15 +620,16 @@ export default function SocialDashboardClient(): JSX.Element {
             <p className="text-xs font-semibold uppercase tracking-wide text-tertiary">Platform Native Preview Links</p>
             <div className="flex flex-wrap gap-2">
               {platforms.map((platform) => (
-                <a
+                <button
                   key={`native-preview-${platform}`}
-                  href={getNativePreviewUrl(platform)}
-                  target="_blank"
-                  rel="noreferrer"
+                  type="button"
+                  onClick={() => {
+                    void openNativeComposer(platform);
+                  }}
                   className="inline-flex items-center rounded-md border border-white/20 bg-primary px-3 py-1.5 text-xs font-semibold text-primary hover:bg-secondary"
                 >
                   Open {formatPlatformLabel(platform)} Composer
-                </a>
+                </button>
               ))}
             </div>
             {linkUrl && (

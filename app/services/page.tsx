@@ -3,7 +3,6 @@ import { Layout } from '../components/Layout/Layout';
 import { ContentSection } from '../components/ContentCard';
 import { ClickableCard } from '../components/ClickableCard';
 import { generateStaticPageMetadata } from '@/lib/metadata/generators';
-import { SITE_CONFIG } from '@/app/config/site';
 import { loadStaticPageContent } from '../utils/staticPageLoader';
 import type { ClickableCardProps } from '../components/ClickableCard';
 import type { ContentCardItem } from '@/types';
@@ -42,40 +41,13 @@ export const metadata = generateStaticPageMetadata({
   }
 });
 
-// Service cards data
-const SERVICES: ClickableCardProps[] = [
-  {
-    href: '/rental',
-    heading: 'Equipment Rental',
-    text: 'Professional laser cleaning equipment delivered to your location in California. Starting at $390/hr with 2-hour minimum.',
-    image: {
-      url: '/images/laser-cleaning-equipment.jpg',
-      alt: 'Professional laser cleaning equipment'
-    }
-  },
-  {
-    href: '/equipment',
-    heading: 'Laser Equipment',
-    text: 'Compare different laser cleaning systems and find the right equipment for your specific industrial needs.',
-    image: {
-      url: '/images/laser-equipment.jpg',
-      alt: 'Laser cleaning equipment options'
-    }
-  },
-  {
-    href: '/operations',
-    heading: 'Operations & Training',
-    text: 'Complete training and compliance support to ensure safe, effective laser cleaning operations that meet all requirements.',
-    image: {
-      url: '/images/operations-training.jpg',
-      alt: 'Operations and training services'
-    }
-  }
-];
-
-const pageConfig = loadStaticPageContent('services');
+const pageConfig = loadStaticPageContent('services', false, true);
 
 export default function ServicesPage() {
+  if (!pageConfig.clickableCards) {
+    throw new Error('Services page requires clickableCards in app/services/page.yaml');
+  }
+
   return (
     <Layout
       title={pageConfig.title}
@@ -100,7 +72,7 @@ export default function ServicesPage() {
       ))}
 
       <div className="space-y-6 mt-8">
-        {SERVICES.map((service, index) => (
+        {pageConfig.clickableCards.map((service: ClickableCardProps, index: number) => (
           <ClickableCard key={index} {...service} />
         ))}
       </div>
