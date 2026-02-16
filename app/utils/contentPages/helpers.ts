@@ -152,6 +152,7 @@ export async function generateItemMetadata(
         description,
         slug: itemSlug,
         category: categorySlug,
+        subcategory: subcategorySlug,
         keywords,
         author,
         dateModified,
@@ -163,6 +164,7 @@ export async function generateItemMetadata(
         description,
         slug: itemSlug,
         category: categorySlug,
+        subcategory: subcategorySlug,
         keywords,
         dateModified,
         image: heroImage
@@ -173,6 +175,8 @@ export async function generateItemMetadata(
         description,
         slug: itemSlug,
         materialType: categorySlug,
+        category: categorySlug,
+        subcategory: subcategorySlug,
         keywords,
         dateModified
       });

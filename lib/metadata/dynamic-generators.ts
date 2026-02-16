@@ -148,6 +148,7 @@ export function generateMaterialMetadata(options: {
   description: string;
   slug: string;
   category?: string;
+  subcategory?: string;
   keywords?: string[];
   author?: {
     name: string;
@@ -162,10 +163,11 @@ export function generateMaterialMetadata(options: {
     hardness?: string;
   };
 }): NextMetadata {
-  const { materialName, description, slug, category, keywords, author, dateModified, image, properties } = options;
+  const { materialName, description, slug, category, subcategory, keywords, author, dateModified, image, properties } = options;
   
   const categoryPath = category ? `/${category}` : '';
-  const pathname = `/materials${categoryPath}/${slug}`;
+  const subcategoryPath = subcategory ? `/${subcategory}` : '';
+  const pathname = `/materials${categoryPath}${subcategoryPath}/${slug}`;
   const fullUrl = `${SITE_CONFIG.url}${pathname}`;
   
   // Enhance keywords with material-specific terms
@@ -264,14 +266,16 @@ export function generateContaminantMetadata(options: {
   description: string;
   slug: string;
   category?: string;
+  subcategory?: string;
   keywords?: string[];
   dateModified?: string;
   image?: string;
 }): NextMetadata {
-  const { contaminantName, description, slug, category, keywords, dateModified, image } = options;
+  const { contaminantName, description, slug, category, subcategory, keywords, dateModified, image } = options;
   
   const categoryPath = category ? `/${category}` : '';
-  const pathname = `/contaminants${categoryPath}/${slug}`;
+  const subcategoryPath = subcategory ? `/${subcategory}` : '';
+  const pathname = `/contaminants${categoryPath}${subcategoryPath}/${slug}`;
   
   const enhancedKeywords = [
     ...(keywords || []),
@@ -300,12 +304,16 @@ export function generateSettingsMetadata(options: {
   description: string;
   slug: string;
   materialType?: string;
+  category?: string;
+  subcategory?: string;
   keywords?: string[];
   dateModified?: string;
 }): NextMetadata {
-  const { settingName, description, slug, materialType, keywords, dateModified } = options;
+  const { settingName, description, slug, materialType, category, subcategory, keywords, dateModified } = options;
   
-  const pathname = `/settings/${slug}`;
+  const categoryPath = category ? `/${category}` : '';
+  const subcategoryPath = subcategory ? `/${subcategory}` : '';
+  const pathname = `/settings${categoryPath}${subcategoryPath}/${slug}`;
   
   const enhancedKeywords = [
     ...(keywords || []),

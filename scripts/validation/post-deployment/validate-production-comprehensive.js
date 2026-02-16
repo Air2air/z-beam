@@ -1172,7 +1172,7 @@ async function checkRobotsTxt() {
       addResult('robots', 'Sitemap Reference', hasSitemap, hasSitemap ? 'Present' : 'Missing');
       
       // Check crawl rules
-      const hasUserAgent = txt.includes('User-agent:');
+      const hasUserAgent = /user-agent\s*:/i.test(txt);
       addResult('robots', 'User-Agent Directive', hasUserAgent, hasUserAgent ? 'Present' : 'Missing');
     }
     
