@@ -91,6 +91,117 @@ export type ComponentContentType = ContentType;
 export type UrlContentType = 'material' | 'service' | 'article' | 'page' | 'product' | 'equipment' | 'custom';
 
 // ===============================
+// SOCIAL PUBLISHING TYPES
+// ===============================
+
+export type SocialPlatform = 'linkedin' | 'facebook' | 'google_business' | 'x';
+
+export type SocialPostStatus = 'draft' | 'scheduled' | 'published';
+
+export type SocialAIMetadataProvider = 'grok' | 'deepseek';
+
+export type SocialMediaType = 'image' | 'video';
+
+export interface SocialMediaAsset {
+  id: string;
+  type: SocialMediaType;
+  url: string;
+  mimeType: string;
+  fileName: string;
+  altText?: string;
+}
+
+export interface SocialPlatformVariant {
+  platform: SocialPlatform;
+  text: string;
+  hashtags: string[];
+}
+
+export interface SocialAIMetadata {
+  provider: SocialAIMetadataProvider;
+  objective?: string;
+  hook?: string;
+  cta?: string;
+  hashtags?: string[];
+  keywords?: string[];
+  platformVariants?: SocialPlatformVariant[];
+  notes?: string[];
+}
+
+export interface SocialPlatformPublishResult {
+  platform: SocialPlatform;
+  status: 'success' | 'failed';
+  externalPostId?: string;
+  error?: string;
+  publishedAt: string;
+}
+
+export interface SocialPost {
+  id: string;
+  title: string;
+  content: string;
+  linkUrl?: string;
+  imageUrl?: string;
+  mediaAssets?: SocialMediaAsset[];
+  objective?: string;
+  campaign?: string;
+  cta?: string;
+  tags?: string[];
+  keywords?: string[];
+  aiMetadata?: SocialAIMetadata;
+  platforms: SocialPlatform[];
+  status: SocialPostStatus;
+  createdAt: string;
+  updatedAt: string;
+  scheduledAt?: string;
+  publishedAt?: string;
+  publicationResults?: SocialPlatformPublishResult[];
+}
+
+export interface SocialCreatePostPayload {
+  title: string;
+  content: string;
+  linkUrl?: string;
+  imageUrl?: string;
+  mediaAssets?: SocialMediaAsset[];
+  objective?: string;
+  campaign?: string;
+  cta?: string;
+  tags?: string[];
+  keywords?: string[];
+  aiMetadata?: SocialAIMetadata;
+  platforms: SocialPlatform[];
+  status?: SocialPostStatus;
+  scheduledAt?: string;
+}
+
+export interface SocialUpdatePostPayload {
+  title?: string;
+  content?: string;
+  linkUrl?: string;
+  imageUrl?: string;
+  mediaAssets?: SocialMediaAsset[];
+  objective?: string;
+  campaign?: string;
+  cta?: string;
+  tags?: string[];
+  keywords?: string[];
+  aiMetadata?: SocialAIMetadata;
+  platforms?: SocialPlatform[];
+  status?: SocialPostStatus;
+  scheduledAt?: string;
+  publishedAt?: string;
+}
+
+export interface SocialUploadResponse {
+  url: string;
+}
+
+export interface SocialMediaUploadResponse {
+  assets: SocialMediaAsset[];
+}
+
+// ===============================
 // CORE CONTENT TYPES
 // ===============================
 

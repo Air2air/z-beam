@@ -7,7 +7,62 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+const PROTECTED_PATH_PREFIXES = ['/social-dashboard', '/api/social'];
+const AUTH_EXEMPT_PATHS = ['/api/social/linkedin/callback'];
+
+function isProtectedPath(pathname: string): boolean {
+  if (AUTH_EXEMPT_PATHS.some((path) => pathname === path)) {
+    return false;
+  }
+
+  return PROTECTED_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+}
+
+function unauthorizedResponse(): NextResponse {
+  return new NextResponse('Authentication required', {
+    status: 401,
+    headers: {
+      'WWW-Authenticate': 'Basic realm="Z-Beam Social Dashboard"'
+    }
+  });
+}
+
+function isAuthorized(request: NextRequest): boolean {
+  const username = process.env.SOCIAL_DASHBOARD_USERNAME;
+  const password = process.env.SOCIAL_DASHBOARD_PASSWORD;
+
+  if (!username || !password) {
+    return false;
+  }
+
+  const authHeader = request.headers.get('authorization');
+  if (!authHeader || !authHeader.startsWith('Basic ')) {
+    return false;
+  }
+
+  const base64Credentials = authHeader.split(' ')[1];
+  if (!base64Credentials) {
+    return false;
+  }
+
+  const decodedCredentials = Buffer.from(base64Credentials, 'base64').toString('utf8');
+  const separatorIndex = decodedCredentials.indexOf(':');
+
+  if (separatorIndex < 0) {
+    return false;
+  }
+
+  const providedUser = decodedCredentials.slice(0, separatorIndex);
+  const providedPass = decodedCredentials.slice(separatorIndex + 1);
+
+  return providedUser === username && providedPass === password;
+}
+
 export function middleware(request: NextRequest) {
+  if (isProtectedPath(request.nextUrl.pathname) && !isAuthorized(request)) {
+    return unauthorizedResponse();
+  }
+
   // Generate a unique nonce for this request
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
   
