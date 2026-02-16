@@ -21,6 +21,9 @@ export const metadata = {
   description: 'Search our comprehensive database of laser cleaning materials, processes, and technical specifications.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/search`
+  },
+  openGraph: {
+    url: `${SITE_CONFIG.url}/search`
   }
 };
 

@@ -359,29 +359,34 @@ export function CardGrid({
 
                   {/* Category Items Grid */}
                   <div className={getGridClasses({ columns, gap })}>
-                    {displayItems.map((item, index) => (
-                      <CardComponent
-                        key={`${category}-${item.slug}-${index}`}
-                        frontmatter={{
-                          title: item.title || slugToDisplayName(item.slug),
-                          subject: item.title || slugToDisplayName(item.slug),
-                          slug: item.slug,
-                          description: item.description || '',
-                          images: {
-                            hero: {
-                              url: item.imageUrl,
-                              alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
-                            }
-                          },
-                          tags: item.tags || [],
-                          ...item.frontmatter
-                        } as ArticleMetadata}
-                        href={item.href || `/${item.slug}`}
-                        badge={showBadgeSymbols ? item.badge : undefined}
-                        variant={variant}
-                        className="h-full card-enhanced-hover"
-                      />
-                    ))}
+                    {displayItems.map((item, index) => {
+                      const href = item.href || (item.slug ? `/${item.slug}` : undefined);
+                      if (!href) return null;
+
+                      return (
+                        <CardComponent
+                          key={`${category}-${item.slug || 'unknown'}-${index}`}
+                          frontmatter={{
+                            title: item.title || slugToDisplayName(item.slug),
+                            subject: item.title || slugToDisplayName(item.slug),
+                            slug: item.slug,
+                            description: item.description || '',
+                            images: {
+                              hero: {
+                                url: item.imageUrl,
+                                alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
+                              }
+                            },
+                            tags: item.tags || [],
+                            ...item.frontmatter
+                          } as ArticleMetadata}
+                          href={href}
+                          badge={showBadgeSymbols ? item.badge : undefined}
+                          variant={variant}
+                          className="h-full card-enhanced-hover"
+                        />
+                      );
+                    })}
                   </div>
                 </section>
               );
@@ -466,29 +471,34 @@ export function CardGrid({
     <>
       {/* Simple Grid */}
       <div className={getGridClasses({ columns, gap })}>
-        {filteredItems.map((item, index) => (
-          <CardComponent
-            key={`${item.slug}-${index}`}
-            frontmatter={{
-              title: item.title || slugToDisplayName(item.slug),
-              subject: item.title || slugToDisplayName(item.slug),
-              slug: item.slug,
-              description: item.description || '',
-              images: {
-                hero: {
-                  url: item.imageUrl,
-                  alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
-                }
-              },
-              tags: item.tags || [],
-              ...item.frontmatter
-            } as ArticleMetadata}
-            href={item.href || `/${item.slug}`}
-            badge={showBadgeSymbols ? item.badge : undefined}
-            variant={variant}
-            className={`card-enhanced-hover`}
-          />
-        ))}
+        {filteredItems.map((item, index) => {
+          const href = item.href || (item.slug ? `/${item.slug}` : undefined);
+          if (!href) return null;
+
+          return (
+            <CardComponent
+              key={`${item.slug || 'unknown'}-${index}`}
+              frontmatter={{
+                title: item.title || slugToDisplayName(item.slug),
+                subject: item.title || slugToDisplayName(item.slug),
+                slug: item.slug,
+                description: item.description || '',
+                images: {
+                  hero: {
+                    url: item.imageUrl,
+                    alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
+                  }
+                },
+                tags: item.tags || [],
+                ...item.frontmatter
+              } as ArticleMetadata}
+              href={href}
+              badge={showBadgeSymbols ? item.badge : undefined}
+              variant={variant}
+              className={`card-enhanced-hover`}
+            />
+          );
+        })}
       </div>
     </>
   );

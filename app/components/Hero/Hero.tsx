@@ -33,7 +33,9 @@ export function Hero({
   const [imageError, setImageError] = useState(false);
   const [_isInView, _setIsInView] = useState(true); // Hero is above-fold, always visible
   const [_videoLoaded, setVideoLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    () => (typeof window !== 'undefined' ? window.innerWidth < 768 : false)
+  );
   const heroRef = useRef<HTMLDivElement>(null);
 
   // Detect mobile device - deferred to not block LCP
@@ -118,6 +120,7 @@ export function Hero({
           <LazyYouTube
             videoId={videoId}
             title={getVideoAriaLabel()}
+            posterSrc={imageSource}
             showFacade={isMobile}
             autoplay={!isMobile}
             onLoad={() => setVideoLoaded(true)}

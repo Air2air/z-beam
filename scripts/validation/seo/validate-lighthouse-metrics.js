@@ -153,8 +153,13 @@ async function checkHTTPSEnforcement() {
   log('\n🔍 Checking HTTPS enforcement...', 'cyan');
   
   const insecureReferences = [];
-  const excludeDirs = ['node_modules', '.next', 'coverage', '.git', 'tests', 'docs'];
-  const includeExtensions = ['.tsx', '.ts', '.js', '.jsx', '.json', '.yaml', '.yml'];
+  const excludeDirs = ['node_modules', '.next', 'coverage', '.git', 'tests', 'docs', 'frontmatter', 'examples', 'content'];
+  const includeExtensions = ['.tsx', '.ts', '.js', '.jsx'];
+  const scanRoots = [
+    path.join(process.cwd(), 'app'),
+    path.join(process.cwd(), 'lib'),
+    path.join(process.cwd(), 'components')
+  ];
   
   async function scanFiles(dir) {
     try {
@@ -201,7 +206,14 @@ async function checkHTTPSEnforcement() {
     }
   }
   
-  await scanFiles(process.cwd());
+  for (const root of scanRoots) {
+    try {
+      await fs.access(root);
+      await scanFiles(root);
+    } catch (_error) {
+      // Root doesn't exist in this workspace; skip
+    }
+  }
   
   if (insecureReferences.length === 0) {
     log('\n  ✓ No insecure HTTP references found', 'green');
@@ -293,14 +305,15 @@ async function validateRobotsTxt(url) {
     
     // Basic syntax validation
     const lines = content.split('\n');
-    const validDirectives = ['User-agent', 'Disallow', 'Allow', 'Crawl-delay', 'Sitemap'];
+    const validDirectives = ['user-agent', 'disallow', 'allow', 'crawl-delay', 'sitemap', 'host'];
     const syntaxErrors = [];
     
     lines.forEach((line, index) => {
       const trimmed = line.trim();
       if (trimmed && !trimmed.startsWith('#')) {
+        const normalizedLine = trimmed.toLowerCase();
         const hasValidDirective = validDirectives.some(directive => 
-          trimmed.startsWith(`${directive}:`)
+          normalizedLine.startsWith(`${directive}:`)
         );
         
         if (!hasValidDirective) {

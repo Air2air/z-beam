@@ -13,16 +13,90 @@ import { BaseSection } from '../BaseSection/BaseSection';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { SectionConfigBuilder } from '@/app/utils/sectionConfigBuilder';
-import { contaminantLinkageToGridItem } from '@/app/utils/gridMappers';
+import { contaminantLinkageToGridItem, materialLinkageToGridItem } from '@/app/utils/gridMappers';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { sortByFrequency } from '@/app/utils/gridSorters';
 import { getRelationshipSection } from '@/app/utils/relationshipHelpers';
+import { getArticle } from '@/app/utils/contentAPI';
 import { Beaker, Thermometer, Activity, FileText } from 'lucide-react';
 import { CardGrid } from '../CardGrid';
-import type { CompoundsLayoutProps, SectionConfig } from '@/types';
+import type { CompoundsLayoutProps, SectionConfig, Relationship } from '@/types';
 
 // Re-export for convenience
 export type { CompoundsLayoutProps };
+
+type LinkageItem = {
+  id: string;
+  name?: string;
+  title?: string;
+  category?: string;
+  subcategory?: string;
+  url?: string;
+  image?: string;
+  description?: string;
+  frequency?: 'very_common' | 'common' | 'occasional' | 'rare';
+  severity?: 'severe' | 'high' | 'moderate' | 'low';
+  typicalContext?: string;
+};
+
+async function enrichSourceMaterialLinkage(item: LinkageItem): Promise<LinkageItem | null> {
+  if (!item?.id) return null;
+
+  if (item.url && item.title && item.category) {
+    return item;
+  }
+
+  const materialArticle = await getArticle(item.id);
+  if (!materialArticle?.frontmatter) {
+    return null;
+  }
+
+  const materialMeta = materialArticle.frontmatter as Record<string, any>;
+  const materialPath = materialMeta.fullPath as string | undefined;
+
+  return {
+    ...item,
+    name: item.name || materialMeta.displayName || materialMeta.name || materialMeta.title || item.id,
+    title: item.title || materialMeta.displayTitle || materialMeta.title || materialMeta.name || item.id,
+    category: item.category || materialMeta.category,
+    subcategory: item.subcategory || materialMeta.subcategory,
+    url: item.url || materialPath,
+    image: item.image || materialMeta.images?.hero?.url,
+    description: item.description || materialMeta.pageDescription || materialMeta.description || '',
+  };
+}
+
+function toRelationship(item: LinkageItem): Relationship | null {
+  if (
+    !item.id ||
+    !item.name ||
+    !item.title ||
+    !item.category ||
+    !item.subcategory ||
+    !item.url ||
+    !item.image ||
+    !item.description ||
+    !item.frequency ||
+    !item.severity ||
+    !item.typicalContext
+  ) {
+    return null;
+  }
+
+  return {
+    id: item.id,
+    name: item.name,
+    title: item.title,
+    category: item.category,
+    subcategory: item.subcategory,
+    url: item.url,
+    image: item.image,
+    description: item.description,
+    frequency: item.frequency,
+    severity: item.severity,
+    typicalContext: item.typicalContext,
+  };
+}
 
 export async function CompoundsLayout(props: CompoundsLayoutProps) {
   const { metadata, children, slug = '', category = '', subcategory = '' } = props;
@@ -41,6 +115,11 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   // Source materials - complete data from frontmatter
   const sourceMaterialsRaw = relationships?.interactions?.producedFromMaterials || {};
   const sourceMaterials = sourceMaterialsRaw?.items || [];
+  const sourceMaterialsEnriched: Relationship[] = (
+    await Promise.all(sourceMaterials.map((item: LinkageItem) => enrichSourceMaterialLinkage(item)))
+  )
+    .map(item => (item ? toRelationship(item) : null))
+    .filter((item): item is Relationship => Boolean(item));
 
   // Prepare safety data from relationships (structured data) and metadata (legacy)
   /**
@@ -189,11 +268,11 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
     },
     {
       component: CardGrid,
-      condition: sourceMaterials.length > 0,
+      condition: sourceMaterialsEnriched.length > 0,
       props: {
-        items: sourceMaterials,
-        title: sourceMaterialsRaw?._section?.sectionTitle || `Source materials for ${compoundName}`,
-        description: sourceMaterialsRaw?._section?.sectionDescription || `Materials that produce ${compoundName} when cleaned`,
+        items: sourceMaterialsEnriched.map(materialLinkageToGridItem),
+        title: sourceMaterialsRaw?._section?.sectionTitle,
+        description: sourceMaterialsRaw?._section?.sectionDescription,
         variant: 'relationship' as const,
       }
     },

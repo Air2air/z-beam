@@ -345,7 +345,12 @@ export function formatKeyAsTitle(key: string): string {
  */
 export function toCategorySlug(name: string): string {
   if (!name) return '';
-  return name.toLowerCase().trim().replace(/\s+/g, '-');
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/_/g, '-')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
 }
 
 /**

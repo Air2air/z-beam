@@ -44,11 +44,15 @@ npm run validate:content || {
 }
 
 echo -e "${CYAN}Generating datasets...${NC}"
-npm run generate:datasets || {
-    echo -e "${RED}❌ Dataset generation failed!${NC}"
-    echo -e "${YELLOW}Fix the errors above before deploying${NC}"
-    exit 1
-}
+if npm run | grep -q "generate:datasets"; then
+    npm run generate:datasets || {
+        echo -e "${RED}❌ Dataset generation failed!${NC}"
+        echo -e "${YELLOW}Fix the errors above before deploying${NC}"
+        exit 1
+    }
+else
+    echo -e "${YELLOW}⚠️  Skipping generate:datasets (handled by backend project)${NC}"
+fi
 
 echo -e "${CYAN}Running component tests...${NC}"
 npm run test:components || {
@@ -75,7 +79,7 @@ if ! command -v vercel >/dev/null 2>&1; then
 fi
 
 echo -e "${CYAN}🚀 Deploying to Vercel...${NC}"
-vercel --prod || {
+vercel --prod --archive=tgz || {
     echo -e "${RED}❌ Deployment failed!${NC}"
     exit 1
 }
@@ -84,8 +88,11 @@ echo ""
 echo -e "${GREEN}✅ Deployment complete!${NC}"
 echo ""
 
-# Get deployment URL
-DEPLOYMENT_URL=$(vercel ls --prod | head -2 | tail -1 | awk '{print $2}' || echo "https://z-beam.com")
+# Get deployment URL (fallback to canonical production URL if parsing fails)
+DEPLOYMENT_URL=$(vercel ls --prod 2>/dev/null | head -2 | tail -1 | awk '{print $2}')
+if [ -z "$DEPLOYMENT_URL" ]; then
+    DEPLOYMENT_URL="https://www.z-beam.com"
+fi
 
 echo -e "${BLUE}═══════════════════════════════════════════════════════${NC}"
 echo -e "${BOLD}  POST-DEPLOYMENT VALIDATION${NC}"
@@ -96,8 +103,12 @@ echo -e "${CYAN}Running post-deployment checks on: $DEPLOYMENT_URL${NC}"
 echo ""
 
 # Post-deployment validations (non-blocking warnings)
-echo -e "${CYAN}Validating production site...${NC}"
-npm run validate:production -- --url="$DEPLOYMENT_URL" || echo -e "${YELLOW}⚠️  Production validation had warnings${NC}"
+echo -e "${CYAN}Validating production site (strict)...${NC}"
+PRODUCTION_URL="$DEPLOYMENT_URL" npm run validate:production:strict-seo || {
+    echo -e "${RED}❌ Post-deployment validation failed!${NC}"
+    echo -e "${YELLOW}Fix production validation issues before considering deployment complete${NC}"
+    exit 1
+}
 
 echo ""
 echo -e "${GREEN}✅ Deployment pipeline complete!${NC}"

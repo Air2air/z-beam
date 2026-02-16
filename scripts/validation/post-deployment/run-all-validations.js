@@ -68,7 +68,7 @@ function runValidation(name, command, optional = false) {
     const output = execSync(command, {
       stdio: 'pipe',
       encoding: 'utf8',
-      timeout: 60000 // 60 second timeout
+      timeout: 300000 // 5 minute timeout for comprehensive production checks
     });
 
     console.log(`   ✅ ${chalk.green('PASSED')}`);

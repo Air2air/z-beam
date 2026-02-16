@@ -10,6 +10,7 @@ interface LazyYouTubeProps {
   className?: string;
   autoplay?: boolean;
   showFacade?: boolean;
+  posterSrc?: string;
   onLoad?: () => void;
 }
 
@@ -31,6 +32,7 @@ export default function LazyYouTube({
   className = '',
   autoplay = false,
   showFacade = false,
+  posterSrc,
   onLoad
 }: LazyYouTubeProps) {
   const [loaded, setLoaded] = useState(false);
@@ -56,6 +58,7 @@ export default function LazyYouTube({
   };
 
   const shouldShowIframe = showFacade ? userClicked : loaded;
+  const thumbnailSrc = posterSrc || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   // Build YouTube embed URL with optimal parameters
   const buildYouTubeUrl = () => {
@@ -96,11 +99,13 @@ export default function LazyYouTube({
         >
           {/* YouTube thumbnail as poster */}
           <Image
-            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            src={thumbnailSrc}
             alt={`Thumbnail for ${title}`}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 1200px"
+            priority={Boolean(posterSrc)}
+            fetchPriority={posterSrc ? 'high' : undefined}
           />
           
           {/* Overlay and play button - only show if facade mode */}

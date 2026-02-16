@@ -8,6 +8,7 @@
  */
 
 import { getContentConfig } from '@/app/config/contentTypes';
+import { redirect } from 'next/navigation';
 import { 
   generateCategoryStaticParams,
   generateSubcategoryStaticParams,
@@ -15,6 +16,7 @@ import {
   findCategoryBySlug,
   getSubcategoryInfoForType
 } from '@/app/utils/categories';
+import { normalizeForUrl } from '@/app/utils/urlBuilder';
 import {
   generateCategoryMetadata,
   generateSubcategoryMetadata,
@@ -55,19 +57,32 @@ export function createCategoryPage(contentType: ContentType) {
 
     generateMetadata: async ({ params }: { params: { category: string } }) => {
       const { category } = params;
-      const metadata = (categoryMetadata as Record<string, any> | undefined)?.[category];
-      return generateCategoryMetadata(config, category, metadata);
+      const normalizedCategory = normalizeForUrl(category);
+      const metadata =
+        (categoryMetadata as Record<string, any> | undefined)?.[category] ||
+        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory] ||
+        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory.replace(/-/g, '_')];
+      return generateCategoryMetadata(config, normalizedCategory, metadata);
     },
 
     default: async function ContentCategoryPage({ params }: { params: { category: string } }) {
       const { category } = params;
-      const categoryData = await findCategoryBySlug(config, category);
-      const metadata = (categoryMetadata as Record<string, any> | undefined)?.[category];
+      const normalizedCategory = normalizeForUrl(category);
+
+      if (normalizedCategory !== category) {
+        redirect(`/${config.rootPath}/${normalizedCategory}`);
+      }
+
+      const categoryData = await findCategoryBySlug(config, normalizedCategory);
+      const metadata =
+        (categoryMetadata as Record<string, any> | undefined)?.[category] ||
+        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory] ||
+        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory.replace(/-/g, '_')];
       
       return (
         <CategoryPage 
           config={config}
-          categorySlug={category}
+          categorySlug={normalizedCategory}
           categoryData={categoryData}
           categoryMetadata={metadata}
         />
@@ -94,7 +109,9 @@ export function createSubcategoryPage(contentType: ContentType) {
       params: Promise<{ category: string; subcategory: string }> 
     }) => {
       const { category, subcategory } = await params;
-      const subcategoryInfo = await getSubcategoryInfoForType(config, category, subcategory);
+      const normalizedCategory = normalizeForUrl(category);
+      const normalizedSubcategory = normalizeForUrl(subcategory);
+      const subcategoryInfo = await getSubcategoryInfoForType(config, normalizedCategory, normalizedSubcategory);
       
       if (!subcategoryInfo) {
         return {
@@ -103,7 +120,7 @@ export function createSubcategoryPage(contentType: ContentType) {
         };
       }
       
-      return generateSubcategoryMetadata(config, category, subcategory, subcategoryInfo);
+      return generateSubcategoryMetadata(config, normalizedCategory, normalizedSubcategory, subcategoryInfo);
     },
 
     default: async function ContentSubcategoryPage({ 
@@ -112,13 +129,20 @@ export function createSubcategoryPage(contentType: ContentType) {
       params: Promise<{ category: string; subcategory: string }> 
     }) {
       const { category, subcategory } = await params;
-      const subcategoryInfo = await getSubcategoryInfoForType(config, category, subcategory);
+      const normalizedCategory = normalizeForUrl(category);
+      const normalizedSubcategory = normalizeForUrl(subcategory);
+
+      if (normalizedCategory !== category || normalizedSubcategory !== subcategory) {
+        redirect(`/${config.rootPath}/${normalizedCategory}/${normalizedSubcategory}`);
+      }
+
+      const subcategoryInfo = await getSubcategoryInfoForType(config, normalizedCategory, normalizedSubcategory);
       
       return (
         <SubcategoryPage 
           config={config}
-          categorySlug={category}
-          subcategorySlug={subcategory}
+          categorySlug={normalizedCategory}
+          subcategorySlug={normalizedSubcategory}
           subcategoryInfo={subcategoryInfo}
         />
       );
@@ -144,7 +168,9 @@ export function createItemPage(contentType: ContentType) {
       params: Promise<{ category: string; subcategory: string; slug: string }> 
     }) => {
       const { category, subcategory, slug } = await params;
-      return await generateItemMetadata(config, category, subcategory, slug);
+      const normalizedCategory = normalizeForUrl(category);
+      const normalizedSubcategory = normalizeForUrl(subcategory);
+      return await generateItemMetadata(config, normalizedCategory, normalizedSubcategory, slug);
     },
 
     default: async function ContentItemPage({ 
@@ -153,12 +179,18 @@ export function createItemPage(contentType: ContentType) {
       params: Promise<{ category: string; subcategory: string; slug: string }> 
     }) {
       const { category, subcategory, slug } = await params;
+      const normalizedCategory = normalizeForUrl(category);
+      const normalizedSubcategory = normalizeForUrl(subcategory);
+
+      if (normalizedCategory !== category || normalizedSubcategory !== subcategory) {
+        redirect(`/${config.rootPath}/${normalizedCategory}/${normalizedSubcategory}/${slug}`);
+      }
       
       return (
         <ItemPage 
           config={config}
-          categorySlug={category}
-          subcategorySlug={subcategory}
+          categorySlug={normalizedCategory}
+          subcategorySlug={normalizedSubcategory}
           itemSlug={slug}
         />
       );

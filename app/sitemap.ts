@@ -119,13 +119,6 @@ export default function sitemap(): SitemapEntry[] {
       alternates: getAlternates(`${baseUrl}/contact`),
     },
     {
-      url: `${baseUrl}/datasets`,
-      lastModified: new Date(),
-      changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,
-      priority: SITEMAP_PRIORITIES.CONTENT_HUBS,
-      alternates: getAlternates(`${baseUrl}/datasets`),
-    },
-    {
       url: `${baseUrl}/search`,
       lastModified: new Date(),
       changeFrequency: CHANGE_FREQUENCY.REAL_TIME,
