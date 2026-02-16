@@ -181,6 +181,9 @@ export default async function RootLayout({
         
         {/* Above-the-fold logo preload for faster first paint in navigation */}
         <link rel="preload" as="image" href="/images/logo/logo-zbeam.png" />
+
+        {/* Homepage hero image preload for LCP optimization */}
+        <link rel="preload" as="image" href="/images/pages/operator.jpg" fetchPriority="high" />
         
         {/* Defer non-critical third-party connections */}
         <link rel="dns-prefetch" href="https://img.youtube.com" />

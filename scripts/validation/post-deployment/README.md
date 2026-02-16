@@ -124,6 +124,10 @@ Includes all core checks plus full-site SEO infrastructure gate checks:
   - Every sitemap URL status (2xx/3xx)
   - Canonical presence and canonical self-consistency
   - `noindex` detection on canonical pages
+- 🧩 **Full-site metadata consistency**
+  - Title + meta description presence on every crawled sitemap URL
+  - Canonical and `og:url` parity checks
+  - Duplicate title and duplicate description detection
 - 🏗️ **Full-site structured data coverage**
   - JSON-LD parse validation for crawled URLs
   - Breadcrumb schema presence checks for deep content routes
@@ -290,7 +294,7 @@ node scripts/validation/post-deployment/validate-production-comprehensive.js [op
 - `--max-urls=<n>` - Limit sitemap crawl size for smoke runs (default: full sitemap)
 - `--compare-url=<url>` - Compare production URL behavior against a second deploy URL (preview/staging parity)
 - `--require-rich-results` - Fail if required rich-results schema fields are missing
-- `--strict-seo` - Treat SEO warnings in strict categories as deployment blockers
+- `--strict-seo` - Treat SEO warnings in strict categories as deployment blockers (`seo-metadata`, `metadata-consistency`, `indexability`, `schema-coverage`, `rich-results`, `internal-links`, `route-health`, `sitemap`, `robots`)
 
 **Examples:**
 ```bash
@@ -300,7 +304,7 @@ npm run validate:production:comprehensive
 # Fast smoke test for CI triage
 node scripts/validation/post-deployment/validate-production-comprehensive.js --skip-external --max-urls=50
 
-# Strict SEO gating (canonical/indexability/schema warnings fail build)
+# Strict SEO gating (canonical/metadata/schema/indexability/internal-link warnings fail build)
 npm run validate:production:strict-seo
 
 # Production vs preview parity (set COMPARE_URL first)

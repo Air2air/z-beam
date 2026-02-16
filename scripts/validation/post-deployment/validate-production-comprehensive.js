@@ -169,6 +169,17 @@ function extractCanonical(html) {
   return canonicalMatch ? normalizeSiteUrl(canonicalMatch[1]) : null;
 }
 
+function extractMetaContent(html, attr, key) {
+  const regex = new RegExp(`<meta\\s+[^>]*${attr}=["']${key}["'][^>]*content=["']([^"']+)["'][^>]*>`, 'i');
+  const match = html.match(regex);
+  return match ? match[1].trim() : null;
+}
+
+function extractTitle(html) {
+  const titleMatch = html.match(/<title>([^<]+)<\/title>/i);
+  return titleMatch ? titleMatch[1].trim() : null;
+}
+
 function hasNoindex(html) {
   const robotsMeta = html.match(/<meta\s+name=["']robots["']\s+content=["']([^"']+)["']/i);
   return robotsMeta ? robotsMeta[1].toLowerCase().includes('noindex') : false;
@@ -318,13 +329,15 @@ async function checkCoreWebVitalsOptimizations() {
       preconnectGTM ? '✅ Present' : '❌ Missing'
     );
     
-    // Check for hero image preload (order-agnostic)
-    const heroPreload = html.match(/<link[^>]+rel=["']preload["'][^>]+as=["']image["'][^>]+hero/i) || 
-                       html.match(/<link[^>]+as=["']image["'][^>]+rel=["']preload["'][^>]+hero/i) ||
-                       html.match(/<link[^>]+as=["']image["'][^>]+href=["'][^"']*hero[^"']*["']/i);
+    // Check for above-the-fold image preload (order-agnostic)
+    // Accept any image preload to avoid brittle filename coupling (e.g., "hero" keyword requirement)
+    const imagePreloadTags = html.match(/<link[^>]+rel=["']preload["'][^>]+as=["']image["'][^>]*>/gi) ||
+      html.match(/<link[^>]+as=["']image["'][^>]+rel=["']preload["'][^>]*>/gi) || [];
     addResult('core-web-vitals', 'Hero Image Preload', 
-      !!heroPreload,
-      heroPreload ? '✅ Present (LCP optimization)' : '⚠️ Missing'
+      imagePreloadTags.length > 0,
+      imagePreloadTags.length > 0
+        ? `✅ Present (${imagePreloadTags.length} preload image link(s), LCP optimization)`
+        : '⚠️ Missing'
     );
     
     // Check for inline critical CSS
@@ -570,6 +583,101 @@ async function checkFullSiteIndexability() {
     console.log(`   Score: ${results.categories.indexability.score}%`);
   } catch (error) {
     addResult('indexability', 'Full-Site Indexability', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 2.25 FULL-SITE METADATA CONSISTENCY
+// ============================================================================
+async function checkFullSiteMetadataConsistency() {
+  console.log('\n🧩 2.25 FULL-SITE METADATA CONSISTENCY');
+  console.log('─'.repeat(60));
+
+  try {
+    const sitemapUrls = await getSitemapUrls();
+    const titleMap = new Map();
+    const descriptionMap = new Map();
+
+    for (const url of sitemapUrls) {
+      const response = await fetch(url, { timeout: 30000 });
+
+      if (response.status >= 400) {
+        addResult('metadata-consistency', `Metadata Crawl ${url}`, false, `HTTP ${response.status}`);
+        continue;
+      }
+
+      const html = response.data;
+      const title = extractTitle(html);
+      const description = extractMetaContent(html, 'name', 'description');
+      const canonical = extractCanonical(html);
+      const ogUrlRaw = extractMetaContent(html, 'property', 'og:url');
+      const ogUrl = ogUrlRaw ? normalizeSiteUrl(ogUrlRaw) : null;
+
+      addResult(
+        'metadata-consistency',
+        `Title Present ${url}`,
+        !!title,
+        title ? `length=${title.length}` : 'Missing title tag'
+      );
+
+      addResult(
+        'metadata-consistency',
+        `Meta Description Present ${url}`,
+        !!description,
+        description ? `length=${description.length}` : 'Missing meta description'
+      );
+
+      addResult(
+        'metadata-consistency',
+        `Canonical/og:url parity ${url}`,
+        !!canonical && !!ogUrl && canonical === ogUrl,
+        `canonical=${canonical || 'missing'}, og:url=${ogUrl || 'missing'}`
+      );
+
+      if (title) {
+        if (!titleMap.has(title)) titleMap.set(title, []);
+        titleMap.get(title).push(url);
+      }
+
+      if (description) {
+        if (!descriptionMap.has(description)) descriptionMap.set(description, []);
+        descriptionMap.get(description).push(url);
+      }
+    }
+
+    const duplicateTitleGroups = [...titleMap.values()].filter((urls) => urls.length > 1);
+    const duplicateDescriptionGroups = [...descriptionMap.values()].filter((urls) => urls.length > 1);
+
+    addResult(
+      'metadata-consistency',
+      'Duplicate Title Tags',
+      duplicateTitleGroups.length === 0,
+      duplicateTitleGroups.length === 0
+        ? 'No duplicate title tags detected'
+        : `${duplicateTitleGroups.length} duplicate title group(s) found`
+    );
+
+    addResult(
+      'metadata-consistency',
+      'Duplicate Meta Descriptions',
+      duplicateDescriptionGroups.length === 0 ? true : 'warning',
+      duplicateDescriptionGroups.length === 0
+        ? 'No duplicate meta descriptions detected'
+        : `${duplicateDescriptionGroups.length} duplicate description group(s) found`
+    );
+
+    addResult(
+      'metadata-consistency',
+      'Metadata Crawl Coverage',
+      true,
+      `${sitemapUrls.length} URL(s) checked${MAX_URLS > 0 ? ` (limited by --max-urls=${MAX_URLS})` : ''}`
+    );
+
+    calculateCategoryScore('metadata-consistency');
+    console.log(`   Score: ${results.categories['metadata-consistency'].score}%`);
+  } catch (error) {
+    addResult('metadata-consistency', 'Full-Site Metadata Consistency', false, error.message);
     console.error(`   ❌ Error: ${error.message}`);
   }
 }
@@ -1562,6 +1670,7 @@ function generateSummary() {
   await checkSEOMetadata();
   await checkCriticalRouteHealth();
   await checkFullSiteIndexability();
+  await checkFullSiteMetadataConsistency();
   await checkFullSiteStructuredDataCoverage();
   await checkRichResultsReadiness();
   await checkFullSiteInternalLinks();
@@ -1602,7 +1711,17 @@ function generateSummary() {
   }
 
   if (STRICT_SEO) {
-    const strictCategories = ['seo-metadata', 'indexability', 'schema-coverage', 'rich-results', 'internal-links', 'route-health'];
+    const strictCategories = [
+      'seo-metadata',
+      'metadata-consistency',
+      'indexability',
+      'schema-coverage',
+      'rich-results',
+      'internal-links',
+      'route-health',
+      'sitemap',
+      'robots'
+    ];
     for (const category of strictCategories) {
       const categoryResults = results.categories[category];
       if (!categoryResults) continue;
