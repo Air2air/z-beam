@@ -353,10 +353,16 @@ export default function SocialDashboardClient(): JSX.Element {
   async function publishNow(postId: string): Promise<void> {
     setPublishingPostId(postId);
     setErrorMessage('');
+    setInfoMessage('');
 
     try {
+      const post = posts.find((item) => item.id === postId);
       const response = await fetch(`/api/social/posts/${postId}/publish`, {
-        method: 'POST'
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ post })
       });
 
       if (!response.ok) {
