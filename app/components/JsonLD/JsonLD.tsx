@@ -27,21 +27,23 @@ type JsonLDProps =
   | { article: any; slug: string; data?: never };
 
 export function JsonLD(props: JsonLDProps) {
-  if (props.article !== undefined) {
+  if (props.data === undefined) {
     // --- Article mode: generate schema via SchemaFactory ---
+    // Discriminated by data being absent; slug is string in this branch
+    const { article, slug } = props as { article: any; slug: string };
     let jsonLdSchema;
     try {
-      const factory = new SchemaFactory(props.article, props.slug);
+      const factory = new SchemaFactory(article, slug);
       jsonLdSchema = factory.generate();
     } catch (error) {
       console.warn('SchemaFactory failed, using legacy generator:', error);
-      jsonLdSchema = createJsonLdForArticle(props.article, props.slug);
+      jsonLdSchema = createJsonLdForArticle(article, slug);
     }
 
     if (!jsonLdSchema) return null;
 
     if (process.env.NODE_ENV === 'development') {
-      validateAndLogSchema(jsonLdSchema, `JsonLD (${props.slug})`);
+      validateAndLogSchema(jsonLdSchema, `JsonLD (${slug})`);
     }
 
     const jsonString = JSON.stringify(jsonLdSchema).replace(/\\\//g, '/');
