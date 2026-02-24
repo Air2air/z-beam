@@ -9,7 +9,7 @@ import { toCategorySlug } from './utils/formatting';
 const SITEMAP_PRIORITIES = {
   HOMEPAGE: 1.0,
   MONEY_PAGES: 0.95,        // services, rental
-  CONTENT_HUBS: 0.9,        // materials, settings, compounds, datasets, contaminants
+  CONTENT_HUBS: 0.9,        // materials, settings, compounds, datasets, contaminants, applications
   CATEGORY_PAGES: 0.85,     // material/contaminant category taxonomy
   PARTNER_PAGES: 0.8,       // partners, netalux
   ITEM_PAGES: 0.8,          // material items, compound categories
@@ -152,6 +152,13 @@ export default function sitemap(): SitemapEntry[] {
       changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,
       priority: SITEMAP_PRIORITIES.CONTENT_HUBS,
       alternates: getAlternates(`${baseUrl}/settings`),
+    },
+    {
+      url: `${baseUrl}/applications`,
+      lastModified: new Date(),
+      changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,
+      priority: SITEMAP_PRIORITIES.CONTENT_HUBS,
+      alternates: getAlternates(`${baseUrl}/applications`),
     },
   ];
 
@@ -412,6 +419,36 @@ export default function sitemap(): SitemapEntry[] {
     console.error('Error generating compound routes:', error);
   }
 
+  // Application routes (flat — no category/subcategory hierarchy)
+  const applicationPageRoutes: SitemapEntry[] = [];
+
+  try {
+    const applicationDir = path.join(process.cwd(), 'frontmatter/applications');
+    const applicationFiles = fs.readdirSync(applicationDir).filter(f => f.endsWith('.yaml'));
+
+    applicationFiles.forEach((file) => {
+      const filePath = path.join(applicationDir, file);
+      const stats = fs.statSync(filePath);
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+
+      const fullPathMatch = fileContent.match(/^fullPath:\s*(.+)$/m);
+      if (!fullPathMatch) return;
+
+      const fullPath = fullPathMatch[1].trim().replace(/'/g, '');
+      const applicationUrl = `${baseUrl}${fullPath}`;
+
+      applicationPageRoutes.push({
+        url: applicationUrl,
+        lastModified: stats.mtime,
+        changeFrequency: CHANGE_FREQUENCY.MODERATE,
+        priority: SITEMAP_PRIORITIES.ITEM_PAGES,
+        alternates: getAlternates(applicationUrl),
+      });
+    });
+  } catch (error) {
+    console.error('Error generating application routes:', error);
+  }
+
   return [
     ...staticRoutes, 
     ...materialRoutes, 
@@ -421,6 +458,7 @@ export default function sitemap(): SitemapEntry[] {
     ...contaminantRoutes,
     ...contaminantPageRoutes,
     ...compoundRoutes,
-    ...compoundPageRoutes
+    ...compoundPageRoutes,
+    ...applicationPageRoutes,
   ];
 }
