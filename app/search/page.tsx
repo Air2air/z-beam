@@ -19,6 +19,10 @@ export const viewport = {
 export const metadata = {
   title: `Search Materials | ${SITE_CONFIG.shortName}`,
   description: 'Search our comprehensive database of laser cleaning materials, processes, and technical specifications.',
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: `${SITE_CONFIG.url}/search`
   },

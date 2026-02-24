@@ -309,18 +309,9 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
         alt: heroImageAlt,
         width: heroImageWidth || 1200,
         height: heroImageHeight || 630,
-        type: 'image/jpeg',
+        type: heroImageUrl.match(/\.png$/i) ? 'image/png' : heroImageUrl.match(/\.webp$/i) ? 'image/webp' : 'image/jpeg',
         creator: authorName || SITE_CONFIG.shortName,
       }] : undefined,
-      
-      // Video metadata for rich social sharing
-      videos: [{
-        url: 'https://www.youtube.com/watch?v=t8fB3tJCfQw',
-        secureUrl: 'https://www.youtube.com/watch?v=t8fB3tJCfQw',
-        type: 'text/html',
-        width: 1280,
-        height: 720,
-      }],
       
       // Article-specific metadata (E-E-A-T: Trustworthiness via dates)
       ...(ogType === 'article' && {
@@ -334,9 +325,9 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       }),
     },
     
-    // Twitter Card for enhanced social sharing with video player
+    // Twitter Card for enhanced social sharing
     twitter: {
-      card: 'player',
+      card: 'summary_large_image',
       site: '@ZBeamLaser',
       title: actualTitle || formattedTitle,
       description: fullDescription,
@@ -345,12 +336,6 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
         alt: heroImageAlt,
       }] : undefined,
       creator: authorTwitter ? `@${authorTwitter.replace(/^@/, '')}` : '@ZBeamLaser',
-      players: [{
-        playerUrl: 'https://www.youtube.com/embed/t8fB3tJCfQw',
-        streamUrl: 'https://www.youtube.com/watch?v=t8fB3tJCfQw',
-        width: 1280,
-        height: 720,
-      }],
     },
     
     // Additional E-E-A-T meta tags
