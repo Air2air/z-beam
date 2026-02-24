@@ -1,12 +1,12 @@
 #!/usr/bin/env tsx
 
-import sitemap from '../../app/sitemap';
+import { getSitemapEntries } from '../../app/sitemap.xml/route';
 
 async function analyzeSitemap() {
   console.log('📊 SITEMAP ANALYSIS');
   console.log('='.repeat(60));
   
-  const entries = sitemap();
+  const entries = getSitemapEntries();
   const domains = new Set<string>();
   const contentTypes = {
     static: [] as string[],

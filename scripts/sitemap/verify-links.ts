@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 
-import sitemap from '../../app/sitemap';
+import { getSitemapEntries } from '../../app/sitemap.xml/route';
 import fs from 'fs';
 import path from 'path';
 
@@ -8,7 +8,7 @@ async function verifyLinks() {
   console.log('🔗 LINK VERIFICATION REPORT');
   console.log('='.repeat(60));
   
-  const entries = sitemap();
+  const entries = getSitemapEntries();
   const issues: string[] = [];
   const urlSet = new Set<string>();
   
