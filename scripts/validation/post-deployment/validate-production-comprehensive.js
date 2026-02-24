@@ -98,7 +98,7 @@ function fetch(url, options = {}) {
     const protocol = url.startsWith('https') ? https : http;
     const timeout = options.timeout || 30000;
     
-    protocol.get(url, { timeout }, (res) => {
+    const req = protocol.get(url, (res) => {
       let data = '';
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => {
@@ -113,6 +113,12 @@ function fetch(url, options = {}) {
         }
       });
     }).on('error', reject);
+
+    // http.get's { timeout } option only fires the event — we must destroy the
+    // socket ourselves to actually abort the request and reject the promise.
+    req.setTimeout(timeout, () => {
+      req.destroy(new Error(`Request timed out after ${timeout}ms: ${url}`));
+    });
   });
 }
 

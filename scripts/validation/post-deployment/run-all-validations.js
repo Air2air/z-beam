@@ -11,6 +11,15 @@
 const { execSync } = require('child_process');
 const chalk = require('chalk');
 
+// Ensure Chrome is findable on macOS for Lighthouse/Core Web Vitals checks
+if (!process.env.CHROME_PATH) {
+  const macChrome = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+  const { existsSync } = require('fs');
+  if (existsSync(macChrome)) {
+    process.env.CHROME_PATH = macChrome;
+  }
+}
+
 // Validation categories and their commands
 const VALIDATION_SUITE = {
   '1. Core Functionality': [
