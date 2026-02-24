@@ -6,7 +6,7 @@ import { MaterialsLayout } from '@/app/components/MaterialsLayout/MaterialsLayou
 import { ContaminantsLayout } from '@/app/components/ContaminantsLayout/ContaminantsLayout';
 import { CompoundsLayout } from '@/app/components/CompoundsLayout/CompoundsLayout';
 import { SettingsLayout } from '@/app/components/SettingsLayout/SettingsLayout';
-import { MaterialJsonLD } from '@/app/components/JsonLD/JsonLD';
+import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { ContentTypeConfig } from '@/app/config/contentTypes';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
 import { getSettingsArticle } from '@/app/utils/contentAPI';
@@ -57,7 +57,7 @@ export async function ItemPage({
       
       return (
         <>
-          <MaterialJsonLD 
+          <JsonLD 
             article={articleForSchema} 
             slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`} 
           />
@@ -111,7 +111,7 @@ export async function ItemPage({
     
     return (
       <>
-        <MaterialJsonLD 
+        <JsonLD 
           article={article} 
           slug={`${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`} 
         />

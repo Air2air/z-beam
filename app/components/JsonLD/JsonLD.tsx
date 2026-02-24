@@ -5,7 +5,6 @@ import { createJsonLdForArticle } from '../../utils/jsonld-helper';
 import { SchemaFactory } from '../../utils/schemas/SchemaFactory';
 import { validateAndLogSchema } from '../../utils/validators';
 import type { 
-  JsonLdProps, 
   PersonSchema, 
   ListingSchema, 
   WebsiteSchema, 
@@ -14,83 +13,52 @@ import type {
 } from '@/types';
 
 /**
- * Component to render JSON-LD structured data
- * 
- * @param data - Pre-generated JSON-LD schema object
- * @returns Script tag with JSON-LD structured data
+ * Single reusable JSON-LD component — two modes via discriminated union:
+ *
+ *   Mode 1 — pre-built schema: <JsonLD data={schema} />
+ *   Mode 2 — article schema:   <JsonLD article={article} slug="materials/steel/..." />
+ *
+ * Mode 2 uses SchemaFactory to generate TechnicalArticle, Product, HowTo, Dataset,
+ * BreadcrumbList, WebPage, Person, and Certification schemas from frontmatter.
+ * Falls back to the legacy generator if SchemaFactory throws.
  */
-export function JsonLD({ data }: JsonLdProps) {
-  // Remove unnecessary escaped forward slashes for cleaner markup
-  const jsonString = JSON.stringify(data).replace(/\\\//g, '/');
-  
+type JsonLDProps =
+  | { data: Record<string, unknown> | { '@context': string; '@graph': unknown[] }; article?: never; slug?: never }
+  | { article: any; slug: string; data?: never };
+
+export function JsonLD(props: JsonLDProps) {
+  if (props.article !== undefined) {
+    // --- Article mode: generate schema via SchemaFactory ---
+    let jsonLdSchema;
+    try {
+      const factory = new SchemaFactory(props.article, props.slug);
+      jsonLdSchema = factory.generate();
+    } catch (error) {
+      console.warn('SchemaFactory failed, using legacy generator:', error);
+      jsonLdSchema = createJsonLdForArticle(props.article, props.slug);
+    }
+
+    if (!jsonLdSchema) return null;
+
+    if (process.env.NODE_ENV === 'development') {
+      validateAndLogSchema(jsonLdSchema, `JsonLD (${props.slug})`);
+    }
+
+    const jsonString = JSON.stringify(jsonLdSchema).replace(/\\\//g, '/');
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonString }}
+      />
+    );
+  }
+
+  // --- Data mode: render pre-built schema directly ---
+  const jsonString = JSON.stringify(props.data).replace(/\\\//g, '/');
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: jsonString }}
-    />
-  );
-}
-
-/**
- * Enhanced component for material/article pages with comprehensive E-E-A-T optimized schemas
- * 
- * Automatically generates all 8 schema types from frontmatter:
- * - TechnicalArticle (expertise & authority)
- * - Product (material specifications with confidence scores)
- * - HowTo (process steps from machineSettings)
- * - Dataset (verified measurements with provenance)
- * - BreadcrumbList (navigation)
- * - WebPage (page metadata)
- * - Person (author credentials)
- * - Certification (regulatory compliance)
- * 
- * @param article - Article object with frontmatter from contentAPI
- * @param slug - Page slug for URL generation
- * @returns Script tag with comprehensive @graph JSON-LD structure
- * 
- * @example
- * ```tsx
- * <MaterialJsonLD article={article} slug={slug} />
- * ```
- */
-export function MaterialJsonLD({ 
-  article, 
-  slug 
-}: { 
-  article: any; 
-  slug: string;
-}) {
-  // Try new SchemaFactory first, fallback to legacy if needed
-  let jsonLdSchema;
-  
-  try {
-    // Use SchemaFactory for enhanced schema generation
-    const factory = new SchemaFactory(article, slug);
-    jsonLdSchema = factory.generate();
-  } catch (error) {
-    console.warn('SchemaFactory failed, using legacy generator:', error);
-    // Fallback to legacy generator for compatibility
-    jsonLdSchema = createJsonLdForArticle(article, slug);
-  }
-  
-  if (!jsonLdSchema) {
-    return null;
-  }
-  
-  // Validate schema in development mode
-  if (process.env.NODE_ENV === 'development') {
-    validateAndLogSchema(jsonLdSchema, `MaterialJsonLD (${slug})`);
-  }
-  
-  // Remove unnecessary escaped forward slashes for cleaner markup
-  const jsonString = JSON.stringify(jsonLdSchema).replace(/\\\//g, '/');
-  
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: jsonString
-      }}
     />
   );
 }
