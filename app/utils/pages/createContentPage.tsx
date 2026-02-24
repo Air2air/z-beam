@@ -39,7 +39,8 @@ const CATEGORY_METADATA_MAP = {
   materials: CATEGORY_METADATA,
   contaminants: CONTAMINANT_CATEGORY_METADATA,
   compounds: COMPOUND_CATEGORY_METADATA,
-  settings: {} // Settings don't have category metadata
+  settings: {}, // Settings don't have category metadata
+  applications: {} // Applications don't have category metadata
 };
 
 // ============================================================================
