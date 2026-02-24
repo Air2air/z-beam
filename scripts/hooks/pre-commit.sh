@@ -5,21 +5,21 @@
 
 echo "🔍 Validating sitemap..."
 
-# Check if sitemap.ts exists
-if [ ! -f "app/sitemap.ts" ]; then
-    echo "❌ ERROR: app/sitemap.ts not found"
+# Check if sitemap route handler exists
+if [ ! -f "app/sitemap.xml/route.ts" ]; then
+    echo "❌ ERROR: app/sitemap.xml/route.ts not found"
     exit 1
 fi
 
 # Check for dynamic frontmatter reading
-if ! grep -q "fs.readdirSync" app/sitemap.ts; then
+if ! grep -q "fs.readdirSync" app/sitemap.xml/route.ts; then
     echo "❌ ERROR: Sitemap is not dynamically reading frontmatter files"
     echo "   Sitemap must use fs.readdirSync to include all article pages"
     exit 1
 fi
 
 # Check for article routes
-if ! grep -q "articleRoutes" app/sitemap.ts; then
+if ! grep -q "getSitemapEntries" app/sitemap.xml/route.ts; then
     echo "❌ ERROR: Sitemap missing articleRoutes generation"
     exit 1
 fi

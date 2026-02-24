@@ -16,23 +16,23 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# Check sitemap.ts exists
-echo "1️⃣  Checking sitemap.ts existence..."
-if [ ! -f "app/sitemap.ts" ]; then
-    echo -e "${RED}❌ ERROR: app/sitemap.ts not found${NC}"
+# Check sitemap route handler exists
+echo "1️⃣  Checking sitemap route handler existence..."
+if [ ! -f "app/sitemap.xml/route.ts" ]; then
+    echo -e "${RED}❌ ERROR: app/sitemap.xml/route.ts not found${NC}"
     exit 1
 fi
-echo -e "${GREEN}✓ Sitemap file exists${NC}"
+echo -e "${GREEN}✓ Sitemap route handler exists${NC}"
 echo ""
 
 # Check for dynamic article generation
 echo "2️⃣  Validating dynamic article generation..."
-if ! grep -q "fs.readdirSync" app/sitemap.ts; then
+if ! grep -q "fs.readdirSync" app/sitemap.xml/route.ts; then
     echo -e "${RED}❌ ERROR: Sitemap is not dynamically reading frontmatter files${NC}"
     exit 1
 fi
-if ! grep -q "materialPageRoutes\|articleRoutes" app/sitemap.ts; then
-    echo -e "${RED}❌ ERROR: Missing materialPageRoutes or articleRoutes in sitemap${NC}"
+if ! grep -q "getSitemapEntries" app/sitemap.xml/route.ts; then
+    echo -e "${RED}❌ ERROR: Missing getSitemapEntries export in sitemap route handler${NC}"
     exit 1
 fi
 echo -e "${GREEN}✓ Dynamic article generation is implemented${NC}"
@@ -60,7 +60,7 @@ REQUIRED_ROUTES=("about" "rental" "partners" "contact" "search")
 MISSING_ROUTES=()
 
 for route in "${REQUIRED_ROUTES[@]}"; do
-    if ! grep -q "/${route}" app/sitemap.ts; then
+    if ! grep -q "/${route}" app/sitemap.xml/route.ts; then
         MISSING_ROUTES+=("$route")
     fi
 done
