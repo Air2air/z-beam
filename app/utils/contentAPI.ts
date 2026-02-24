@@ -953,7 +953,7 @@ const getArticleByContentType = cache(async (
 ): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return safeContentOperation(async () => {
     const frontmatterDir = path.join(process.cwd(), 'frontmatter', contentType);
-    let frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
+    const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
 
     if (!existsSync(frontmatterPath)) {
       return null;
