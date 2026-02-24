@@ -240,24 +240,58 @@ export default function sitemap(): SitemapEntry[] {
     console.error('Error generating material routes:', error);
   }
 
-  // Settings pages - use fullPath from frontmatter
+  // Settings pages - category/subcategory hubs + individual item pages
   try {
     const settingsDir = path.join(process.cwd(), 'frontmatter/settings');
     const settingsFiles = fs.readdirSync(settingsDir);
     const settingsYamlFiles = settingsFiles.filter(f => f.endsWith('.yaml') && !f.endsWith('.backup'));
+
+    const settingsCategorySet = new Set<string>();
+    const settingsSubcategorySet = new Set<string>();
     
     settingsYamlFiles.forEach((file) => {
       const filePath = path.join(settingsDir, file);
       const stats = fs.statSync(filePath);
       const fileContent = fs.readFileSync(filePath, 'utf8');
       
-      // Extract fullPath from YAML (camelCase)
       const fullPathMatch = fileContent.match(/^fullPath:\s*(.+)$/m);
-      
+      const categoryMatch = fileContent.match(/^category:\s*(.+)$/m);
+      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+
+      if (categoryMatch) {
+        const category = toCategorySlug(categoryMatch[1].trim()).replace(/'/g, '');
+        const subcategory = subcategoryMatch ? toCategorySlug(subcategoryMatch[1].trim()).replace(/'/g, '') : '';
+
+        // Add settings category page if not seen before
+        if (category && !settingsCategorySet.has(category)) {
+          settingsCategorySet.add(category);
+          const categoryUrl = buildCategoryUrl('settings', category, true);
+          settingsRoutes.push({
+            url: categoryUrl,
+            lastModified: new Date(),
+            changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,
+            priority: SITEMAP_PRIORITIES.CATEGORY_PAGES,
+            alternates: getAlternates(categoryUrl),
+          });
+        }
+
+        // Add settings subcategory page if not seen before
+        if (subcategory && !settingsSubcategorySet.has(`${category}/${subcategory}`)) {
+          settingsSubcategorySet.add(`${category}/${subcategory}`);
+          const subcategoryUrl = buildSubcategoryUrl('settings', category, subcategory, true);
+          settingsRoutes.push({
+            url: subcategoryUrl,
+            lastModified: new Date(),
+            changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,
+            priority: SITEMAP_PRIORITIES.SUBCATEGORY_PAGES,
+            alternates: getAlternates(subcategoryUrl),
+          });
+        }
+      }
+
       if (fullPathMatch) {
         const fullPath = fullPathMatch[1].trim();
         const settingsPageUrl = `${baseUrl}${fullPath}`;
-        
         settingsPageRoutes.push({
           url: settingsPageUrl,
           lastModified: stats.mtime,
