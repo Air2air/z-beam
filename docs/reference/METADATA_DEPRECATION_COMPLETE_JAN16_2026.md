@@ -52,7 +52,7 @@ As of January 16, 2026, the `.metadata` property wrapper has been completely dep
 
 ### Documentation Updated
 
-- ✅ `.github/copilot-instructions.md` - Already documents `.metadata` as deprecated
+- ✅ [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - Documents `.metadata` deprecation
 - ✅ `docs/reference/TERMINOLOGY_CORRECTION_DEC28_2025.md` - Already documents deprecation
 - ✅ `docs/reference/NAMING_IMPROVEMENTS_PLAN.md` - Contains historical context
 - ✅ This document - Summarizes completion
@@ -149,7 +149,7 @@ All such code must be updated to use `.frontmatter` instead.
 
 - [Terminology Correction (Dec 28, 2025)](./TERMINOLOGY_CORRECTION_DEC28_2025.md) - Original deprecation announcement
 - [Naming Improvements Plan](./NAMING_IMPROVEMENTS_PLAN.md) - Historical context
-- [AI Assistant Instructions](../../.github/copilot-instructions.md) - Development guidelines
+- [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - Development guidelines
 
 ## Timeline
 

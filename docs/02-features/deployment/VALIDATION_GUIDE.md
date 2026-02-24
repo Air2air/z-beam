@@ -271,7 +271,7 @@ nslookup www.z-beam.com
 - `DEPLOYMENT.md` - Full deployment guide
 - `docs/testing/` - Testing strategies
 - `docs/architecture/` - System architecture
-- `.github/copilot-instructions.md` - AI assistant guidelines
+- [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - AI assistant guidelines
 
 ## Updates
 

@@ -62,6 +62,12 @@ export interface MaterialRelationshipItem extends DenormalizedRelationshipItem {
   difficulty?: string;
 }
 
+// Application discovery.relatedMaterials contract (no item-level description)
+export interface ApplicationRelatedMaterialItem extends Omit<DenormalizedRelationshipItem, 'description'> {}
+
+// Application interactions.contaminatedBy contract (no item-level description)
+export interface ApplicationContaminantItem extends Omit<DenormalizedRelationshipItem, 'description'> {}
+
 export interface CompoundRelationshipItem extends DenormalizedRelationshipItem {
   phase?: string;
   hazardLevel?: string;

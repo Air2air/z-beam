@@ -224,7 +224,7 @@ Release history and migration guides:
 ## 🏗️ Project Root Documentation
 
 Key files in the project root:
-- `GROK_INSTRUCTIONS.md` - Instructions for Grok AI assistant
+- [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - Workflow-first AI guidelines
 - `METRICS_QUICK_REFERENCE.md` - Metrics visualization guide
 - `PREBUILD_QUICK_REFERENCE.md` - Pre-build validation reference
 - `README.md` - Project README

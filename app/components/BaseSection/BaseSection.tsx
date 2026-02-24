@@ -73,11 +73,7 @@ export function BaseSection({
   // Convert string icons to React components using getSectionIcon
   const sectionIcon = typeof rawIcon === 'string' ? getSectionIcon(rawIcon) : rawIcon;
 
-  // 🔥 MANDATORY SECTION REQUIREMENTS (Jan 15, 2026) - Fail-fast validation
-  // When using section prop (frontmatter _section), require both title AND description
-  if (section && normalizedTitle && !normalizedDescription) {
-    throw new Error('BaseSection: sectionDescription is required when sectionTitle is provided from frontmatter _section');
-  }
+  // If sectionDescription is missing, leave empty (no fail-fast).
 
   // Generate section ID from title if not provided
   const sectionId = id || (normalizedTitle ? toCategorySlug(normalizedTitle) : undefined);

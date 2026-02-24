@@ -790,7 +790,7 @@ settings: *-settings
    - **Impact**: Better type safety, clearer documentation
 
 3. **Document naming conventions** in AI instructions
-   - Add to `.github/copilot-instructions.md`
+  - Add to [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration)
    - Create `docs/08-development/NAMING_CONVENTIONS.md`
    - **Impact**: Prevents future inconsistencies
 

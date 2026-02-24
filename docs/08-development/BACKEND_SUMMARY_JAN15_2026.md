@@ -313,7 +313,7 @@ return !!(
 ### Documentation
 - `docs/05-changelog/TEST_FIXES_JAN15_2026.md` - Today's test fixes
 - `docs/08-development/TEST_REGRESSION_ANALYSIS_JAN15_2026.md` - Regression analysis
-- `.github/copilot-instructions.md` - System architecture and policies
+- [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - System architecture and policies
 
 ### Code Files
 - `app/utils/schemas/helpers.ts` - Schema helper functions (229 lines)

@@ -1,7 +1,7 @@
 // app/utils/metadataExtractor.ts
 // Smart metadata extraction for different entity types
 
-export type EntityType = 'material' | 'contaminant' | 'compound' | 'setting';
+export type EntityType = 'material' | 'contaminant' | 'compound' | 'setting' | 'application';
 
 /**
  * Extract metadata for card display based on entity type
@@ -29,6 +29,10 @@ export function extractCardMetadata(
     setting: (item) => ({
       application: item.application,
       suitability: item.suitability,
+    }),
+    application: (item) => ({
+      category: item.category,
+      subcategory: item.subcategory,
     }),
   };
 

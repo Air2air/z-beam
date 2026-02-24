@@ -96,6 +96,25 @@ describe('Layout Component', () => {
       expect(screen.getByTestId('page-content')).toBeInTheDocument();
     });
 
+    it('should render author in normalized header location when metadata has author', () => {
+      render(
+        <Layout
+          title="Application Detail"
+          metadata={{
+            slug: 'application-detail',
+            title: 'Application Detail',
+            author: { name: 'Test Author' },
+          } as any}
+        >
+          <div data-testid="page-content">Page content</div>
+        </Layout>
+      );
+
+      expect(screen.getByTestId('author')).toBeInTheDocument();
+      expect(screen.getByText('Application Detail')).toBeInTheDocument();
+      expect(screen.getByTestId('page-content')).toBeInTheDocument();
+    });
+
     it.skip('should render without header when fullWidth is true', () => {
       // SKIPPED: Layout component structure may have changed. Needs investigation.
       render(

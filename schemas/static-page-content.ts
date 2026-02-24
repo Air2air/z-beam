@@ -32,6 +32,13 @@ export interface StaticPageFrontmatter {
   description: string;
 }
 
+export interface HomeFeaturedSection {
+  slug: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
 export interface MarkdownContentProps {
   /** Raw markdown content to render */
   content: string;
@@ -106,6 +113,35 @@ export const StaticPageSchema = {
 } as const;
 
 /**
+ * Schema validation for homepage featured section cards
+ */
+export const HomeFeaturedSectionSchema = {
+  properties: {
+    slug: {
+      type: 'string',
+      minLength: 1,
+      description: 'Route segment used to build card links (e.g. applications -> /applications)'
+    },
+    title: {
+      type: 'string',
+      minLength: 1,
+      description: 'Card title shown on homepage'
+    },
+    description: {
+      type: 'string',
+      minLength: 1,
+      description: 'Card summary shown on homepage'
+    },
+    imageUrl: {
+      type: 'string',
+      minLength: 1,
+      description: 'Card image path'
+    }
+  },
+  required: ['slug', 'title', 'description', 'imageUrl']
+} as const;
+
+/**
  * Type guard to validate static page config structure
  */
 export function isValidStaticPageConfig(obj: any): obj is StaticPageConfig {
@@ -119,6 +155,23 @@ export function isValidStaticPageConfig(obj: any): obj is StaticPageConfig {
       typeof card.title === 'string' &&
       typeof card.description === 'string'
     )
+  );
+}
+
+/**
+ * Type guard to validate homepage featured section card structure
+ */
+export function isValidHomeFeaturedSection(obj: any): obj is HomeFeaturedSection {
+  return (
+    typeof obj === 'object' &&
+    typeof obj.slug === 'string' &&
+    typeof obj.title === 'string' &&
+    typeof obj.description === 'string' &&
+    typeof obj.imageUrl === 'string' &&
+    obj.slug.trim().length > 0 &&
+    obj.title.trim().length > 0 &&
+    obj.description.trim().length > 0 &&
+    obj.imageUrl.trim().length > 0
   );
 }
 

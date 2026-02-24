@@ -12,7 +12,6 @@ import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialChar
 import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetDownloader from '../Dataset/MaterialDatasetDownloader';
 import { Micro } from '../Micro/Micro';
-import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
 import { getHeroImageUrl } from '@/app/utils/relationshipHelpers';
 import { SectionConfigBuilder } from '@/app/utils/sectionConfigBuilder';
 import { getRelationshipItems } from '@/types/relationships';
@@ -52,7 +51,6 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
   // Handle FAQ - can be string, array, or object with items array
   const rawFaq = (metadata as any)?.faq;
   const faq = Array.isArray(rawFaq) ? rawFaq : (typeof rawFaq === 'string' ? rawFaq : rawFaq?.items);
-  const industryApplications = relationships?.operational?.industryApplications;
   const regulatoryStandards = relationships?.safety?.regulatoryStandards?.items;
   
   // Use consolidated relationship accessor
@@ -104,17 +102,12 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
         thumbnailLink,
       }
     })
-    .addConditional(
-      !!industryApplications,
-      {
-        component: IndustryApplicationsPanel,
-        props: {
-          applications: industryApplications,
-          entityName: materialName,
-          variant: 'materials' as const,
-          sectionMetadata: industryApplications?._section,
-        }
-      }
+    .addRelationshipCardGrid(
+      relationships,
+      'operational',
+      'industryApplications',
+      'application',
+      materialName || ''
     )
     .addConditional(
       !!faq && (typeof faq === 'string' ? faq.length > 0 : faq.length > 0),

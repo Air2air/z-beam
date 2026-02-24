@@ -8,7 +8,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import yaml from 'js-yaml';
 import { normalizeForUrl } from '../urlBuilder';
-import { capitalizeWords } from '../formatting';
+import { capitalizeWords, stripParenthesesFromSlug } from '../formatting';
 import type { ContentType } from '@/types';
 
 export interface GenericCategoryInfo<TItem> {
@@ -64,7 +64,13 @@ export async function getAllCategoriesGeneric<TItem extends GenericItemInfo>(
     const categoryLabel = capitalizeWords(parsed.category);
     const subcategorySlug = parsed.subcategory ? normalizeForUrl(parsed.subcategory) : undefined;
     const subcategoryLabel = parsed.subcategory ? capitalizeWords(parsed.subcategory) : undefined;
-    const itemSlug = file.replace(/\.(yaml|yml)$/, '');
+    const rawSlug = file.replace(/\.(yaml|yml)$/, '');
+    const slugFromPath = typeof parsed?.fullPath === 'string'
+      ? parsed.fullPath.split('/').filter(Boolean).pop()
+      : undefined;
+    const rawItemSlug = parsed?.slug || slugFromPath || rawSlug;
+    const normalizedSlug = stripParenthesesFromSlug(String(rawItemSlug));
+    const itemSlug = normalizedSlug;
     
     const itemInfo: TItem = {
       slug: itemSlug,

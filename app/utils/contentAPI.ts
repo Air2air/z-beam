@@ -184,17 +184,21 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
     
     if (existsSync(frontmatterDir)) {
       const files = await fs.readdir(frontmatterDir);
-      
+
       // Filter to only include complete YAML files
       for (const file of files.filter(f => f.endsWith('.yaml'))) {
         try {
           const filePath = path.join(frontmatterDir, file);
           const content = await fs.readFile(filePath, 'utf8');
           const parsed = safeMatterParse(content, { excerpt: false, engines: { yaml: (s: string) => yaml.load(s, { schema: yaml.JSON_SCHEMA }) } });
-          
+
           // Only add slug if YAML is complete
           if (isYamlComplete(parsed.data)) {
-            const slug = stripParenthesesFromSlug(file.replace('.yaml', ''));
+            const slugFromPath = typeof parsed.data?.fullPath === 'string'
+              ? parsed.data.fullPath.split('/').filter(Boolean).pop()
+              : undefined;
+            const rawSlug = parsed.data?.slug || slugFromPath || file.replace('.yaml', '');
+            const slug = stripParenthesesFromSlug(String(rawSlug));
             slugs.add(slug);
           } else {
             console.warn(`[getAllArticleSlugs] Skipping incomplete YAML: ${file}`);
@@ -894,6 +898,42 @@ export const loadAllArticles = cache(async (): Promise<Article[]> => {
 export const getArticleBySlug = loadSingleArticle;
 
 /**
+ * Get all application slugs from frontmatter/applications
+ */
+export const getAllApplicationSlugs = cache(async (): Promise<string[]> => {
+  return safeContentOperation(async () => {
+    const slugs = new Set<string>();
+    const frontmatterDir = path.join(process.cwd(), 'frontmatter', 'applications');
+
+    if (existsSync(frontmatterDir)) {
+      const files = await fs.readdir(frontmatterDir);
+      for (const file of files.filter(f => f.endsWith('.yaml') || f.endsWith('.yml'))) {
+        const filePath = path.join(frontmatterDir, file);
+        try {
+          const fileContent = await fs.readFile(filePath, 'utf8');
+          const parsed = yaml.load(fileContent) as any;
+          const slugFromPath = typeof parsed?.fullPath === 'string'
+            ? parsed.fullPath.split('/').filter(Boolean).pop()
+            : undefined;
+          const rawSlug = parsed?.slug || slugFromPath;
+          const fallbackSlug = stripParenthesesFromSlug(file.replace(/\.(yaml|yml)$/i, ''));
+          const slug = rawSlug
+            ? stripParenthesesFromSlug(String(rawSlug))
+            : fallbackSlug;
+          slugs.add(slug);
+        } catch (error) {
+          console.error(`[getAllApplicationSlugs] Failed to parse ${file}:`, error);
+          const fallbackSlug = stripParenthesesFromSlug(file.replace(/\.(yaml|yml)$/i, ''));
+          slugs.add(fallbackSlug);
+        }
+      }
+    }
+
+    return Array.from(slugs);
+  }, [], 'getAllApplicationSlugs');
+});
+
+/**
  * Backward compatibility for getArticle function from contentIntegrator
  * Now uses the consolidated getArticleByContentType
  */
@@ -903,18 +943,18 @@ export const getArticle = cache(async (slug: string): Promise<{ frontmatter: Rec
 
 /**
  * Generic article loader for all content types
- * @param contentType - Type of content: 'materials', 'contaminants', 'compounds', 'settings'
+ * @param contentType - Type of content: 'materials', 'contaminants', 'compounds', 'settings', 'applications'
  * @param slug - Article slug
  * @returns Article with metadata and components, or null if not found
  */
 const getArticleByContentType = cache(async (
-  contentType: 'materials' | 'contaminants' | 'compounds' | 'settings',
+  contentType: 'materials' | 'contaminants' | 'compounds' | 'settings' | 'applications',
   slug: string
 ): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return safeContentOperation(async () => {
     const frontmatterDir = path.join(process.cwd(), 'frontmatter', contentType);
-    const frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
-    
+    let frontmatterPath = path.join(frontmatterDir, `${slug}.yaml`);
+
     if (!existsSync(frontmatterPath)) {
       return null;
     }
@@ -1014,6 +1054,13 @@ export const getContaminantArticle = cache(async (slug: string): Promise<{ front
  */
 export const getCompoundArticle = cache(async (slug: string): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return getArticleByContentType('compounds', slug);
+});
+
+/**
+ * Load application article - wrapper for backward compatibility
+ */
+export const getApplicationArticle = cache(async (slug: string): Promise<{ frontmatter: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
+  return getArticleByContentType('applications', slug);
 });
 
 /**

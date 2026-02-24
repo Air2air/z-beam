@@ -4,6 +4,8 @@
 **Status**: Planning Phase  
 **Test Result**: ❌ Single file test failed - frontend needs updates
 
+**Current Production**: Frontmatter exports are still v5.0.0. Treat this document as a migration plan only and do not hand-edit frontmatter; update the generator and re-export when v6 is ready.
+
 ---
 
 ## Test Results Summary

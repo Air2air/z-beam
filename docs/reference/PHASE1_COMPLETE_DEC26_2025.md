@@ -176,7 +176,7 @@ Automatically runs on every `git commit`:
 
 ### Priority 3: Documentation & Enforcement
 1. **Update AI Instructions**
-   - Add naming conventions to `.github/copilot-instructions.md`
+   - Add naming conventions to [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration)
    - Already documented in `NAMING_CONVENTIONS.md`
 
 2. **Create Naming Tests**

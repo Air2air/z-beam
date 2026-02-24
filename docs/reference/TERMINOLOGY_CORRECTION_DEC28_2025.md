@@ -102,7 +102,7 @@ test('helpers should support frontmatter and deprecate metadata wrapper', () => 
 
 ### Copilot Instructions
 
-**File**: `.github/copilot-instructions.md`
+**File**: [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration)
 
 **Before** (WRONG):
 ```markdown
@@ -241,7 +241,7 @@ When `data.metadata` wrapper is used:
 The following documents reference the OLD (incorrect) standard and need updates:
 
 ### High Priority
-1. ✅ `.github/copilot-instructions.md` - **UPDATED**
+1. ✅ [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - **UPDATED**
 2. ✅ `tests/naming/semantic-naming.test.ts` - **UPDATED**
 3. ⏳ `docs/reference/PHASE1_COMPLETE_DEC26_2025.md` - **Add reversal note**
 4. ⏳ `docs/reference/NAMING_IMPROVEMENTS_PLAN.md` - **Reverse recommendations**

@@ -2,7 +2,7 @@
 // Content type configuration for unified content management
 
 import type { ContentType } from '@/types';
-import { getArticle, getContaminantArticle, getCompoundArticle, getSettingsArticle } from '@/app/utils/contentAPI';
+import { getArticle, getContaminantArticle, getCompoundArticle, getSettingsArticle, getApplicationArticle } from '@/app/utils/contentAPI';
 import { 
   getAllCategories as getAllMaterialCategories,
   getSubcategoryInfo as getMaterialSubcategoryInfo 
@@ -19,6 +19,10 @@ import {
   getAllCategories as getAllSettingsCategories,
   getSubcategoryInfo as getSettingsSubcategoryInfo 
 } from '@/app/utils/settingsCategories';
+import {
+  getAllCategories as getAllApplicationCategories,
+  getSubcategoryInfo as getApplicationSubcategoryInfo
+} from '@/app/utils/applicationCategories';
 
 export type { ContentType };
 
@@ -112,6 +116,20 @@ export const CONTENT_TYPE_CONFIGS: Record<ContentType, ContentTypeConfig> = {
     schemaType: 'Settings',
     hasSettings: false,
   },
+  applications: {
+    type: 'applications',
+    singular: 'Application',
+    plural: 'Applications',
+    rootPath: 'applications',
+    getArticle: getApplicationArticle,
+    getAllCategories: getAllApplicationCategories,
+    getSubcategoryInfo: getApplicationSubcategoryInfo,
+    itemsProperty: 'applications',
+    actionText: 'Laser Cleaning',
+    purposeText: 'laser cleaning solutions for',
+    schemaType: 'Service',
+    hasSettings: false,
+  },
 };
 
 /**
@@ -129,5 +147,5 @@ export function getContentConfig(contentType: ContentType): ContentTypeConfig {
  * Check if a string is a valid content type
  */
 export function isValidContentType(value: string): value is ContentType {
-  return value === 'materials' || value === 'contaminants' || value === 'compounds' || value === 'settings';
+  return value === 'materials' || value === 'contaminants' || value === 'compounds' || value === 'settings' || value === 'applications';
 }

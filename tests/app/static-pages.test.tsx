@@ -11,17 +11,6 @@ import path from 'path';
 
 describe('Static Pages Content Loading', () => {
   describe('Rental Page', () => {
-    it.skip('should load rental metadata from YAML', async () => {
-      // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
-      // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { frontmatter } = await loadPageData('rental');
-      
-      expect(frontmatter).toBeDefined();
-      expect(frontmatter.title).toBe('Equipment Rental');
-      expect(frontmatter.description).toContain('Professional laser cleaning equipment rental');
-      expect(frontmatter.slug).toBe('rental');
-    });
-
     it('should load rental content component', async () => {
       const { components } = await loadPageData('rental');
       
@@ -36,16 +25,6 @@ describe('Static Pages Content Loading', () => {
   });
 
   describe('Partners Page', () => {
-    it.skip('should load partners metadata from YAML', async () => {
-      // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
-      // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { frontmatter } = await loadPageData('partners');
-      
-      expect(frontmatter).toBeDefined();
-      expect(frontmatter.title).toContain('Partners');
-      expect(frontmatter.slug).toBe('partners');
-    });
-
     it('should have partners YAML file', () => {
       const yamlPath = path.join(process.cwd(), 'static-pages/partners.yaml');
       expect(fs.existsSync(yamlPath)).toBe(true);
@@ -140,58 +119,4 @@ describe('Static Pages Content Loading', () => {
     });
   });
 
-  describe('Text Components Validation', () => {
-    it.skip('should have required text markdown files', () => {
-      // SKIPPED: Static pages use YAML-based components, not separate markdown files
-      // Content is loaded from static-pages/*.yaml files
-      const textFiles = ['services.md', 'rental.md'];
-      const textDir = path.join(process.cwd(), 'content/components/text');
-      
-      textFiles.forEach(file => {
-        const filePath = path.join(textDir, file);
-        expect(fs.existsSync(filePath)).toBe(true);
-      });
-    });
-
-    it.skip('should have valid markdown structure', () => {
-      // SKIPPED: Static pages use YAML-based components, not separate markdown files
-      const textFiles = ['services.md', 'rental.md'];
-      const textDir = path.join(process.cwd(), 'content/components/text');
-      
-      textFiles.forEach(file => {
-        const filePath = path.join(textDir, file);
-        const content = fs.readFileSync(filePath, 'utf8');
-        
-        // Should not be empty
-        expect(content.length).toBeGreaterThan(0);
-        
-        // Should have at least one heading
-        expect(content).toMatch(/#\s+/);
-      });
-    });
-  });
-
-  describe('Page Rendering Prevention', () => {
-    it.skip('should load metadata for static pages', async () => {
-      // SKIPPED: loadPageData looks in content/pages/, but static pages are in static-pages/
-      // Static pages use StaticPage component loader, not contentAPI.loadPageData
-      const { frontmatter } = await loadPageData('services');
-      
-      // Static pages should at least have metadata
-      expect(frontmatter).toBeDefined();
-      expect(frontmatter.title || frontmatter.slug).toBeTruthy();
-    });
-
-    it.skip('should have text component for all static pages', async () => {
-      // SKIPPED: Static pages use different content loading architecture
-      // Content is loaded from static-pages/*.yaml files, not content/components/
-      const pagesWithText = ['services', 'rental'];
-      
-      for (const page of pagesWithText) {
-        const { components } = await loadPageData(page);
-        expect(components.text).toBeDefined();
-        expect(components.text.content).toBeTruthy();
-      }
-    });
-  });
 });

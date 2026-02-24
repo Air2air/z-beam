@@ -318,12 +318,12 @@ git diff
 ### 3.1 Update AI Instructions
 **Impact**: HIGH | **Effort**: LOW | **Risk**: NONE
 
-#### Add to `.github/copilot-instructions.md`
+#### Add to [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration)
 ```markdown
 ## Naming Conventions (MANDATORY)
 
 ### Data Structures
-- ✅ ALWAYS use `article.metadata` (never `article.frontmatter` or `data`)
+- ✅ ALWAYS use `article.frontmatter` (never `article.metadata` or `data`)
 - ✅ ALWAYS import types from `@/types` (never create local interfaces)
 
 ### Props

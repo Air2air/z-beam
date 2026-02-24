@@ -80,8 +80,9 @@ git commit -m "Add new-material frontmatter and images"
 
 ### 1. Create Prompt Template
 ```bash
-# Location: prompts/components/[component-name].txt
-nano prompts/components/new-component.txt
+# Location: prompt catalog entry `prompts/components/[component-name].txt`
+# (edit in z-beam-generator/prompts/registry/prompt_catalog.yaml)
+nano ../z-beam-generator/prompts/registry/prompt_catalog.yaml
 ```
 
 Template structure:
@@ -111,7 +112,7 @@ component_lengths:
 
 ### 3. No Code Changes Required!
 The system automatically discovers component types from:
-- Prompts directory (prompts/[name].txt = component type)
+- Prompt catalog entries (catalog.byPath keys like prompts/components/[name].txt)
 - Config entries (component_lengths.[name])
 
 ### 4. Test Component Generation
@@ -512,7 +513,7 @@ NEXT_PUBLIC_BASE_URL=https://z-beam.com
 ### Getting Help
 - **Documentation**: `docs/` directory
 - **Architecture Decisions**: `docs/adr/`
-- **AI Instructions**: `.github/copilot-instructions.md`
+- **AI Instructions**: [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration)
 - **Issue Tracker**: GitHub Issues
 
 ---

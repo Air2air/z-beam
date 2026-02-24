@@ -30,7 +30,7 @@ import { CATEGORY_METADATA } from '@/app/metadata';
 import { CONTAMINANT_CATEGORY_METADATA } from '@/app/contaminantMetadata';
 import { COMPOUND_CATEGORY_METADATA } from '@/app/compoundMetadata';
 
-type ContentType = 'materials' | 'contaminants' | 'compounds' | 'settings';
+type ContentType = 'materials' | 'contaminants' | 'compounds' | 'settings' | 'applications';
 
 /**
  * Category metadata lookup for different content types

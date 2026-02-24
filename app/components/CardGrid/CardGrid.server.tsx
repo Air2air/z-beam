@@ -1,6 +1,6 @@
 import { Card } from '../Card/Card';
 import { GridItem, ArticleMetadata, CardGridSSRProps } from '@/types/centralized';
-import { getArticle, getContaminantArticle, getCompoundArticle, getSettingsArticle } from '@/app/utils/contentAPI';
+import { getArticle, getContaminantArticle, getCompoundArticle, getSettingsArticle, getApplicationArticle } from '@/app/utils/contentAPI';
 import { getGridClasses } from '@/app/utils/gridConfig';
 
 /**
@@ -23,6 +23,7 @@ export async function CardGrid({
     contentType === 'contaminants' ? getContaminantArticle :
     contentType === 'compounds' ? getCompoundArticle :
     contentType === 'settings' ? getSettingsArticle :
+    contentType === 'applications' ? getApplicationArticle :
     getArticle; // default to materials
   
   // Load items from slugs if not provided

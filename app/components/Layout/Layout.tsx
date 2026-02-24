@@ -192,12 +192,24 @@ export function Layout(props: LayoutProps) {
       ) : (
         /* Regular page title */
         title && (
-          <PageTitle 
-            level="page" 
-            title={title} 
-            pageDescription={props.pageDescription} 
-            rightContent={props.rightContent}
-          />
+          <>
+            {metadata?.author && (
+              <Author
+                frontmatter={metadata}
+                showAvatar
+                showCredentials
+                showCountry
+                showSpecialties
+                className="mb-4"
+              />
+            )}
+            <PageTitle 
+              level="page" 
+              title={title} 
+              pageDescription={props.pageDescription} 
+              rightContent={props.rightContent}
+            />
+          </>
         )
       )}
 

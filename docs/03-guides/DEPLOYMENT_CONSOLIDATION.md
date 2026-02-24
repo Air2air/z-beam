@@ -5,7 +5,7 @@
 
 ## OVERVIEW
 
-Successfully consolidated deployment scripts from 4 redundant systems down to 1 working solution, following GROK_INSTRUCTIONS.md principles of preserving working code and minimal changes.
+Successfully consolidated deployment scripts from 4 redundant systems down to 1 working solution, following the [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) principles of preserving working code and minimal changes.
 
 ## BEFORE CONSOLIDATION
 

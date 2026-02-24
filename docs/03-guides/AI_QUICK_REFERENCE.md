@@ -3,7 +3,7 @@
 **⚡ CRITICAL RULES for AI when working with Z-Beam codebase**
 
 > **📍 LOCATION:** This file should be read FIRST when working on the Z-Beam codebase  
-> **🔗 Referenced in:** README.md, GROK_INSTRUCTIONS.md  
+> **🔗 Referenced in:** README.md, [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration)  
 > **🎯 PURPOSE:** Prevent common AI coding mistakes and enforce project patterns
 
 ---

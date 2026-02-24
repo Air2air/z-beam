@@ -72,6 +72,9 @@ describe('Content API Utils', () => {
   
   beforeEach(() => {
     jest.clearAllMocks();
+    // Suppress expected console.error noise from safeContentOperation catching
+    // intentional mock rejections used to test error-handling paths.
+    jest.spyOn(console, 'error').mockImplementation(() => {});
     
     // Configure mocks to return proper test data
     const fs = require('fs/promises');

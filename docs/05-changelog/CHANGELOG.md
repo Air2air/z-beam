@@ -322,7 +322,7 @@ docs/
 - **After**: 4 files (clean, essential only)
   - `README.md` - Master index
   - `NAMING_QUICK_REFERENCE.md` - Active reference
-  - `GROK_INSTRUCTIONS.md` - AI guidelines
+  - [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - Workflow-first AI guidelines
   - `DOCUMENTATION_CONSOLIDATION_PLAN.md` - Consolidation details
 
 ### 📊 Results

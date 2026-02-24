@@ -2,7 +2,7 @@
 
 **Date:** October 1, 2025  
 **Objective:** Consolidate all page layouts to use single reusable `Layout` component  
-**Adherence:** GROK_INSTRUCTIONS.md - Minimal changes, no new files, preserve working code
+**Adherence:** [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) - Minimal changes, no new files, preserve working code
 
 ## Changes Made
 

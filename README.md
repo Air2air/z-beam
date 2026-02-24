@@ -790,7 +790,7 @@ npm run start
 - **This README** - Project overview, architecture, and getting started
 - **[Deployment Guide](docs/deployment/)** - Complete deployment documentation and operations
 - **[Full Documentation Index](docs/README.md)** - Master index of all documentation
-- **[AI Guidelines](GROK_INSTRUCTIONS.md)** - Development guidelines for AI assistants
+- **[AI Assistant Guide](../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration)** - Workflow-first AI guidelines
 - **[Deployment Changelog](DEPLOYMENT_CHANGELOG.md)** - Version history and changes
 
 ### Documentation Organization

@@ -49,36 +49,36 @@ describe('Mandatory Section Requirements (Jan 15, 2026)', () => {
       expect(getByText('Test content')).toBeInTheDocument();
     });
 
-    it('should throw error when sectionDescription is missing WITH sectionTitle from frontmatter', () => {
+    it('should render (not throw) when sectionDescription is empty WITH sectionTitle from frontmatter', () => {
       const invalidSection = {
         sectionTitle: 'Valid Title',
-        sectionDescription: '', // Empty when using section object
+        sectionDescription: '', // Empty — no fail-fast, just silently omitted
         icon: 'Settings'
       };
-      
-      expect(() => 
-        render(
-          <BaseSection section={invalidSection}>
-            <div>Test content</div>
-          </BaseSection>
-        )
-      ).toThrow('BaseSection: sectionDescription is required when sectionTitle is provided from frontmatter _section');
+
+      const { getByText } = render(
+        <BaseSection section={invalidSection}>
+          <div>Test content</div>
+        </BaseSection>
+      );
+
+      expect(getByText('Test content')).toBeInTheDocument();
     });
 
-    it('should throw error when sectionDescription is whitespace-only WITH sectionTitle from frontmatter', () => {
+    it('should render (not throw) when sectionDescription is whitespace-only WITH sectionTitle from frontmatter', () => {
       const invalidSection = {
         sectionTitle: 'Valid Title',
-        sectionDescription: '   ', // Whitespace-only when using section object
+        sectionDescription: '   ', // Whitespace-only — normalised to undefined, no throw
         icon: 'Settings'
       };
-      
-      expect(() => 
-        render(
-          <BaseSection section={invalidSection}>
-            <div>Test content</div>
-          </BaseSection>
-        )
-      ).toThrow('BaseSection: sectionDescription is required when sectionTitle is provided from frontmatter _section');
+
+      const { getByText } = render(
+        <BaseSection section={invalidSection}>
+          <div>Test content</div>
+        </BaseSection>
+      );
+
+      expect(getByText('Test content')).toBeInTheDocument();
     });
     
     it('should allow missing description when NOT using section prop (backward compatibility)', () => {

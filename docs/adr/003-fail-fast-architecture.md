@@ -111,6 +111,6 @@ if (winstonScore < threshold) {
 - ADR 002: Configuration Consolidation
 
 ## References
-- `.github/copilot-instructions.md` (Core Principles section)
+- [AI Assistant Guide](../../../z-beam-generator/docs/08-development/AI_ASSISTANT_GUIDE.md#workflow-orchestration) (Core Principles section)
 - `docs/ARCHITECTURAL_IMPROVEMENTS_SUMMARY.md`
 - Violation fixes documented in `VIOLATION_FIXES_NOV20_2025.md`

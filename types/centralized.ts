@@ -68,7 +68,8 @@ export const CONTENT_TYPES = {
   MATERIALS: 'materials',
   CONTAMINANTS: 'contaminants',
   COMPOUNDS: 'compounds',
-  SETTINGS: 'settings'
+  SETTINGS: 'settings',
+  APPLICATIONS: 'applications'
 } as const;
 
 /**
@@ -2123,7 +2124,7 @@ export interface CardGridSSRProps {
   slugs?: string[];
   
   // Content type (for slug loading)
-  contentType?: ContentType; // 'materials', 'contaminants', 'compounds', 'settings'
+  contentType?: ContentType; // 'materials', 'contaminants', 'compounds', 'settings', 'applications'
   
   // Display configuration
   title?: string;
@@ -4437,7 +4438,7 @@ export interface BaseContentLayoutProps extends LayoutProps {
   slug?: string;
   category?: string;
   subcategory?: string;
-  contentType: 'materials' | 'contaminants' | 'compounds' | 'settings';
+  contentType: 'materials' | 'contaminants' | 'compounds' | 'settings' | 'applications';
   sections?: SectionConfig[];
   showMicro?: boolean;
   enrichedMetadata?: any;
@@ -4557,7 +4558,7 @@ export interface CollectionPageCategory {
 }
 
 export interface CollectionPageConfig {
-  type: 'materials' | 'contaminants' | 'compounds' | 'settings';
+  type: 'materials' | 'contaminants' | 'compounds' | 'settings' | 'applications';
   plural: string;
   rootPath: string;
   pageTitle: string;
