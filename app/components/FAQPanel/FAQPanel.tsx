@@ -75,6 +75,7 @@ export function FAQPanel({
   }
   
   if (faqItems.length === 0) return null;
+  if (!sectionTitle || !sectionDescription) return null;
 
   // Transform FAQ data for Collapsible component
   // Use title as the collapsible title, put content as direct value with empty key to hide label
