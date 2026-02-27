@@ -4,7 +4,7 @@ displayName: Aluminum Nitride Laser Cleaning
 category: ceramic
 subcategory: technical
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:48.788336+00:00'
+dateModified: '2026-02-27T20:38:20.959622+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/ceramic/technical/aluminum-nitride-laser-cleaning
@@ -26,7 +26,21 @@ pageDescription: Aluminum nitride serves as a technical ceramic that excels in e
   minimal thermal impact. Operators must prioritize precise setup to avoid overexposure, and they should always dial in safety
   measures to protect both the material and themselves.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 3.26
@@ -77,13 +91,14 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -179,13 +194,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T19:46:04.231512'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-does-aluminum-nitride-compare-to
@@ -255,7 +271,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -828,14 +858,22 @@ relationships:
           unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -848,22 +886,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 4
   name: Todd Dunning
@@ -925,163 +965,20 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 3.26
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 0
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 0.5
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 300
-    unit: MPa
-    confidence: 85
-  youngsModulus:
-    value: 310
-    unit: GPa
-    confidence: 90
-  hardness:
-    value: 12
-    unit: GPa
-    confidence: 90
-  flexuralStrength:
-    value: 350
-    unit: MPa
-    confidence: 80
-  oxidationResistance:
-    value: 20
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.78
-    unit: mm/year
-    confidence: 80
-  compressiveStrength:
-    value: 300
-    unit: MPa
-    confidence: 85
-  fractureToughness:
-    value: 18
-    unit: MPa m^{1/2}
-    confidence: 80
-  electricalResistivity:
-    value: 10000000000000.0
-    unit: Ω·m
-    confidence: 90
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 2473
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.15
-    unit: dimensionless
-    confidence: 85
-  laserDamageThreshold:
-    value: 12.5
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Journal of the European Ceramic Society
-    citation: 'Wang, Y. et al., Laser damage threshold and ablation characteristics of aluminum nitride ceramics, Journal
-      of the European Ceramic Society, 2018, DOI: 10.1016/j.jeurceramsoc.2018.05.012'
-    context: High-purity polycrystalline AlN (99.8% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration,
-      single-shot measurement
-    confidence: 95
-    researchedDate: '2025-11-24T19:45:14.935486'
-    needsValidation: true
-  ablationThreshold:
-    value: 2.1
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Applied Physics A: Materials Science & Processing'
-    citation: 'P. Rudolph et al., Applied Physics A 110, 479-485 (2013), DOI: 10.1007/s00339-012-7174-5'
-    context: Polycrystalline AlN ceramic (99.5% purity, commercial grade), room temperature (25°C), nanosecond pulsed Nd:YAG
-      laser at 532 nm wavelength, single-pulse ablation in air
-    confidence: 95
-    researchedDate: '2025-11-24T19:45:20.248619'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 8.5e-05
-    unit: m²/s
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: 'Engineered Materials Handbook, Volume 4: Ceramics and Glasses'
-    citation: 'ASM International, Engineered Materials Handbook, Volume 4: Ceramics and Glasses, 1991, ISBN 978-0-87170-282-9'
-    context: Sintered polycrystalline Aluminum Nitride (>99% purity), 25°C, laser flash method
-    confidence: 96
-    researchedDate: '2025-11-24T19:45:31.124951'
-    needsValidation: true
-  thermalExpansion:
-    value: 4.5e-06
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: 'ASM Engineered Materials Handbook, Volume 4: Ceramics and Glasses'
-    citation: 'ASM International, Engineered Materials Handbook, Volume 4: Ceramics and Glasses, ASM International, 1991,
-      ISBN 978-0-87170-285-8'
-    context: Polycrystalline Aluminum Nitride (99.5% purity, sintered), 25-1000°C, measured via dilatometry
-    confidence: 95
-    researchedDate: '2025-11-24T19:45:38.811945'
-    needsValidation: true
-  specificHeat:
-    value: 740.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, LLC, Aluminum Nitride (AlN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5f4b0e1a4a4b0e8a0e1a4a4b0e8a0e,
-      accessed 2023
-    context: Polycrystalline Aluminum Nitride (99.5% purity), 25°C, differential scanning calorimetry (DSC) measurement
-    confidence: 95
-    researchedDate: '2025-11-24T19:45:43.028313'
-    needsValidation: true
-  thermalConductivity:
-    value: 170.0
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: 'Lide, D. R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton,
-      FL, 2023, ISBN 978-1-138-56163-2, Section 12: Properties of Solids, p. 12-XXX'
-    context: Polycrystalline aluminum nitride (AlN) ceramic, >99% purity, 25°C (298 K), measured by laser flash method under
-      standard atmospheric conditions
-    confidence: 95
-    researchedDate: '2025-11-24T19:45:55.838309'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.23
-    unit: '%'
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Optical Properties of Aluminum Nitride Ceramics for Laser Applications
-    citation: 'Johnson, R. et al., Journal of the American Ceramic Society, 2018, DOI: 10.1111/jace.15567'
-    context: Polycrystalline AlN (99.8% purity), 25°C, normal incidence reflectivity at 1064 nm wavelength (Nd:YAG laser),
-      measured on polished surfaces
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:04.231512'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  - ASTM C848 - Standard Specification for High Alumina Refractory Brick
+  - IEC 60825 - Safety of Laser Products
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: aluminum-nitride-laser-cleaning

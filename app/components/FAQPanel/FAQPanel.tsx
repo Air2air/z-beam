@@ -86,14 +86,10 @@ export function FAQPanel({
     };
   });
 
-  // Section metadata - use provided props or fall back to defaults
+  // Section metadata - title/description must come from frontmatter-provided props
   const sectionMetadata: RelationshipSection = {
-    sectionTitle: sectionTitle || (variant === 'faq' 
-      ? `FAQs for laser cleaning ${entityName}` 
-      : `${entityName} Troubleshooting`),
-    sectionDescription: sectionDescription || (variant === 'faq'
-      ? 'Common questions and expert answers about laser cleaning this material'
-      : 'Common issues and solutions for laser cleaning this material'),
+    sectionTitle,
+    sectionDescription,
     icon: variant === 'faq' ? 'help-circle' : 'alert-triangle',
     order: 10
   };

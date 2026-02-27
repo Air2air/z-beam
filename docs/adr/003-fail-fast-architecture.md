@@ -33,7 +33,7 @@ Implement fail-fast architecture with explicit recovery strategies:
 - Rate limiting → Backoff and retry
 
 ### Quality Issues → ITERATE
-- Winston score < threshold → Adjust parameters and retry
+- Grok score < threshold → Adjust parameters and retry
 - Realism score < threshold → Adjust parameters and retry
 - Readability failures → Adjust and retry
 - Max attempts reached → Fail with clear message

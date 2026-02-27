@@ -4,7 +4,7 @@ displayName: Silicon Laser Cleaning
 category: semiconductor
 subcategory: elemental
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:43.491512+00:00'
+dateModified: '2026-02-27T20:38:13.570807+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/semiconductor/elemental/silicon-laser-cleaning
@@ -22,7 +22,21 @@ pageDescription: Silicon works well for laser cleaning in electronics and solar 
   strong corrosion resistance. In practice, dialing in precise laser energy addresses its sensitivity, ensuring clean finishes
   without damage.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalResistivity:
@@ -90,13 +104,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:18:31.619113'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -188,13 +203,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:18:40.536280'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: what-laser-wavelengths-are-most-effective
@@ -375,7 +391,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -388,24 +418,40 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -443,12 +489,6 @@ relationships:
         longName: International Organization for Standardization
         name: ISO
         url: https://www.iso.org/standard/60426.html
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -520,176 +560,11 @@ eeat:
   isBasedOn:
     name: SEMI M1 - Specification for Polished Single Crystal Silicon Wafers
     url: ''
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalResistivity:
-    value: 2300.0
-    unit: Ω·m
-    confidence: 100
-    source: ai_research
-  fractureToughness:
-    value: 0.75
-    unit: MPa√m
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 169000000000.0
-    unit: Pa
-    confidence: 100
-    source: ai_research
-  oxidationResistance:
-    value: 2.27
-    unit: dimensionless
-    confidence: 100
-    source: ai_research
-  density:
-    value: 2329.0
-    unit: kg/m³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 9.3
-    unit: GPa
-    confidence: 95
-    source: ai_research
-    min: 7.0
-    max: 12.0
-  corrosionResistance:
-    value: 0.98
-    unit: dimensionless (resistance index)
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 7000.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 295.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 7000.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 0.25
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Optics
-    citation: 'Carr, C. W., et al., Laser-induced defect reactions governing damage initiation in single-crystal Si at 1064
-      nm, Applied Optics, 2003, Vol. 42, No. 21, pp. 4242-4248, DOI: 10.1364/AO.42.004242'
-    context: Single-crystal silicon (CZ-grown, <100> orientation, 99.9999% purity), room temperature (25°C), 1064 nm wavelength,
-      3 ns pulse duration, measured in vacuum
-    confidence: 95
-    researchedDate: '2025-11-24T12:18:31.619113'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.65
-    unit: dimensionless
-    min: 0.5
-    max: 0.8
-    source: ai_research
-  absorptionCoefficient:
-    value: 50000
-    unit: m⁻¹
-    min: 10000
-    max: 100000
-    source: ai_research
-  laserDamageThreshold:
-    value: 1.0
-    unit: J/cm²
-    min: 0.5
-    max: 2.0
-    source: ai_research
-  thermalShockResistance:
-    value: 1.2
-    unit: MW/m
-    min: 0.8
-    max: 1.5
-    source: ai_research
-  reflectivity:
-    value: 0.35
-    unit: dimensionless
-    min: 0.3
-    max: 0.4
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1687
-    unit: K
-    min: 1600
-    max: 1800
-    source: ai_research
-  vaporPressure:
-    value: 0.1
-    unit: Pa
-    min: 0.01
-    max: 1
-    source: ai_research
-  thermalDestruction:
-    value: 1687.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  specificHeat:
-    value: 702.0
-    unit: J/kg·K
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.36
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 148.0
-    unit: W/m·K
-    confidence: 100
-    source: ai_research
-  thermalExpansion:
-    value: 2.6e-06
-    unit: K^{-1}
-    confidence: 100
-    source: ai_research
-  laserAbsorption:
-    value: 336000.0
-    unit: m^{-1}
-    confidence: 98
-    source: ai_research
-  thermalDiffusivity:
-    value: 8.8e-05
-    unit: m²/s
-    confidence: 99
-    source: ai_research
-  ablationThreshold:
-    value: 2.5
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: textbook
-    sourceName: Laser Processing and Chemistry
-    citation: D. Bäuerle, Laser Processing and Chemistry, 4th Edition, Springer-Verlag Berlin Heidelberg, 2011, ISBN 978-3-642-17652-8
-    context: Single-crystal silicon (99.999% purity), room temperature (25°C), nanosecond pulse duration (10-20 ns), 532 nm
-      wavelength, measured in air at 1 atm
-    confidence: 95
-    researchedDate: '2025-11-24T12:18:40.536280'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: silicon-laser-cleaning

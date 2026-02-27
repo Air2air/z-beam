@@ -4,7 +4,7 @@ displayName: Praseodymium Settings
 category: rare-earth
 subcategory: lanthanide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:54.947966+00:00'
+dateModified: '2026-02-27T20:39:28.646512+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/rare-earth/lanthanide/praseodymium-settings
@@ -41,33 +41,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -76,14 +85,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -125,12 +135,6 @@ relationships:
           - Secure storage of cleaned materials
           - Follow applicable export control regulations
           - Chain of custody documentation for high-value materials
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -174,8 +178,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Optimal wavelength for Praseodymium absorption characteristics
     unit: nm
     value: 1064
     min: 355
@@ -185,11 +195,7 @@ machineSettings:
     max: 500
     value: 100
     unit: μm
-    description: Beam diameter for precise cleaning; 100 μm recommended for uniform coverage on Praseodymium surfaces, suitable
-      for fine detail or large areas. Smaller for intricate work, larger for broad preparation. Equipment specifications from
-      Coherent Inc. laser systems; tailored for reflective metals to optimize energy delivery.
   fluenceThreshold:
-    description: Minimum fluence required for effective Praseodymium surface cleaning
     unit: J/cm²
     value: 2.5
     min: 0.3
@@ -199,51 +205,32 @@ machineSettings:
     max: 20.0
     value: 1.0
     unit: J/cm²
-    description: Fluence range for contaminant removal below ablation threshold; Praseodymium damage threshold estimated ~4
-      J/cm² at 1064 nm due to high reflectivity. 1.0 J/cm² safe for cleaning. From ablation threshold studies on similar rare
-      earth metals (Surface and Coatings Technology, 2019); conservative estimate as specific Praseodymium data scarce.
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: Nanosecond regime preferred for cleaning to ablate contaminants while minimizing heat-affected zone (HAZ);
-      picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for Praseodymium
-      to limit thermal diffusion due to low conductivity. From laser physics research on metal ablation thresholds (Applied
-      Surface Science, 2015); ns pulses common for industrial cleaning.
   scanSpeed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: Effective speeds for contamination removal without excessive heat buildup; recommended 1500 mm/s for balanced
-      cleaning rate on light contaminants. Slower for heavy contamination (500-1000 mm/s). Industry standards from laser cleaning
-      equipment manuals (e.g., Adapt Laser Systems); adjusted for Praseodymium's reflectivity at 1064 nm to minimize absorption
-      issues.
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal on Praseodymium
-      without risking damage. Industry practice from case studies on metal surface preparation (Laser Cleaning Handbook, 2021);
-      multi-pass ensures thoroughness on soft substrates.
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: Ensures uniform coverage; 50% recommended for even cleaning on Praseodymium, avoiding gaps or overexposure.
-      Typical 30-80% range from process optimization studies (Procedia Manufacturing, 2017); higher overlap for heavy contaminants
-      to compensate for reflectivity.
   dwellTime:
-    description: Optimal dwell time per spot for Praseodymium material interaction
     unit: μs
     value: 120
     min: 0.2
     max: 200
   laserPower:
-    description: Optimal average power for Praseodymium oxide removal
     unit: W
     value: 90
     min: 1.0
@@ -253,17 +240,11 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: Typical range for Nd:YAG laser cleaning of reflective metals like rare earths; starting at 50W to avoid thermal
-      damage given Praseodymium's low melting point (931°C) and moderate thermal conductivity (~17 W/m·K). Conservative max
-      to prevent substrate melting. Based on manufacturer specs from IPG Photonics for metal cleaning systems; no Praseodymium-specific
-      studies found, generalized from aluminum cleaning (Optics & Laser Technology, 2018).
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: Typical for pulsed cleaning to balance speed and heat management; 30 kHz recommended to avoid accumulation
-      on heat-sensitive Praseodymium. Higher rates (>50 kHz) increase speed but risk overheating. Trade-off noted in academic
-      literature (Journal of Laser Applications, 2020); based on Nd:YAG systems for metallic surfaces.
 componentSummary: Moderate 50 W power at 1064 nm with 12 ns pulses enables precise cleaning of Praseodymium by promoting strong
   absorption and selective ablation of oxides without damaging its soft, reactive surface.
+slug: praseodymium-settings

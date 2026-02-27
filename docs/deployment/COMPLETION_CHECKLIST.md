@@ -125,6 +125,7 @@
 ### Integration Testing
 - [x] Test npm commands work correctly
 - [x] Test postdeploy hook triggers correctly
+- [x] Add CI workflow step for `validate:seo:esoteric:soft` (advisory + bounded crawl)
 - [x] Verify scoring calculations accurate
 - [x] Verify category breakdowns correct
 - [x] Verify overall grade assignment

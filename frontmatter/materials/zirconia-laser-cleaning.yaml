@@ -4,7 +4,7 @@ displayName: Zirconia Laser Cleaning
 category: ceramic
 subcategory: oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:46.931652+00:00'
+dateModified: '2026-02-27T20:38:18.221428+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/ceramic/oxide/zirconia-laser-cleaning
@@ -27,7 +27,21 @@ pageDescription: Zirconia, a durable ceramic oxide, holds up well under laser cl
   performance. Overall, the process lines up with needs in research labs and cultural heritage preservation, where gentle
   yet effective removal preserves the material's inherent qualities.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     youngsModulus:
       value: 210.0
@@ -97,13 +111,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:30:21.461249'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -188,13 +203,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: can-laser-cleaning-effectively-remove-contaminants
@@ -390,7 +406,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -563,24 +593,40 @@ relationships:
           soap residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -598,12 +644,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -679,171 +719,11 @@ eeat:
   isBasedOn:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/en/publication/3587
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  youngsModulus:
-    value: 210.0
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.0
-    unit: mg/(cm²·h)
-    confidence: 100
-    source: ai_research
-  density:
-    value: 5.68
-    unit: g/cm³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 13.2
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.0001
-    unit: mm/year
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 2500.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 1000.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 350.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 5.5
-    unit: MPa√m
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.3
-    unit: '%'
-    confidence: 95
-    source: ai_research
-  electricalResistivity:
-    value: 1000000000000.0
-    unit: Ω·m
-    confidence: 95
-    source: ai_research
-  percentage: 60.0
-  laserDamageThreshold:
-    value: 2.8
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Surface Science
-    citation: 'B. W. Smith et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2017.12.045'
-    context: Yttria-stabilized zirconia (3 mol% Y2O3, 99.5% purity), room temperature (25°C), 532 nm wavelength, 10 ns pulse
-      duration, measured via single-shot irradiation
-    confidence: 95
-    researchedDate: '2025-11-24T12:30:21.461249'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.05
-    unit: dimensionless
-    min: 0.01
-    max: 0.1
-    source: ai_research
-  absorptionCoefficient:
-    value: 1000
-    unit: m⁻¹
-    min: 100
-    max: 5000
-    source: ai_research
-  laserDamageThreshold:
-    value: 10
-    unit: J/cm²
-    min: 1
-    max: 20
-    source: ai_research
-  thermalShockResistance:
-    value: 2.5
-    unit: MW/m
-    min: 1
-    max: 4
-    source: ai_research
-  reflectivity:
-    value: 0.2
-    unit: dimensionless
-    min: 0.1
-    max: 0.3
-    source: ai_research
-  thermalDestructionPoint:
-    value: 2988
-    unit: K
-    min: 2500
-    max: 3200
-    source: ai_research
-  vaporPressure:
-    value: 0.01
-    unit: Pa
-    min: 0.001
-    max: 0.1
-    source: ai_research
-  thermalDestruction:
-    value: 2988.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  specificHeat:
-    value: 454.8
-    unit: J/(kg·K)
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.133
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 2.14
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 1.05e-05
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 0.85
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 8.58e-07
-    unit: m²/s
-    confidence: 98
-    source: ai_research
-  ablationThreshold:
-    value: 2.1
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: zirconia-laser-cleaning

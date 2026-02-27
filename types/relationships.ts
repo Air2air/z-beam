@@ -2,6 +2,8 @@
 // Consolidated relationship types and accessor utilities
 
 export type RelationshipCategory = 
+  | 'contaminatedBy'
+  | 'detectionMonitoring'
   | 'interactions'
   | 'safety'
   | 'operational'
@@ -13,8 +15,32 @@ export type RelationshipCategory =
   | 'identity';
 
 export type RelationshipKey = 
-  // Material relationships
+  | '_metadata'
+  | 'chemicalProperties'
+  | 'commonChallenges'
   | 'contaminatedBy'
+  | 'detectionMonitoring'
+  | 'emergencyResponse'
+  | 'environmentalImpact'
+  | 'exposureLimits'
+  | 'fireExplosionRisk'
+  | 'fumesGenerated'
+  | 'healthEffects'
+  | 'laserMaterialInteraction'
+  | 'machineSettings'
+  | 'particulateGeneration'
+  | 'physicalProperties'
+  | 'reactivity'
+  | 'regulatoryClassification'
+  | 'removesContaminants'
+  | 'storageRequirements'
+  | 'substrateCompatibilityWarnings'
+  | 'synonymsIdentifiers'
+  | 'toxicGasRisk'
+  | 'ventilationRequirements'
+  | 'visibilityHazard'
+  | 'worksOnMaterials'
+  // Material relationships
   | 'relatedMaterials'
   // Contaminant relationships
   | 'producesCompounds'
@@ -31,11 +57,16 @@ export type RelationshipKey =
   | 'laserProperties';
 
 export interface SectionMetadata {
+  // Displayed in active section containers
   sectionTitle?: string;
   sectionDescription?: string;
+
+  // Non-display metadata retained in frontmatter/context
+  // (do not render sectionMetadata text in active section containers)
   icon?: string;
   order?: number;
   variant?: string;
+  sectionMetadata?: string;
 }
 
 export interface RelationshipData<T = any> {
@@ -90,8 +121,9 @@ export function getRelationshipItems<T = any>(
   relationships: any,
   category: RelationshipCategory,
   key: RelationshipKey
-): T[] {
-  return relationships?.[category]?.[key]?.items || [];
+): T[] | undefined {
+  const items = relationships?.[category]?.[key]?.items;
+  return Array.isArray(items) ? (items as T[]) : undefined;
 }
 
 /**
@@ -120,8 +152,8 @@ export function getRelationshipData<T = any>(
   relationships: any,
   category: RelationshipCategory,
   key: RelationshipKey
-): RelationshipData<T> {
-  return relationships?.[category]?.[key] || {};
+): RelationshipData<T> | undefined {
+  return relationships?.[category]?.[key];
 }
 
 /**
@@ -137,5 +169,5 @@ export function hasRelationshipItems(
   key: RelationshipKey
 ): boolean {
   const items = getRelationshipItems(relationships, category, key);
-  return Array.isArray(items) && items.length > 0;
+  return !!items && items.length > 0;
 }

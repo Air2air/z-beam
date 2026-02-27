@@ -4,7 +4,7 @@ displayName: Lead Oxide Compound
 category: particulate
 subcategory: metal-oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:43.180394+00:00'
+dateModified: '2026-02-27T20:39:14.411320+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/lead-oxide-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: lead-paint-contamination
@@ -69,27 +76,29 @@ relationships:
         frequency: unknown
         severity: high
         typicalContext: Laser removal of Lead-Based Paint Removal
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: aluminum-bronze-laser-cleaning
       - id: bronze-laser-cleaning
       - id: lead-crystal-laser-cleaning
       - id: lead-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Respiratory irritation and systemic lead poisoning affecting nervous system, kidneys, and blood (e.g., anemia,
@@ -109,12 +118,6 @@ relationships:
         severity: severe
         onset: short-term
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -169,32 +172,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-respiratory-protection-should-i-use
-    title: What respiratory protection should I use when laser cleaning surfaces that may generate lead oxide (PbO) particulates?
-    content: Use a NIOSH-approved half-face or full-face respirator with P100 filters (or equivalent) rated for particulates
-      to prevent inhalation of lead oxide dust, ensuring a proper fit test and seal check before each use. In high-exposure
-      scenarios during laser cleaning, opt for powered air-purifying respirators (PAPRs) for better comfort and protection,
-      and always perform air monitoring to confirm levels stay below OSHA's permissible exposure limit of 50 µg/m³ for lead
-      over an 8-hour shift. Combine this with engineering controls like local exhaust ventilation at the laser cleaning site
-      to minimize airborne particulates from the start.
-    metadata:
-      topic: respiratory protection should i use
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: toxic
 chemicalFormula: PbO
 casNumber: 1317-36-8
@@ -273,4 +250,30 @@ sourcesInLaserCleaning:
 - lead_paint_removal
 - lead_coating_ablation
 - pewter_patina_removal
-title: Lead Oxide
+faq:
+  presentation: collapsible
+  items:
+  - id: what-respiratory-protection-should-i-use
+    title: What respiratory protection should I use when laser cleaning surfaces that may generate lead oxide (PbO) particulates?
+    content: Use a NIOSH-approved half-face or full-face respirator with P100 filters (or equivalent) rated for particulates
+      to prevent inhalation of lead oxide dust, ensuring a proper fit test and seal check before each use. In high-exposure
+      scenarios during laser cleaning, opt for powered air-purifying respirators (PAPRs) for better comfort and protection,
+      and always perform air monitoring to confirm levels stay below OSHA's permissible exposure limit of 50 µg/m³ for lead
+      over an 8-hour shift. Combine this with engineering controls like local exhaust ventilation at the laser cleaning site
+      to minimize airborne particulates from the start.
+    metadata:
+      topic: respiratory protection should i use
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: lead-oxide-compound

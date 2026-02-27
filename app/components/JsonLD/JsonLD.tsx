@@ -84,7 +84,7 @@ export const schemas = {
       ? { '@type': 'Person', name: data.author }
       : { '@type': 'Person', ...data.author },
     datePublished: data.datePublished,
-    dateModified: (data as any).lastModified || data.dateModified || data.datePublished,
+    dateModified: data.dateModified || data.datePublished,
     url: data.url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -106,7 +106,7 @@ export const schemas = {
       ? { '@type': 'Person', name: data.author }
       : { '@type': 'Person', ...data.author },
     datePublished: data.datePublished,
-    dateModified: data.lastModified || data.dateModified || data.datePublished,
+    dateModified: data.dateModified || data.datePublished,
     url: data.url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -149,7 +149,7 @@ export const schemas = {
     description: data.description,
     author: getAuthorObject(data.author),
     datePublished: data.datePublished,
-    dateModified: (data as any).lastModified || data.dateModified || data.datePublished,
+    dateModified: data.dateModified || data.datePublished,
     url: data.url,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -158,6 +158,9 @@ export const schemas = {
     ...(data.image && { image: data.image })
   })
 };
+
+// MaterialJsonLD is an alias for JsonLD — same component, legacy test name
+export const MaterialJsonLD = JsonLD;
 
 // For convenience, export the schemas individually
 export const personSchema = schemas.person;

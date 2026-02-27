@@ -4,7 +4,7 @@ displayName: Formaldehyde Compound
 category: carcinogen
 subcategory: aldehyde
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:37.495008+00:00'
+dateModified: '2026-02-27T20:39:11.432836+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aldehyde/formaldehyde-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: formaldehyde-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: -19°C (-2°F) for pure gas
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: 'LEL: 7%, UEL: 73%'
         appearance: Colorless gas or clear solution (formalin)
         odor: Pungent, irritating odor @ 0.05-1 ppm (provides warning)
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -80,14 +89,15 @@ relationships:
           rtecsNumber: LP8925000
           ecNumber: 200-001-8
           pubchemCid: '712'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -107,13 +117,14 @@ relationships:
         effect: Increased risk of nasopharyngeal cancer and sinus cancer with chronic exposure
         severity: severe
         onset: long-term
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: Full-face NIOSH-approved respirator with organic vapor and formaldehyde cartridges for concentrations
@@ -124,13 +135,14 @@ relationships:
         minimumLevel: Level C for <0.75 ppm with engineering controls, Level B for unknown concentrations or emergency response
         specialNotes: IARC Group 1 known human carcinogen (nasopharyngeal cancer, leukemia). Strong sensitizer. Dermal exposure
           significant. Formaldehyde-specific cartridges required (standard organic vapor inadequate).
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Solutions >30% flammable. Pure gas flammable with wide explosive range (7-73%). Vapors heavier than air.
@@ -146,13 +158,14 @@ relationships:
         specialHazards: KNOWN HUMAN CARCINOGEN (IARC Group 1) - nasopharyngeal cancer and leukemia established. Severe respiratory
           irritant. Strong sensitizer causing occupational asthma. Lachrymator (causes tearing). Polymerizes on standing,
           especially with impurities.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 0.75
@@ -180,13 +193,14 @@ relationships:
             specimen: Urine
             timing: End of shift
             beiValue: 80 mg/g creatinine
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store below 25°C (77°F). Refrigeration recommended for solutions to prevent polymerization.
@@ -205,13 +219,14 @@ relationships:
         specialRequirements: Stabilized with methanol (10-15%) to prevent polymerization. Label as carcinogen with appropriate
           warnings. Post carcinogen work area signs. Secondary containment required. Emergency eyewash and shower within 25
           feet.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1198 (solution, flammable), UN2209 (solution, ≥25%)
@@ -232,14 +247,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 100 pounds (45.4 kg)
         rcraCode: U122
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 7-45 mg/L depending on species.'
@@ -252,14 +268,15 @@ relationships:
         reportableReleases:
           water: 100 lbs to navigable waters (CERCLA RQ)
           air: 100 lbs/day
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -286,14 +303,15 @@ relationships:
           technique: HPLC (DNPH cartridge)
           detectionLimit: 0.001 ppm
         odorThreshold: 0.05-1 ppm - provides early warning but olfactory fatigue occurs. Do not rely on odor alone.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -350,13 +368,14 @@ relationships:
         frequency: occasional
         severity: low
         typicalContext: Thermal degradation of certain epoxy formulations
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -365,13 +384,14 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Pure formaldehyde unstable. Solutions polymerize on standing, especially without stabilizer (methanol).
@@ -399,12 +419,6 @@ relationships:
         - Cold temperatures (polymerization)
         reactivityHazard: Reacts violently with strong oxidizers. Reacts with phenols forming heat-sensitive explosive compounds.
           Reacts with nitrogen dioxide forming explosive nitro compounds.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -459,32 +473,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: how-can-i-detect-and-monitor
-    title: How can I detect and monitor formaldehyde exposure levels while performing laser cleaning on materials that may
-      release it?
-    content: Use portable gas detectors or colorimetric badges specifically designed for formaldehyde to provide real-time
-      or integrated exposure readings during operations. Regularly calibrate these devices and place them near the breathing
-      zone to ensure accurate detection, aiming to keep levels below the OSHA permissible exposure limit of 0.75 ppm (8-hour
-      time-weighted average) and 2 ppm short-term exposure limit. If levels approach or exceed these thresholds, immediately
-      stop work, increase ventilation, and evacuate if necessary to prevent carcinogenic risks.
-    metadata:
-      topic: i detect and monitor formaldehyde
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: carcinogenic
 chemicalFormula: CH₂O
 casNumber: 50-00-0
@@ -582,4 +570,30 @@ sourcesInLaserCleaning:
 - polymer_decomposition
 - organic_coating_pyrolysis
 - adhesive_breakdown
-title: Formaldehyde
+faq:
+  presentation: collapsible
+  items:
+  - id: how-can-i-detect-and-monitor
+    title: How can I detect and monitor formaldehyde exposure levels while performing laser cleaning on materials that may
+      release it?
+    content: Use portable gas detectors or colorimetric badges specifically designed for formaldehyde to provide real-time
+      or integrated exposure readings during operations. Regularly calibrate these devices and place them near the breathing
+      zone to ensure accurate detection, aiming to keep levels below the OSHA permissible exposure limit of 0.75 ppm (8-hour
+      time-weighted average) and 2 ppm short-term exposure limit. If levels approach or exceed these thresholds, immediately
+      stop work, increase ventilation, and evacuate if necessary to prevent carcinogenic risks.
+    metadata:
+      topic: i detect and monitor formaldehyde
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: formaldehyde-compound

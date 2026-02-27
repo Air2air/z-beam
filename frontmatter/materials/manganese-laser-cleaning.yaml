@@ -4,7 +4,7 @@ displayName: Manganese Laser Cleaning
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:38.991117+00:00'
+dateModified: '2026-02-27T20:38:07.965149+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/metal/non-ferrous/manganese-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: Manganese serves as a versatile non-ferrous metal that plays ke
   need to focus most on controlling the laser intensity to avoid overheating, and they should always prioritize safety measures
   to protect against potential reflections.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalConductivity:
@@ -138,13 +152,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptionCoefficient:
@@ -215,13 +230,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: does-laser-cleaning-manganesecontaining-steel-like
@@ -432,7 +448,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -445,24 +475,40 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -485,12 +531,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -570,200 +610,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalConductivity:
-    value: 694444.0
-    unit: S/m
-    confidence: 98
-    source: ai_research
-  electricalResistivity:
-    value: 1.44e-06
-    unit: Ω·m
-    confidence: 100
-    source: ai_research
-  fractureToughness:
-    value: 18.0
-    unit: MPa m^{1/2}
-    confidence: 95
-    source: ai_research
-  surfaceRoughness:
-    value: 0.35
-    unit: μm
-    confidence: 92
-    source: ai_research
-  youngsModulus:
-    value: 117.0
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 923.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  density:
-    value: 7.44
-    unit: g/cm³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 2.75
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: -1.185
-    unit: V
-    confidence: 100
-    source: ai_research
-  compressiveStrength:
-    value: 310.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 320.0
-    unit: MPa
-    confidence: 92
-    source: ai_research
-  tensileStrength:
-    value: 345.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.0
-    unit: fraction
-    confidence: 100
-    source: ai_research
-  absorptivity:
-    value: 0.45
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  boilingPoint:
-    value: 2334.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  absorptionCoefficient:
-    value: 280000000.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  meltingPoint:
-    value: 1519.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  vaporPressure:
-    value: 101325.0
-    unit: Pa
-    confidence: 100
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1519.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  reflectivity:
-    value: 0.65
-    unit: '%'
-    confidence: 95
-    source: ai_research
-  thermalShockResistance:
-    value: 85.0
-    unit: K
-    confidence: 92
-    source: ai_research
-  laserDamageThreshold:
-    value: 1.25
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptionCoefficient:
-    source: ai_research
-    unit: m⁻¹
-    value: 14200000.0
-  absorptivity:
-    source: ai_research
-    unit: dimensionless
-    value: 0.42
-  laserDamageThreshold:
-    source: ai_research
-    unit: J/cm²
-    value: 0.15
-  reflectivity:
-    source: ai_research
-    unit: dimensionless (ratio)
-    value: 0.58
-  thermalDestructionPoint:
-    source: ai_research
-    unit: K
-    value: 1519.0
-  thermalShockResistance:
-    source: ai_research
-    unit: MPa·m^0.5
-    value: 0.8
-  vaporPressure:
-    source: ai_research
-    unit: Pa
-    value: 121.0
-  thermalDestruction:
-    value: 1519.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  specificHeat:
-    value: 479.0
-    unit: J/kg·K
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.62
-    unit: '%'
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 7.82
-    unit: W/m·K
-    confidence: 98
-    source: ai_research
-  thermalExpansion:
-    value: 21.7
-    unit: 10^{-6} K^{-1}
-    confidence: 100
-    source: ai_research
-  laserAbsorption:
-    value: 0.35
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 2.19e-06
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 1.05
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: manganese-laser-cleaning

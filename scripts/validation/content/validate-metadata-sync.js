@@ -67,6 +67,12 @@ class MetadataValidator {
       // Check required fields (strict - no backwards compatibility)
       const requiredFields = REQUIRED_FIELDS[type] || REQUIRED_FIELDS.material;
       const missingFields = requiredFields.filter(field => {
+        if (field === 'author.id') {
+          const authorRef = data?.author;
+          if (authorRef === null || authorRef === undefined) return true;
+          if (typeof authorRef === 'object') return !authorRef.id;
+          return false;
+        }
         const value = this.getNestedValue(data, field);
         return !value;
       });

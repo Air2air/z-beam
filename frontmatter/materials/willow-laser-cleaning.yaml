@@ -4,7 +4,7 @@ displayName: Willow Laser Cleaning
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:46.656310+00:00'
+dateModified: '2026-02-27T20:38:17.778754+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/wood/hardwood/willow-laser-cleaning
@@ -24,7 +24,21 @@ pageDescription: Willow serves as a lightweight hardwood material often found in
   the process, willow responds favorably as the laser energy vaporizes impurities while the material's porous nature allows
   minimal heat penetration, though excessive exposure can lead to slight charring if not monitored.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     youngsModulus:
       value: 10.2
@@ -89,13 +103,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:29:36.202593'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -187,13 +202,14 @@ properties:
       confidence: 92
       researchedDate: '2025-11-24T12:29:42.142967'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: what-laser-power-settings-are-recommended
@@ -394,7 +410,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -407,24 +437,40 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -442,12 +488,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -522,173 +562,11 @@ eeat:
   isBasedOn:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/en/publication/3587
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  youngsModulus:
-    value: 10.2
-    unit: GPa
-    confidence: 100
-    source: ai_research
-  oxidationResistance:
-    value: 0.72
-    unit: dimensionless (relative resistance index)
-    confidence: 95
-    source: ai_research
-  density:
-    value: 420.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 430.0
-    unit: lbf
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.2
-    unit: dimensionless (durability class normalized 0-1)
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 35.0
-    unit: MPa
-    confidence: 100
-    source: ai_research
-  flexuralStrength:
-    value: 46.9
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 92.4
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 0.32
-    unit: MPa·m^{1/2}
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.75
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  percentage: 60.0
-  laserDamageThreshold:
-    value: 1.42
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds of Wood Species for Cultural Heritage Conservation
-    citation: 'Bella et al., Journal of Cultural Heritage, 2019, DOI: 10.1016/j.culher.2019.03.005'
-    context: Dry willow wood (Salix alba, density 0.40 g/cm³, moisture content <5%), 25°C, 1064 nm Nd:YAG laser (10 ns pulse),
-      threshold defined as onset of visible ablation via optical microscopy
-    confidence: 95
-    researchedDate: '2025-11-24T12:29:36.202593'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.9
-    unit: dimensionless
-    min: 0.8
-    max: 0.95
-    source: ai_research
-  absorptionCoefficient:
-    value: 50000
-    unit: m⁻¹
-    min: 10000
-    max: 100000
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-    min: 1.0
-    max: 5.0
-    source: ai_research
-  thermalShockResistance:
-    value: 1.2
-    unit: MW/m
-    min: 0.5
-    max: 2.0
-    source: ai_research
-  reflectivity:
-    value: 0.08
-    unit: dimensionless
-    min: 0.05
-    max: 0.15
-    source: ai_research
-  thermalDestructionPoint:
-    value: 600
-    unit: K
-    min: 500
-    max: 700
-    source: ai_research
-  vaporPressure:
-    value: 10
-    unit: Pa
-    min: 1
-    max: 100
-    source: ai_research
-  thermalDestruction:
-    value: 623.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 1460.0
-    unit: J/(kg·K)
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.12
-    unit: fraction
-    confidence: 92
-    source: ai_research
-  thermalConductivity:
-    value: 0.14
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 4.5e-05
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 0.92
-    unit: dimensionless (absorptivity)
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.52e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 1.15
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds of Different Wood Species for Femtosecond Pulses
-    citation: 'Hossain, M. et al., Applied Physics A: Materials Science & Processing, 2018, DOI: 10.1007/s00339-018-1675-4'
-    context: Natural willow wood (Salix alba, density 0.40 g/cm³), room temperature (20°C), 800 nm femtosecond laser (pulse
-      duration 150 fs), measured under vacuum conditions
-    confidence: 92
-    researchedDate: '2025-11-24T12:29:42.142967'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: willow-laser-cleaning

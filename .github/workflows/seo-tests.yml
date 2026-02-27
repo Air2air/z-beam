@@ -51,6 +51,12 @@ jobs:
       - name: Validate SEO infrastructure
         run: npm run validate:seo-infrastructure
 
+      - name: Run esoteric SEO validation (soft mode)
+        run: npm run validate:seo:esoteric:soft
+        env:
+          STRICT_MODE: '0'
+          MAX_URLS: '120'
+
       - name: Generate SEO test report
         if: always()
         run: |
@@ -146,6 +152,7 @@ jobs:
           echo "- URL Validation: ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Live Schema Rendering: ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Metadata Completeness: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Esoteric SEO (Soft Mode): ✅" >> $GITHUB_STEP_SUMMARY
 
       - name: Append live schema report to summary
         if: always()

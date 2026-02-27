@@ -4,7 +4,7 @@ displayName: Medical Devices Laser Cleaning
 category: applications
 subcategory: medical-devices
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.324409+00:00'
+dateModified: '2026-02-27T20:39:37.664361+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/medical-devices-laser-cleaning-applications
@@ -20,11 +20,23 @@ pageDescription: Laser cleaning applies to medical devices and removes contamina
   constraints involve controlled environments to avoid cross-contamination, and safety implications demand compliance with
   medical regulations. This method, it supports precise decontamination, already demonstrates effectiveness in preserving
   material properties.
-metaDescription: Laser cleaning applies to medical devices and removes contaminants from surfaces such as surgical instruments
-  or implants. Process ensures sterility, thus ma...
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: titanium-laser-cleaning
@@ -57,13 +69,22 @@ relationships:
         subcategory: specialty
         url: /materials/metal/specialty/nickel-laser-cleaning
         image: /images/material/nickel-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -96,11 +117,6 @@ relationships:
         subcategory: adhesive
         url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
         image: /images/contaminant/silicone-buildup-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -137,4 +153,3 @@ keywords:
 - Medical Devices Laser Cleaning
 - Medical Devices
 slug: medical-devices-laser-cleaning-applications
-authorId: 1

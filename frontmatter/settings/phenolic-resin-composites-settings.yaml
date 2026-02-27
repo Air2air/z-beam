@@ -4,7 +4,7 @@ displayName: Phenolic Resin Composites Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:53.854171+00:00'
+dateModified: '2026-02-27T20:39:26.872002+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/phenolic-resin-composites-settings
@@ -39,34 +39,43 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -77,12 +86,6 @@ relationships:
         contaminationChallenges:
         - id: resin-contaminant-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -126,8 +129,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for phenolic resin absorption and minimal substrate damage
     unit: nm
     value: 1064
     min: 355
@@ -137,51 +146,32 @@ machineSettings:
     max: 500
     unit: μm
     value: 300
-    description: 'Beam diameter range for precision vs. area coverage; 300 μm recommended for phenolic composites in surface
-      prep to focus energy and minimize overshoot on irregular surfaces. Smaller for fine details, larger for broad areas.
-      Source: Equipment specs from Coherent Inc. and process optimization in Industrial Laser Solutions (2020).'
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.0
-    description: 'Fluence range for contaminant removal; damage threshold for phenolics ~1.5-2.5 J/cm² at 1064 nm due to moderate
-      absorption; 1.0 J/cm² safe for cleaning without ablation of substrate. Conservative for thermal sensitivity. Source:
-      Ablation studies in Composites Part B (2017) and Optics Express (2022).'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred over ps/fs for cost-effective cleaning with minimal heat-affected zone (HAZ
-      <50 μm); 20 ns balances ablation efficiency and reduced thermal diffusion in phenolics. Ps (10-100 ps) for ultra-precise
-      work but higher cost. Source: Laser physics in Applied Surface Science (2019) on polymer ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective range for 1064 nm cleaning of contaminants; slower (500-1000 mm/s) for heavy soiling, faster (2000-3000
-      mm/s) for light; 1500 mm/s optimal for uniform removal without substrate heating on low-reflectivity phenolics (~10-20%
-      at 1064 nm). Source: Industry standards from Laserax manuals and J. Cleaner Production (2020) case studies.'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-3) for heavy; 2 passes typical for complete removal on
-      phenolics without excessive heat buildup. Source: Industry practice in aerospace case studies (e.g., AIAA Journal, 2019)
-      and manufacturer guidelines.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: 'Ensures uniform coverage; 50% recommended for phenolic composites to avoid gaps or overexposure, balancing
-      efficiency and even fluence distribution. Higher (60-80%) for heavy contamination. Source: Process optimization in Surface
-      and Coatings Technology (2021).'
   laserPower:
-    description: Optimal average power for phenolic resin composite cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -191,17 +181,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in composite cleaning to avoid thermal damage; starting at 100W for
-      light contamination on phenolics, which have low thermal conductivity (~0.2 W/m·K). Max safe ~300W to prevent charring
-      (melting point ~200-300°C). Source: IPG Photonics specs and studies in Optics and Lasers in Engineering (2018) on polymer
-      composites.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 30
-    description: 'Typical for industrial cleaning; 30 kHz recommended for phenolics to achieve fast processing while limiting
-      heat accumulation (high freq >50 kHz risks cumulative heating due to low conductivity). Trade-off: higher rates speed
-      up cleaning but increase HAZ. Source: Academic literature in Journal of Laser Applications (2021).'
 componentSummary: These settings employ moderate 100 W power and 10 ns pulses at 1064 nm to precisely ablate contaminants
   from heat-sensitive Phenolic Resin Composites without causing thermal degradation or delamination.
+slug: phenolic-resin-composites-settings

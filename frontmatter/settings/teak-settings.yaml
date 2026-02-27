@@ -4,7 +4,7 @@ displayName: Teak Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:56.956847+00:00'
+dateModified: '2026-02-27T20:39:32.130799+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/teak-settings
@@ -39,45 +39,55 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: teak-laser-cleaning
         effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -88,12 +98,6 @@ relationships:
         contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -137,8 +141,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for optimal absorption in Teak lignin and contaminants
     unit: nm
     value: 1064
     min: 355
@@ -148,56 +158,37 @@ machineSettings:
     max: 500
     unit: μm
     value: 500
-    description: Beam diameter for uniform cleaning; 500 μm recommended for Teak surface preparation, balancing fine detail
-      (smaller spots for precision) and large-area efficiency (larger for broad coverage); per equipment specs (e.g., Coherent
-      Inc. lasers and industry standards).
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 2
-    description: Fluence range for safe ablation of contaminants from wood; Teak damage threshold ~3-5 J/cm² at 1064 nm due
-      to reflectivity and charring risk; 2 J/cm² recommended for effective cleaning without substrate harm (e.g., ablation
-      threshold studies in Journal of Laser Applications, 2017). Conservative for Teak's properties.
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: Nanosecond regime preferred for Teak to minimize heat-affected zone (HAZ) while ablating contaminants; picosecond
-      (ps) or femtosecond (fs) reduce thermal damage further but are costlier; 20 ns typical for wood cleaning (e.g., laser
-      physics research in Applied Surface Science, 2019). Avoid fs for industrial scale due to complexity.
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: Effective speeds for 1064 nm cleaning of wood; recommended 2000 mm/s for optimal contaminant removal without
-      excessive heat buildup on Teak; lower for heavy contamination (500-1000 mm/s), higher for light (3000-5000 mm/s) per
-      industry standards (e.g., Laserax equipment manuals and Journal of Applied Physics, 2020).
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: Typically 1-3 passes for light contaminants, up to 5 for heavy; 2 passes recommended for complete Teak cleaning
-      to ensure removal without overexposure; multi-pass preferred over single for uniform results (e.g., industry case studies
-      in Wood Science and Technology, 2022).
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: Ensures uniform coverage in scan patterns; 50% recommended for Teak to avoid gaps or over-etching while minimizing
-      processing time; 30-50% for large areas, 60-80% for detailed work (e.g., process optimization in Optics Express, 2016).
   dwellTime:
-    description: Effective dwell time per cleaning spot
     unit: μs
     value: 120
     min: 0.2
     max: 200
   laserPower:
-    description: Optimal average power for Teak surface cleaning without charring
     unit: W
     value: 45
     min: 1.0
@@ -207,16 +198,11 @@ machineSettings:
     max: 300
     unit: W
     value: 100
-    description: Typical range for industrial Nd:YAG lasers cleaning organic contaminants from wood; starting at 100 W balances
-      efficiency and safety to avoid charring Teak's low thermal conductivity surface (e.g., manufacturer specs from IPG Photonics
-      and studies in Optics and Lasers in Engineering, 2018). Maximum limited to prevent substrate damage.
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: Common for pulsed laser cleaning of organics; 50 kHz recommended for Teak to achieve fast cleaning with controlled
-      heat accumulation; higher rates (>80 kHz) speed up process but risk thermal buildup on low-conductivity wood (e.g.,
-      academic literature in Lasers in Engineering, 2021).
 componentSummary: These settings suit Teak's dense, organic structure by using moderate 100 W power and 12 ns pulses at 1064
   nm to ablate contaminants gently without causing thermal damage or charring.
+slug: teak-settings

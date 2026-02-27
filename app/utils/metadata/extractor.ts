@@ -134,20 +134,6 @@ export class MetadataExtractor {
   }
 
   /**
-   * Extract enrichment data for enhanced display
-   */
-  static getEnrichmentData(metadata: Record<string, unknown>): Record<string, unknown> {
-    return {
-      hasProperties: this.hasProperties(metadata),
-      hasSettings: this.hasSettings(metadata),
-      hasAuthor: !!metadata.author,
-      hasFAQ: !!metadata.faq || !!metadata.faqs,
-      hasImages: !!metadata.images,
-      propertyCount: this.getProperties(metadata).length
-    };
-  }
-
-  /**
    * Check if metadata has material properties
    */
   static hasProperties(metadata: Record<string, unknown>): boolean {
@@ -227,9 +213,4 @@ export function extractPropertiesFromMetadata(metadata: Record<string, unknown>)
 
 export function parsePropertiesFromMetadata(metadata: Record<string, unknown>): PropertyData[] {
   return MetadataExtractor.getProperties(metadata);
-}
-
-export function getEnrichmentMetadata(article: { frontmatter?: Record<string, unknown> }): Record<string, unknown> {
-  if (!article?.frontmatter) return {};
-  return MetadataExtractor.getEnrichmentData(article.frontmatter);
 }

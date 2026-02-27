@@ -4,7 +4,7 @@ displayName: Beech Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:48.530227+00:00'
+dateModified: '2026-02-27T20:39:19.189685+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/beech-settings
@@ -39,45 +39,55 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: beech-laser-cleaning
         effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -88,12 +98,6 @@ relationships:
         contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -138,8 +142,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for Beech absorption characteristics
     unit: nm
     value: 1064
     min: 355
@@ -149,11 +159,7 @@ machineSettings:
     max: 500
     unit: μm
     value: 300
-    description: 'Beam diameter range for precision vs. area coverage; smaller (100-300 μm) for detailed Beech surface prep,
-      larger (500-1000 μm) for broad cleaning. 300 μm recommended to control fluence on uneven wood grain. Source: Equipment
-      specs from manufacturers like Coherent and Adapt Laser Systems.'
   fluenceThreshold:
-    description: Fluence threshold for effective contaminant removal from Beech surface
     unit: J/cm²
     value: 2.5
     min: 0.3
@@ -163,44 +169,27 @@ machineSettings:
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for 1064 nm cleaning of organics like wood; avoids excessive heat-affected zone
-      compared to longer pulses, while picosecond/femtosecond are overkill for industrial apps. 20 ns recommended for Beech
-      to limit thermal diffusion. Source: Laser physics reviews on ablation of polymers/wood (e.g., Appl. Phys. A 2018, vol.
-      124, art. 456).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective range for contamination removal; slower (200-500 mm/s) for heavy soiling, faster (1000-2000 mm/s)
-      for light dirt. Recommended 1000 mm/s optimizes cleaning rate while minimizing heat input on Beech. Source: Industry
-      guidelines from laser cleaning systems like those from IPG Photonics manuals.'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes typical for complete removal
-      on Beech without overexposure. Source: Case studies in industrial wood restoration (e.g., J. Laser Appl. 2019, vol.
-      31, 022501).'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 70
-    description: 'Ensures uniform coverage and avoids gaps/striping; 70% optimal for even energy distribution on Beech''s
-      surface texture. Source: Process optimization in laser scanning literature (e.g., Surf. Coat. Technol. 2021, vol. 405,
-      126623).'
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence range for contaminant ablation without substrate harm; Beech damage threshold ~2-4 J/cm² at 1064
-      nm due to absorption and low reflectivity (~10-20%). 1.5 J/cm² recommended for safe cleaning. Source: Ablation threshold
-      studies on hardwoods (e.g., Wood Sci. Technol. 2017, vol. 51, pp. 1285-1302).'
   laserPower:
-    description: Optimal average power for Beech surface cleaning without charring
     unit: W
     value: 100
     min: 1.0
@@ -210,16 +199,11 @@ machineSettings:
     max: 300
     unit: W
     value: 150
-    description: 'Typical range for 1064 nm laser cleaning of wood like Beech to remove contaminants without charring; starting
-      at 150 W balances efficiency and safety. Max avoids thermal damage given Beech''s low thermal conductivity (~0.15 W/mK).
-      Source: Studies on Nd:YAG laser cleaning of wooden artifacts (e.g., J. Cult. Herit. 2015, vol. 16, pp. 680-687).'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 30
-    description: 'Standard for pulsed cleaning; lower rates (10-30 kHz) reduce heat accumulation in low-conductivity Beech,
-      higher (50-100 kHz) speed up process but risk damage. 30 kHz balances speed and safety. Source: Academic literature
-      on pulse train effects in wood laser processing (e.g., Opt. Lasers Eng. 2020, vol. 132, 106089).'
 componentSummary: These settings employ moderate 150 W power and 10 ns pulses at 1064 nm to gently remove contaminants from
   Beech wood, minimizing thermal damage and preventing charring on its sensitive organic structure.
+slug: beech-settings

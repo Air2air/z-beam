@@ -978,9 +978,9 @@ const getArticleByContentType = cache(async (
       // Convert snake_case YAML fields to camelCase TypeScript at data boundary
       const convertedData = {
         ...frontmatterData,
-        // Convert snake_case to camelCase for TypeScript compatibility (support both formats)
-        metaDescription: frontmatterData.metaDescription || frontmatterData.meta_description,
-        pageDescription: frontmatterData.pageDescription || frontmatterData.page_description,
+        // Convert snake_case to camelCase for TypeScript compatibility
+        // pageDescription is mandatory across all domains (Feb 2026); metaDescription deprecated
+        pageDescription: frontmatterData.pageDescription,
         contaminationDescription: frontmatterData.contaminationDescription || frontmatterData.contamination_description,
         contentType: frontmatterData.contentType || frontmatterData.content_type,
       };
@@ -1217,9 +1217,8 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       title: data.title || data.pageTitle,  // Fallback to pageTitle if title not present
       pageTitle: data.pageTitle,  // Explicit pageTitle for schema generation
       subtitle: data.subtitle,
-      description: data.description || data.metaDescription || data.pageDescription,
-      metaDescription: data.metaDescription || data.meta_description || data.description, // SEO meta description (short)
-      pageDescription: data.pageDescription || data.page_description || data.description, // Long-form page content
+      description: data.description || data.pageDescription,
+      pageDescription: data.pageDescription || data.description, // Long-form page content — pageDescription is canonical (mandatory Feb 2026)
       slug,
       author: data.author,
       datePublished: data.datePublished,

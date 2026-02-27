@@ -4,7 +4,7 @@ displayName: Fiberglass Laser Cleaning
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:36.445690+00:00'
+dateModified: '2026-02-27T20:38:04.883653+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/composite/fiber-reinforced/fiberglass-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: Fiberglass serves as composite material reinforced with fibers,
   intact, and following treatment, surface exhibits improved cleanliness. Operator considerations focus most on gentle energy
   application to prevent thermal damage, so control of process ensures consistent results.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalResistivity:
@@ -86,13 +100,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:57:28.072837'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -184,13 +199,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:57:33.517238'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: can-you-safely-use-a-laser
@@ -362,7 +378,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: aviation-sealant-contamination
@@ -405,24 +435,40 @@ relationships:
           soap residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -445,12 +491,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -530,169 +570,11 @@ eeat:
   isBasedOn:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
-authorId: 1
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalResistivity:
-    value: 1000000000000.0
-    unit: Ω·m
-    confidence: 95
-    source: ai_research
-  fractureToughness: 15.0
-  density:
-    value: 1800.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.0001
-    unit: mg/cm²/year
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 25.0
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 85.0
-    unit: Shore D
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 240.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 620.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 200.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.95
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 1.8
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser ablation thresholds of glass fiber reinforced polymer composites
-    citation: 'Serafetinides et al., Applied Surface Science, 2008, DOI: 10.1016/j.apsusc.2007.10.058'
-    context: GFRP composite (E-glass fibers in epoxy matrix, 60% fiber volume), 1064 nm Nd:YAG laser, 5-10 ns pulse duration,
-      room temperature (25°C), atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T11:57:28.072837'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.85
-    unit: dimensionless
-    min: 0.7
-    max: 0.95
-    source: ai_research
-  absorptionCoefficient:
-    value: 1000000
-    unit: m⁻¹
-    min: 100000
-    max: 10000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 3.5
-    unit: J/cm²
-    min: 1.0
-    max: 10.0
-    source: ai_research
-  thermalShockResistance:
-    value: 1.5
-    unit: MW/m
-    min: 0.5
-    max: 3.0
-    source: ai_research
-  reflectivity:
-    value: 0.08
-    unit: dimensionless
-    min: 0.05
-    max: 0.15
-    source: ai_research
-  thermalDestructionPoint:
-    value: 650
-    unit: K
-    min: 500
-    max: 800
-    source: ai_research
-  vaporPressure:
-    value: 50
-    unit: Pa
-    min: 10
-    max: 500
-    source: ai_research
-  thermalDestruction:
-    value: 673.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.04
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 1.5e-05
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 0.3
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 920.0
-    unit: J/(kg·K)
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 0.12
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.8e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 2.7
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser ablation of glass fiber reinforced polymer composites
-    citation: 'Serafetinides, A.A. et al., Applied Surface Science, 2009, DOI: 10.1016/j.apsusc.2008.10.065'
-    context: E-glass fiber reinforced epoxy composite (50 wt% fibers), room temperature (25°C), measured with excimer laser
-      at 248 nm wavelength, 25 ns pulse duration
-    confidence: 95
-    researchedDate: '2025-11-24T11:57:33.517238'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: fiberglass-laser-cleaning

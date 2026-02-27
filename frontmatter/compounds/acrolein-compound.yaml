@@ -4,7 +4,7 @@ displayName: Acrolein Compound
 category: toxic_gas
 subcategory: aldehyde
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:38.196828+00:00'
+dateModified: '2026-02-27T20:39:11.958465+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic-gas/aldehyde/acrolein-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: acrolein-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: 52.7°C (127°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: 'LEL: 2.8%, UEL: 31%'
         appearance: Colorless to pale yellow liquid
         odor: Pungent, acrid, disagreeable odor - IMMEDIATE WARNING at 0.1 ppm
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -79,14 +88,15 @@ relationships:
           rtecsNumber: AS1050000
           ecNumber: 203-453-4
           pubchemCid: '7847'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -106,13 +116,14 @@ relationships:
         effect: Gastrointestinal irritation, nausea, vomiting, and abdominal pain
         severity: high
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: Full-face pressure-demand SCBA or supplied-air respirator for >0.1 ppm. Air-purifying respirator with
@@ -122,13 +133,14 @@ relationships:
         minimumLevel: Level B minimum for any concentration >0.1 ppm or unknown concentrations
         specialNotes: EXTREMELY IRRITATING at sub-ppm levels. Eye and respiratory irritation immediate. Lachrymator (tear
           gas properties). Self-rescue respirators may be inadequate - use supplied air.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: EXTREMELY FLAMMABLE. Wide explosive range. Vapors heavier than air - travel to ignition sources. May polymerize
@@ -145,13 +157,14 @@ relationships:
         specialHazards: EXTREMELY TOXIC AND IRRITATING. Lachrymator - causes immediate tearing. Severe respiratory irritant
           - can cause pulmonary edema (delayed 24-48 hours). Polymerizes violently when contaminated. Suspected carcinogen.
           Fire produces deadly acrolein and formaldehyde.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 0.1
@@ -175,13 +188,14 @@ relationships:
             stel15Min: null
             ceiling: null
           biologicalExposureIndices: []
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store below 25°C, refrigerate if possible. Keep away from heat.
@@ -202,13 +216,14 @@ relationships:
         specialRequirements: 'CRITICAL: Store with stabilizer (hydroquinone 0.1-0.25%). Check stabilizer regularly. Gas detection
           system MANDATORY. Keep refrigerated. Store away from light. Emergency eyewash/shower within 10 seconds. Post "EXTREMELY
           FLAMMABLE" and "POISON" signs.'
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1092
@@ -229,14 +244,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 1 pound (0.454 kg)
         rcraCode: P003
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Very toxic to aquatic life. LC50 (fish, 96h): 0.09-0.28 mg/L. Toxic at parts-per-million levels.'
@@ -250,14 +266,15 @@ relationships:
         reportableReleases:
           water: 1 lb to navigable waters - IMMEDIATELY reportable
           air: 1 lb/day (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -281,14 +298,15 @@ relationships:
           technique: HPLC
           detectionLimit: 0.01 ppm
         odorThreshold: 0.16-1.0 ppm - provides warning BUT overlaps toxic range. DO NOT rely on odor alone.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -335,13 +353,14 @@ relationships:
         frequency: occasional
         severity: moderate
         typicalContext: Pyrolysis of certain polymers
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -350,13 +369,14 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: UNSTABLE. Polymerizes readily, especially when contaminated or exposed to light, heat, acids, or bases.
@@ -390,12 +410,6 @@ relationships:
         - Flames
         reactivityHazard: EXTREMELY REACTIVE. Polymerizes violently. Reacts violently with oxidizers. Strong reducing agent.
           Corrosive. May explode in fire.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -451,33 +465,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-what
-    title: As a laser cleaning operator, what personal protective equipment (PPE) should I use to protect against acrolein
-      exposure from vaporized materials?
-    content: Prioritize respiratory protection with a full-facepiece respirator equipped with an organic vapor cartridge and
-      acid gas cartridge, as acrolein is a highly irritating toxic gas that can cause severe eye, nose, and lung damage even
-      at low levels. Wear chemical-resistant gloves, protective clothing, and safety goggles to prevent skin and eye contact,
-      and ensure the workspace has adequate ventilation or local exhaust systems to minimize exposure. Always follow OSHA
-      guidelines, keeping exposures below the permissible limit of 0.1 ppm over an 8-hour workday, and conduct regular air
-      monitoring to verify safety.
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: toxic
 chemicalFormula: C₃H₄O
 casNumber: 107-02-8
@@ -584,4 +571,31 @@ sourcesInLaserCleaning:
 - acrylic_decomposition
 - fat_pyrolysis
 - glycerin_breakdown
-title: Acrolein
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-what
+    title: As a laser cleaning operator, what personal protective equipment (PPE) should I use to protect against acrolein
+      exposure from vaporized materials?
+    content: Prioritize respiratory protection with a full-facepiece respirator equipped with an organic vapor cartridge and
+      acid gas cartridge, as acrolein is a highly irritating toxic gas that can cause severe eye, nose, and lung damage even
+      at low levels. Wear chemical-resistant gloves, protective clothing, and safety goggles to prevent skin and eye contact,
+      and ensure the workspace has adequate ventilation or local exhaust systems to minimize exposure. Always follow OSHA
+      guidelines, keeping exposures below the permissible limit of 0.1 ppm over an 8-hour workday, and conduct regular air
+      monitoring to verify safety.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: acrolein-compound

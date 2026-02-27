@@ -4,7 +4,7 @@ displayName: Terracotta Laser Cleaning
 category: masonry
 subcategory: concrete
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:45.227838+00:00'
+dateModified: '2026-02-27T20:38:15.957798+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/masonry/concrete/terracotta-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: Terracotta in masonry applications exhibits durable and porous 
   and cleanliness, thus prolongs lifespan in industrial settings. Contamination on terracotta, it resists traditional methods,
   but laser approach overcomes such issues effectively.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     youngsModulus:
       value: 15.0
@@ -85,13 +99,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:27:57.419696'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -183,13 +198,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:28:03.589640'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: what-laser-wavelengths-are-most-effective
@@ -368,7 +384,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -381,24 +411,40 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -416,12 +462,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -498,168 +538,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-authorId: 1
-materialCharacteristics:
-  label: Material Characteristics
-  youngsModulus:
-    value: 15.0
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.96
-    unit: dimensionless (scale 0-1, 1=excellent resistance)
-    confidence: 95
-    source: ai_research
-  density:
-    value: 2100.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 2.5
-    unit: Mohs
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.92
-    unit: dimensionless (normalized resistance index)
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 14.5
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 7.5
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 3.5
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 1.2
-    unit: MPa m^{1/2}
-    confidence: 95
-    source: ai_research
-  percentage: 60.0
-  laserDamageThreshold:
-    value: 0.42
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser cleaning of architectural terracotta: Threshold determination and surface effects'
-    citation: 'Pouli, P., et al., Applied Surface Science, 2012, DOI: 10.1016/j.apsusc.2012.05.045'
-    context: Traditional fired terracotta (clay-based, porosity 15-20%, SiO2-Al2O3 dominant composition), 1064 nm Nd:YAG laser,
-      pulse duration 10 ns, room temperature (20°C), atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T12:27:57.419696'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.75
-    unit: dimensionless
-    min: 0.6
-    max: 0.9
-    source: ai_research
-  absorptionCoefficient:
-    value: 500000
-    unit: m⁻¹
-    min: 100000
-    max: 1000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 3
-    unit: J/cm²
-    min: 1
-    max: 10
-    source: ai_research
-  thermalShockResistance:
-    value: 1.5
-    unit: MW/m
-    min: 0.5
-    max: 2.5
-    source: ai_research
-  reflectivity:
-    value: 0.25
-    unit: dimensionless
-    min: 0.1
-    max: 0.4
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1473
-    unit: K
-    min: 1273
-    max: 1673
-    source: ai_research
-  vaporPressure:
-    value: 0.01
-    unit: Pa
-    min: 0.001
-    max: 1
-    source: ai_research
-  thermalDestruction:
-    value: 923.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 880.0
-    unit: J/(kg·K)
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.24
-    unit: '%'
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 0.93
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 6.5e-06
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 0.72
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 4.08e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 1.45
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds for Terracotta in Cultural Heritage Conservation
-    citation: 'Pouli, P. et al., Journal of Cultural Heritage, 2010, DOI: 10.1016/j.culher.2010.03.005'
-    context: Traditional fired terracotta (SiO2-Al2O3-Fe2O3 composition, 80-90% silica content), 25°C, Nd:YAG laser at 1064
-      nm wavelength, 5-10 ns pulse duration, atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T12:28:03.589640'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: terracotta-laser-cleaning

@@ -4,7 +4,7 @@ displayName: Ammonia Compound
 category: corrosive_gas
 subcategory: alkaline_gas
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:40.055722+00:00'
+dateModified: '2026-02-27T20:39:12.965246+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/corrosive-gas/alkaline-gas/ammonia-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: ammonia-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: -33.34°C (-28°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: 'LEL: 15%, UEL: 28%'
         appearance: Colorless gas, colorless liquid under pressure
         odor: Sharp, pungent, suffocating odor @ 5-50 ppm
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -76,14 +85,15 @@ relationships:
           rtecsNumber: BO0875000
           ecNumber: 231-635-3
           pubchemCid: '222'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -102,13 +112,14 @@ relationships:
         effect: Severe burns to the mouth, throat, and gastrointestinal tract, potentially leading to perforation
         severity: severe
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: SCBA or supplied-air respirator for >25 ppm or unknown concentrations. Air-purifying with ammonia cartridge
@@ -119,13 +130,14 @@ relationships:
         minimumLevel: Level C for known <25 ppm, Level B for >25 ppm or liquefied ammonia
         specialNotes: Extremely irritating at low concentrations. Immediately dangerous above 300 ppm. Cryogenic liquid causes
           frostbite. Emergency eyewash/shower within 10 seconds.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Flammable gas. Narrow explosive range but ignites easily. Vapors lighter than air - rise and disperse.
@@ -141,13 +153,14 @@ relationships:
           >100 lbs.
         specialHazards: Extremely irritating and corrosive to eyes, skin, and respiratory tract. Causes severe chemical burns.
           Cryogenic liquid causes frostbite. Forms explosive mixtures with air. Reacts violently with acids and halogens.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 50
@@ -171,13 +184,14 @@ relationships:
             stel15Min: 35 ppm
             ceiling: null
           biologicalExposureIndices: []
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store cylinders <52°C. Keep away from heat.
@@ -196,13 +210,14 @@ relationships:
         quantityLimits: Per fire code. Refrigeration systems subject to special regulations.
         specialRequirements: Cylinder restraints mandatory. Leak detection system required. Post "FLAMMABLE GAS" and "CORROSIVE"
           signs. Emergency eyewash/shower within 25 feet. Avoid contact with copper, brass, zinc in piping.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1005 (anhydrous), UN2672 (solution)
@@ -222,14 +237,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 100 pounds (45.4 kg)
         rcraCode: null
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Toxic to fish at high concentrations. LC50 (fish, 96h): 0.5-2.0 mg/L un-ionized NH3. Unionized form
@@ -243,14 +259,15 @@ relationships:
         reportableReleases:
           water: 100 lbs to navigable waters
           air: 100 lbs/day (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -275,14 +292,15 @@ relationships:
           technique: Ion chromatography
           detectionLimit: 0.02 ppm
         odorThreshold: 5-50 ppm - provides good warning below toxic levels
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: blood-residue-contamination
@@ -296,13 +314,14 @@ relationships:
         frequency: occasional
         severity: low
         typicalContext: Breakdown of proteins
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -311,13 +330,14 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable under normal conditions.
@@ -344,12 +364,6 @@ relationships:
         - Open flames
         reactivityHazard: Reacts violently with strong acids producing heat and ammonium salts. Explosive reaction with halogens.
           Attacks copper, brass, zinc, aluminum, and alloys.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -404,33 +418,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-protective-equipment-and-methods-should
-    title: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
-      in an industrial setting?
-    content: Always ensure the work area is well-ventilated with local exhaust systems to dilute and remove ammonia gas, aiming
-      to keep concentrations below the OSHA permissible exposure limit of 50 ppm (35 ppm time-weighted average over 8 hours).
-      Wear appropriate personal protective equipment, including a full-face respirator with ammonia-specific cartridges (NIOSH-approved),
-      chemical-resistant gloves, and protective clothing to shield skin and eyes from the gas's corrosive effects. If exposure
-      is suspected, immediately evacuate the area, seek fresh air, and monitor for symptoms like eye irritation or respiratory
-      distress before resuming work.
-    metadata:
-      topic: protective equipment and methods should
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: corrosive
 chemicalFormula: NH₃
 casNumber: 7664-41-7
@@ -517,4 +504,31 @@ sourcesInLaserCleaning:
 - nitrogen_compound_decomposition
 - protein_pyrolysis
 - amine_breakdown
-title: Ammonia
+faq:
+  presentation: collapsible
+  items:
+  - id: what-protective-equipment-and-methods-should
+    title: What protective equipment and methods should I use to prevent ammonia exposure while performing laser cleaning
+      in an industrial setting?
+    content: Always ensure the work area is well-ventilated with local exhaust systems to dilute and remove ammonia gas, aiming
+      to keep concentrations below the OSHA permissible exposure limit of 50 ppm (35 ppm time-weighted average over 8 hours).
+      Wear appropriate personal protective equipment, including a full-face respirator with ammonia-specific cartridges (NIOSH-approved),
+      chemical-resistant gloves, and protective clothing to shield skin and eyes from the gas's corrosive effects. If exposure
+      is suspected, immediately evacuate the area, seek fresh air, and monitor for symptoms like eye irritation or respiratory
+      distress before resuming work.
+    metadata:
+      topic: protective equipment and methods should
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: ammonia-compound

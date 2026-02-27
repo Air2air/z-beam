@@ -42,6 +42,7 @@ interface SafetyDataPanelProps {
   className?: string;
   collapsible?: boolean;  // Enable collapsible mode for risk cards
   entityName?: string;  // Name of contaminant/compound for title
+  sectionTitle?: string;
   sectionDescription?: string;
 }
 
@@ -66,6 +67,7 @@ export function SafetyDataPanel({
   className = '',
   collapsible = false,  // Default to false for backward compatibility
   entityName: _entityName,  // Name of contaminant/compound for title (not currently used)
+  sectionTitle,
   sectionDescription
 }: SafetyDataPanelProps) {
   if (!safetyData) return null;
@@ -211,8 +213,8 @@ export function SafetyDataPanel({
       variant="default" 
       spacing="loose"
       className={className}
-      title="Safety Information"
-      description={sectionDescription || (isCompoundData ? "Comprehensive safety and handling requirements" : "Critical safety data for laser removal operations")}
+      title={sectionTitle}
+      description={sectionDescription}
       icon={getSectionIcon('shield')}
     >
       <div className="container-custom px-4">

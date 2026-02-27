@@ -4,7 +4,7 @@ displayName: Carbon Ash Compound
 category: particulate
 subcategory: carbon-based
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:41.610800+00:00'
+dateModified: '2026-02-27T20:39:13.648313+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/carbon-based/carbon-ash-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -245,14 +252,15 @@ relationships:
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Respiratory tract irritation and potential for pneumoconiosis with prolonged exposure to fine carbon dust
@@ -271,12 +279,6 @@ relationships:
         severity: low
         onset: immediate
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -331,32 +333,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-what
-    title: 'As a laser cleaning operator, what are the best protection methods to minimize exposure to carbon ash particulates
-      (CAS: 7440-44-0) generated during the process?'
-    content: Prioritize using enclosed laser cleaning systems or local exhaust ventilation to capture and contain fine carbon
-      ash particles at the source, preventing airborne dispersion. Wear appropriate personal protective equipment (PPE), including
-      a NIOSH-approved respirator with a P100 filter, nitrile gloves, and coveralls to avoid skin contact and inhalation.
-      Regularly monitor the work area with particulate detectors and follow OSHA guidelines to keep exposure below the permissible
-      limit of 3.5 mg/m³ for respirable carbon dust over an 8-hour shift.
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: nuisance_dust
 chemicalFormula: C
 casNumber: 7440-44-0
@@ -433,4 +409,30 @@ sourcesInLaserCleaning:
 - organic_contamination_combustion
 - incomplete_ablation
 - char_formation
-title: Carbon Ash
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-what
+    title: 'As a laser cleaning operator, what are the best protection methods to minimize exposure to carbon ash particulates
+      (CAS: 7440-44-0) generated during the process?'
+    content: Prioritize using enclosed laser cleaning systems or local exhaust ventilation to capture and contain fine carbon
+      ash particles at the source, preventing airborne dispersion. Wear appropriate personal protective equipment (PPE), including
+      a NIOSH-approved respirator with a P100 filter, nitrile gloves, and coveralls to avoid skin contact and inhalation.
+      Regularly monitor the work area with particulate detectors and follow OSHA guidelines to keep exposure below the permissible
+      limit of 3.5 mg/m³ for respirable carbon dust over an 8-hour shift.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: carbon-ash-compound

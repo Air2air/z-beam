@@ -98,7 +98,7 @@ export function Micro({ frontmatter, config }: MicroProps) {
     // Add parsed before/after text from the hook
     before: parsedMicro.before,
     after: parsedMicro.after,
-    quality_metrics: parsedMicro.qualityMetrics,
+    qualityMetrics: parsedMicro.qualityMetrics,
   };
 
   const materialName = microData.material || 'material';
@@ -135,10 +135,10 @@ export function Micro({ frontmatter, config }: MicroProps) {
               />
 
               {/* Quality Metrics Overlay */}
-              {microData.quality_metrics && imageLoaded && (
+              {microData.qualityMetrics && imageLoaded && (
                 <div className="absolute bottom-4 left-0 right-0 px-4">
                   <div className={`grid-micro ${GRID_GAP_RESPONSIVE}`}>
-                    {Object.entries(microData.quality_metrics)
+                    {Object.entries(microData.qualityMetrics)
                       .filter(([key]) => key !== 'substrate_integrity')
                       .map(([key, value]) => (
                         <div 

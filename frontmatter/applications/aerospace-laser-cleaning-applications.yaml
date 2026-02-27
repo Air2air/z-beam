@@ -4,7 +4,7 @@ displayName: Aerospace Laser Cleaning
 category: applications
 subcategory: aerospace
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.174066+00:00'
+dateModified: '2026-02-27T20:39:36.850778+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/aerospace-laser-cleaning-applications
@@ -14,17 +14,30 @@ breadcrumb:
 - label: Applications
   href: /applications
 pageTitle: Aerospace Laser Cleaning
-pageDescription: Laser cleaning in aerospace applications removes contaminants from aircraft surfaces and components, and
-  it achieves this without harsh chemicals or abrasive methods. Technicians typically dial in the process for delicate parts
-  like turbine blades or fuselage panels, ensuring a clean finish that maintains structural integrity. Deployment often lines
-  up with routine maintenance schedules, but operators must address challenges such as precise control to avoid surface damage
-  on sensitive alloys. Overall, this method improves efficiency in paint stripping and rust removal, while compliance with
-  aviation safety standards requires thorough training and protective gear to handle laser emissions effectively.
-metaDescription: Laser cleaning in aerospace applications removes contaminants from aircraft surfaces and components, and
-  it achieves this without harsh chemicals or abrasive...
+pageDescription: Laser cleaning applications in aerospace effectively remove contaminants like paint, rust, and residues from
+  aircraft components, ensuring surfaces line up for precise inspections and repairs while maintaining structural integrity.
+  This approach achieves clean finishes on sensitive materials such as aluminum alloys and composites, reducing the need for
+  harsh chemicals and minimizing environmental impact. Operators typically dial in laser parameters to address deployment
+  constraints in tight hangar spaces, where portability and quick setup prove essential for ongoing maintenance tasks. Overall,
+  it addresses key challenges by enhancing safety through non-contact methods that avoid damaging underlying substrates, and
+  it supports compliance with aviation standards by promoting thorough, residue-free preparations for bonding or coating processes.
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -57,13 +70,22 @@ relationships:
         subcategory: specialty
         url: /materials/metal/specialty/cobalt-laser-cleaning
         image: /images/material/cobalt-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: paint-residue-contamination
@@ -96,11 +118,6 @@ relationships:
         subcategory: deposit
         url: /contaminants/biological/deposit/insect-residue-contamination
         image: /images/contaminant/insect-residue-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -137,4 +154,3 @@ keywords:
 - Aerospace Laser Cleaning
 - Aerospace
 slug: aerospace-laser-cleaning-applications
-authorId: 4

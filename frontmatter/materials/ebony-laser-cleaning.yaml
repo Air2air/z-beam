@@ -4,7 +4,7 @@ displayName: Ebony Laser Cleaning
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:47.374754+00:00'
+dateModified: '2026-02-27T20:38:18.969769+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/wood/hardwood/ebony-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: Ebony, it represents a dense hardwood valued in applications su
   that matter most involve monitoring the interaction to prevent overheating, as it appears the wood's tenacity requires a
   cautious approach to avoid unintended alterations.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 1.2
@@ -76,13 +90,14 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -179,13 +194,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:38:27.077012'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-do-i-prevent-burning-ebony
@@ -240,7 +256,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -253,14 +283,22 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -273,22 +311,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 2
   name: Alessandro Moretti
@@ -350,164 +390,18 @@ contamination:
   - aluminum_oxidation
   - uv_chalking
   conditional: {}
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 1.2
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 8
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 2
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 120
-    unit: MPa
-    confidence: 90
-  youngsModulus:
-    value: 15
-    unit: GPa
-    confidence: 95
-  hardness:
-    value: 0.8
-    unit: GPa
-    confidence: 87
-  flexuralStrength:
-    value: 180
-    unit: MPa
-    confidence: 85
-  oxidationResistance:
-    value: 4
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.93
-    unit: mm/year
-    confidence: 85
-  compressiveStrength:
-    value: 120
-    unit: MPa
-    confidence: 90
-  fractureToughness:
-    value: 3
-    unit: MPa m^{1/2}
-    confidence: 85
-  electricalResistivity:
-    value: 10000000000.0
-    unit: Ω·m
-    confidence: 90
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 573
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.15
-    unit: dimensionless
-    confidence: 90
-  laserDamageThreshold:
-    value: 3.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds of Tropical Hardwoods for Nd:YAG Laser Cleaning
-    citation: 'Fernandes, D.M. et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5028374'
-    context: Gaboon ebony (Diospyros dendo), natural density 1.05 g/cm³, 25°C, 1064 nm Nd:YAG laser, pulse duration 10 ns,
-      measured on polished surface
-    confidence: 95
-    researchedDate: '2025-11-24T12:37:10.939087'
-    needsValidation: true
-  ablationThreshold:
-    value: 1.42
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Journal of Cultural Heritage
-    citation: 'Konstantinidis, A. et al., Laser cleaning of ebony in cultural heritage artifacts: Threshold determination
-      for 1064 nm Nd:YAG, Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2017.10.004'
-    context: Natural ebony (Diospyros ebenum, 100% purity as-sourced wood), 20°C, measured with Q-switched Nd:YAG laser at
-      1064 nm wavelength, pulse duration 10 ns
-    confidence: 95
-    researchedDate: '2025-11-24T12:37:17.480459'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 1.17e-07
-    unit: m²/s
-    source: scientific_literature
-    sourceType: textbook
-    sourceName: Wood Handbook - Wood as an Engineering Material
-    citation: 'Forest Products Laboratory, U.S. Department of Agriculture, Forest Service. 1999. Wood handbook - Wood as an
-      engineering material. General Technical Report FPL-GTR-113. Madison, WI: USDA Forest Service, Forest Products Laboratory.
-      463 p. ISBN: N/A (Government Publication)'
-    context: Dry ebony wood (0% moisture content, Diospyros spp.), 25°C, along the grain direction, calculated from measured
-      thermal conductivity, density, and specific heat
-    confidence: 95
-    researchedDate: '2025-11-24T12:37:36.520246'
-    needsValidation: true
-  thermalExpansion:
-    value: 4.2e-06
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: textbook
-    sourceName: 'Wood Handbook: Wood as an Engineering Material'
-    citation: Forest Products Laboratory, USDA Forest Service, General Technical Report FPL-GTR-190, 2010, https://www.fpl.fs.fed.us/documnts/fplgtr/fpl_gtr190.pdf
-    context: African ebony (Diospyros crassiflora), longitudinal direction, 20-25°C, oven-dry condition, dilatometry measurement
-    confidence: 92
-    researchedDate: '2025-11-24T12:37:45.205972'
-    needsValidation: true
-  specificHeat:
-    value: 1420.0
-    unit: J/kg·K
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Thermal Properties of Ebony Wood (Diospyros spp.) for Engineering Applications
-    citation: 'Olorunnisola, A. O., Journal of Materials Science and Engineering B, 2012, DOI: 10.17265/2161-6221/2012.05B.004'
-    context: Oven-dry ebony wood (Diospyros crassiflora, density 1050 kg/m³), 25°C, measured under standard atmospheric pressure
-      using differential scanning calorimetry (DSC)
-    confidence: 95
-    researchedDate: '2025-11-24T12:38:07.314343'
-    needsValidation: true
-  thermalConductivity:
-    value: 0.162
-    unit: W/(m·K)
-    source: scientific_literature
-    sourceType: textbook
-    sourceName: Handbook of Wood Chemistry and Wood Composites, Second Edition
-    citation: Rowell, Roger M. (Editor), CRC Press, Taylor & Francis Group, 2013, ISBN 978-1-4398-5381-8
-    context: Oven-dry African ebony wood (Diospyros crassiflora, density 1050 kg/m³), 20°C, parallel to grain direction, steady-state
-      heat flow method
-    confidence: 95
-    researchedDate: '2025-11-24T12:38:16.676444'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.035
-    unit: '%'
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Optical properties of ebony wood for laser processing applications
-    citation: 'Assefa et al., Journal of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2015.10.004'
-    context: Natural ebony (Diospyros crassiflora, density 1.05 g/cm³), room temperature (25°C), 1064 nm Nd:YAG laser wavelength,
-      diffuse reflectivity measured via integrating sphere spectrophotometer
-    confidence: 95
-    researchedDate: '2025-11-24T12:38:27.077012'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - EPA Clean Air Act Compliance
+  isBasedOn:
+    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: ebony-laser-cleaning

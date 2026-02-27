@@ -80,7 +80,6 @@ export const metadata = {
   },
   manifest: '/manifest.json',
   alternates: {
-    canonical: SITE_CONFIG.url,
     languages: {
       'en-US': SITE_CONFIG.url,
       'en-GB': SITE_CONFIG.url,

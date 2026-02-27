@@ -4,7 +4,7 @@ displayName: Titanium Alloy (Ti-6Al-4V) Laser Cleaning
 category: metal
 subcategory: alloy
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:48.001331+00:00'
+dateModified: '2026-02-27T20:38:19.917098+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/metal/alloy/titanium-alloy-ti-6al-4v-laser-cleaning
@@ -22,7 +22,21 @@ pageDescription: Titanium alloy Ti-6Al-4V stands out as a durable, lightweight m
   fields for its strength and corrosion resistance. Laser cleaning proves essential for this material, as it efficiently strips
   away oxides and contaminants without compromising the alloy's integrity, which traditional methods might damage.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 4.43
@@ -109,13 +123,14 @@ properties:
       researchedDate: '2025-11-24T19:33:45.444061'
       needsValidation: true
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     thermalDiffusivity:
       value: 0.289
@@ -282,13 +297,14 @@ properties:
       researchedDate: '2025-11-24T19:33:21.399545'
       needsValidation: true
     percentage: 40.0
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-do-i-avoid-overheating-when
@@ -355,7 +371,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -728,14 +758,22 @@ relationships:
           unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -748,22 +786,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 1
   name: Yi-Chun Lin
@@ -825,270 +865,20 @@ contamination:
   - copper_patina
   - aluminum_oxidation
   conditional: {}
-authorId: 1
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 4.43
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 0
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 0.8
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 900
-    unit: MPa
-    confidence: 90
-  youngsModulus:
-    value: 113.8
-    unit: GPa
-    confidence: 95
-  hardness:
-    value: 3.5
-    unit: GPa
-    confidence: 87
-  flexuralStrength:
-    value: 950
-    unit: MPa
-    confidence: 85
-  oxidationResistance:
-    value: 7
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.85
-    unit: mm/year
-    confidence: 85
-  compressiveStrength:
-    value: 900
-    unit: MPa
-    confidence: 90
-  fractureToughness:
-    value: 110
-    unit: MPa m^{1/2}
-    confidence: 85
-  electricalResistivity:
-    value: 1.68e-07
-    unit: Ω·m
-    confidence: 90
-  electricalConductivity:
-    value: 581000.0
-    unit: S/m
-    source: scientific_literature
-    sourceType: textbook
-    sourceName: 'Titanium: A Technical Guide'
-    citation: 'Donachie, M.J., Titanium: A Technical Guide, 2nd Edition, ASM International, 2000, ISBN 978-0-87170-686-7'
-    context: Annealed Ti-6Al-4V (6% Al, 4% V, balance Ti), 20°C, four-point probe DC measurement
-    confidence: 99
-    researchedDate: '2025-11-24T19:32:30.595133'
-    needsValidation: true
-  boilingPoint:
-    value: 3588.0
-    unit: K
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, Titanium Alloy Ti-6Al-4V (Grade 5 / UNS R56400), http://www.matweb.com/search/DataSheet.aspx?MatGUID=5673f1004d8b4a0a9e0e0c0d0e0f0a0b,
-      accessed 2023
-    context: Ti-6Al-4V alloy (6% Al, 4% V, balance Ti; ASTM Grade 5), standard atmospheric pressure, extrapolated from pure
-      Ti adjusted for alloy composition
-    confidence: 95
-    researchedDate: '2025-11-24T19:32:39.404655'
-    needsValidation: true
-  meltingPoint:
-    value: 1632.0
-    unit: °C
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: 'ASM Specialty Handbook: Titanium and Titanium Alloys'
-    citation: Matthew J. Donachie, ASM International, 1993, ISBN 0-87170-393-8
-    context: Nominal composition Ti-6 wt% Al-4 wt% V (balance Ti), annealed condition, standard atmospheric pressure, determined
-      for wrought or cast forms
-    confidence: 100
-    researchedDate: '2025-11-24T19:33:45.444061'
-    needsValidation: true
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  thermalDiffusivity:
-    value: 0.289
-    unit: ×10^{-5} m²/s
-    confidence: 92
-    min: 0.06
-    max: 174
-    source: calculated
-    sourceType: derived_value
-    calculation: thermalConductivity / (density * specificHeat)
-    context: Calculated from measured thermal conductivity (6.7 W/(m·K)), density (4.43 g/cm³), and specific heat (523 J/(kg·K))
-      for annealed Ti-6Al-4V at 20°C
-    researchedDate: '2025-11-24T21:15:00Z'
-  thermalDestruction:
-    value: 1933
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.45
-    unit: dimensionless
-    confidence: 90
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser ablation thresholds of Ti-6Al-4V for nanosecond pulsed laser
-    citation: 'J. D. Williams et al., Journal of Applied Physics, 2006, DOI: 10.1063/1.2208279'
-    context: Ti-6Al-4V (annealed, 6% Al, 4% V, balance Ti), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration,
-      vacuum environment
-    confidence: 95
-    researchedDate: '2025-11-24T19:29:58.894091'
-    needsValidation: true
-  ablationThreshold:
-    value: 1.05
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Surface Science
-    citation: 'Semerok, A. et al., Applied Surface Science, 139-140, 311-314 (1999), DOI: 10.1016/S0169-4332(98)00376-5'
-    context: Ti-6Al-4V alloy (standard aerospace grade, 90% Ti, 6% Al, 4% V), room temperature (25°C), nanosecond pulsed Nd:YAG
-      laser at 1064 nm wavelength, atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T19:30:06.515703'
-    needsValidation: true
-  thermalExpansion:
-    value: 8.6e-06
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, Titanium Ti-6Al-4V (Grade 5), Annealed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1a49a5b5b5b04a0a9f7b5b5b5b5b5b5b,
-      accessed 2023
-    context: Ti-6Al-4V alloy (6% Al, 4% V, balance Ti), annealed condition, 20-100°C, measured by dilatometry
-    confidence: 100
-    researchedDate: '2025-11-24T19:30:31.454281'
-    needsValidation: true
-  specificHeat:
-    value: 523.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
-    citation: ASM International, 1990, ISBN 0-87170-378-5
-    context: Annealed Ti-6Al-4V (6 wt% Al, 4 wt% V, balance Ti; AMS 4928 grade), 20°C, standard atmospheric pressure
-    confidence: 98
-    researchedDate: '2025-11-24T19:30:41.226131'
-    needsValidation: true
-  thermalConductivity:
-    value: 6.7
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: 'MatWeb: UNS R56400 Titanium Ti-6Al-4V (Grade 5), Annealed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=8a5f2e7a1b4a4e4e9b4e4e4e4e4e4e4e,
-      accessed 2023'
-    context: Ti-6Al-4V alloy (6% Al, 4% V balance Ti), annealed condition, 20°C, steady-state method
-    confidence: 95
-    researchedDate: '2025-11-24T19:30:46.109604'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.65
-    unit: dimensionless (fraction)
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Absorptivity measurements of Ti-6Al-4V alloy during laser processing
-    citation: 'Kaplan, A. F. H., Journal of Laser Applications, Vol. 20, No. 3, 2008, DOI: 10.2351/1.2995763'
-    context: Ti-6Al-4V (grade 5, 90% Ti, 6% Al, 4% V), 1064 nm wavelength (Nd:YAG laser), room temperature (25°C), normal
-      incidence, polished surface finish
-    confidence: 95
-    researchedDate: '2025-11-24T19:30:54.470449'
-    needsValidation: true
-  vaporPressure:
-    value: 3.8
-    unit: Pa
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2
-    context: Ti-6Al-4V alloy (90Ti-6Al-4V wt%, commercial purity >99%), 2000°C (2273 K), equilibrium total vapor pressure
-    confidence: 92
-    researchedDate: '2025-11-24T19:31:43.785364'
-    needsValidation: true
-  thermalDestructionPoint:
-    value: 1660.0
-    unit: °C
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, Titanium Ti-6Al-4V (Grade 5), Annealed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=8b03ea3f8a8a4d8a9b5e4d5e4d5e4d5e,
-      accessed October 2023
-    context: Standard Ti-6Al-4V alloy (5.5-6.75% Al, 3.5-4.5% V, balance Ti, max 0.4% O, 0.25% Fe), vacuum arc remelted, per
-      AMS 4928 specification, measured under standard atmospheric conditions
-    confidence: 100
-    researchedDate: '2025-11-24T19:31:58.543905'
-    needsValidation: true
-  absorptionCoefficient:
-    value: 50000000.0
-    unit: m^{-1}
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Optical absorption coefficients of titanium alloys for laser processing
-    citation: 'Krivtsun, I. V. et al., Journal of Physics D: Applied Physics, 2018, DOI: 10.1088/1361-6463/aac123'
-    context: Ti-6Al-4V (grade 5, 90% Ti, 6% Al, 4% V), room temperature (25°C), 1064 nm wavelength (Nd:YAG laser), measured
-      via spectroscopic ellipsometry on polished samples
-    confidence: 95
-    researchedDate: '2025-11-24T19:32:08.704830'
-    needsValidation: true
-  thermalShockResistance:
-    value: 637.0
-    unit: K
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb Materials Database, Titanium Alloy Ti-6Al-4V, http://www.matweb.com/search/DataSheet.aspx?MatGUID=5673f50a3d424eef9171d5e74f3f1b7b,
-      accessed 2023
-    context: Annealed Ti-6Al-4V (90% Ti, 6% Al, 4% V, balance trace elements), room temperature (20-25°C), calculated under
-      quasi-static conditions assuming linear elastic behavior
-    confidence: 95
-    researchedDate: '2025-11-24T19:32:53.113972'
-    needsValidation: true
-  reflectivity:
-    value: 0.4
-    unit: fraction
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Absorptance and reflectance of Ti-6Al-4V alloy under laser irradiation
-    citation: 'Trdan, J., et al., Applied Surface Science, 2014, DOI: 10.1016/j.apsusc.2013.11.089'
-    context: Polished Ti-6Al-4V (6% Al, 4% V, balance Ti, AMS 4928 grade), 25°C, normal incidence reflectivity at 1064 nm
-      wavelength (Nd:YAG laser), surface roughness Ra < 0.1 μm
-    confidence: 95
-    researchedDate: '2025-11-24T19:33:15.482679'
-    needsValidation: true
-  absorptivity:
-    value: 0.36
-    unit: dimensionless
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Absorptivity of Ti-6Al-4V alloy for laser cleaning applications
-    citation: 'Trdan, J., et al., Optics and Lasers in Engineering, 2015, DOI: 10.1016/j.optlaseng.2015.03.006'
-    context: Ti-6Al-4V (grade 5, 90% Ti, 6% Al, 4% V), room temperature (25°C), 1064 nm wavelength (Nd:YAG laser), polished
-      surface, measured in air
-    confidence: 95
-    researchedDate: '2025-11-24T19:33:21.399545'
-    needsValidation: true
-  percentage: 40.0
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - ANSI Z136.1 - Safe Use of Lasers
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+    url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: titanium-alloy-ti-6al-4v-laser-cleaning

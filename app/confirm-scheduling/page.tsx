@@ -6,6 +6,9 @@ import { SITE_CONFIG } from '@/app/config/site';
 export const metadata: Metadata = {
   title: 'Booking Confirmed | Z-Beam Laser Cleaning',
   description: 'Your visit with Z-Beam has been successfully scheduled. We look forward to meeting you.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/confirm-scheduling`,
+  },
   robots: {
     index: false,
     follow: false,

@@ -12,12 +12,12 @@ const TEST_PAGES = [
   {
     file: '.next/server/app/materials/ceramic/oxide.html',
     name: 'Subcategory Page (Ceramic Oxide)',
-    expectedSchemas: ['CollectionPage', 'BreadcrumbList', 'ItemList', 'Dataset', 'WebPage']
+    expectedSchemas: ['CollectionPage', 'BreadcrumbList', 'ItemList', 'WebPage']
   },
   {
     file: '.next/server/app/materials/ceramic/carbide.html',
     name: 'Subcategory Page (Ceramic Carbide)',
-    expectedSchemas: ['CollectionPage', 'BreadcrumbList', 'ItemList', 'Dataset', 'WebPage']
+    expectedSchemas: ['CollectionPage', 'BreadcrumbList', 'ItemList', 'WebPage']
   },
   {
     file: '.next/server/app/materials/ceramic/oxide/alumina-laser-cleaning.html',

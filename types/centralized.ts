@@ -23,7 +23,8 @@ import { ReactNode } from 'react';
 
 /**
  * Section metadata for relationship sections in frontmatter
- * Used in _section objects within relationships
+ * Used in _section objects within relationships.
+ * UI display should use sectionTitle/sectionDescription; sectionMetadata is data/context only.
  */
 export interface SectionMetadata {
   relationshipType?: string;
@@ -38,7 +39,7 @@ export interface SectionMetadata {
 
 /**
  * Section configuration for relationship sections
- * Contains title, description, presentation details
+ * Contains title/description for display and optional non-display metadata context.
  */
 export interface RelationshipSectionConfig {
   sectionTitle?: string;
@@ -247,30 +248,43 @@ export interface Author {
   // Social media handles
   twitter?: string; // Twitter/X handle (without @)
   
+  // Canonical frontmatter fields (set by exporter)
+  jobTitle?: string;
+  sex?: string;
+  sameAs?: string[];
+  imageAlt?: string;
+  countryDisplay?: string;
+  personaFile?: string;
+  formattingFile?: string;
+  url?: string;
+  expertise?: string[];   // Canonical: matches frontmatter key
+  credentials?: string[]; // Canonical: matches frontmatter key
+
   // Enhanced author object fields
-  affiliation?: string;
+  affiliation?: string | { name: string; type: string };
   
   // Credentials fields
-  credentialsList?: string[]; // Array of credentials (plural)
+  /** @deprecated Use credentials instead */
+  credentialsList?: string[]; // Backward-compat alias
   
-  experience_years?: number;
-  verification_level?: 'verified' | 'expert' | 'industry_leader' | 'academic';
-  research_focus?: string[];
-  publications_count?: number;
-  h_index?: number;
-  industry_experience?: string[];
+  experienceYears?: number;
+  verificationLevel?: 'verified' | 'expert' | 'industry_leader' | 'academic';
+  researchFocus?: string[];
+  publicationsCount?: number;
+  hIndex?: number;
+  industryExperience?: string[];
   certifications?: string[];
   awards?: string[];
-  speaking_engagements?: string[];
-  patent_count?: number;
-  contact_information?: {
+  speakingEngagements?: string[];
+  patentCount?: number;
+  contactInformation?: {
     phone?: string;
     website?: string;
     orcid?: string;
-    google_scholar?: string;
+    googleScholar?: string;
     researchgate?: string;
   };
-  professional_memberships?: string[];
+  professionalMemberships?: string[];
   languages?: string[];
   availability?: {
     consulting?: boolean;
@@ -361,6 +375,9 @@ export interface ArticleMetadata {
   category?: string;
   tags?: string[];
   author?: Author; // Author object from YAML
+  /** Last modification date in ISO format — canonical frontmatter field */
+  dateModified?: string;
+  /** @deprecated Use dateModified instead */
   lastModified?: string;
   datePublished?: string;
   /** @deprecated Use images.hero.url instead */
@@ -461,12 +478,12 @@ export interface ArticleMetadata {
   applications?: string[];
   compatibility?: string[];
   outcomes?: string[];
-  prompt_chain_verification?: VerificationSystem;
-  technical_specifications?: Record<string, PropertyWithUnits>;
-  safety_considerations?: string[];
-  environmental_impact?: Record<string, PropertyCategory>;
-  cost_analysis?: Record<string, PropertyWithUnits>;
-  quality_metrics?: Record<string, PropertyWithUnits>;
+  promptChainVerification?: VerificationSystem;
+  technical_specifications?: Record<string, PropertyWithUnits>; // intentional: maps to YAML key used in app code
+  safetyConsiderations?: string[];
+  environmental_impact?: Record<string, PropertyCategory>; // intentional: maps to compound YAML key used in app code
+  costAnalysis?: Record<string, PropertyWithUnits>;
+  quality_metrics?: Record<string, PropertyWithUnits>; // intentional: maps to YAML key used in app code
   
   // Micro integration - frontmatter.micro support
   micro?: MicroDataStructure;
@@ -687,7 +704,7 @@ export interface MicroDataStructure {
   // beforeText?: string;
   // afterText?: string;
   /** Quality metrics data */
-  quality_metrics?: Record<string, string | number>;
+  qualityMetrics?: Record<string, string | number>;
 }
 
 /**
@@ -784,10 +801,10 @@ export interface FrontmatterType {
   
   /** Publication date in ISO format */
   datePublished?: string;
-  /** Last modification date in ISO format */
-  lastModified?: string;
-  /** @deprecated Use lastModified instead */
+  /** Last modification date in ISO format — canonical frontmatter field */
   dateModified?: string;
+  /** @deprecated Use dateModified instead */
+  lastModified?: string;
 }
 
 /**
@@ -1638,13 +1655,13 @@ export interface MaterialProperties {
   // NEW: Categorized structure (9 scientific categories)
   thermal?: PropertyCategory;
   mechanical?: PropertyCategory;
-  optical_laser?: PropertyCategory;
+  opticalLaser?: PropertyCategory;
   surface?: PropertyCategory;
   electrical?: PropertyCategory;
   chemical?: PropertyCategory;
   environmental?: PropertyCategory;
   compositional?: PropertyCategory;
-  physical_structural?: PropertyCategory;
+  physicalStructural?: PropertyCategory;
   other?: PropertyCategory;
   
   // LEGACY: Flat structure (deprecated but supported for backward compatibility)
@@ -1697,11 +1714,12 @@ export interface ChemicalProperties {
   corrosionResistance?: PropertyWithUnits;
   
   // Chemical identification (safety context)
-  chemical_formula?: string;
-  cas_number?: string;
-  molecular_weight?: number;
-  hazard_class?: string;
-  state_at_room_temp?: string;
+  chemicalFormula?: string;
+  casNumber?: string;
+  /** @deprecated duplicate of molecularWeight above — use molecularWeight */
+  // molecular_weight removed: duplicate of molecularWeight (PropertyWithUnits) at line above
+  hazardClass?: string;
+  stateAtRoomTemp?: string;
   
   // Allow additional properties
   [key: string]: string | number | PropertyWithUnits | undefined;
@@ -1731,14 +1749,14 @@ export interface MachineSettings {
  */
 export interface VerificationSystem {
   timestamp?: string;
-  verified_by?: string;
-  verification_level?: 'preliminary' | 'peer_reviewed' | 'expert_validated' | 'industry_standard';
-  accuracy_score?: number;
-  confidence_level?: number;
-  source_reliability?: number;
-  last_updated?: string;
-  review_notes?: string[];
-  validation_criteria?: string[];
+  verifiedBy?: string;
+  verificationLevel?: 'preliminary' | 'peer_reviewed' | 'expert_validated' | 'industry_standard';
+  accuracyScore?: number;
+  confidenceLevel?: number;
+  sourceReliability?: number;
+  lastUpdated?: string;
+  reviewNotes?: string[];
+  validationCriteria?: string[];
   [key: string]: unknown;
 }
 
@@ -2240,8 +2258,6 @@ export interface CategoryMetadata {
 
 // Re-exports for backward compatibility
 export type Metadata = ArticleMetadata;
-/** @deprecated Use `Author` instead */
-export type AuthorInfo = Author;
 export type Badge = BadgeData;
 
 // Legacy type aliases
@@ -2620,9 +2636,9 @@ export interface ListingSchema {
   description: string;
   author: string | { name: string; [key: string]: unknown };
   datePublished: string;
-  lastModified?: string;
-  /** @deprecated Use lastModified instead */
   dateModified?: string;
+  /** @deprecated Use dateModified instead */
+  lastModified?: string;
   url: string;
   image?: string;
   [key: string]: unknown;
@@ -2647,9 +2663,9 @@ export interface ArticleSchema {
   description: string;
   author: string | PersonSchema;
   datePublished: string;
-  lastModified?: string;
-  /** @deprecated Use lastModified instead */
   dateModified?: string;
+  /** @deprecated Use dateModified instead */
+  lastModified?: string;
   url: string;
   image?: string;
   articleBody?: string;
@@ -3141,9 +3157,9 @@ export interface CategoryData {
  */
 export interface TimestampData {
   datePublished?: string;
-  lastModified?: string;
-  /** @deprecated Use lastModified instead */
   dateModified?: string;
+  /** @deprecated Use dateModified instead */
+  lastModified?: string;
   [key: string]: unknown;
 }
 
@@ -3177,9 +3193,9 @@ export interface ResearchCitation {
   issue?: number;
   pages?: string;
   doi: string;
-  key_finding: string;
-  sample_size?: number;
-  confidence_level?: number;
+  keyFinding: string;
+  sampleSize?: number;
+  confidenceLevel?: number;
 }
 
 /**
@@ -3189,10 +3205,10 @@ export interface ValidationMetadata {
   method: string;
   equipment: string;
   confidence: number;
-  sample_size: number;
-  date_verified: string;
-  verified_by: string;
-  revalidation_interval: string;
+  sampleSize: number;
+  dateVerified: string;
+  verifiedBy: string;
+  revalidationInterval: string;
 }
 
 /**
@@ -3207,9 +3223,9 @@ export interface ResearchBasis {
  * Damage threshold information
  */
 export interface DamageThreshold {
-  too_low: string;
-  too_high: string;
-  warning_signs: string[];
+  tooLow: string;
+  tooHigh: string;
+  warningSigns: string[];
 }
 
 /**
@@ -3217,9 +3233,9 @@ export interface DamageThreshold {
  */
 export interface MaterialInteraction {
   mechanism: string;
-  dominant_factor: string;
-  critical_parameter: string;
-  energy_coupling: number;
+  dominantFactor: string;
+  criticalParameter: string;
+  energyCoupling: number;
 }
 
 /**
@@ -3285,11 +3301,11 @@ export interface NetworkParameter {
   unit: string;
   criticality: 'critical' | 'high' | 'medium' | 'low';
   rationale?: string;
-  material_interaction?: {
+  materialInteraction?: {
     mechanism?: string;
-    dominant_factor?: string;
-    critical_parameter?: string;
-    energy_coupling?: number | string;
+    dominantFactor?: string;
+    criticalParameter?: string;
+    energyCoupling?: number | string;
   };
 }
 
@@ -3833,19 +3849,19 @@ export interface MicroYamlData {
 }
 
 export interface EnhancedMicroYamlData extends MicroYamlData {
-  before_text?: string;
-  after_text?: string;
-  quality_metrics?: {
-    contamination_removal?: string;
-    surface_roughness_before?: string;
-    surface_roughness_after?: string;
-    thermal_damage?: string;
-    substrate_integrity?: string;
-    processing_efficiency?: string;
-    confidence_score?: number;
-    validation_status?: string;
+  beforeText?: string;
+  afterText?: string;
+  qualityMetrics?: {
+    contaminationRemoval?: string;
+    surfaceRoughnessBefore?: string;
+    surfaceRoughnessAfter?: string;
+    thermalDamage?: string;
+    substrateIntegrity?: string;
+    processingEfficiency?: string;
+    confidenceScore?: number;
+    validationStatus?: string;
   };
-  author_object?: Author;
+  authorObject?: Author;
 }
 
 /**
@@ -4176,9 +4192,9 @@ export interface ButtonIconProps {
 
 export interface DatePanelProps {
   datePublished?: string;
-  lastModified?: string;
-  /** @deprecated Use lastModified instead */
   dateModified?: string;
+  /** @deprecated Use dateModified instead */
+  lastModified?: string;
   className?: string;
 }
 

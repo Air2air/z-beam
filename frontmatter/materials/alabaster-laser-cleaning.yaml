@@ -4,7 +4,7 @@ displayName: Alabaster Laser Cleaning
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:33.014594+00:00'
+dateModified: '2026-02-27T20:38:01.189617+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/stone/sedimentary/alabaster-laser-cleaning
@@ -18,15 +18,29 @@ breadcrumb:
 - label: Alabaster
   href: null
 pageTitle: Alabaster Laser Cleaning
-pageDescription: Alabaster, a soft sedimentary stone that manifests fine-grained texture and translucent qualities, finds
-  extensive use in cultural heritage preservation and art conservation, where laser cleaning effectively removes surface contaminants
-  without harming the underlying material. This process, it exhibits precision in eliminating pollutants such as soot or biological
-  growth, and relies on controlled energy that persists dependent from the stone's low hardness, leading to restored surfaces
-  suitable for applications in architecture or historical artifacts. The laser technique shows compatibility with delicate
-  substrates, which improves outcomes in sectors like manufacturing or aerospace when alabaster components require maintenance,
-  yet demands careful handling to avoid thermal stress that could compromise integrity.
+pageDescription: Alabaster, it manifests as a soft sedimentary stone that exhibits fine-grained texture and translucency,
+  which facilitates precise removal of surface contaminants during laser cleaning processes. This material, it persists in
+  applications such as sculpture restoration and architectural maintenance, where the laser method gently ablates dirt or
+  encrustations without harming the underlying structure. The cleaning efficiency depends from the stone's low hardness, allowing
+  controlled vaporization of unwanted layers, and it appears that adhesion of pollutants varies with environmental exposure,
+  leading to effective outcomes in conservation tasks. Surfaces treated this way show smoothness, and the process yields results
+  that preserve original details tenaciously.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     title: Alabaster's Soft Porous Nature
     _metadata:
@@ -34,13 +48,14 @@ properties:
       order: 70
       variant: default
       generatedAt: '2026-01-22T03:01:22.000Z'
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     title: Alabaster Laser Dynamics
     _metadata:
@@ -48,15 +63,21 @@ properties:
       order: 71
       variant: default
       generatedAt: '2026-01-22T03:02:07.000Z'
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
-faq: 'Q: What safety steps should we take when laser cleaning alabaster compared to harder stones like granite? A: Alabaster''s
-  softness, which stems from its sedimentary makeup and makes it more fragile than dense granite, demands extra caution during
-  laser cleaning; we typically protect surrounding areas with barriers since dust can.'
+faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
+  presentation: collapsible
+  items:
+  - id: what-safety-steps-should-we-take-when-laser-cleaning-alabaster
+    title: What safety steps should we take when laser cleaning alabaster compared to harder stones like granite?
+    content: Alabaster's softness, which stems from its sedimentary makeup and makes it more fragile than dense granite, demands
+      extra caution during laser cleaning; protect surrounding areas with barriers because dust can spread and aggressive
+      settings can damage the surface.
 images:
   hero:
     url: /images/material/alabaster-laser-cleaning-hero.jpg
@@ -70,7 +91,23 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Organic residues and weathering deposits that accumulate on alabaster surfaces in cultural heritage
+        and architectural contexts
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Organic residues and weathering deposits that accumulate on alabaster surfaces in cultural heritage
+          and architectural contexts
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -83,26 +120,42 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Organic residues and weathering deposits that accumulate on alabaster surfaces in cultural heritage
-          and architectural contexts
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Cultural heritage conservation, architectural restoration, and art conservation sectors utilizing
+        laser cleaning for alabaster preservation
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Cultural heritage conservation, architectural restoration, and art conservation sectors utilizing
           laser cleaning for alabaster preservation
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -125,27 +178,10 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
-  contaminatedBy:
-    title: Alabaster's Porous Contaminant Traps
-    description: Alabaster draws in atmospheric pollutants more readily than denser stones like granite, since its sedimentary
-      makeup creates a network of tiny pores that soak up grimy particles and hold them tight. We often see oily residues
-      from urban air clinging stubbornly, as the material's soft, reactive surface chemistry bonds with acidic compounds,
-      which granite typically shrugs off without much buildup. Dust and biological films accumulate deeper here too, embedding
-      in those open structures where laser cleaning must tread carefully to avoid scattering fragments. Unlike marble's smoother
-      resistance, alabaster lets contaminants seep and layer over time, turning simple dirt into embedded threats that demand
-      precise handling. Watch out for moisture-loving molds that exploit this porosity, thriving in ways harder rocks rarely
-      allow and complicating removal efforts.
-    _metadata:
-      icon: droplet
-      order: 61
-      variant: default
-      generatedAt: '2026-01-22T02:59:52.000Z'
+  contaminatedBy: 'title: Alabaster Contamination Challenges description: ''Alabaster, this soft sedimentary stone, it exhibits
+    high porosity that allows contaminants to penetrate deeply, unlike denser materials such as granite. The contamination,
+    it adheres tenaciously, which leads to incomplete removal during laser cleaning and potential surface erosion. This layer,
+    it persists under exposure, manifesting.'
 author:
   id: 2
   name: Alessandro Moretti
@@ -200,16 +236,9 @@ components:
     the pores, which trap residues but also make it fragile. Watch for discoloration mid-process—dial back if you spot yellowing,
     and follow up with a cooling interval between sweeps. This approach preserves the fine texture alabaster brings to sculptures
     and heritage pieces, restoring clarity without harm.
-  micro: 'BEFORE:
-
-    ### Alabaster Glow-Up
-
-
-    AFTER:
-
-    Dull and grimy surfaces plague alabaster before laser cleaning, hiding its natural translucence unlike tougher stones
-    like granite that resist buildup more easily, but once treated, it emerges bright and smooth—though handle with care since
-    overdoing it risks subtle etching that softer materials suffer compared to marble''s resilience.'
+  micro: 'BEFORE: Alabaster, a sedimentary stone, often exhibits surfaces that are covered with layers of dirt and environmental
+    contaminants, which adhere tenaciously over time. These accumulations, they manifest as darkened or uneven coatings, influenced
+    from prolonged exposure to atmospheric elements. The material persists in its soft and porous nature, leading to.'
 contamination:
   valid:
   - environmental_dust
@@ -231,32 +260,11 @@ eeat:
   isBasedOn:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  title: Alabaster's Soft Porous Nature
-  _metadata:
-    icon: wrench
-    order: 70
-    variant: default
-    generatedAt: '2026-01-22T03:01:22.000Z'
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  title: Alabaster Laser Dynamics
-  _metadata:
-    icon: zap
-    order: 71
-    variant: default
-    generatedAt: '2026-01-22T03:02:07.000Z'
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: alabaster-laser-cleaning

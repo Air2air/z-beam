@@ -565,10 +565,10 @@ export function SettingsLayout({
         slug={slug}
         category={category}
         subcategory={subcategory}
-        machineSettings={(settings as any).machine_settings || settings.machineSettings || {}}
-        materialProperties={materialProps || {}}
-        faq={(settings as any).faq || []}
-        regulatoryStandards={(settings as any).regulatoryStandards || []}
+        machineSettings={(settings as any).machine_settings ?? settings.machineSettings}
+        materialProperties={materialProps}
+        faq={(settings as any).faq}
+        regulatoryStandards={(settings as any).regulatoryStandards}
         showFullDataset={true}
       />
 
@@ -587,7 +587,7 @@ export function SettingsLayout({
         group?.items?.length > 0 && group?.title?.trim() && (
           <CardGrid
             key={`materials-group-${index}`}
-            items={(group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem)}
+            items={group.items.filter((item: any) => item && item.frequency).sort(sortByFrequency).map(materialLinkageToGridItem)}
             title={group.title}
             description={group.description}
           />
@@ -599,7 +599,7 @@ export function SettingsLayout({
         group?.items?.length > 0 && group?.title?.trim() && (
           <CardGrid
             key={`contaminants-group-${index}`}
-            items={(group.items || []).filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem)}
+            items={group.items.filter((item: any) => item && item.frequency).sort(sortByFrequency).map(contaminantLinkageToGridItem)}
             title={group.title}
             description={group.description}
             variant="relationship"
@@ -610,8 +610,8 @@ export function SettingsLayout({
       {/* Descriptive data sections (operational.common_challenges or technical.common_challenges) */}
       {(relationships?.operational?.common_challenges?.items?.length > 0 || relationships?.technical?.common_challenges?.items?.length > 0) && (
         <DescriptiveDataPanel
-          items={(relationships?.operational?.common_challenges?.items || relationships?.technical?.common_challenges?.items)}
-          sectionMetadata={(relationships?.operational?.common_challenges?._section || relationships?.technical?.common_challenges?._section)}
+          items={relationships?.operational?.common_challenges?.items ?? relationships?.technical?.common_challenges?.items}
+          sectionMetadata={relationships?.operational?.common_challenges?._section ?? relationships?.technical?.common_challenges?._section}
         />
       )}
 

@@ -4,7 +4,7 @@ displayName: Mortar Settings
 category: masonry
 subcategory: general
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:53.335918+00:00'
+dateModified: '2026-02-27T20:39:26.054236+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/masonry/general/mortar-settings
@@ -42,33 +42,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -77,14 +86,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -95,12 +105,6 @@ relationships:
         contaminationChallenges:
         - id: paint-coating-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -145,8 +149,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-infrared wavelength optimized for mortar absorption and minimal substrate damage
     unit: nm
     value: 1064
     min: 355
@@ -156,51 +166,32 @@ machineSettings:
     max: 500
     value: 500
     unit: μm
-    description: 'Beam diameter range for industrial cleaning; smaller for fine details, larger for broad mortar surfaces.
-      500 μm recommended for efficient coverage on rough mortar textures. Source: Equipment specifications from Coherent and
-      Trumpf laser cleaning heads.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant ablation on mortar; below damage threshold (~3-5 J/cm² for cement, avoiding
-      melting point ~1200°C). Recommended 1.5 J/cm² for safe removal of oxides/paint with minimal porosity alteration. Source:
-      Ablation threshold studies in J. Cult. Herit. (2017) on laser cleaning of masonry.'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 30
-    description: 'Nanosecond regime preferred for cost-effective cleaning of mortar; 30 ns minimizes heat-affected zone (HAZ)
-      due to mortar''s low thermal diffusivity (~0.5 mm²/s). Picosecond (ps) or femtosecond optional for precision but less
-      common industrially. Source: Laser physics research in Opt. Lasers Eng. (2015) on ablation of cementitious substrates.'
   scanSpeed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective speeds balance removal efficiency and heat input; slower for heavy contamination (e.g., paint),
-      faster for light dirt. Recommended 1500 mm/s for uniform mortar surface prep. Source: Industry standards from Laser
-      Cleaning Europe guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy layers on mortar to prevent over-ablation. Recommended
-      2 passes for complete removal while preserving substrate integrity. Source: Industry case studies, e.g., restoration
-      projects in Constr. Build. Mater. (2020).'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage on irregular mortar surfaces; 50% optimal for even energy distribution without
-      gaps or hotspots. Higher for heavy contamination. Source: Process optimization in Laser Technol. (2016) for surface
-      preparation applications.'
   laserPower:
-    description: Optimal average power for mortar cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -210,16 +201,11 @@ machineSettings:
     max: 2000
     value: 500
     unit: W
-    description: 'Typical range for industrial 1064 nm laser cleaning of mortar-like cementitious materials to remove contaminants
-      without excessive heat buildup; starting at 500 W for controlled ablation. Max avoids substrate cracking (thermal conductivity
-      ~1 W/mK). Source: IPG Photonics YLR series specs and studies on stone cleaning (e.g., J. Laser Appl. 2018).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed 1064 nm systems on mortar to achieve pulse overlap without excessive heat accumulation;
-      higher rates speed up cleaning but risk thermal damage on porous mortar. 50 kHz balances speed and safety. Source: Academic
-      literature, e.g., Appl. Surf. Sci. (2019) on stone heritage cleaning trade-offs.'
 componentSummary: These settings deliver moderate 500 W power with 10 ns pulses at 1064 nm to gently ablate contaminants from
   mortar's porous, brittle structure without causing thermal cracking or surface degradation.
+slug: mortar-settings

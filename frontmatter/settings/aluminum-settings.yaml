@@ -4,7 +4,7 @@ displayName: Aluminum Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:48.107526+00:00'
+dateModified: '2026-02-27T20:39:18.677202+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/aluminum-settings
@@ -40,45 +40,55 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: aluminum-laser-cleaning
         effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -91,16 +101,11 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
     machineSettings:
       _section:
         sectionTitle: Machine Settings
         sectionDescription: Optimal laser parameters and equipment specifications for aluminum surface cleaning applications
+        sectionMetadata: relationships.operational.machineSettings
         icon: settings
         order: 6
         variant: technical
@@ -147,8 +152,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for optimal Aluminum absorption and minimal substrate damage
     unit: nm
     value: 1064
     min: 355
@@ -158,51 +169,32 @@ machineSettings:
     max: 500
     value: 300
     unit: μm
-    description: 'Beam diameter range for uniform coverage; smaller for fine details, larger for broad areas. 300 μm recommended
-      for aluminum to achieve even fluence distribution without hotspots. Source: Equipment specifications from Coherent and
-      Trumpf laser cleaners, with optimization in Surface and Coatings Technology (2019).'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal; aluminum damage threshold ~4-6 J/cm² at 1064 nm ns pulses. Recommended
-      1.5 J/cm² ensures safe cleaning below ablation threshold of substrate. Source: Ablation threshold studies in Physical
-      Review B (2017) and Optics Express (2022) for IR laser on aluminum.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective industrial cleaning; picosecond (ps) or femtosecond reduces
-      HAZ but increases cost. 50 ns recommended for aluminum to ablate contaminants with minimal thermal diffusion. Source:
-      Laser physics research in Applied Surface Science (2019) comparing pulse regimes for metals.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for light to heavy contamination on aluminum; slower for heavy (e.g., oxide layers), faster
-      for light oils. Recommended 1500 mm/s optimizes removal while minimizing heat buildup due to aluminum''s conductivity.
-      Source: Industry standards from Laserax equipment manuals and Journal of Cleaner Production (2020) case studies.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy; aluminum''s reflectivity often requires 2 passes
-      for complete removal without damage. Source: Industry practice in case studies from Journal of Laser Applications (2020)
-      on industrial aluminum cleaning.'
   overlapRatio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform coverage and prevents gaps in cleaning; 70% recommended for aluminum to account for beam
-      divergence and material reflectivity. Source: Process optimization studies in International Journal of Advanced Manufacturing
-      Technology (2018).'
   laserPower:
-    description: Optimal average power for Aluminum oxide layer removal
     unit: W
     value: 100
     min: 1.0
@@ -212,18 +204,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial cleaning of aluminum to remove contaminants without melting; starting at 100W
-      balances efficiency and safety. Max limited by aluminum''s high reflectivity and thermal conductivity to avoid substrate
-      damage. Source: IPG Photonics YLR series specs and study in Optics and Lasers in Engineering (2018) on metal cleaning
-      thresholds.'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed fiber lasers at 1064 nm; higher rates speed up cleaning but risk heat accumulation on
-      reflective aluminum. 50 kHz balances speed and safety. Source: Academic literature in Lasers in Manufacturing and Materials
-      Processing (2021) on frequency effects for aluminum surface preparation.'
 componentSummary: The 1064 nm wavelength and 10 ns pulse width at 100 W power suit Aluminum's high reflectivity and low melting
   point, enabling efficient contaminant ablation while minimizing heat buildup and surface damage.
 componentSummaries:
@@ -307,3 +292,4 @@ componentSummaries:
       By tracing these relationships, you can quickly identify safe adjustment ranges—such as keeping power below 50W to avoid
       oxide reformation—ensuring efficient contaminant removal without subsurface melting. Hover over nodes to simulate changes
       and optimize your laser cleaning setup in real-time.
+slug: aluminum-settings

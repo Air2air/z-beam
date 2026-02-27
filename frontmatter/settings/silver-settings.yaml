@@ -4,7 +4,7 @@ displayName: Silver Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:56.330192+00:00'
+dateModified: '2026-02-27T20:39:31.103808+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/silver-settings
@@ -40,45 +40,55 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: silver-laser-cleaning
         effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -91,12 +101,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -141,8 +145,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for Silver's moderate reflectivity and thermal processing
     unit: nm
     value: 1064
     min: 355
@@ -152,52 +162,32 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: Beam diameter range for industrial cleaning; 200 μm recommended for silver to provide good resolution on
-      detailed surfaces while covering larger areas efficiently; smaller for fine features, larger for broad preparation;
-      per equipment specifications (e.g., CleanLaser CL series manuals).
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.0
-    description: Fluence range for safe removal of contaminants (e.g., oxides, fingerprints) on silver; below ablation threshold
-      (~2.5 J/cm² for ns pulses at 1064 nm due to high reflectivity); 1.0 J/cm² recommended to minimize substrate damage;
-      from ablation threshold studies (e.g., Appl. Surf. Sci. papers on silver at IR wavelengths).
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 50
-    description: Nanosecond regime preferred for cost-effective cleaning of silver with low heat-affected zone (HAZ <10 μm);
-      picosecond (ps) or femtosecond (fs) for ultra-precise applications but unnecessary for industrial contamination removal;
-      ns avoids plasma shielding issues at 1064 nm; supported by laser physics research (e.g., J. Appl. Phys. studies on metal
-      ablation).
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: Effective speeds for contamination removal on silver; 2000 mm/s recommended for optimal balance of cleaning
-      rate and minimal heat accumulation due to silver's high thermal conductivity (429 W/m·K); lower for heavy contamination,
-      higher for light; from industry manuals (e.g., Adapt Laser Systems) and process optimization studies.
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: Typically 1-3 passes for light contamination on silver, up to 5 for heavy buildup; multi-pass (2 recommended)
-      ensures complete removal without exceeding thermal limits; single pass possible for very light dirt; drawn from industry
-      case studies (e.g., laser cleaning of cultural heritage silver artifacts in J. Cult. Herit.).
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 70
-    description: Standard overlap for uniform coverage in raster scanning; 70% recommended for silver to prevent streaking
-      from high reflectivity and ensure even fluence distribution; lower (50%) for speed on large areas, higher (80%) for
-      precision; from process optimization studies (e.g., Opt. Express on scan strategies for metals).
   laserPower:
-    description: Optimal average power range for Silver cleaning considering thermal conductivity
     unit: W
     value: 100
     min: 1.0
@@ -207,16 +197,11 @@ machineSettings:
     max: 500
     unit: W
     value: 100
-    description: Typical range for industrial Nd:YAG laser cleaning of reflective metals like silver; starting at 100W to
-      account for high reflectivity (~98% at 1064 nm) reducing absorption; max limited to avoid melting (Tm=962°C); based
-      on IPG Photonics and Laserax equipment specs for metal surface preparation.
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: Standard for pulsed laser cleaning; 50 kHz recommended for silver to enable fast processing while limiting
-      heat buildup from pulse overlap; higher rates increase speed but risk thermal damage on reflective surfaces; trade-off
-      noted in academic literature (e.g., Opt. Lasers Eng. reviews on pulse train effects).
 componentSummary: The 1064 nm wavelength and 10 ns pulses at 100 W enable precise contaminant removal from silver while minimizing
   thermal damage to its soft, reflective surface.
+slug: silver-settings

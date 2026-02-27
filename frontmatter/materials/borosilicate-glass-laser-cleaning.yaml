@@ -4,7 +4,7 @@ displayName: Borosilicate Glass Laser Cleaning
 category: glass
 subcategory: soda-lime
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:34.043050+00:00'
+dateModified: '2026-02-27T20:38:02.281814+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/glass/soda-lime/borosilicate-glass-laser-cleaning
@@ -24,7 +24,21 @@ pageDescription: Borosilicate glass represents a durable material known for its 
   energy absorption that vaporizes impurities, so integrity of the glass maintains throughout. Operator considerations focus
   most on adjustment of settings to prevent thermal stress, and careful monitoring ensures consistent results.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalResistivity:
@@ -89,13 +103,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:52:18.575542'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -180,13 +195,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-does-laser-cleaning-restore-borosilicate
@@ -257,7 +273,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -430,24 +460,40 @@ relationships:
           On porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -470,12 +516,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -552,166 +592,11 @@ eeat:
   isBasedOn:
     name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
     url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
-authorId: 1
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalResistivity:
-    value: 10000000000000.0
-    unit: ohm-m
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 0.75
-    unit: MPa m^{1/2}
-    confidence: 95
-    source: ai_research
-  density:
-    value: 2.23
-    unit: g/cm³
-    confidence: 100
-    source: ai_research
-  oxidationResistance:
-    value: 723.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 63.0
-    unit: GPa
-    confidence: 98
-    source: ai_research
-  hardness:
-    value: 5.4
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 1000.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 50.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 70.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.95
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 14.5
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser-induced damage threshold of borosilicate glasses at 1064 nm
-    citation: 'Gallais, L. et al., Applied Optics, Vol. 47, No. 13, pp. C15-C22 (2008), DOI: 10.1364/AO.47.000C15'
-    context: Commercial borosilicate glass (Schott Duran, ~81% SiO2, 13% B2O3), 20°C, 1064 nm wavelength, 8 ns FWHM pulse
-      duration, single-pulse (1-on-1) damage testing
-    confidence: 95
-    researchedDate: '2025-11-24T11:52:18.575542'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.05
-    unit: dimensionless
-    min: 0.01
-    max: 0.1
-    source: ai_research
-  absorptionCoefficient:
-    value: 1000
-    unit: m⁻¹
-    min: 100
-    max: 10000
-    source: ai_research
-  laserDamageThreshold:
-    value: 15
-    unit: J/cm²
-    min: 10
-    max: 20
-    source: ai_research
-  thermalShockResistance:
-    value: 1.5
-    unit: MW/m
-    min: 1
-    max: 2
-    source: ai_research
-  reflectivity:
-    value: 0.08
-    unit: dimensionless
-    min: 0.05
-    max: 0.1
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1400
-    unit: K
-    min: 1300
-    max: 1500
-    source: ai_research
-  vaporPressure:
-    value: 0.01
-    unit: Pa
-    min: 0.001
-    max: 0.1
-    source: ai_research
-  thermalDestruction:
-    value: 1093.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.04
-    unit: '1'
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 3.3e-06
-    unit: K^{-1}
-    confidence: 98
-    source: ai_research
-  thermalConductivity:
-    value: 1.14
-    unit: W/m·K
-    confidence: 98
-    source: ai_research
-  specificHeat:
-    value: 830.0
-    unit: J/(kg·K)
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 8.3
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 6.2e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 3.8
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: borosilicate-glass-laser-cleaning

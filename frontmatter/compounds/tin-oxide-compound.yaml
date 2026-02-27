@@ -4,7 +4,7 @@ displayName: Tin Oxide Compound
 category: particulate
 subcategory: metal-oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:43.015928+00:00'
+dateModified: '2026-02-27T20:39:14.332260+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/tin-oxide-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: bronze-patina-contamination
@@ -80,13 +87,14 @@ relationships:
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Tin Plating Residue
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: aluminum-bronze-laser-cleaning
@@ -95,14 +103,15 @@ relationships:
       - id: serpentine-laser-cleaning
       - id: tin-laser-cleaning
       - id: travertine-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Respiratory tract irritation and potential for stannosis (benign pneumoconiosis) with chronic exposure
@@ -121,12 +130,6 @@ relationships:
         severity: low
         onset: short-term
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -181,32 +184,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-protective-measures-should-i-take
-    title: What protective measures should I take to avoid inhaling tin oxide (SnO₂) particulates during laser cleaning of
-      metal surfaces?
-    content: Prioritize using a NIOSH-approved half-face or full-face respirator with P100 filters, ensuring a proper fit
-      test before starting work, as laser cleaning can aerosolize fine SnO₂ dust rapidly. Implement local exhaust ventilation
-      or work in a fume hood to capture particulates at the source, and perform operations in a well-ventilated area to keep
-      exposure below the OSHA PEL of 0.5 mg/m³ (as Sn). After each session, clean up any settled dust with HEPA-vacuuming
-      rather than sweeping to prevent re-suspension.
-    metadata:
-      topic: protective measures should i take
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: nuisance_dust
 chemicalFormula: SnO₂
 casNumber: 18282-10-5
@@ -310,4 +287,30 @@ sourcesInLaserCleaning:
 - tin_coating_ablation
 - bronze_patina_removal
 - solder_residue
-title: Tin Oxide
+faq:
+  presentation: collapsible
+  items:
+  - id: what-protective-measures-should-i-take
+    title: What protective measures should I take to avoid inhaling tin oxide (SnO₂) particulates during laser cleaning of
+      metal surfaces?
+    content: Prioritize using a NIOSH-approved half-face or full-face respirator with P100 filters, ensuring a proper fit
+      test before starting work, as laser cleaning can aerosolize fine SnO₂ dust rapidly. Implement local exhaust ventilation
+      or work in a fume hood to capture particulates at the source, and perform operations in a well-ventilated area to keep
+      exposure below the OSHA PEL of 0.5 mg/m³ (as Sn). After each session, clean up any settled dust with HEPA-vacuuming
+      rather than sweeping to prevent re-suspension.
+    metadata:
+      topic: protective measures should i take
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: tin-oxide-compound

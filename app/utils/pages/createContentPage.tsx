@@ -8,6 +8,8 @@
  */
 
 import { getContentConfig } from '@/app/config/contentTypes';
+import { createMetadata } from '@/app/utils/metadata';
+import { SITE_CONFIG } from '@/app/config';
 import { redirect } from 'next/navigation';
 import { 
   generateCategoryStaticParams,
@@ -25,6 +27,7 @@ import {
 import { CategoryPage } from '@/app/components/ContentPages/CategoryPage';
 import { SubcategoryPage } from '@/app/components/ContentPages/SubcategoryPage';
 import { ItemPage } from '@/app/components/ContentPages/ItemPage';
+import { CollectionPage } from '@/app/components/CollectionPage/CollectionPage';
 
 import { CATEGORY_METADATA } from '@/app/metadata';
 import { CONTAMINANT_CATEGORY_METADATA } from '@/app/contaminantMetadata';
@@ -196,5 +199,47 @@ export function createItemPage(contentType: ContentType) {
         />
       );
     }
+  };
+}
+
+// ============================================================================
+// Index Pages (domain root: /materials, /contaminants, etc.)
+// ============================================================================
+
+export function createIndexPage(contentType: ContentType) {
+  const config = getContentConfig(contentType);
+
+  if (!config.indexMeta || !config.getAllIndexCategories) {
+    throw new Error(`createIndexPage: '${contentType}' has no indexMeta or getAllIndexCategories defined`);
+  }
+
+  const meta = config.indexMeta;
+
+  return {
+    generateMetadata: async () => {
+      return createMetadata({
+        title: meta.title,
+        description: meta.description,
+        keywords: meta.keywords,
+        slug: config.rootPath,
+        canonical: `${SITE_CONFIG.url}/${config.rootPath}`,
+      });
+    },
+
+    default: async function ContentIndexPage() {
+      const categories = await config.getAllIndexCategories!();
+      return (
+        <CollectionPage
+          config={{
+            type: config.type,
+            plural: config.plural,
+            rootPath: config.rootPath,
+            pageTitle: meta.pageTitle,
+            pageDescription: meta.pageDescription,
+            categories,
+          }}
+        />
+      );
+    },
   };
 }

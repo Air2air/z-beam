@@ -4,7 +4,7 @@ displayName: Carbon Particulates Compound
 category: particulate
 subcategory: carbon-based
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:41.371792+00:00'
+dateModified: '2026-02-27T20:39:13.548980+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/carbon-based/carbon-particulates-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -376,14 +383,15 @@ relationships:
         frequency: unknown
         severity: low
         typicalContext: Laser removal of Wax Coating Buildup
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Respiratory tract irritation and coughing
@@ -402,12 +410,6 @@ relationships:
         severity: moderate
         onset: immediate
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -462,32 +464,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-how
-    title: As a laser cleaning operator, how do I protect myself from inhaling fine carbon particulates generated during the
-      process?
-    content: Use a properly fitted NIOSH-approved respirator with a P100 filter to capture fine carbon particulates, which
-      are smaller than typical dust and can remain airborne longer, increasing inhalation risks. Always work in a well-ventilated
-      area or under local exhaust ventilation to minimize exposure, and perform regular air monitoring to ensure levels stay
-      below the OSHA permissible exposure limit of 3.5 mg/m³ for respirable carbon black dust. Change filters frequently based
-      on usage and conduct post-shift hygiene practices like showering to remove any settled particulates from skin and clothing.
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: high
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: nuisance_dust
 chemicalFormula: C
 casNumber: 7440-44-0
@@ -561,4 +537,30 @@ sourcesInLaserCleaning:
 - organic_contamination_ablation
 - polymer_decomposition
 - carbon-based_coating_removal
-title: Carbon Particulates
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how do I protect myself from inhaling fine carbon particulates generated during the
+      process?
+    content: Use a properly fitted NIOSH-approved respirator with a P100 filter to capture fine carbon particulates, which
+      are smaller than typical dust and can remain airborne longer, increasing inhalation risks. Always work in a well-ventilated
+      area or under local exhaust ventilation to minimize exposure, and perform regular air monitoring to ensure levels stay
+      below the OSHA permissible exposure limit of 3.5 mg/m³ for respirable carbon black dust. Change filters frequently based
+      on usage and conduct post-shift hygiene practices like showering to remove any settled particulates from skin and clothing.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: high
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: carbon-particulates-compound

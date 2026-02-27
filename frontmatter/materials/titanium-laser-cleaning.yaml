@@ -4,7 +4,7 @@ displayName: Titanium Laser Cleaning
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:45.646357+00:00'
+dateModified: '2026-02-27T20:38:16.394558+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/metal/specialty/titanium-laser-cleaning
@@ -22,7 +22,21 @@ pageDescription: Titanium excels in laser cleaning applications because of its e
   structure, which set it apart from denser metals prone to rapid degradation. After treatment, surface already demonstrates
   uniformity and withstands thermal shock effectively, thus enabling precise contaminant removal without underlying damage.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     youngsModulus:
       value: 110.0
@@ -135,13 +149,14 @@ properties:
       confidence: 95
       source: ai_research
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     absorptivity:
       value: 0.4
@@ -226,13 +241,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: titanium-in-industrial-use-and-laser
@@ -275,7 +291,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -638,21 +668,29 @@ relationships:
           unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
         frequency: moderate
         severity: moderate
+  operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
+    industryApplications:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Industry Applications
+        sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
+        icon: building
         order: 1
         variant: default
-  operational:
-    industryApplications:
       presentation: card
       items:
       - id: aerospace-laser-cleaning
         name: Aerospace
         category: applications
         subcategory: aerospace
-        url: /applications/aerospace-laser-cleaning
+        url: /applications/aerospace-laser-cleaning-applications
         description: Laser cleaning in aerospace applications removes contaminants from aircraft surfaces and components,
           and it achieves this without harsh chemicals or abrasive methods. Technicians typically dial in the process for
           delicate parts like turbine blades or fuselage panels, ensuring a clean finish that maintains structural integrity.
@@ -664,27 +702,35 @@ relationships:
         name: Defense
         category: applications
         subcategory: defense
-        url: /applications/defense-laser-cleaning
+        url: /applications/defense-laser-cleaning-applications
         description: Overview of laser cleaning in defense applications and common surface challenges.
       - id: medical-devices-laser-cleaning
         name: Medical Devices
         category: applications
         subcategory: medical-devices
-        url: /applications/medical-devices-laser-cleaning
+        url: /applications/medical-devices-laser-cleaning-applications
         description: Laser cleaning applies to medical devices and removes contaminants from surfaces such as surgical instruments
           or implants. Process ensures sterility, thus maintains device integrity without harsh chemicals. After treatment,
           surface exhibits smoothness and cleanliness, so operational outcomes include enhanced reliability in clinical settings.
           Deployment constraints involve controlled environments to avoid cross-contamination, and safety implications demand
           compliance with medical regulations. This method, it supports precise decontamination, already demonstrates effectiveness
           in preserving material properties.
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Industry Applications
-        sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -702,12 +748,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -791,214 +831,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-authorId: 3
-materialCharacteristics:
-  label: Material Characteristics
-  youngsModulus:
-    value: 110.0
-    unit: GPa
-    confidence: 100
-    source: ai_research
-  oxidationResistance:
-    value: 698.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  density:
-    value: 4510.0
-    unit: kg/m³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 160.0
-    unit: HV
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.001
-    unit: mm/year
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 414.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 345.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 345.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 55.0
-    unit: MPa√m
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.0
-    unit: fraction
-    confidence: 100
-    source: ai_research
-  electricalResistivity:
-    value: 4.2e-07
-    unit: Ω·m
-    confidence: 100
-    source: ai_research
-  absorptivity:
-    value: 0.36
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  boilingPoint:
-    value: 3560.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  absorptionCoefficient:
-    value: 43700000.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  electricalConductivity:
-    value: 2380000.0
-    unit: S/m
-    confidence: 100
-    source: ai_research
-  meltingPoint:
-    value: 1941.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  vaporPressure:
-    value: 1.24e-62
-    unit: Pa
-    confidence: 90
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1941.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  reflectivity:
-    value: 0.462
-    unit: '%'
-    confidence: 95
-    source: ai_research
-  thermalShockResistance:
-    value: 252.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  surfaceRoughness:
-    value: 1.6
-    unit: μm
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.1
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  absorptivity:
-    value: 0.4
-    unit: dimensionless
-    min: 0.3
-    max: 0.5
-    source: ai_research
-  absorptionCoefficient:
-    value: 40000000
-    unit: m⁻¹
-    min: 20000000
-    max: 60000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 5
-    unit: J/cm²
-    min: 2
-    max: 10
-    source: ai_research
-  thermalShockResistance:
-    value: 2.5
-    unit: MW/m
-    min: 1.5
-    max: 3.5
-    source: ai_research
-  reflectivity:
-    value: 0.6
-    unit: dimensionless
-    min: 0.5
-    max: 0.7
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1941
-    unit: K
-    min: 1900
-    max: 2000
-    source: ai_research
-  vaporPressure:
-    value: 10
-    unit: Pa
-    min: 0.1
-    max: 100
-    source: ai_research
-  percentage: 40.0
-  thermalDestruction:
-    value: 1941.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  specificHeat:
-    value: 522.0
-    unit: J/kg·K
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.66
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 21.9
-    unit: W/m·K
-    confidence: 100
-    source: ai_research
-  thermalExpansion:
-    value: 8.6e-06
-    unit: K^{-1}
-    confidence: 100
-    source: ai_research
-  laserAbsorption:
-    value: 0.42
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 9.29e-06
-    unit: m²/s
-    confidence: 99
-    source: ai_research
-  ablationThreshold:
-    value: 1.5
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: titanium-laser-cleaning

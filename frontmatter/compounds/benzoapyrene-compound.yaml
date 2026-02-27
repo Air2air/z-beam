@@ -4,7 +4,7 @@ displayName: Benzo[a]pyrene Compound
 category: carcinogen
 subcategory: polycyclic_aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:40.853164+00:00'
+dateModified: '2026-02-27T20:39:13.330993+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/polycyclic-aromatic-hydrocarbon/benzoapyrene-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: benzoapyrene-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: 496°C (925°F) - decomposes
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: Not applicable
         appearance: Pale yellow to tan crystalline solid, needles or plates
         odor: Faint aromatic odor
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -77,14 +86,15 @@ relationships:
           rtecsNumber: DJ3675000
           ecNumber: 200-028-5
           pubchemCid: '2336'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -103,13 +113,14 @@ relationships:
         effect: Gastrointestinal irritation and systemic carcinogenic effects
         severity: severe
         onset: long-term
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: NIOSH-approved air-purifying respirator with P100 particulate filters for <0.2 mg/m³. SCBA for unknown
@@ -120,13 +131,14 @@ relationships:
         minimumLevel: Level C for known concentrations <0.2 mg/m³, Level B for unknown or >0.2 mg/m³
         specialNotes: PAH is carcinogenic - minimize skin contact. Decontaminate immediately after exposure. Disposable protective
           clothing recommended for heavy contamination.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Combustible solid. May burn in sustained fire. Produces carcinogenic PAH compounds in smoke.
@@ -139,13 +151,14 @@ relationships:
           in food chain. Report spills >1 lb.
         specialHazards: KNOWN HUMAN CARCINOGEN (IARC Group 1). Causes lung cancer, skin cancer, leukemia. Mutagenic and teratogenic.
           PAH exposure linked to multiple cancers. Contaminated soil requires remediation.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: null
@@ -177,13 +190,14 @@ relationships:
             specimen: Urine
             timing: End of week
             beiValue: Establish baseline, monitor trends
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store at room temperature, avoid excessive heat >30°C
@@ -197,13 +211,14 @@ relationships:
         quantityLimits: Minimize quantities. Follow institutional carcinogen storage protocols.
         specialRequirements: Post "CANCER HAZARD" signs. Restrict access to authorized trained personnel only. Secondary containment
           required. Inspect containers regularly for integrity.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN3077 (Environmentally hazardous substance, solid, n.o.s.)
@@ -223,14 +238,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 1 pound (0.454 kg)
         rcraCode: U022
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Very toxic to aquatic organisms. LC50 (fathead minnow, 96h): 3.7 µg/L. Bioaccumulates in fish -
@@ -245,14 +261,15 @@ relationships:
         reportableReleases:
           water: 1 lb to navigable waters - reportable to NRC
           air: 1 lb/day - reportable to EPA (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -276,14 +293,15 @@ relationships:
           technique: GC with FID
           detectionLimit: 0.1 µg/sample
         odorThreshold: Not applicable - no characteristic warning odor at hazardous levels
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: carbon-buildup-contamination
@@ -341,13 +359,14 @@ relationships:
         frequency: occasional
         severity: moderate
         typicalContext: Formed during high-temperature pyrolysis
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable under normal conditions. Light-sensitive. Decomposes at high temperatures.
@@ -367,12 +386,6 @@ relationships:
         - Light
         - Oxidizers
         reactivityHazard: May react with strong oxidizers. Generally stable but avoid high heat.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -429,31 +442,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-personal-protective-equipment-ppe-is
-    title: What personal protective equipment (PPE) is essential for operators during laser cleaning to minimize Benzo[a]pyrene
-      exposure?
-    content: Always wear a full-body Tyvek suit or equivalent impermeable coverall, nitrile gloves, and safety goggles to
-      prevent skin contact with airborne particles or residues from laser-ablated surfaces. Use a powered air-purifying respirator
-      (PAPR) with organic vapor cartridges rated for PAHs to protect against inhalation, as Benzo[a]pyrene can persist in
-      the air after cleaning. Change PPE after each session and decontaminate equipment to avoid secondary exposure.
-    metadata:
-      topic: personal protective equipment (ppe) essential
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Ikmanda Roswati
-        title: Ph.D.
-        expertise:
-        - Ultrafast Laser Physics and Material Interactions
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: carcinogenic
 chemicalFormula: C₂₀H₁₂
 casNumber: 50-32-8
@@ -554,4 +542,29 @@ sourcesInLaserCleaning:
 - incomplete_combustion_organic_materials
 - high_temperature_pyrolysis
 - carbon_rich_materials
-title: Benzo[a]pyrene
+faq:
+  presentation: collapsible
+  items:
+  - id: what-personal-protective-equipment-ppe-is
+    title: What personal protective equipment (PPE) is essential for operators during laser cleaning to minimize Benzo[a]pyrene
+      exposure?
+    content: Always wear a full-body Tyvek suit or equivalent impermeable coverall, nitrile gloves, and safety goggles to
+      prevent skin contact with airborne particles or residues from laser-ablated surfaces. Use a powered air-purifying respirator
+      (PAPR) with organic vapor cartridges rated for PAHs to protect against inhalation, as Benzo[a]pyrene can persist in
+      the air after cleaning. Change PPE after each session and decontaminate equipment to avoid secondary exposure.
+    metadata:
+      topic: personal protective equipment (ppe) essential
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: benzoapyrene-compound

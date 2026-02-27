@@ -4,7 +4,7 @@ displayName: Thermoplastic Elastomer Settings
 category: composite
 subcategory: structural
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:57.236368+00:00'
+dateModified: '2026-02-27T20:39:32.588779+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/structural/thermoplastic-elastomer-settings
@@ -40,34 +40,43 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -78,12 +87,6 @@ relationships:
         contaminationChallenges:
         - id: resin-contaminant-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -127,8 +130,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for Thermoplastic Elastomer absorption and minimal substrate damage
     unit: nm
     value: 1064
     min: 355
@@ -138,56 +147,37 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 200 μm recommended for uniform cleaning on TPE surfaces; smaller for fine details, larger for broad areas;
-      suits industrial prep without focusing heat; per equipment specs from Coherent Inc. and process guidelines in Industrial
-      Laser Solutions (2022).
   energyDensity:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: Fluence below TPE damage threshold (~1-2 J/cm² at 1064 nm due to moderate absorption); 0.5 J/cm² safe for
-      contaminant removal; conservative for reflectivity (~0.9) and low melting point; from ablation threshold studies in
-      Applied Surface Science (2017).
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: Nanosecond regime preferred over ps/fs for cost-effective cleaning of polymers; 20 ns minimizes HAZ by rapid
-      energy delivery before conduction; TPE's low thermal conductivity (~0.2 W/mK) benefits short pulses; cited in Laser
-      & Photonics Reviews (2019) on polymer ablation.
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: Higher speeds minimize heat accumulation on heat-sensitive TPE; 2000 mm/s optimal for effective contaminant
-      removal without substrate melting; ranges adjust for light (faster) vs heavy contamination; from industry manuals like
-      those from Laserax and Applied Optics journal (2020).
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: Multi-pass for heavy contamination on TPE to stay under thermal limits; 2 passes typical for complete removal
-      without damage; single pass for light soils; based on case studies in Journal of Cleaner Production (2020) for polymer
-      surface prep.
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 60% ensures uniform coverage on irregular TPE surfaces; higher for heavy contamination to avoid gaps; standard
-      range optimizes energy distribution; from process optimization in Lasers in Manufacturing and Materials Processing (2019).
   dwellTime:
-    description: Optimal dwell time per spot for effective cleaning
     unit: μs
     value: 100
     min: 0.2
     max: 200
   laserPower:
-    description: Optimal average power for Thermoplastic Elastomer surface cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -197,15 +187,11 @@ machineSettings:
     max: 100
     value: 30
     unit: W
-    description: Typical range for polymer cleaning to avoid thermal damage; starting at 30W for light contamination on TPE,
-      max below melting threshold (~150-200°C); based on IPG Photonics specs for YLR series lasers and studies in Optics and
-      Lasers in Engineering (2018).
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: Balanced rate for TPE to enable fast cleaning while limiting heat buildup; higher rates increase speed but
-      risk accumulation on low-melting TPE; trade-off noted in academic literature like Journal of Applied Physics (2021).
 componentSummary: These settings use moderate 30 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from heat-sensitive
   Thermoplastic Elastomer, minimizing thermal damage and preserving material integrity.
+slug: thermoplastic-elastomer-settings

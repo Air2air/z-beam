@@ -9,7 +9,8 @@ import { describe, it, expect } from '@jest/globals';
 import { 
   createCategoryPage, 
   createSubcategoryPage, 
-  createItemPage 
+  createItemPage,
+  createIndexPage
 } from '@/app/utils/pages/createContentPage';
 import type { Metadata } from 'next';
 
@@ -247,6 +248,51 @@ describe('createContentPage Factory', () => {
   // Integration Tests
   // ============================================================================
   
+  describe('createIndexPage', () => {
+    const indexTypes = ['materials', 'contaminants', 'compounds', 'applications'] as const;
+
+    indexTypes.forEach(contentType => {
+      describe(`${contentType} index page`, () => {
+        it('should return factory object with generateMetadata and default', () => {
+          const factory = createIndexPage(contentType);
+
+          expect(factory).toHaveProperty('generateMetadata');
+          expect(factory).toHaveProperty('default');
+          expect(typeof factory.generateMetadata).toBe('function');
+          expect(typeof factory.default).toBe('function');
+        });
+
+        it('should generate valid SEO metadata', async () => {
+          const factory = createIndexPage(contentType);
+          const metadata = await factory.generateMetadata() as Metadata;
+
+          expect(metadata).toBeDefined();
+          expect(metadata.title).toBeDefined();
+          expect(metadata.description).toBeDefined();
+        });
+
+        it('should render index page component', async () => {
+          const factory = createIndexPage(contentType);
+          const Page = factory.default;
+          const result = await Page();
+
+          expect(result).toBeDefined();
+          expect(result.type).toBeDefined();
+        });
+      });
+    });
+
+    it('should throw for a domain with no indexMeta defined (settings)', () => {
+      expect(() => createIndexPage('settings')).toThrow(
+        "createIndexPage: 'settings' has no indexMeta or getAllIndexCategories defined"
+      );
+    });
+  });
+
+  // ============================================================================
+  // Integration Tests
+  // ============================================================================
+  
   describe('Factory Integration', () => {
     it('should create consistent factories across all content types', () => {
       const contentTypes = ['materials', 'contaminants', 'compounds', 'settings'] as const;
@@ -259,6 +305,16 @@ describe('createContentPage Factory', () => {
         expect(categoryFactory).toHaveProperty('generateStaticParams');
         expect(subcategoryFactory).toHaveProperty('generateStaticParams');
         expect(itemFactory).toHaveProperty('generateStaticParams');
+      });
+    });
+
+    it('should create index page factories for index-capable domains', () => {
+      const indexTypes = ['materials', 'contaminants', 'compounds', 'applications'] as const;
+
+      indexTypes.forEach(type => {
+        const factory = createIndexPage(type);
+        expect(factory).toHaveProperty('generateMetadata');
+        expect(factory).toHaveProperty('default');
       });
     });
 

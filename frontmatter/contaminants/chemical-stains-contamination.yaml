@@ -4,7 +4,7 @@ displayName: Chemical Stains / Acid Etching Contaminants
 category: chemical-residue
 subcategory: industrial
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:14:40.552344+00:00'
+dateModified: '2026-02-27T20:38:59.172550+00:00'
 contentType: contaminant
 schemaVersion: 5.0.0
 fullPath: /contaminants/chemical-residue/industrial/chemical-stains-contamination
@@ -27,10 +27,6 @@ pageDescription: Chemical stains contamination, it differs from oxide layers on 
   of its organic composition, and thus requires multi-pass scanning for complete elimination. Challenges emerge from uneven
   vaporization, leading to potential re-deposition on adjacent areas. Analysis confirms that material-specific behaviors dictate
   success, with ceramics yielding smoother results compared to flexible substrates.
-micro:
-  after: Post-cleaning reveals restored surface with chemical stains / acid etching successfully removed through precise laser
-    ablation.
-  before: Surface shows contamination from chemical stains / acid etching affecting material appearance and properties.
 images:
   hero:
     url: /images/contaminant/chemical-stains-contamination-hero.jpg
@@ -45,92 +41,108 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety regulations and compliance standards for this contaminant
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety regulations and compliance standards for this contaminant
-        icon: shield-check
-        order: 20
-        variant: default
     fireExplosionRisk:
-      presentation: descriptive
-      items: []
       _section:
         sectionTitle: Fire & Explosion Risk
         sectionDescription: Fire and explosion hazards during laser cleaning
+        sectionMetadata: relationships.safety.fireExplosionRisk
         icon: flame
         order: 21
         variant: warning
-    fumesGenerated:
       presentation: descriptive
       items: []
+    fumesGenerated:
       _section:
         sectionTitle: Fumes Generated
         sectionDescription: Hazardous fumes produced during laser removal
+        sectionMetadata: relationships.safety.fumesGenerated
         icon: cloud
         order: 22
         variant: warning
-    particulateGeneration:
       presentation: descriptive
       items: []
+    particulateGeneration:
       _section:
         sectionTitle: Particulate Generation
         sectionDescription: Airborne particles and dust created during cleaning
+        sectionMetadata: relationships.safety.particulateGeneration
         icon: wind
         order: 23
         variant: warning
-    ppeRequirements:
-      presentation: card
+      presentation: descriptive
       items: []
+    ppeRequirements:
       _section:
         sectionTitle: PPE Requirements
         sectionDescription: Required personal protective equipment
+        sectionMetadata: relationships.safety.ppeRequirements
         icon: shield
         order: 24
         variant: default
-    toxicGasRisk:
-      presentation: descriptive
+      presentation: card
       items: []
+    toxicGasRisk:
       _section:
         sectionTitle: Toxic Gas Risk
         sectionDescription: Toxic gases that may be released during removal
+        sectionMetadata: relationships.safety.toxicGasRisk
         icon: alert-triangle
         order: 25
         variant: danger
-    ventilationRequirements:
       presentation: descriptive
       items: []
+    ventilationRequirements:
       _section:
         sectionTitle: Ventilation Requirements
         sectionDescription: Required ventilation and air filtration systems
+        sectionMetadata: relationships.safety.ventilationRequirements
         icon: wind
         order: 26
         variant: default
-    visibilityHazard:
       presentation: descriptive
       items: []
+    visibilityHazard:
       _section:
         sectionTitle: Visibility Hazard
         sectionDescription: Smoke and debris affecting operator visibility
+        sectionMetadata: relationships.safety.visibilityHazard
         icon: eye-off
         order: 27
         variant: warning
-    substrateCompatibilityWarnings:
-      presentation: card
+      presentation: descriptive
       items: []
+    substrateCompatibilityWarnings:
       _section:
         sectionTitle: Substrate Compatibility
         sectionDescription: Material compatibility warnings and precautions
+        sectionMetadata: relationships.safety.substrateCompatibilityWarnings
         icon: alert-circle
         order: 28
         variant: warning
+      presentation: card
+      items: []
   interactions:
     producesCompounds:
+      _section:
+        sectionTitle: Produced Compounds
+        sectionDescription: Hazardous compounds produced during laser cleaning
+        sectionMetadata: relationships.interactions.producesCompounds
+        icon: flask-conical
+        order: 10
+        variant: warning
       presentation: card
       items:
       - id: carbon-dioxide-compound
@@ -166,13 +178,14 @@ relationships:
           protective equipment requirements.
         phase: unknown
         hazardLevel: unknown
-      _section:
-        sectionTitle: Produced Compounds
-        sectionDescription: Hazardous compounds produced during laser cleaning
-        icon: flask-conical
-        order: 10
-        variant: warning
     affectsMaterials:
+      _section:
+        sectionTitle: Affected Materials
+        sectionDescription: Materials where this contaminant commonly appears
+        sectionMetadata: relationships.interactions.affectsMaterials
+        icon: layers
+        order: 11
+        variant: default
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -474,14 +487,15 @@ relationships:
           abrasion and exposure to tough conditions, but its exceptional hardness and corrosion resista...
         frequency: moderate
         difficulty: moderate
-      _section:
-        sectionTitle: Affected Materials
-        sectionDescription: Materials where this contaminant commonly appears
-        icon: layers
-        order: 11
-        variant: default
   visual:
     appearanceOnCategories:
+      _section:
+        sectionTitle: Visual Appearance
+        sectionDescription: How this contaminant appears on different material categories
+        sectionMetadata: relationships.visual.appearanceOnCategories
+        icon: eye
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - appearanceOnCategories:
@@ -543,14 +557,15 @@ relationships:
         - often lighter or darker than base material
         texture: smooth to etched, may pit surface
         thickness: surface staining to deep etching
-      _section:
-        sectionTitle: Visual Appearance
-        sectionDescription: How this contaminant appears on different material categories
-        icon: eye
-        order: 50
-        variant: default
   operational:
     laserProperties:
+      _section:
+        sectionTitle: Laser Removal Properties
+        sectionDescription: Laser parameters and removal characteristics
+        sectionMetadata: relationships.operational.laserProperties
+        icon: zap
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - laserParameters:
@@ -687,12 +702,6 @@ relationships:
           thermalConductivity: 0.15
           thermalDiffusivity: 0.12
           vaporizationTemperature: 280
-      _section:
-        sectionTitle: Laser Removal Properties
-        sectionDescription: Laser parameters and removal characteristics
-        icon: zap
-        order: 40
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -752,8 +761,6 @@ validMaterials:
 - titanium-laser-cleaning
 - zinc-laser-cleaning
 - zirconia-laser-cleaning
-title: Chemical Stains / Acid Etching Laser Cleaning
-realismNotes: Chemical stains vary dramatically by material and chemical type. Research specific material-chemical interactions.
 formationConditions:
 - chemical_exposure
 - spills
@@ -762,3 +769,4 @@ materialSpecificNotes:
   ceramics: Acid etching of surface
   metals: Acid etching creates pits and discoloration
   plastics: Solvent damage, crazing, discoloration
+slug: chemical-stains-contamination

@@ -4,7 +4,7 @@ displayName: Titanium Settings
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:57.370163+00:00'
+dateModified: '2026-02-27T20:39:32.845610+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/specialty/titanium-settings
@@ -39,45 +39,55 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: titanium-laser-cleaning
         effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -90,12 +100,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 3
   name: Ikmanda Roswati
@@ -141,8 +145,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Optimal wavelength for Titanium absorption characteristics
     unit: nm
     value: 1064
     min: 355
@@ -152,11 +162,7 @@ machineSettings:
     max: 500
     unit: μm
     value: 300
-    description: 'Smaller for fine detail (e.g., aerospace Ti parts), larger for broad areas. 300 μm recommended for uniform
-      cleaning on Ti without excessive overlap heating. Source: Equipment specs from Laserax and Coherent, aligned with ISO
-      11553 standards.'
   fluenceThreshold:
-    description: Minimum fluence required for effective Titanium surface cleaning
     unit: J/cm²
     value: 2.5
     min: 0.3
@@ -166,43 +172,27 @@ machineSettings:
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for Ti cleaning to ablate contaminants while minimizing heat-affected zone (HAZ
-      <10 μm); picosecond/femtosecond for ultra-precision but costlier. 20 ns recommended for low thermal damage. Source:
-      Laser physics reviews in Appl. Surf. Sci. (2019) on metal ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective for contamination removal; slower for heavy contaminants (e.g., oxides), faster for light. Recommended
-      1500 mm/s optimizes fluence without overheating Ti''s conductive surface. Source: Industry manuals (CleanLaser) and
-      process optimization in Opt. Lasers Eng. (2020).'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination; multi-pass for heavy (e.g., rust/scale on Ti). Recommended 2 passes
-      ensures complete removal with low risk to Ti''s integrity. Source: Case studies in industrial laser cleaning (e.g.,
-      Proc. SPIE 2022) for metal surfaces.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage; 60% recommended for Ti to avoid gaps or over-etching while managing heat from
-      conductivity. Higher for heavy contamination. Source: Process optimization in J. Clean. Prod. (2019) and manufacturer
-      guidelines (e.g., Adapt Laser).'
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.0
-    description: 'Fluence below Ti''s ablation threshold (~3 J/cm² at 1064 nm) for safe contaminant removal without substrate
-      etching. Recommended 1.0 J/cm² for industrial prep. Ti''s reflectivity (~40% at 1064 nm) requires higher input. Source:
-      Ablation studies in Surf. Coat. Technol. (2021).'
   laserPower:
-    description: Optimal average power for Titanium oxide layer removal
     unit: W
     value: 100
     min: 1.0
@@ -212,16 +202,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning systems; starting at 100W balances efficiency and safety
-      for Ti''s high reflectivity and melting point (~1668°C). Max avoids substrate damage via thermal accumulation. Source:
-      IPG Photonics specs and studies on Ti alloy cleaning (e.g., J. Laser Appl. 2018).'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning; higher rates speed up process but risk heat buildup on reflective Ti. 50 kHz
-      balances speed and minimal accumulation. Trade-off: >80 kHz may require cooling. Source: Academic lit. e.g., J. Phys.
-      D: Appl. Phys. (2017) on pulse overlap effects.'
 componentSummary: For Titanium, these settings leverage 1064 nm wavelength for strong absorption, 100 W power for efficient
   oxide and contaminant ablation, and 10 ns pulses to limit thermal damage and maintain surface integrity.
+slug: titanium-settings

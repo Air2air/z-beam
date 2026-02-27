@@ -4,7 +4,7 @@ displayName: Cadmium Oxide Compound
 category: particulate
 subcategory: metal-oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:43.350439+00:00'
+dateModified: '2026-02-27T20:39:14.489573+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/cadmium-oxide-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: cadmium-plating-contamination
@@ -69,13 +76,14 @@ relationships:
         frequency: unknown
         severity: high
         typicalContext: Laser removal of Cadmium Plating Removal
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: cast-iron-laser-cleaning
@@ -84,14 +92,15 @@ relationships:
       - id: steel-laser-cleaning
       - id: tool-steel-laser-cleaning
       - id: stainless-steel-316-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Acute respiratory irritation and pulmonary edema
@@ -110,12 +119,6 @@ relationships:
         severity: high
         onset: immediate
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -170,33 +173,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-how
-    title: As a laser cleaning operator, how do I protect myself from inhaling cadmium oxide particulates generated during
-      the process?
-    content: Use a NIOSH-approved full-facepiece respirator with P100 filters or higher to capture fine CdO particulates,
-      and ensure the work area has local exhaust ventilation (LEV) systems capturing emissions at the source to keep airborne
-      levels below OSHA's 5 µg/m³ 8-hour PEL. Wear impermeable gloves, coveralls, and eye protection to avoid dermal exposure,
-      and implement a decontamination protocol like showering and laundering PPE after each shift. Conduct air monitoring
-      with real-time particulate samplers to verify controls are effective and schedule annual medical exams for early detection
-      of cadmium-related health effects.
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: toxic
 chemicalFormula: CdO
 casNumber: 1306-19-0
@@ -292,4 +268,31 @@ sourcesInLaserCleaning:
 - cadmium_plating_removal
 - yellow_pigment_removal
 - aerospace_coating_ablation
-title: Cadmium Oxide
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how do I protect myself from inhaling cadmium oxide particulates generated during
+      the process?
+    content: Use a NIOSH-approved full-facepiece respirator with P100 filters or higher to capture fine CdO particulates,
+      and ensure the work area has local exhaust ventilation (LEV) systems capturing emissions at the source to keep airborne
+      levels below OSHA's 5 µg/m³ 8-hour PEL. Wear impermeable gloves, coveralls, and eye protection to avoid dermal exposure,
+      and implement a decontamination protocol like showering and laundering PPE after each shift. Conduct air monitoring
+      with real-time particulate samplers to verify controls are effective and schedule annual medical exams for early detection
+      of cadmium-related health effects.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: cadmium-oxide-compound

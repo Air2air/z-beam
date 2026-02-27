@@ -4,7 +4,7 @@ displayName: Gallium Settings
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:51.290250+00:00'
+dateModified: '2026-02-27T20:39:22.940575+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/specialty/gallium-settings
@@ -37,33 +37,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -72,14 +81,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -92,12 +102,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -141,8 +145,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for moderate Gallium absorption with good penetration
     unit: nm
     value: 1064
     min: 355
@@ -152,12 +162,7 @@ machineSettings:
     max: 500
     unit: μm
     value: 500
-    description: 'Typical beam diameter for industrial cleaning; smaller (200-400 μm) for fine details on Ga surfaces (e.g.,
-      electronics prep), larger (500-800 μm) for broad areas. 500 μm recommended for uniform coverage without excessive heat
-      concentration. Source: Equipment specs from Trumpf and CleanLaser systems for 1064 nm cleaners; adapted for delicate
-      substrates like Ga.'
   fluenceThreshold:
-    description: Minimum fluence required for effective Gallium oxide removal
     unit: J/cm²
     value: 1.2
     min: 0.3
@@ -166,48 +171,28 @@ machineSettings:
     min: 0.1
     max: 1000
     unit: ns
-    description: 'Nanosecond regime preferred for Gallium to ablate contaminants via photothermal effects while minimizing
-      heat-affected zone (HAZ); picosecond/femtosecond for ultra-precise but less common industrially due to cost. Value 20
-      ns balances efficiency and low thermal damage. Source: Laser physics research on metal ablation (e.g., Appl. Phys. A,
-      2015 on ns/ps cleaning); conservative for Ga''s low mp.'
     value: 500
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Range for effective contaminant ablation on metals; slower for heavy contamination (200-500 mm/s), faster
-      for light (1000-3000 mm/s) to minimize heat input on thermally conductive Gallium (40.6 W/m·K). Recommended 1000 mm/s
-      for optimal balance. Source: Industry standards from IPG Photonics and Coherent manuals for 1064 nm systems; adapted
-      for low-melt metals.'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-4) for heavy oxides on Gallium; 2 passes recommended
-      for complete removal while limiting total energy input to prevent melting. Source: Industry case studies on metal surface
-      prep (e.g., Proc. SPIE, 2019); practical for Ga based on low thermal tolerance, uncertainty in specific Ga trials.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
-    description: 'Standard range for uniform scan coverage in laser cleaning; 50% recommended for Gallium to ensure even contaminant
-      removal without gaps or excessive overlap heating (high conductivity aids dissipation but low mp limits intensity).
-      Source: Process optimization studies (e.g., J. Clean. Prod., 2021 on scan strategies); typical 30-80% adjusted conservatively
-      for metals.'
     value: 50.0
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 0.5
-    description: 'Fluence range for safe contaminant removal on reflective metals; Ga damage threshold estimated ~1-2 J/cm²
-      (based on ablation studies of similar metals, adjusted for high reflectivity and low mp); 0.5 J/cm² recommended to stay
-      below threshold. Source: Ablation threshold studies (e.g., Opt. Lasers Eng., 2020 on Al/Ga alloys); uncertainty noted
-      for pure Ga, conservative values used.'
   laserPower:
-    description: Optimal average power for Gallium oxide removal without excessive melting
     unit: W
     value: 45
     min: 1.0
@@ -217,18 +202,11 @@ machineSettings:
     max: 150
     unit: W
     value: 50
-    description: 'Typical range for pulsed Nd:YAG laser cleaning of soft metals; conservative max to avoid melting Gallium
-      (mp 29.8°C, high reflectivity ~70-90% at 1064 nm reduces absorption); starting at 50 W for light contamination removal
-      without substrate damage. Source: Generalized from metal cleaning studies (e.g., Laser Cleaning of Metals, SPIE proceedings);
-      specific Ga data limited, conservative estimate.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 20
-    description: 'Typical for industrial cleaning to achieve high throughput; 20 kHz recommended for Gallium to avoid heat
-      accumulation (high freq increases overlap heating, risky for low mp); lower rates for heavy contamination. Trade-off:
-      higher rate speeds process but risks melting. Source: Academic literature (e.g., J. Laser Appl., 2018 on pulse train
-      effects in metals); generalized for Ga.'
 componentSummary: The 50 W power and 15 ns pulses at 1064 nm wavelength enable gentle, low-heat ablation for cleaning gallium,
   preventing melting of its low-melting-point surface while targeting contaminants effectively.
+slug: gallium-settings

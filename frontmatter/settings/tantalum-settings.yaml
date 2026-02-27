@@ -4,7 +4,7 @@ displayName: Tantalum Settings
 category: metal
 subcategory: alloy
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:56.886358+00:00'
+dateModified: '2026-02-27T20:39:32.018019+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/alloy/tantalum-settings
@@ -40,33 +40,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -75,14 +84,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -95,12 +105,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 1
   name: Yi-Chun Lin
@@ -144,8 +148,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for Tantalum's high reflectivity and thermal conductivity
     unit: nm
     value: 1064
     min: 355
@@ -155,11 +165,7 @@ machineSettings:
     max: 500
     value: 300
     unit: μm
-    description: '100-500 μm for fine detail cleaning on Tantalum components (e.g., implants); up to 1000 μm for large-area
-      surface prep; 300 μm recommended for uniform energy distribution on reflective surfaces. Source: Equipment specifications
-      from Trumpf and SPI Lasers for 1064 nm systems.'
   fluenceThreshold:
-    description: Minimum fluence required for Tantalum oxide ablation threshold
     unit: J/cm²
     value: 2.5
     min: 0.3
@@ -169,45 +175,27 @@ machineSettings:
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime (5-200 ns) preferred for industrial cleaning of Tantalum to ablate contaminants with minimal
-      thermal diffusion due to its high thermal conductivity (57 W/m·K); picosecond (ps) or femtosecond (fs) for ultra-low
-      HAZ but costlier; 20 ns recommended. Source: Laser physics research in ''Pulsed Laser Cleaning of Refractory Metals''
-      (Applied Surface Science, 2015).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Slower speeds (100-500 mm/s) for heavy contamination to ensure complete removal; faster (up to 5000 mm/s)
-      for light cleaning; 1000 mm/s recommended for optimal balance on Tantalum''s conductive surface to minimize heat buildup.
-      Source: Industry standards from Laser Institute of America guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination; 2-5 passes for heavy oxide or residue removal on Tantalum; 2 passes
-      recommended to achieve complete cleaning without excessive heat exposure. Source: Industry case studies in aerospace
-      applications (e.g., NASA reports on refractory metal processing, 2020).'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '30-80% overlap ensures uniform coverage; 50% recommended for Tantalum to prevent gaps in cleaning while
-      minimizing over-processing and heat accumulation on conductive surfaces. Source: Process optimization studies in ''Optimization
-      of Laser Cleaning Parameters'' (Surface and Coatings Technology, 2016).'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence range for cleaning contaminants from Tantalum; damage threshold ~5-10 J/cm² due to high reflectivity
-      and melting point; 2 J/cm² recommended for safe ablation below threshold. Conservative for uncertain specific data on
-      Tantalum. Source: Ablation threshold studies in ''Laser Interaction with Refractory Metals'' (Journal of Applied Physics,
-      2017).'
   laserPower:
-    description: Optimal average power for Tantalum oxide removal without substrate damage
     unit: W
     value: 100
     min: 1.0
@@ -217,18 +205,11 @@ machineSettings:
     max: 1000
     value: 200
     unit: W
-    description: 'Typical range for industrial cleaning of reflective refractory metals like Tantalum to overcome high reflectivity
-      (~95% at 1064 nm) while avoiding melting (mp 3017°C); starting at 200W balances efficiency and safety. Source: Manufacturer
-      specs from IPG Photonics and Coherent for Nd:YAG systems; academic review in ''Laser Cleaning of Metals'' (Optics &
-      Lasers in Engineering, 2018).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: '10-200 kHz typical for cleaning; lower rates reduce heat accumulation on heat-resistant Tantalum, higher
-      speeds up process but risk overheating; 50 kHz recommended for efficient contamination removal without substrate damage.
-      Trade-off: high freq increases throughput but requires cooling. Source: Academic literature in Journal of Laser Applications
-      (2019).'
 componentSummary: These settings employ moderate 200 W power with 10 ns pulses at 1064 nm to ablate contaminants from Tantalum's
   refractory surface efficiently, minimizing heat buildup and oxidation risk on its high-melting-point substrate.
+slug: tantalum-settings

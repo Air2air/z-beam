@@ -131,7 +131,7 @@ export async function MaterialsLayout(props: MaterialsLayoutProps) {
           category,
           subcategory,
           maxItems: 6,
-          sectionTitle: relationships?.discovery?.relatedMaterials?._section?.sectionTitle || 'Related Materials',
+          sectionTitle: relationships?.discovery?.relatedMaterials?._section?.sectionTitle,
           sectionDescription: relationships?.discovery?.relatedMaterials?._section?.sectionDescription,
         }
       }

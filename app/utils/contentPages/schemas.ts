@@ -85,7 +85,7 @@ export function generateCategorySchemas(
         name: pageTitle,
         description: pageDescription,
         breadcrumbId: `${categoryUrl}#breadcrumb`,
-        authorId: `${SITE_CONFIG.url}#author-technical-team`
+        author: `${SITE_CONFIG.url}#author-technical-team`
       }),
       
       // 5. Dataset schema (if applicable)
@@ -172,7 +172,7 @@ export function generateSubcategorySchemas(
         name: pageTitle,
         description: pageDescription,
         breadcrumbId: `${pageUrl}#breadcrumb`,
-        authorId: `${SITE_CONFIG.url}#author-technical-team`
+        author: `${SITE_CONFIG.url}#author-technical-team`
       }),
       
       // 5. Dataset schema

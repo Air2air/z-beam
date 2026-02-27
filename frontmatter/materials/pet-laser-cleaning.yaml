@@ -4,7 +4,7 @@ displayName: PET Laser Cleaning
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:47.911311+00:00'
+dateModified: '2026-02-27T20:38:19.779092+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/plastic/thermoplastic/pet-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: PET material serves as thermoplastic plastic in applications su
   uniformity, roughness reduces accordingly. This approach demonstrates suitability for medical packaging, where precision
   maintains quality.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 1.38
@@ -76,13 +90,14 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -180,13 +195,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T15:42:36.520118'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: why-does-pet-sometimes-warp-during
@@ -256,7 +272,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -299,14 +329,22 @@ relationships:
           irregular patterns, like patchy layers from uneven paint application and environmental wea...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -319,22 +357,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 1
   name: Yi-Chun Lin
@@ -398,165 +438,19 @@ contamination:
     industrialOil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
-authorId: 1
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 1.38
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 0
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 0.8
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 55
-    unit: MPa
-    confidence: 90
-  youngsModulus:
-    value: 2.8
-    unit: GPa
-    confidence: 95
-  hardness:
-    value: 0.09
-    unit: GPa
-    confidence: 87
-  flexuralStrength:
-    value: 85
-    unit: MPa
-    confidence: 85
-  oxidationResistance:
-    value: 2.2
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.9
-    unit: mm/year
-    confidence: 85
-  compressiveStrength:
-    value: 55
-    unit: MPa
-    confidence: 90
-  fractureToughness:
-    value: 4
-    unit: MPa m^{1/2}
-    confidence: 85
-  electricalResistivity:
-    value: 1e+16
-    unit: Ω·m
-    confidence: 90
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 523
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.48
-    unit: dimensionless
-    confidence: 90
-  laserDamageThreshold:
-    value: 0.62
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser Ablation of Polymers: PET Damage Threshold'
-    citation: 'Srinivasan, R. and Braren, B., Applied Physics A: Materials Science & Processing, 1989, Vol. 48, pp. 419-423,
-      DOI: 10.1007/BF00615347'
-    context: Amorphous PET film (100 μm thickness, commercial grade), 25°C, 248 nm KrF excimer laser, 20 ns pulse duration,
-      measured via optical microscopy of ablation craters
-    confidence: 95
-    researchedDate: '2025-11-24T12:58:12.983238'
-    needsValidation: true
-  ablationThreshold:
-    value: 0.025
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Physics Letters
-    citation: 'R. Srinivasan and B. Braren, Appl. Phys. Lett. 53, 1203 (1988), DOI: 10.1063/1.100065'
-    context: Commercial polyethylene terephthalate (PET) film (biaxially oriented, ~25 μm thickness), room temperature (25°C),
-      193 nm ArF excimer laser, 14 ns pulse duration, vacuum environment
-    confidence: 100
-    researchedDate: '2025-11-24T13:02:26.087545'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 1.2e-07
-    unit: m²/s
-    source: scientific_literature
-    sourceType: textbook
-    sourceName: Physical Properties of Polymers Handbook
-    citation: J. E. Mark (ed.), Physical Properties of Polymers Handbook, 2nd Edition, Springer, 2007, ISBN 978-0-387-69002-5
-    context: Amorphous PET (polyethylene terephthalate), 25°C, density 1330-1380 kg/m³, measured via laser flash method on
-      thin films
-    confidence: 95
-    researchedDate: '2025-11-24T13:27:52.253885'
-    needsValidation: true
-  thermalExpansion:
-    value: 7.0e-05
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: Polymer Handbook
-    citation: Brandrup, J., Immergut, E.H., Grulke, E.A. (Eds.), Polymer Handbook, 4th Edition, John Wiley & Sons, Inc., 2004,
-      ISBN 978-0-471-69469-5
-    context: Amorphous PET (polyethylene terephthalate), 25°C, measured via dilatometry on melt-quenched samples
-    confidence: 95
-    researchedDate: '2025-11-24T13:28:01.138793'
-    needsValidation: true
-  specificHeat:
-    value: 1170.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, LLC., Polyethylene Terephthalate (PET, Thermoplastic Polyester) Generic, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4bbdf6a2b7a04a0a9f8b0e1a2b3c4d5e,
-      accessed 2023
-    context: Amorphous PET (100% crystallinity not specified, commercial grade), 25°C, measured via differential scanning
-      calorimetry (DSC)
-    confidence: 95
-    researchedDate: '2025-11-24T13:28:07.803748'
-    needsValidation: true
-  thermalConductivity:
-    value: 0.24
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, LLC., Polyethylene Terephthalate (PET, PETP), unfilled, http://www.matweb.com/search/DataSheet.aspx?MatGUID=de6a4a5b8b4e4a0a8b4e4a0a8b4e4a0a,
-      accessed 2024
-    context: Unfilled amorphous PET, 25°C, room temperature and standard atmospheric pressure
-    confidence: 98
-    researchedDate: '2025-11-24T13:28:26.074352'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.042
-    unit: fraction
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Journal of Applied Physics
-    citation: 'A. M. Morales et al., ''Optical properties of polyethylene terephthalate (PET) in the near-infrared for laser
-      processing'', Journal of Applied Physics, 2018, DOI: 10.1063/1.5028334'
-    context: Commercial PET (density 1.38 g/cm³, 99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C, vacuum
-      conditions
-    confidence: 95
-    researchedDate: '2025-11-24T15:42:36.520118'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: pet-laser-cleaning

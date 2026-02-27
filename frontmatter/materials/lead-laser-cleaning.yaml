@@ -4,7 +4,7 @@ displayName: Lead Laser Cleaning
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:38.351039+00:00'
+dateModified: '2026-02-27T20:38:07.192307+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/metal/non-ferrous/lead-laser-cleaning
@@ -26,7 +26,21 @@ pageDescription: Lead, a soft and dense non-ferrous metal, finds extensive use i
   considerations, they matter most in terms of ensuring adequate protection against toxicity, with ventilation that appears
   crucial to mitigate health risks.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalConductivity:
@@ -135,13 +149,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptionCoefficient:
@@ -212,13 +227,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: is-laser-cleaning-safe-for-leadbased
@@ -409,7 +425,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -682,24 +712,40 @@ relationships:
           unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -722,12 +768,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -820,196 +860,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalConductivity:
-    value: 4840000.0
-    unit: S/m
-    confidence: 100
-    source: ai_research
-  electricalResistivity:
-    value: 2.2e-07
-    unit: Ω·m
-    confidence: 100
-    source: ai_research
-  fractureToughness: 15.0
-  surfaceRoughness:
-    value: 1.6
-    unit: μm
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 16.0
-    unit: GPa
-    confidence: 100
-    source: ai_research
-  oxidationResistance:
-    value: 0.65
-    unit: ' (dimensionless scale, 0-1 where 1 is highest resistance)'
-    confidence: 95
-    source: ai_research
-  density:
-    value: 11.34
-    unit: g/cm³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 5.0
-    unit: HB
-    confidence: 100
-    source: ai_research
-  corrosionResistance:
-    value: 0.92
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 12.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 12.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 12.0
-    unit: MPa
-    confidence: 100
-    source: ai_research
-  porosity:
-    value: 0.0
-    unit: '%'
-    confidence: 100
-    source: ai_research
-  absorptivity:
-    value: 0.35
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  boilingPoint:
-    value: 2022.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  absorptionCoefficient:
-    value: 66300000.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  meltingPoint:
-    value: 600.61
-    unit: K
-    confidence: 100
-    source: ai_research
-  vaporPressure:
-    value: 1.33e-06
-    unit: Pa
-    confidence: 95
-    source: ai_research
-  thermalDestructionPoint:
-    value: 600.61
-    unit: K
-    confidence: 100
-    source: ai_research
-  reflectivity:
-    value: 0.65
-    unit: dimensionless
-    confidence: 100
-    source: ai_research
-  thermalShockResistance:
-    value: 18.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 1.2
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptionCoefficient:
-    source: ai_research
-    unit: m⁻¹
-    value: 12400000.0
-  absorptivity:
-    source: ai_research
-    unit: dimensionless
-    value: 0.35
-  laserDamageThreshold:
-    source: ai_research
-    unit: J/cm²
-    value: 0.15
-  reflectivity:
-    source: ai_research
-    unit: dimensionless
-    value: 0.65
-  thermalDestructionPoint:
-    source: ai_research
-    unit: K
-    value: 601.0
-  thermalShockResistance:
-    source: ai_research
-    unit: W/m
-    value: 0.0005
-  vaporPressure:
-    source: ai_research
-    unit: Pa
-    value: 2.13e-07
-  thermalDestruction:
-    value: 600.612
-    unit: K
-    confidence: 100
-    source: ai_research
-  specificHeat:
-    value: 128.0
-    unit: J/(kg·K)
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.98
-    unit: '1'
-    confidence: 98
-    source: ai_research
-  thermalConductivity:
-    value: 35.3
-    unit: W/m·K
-    confidence: 100
-    source: ai_research
-  thermalExpansion:
-    value: 28.9
-    unit: 10^{-6} K^{-1}
-    confidence: 99
-    source: ai_research
-  laserAbsorption:
-    value: 75000000.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 2.43e-05
-    unit: m²/s
-    confidence: 98
-    source: ai_research
-  ablationThreshold:
-    value: 0.42
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: lead-laser-cleaning

@@ -256,30 +256,3 @@ export function getOptimalRange(
   const optMax = min + range * 0.65;
   return [optMin, optMax];
 }
-
-/**
- * Get enrichment metadata from article metadata
- * Extracts title and description from enrichments object
- */
-export function getEnrichmentMetadata(
-  metadata: any,
-  enrichmentKey: string,
-  defaultTitle: string,
-  defaultDescription: string
-): { title: string; description: string } {
-  const enrichments = metadata?.enrichments;
-  
-  if (!enrichments || !enrichments[enrichmentKey]) {
-    return {
-      title: defaultTitle,
-      description: defaultDescription,
-    };
-  }
-  
-  const enrichment = enrichments[enrichmentKey];
-  
-  return {
-    title: enrichment.title || defaultTitle,
-    description: enrichment.description || defaultDescription,
-  };
-}

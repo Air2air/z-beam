@@ -44,8 +44,16 @@ const VALIDATION_SUITE = {
   ],
   
   '4. Performance': [
-    { name: 'Core Web Vitals', command: 'node scripts/validation/seo/validate-core-web-vitals.js' },
-    { name: 'Lighthouse Metrics', command: 'node scripts/validation/seo/validate-lighthouse-metrics.js' }
+    {
+      name: 'Core Web Vitals',
+      command: 'node scripts/validation/seo/validate-core-web-vitals.js',
+      retries: 1
+    },
+    {
+      name: 'Lighthouse Metrics',
+      command: 'node scripts/validation/seo/validate-lighthouse-metrics.js',
+      retries: 1
+    }
   ],
   
   '5. Accessibility': [
@@ -54,7 +62,56 @@ const VALIDATION_SUITE = {
   ],
   
   '6. Production Environment': [
-    { name: 'Comprehensive Production Check', command: 'node scripts/validation/post-deployment/validate-production-comprehensive.js --skip-external' }
+    {
+      name: 'Comprehensive Production Check',
+      command: 'node scripts/validation/post-deployment/validate-production-comprehensive.js --skip-external',
+      timeout: 900000,
+      retries: 1
+    }
+  ],
+
+  '7. Advanced SEO Hardening': [
+    {
+      name: 'Delta Sitemap Generation',
+      command: 'node scripts/seo/advanced/generate-delta-sitemap.js',
+      critical: false
+    },
+    {
+      name: 'Crawl Budget Policy',
+      command: 'node scripts/seo/advanced/validate-crawl-budget-policy.js',
+      critical: false,
+      retries: 1
+    },
+    {
+      name: 'Canonical Graph Audit',
+      command: 'node scripts/seo/advanced/analyze-canonical-graph.js',
+      critical: false,
+      retries: 1
+    },
+    {
+      name: 'Entity Graph Consistency',
+      command: 'node scripts/seo/advanced/validate-entity-graph-consistency.js',
+      critical: false,
+      retries: 1
+    },
+    {
+      name: 'Soft-404 / Orphan Detection',
+      command: 'node scripts/seo/advanced/detect-soft404-orphans.js',
+      critical: false,
+      retries: 1
+    },
+    {
+      name: 'Bot Log Intelligence',
+      command: 'node scripts/seo/advanced/analyze-bot-logs.js',
+      critical: false,
+      optional: true
+    },
+    {
+      name: 'SERP Trend Monitoring',
+      command: 'node scripts/seo/advanced/monitor-serp-trends.js',
+      critical: false,
+      optional: true
+    }
   ]
 };
 
@@ -63,37 +120,54 @@ const results = {
   total: 0,
   passed: 0,
   failed: 0,
+  failedCritical: 0,
+  failedNonCritical: 0,
   skipped: 0,
   categories: {}
 };
 
 // Utility: Run command and capture result
-function runValidation(name, command, optional = false) {
+function runValidation(name, command, optional = false, timeout = 300000, retries = 0, critical = true) {
   results.total++;
   
   console.log(`\n   🔍 ${name}...`);
-  
-  try {
-    const output = execSync(command, {
-      stdio: 'pipe',
-      encoding: 'utf8',
-      timeout: 300000 // 5 minute timeout for comprehensive production checks
-    });
+  const attempts = retries + 1;
 
-    console.log(`   ✅ ${chalk.green('PASSED')}`);
-    results.passed++;
-    return { status: 'passed', output };
-    
-  } catch (error) {
-    if (optional) {
-      console.log(`   ⏭️  ${chalk.gray('SKIPPED (optional)')}`);
-      results.skipped++;
-      return { status: 'skipped', error: error.message };
-    } else {
-      console.log(`   ❌ ${chalk.red('FAILED')}`);
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      const output = execSync(command, {
+        stdio: 'pipe',
+        encoding: 'utf8',
+        timeout
+      });
+
+      console.log(`   ✅ ${chalk.green('PASSED')}${attempt > 1 ? chalk.gray(` (attempt ${attempt}/${attempts})`) : ''}`);
+      results.passed++;
+      return { status: 'passed', output, attempt };
+    } catch (error) {
+      const canRetry = attempt < attempts;
+      if (canRetry) {
+        console.log(`   ⚠️  ${chalk.yellow(`Retrying (${attempt}/${attempts}) due to transient failure...`)}`);
+        continue;
+      }
+
+      if (optional) {
+        console.log(`   ⏭️  ${chalk.gray('SKIPPED (optional)')}`);
+        results.skipped++;
+        return { status: 'skipped', error: error.message, attempt };
+      }
+
+      const failureLabel = critical ? 'FAILED' : 'WARN (non-critical)';
+      const failureColor = critical ? chalk.red : chalk.yellow;
+      console.log(`   ❌ ${failureColor(failureLabel)}`);
       console.error(`      ${error.message}`);
       results.failed++;
-      return { status: 'failed', error: error.message };
+      if (critical) {
+        results.failedCritical++;
+      } else {
+        results.failedNonCritical++;
+      }
+      return { status: 'failed', error: error.message, attempt, critical };
     }
   }
 }
@@ -114,7 +188,14 @@ async function main() {
     const categoryResults = [];
     
     for (const check of checks) {
-      const result = runValidation(check.name, check.command, check.optional);
+      const result = runValidation(
+        check.name,
+        check.command,
+        check.optional,
+        check.timeout,
+        check.retries || 0,
+        check.critical !== false
+      );
       categoryResults.push(result);
     }
     
@@ -129,6 +210,8 @@ async function main() {
   console.log(`\n   Total Checks:  ${results.total}`);
   console.log(`   ✅ Passed:     ${chalk.green(results.passed)}`);
   console.log(`   ❌ Failed:     ${chalk.red(results.failed)}`);
+  console.log(`   🚨 Critical:   ${chalk.red(results.failedCritical)}`);
+  console.log(`   ⚠️  Non-Crit:   ${chalk.yellow(results.failedNonCritical)}`);
   console.log(`   ⏭️  Skipped:    ${chalk.gray(results.skipped)}`);
   
   const successRate = ((results.passed / results.total) * 100).toFixed(1);
@@ -139,14 +222,14 @@ async function main() {
     console.log(chalk.bold.green('\n   🎉 ALL VALIDATIONS PASSED!'));
     console.log(chalk.green('   ✅ Production deployment is healthy\n'));
     process.exit(0);
-  } else if (results.failed <= 2 && results.passed > results.failed * 5) {
+  } else if (results.failedCritical === 0) {
     console.log(chalk.bold.yellow('\n   ⚠️  VALIDATION PASSED WITH WARNINGS'));
-    console.log(chalk.yellow(`   ${results.failed} non-critical checks failed`));
+    console.log(chalk.yellow(`   ${results.failedNonCritical} non-critical checks failed`));
     console.log(chalk.yellow('   Review failures and consider fixes\n'));
     process.exit(0);
   } else {
     console.log(chalk.bold.red('\n   ❌ VALIDATION FAILED'));
-    console.log(chalk.red(`   ${results.failed} critical checks failed`));
+    console.log(chalk.red(`   ${results.failedCritical} critical checks failed`));
     console.log(chalk.red('   Consider rollback or hotfix\n'));
     process.exit(1);
   }

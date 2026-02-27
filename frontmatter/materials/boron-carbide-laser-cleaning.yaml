@@ -4,7 +4,7 @@ displayName: Boron Carbide Laser Cleaning
 category: ceramic
 subcategory: carbide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:48.914451+00:00'
+dateModified: '2026-02-27T20:38:21.144330+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/ceramic/carbide/boron-carbide-laser-cleaning
@@ -27,7 +27,21 @@ pageDescription: Boron carbide, this ceramic material in the carbide subcategory
   that adhesion of residues varies dependent from exposure conditions, and the method shows compatibility with pulsed laser
   systems for precise decontamination.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 2.52
@@ -78,13 +92,14 @@ properties:
       unit: Ω·m
       confidence: 85
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -178,13 +193,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T19:46:54.814970'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: what-unique-challenges-arise-when-laser
@@ -266,7 +282,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -449,14 +479,22 @@ relationships:
           soap residues with mineral deposits in humid environments. This layer, which adheres tenaciously...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -469,22 +507,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 2
   name: Alessandro Moretti
@@ -548,161 +588,20 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 2.52
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 0
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 0.4
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 350
-    unit: MPa
-    confidence: 85
-  youngsModulus:
-    value: 450
-    unit: GPa
-    confidence: 90
-  hardness:
-    value: 38
-    unit: GPa
-    confidence: 95
-  flexuralStrength:
-    value: 400
-    unit: MPa
-    confidence: 80
-  oxidationResistance:
-    value: 30
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.75
-    unit: mm/year
-    confidence: 80
-  compressiveStrength:
-    value: 350
-    unit: MPa
-    confidence: 85
-  fractureToughness:
-    value: 28
-    unit: MPa m^{1/2}
-    confidence: 80
-  electricalResistivity:
-    value: 10
-    unit: Ω·m
-    confidence: 85
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 2723
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.18
-    unit: dimensionless
-    confidence: 85
-  laserDamageThreshold:
-    value: 5.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser damage threshold of boron carbide at 1064 nm
-    citation: 'Gallais, L. et al., Applied Optics, 2015, DOI: 10.1364/AO.54.00A147'
-    context: Polycrystalline boron carbide (B4C, 99% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration,
-      measured in air
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:10.569522'
-    needsValidation: true
-  ablationThreshold:
-    value: 2.8
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Surface Science
-    citation: 'A. Batarseh et al., Applied Surface Science, Vol. 257, Issue 12, 2011, pp. 5320-5325, DOI: 10.1016/j.apsusc.2011.01.025'
-    context: High-purity polycrystalline boron carbide (B4C, >99% purity), room temperature (25°C), measured with 1064 nm
-      Nd:YAG laser, 10 ns pulse duration, in air atmosphere
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:16.105007'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 1.18e-05
-    unit: m²/s
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb LLC, Boron Carbide (B4C), Hot Pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=3f3e4b5a7a4a4b0e9b0a4b0e9b0a4b0e,
-      accessed 2023
-    context: Hot-pressed Boron Carbide (B4C, >99% purity), 25°C, polycrystalline structure
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:22.256236'
-    needsValidation: true
-  thermalExpansion:
-    value: 5.6e-06
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb - Online Materials Information Resource, Boron Carbide (B4C), Hot Pressed, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8f5a5b0e4a4b0e9a5b0e4a4b0e9a5b,
-      accessed October 2023
-    context: Polycrystalline hot-pressed boron carbide (B4C, >99% purity), 20-1000°C range, measured by dilatometry
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:27.401300'
-    needsValidation: true
-  specificHeat:
-    value: 1076.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, Boron Carbide (B4C), Saint-Gobain Designation (Hot Pressed), http://www.matweb.com/search/DataSheet.aspx?MatGUID=5d8e4b8b0a4e4b0a8e4e4e4e4e4e4e4e,
-      accessed October 2024
-    context: Hot-pressed boron carbide (B4C, >99% purity), 25°C, measured via differential scanning calorimetry (DSC)
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:39.932422'
-    needsValidation: true
-  thermalConductivity:
-    value: 30.0
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: CRC Press/Taylor & Francis Group, 104th Edition, 2023, ISBN 978-1-138-56263-9
-    context: Polycrystalline boron carbide (B4C, >98% purity), 300 K (27°C), steady-state heat flow method
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:47.699523'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.32
-    unit: dimensionless
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Optical properties of boron carbide for laser applications
-    citation: 'De Shazer, D. J., et al., Journal of Applied Physics, 1983, DOI: 10.1063/1.343284'
-    context: Polycrystalline boron carbide (B4C, 99% purity), room temperature (25°C), normal incidence reflectivity at 1.06
-      μm wavelength (Nd:YAG laser)
-    confidence: 95
-    researchedDate: '2025-11-24T19:46:54.814970'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  - IEC 60825 - Safety of Laser Products
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: boron-carbide-laser-cleaning

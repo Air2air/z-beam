@@ -4,7 +4,7 @@ displayName: Shipbuilding and Marine Laser Cleaning
 category: applications
 subcategory: shipbuilding-marine
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.433297+00:00'
+dateModified: '2026-02-27T20:39:37.863941+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/shipbuilding-marine-laser-cleaning-applications
@@ -15,10 +15,23 @@ breadcrumb:
   href: /applications
 pageTitle: Shipbuilding and Marine Laser Cleaning
 pageDescription: Overview of laser cleaning in shipbuilding and marine applications and common surface challenges.
-metaDescription: Overview of laser cleaning in shipbuilding and marine applications and common surface challenges.
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: aluminum-laser-cleaning
@@ -51,13 +64,22 @@ relationships:
         subcategory: specialty
         url: /materials/metal/specialty/nickel-laser-cleaning
         image: /images/material/nickel-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: salt-residue-contamination
@@ -90,11 +112,6 @@ relationships:
         subcategory: scale
         url: /contaminants/thermal-damage/scale/scale-buildup-contamination
         image: /images/contaminant/scale-buildup-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -133,4 +150,3 @@ keywords:
 - Shipbuilding Marine
 - shipbuilding marine laser cleaning
 slug: shipbuilding-marine-laser-cleaning-applications
-authorId: 2

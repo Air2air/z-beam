@@ -42,7 +42,7 @@ describe('Centralized Types - Micro System', () => {
       title: 'Steel Analysis',
       description: 'Comprehensive steel surface analysis',
       keywords: ['steel', 'laser', 'cleaning'],
-      quality_metrics: {
+      qualityMetrics: {
         contamination_removal: '95%',
         surface_roughness_before: '12μm',
         surface_roughness_after: '2μm'
@@ -62,7 +62,7 @@ describe('Centralized Types - Micro System', () => {
     expect(microData.before_text).toBe('Before analysis text');
     expect(microData.after_text).toBe('After analysis text');
     expect(microData.material).toBe('steel');
-    expect(microData.quality_metrics?.contamination_removal).toBe('95%');
+    expect(microData.qualityMetrics?.contamination_removal).toBe('95%');
     expect(microData.technicalSpecifications?.wavelength).toBe('1064nm');
     expect(microData.metadata?.version).toBe('2.0');
   });
@@ -243,12 +243,12 @@ describe('Centralized Types - Type Safety', () => {
       name: 'Test Author',
       title: 'Senior Researcher',
       expertise: ['Laser Technology', 'Materials Science'],
-      verification_level: 'expert'
+      verificationLevel: 'expert'
     };
 
     expect(author.name).toBe('Test Author');
     expect(author.expertise).toContain('Laser Technology');
-    expect(author.verification_level).toBe('expert');
+    expect(author.verificationLevel).toBe('expert');
   });
 });
 
@@ -274,24 +274,21 @@ describe('Centralized Types - Export Validation', () => {
     const complexMicro: MicroDataStructure = {
       before: 'Complex before text',
       after: 'Complex after text',
-      quality_metrics: {
+      qualityMetrics: {
         contamination_removal: '95%',
         surface_roughness_before: '10μm'
-      },
-      author_object: {
-        name: 'Expert Author',
-        title: 'Research Lead',
-        verification_level: 'expert'
       }
+      // Note: author_object belongs to EnhancedMicroYamlData, not MicroDataStructure
     };
 
-    const complexData: BaseFrontmatter = {
+    const complexData: FrontmatterType = {
       title: 'Complex Test',
       slug: 'complex-test',
-      author_object: {
+      author: {
+        id: 1,
         name: 'Expert Author',
         title: 'Research Lead',
-        verification_level: 'expert'
+        verificationLevel: 'expert'
       }
     };
 
@@ -303,7 +300,7 @@ describe('Centralized Types - Export Validation', () => {
       }
     };
 
-    expect(complexProps.metadata.author_object?.verification_level).toBe('expert');
+    expect(complexProps.metadata.author?.verificationLevel).toBe('expert');
   });
 });
 

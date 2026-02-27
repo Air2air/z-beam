@@ -4,7 +4,7 @@ displayName: Lead Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:52.450722+00:00'
+dateModified: '2026-02-27T20:39:24.781206+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/lead-settings
@@ -39,33 +39,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -74,14 +83,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -94,12 +104,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -144,8 +148,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for Lead absorption and minimal reflectivity
     unit: nm
     value: 1064
     min: 355
@@ -155,11 +165,7 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for uniform coverage; 200 μm recommended for lead cleaning to balance resolution and area
-      efficiency; smaller for fine details (100-200 μm), larger for broad surfaces (300-500 μm). Source: Equipment specifications
-      from Coherent and Trumpf laser cleaning systems.'
   fluenceThreshold:
-    description: Minimum fluence required for effective Lead removal
     unit: J/cm²
     value: 2.5
     min: 0.3
@@ -169,43 +175,27 @@ machineSettings:
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning of lead; 20 ns recommended for minimal heat-affected
-      zone (HAZ) due to lead''s high thermal conductivity; picosecond (ps) or femtosecond for ultra-precise but less common
-      industrially. Source: Laser physics research in Optics & Laser Technology journal on metal ablation.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds balance cleaning efficiency and heat input; recommended 1500 mm/s for optimal removal without
-      excessive heating on reflective lead; lower for heavy contamination (500-1000 mm/s), higher for light (2000-3000 mm/s).
-      Source: Industry standards from SPIE proceedings on laser cleaning processes.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete lead surface
-      preparation to ensure removal without over-processing soft substrate. Source: Industry case studies from Laser Cleaning
-      International reports on metal decontamination.'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or excessive overlap heating; 50% recommended for lead to optimize
-      cleaning uniformity while managing heat on low-melting material. Source: Process optimization studies in Surface and
-      Coatings Technology journal.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.0
     unit: J/cm²
-    description: 'Fluence range for contaminant ablation without damaging lead substrate; damage threshold ~2-3 J/cm² for
-      lead at 1064 nm due to reflectivity; 1.0 J/cm² safe for cleaning. Conservative estimate based on ablation studies; source:
-      Threshold studies in Journal of Applied Physics on IR laser-metal interactions.'
   laserPower:
-    description: Optimal average power range for Lead surface cleaning
     unit: W
     value: 100
     min: 1.0
@@ -215,16 +205,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial 1064 nm Nd:YAG lasers cleaning soft metals like lead to avoid melting (melting
-      point 327°C); starting at 100W for light contamination; max safe below 500W to prevent substrate damage. Source: Manufacturer
-      specs from IPG Photonics and Laserax systems for metal cleaning.'
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for pulsed cleaning to control energy delivery; 30 kHz recommended for lead to achieve fast cleaning
-      while minimizing heat accumulation (high freq risks melting); trade-off: higher rates speed up process but increase
-      thermal load. Source: Academic literature from Applied Surface Science on pulse repetition effects.'
 componentSummary: The 100 W power and 10 ns pulses at 1064 nm wavelength enable precise ablation of contaminants from lead's
   soft, low-melting surface without excessive heat buildup or material damage.
+slug: lead-settings

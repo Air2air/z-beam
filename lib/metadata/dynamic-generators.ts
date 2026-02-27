@@ -131,6 +131,9 @@ export function generateDynamicPageMetadata(options: DynamicPageMetadataOptions)
   const fullUrl = `${SITE_CONFIG.url}${pathname}`;
   const ogImage = image || `${SITE_CONFIG.url}/images/og-default.png`;
   const seoDescription = toSeoDescription(description);
+  const authorName = typeof author?.name === 'string' && author.name.trim().length > 0
+    ? author.name.trim()
+    : undefined;
 
   return {
     title,
@@ -157,14 +160,14 @@ export function generateDynamicPageMetadata(options: DynamicPageMetadataOptions)
       ],
       publishedTime: datePublished,
       modifiedTime: dateModified,
-      authors: author ? [author.name] : undefined
+      authors: authorName ? [authorName] : undefined
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description: seoDescription,
       images: [ogImage],
-      creator: author ? `@${author.name.replace(/\s+/g, '')}` : undefined
+      creator: authorName ? `@${authorName.replace(/\s+/g, '')}` : undefined
     },
     robots: noIndex 
       ? { index: false, follow: true }

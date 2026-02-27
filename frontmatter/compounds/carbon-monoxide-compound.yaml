@@ -4,7 +4,7 @@ displayName: Carbon Monoxide Compound
 category: toxic_gas
 subcategory: asphyxiant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:37.301081+00:00'
+dateModified: '2026-02-27T20:39:11.289925+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic-gas/asphyxiant/carbon-monoxide-compound
@@ -18,8 +18,13 @@ breadcrumb:
 - label: Asphyxiant
   href: /compounds/toxic-gas/asphyxiant
 pageTitle: Carbon Monoxide Compound
-pageDescription: Carbon Monoxide Compound safety information for laser cleaning. Health hazards, exposure limits, and protective
-  equipment requirements.
+pageDescription: Carbon monoxide, a colorless and odorless gas, forms primarily through incomplete combustion of carbon-based
+  fuels in processes like engine operation or heating systems, and it poses serious exposure risks by binding tightly to blood
+  hemoglobin, which blocks oxygen delivery and leads to asphyxiation symptoms. Practitioners typically address these hazards
+  by setting up proper ventilation systems, installing reliable detection alarms, and running through regular safety checks
+  to maintain safe environments, while the key point remains avoiding enclosed spaces where buildup can occur easily. Overall,
+  handling this compound demands careful monitoring and quick response protocols to prevent incidents, ensuring teams line
+  up effective controls that hold up under daily use.
 images:
   hero:
     url: /images/compound/carbon-monoxide-compound-hero.jpg
@@ -34,17 +39,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: carbon-monoxide-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: -191.5°C (-312.7°F)
@@ -57,13 +70,14 @@ relationships:
         explosiveLimits: 'LEL: 12.5%, UEL: 74%'
         appearance: Colorless gas
         odor: Odorless - Cannot be detected by smell (DANGEROUS!)
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -77,14 +91,15 @@ relationships:
           rtecsNumber: FG3500000
           ecNumber: 211-128-3
           pubchemCid: '281'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -107,13 +122,14 @@ relationships:
         effect: Mild irritation
         severity: low
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: NIOSH-approved full-face pressure-demand SCBA or supplied-air respirator with escape bottle for IDLH
@@ -125,13 +141,14 @@ relationships:
           <1200 ppm
         specialNotes: CO is an asphyxiant - displaces oxygen. SCBA required in oxygen-deficient atmospheres (<19.5% O2). Detector
           badges provide no respiratory protection.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Extremely flammable gas. Wide flammability range. Vapors lighter than air but may accumulate in low areas.
@@ -147,13 +164,14 @@ relationships:
           is asphyxiation, not environmental contamination.
         specialHazards: Odorless, colorless - cannot detect without monitors. Binds to hemoglobin 200-250x more strongly than
           oxygen, causing tissue hypoxia. Delayed neurological effects possible.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 50
@@ -181,13 +199,14 @@ relationships:
             specimen: Blood
             timing: End of shift
             beiValue: <3.5% of hemoglobin for non-smokers, <10% post-shift
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store compressed gas cylinders below 52°C (125°F)
@@ -206,13 +225,14 @@ relationships:
         quantityLimits: 'Per 29 CFR 1910.253: Maximum 300 cubic feet indoors, unlimited outdoors with proper segregation'
         specialRequirements: Secure cylinders to prevent falling. Store upright. Cap cylinders when not in use. Post "CARBON
           MONOXIDE - POISON GAS" signs. Implement gas detection systems.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1016
@@ -233,14 +253,15 @@ relationships:
         saraTitleIii: false
         cerclaRq: Not listed (gas, difficult to quantify releases)
         rcraCode: Not listed as hazardous waste
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Low direct toxicity to aquatic life. LC50 (fish): >100 mg/L. Rapidly escapes to atmosphere from
@@ -255,14 +276,15 @@ relationships:
         reportableReleases:
           water: Not reportable (low aquatic persistence)
           air: State-dependent. Many states require reporting large releases (e.g., >100 lbs/hr in some jurisdictions)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -288,14 +310,15 @@ relationships:
           detectionLimit: 2 ppm
         odorThreshold: NO ODOR - Cannot be detected by smell. MUST use electronic monitors. Odorless nature makes CO extremely
           dangerous.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -462,13 +485,14 @@ relationships:
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Quenching Oil Residue
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable under normal conditions.
@@ -491,12 +515,6 @@ relationships:
         - Confined spaces without ventilation
         reactivityHazard: Reacts violently with strong oxidizers. May form explosive mixtures with air (12.5-74%). Reacts
           with heated iron to form toxic iron carbonyl.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -525,7 +543,6 @@ author:
   - https://spie.org/profile/Todd.Dunning
   personaFile: usa_persona.yaml
   formattingFile: usa_formatting.yaml
-  slug: todd-dunning
 card:
   default:
     heading: Carbon Monoxide
@@ -551,31 +568,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-protection-methods-should-laser-cleaning
-    title: What protection methods should laser cleaning operators use to prevent carbon monoxide (CO) exposure?
-    content: Always work in well-ventilated areas or use local exhaust ventilation systems to dilute and remove CO generated
-      from material vaporization during laser cleaning. Wear a respirator with an appropriate cartridge (e.g., NIOSH-approved
-      for organic vapors and acid gases) if ventilation is inadequate, and ensure personal CO monitors or alarms are worn
-      to provide real-time detection. Regularly maintain equipment to minimize incomplete combustion sources, and follow OSHA's
-      permissible exposure limit of 50 ppm over an 8-hour workday to avoid symptoms like headaches or dizziness.
-    metadata:
-      topic: protection methods should laser cleaning
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: toxic
 chemicalFormula: CO
 casNumber: 630-08-0
@@ -643,4 +635,29 @@ sourcesInLaserCleaning:
 - incomplete_organic_combustion
 - thermal_decomposition_carbon_compounds
 - oxygen_deficient_conditions
-title: Carbon Monoxide
+faq:
+  presentation: collapsible
+  items:
+  - id: what-protection-methods-should-laser-cleaning
+    title: What protection methods should laser cleaning operators use to prevent carbon monoxide (CO) exposure?
+    content: Always work in well-ventilated areas or use local exhaust ventilation systems to dilute and remove CO generated
+      from material vaporization during laser cleaning. Wear a respirator with an appropriate cartridge (e.g., NIOSH-approved
+      for organic vapors and acid gases) if ventilation is inadequate, and ensure personal CO monitors or alarms are worn
+      to provide real-time detection. Regularly maintain equipment to minimize incomplete combustion sources, and follow OSHA's
+      permissible exposure limit of 50 ppm over an 8-hour workday to avoid symptoms like headaches or dizziness.
+    metadata:
+      topic: protection methods should laser cleaning
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: carbon-monoxide-compound

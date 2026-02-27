@@ -4,7 +4,7 @@ displayName: Defense Laser Cleaning
 category: applications
 subcategory: defense
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.531179+00:00'
+dateModified: '2026-02-27T20:39:37.216232+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/defense-laser-cleaning-applications
@@ -15,10 +15,23 @@ breadcrumb:
   href: /applications
 pageTitle: Defense Laser Cleaning
 pageDescription: Overview of laser cleaning in defense applications and common surface challenges.
-metaDescription: Overview of laser cleaning in defense applications and common surface challenges.
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: steel-laser-cleaning
@@ -51,13 +64,22 @@ relationships:
         subcategory: specialty
         url: /materials/metal/specialty/inconel-laser-cleaning
         image: /images/material/inconel-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: carbon-soot-contamination
@@ -90,11 +112,6 @@ relationships:
         subcategory: lubricant
         url: /contaminants/organic-residue/lubricant/cutting-fluid-contamination
         image: /images/contaminant/cutting-fluid-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -132,4 +149,3 @@ keywords:
 - Defense Laser Cleaning
 - Defense
 slug: defense-laser-cleaning-applications
-authorId: 3

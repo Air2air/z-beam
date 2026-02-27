@@ -41,7 +41,8 @@ interface EnhancedMicroYamlData extends MicroYamlData {
     title?: string;
     expertiseAreas?: string[];
     credentials?: string[];
-    experience_years?: number;
+    /** @deprecated field no longer populated by generator pipeline — use experienceYears */
+    experienceYears?: number;
   };
   technical_specifications?: {
     wavelength?: string;

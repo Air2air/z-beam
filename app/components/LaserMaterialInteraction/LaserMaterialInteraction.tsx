@@ -10,8 +10,6 @@ interface LaserMaterialInteractionProps {
   subcategory?: string;
   slug?: string;
   className?: string;
-  sectionTitle?: string;
-  sectionDescription?: string;
 }
 
 /**
@@ -31,17 +29,15 @@ export function LaserMaterialInteraction({
   category,
   subcategory,
   slug,
-  className = '',
-  sectionTitle,
-  sectionDescription
+  className = ''
 }: LaserMaterialInteractionProps) {
   // Extract only laser-material interaction section
   const laserInteractionData = materialProperties?.laserMaterialInteraction;
   
-  // Use _section data if available, fallback to props or defaults
+  // Use _section/frontmatter-provided section fields only
   const sectionData = laserInteractionData?._section;
-  const title = sectionData?.sectionTitle || sectionTitle || `${materialName} Laser-Material Interaction`;
-  const description = sectionData?.sectionDescription || sectionDescription || laserInteractionData?.description || (typeof laserInteractionData === 'string' ? laserInteractionData : undefined);
+  const title = sectionData?.sectionTitle;
+  const description = sectionData?.sectionDescription;
   
   // If laserMaterialInteraction is a string, render it as description only
   if (typeof laserInteractionData === 'string') {
@@ -86,11 +82,15 @@ export function LaserMaterialInteraction({
     return null;
   }
 
+  if (!title || !description) {
+    throw new Error(`Missing laserMaterialInteraction._section.sectionTitle/sectionDescription for ${materialName}`);
+  }
+
   // Prepare metadata for PropertyBars (expects specific structure)
   const metadata = {
-    slug: slug || '',
-    category: category || '',
-    subcategory: subcategory || '',
+    slug,
+    category,
+    subcategory,
     title: materialName,
     description: '',
     materialProperties: {

@@ -4,7 +4,7 @@ displayName: Epoxy Resin Composites Laser Cleaning
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:36.148139+00:00'
+dateModified: '2026-02-27T20:38:04.543784+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/composite/fiber-reinforced/epoxy-resin-composites-laser-cleaning
@@ -24,7 +24,21 @@ pageDescription: Epoxy resin composites serve in fiber-reinforced structures, an
   treatment, surface shows uniformity, still contamination resists in complex areas. Method applies efficiently in construction
   settings, so reveals clean texture without damage.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalResistivity:
@@ -89,13 +103,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:56:39.834977'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -187,13 +202,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:56:45.366268'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: can-you-safely-remove-epoxy-resin
@@ -390,7 +406,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -403,24 +433,40 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -443,12 +489,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -526,173 +566,11 @@ eeat:
   isBasedOn:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
-authorId: 1
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalResistivity:
-    value: 100000000000000.0
-    unit: ohm-m
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 1.2
-    unit: MPa√m
-    confidence: 95
-    source: ai_research
-  density:
-    value: 1800.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 310.0
-    unit: °C
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 25000000000.0
-    unit: Pa
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 85.0
-    unit: Shore D
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 550.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 450.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 420.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.95
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.3
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation and Damage Threshold of Epoxy-Based Carbon Fiber Composites
-    citation: 'Palmieri, F., et al., Composites Part B: Engineering, 2019, DOI: 10.1016/j.compositesb.2019.107145'
-    context: Carbon fiber reinforced epoxy resin composite (CF/EP, 60 vol% fiber, bisphenol-A epoxy matrix), 1064 nm Nd:YAG
-      laser, 8 ns pulse duration, room temperature (25°C), vacuum conditions
-    confidence: 95
-    researchedDate: '2025-11-24T11:56:39.834977'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.25
-    unit: dimensionless
-    min: 0.1
-    max: 0.5
-    source: ai_research
-  absorptionCoefficient:
-    value: 50000
-    unit: m⁻¹
-    min: 10000
-    max: 200000
-    source: ai_research
-  laserDamageThreshold:
-    value: 4.5
-    unit: J/cm²
-    min: 1.0
-    max: 10.0
-    source: ai_research
-  thermalShockResistance:
-    value: 1.2
-    unit: MW/m
-    min: 0.5
-    max: 2.5
-    source: ai_research
-  reflectivity:
-    value: 0.05
-    unit: dimensionless
-    min: 0.03
-    max: 0.1
-    source: ai_research
-  thermalDestructionPoint:
-    value: 600
-    unit: K
-    min: 500
-    max: 700
-    source: ai_research
-  vaporPressure:
-    value: 200
-    unit: Pa
-    min: 50
-    max: 1000
-    source: ai_research
-  thermalDestruction:
-    value: 623.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.05
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 2.0e-05
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 0.35
-    unit: W/(m·K)
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 1100.0
-    unit: J/(kg·K)
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 35000.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.15e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser cleaning of carbon fiber reinforced epoxy composites: Ablation thresholds and surface morphology'
-    citation: 'Zhang, Y. et al., Composites Part B: Engineering, 2019, DOI: 10.1016/j.compositesb.2019.107123'
-    context: Carbon fiber reinforced epoxy resin composite (60% fiber volume fraction, bisphenol-A epoxy matrix), 1064 nm
-      Nd:YAG laser, room temperature (25°C), pulse duration 10 ns, in air
-    confidence: 95
-    researchedDate: '2025-11-24T11:56:45.366268'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: epoxy-resin-composites-laser-cleaning

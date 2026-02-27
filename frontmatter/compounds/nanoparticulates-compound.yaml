@@ -4,7 +4,7 @@ displayName: Nanoparticulates Compound
 category: particulate
 subcategory: nanomaterial
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:41.994132+00:00'
+dateModified: '2026-02-27T20:39:13.819895+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/nanomaterial/nanoparticulates-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: ceramic-coating-contamination
@@ -124,14 +131,15 @@ relationships:
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Thermal Compound Deposits
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Pulmonary inflammation and oxidative stress leading to respiratory distress
@@ -154,12 +162,6 @@ relationships:
         severity: moderate
         onset: short-term
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -214,32 +216,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: how-can-i-effectively-protect-myself
-    title: How can I effectively protect myself from nanoparticulate exposure while operating laser cleaning equipment in
-      the lab?
-    content: Always wear a properly fitted NIOSH-approved respirator with a P100 filter or higher to capture ultrafine particles,
-      as nanoparticulates can penetrate deep into the lungs due to their small size. Use full-body protective suits made of
-      impermeable materials, gloves, and eye protection to prevent skin and ocular contact, and ensure the workspace has local
-      exhaust ventilation (LEV) systems capturing fumes at the source. Regularly monitor air quality with particle counters
-      and follow decontamination protocols, such as HEPA-filtered vacuums for cleanup, to minimize residual exposure.
-    metadata:
-      topic: i effectively protect myself from
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: irritant
 chemicalFormula: Various
 casNumber: Mixed - varies by composition
@@ -326,4 +302,30 @@ sourcesInLaserCleaning:
 - ultrafine_particle_generation
 - condensation_nucleation
 - ceramic_coating_ablation
-title: Nanoparticulates
+faq:
+  presentation: collapsible
+  items:
+  - id: how-can-i-effectively-protect-myself
+    title: How can I effectively protect myself from nanoparticulate exposure while operating laser cleaning equipment in
+      the lab?
+    content: Always wear a properly fitted NIOSH-approved respirator with a P100 filter or higher to capture ultrafine particles,
+      as nanoparticulates can penetrate deep into the lungs due to their small size. Use full-body protective suits made of
+      impermeable materials, gloves, and eye protection to prevent skin and ocular contact, and ensure the workspace has local
+      exhaust ventilation (LEV) systems capturing fumes at the source. Regularly monitor air quality with particle counters
+      and follow decontamination protocols, such as HEPA-filtered vacuums for cleanup, to minimize residual exposure.
+    metadata:
+      topic: i effectively protect myself from
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: nanoparticulates-compound

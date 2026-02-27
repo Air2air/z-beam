@@ -18,19 +18,9 @@ export interface RelationshipCardGridOptions {
   entityType: EntityType;
   
   /**
-   * Entity name for fallback titles (e.g., "Aluminum", "Rust")
+   * Entity name for metadata extraction context
    */
   entityName: string;
-  
-  /**
-   * Default title if not in _section metadata
-   */
-  defaultTitle?: string;
-  
-  /**
-   * Default description if not in _section metadata
-   */
-  defaultDescription?: string;
 }
 
 /**
@@ -52,20 +42,26 @@ export function createRelationshipCardGrid(
     relationshipData,
     entityType,
     entityName,
-    defaultTitle,
-    defaultDescription,
   } = options;
 
-  const items = relationshipData?.items || [];
-  const section = relationshipData?._section || {};
+  const items = relationshipData?.items;
+  const section = relationshipData?._section;
+
+  if (!Array.isArray(items) || items.length === 0) {
+    throw new Error(`createRelationshipCardGrid: missing or empty relationship items for ${entityType}:${entityName}`);
+  }
+
+  if (!section?.sectionTitle || !section?.sectionDescription) {
+    throw new Error(`createRelationshipCardGrid: missing _section.sectionTitle/sectionDescription for ${entityType}:${entityName}`);
+  }
 
   return {
     component: CardGrid,
-    condition: items.length > 0,
+    condition: true,
     props: {
       items: toCardGridItems(items, entityType),
-      title: section.sectionTitle || defaultTitle || `Related ${entityType}s`,
-      description: section.sectionDescription || defaultDescription || `${entityType} information for ${entityName}`,
+      title: section.sectionTitle,
+      description: section.sectionDescription,
       icon: section.icon,
       variant: 'relationship' as const,
     },
@@ -89,8 +85,6 @@ export function createRelationshipCardGrids(
     key: string;
     entityType: EntityType;
     entityName: string;
-    defaultTitle?: string;
-    defaultDescription?: string;
   }>
 ): SectionConfig[] {
   return configs
@@ -102,8 +96,6 @@ export function createRelationshipCardGrids(
         relationshipData,
         entityType: config.entityType,
         entityName: config.entityName,
-        defaultTitle: config.defaultTitle,
-        defaultDescription: config.defaultDescription,
       });
     })
     .filter(Boolean) as SectionConfig[];

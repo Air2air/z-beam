@@ -5,10 +5,10 @@ import path from 'path';
 
 describe('Sitemap Validation', () => {
   const frontmatterDir = path.join(process.cwd(), 'frontmatter/materials');
-  const sitemapPath = path.join(process.cwd(), 'app/sitemap.ts');
+  const sitemapPath = path.join(process.cwd(), 'app/sitemap.xml/route.ts');
 
   describe('Sitemap File Existence', () => {
-    it('should have a sitemap.ts file', () => {
+    it('should have a sitemap route file', () => {
       expect(fs.existsSync(sitemapPath)).toBe(true);
     });
 
@@ -26,9 +26,9 @@ describe('Sitemap Validation', () => {
       expect(sitemapContent).toContain("import path from 'path'");
       
       // Check for dynamic material route generation
-      expect(sitemapContent).toContain('frontmatterDir');
+      expect(sitemapContent).toContain('frontmatter/');
       expect(sitemapContent).toContain('fs.readdirSync');
-      expect(sitemapContent).toContain('materialPageRoutes');
+      expect(sitemapContent).toContain('generateStandardDomainEntries');
     });
 
     it('should include all static routes', () => {
@@ -50,9 +50,10 @@ describe('Sitemap Validation', () => {
     it('should generate hierarchical material routes', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      // Should use URL builder functions for material routes
-      expect(sitemapContent).toContain("buildCategoryUrl('materials'");
-      expect(sitemapContent).toContain("buildSubcategoryUrl('materials'");
+      // Should use the shared helper for standard 4-level domains
+      expect(sitemapContent).toContain("generateStandardDomainEntries('materials'");
+      expect(sitemapContent).toContain('buildCategoryUrl');
+      expect(sitemapContent).toContain('buildSubcategoryUrl');
       expect(sitemapContent).toContain("buildUrlFromMetadata");
     });
   });

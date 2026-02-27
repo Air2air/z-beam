@@ -4,7 +4,7 @@ displayName: Concrete Settings
 category: masonry
 subcategory: general
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:50.421667+00:00'
+dateModified: '2026-02-27T20:39:21.568522+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/masonry/general/concrete-settings
@@ -36,33 +36,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -71,14 +80,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -89,12 +99,6 @@ relationships:
         contaminationChallenges:
         - id: paint-coating-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -138,8 +142,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-infrared wavelength optimized for concrete absorption and minimal substrate damage
     unit: nm
     value: 1064
     min: 355
@@ -149,54 +159,32 @@ machineSettings:
     max: 1200
     value: 1000
     unit: μm
-    description: 'Beam diameter range for cleaning; smaller (100-500 μm) for fine details like cracks, larger (1-5 mm) for
-      broad surface prep. Recommended 1000 μm (1 mm) for uniform coverage on rough concrete surfaces. Source: Equipment specifications
-      from Coherent and Trumpf lasers; process optimization in Lasers Manuf. Mater. Process. (2020).'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence range for safe contaminant ablation (e.g., paints or oxides); concrete damage threshold ~8-12 J/cm²
-      to prevent spalling. Recommended 2 J/cm² for effective cleaning below threshold, accounting for variable reflectivity
-      at 1064 nm. Source: Ablation threshold studies in Surf. Coat. Technol. (2017) and Opt. Express (2022) on concrete laser
-      interactions.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime (10-150 ns) typical for concrete to enable ablation with minimal heat-affected zone (HAZ);
-      picosecond (ps) or femtosecond (fs) reduces HAZ further but increases cost. Recommended 50 ns for efficient contaminant
-      removal without cracking porous concrete. Source: Laser physics research in Appl. Surf. Sci. (2019) on pulsed laser
-      ablation of cementitious materials.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective range for contamination removal on concrete; slower (100-500 mm/s) for heavy soiling like rust,
-      faster (2000-5000 mm/s) for light contaminants. Recommended 1000 mm/s for optimal balance of cleaning rate and uniformity,
-      considering concrete''s low thermal conductivity. Source: Industry standards from Laser Clean Tech manuals; case study
-      in Opt. Lasers Eng. (2020).'
   passCount:
     min: 1
     max: 10
     value: 3
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (3-5) for heavy layers to ensure complete removal without
-      excessive energy input. Recommended 3 passes for typical industrial concrete cleaning to achieve uniform results. Source:
-      Industry case studies in Constr. Build. Mater. (2019) on laser surface preparation.'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Standard overlap for uniform scan coverage; 30-50% for faster large-area cleaning, 50-80% for detailed work
-      to avoid gaps on uneven concrete. Recommended 50% for balanced efficiency and homogeneity. Source: Process optimization
-      studies in J. Laser Appl. (2021) and manufacturer guidelines from Adapt Laser Systems.'
   laserPower:
-    description: Optimal average power for concrete surface cleaning and contaminant removal
     unit: W
     value: 100
     min: 1.0
@@ -206,17 +194,11 @@ machineSettings:
     max: 2000
     value: 500
     unit: W
-    description: 'Typical range for industrial 1064 nm laser cleaning of concrete surfaces (e.g., graffiti or rust removal);
-      starting at 500 W balances efficiency and safety to avoid thermal cracking. Max safe below substrate damage threshold
-      (~1000-1500 W depending on fluence). Source: CleanLaser and IPG Photonics equipment specs; academic review in J. Laser
-      Appl. (2018) on stone/concrete cleaning.'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Standard range for 1064 nm cleaning; higher rates (50-100 kHz) speed up process but risk heat accumulation
-      in low-conductivity concrete. Recommended 50 kHz for balanced throughput and thermal management. Source: Academic literature
-      in J. Clean. Prod. (2021) on industrial laser parameters for building materials.'
 componentSummary: These settings deliver moderate power with short 12 ns pulses at 1064 nm to ablate contaminants from concrete's
   tough surface while minimizing thermal stress that could cause cracking.
+slug: concrete-settings

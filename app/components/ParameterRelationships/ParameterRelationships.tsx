@@ -187,7 +187,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps & { he
 
     // PULSE WIDTH/DURATION RELATIONSHIPS
     if (pulse && energy) {
-      const mechanism = pulse.material_interaction?.mechanism || "";
+      const mechanism = pulse.materialInteraction?.mechanism || "";
       const isThermalConfined =
         mechanism.toLowerCase().includes("thermal") ||
         mechanism.toLowerCase().includes("confined");

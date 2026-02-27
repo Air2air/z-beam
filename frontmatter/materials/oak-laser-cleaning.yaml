@@ -4,7 +4,7 @@ displayName: Oak Laser Cleaning
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:39.947560+00:00'
+dateModified: '2026-02-27T20:38:09.149933+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/wood/hardwood/oak-laser-cleaning
@@ -21,7 +21,21 @@ pageTitle: Oak Laser Cleaning
 pageDescription: Oak stands as a durable hardwood often found in furniture, flooring, and historic structures. Watch out for
   its tendency to char if laser settings get too aggressive—keep energy low to avoid surface damage right from the start.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     fractureToughness:
@@ -87,13 +101,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:03:27.756530'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -185,13 +200,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:03:35.955155'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-do-i-remove-black-charring
@@ -384,7 +400,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -467,24 +497,40 @@ relationships:
           fibers, so laser cleaning faces unique challenges in biological removal. Formation occurs thr...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -512,12 +558,6 @@ relationships:
         longName: Unknown Organization
         name: Unknown
         url: ''
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -591,174 +631,11 @@ eeat:
   isBasedOn:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  fractureToughness:
-    value: 0.35
-    unit: MPa m^{1/2}
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 12.4
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.85
-    unit: J/cm²
-    confidence: 92
-    source: ai_research
-  density:
-    value: 720.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 5738.0
-    unit: N
-    confidence: 100
-    source: ai_research
-  corrosionResistance:
-    value: 0.75
-    unit: dimensionless
-    confidence: 92
-    source: ai_research
-  compressiveStrength:
-    value: 50.3
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 95.1
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 99.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.55
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 1.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Journal of Cultural Heritage
-    citation: 'Pouli, P. et al., Laser cleaning of wooden artifacts: Threshold fluences for oak, Journal of Cultural Heritage,
-      2010, DOI: 10.1016/j.culher.2009.11.004'
-    context: Quercus robur oak wood (natural density 0.65 g/cm³), 20°C, 1064 nm Nd:YAG laser, pulse duration 10 ns, measured
-      via optical microscopy for charring onset
-    confidence: 95
-    researchedDate: '2025-11-24T12:03:27.756530'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.88
-    unit: dimensionless
-    min: 0.8
-    max: 0.95
-    source: ai_research
-  absorptionCoefficient:
-    value: 450000
-    unit: m⁻¹
-    min: 100000
-    max: 1000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.0
-    unit: J/cm²
-    min: 1.0
-    max: 5.0
-    source: ai_research
-  thermalShockResistance:
-    value: 1.5
-    unit: MW/m
-    min: 1.0
-    max: 2.0
-    source: ai_research
-  reflectivity:
-    value: 0.12
-    unit: dimensionless
-    min: 0.05
-    max: 0.2
-    source: ai_research
-  thermalDestructionPoint:
-    value: 650
-    unit: K
-    min: 600
-    max: 700
-    source: ai_research
-  vaporPressure:
-    value: 100
-    unit: Pa
-    min: 10
-    max: 500
-    source: ai_research
-  thermalDestruction:
-    value: 280.0
-    unit: °C
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 1380.0
-    unit: J/kg·K
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.12
-    unit: dimensionless
-    confidence: 92
-    source: ai_research
-  thermalConductivity:
-    value: 0.168
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 4.0e-06
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 28000.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.25e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 2.45
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Threshold fluences for the laser ablation of woods
-    citation: 'Yh Hu, ZJ Zhang, Journal of Applied Physics, 1998, DOI: 10.1063/1.367689'
-    context: Quercus robur (English oak), dry conditions (moisture content <5%), room temperature (20°C), measured using 532
-      nm Nd:YAG laser pulses
-    confidence: 95
-    researchedDate: '2025-11-24T12:03:35.955155'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: oak-laser-cleaning

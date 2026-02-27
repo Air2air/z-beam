@@ -4,7 +4,7 @@ displayName: Polyethylene Laser Cleaning
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:41.000333+00:00'
+dateModified: '2026-02-27T20:38:10.477216+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/plastic/thermoplastic/polyethylene-laser-cleaning
@@ -22,7 +22,21 @@ pageDescription: Polyethylene Polyethylene, a widely used thermoplastic that's f
   a big role in industries like packaging and automotive parts where keeping surfaces clean matters for performance and longevity.
   We often turn to laser cleaning for this material because it efficiently removes contaminants like.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalResistivity:
@@ -87,13 +101,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:06:02.455581'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -186,13 +201,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:06:07.438218'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: can-you-safely-laser-clean-polyethylene
@@ -400,7 +416,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -423,24 +453,40 @@ relationships:
           it develops unique powdery patterns, where fine chalk-like residues accumulate unevenly an...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -463,12 +509,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -546,174 +586,11 @@ eeat:
   isBasedOn:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalResistivity:
-    value: 1000000000000000.0
-    unit: Ω·m
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 2.5
-    unit: MPa m^{1/2}
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 1.0
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 25.0
-    unit: min
-    confidence: 95
-    source: ai_research
-  density:
-    value: 940.0
-    unit: kg/m³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 65.0
-    unit: Shore D
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.98
-    unit: ''
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 25.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 25.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 25.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 1.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser damage thresholds of polymers at 1064 nm
-    citation: 'J. Bonse et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-7'
-    context: Low-density polyethylene (LDPE, 99% purity), room temperature (25°C), nanosecond Nd:YAG laser at 1064 nm, single-pulse
-      irradiation
-    confidence: 95
-    researchedDate: '2025-11-24T12:06:02.455581'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.7
-    unit: dimensionless
-    min: 0.5
-    max: 0.9
-    source: ai_research
-  absorptionCoefficient:
-    value: 100000
-    unit: m⁻¹
-    min: 10000
-    max: 1000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.0
-    unit: J/cm²
-    min: 0.5
-    max: 5.0
-    source: ai_research
-  thermalShockResistance:
-    value: 1.5
-    unit: MW/m
-    min: 0.5
-    max: 3.0
-    source: ai_research
-  reflectivity:
-    value: 0.05
-    unit: dimensionless
-    min: 0.02
-    max: 0.1
-    source: ai_research
-  thermalDestructionPoint:
-    value: 673
-    unit: K
-    min: 600
-    max: 800
-    source: ai_research
-  vaporPressure:
-    value: 0.1
-    unit: Pa
-    min: 0.001
-    max: 10
-    source: ai_research
-  thermalDestruction:
-    value: 480.0
-    unit: °C
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 2300.0
-    unit: J/(kg·K)
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.042
-    unit: '1'
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 0.38
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 0.00015
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 50.0
-    unit: m^{-1}
-    confidence: 92
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.6e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 0.28
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Journal of Applied Physics
-    citation: 'Bityurin, N., et al., ''Photothermal and photomechanical effects in laser ablation of polymers'', Journal of
-      Applied Physics, 1998, DOI: 10.1063/1.367819'
-    context: Low-density polyethylene (LDPE, 99% purity), room temperature (25°C), 248 nm KrF excimer laser, nanosecond pulse
-      duration
-    confidence: 95
-    researchedDate: '2025-11-24T12:06:07.438218'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: polyethylene-laser-cleaning

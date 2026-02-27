@@ -137,7 +137,7 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
       subcategory: settings.subcategory || subcategory,
       author: settings.author,
       datePublished: settings.datePublished,
-      dateModified: settings.lastModified, // Use lastModified from ArticleMetadata
+      dateModified: settings.dateModified,
       keywords: settings.seo_settings_page?.keywords || [],
       
       // Settings-specific data - pass machineSettings directly for Dataset schema

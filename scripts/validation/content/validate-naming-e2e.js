@@ -30,7 +30,7 @@ const RULES = {
   imagePath: /^\/images\/[a-z0-9/-]+\.(jpg|jpeg|png|webp|svg)$/,
   imageFileName: /^[a-z0-9-]+\.(jpg|jpeg|png|webp|svg)$/,
   componentName: /^[A-Z][a-zA-Z0-9]+$/,  // PascalCase
-  authorId: /^[a-z0-9-]+$/,  // Allow numbers for numeric author IDs
+  // authorId removed (deprecated Feb 2026) - canonical field is author.id
   categorySlug: /^[a-z-]+$/,  // Allow hyphens for multi-word categories like rare-earth
   subcategorySlug: /^[a-z-]+$/
 };
@@ -56,6 +56,35 @@ class NamingValidator {
       namingErrors: 0,
       cached: 0
     };
+  }
+
+  // Normalize display names to comparable slug form
+  normalizeNameToSlug(nameValue) {
+    if (!nameValue || typeof nameValue !== 'string') {
+      return '';
+    }
+
+    return nameValue
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+
+  // Determine if a frontmatter name is consistent with a file slug
+  isNameConsistentWithFileSlug(nameValue, fileSlug) {
+    const normalizedNameSlug = this.normalizeNameToSlug(nameValue);
+    if (!normalizedNameSlug || !fileSlug) {
+      return false;
+    }
+
+    const validSlugs = new Set([
+      normalizedNameSlug,
+      `${normalizedNameSlug}-laser-cleaning`
+    ]);
+
+    return validSlugs.has(fileSlug);
   }
 
   // Validate slug format
@@ -221,9 +250,10 @@ class NamingValidator {
   validateAuthorReference(authorRef, context) {
     if (!authorRef) return true; // Optional
 
+    // Canonical form is author.id (integer); authorId (top-level) is deprecated (Feb 2026)
     const authorId = typeof authorRef === 'string' ? authorRef : authorRef.id || authorRef.name;
-    
-    if (authorId && !RULES.authorId.test(authorId)) {
+
+    if (authorId && !/^[a-z0-9-]+$/.test(String(authorId))) {
       this.errors.push({
         type: 'invalid_author_id',
         authorId,
@@ -253,8 +283,8 @@ class NamingValidator {
       const fileSlug = fileName.replace(/\.(yaml|yml)$/, '');
       this.validateSlug(fileSlug, `frontmatter/${fileName} (filename)`);
 
-      // Validate name field matches filename
-      if (data.name && data.name !== fileSlug) {
+      // Validate name field matches expected filename patterns
+      if (data.name && !this.isNameConsistentWithFileSlug(data.name, fileSlug)) {
         this.warnings.push({
           type: 'name_filename_mismatch',
           file: fileName,

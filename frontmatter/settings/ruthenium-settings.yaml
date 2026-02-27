@@ -4,7 +4,7 @@ displayName: Ruthenium Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:55.595247+00:00'
+dateModified: '2026-02-27T20:39:29.779774+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/ruthenium-settings
@@ -39,33 +39,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -74,14 +83,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -94,12 +104,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 1
   name: Yi-Chun Lin
@@ -143,8 +147,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for efficient Ruthenium oxide absorption with minimal substrate interaction
     unit: nm
     value: 1064
     min: 355
@@ -154,52 +164,32 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Smaller spots (50-200 μm) for fine surface prep on Ruthenium components; larger (200-500 μm) for broad areas.
-      200 μm recommended for uniform energy distribution on small industrial parts. Source: Equipment specs from Coherent
-      and Trumpf lasers for precision cleaning.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1
     unit: J/cm²
-    description: 'Fluence range for contaminant ablation without substrate damage; Ruthenium damage threshold ~4-5 J/cm² at
-      1064 nm due to high melting point. Recommended 1 J/cm² for safe cleaning of light contaminants. Source: Ablation threshold
-      studies (e.g., Journal of Applied Physics on noble metal thresholds; conservative estimate for Ru similar to Pt/Rh).'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for Ruthenium cleaning to ablate contaminants while minimizing heat-affected
-      zone (HAZ); picosecond (ps) or femtosecond (fs) for ultra-precise but costlier applications. 20 ns recommended for low
-      thermal damage on high-reflectivity surfaces. Source: Laser physics studies (e.g., Applied Surface Science journal on
-      ns vs. ps ablation thresholds for noble metals).'
   scanSpeed:
     min: 10
     max: 5000
     value: 500
     unit: mm/s
-    description: 'Effective for contamination removal; slower for heavy contamination (100-500 mm/s), faster for light (500-2000
-      mm/s). Recommended 500 mm/s for Ruthenium to ensure uniform cleaning without excessive heat accumulation due to its
-      thermal conductivity (~120 W/m·K). Source: Industry standards from Laserax and CleanLaser equipment manuals.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination; multi-pass (2-5) for heavy layers to avoid damage. Recommended 2 passes
-      for Ruthenium to ensure complete removal while respecting thermal properties. Source: Industry case studies (e.g., laser
-      cleaning of catalytic surfaces in chemical engineering reports).'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: 'Ensures uniform coverage without gaps or over-ablation; 50% optimal for Ruthenium to prevent uneven heating
-      on reflective surfaces. Typical range 30-80% based on scan patterns. Source: Process optimization studies (e.g., Journal
-      of Laser Applications on scan overlap for metal surface treatment).'
   laserPower:
-    description: Optimal average power for Ruthenium oxide removal without substrate damage
     unit: W
     value: 45
     min: 1.0
@@ -209,17 +199,11 @@ machineSettings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning of reflective metals like Ruthenium; starting at 200
-      W balances efficiency and heat input to avoid melting (melting point ~2334°C). Source: IPG Photonics YLR series specs
-      and general metal cleaning guidelines (e.g., SPIE proceedings on laser ablation).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Standard for pulsed cleaning; higher rates (50-100 kHz) speed up process but risk heat buildup on Ruthenium''s
-      reflective surface (reflectivity ~60% at 1064 nm). 50 kHz balances speed and safety. Trade-off: high freq increases
-      overlap heating. Source: Academic literature (e.g., Optics & Lasers in Engineering on repetition rate effects in metal
-      cleaning).'
 componentSummary: These settings leverage 1064 nm wavelength for strong Ruthenium absorption, with 200 W power and 8 ns pulses
   to precisely ablate surface contaminants without inducing thermal oxidation or substrate damage.
+slug: ruthenium-settings

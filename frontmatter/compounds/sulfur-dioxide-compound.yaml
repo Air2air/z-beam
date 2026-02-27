@@ -4,7 +4,7 @@ displayName: Sulfur Dioxide Compound
 category: toxic_gas
 subcategory: acid_gas
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:39.568375+00:00'
+dateModified: '2026-02-27T20:39:12.770901+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic-gas/acid-gas/sulfur-dioxide-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: sulfur-dioxide-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: -10.0°C (14°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: Not applicable
         appearance: Colorless gas, colorless liquid under pressure
         odor: Pungent, suffocating odor @ 0.3-1 ppm
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -76,14 +85,15 @@ relationships:
           rtecsNumber: WS4550000
           ecNumber: 231-195-2
           pubchemCid: '1119'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -102,13 +112,14 @@ relationships:
         effect: Irritation and possible chemical burns (especially with liquid SO2)
         severity: moderate
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations. Air-purifying with acid gas cartridge
@@ -118,13 +129,14 @@ relationships:
         minimumLevel: Level C for known <5 ppm, Level B for >5 ppm or liquefied SO2
         specialNotes: Extremely irritating to eyes and respiratory tract. Cryogenic liquid causes frostbite. Asthma trigger
           - asthmatics extremely sensitive.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Non-flammable. Cylinders may explode when heated. Toxic decomposition products in fire.
@@ -138,13 +150,14 @@ relationships:
           >1 lb.
         specialHazards: Severe respiratory and eye irritant. Triggers asthma attacks. Forms sulfurous acid with moisture.
           Corrosive to tissues. May cause bronchospasm and pulmonary edema. Cryogenic liquid causes frostbite.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 5
@@ -168,13 +181,14 @@ relationships:
             stel15Min: 5 ppm
             ceiling: null
           biologicalExposureIndices: []
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store cylinders <52°C. Liquefied SO2 requires cryogenic storage.
@@ -191,13 +205,14 @@ relationships:
         quantityLimits: Per fire code. Many facilities limit indoor storage.
         specialRequirements: 'Cylinder restraints mandatory. Leak detection system required. Post "CORROSIVE GAS" signs. Emergency
           procedures posted. For liquid: cryogenic handling equipment.'
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1079
@@ -216,14 +231,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 1 pound (0.454 kg)
         rcraCode: null
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 100-180 mg/L. Forms acidic solutions.'
@@ -237,14 +253,15 @@ relationships:
         reportableReleases:
           water: 1 lb to navigable waters
           air: 1 lb/day (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -268,14 +285,15 @@ relationships:
           technique: Ion chromatography
           detectionLimit: 0.02 ppm
         odorThreshold: 0.3-1 ppm - provides adequate warning below toxic levels
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rubber-residue-contamination
@@ -300,13 +318,14 @@ relationships:
         frequency: occasional
         severity: low
         typicalContext: Sulfur additives in some lubricants
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: cast-iron-laser-cleaning
@@ -317,13 +336,14 @@ relationships:
       - id: stainless-steel-laser-cleaning
       - id: steel-laser-cleaning
       - id: tool-steel-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable under normal conditions.
@@ -345,12 +365,6 @@ relationships:
         - Incompatible materials
         reactivityHazard: Reacts with water to form sulfurous acid (corrosive). Reacts violently with metal oxides and alkali
           metals.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -406,33 +420,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-how
-    title: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas from
-      sulfur-containing materials?
-    content: Always prioritize engineering controls like local exhaust ventilation to capture and remove SO₂ at the source,
-      maintaining exposure below the OSHA permissible limit of 5 ppm (parts per million) over an 8-hour shift. Wear a full-face
-      respirator with an appropriate cartridge rated for acid gases (e.g., NIOSH-approved P100 with acid gas cartridge) and
-      ensure personal protective equipment like gloves and protective clothing to avoid skin contact. Regularly monitor air
-      quality with SO₂ detectors or badges, and evacuate if levels exceed 5 ppm, seeking fresh air immediately if irritation
-      occurs.
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: toxic
 chemicalFormula: SO₂
 casNumber: 7446-09-5
@@ -515,4 +502,31 @@ sourcesInLaserCleaning:
 - sulfur_containing_compound_oxidation
 - vulcanized_rubber_decomposition
 - sulfide_coating_removal
-title: Sulfur Dioxide
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from SO₂ exposure if the process generates this gas from
+      sulfur-containing materials?
+    content: Always prioritize engineering controls like local exhaust ventilation to capture and remove SO₂ at the source,
+      maintaining exposure below the OSHA permissible limit of 5 ppm (parts per million) over an 8-hour shift. Wear a full-face
+      respirator with an appropriate cartridge rated for acid gases (e.g., NIOSH-approved P100 with acid gas cartridge) and
+      ensure personal protective equipment like gloves and protective clothing to avoid skin contact. Regularly monitor air
+      quality with SO₂ detectors or badges, and evacuate if levels exceed 5 ppm, seeking fresh air immediately if irritation
+      occurs.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: sulfur-dioxide-compound

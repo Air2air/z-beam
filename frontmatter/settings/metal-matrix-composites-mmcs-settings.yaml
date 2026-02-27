@@ -4,7 +4,7 @@ displayName: Metal Matrix Composites MMCs Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:53.193650+00:00'
+dateModified: '2026-02-27T20:39:25.816412+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/metal-matrix-composites-mmcs-settings
@@ -38,34 +38,43 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -76,12 +85,6 @@ relationships:
         contaminationChallenges:
         - id: resin-contaminant-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 3
   name: Ikmanda Roswati
@@ -127,8 +130,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength providing good absorption in metallic matrix while minimizing damage to ceramic reinforcements
     unit: nm
     value: 1064
     min: 355
@@ -138,58 +147,37 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter range for cleaning; smaller for fine surface prep on MMCs (100-200 μm), larger for broad areas
-      (300-500 μm); 200 μm recommended to focus energy on contaminants while minimizing exposure to heterogeneous MMC structure
-      (source: equipment specs from Coherent and Trumpf laser systems for composites).'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe contaminant ablation on MMCs; damage threshold ~2-4 J/cm² for matrices like Ti or
-      Al with ceramic particles, lower to prevent cracking; 1.5 J/cm² recommended for effective cleaning without exceeding
-      ablation thresholds (source: ablation threshold studies in Journal of Materials Processing Technology).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 30
     unit: ns
-    description: 'Nanosecond regime preferred for MMCs at 1064 nm to achieve effective cleaning with minimal heat-affected
-      zone (HAZ); picosecond (ps) or femtosecond for ultra-precision but costlier; 30 ns recommended to limit thermal diffusion
-      in high-conductivity matrices like Al-based MMCs (source: laser physics research in Optics Express on pulsed ablation
-      of composites).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal on MMCs; higher for light oils/dusts (2000-3000 mm/s), lower
-      for heavy oxides (500-1000 mm/s) to ensure ablation without excessive heat buildup; recommended 1500 mm/s for balanced
-      efficiency (source: IPG Photonics laser cleaning manuals and industry standards for metallic composites).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-4) for heavy layers to avoid thermal damage in MMCs;
-      2 passes recommended for uniform removal and surface preparation without risking delamination (source: industry case
-      studies in Laser Cleaning Handbook and practical applications on aerospace MMCs).'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Ensures uniform coverage in scan patterns; 60% typical for MMCs to prevent gaps in cleaning while avoiding
-      overexposure that could heat sensitive interfaces; range adjusted for contamination density (source: process optimization
-      studies in International Journal of Advanced Manufacturing Technology).'
   dwellTime:
-    description: Effective interaction time per spot location
     unit: μs
     value: 100
     min: 0.2
     max: 200
   laserPower:
-    description: Optimal average power for MMCs cleaning considering thermal conductivity and matrix integrity
     unit: W
     value: 100
     min: 1.0
@@ -199,16 +187,11 @@ machineSettings:
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for industrial cleaning of MMCs at 1064 nm to remove contaminants without delaminating reinforcements;
-      starting at 100 W for light contamination, max below 300 W to avoid substrate damage due to thermal sensitivity of composite
-      interfaces (source: studies in Journal of Laser Applications, e.g., on Al/SiC MMCs).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical for pulsed cleaning applications; 50 kHz balances speed and heat management for MMCs, as higher
-      rates (>80 kHz) risk accumulation in lower-conductivity reinforcements like SiC, while lower aids heavy contamination
-      (source: academic literature in Applied Surface Science on fiber laser cleaning of MMCs).'
 componentSummary: These settings, featuring 100 W power, 1064 nm wavelength, and 10 ns pulses, enable precise contaminant
   removal from MMCs while minimizing thermal stress to prevent delamination at matrix-reinforcement interfaces.
+slug: metal-matrix-composites-mmcs-settings

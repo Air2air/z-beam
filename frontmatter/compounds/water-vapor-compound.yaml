@@ -4,7 +4,7 @@ displayName: Water Vapor Compound
 category: vapor
 subcategory: inert
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:41.082965+00:00'
+dateModified: '2026-02-27T20:39:13.430122+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/vapor/inert/water-vapor-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -706,14 +713,15 @@ relationships:
         frequency: unknown
         severity: low
         typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Thermal burns to respiratory tract and lungs from hot steam
@@ -732,12 +740,6 @@ relationships:
         severity: low
         onset: long-term
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -792,32 +794,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-how
-    title: As a laser cleaning operator, how can I protect myself from potential water vapor exposure in a humid industrial
-      environment?
-    content: Maintain proper ventilation in the workspace to keep water vapor levels low, as this is essential for preventing
-      respiratory irritation or fogging of safety equipment during laser operations. Use personal protective equipment (PPE)
-      such as respirators rated for vapor (e.g., NIOSH-approved half-face masks with organic vapor cartridges) and ensure
-      the area is monitored with humidity sensors to stay below 80% relative humidity. If exposure is suspected, relocate
-      to fresh air immediately and follow your site's emergency protocols for decontamination.
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: inert
 chemicalFormula: H₂O
 casNumber: 7732-18-5
@@ -872,4 +848,30 @@ sourcesInLaserCleaning:
 - moisture_in_contamination
 - organic_compound_decomposition
 - combustion_byproduct
-title: Water Vapor
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from potential water vapor exposure in a humid industrial
+      environment?
+    content: Maintain proper ventilation in the workspace to keep water vapor levels low, as this is essential for preventing
+      respiratory irritation or fogging of safety equipment during laser operations. Use personal protective equipment (PPE)
+      such as respirators rated for vapor (e.g., NIOSH-approved half-face masks with organic vapor cartridges) and ensure
+      the area is monitored with humidity sensors to stay below 80% relative humidity. If exposure is suspected, relocate
+      to fresh air immediately and follow your site's emergency protocols for decontamination.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: water-vapor-compound

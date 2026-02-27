@@ -4,7 +4,7 @@ displayName: Redwood Laser Cleaning
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:42.241924+00:00'
+dateModified: '2026-02-27T20:38:12.061886+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/wood/hardwood/redwood-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: Redwood, it represents a type of hardwood material commonly fou
   the process is completed. Operator considerations matter most in controlling the intensity to prevent overheating, so careful
   monitoring ensures safe and uniform results from the cleaning.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     fractureToughness:
@@ -90,13 +104,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:16:05.214246'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -189,13 +204,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:16:14.898537'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: what-laser-settings-work-best-for
@@ -386,7 +402,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -469,24 +499,40 @@ relationships:
           fibers, so laser cleaning faces unique challenges in biological removal. Formation occurs thr...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -509,12 +555,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -597,174 +637,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-authorId: 3
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  fractureToughness:
-    value: 0.32
-    unit: MPa m^{0.5}
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 9.6
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.85
-    unit: dimensionless (scale 0-1)
-    confidence: 92
-    source: ai_research
-  density:
-    value: 450.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 1868.0
-    unit: N
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.92
-    unit: dimensionless (relative durability index)
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 33.1
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 54.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 51.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.752
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.3
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds for Wood Species in Conservation Applications
-    citation: 'Konstantinidis, A. et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2017.12.005'
-    context: Heartwood of coast redwood (Sequoia sempervirens, 99% dry density ~0.42 g/cm³), 20°C, 10.6 μm CO2 laser, 100
-      ns pulse duration, measured as onset of charring via thermal imaging
-    confidence: 95
-    researchedDate: '2025-11-24T12:16:05.214246'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.9
-    unit: dimensionless
-    min: 0.8
-    max: 0.95
-    source: ai_research
-  absorptionCoefficient:
-    value: 500000
-    unit: m⁻¹
-    min: 100000
-    max: 1000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 5
-    unit: J/cm²
-    min: 1
-    max: 10
-    source: ai_research
-  thermalShockResistance:
-    value: 1
-    unit: MW/m
-    min: 0.5
-    max: 2
-    source: ai_research
-  reflectivity:
-    value: 0.08
-    unit: dimensionless
-    min: 0.05
-    max: 0.15
-    source: ai_research
-  thermalDestructionPoint:
-    value: 600
-    unit: K
-    min: 500
-    max: 700
-    source: ai_research
-  vaporPressure:
-    value: 10
-    unit: Pa
-    min: 1
-    max: 100
-    source: ai_research
-  thermalDestruction:
-    value: 573.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 1385.0
-    unit: J/(kg·K)
-    confidence: 96
-    source: ai_research
-  laserReflectivity:
-    value: 0.032
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 0.11
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 3.6e-06
-    unit: 1/K
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 0.88
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.25e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 1.05
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser cleaning of wooden artifacts: Ablation thresholds for softwoods'
-    citation: 'J. Lawrence, A. Pouzyrev, and J. T. Spencer, Optics and Lasers in Engineering, Vol. 42, Issue 3, pp. 311-326,
-      2004, DOI: 10.1016/j.optlaseng.2004.02.004'
-    context: Redwood (Sequoia sempervirens, density 0.41 g/cm³, moisture content <5%), room temperature (25°C), 1064 nm Nd:YAG
-      laser, pulse duration 10 ns, in air
-    confidence: 95
-    researchedDate: '2025-11-24T12:16:14.898537'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: redwood-laser-cleaning

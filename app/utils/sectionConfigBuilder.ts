@@ -40,9 +40,7 @@ export class SectionConfigBuilder {
     category: RelationshipCategory,
     key: RelationshipKey,
     entityType: EntityType,
-    entityName: string,
-    defaultTitle?: string,
-    defaultDescription?: string
+    entityName: string
   ): this {
     const relationshipData = getRelationshipData(relationships, category, key);
     
@@ -55,8 +53,6 @@ export class SectionConfigBuilder {
       relationshipData,
       entityType,
       entityName,
-      defaultTitle,
-      defaultDescription,
     });
 
     this.sections.push(section);

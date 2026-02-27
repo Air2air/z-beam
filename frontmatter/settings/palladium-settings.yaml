@@ -4,7 +4,7 @@ displayName: Palladium Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:53.780395+00:00'
+dateModified: '2026-02-27T20:39:26.758514+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/palladium-settings
@@ -41,33 +41,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -76,14 +85,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -96,12 +106,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 1
   name: Yi-Chun Lin
@@ -145,8 +149,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for efficient absorption by Palladium oxides and contaminants
     unit: nm
     value: 1064
     min: 355
@@ -156,11 +166,7 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter for precise cleaning on Pd; smaller for fine details (100-200 μm), larger for areas (300-500
-      μm). 200 μm recommended for uniform coverage in industrial prep. Source: Equipment specs from Trumpf and Adapt Laser
-      Systems; process optimization in Lasers Manuf. Mater. Process. (2021).'
   fluenceThreshold:
-    description: Threshold fluence for effective contaminant removal from Palladium
     unit: J/cm²
     value: 2.5
     min: 0.3
@@ -170,35 +176,22 @@ machineSettings:
     max: 1000
     unit: ns
     value: 20
-    description: 'Ns regime preferred for cost-effective cleaning of Pd; ps (5-50 ps) minimizes HAZ due to Pd''s thermal conductivity
-      (71 W/mK), but ns sufficient. Avoid fs for industrial scale. Recommended 20 ns for low thermal impact. Source: Laser
-      physics in Appl. Phys. A (2015) on metal ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal on Pd; slower for heavy oxides (500-1000 mm/s), faster for light
-      contaminants (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance without excessive heat. Source: Industry standards
-      from Laserax manuals; J. Cleaner Prod. (2020) case studies on metal surface prep.'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete Pd surface cleaning
-      without damage. Recommended for layered contaminants in catalysis/electronics apps. Source: Industry practice in case
-      studies from SPIE Proc. (2016); conservative for Pd''s sensitivity.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage on Pd; 30-50% for large areas, 60-80% for precision. 60% recommended to avoid gaps
-      while minimizing overexposure/heat. Source: Process studies in Opt. Lasers Eng. (2022); typical range from manufacturer
-      guidelines like CleanLASER.'
   dwellTime:
-    description: Effective dwell time per cleaning spot for optimal results
     unit: μs
     value: 100
     min: 0.2
@@ -208,12 +201,7 @@ machineSettings:
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence range for contaminant ablation on Pd without substrate damage; threshold ~2-3 J/cm² for ns pulses
-      at 1064nm due to reflectivity. Recommended 1.5 J/cm² for safe removal of oxides/contaminants. Conservative to account
-      for Pd''s properties. Source: Ablation studies in Surf. Coat. Technol. (2019); uncertainty noted for exact Pd data,
-      extrapolated from Ni/Pt analogs.'
   laserPower:
-    description: Optimal average power for Palladium oxide removal without substrate damage
     unit: W
     value: 90
     min: 1.0
@@ -223,17 +211,11 @@ machineSettings:
     max: 500
     value: 200
     unit: W
-    description: 'Typical range for Nd:YAG laser cleaning of reflective metals like Pd to avoid thermal damage; starting at
-      200W balances efficiency and safety. Max limited by Pd''s high reflectivity (~60% at 1064nm) to prevent melting (mp
-      1555°C). Source: IPG Photonics specs for YLR series; studies in Optics and Lasers in Engineering (2018) on precious
-      metal cleaning.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning to control heat accumulation on reflective Pd; higher rates speed up process
-      but risk buildup. 50 kHz recommended for uniform cleaning without overheating. Trade-off: >80 kHz increases efficiency
-      but requires cooling. Source: Academic lit. in J. Appl. Phys. (2017); Coherent Inc. equipment guidelines.'
 componentSummary: The 1064 nm wavelength optimizes absorption in Palladium's metallic structure, while 200 W power and 12
   ns pulses enable contaminant removal without inducing thermal stress on its corrosion-resistant surface.
+slug: palladium-settings

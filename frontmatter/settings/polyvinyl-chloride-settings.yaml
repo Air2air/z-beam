@@ -4,7 +4,7 @@ displayName: Polyvinyl Chloride Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:54.655930+00:00'
+dateModified: '2026-02-27T20:39:28.181239+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/polyvinyl-chloride-settings
@@ -40,33 +40,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -75,14 +84,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -108,12 +118,6 @@ relationships:
           solutions:
           - Use UV wavelength (355nm) for better photochemical ablation
           - Multiple gentle passes instead of single high-power pass
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -158,8 +162,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for optimal PVC absorption and minimal substrate damage
     unit: nm
     value: 1064
     min: 355
@@ -169,52 +179,32 @@ machineSettings:
     max: 500
     unit: μm
     value: 150
-    description: 'Beam diameter for effective coverage; smaller (50-100 μm) for fine details, larger (200-300 μm) for broad
-      areas; 150 μm recommended for uniform PVC surface preparation without pinpoint damage. Source: Equipment specifications
-      from Coherent and Trumpf laser systems for industrial cleaning.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 0.3
     unit: J/cm²
-    description: 'Fluence range for safe ablation of contaminants on polymers; PVC damage threshold ~0.5 J/cm²; recommended
-      0.3 J/cm² for cleaning without substrate degradation, considering low thermal conductivity (0.19 W/mK). Source: Ablation
-      threshold studies in Journal of Applied Physics (2017) for PVC at 1064 nm.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 30
     unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning of polymers to minimize heat-affected zone (HAZ); picosecond
-      (ps) or femtosecond for ultra-precision but costlier; 30 ns optimal for PVC to enable photothermal ablation without
-      excessive melting. Source: Laser physics research in Applied Surface Science (2019) on polymer thresholds; avoids fs/ps
-      due to equipment availability.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective for contamination removal without overheating; slower (500-1000 mm/s) for heavy contamination,
-      faster (2000-3000 mm/s) for light; recommended 1000 mm/s balances efficiency and safety for PVC''s poor thermal conductivity.
-      Source: Industry standards from Laser Cleaning Europe guidelines; case studies in Journal of Cleaner Production (2020).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-4) for heavy; 2 passes recommended for complete PVC cleaning
-      to ensure removal without cumulative heat damage. Source: Industry practice in case studies from Surface and Coatings
-      Technology (2022); avoids excessive passes due to PVC''s heat sensitivity.'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or over-ablation; 50% optimal for PVC to prevent uneven heating and
-      maintain surface integrity during scanning. Source: Process optimization studies in Lasers in Manufacturing and Materials
-      Processing (2020); typical 30-80% range for polymer applications.'
   laserPower:
-    description: Optimal average power for PVC cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -224,16 +214,11 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for polymer cleaning to avoid thermal damage; starting at 50 W for PVC''s low melting point
-      (~160°C); max safe ~150 W to prevent substrate melting. Source: IPG Photonics specs for fiber lasers in polymer applications;
-      studies in Optics and Lasers in Engineering (2018) on PVC ablation.'
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for pulsed cleaning; 20-50 kHz recommended for PVC to achieve fast processing while limiting heat
-      accumulation from low reflectivity (~5-10% at 1064 nm); higher rates increase speed but risk thermal buildup. Source:
-      Academic literature in Optics Express (2021) on repetition rate effects in polymer laser cleaning.'
 componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to gently ablate contaminants
   from heat-sensitive PVC without causing melting or deformation.
+slug: polyvinyl-chloride-settings

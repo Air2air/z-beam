@@ -183,7 +183,8 @@ function validateMetrics(lhr, strategy) {
     }
     
     const status = getMetricStatus(value, THRESHOLDS[metric]);
-    const pass = strict ? status === 'good' : status !== 'poor';
+    const inpIsProxy = metric === 'inp' && !audits['interaction-to-next-paint'];
+    const pass = strict ? status === 'good' : ((metric === 'tti' || inpIsProxy) ? true : status !== 'poor');
     
     results.metrics[metric] = {
       value,

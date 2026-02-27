@@ -4,7 +4,7 @@ displayName: Pyrex Laser Cleaning
 category: glass
 subcategory: soda-lime
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:41.928001+00:00'
+dateModified: '2026-02-27T20:38:11.654295+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/glass/soda-lime/pyrex-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: Pyrex, it constitutes a specialized form of soda-lime glass tha
   effective ablation of unwanted layers. The operator considerations, they matter most in terms of controlling energy levels
   to avoid microcracking, dependent from the material's sensitivity to rapid temperature changes.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalResistivity:
@@ -90,13 +104,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:08:55.368175'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -181,13 +196,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: what-are-the-optimal-laser-parameters
@@ -361,7 +377,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -374,24 +404,40 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -414,12 +460,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -495,166 +535,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-authorId: 2
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalResistivity:
-    value: 1000000000000.0
-    unit: Ω·m
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 0.75
-    unit: MPa√m
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 63.0
-    unit: GPa
-    confidence: 100
-    source: ai_research
-  oxidationResistance:
-    value: 500.0
-    unit: °C
-    confidence: 95
-    source: ai_research
-  density:
-    value: 2.23
-    unit: g/cm³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 530.0
-    unit: HV
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.0008
-    unit: mg/cm²/day
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 1000.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 69.0
-    unit: MPa
-    confidence: 98
-    source: ai_research
-  tensileStrength:
-    value: 70.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 14.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Physics Letters
-    citation: 'G. J. Thomas et al., Applied Physics Letters, Vol. 92, Issue 10, 2008, DOI: 10.1063/1.2891005'
-    context: Corning Pyrex 7740 borosilicate glass (commercial purity), 1064 nm wavelength, 7 ns pulse duration, room temperature
-      (25°C), single-shot irradiation, normal incidence
-    confidence: 95
-    researchedDate: '2025-11-24T12:08:55.368175'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.05
-    unit: dimensionless
-    min: 0.01
-    max: 0.1
-    source: ai_research
-  absorptionCoefficient:
-    value: 50
-    unit: m⁻¹
-    min: 10
-    max: 1000
-    source: ai_research
-  laserDamageThreshold:
-    value: 10
-    unit: J/cm²
-    min: 5
-    max: 20
-    source: ai_research
-  thermalShockResistance:
-    value: 2
-    unit: MW/m
-    min: 1
-    max: 3
-    source: ai_research
-  reflectivity:
-    value: 0.08
-    unit: dimensionless
-    min: 0.04
-    max: 0.1
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1500
-    unit: K
-    min: 1400
-    max: 1600
-    source: ai_research
-  vaporPressure:
-    value: 0.01
-    unit: Pa
-    min: 0.001
-    max: 0.1
-    source: ai_research
-  thermalDestruction:
-    value: 821.0
-    unit: °C
-    confidence: 100
-    source: ai_research
-  specificHeat:
-    value: 835.0
-    unit: J/kg·K
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.036
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 1.14
-    unit: W/m·K
-    confidence: 100
-    source: ai_research
-  thermalExpansion:
-    value: 3.3e-06
-    unit: K^{-1}
-    confidence: 100
-    source: ai_research
-  laserAbsorption:
-    value: 8.76
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 5.8e-07
-    unit: m^2/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 5.2
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: pyrex-laser-cleaning

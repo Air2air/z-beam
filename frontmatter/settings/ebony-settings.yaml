@@ -4,7 +4,7 @@ displayName: Ebony Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:59.020831+00:00'
+dateModified: '2026-02-27T20:39:35.232424+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/ebony-settings
@@ -34,33 +34,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -69,25 +78,20 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -132,10 +136,16 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
     value: 1064
     unit: nm
-    description: Near-IR for controlled wood cleaning
     min: 355
     max: 10640
   spotSize:
@@ -143,52 +153,34 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: Smaller spots (100-200 μm) for fine detail on Ebony grain, larger (300-500 μm) for broad areas. Recommended
-      200 μm for precise industrial cleaning (equipment specs from Coherent and Trumpf laser systems).
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: Fluence below Ebony's ablation threshold (~5 J/cm² at 1064 nm for dark woods); 0.5-2 J/cm² for light cleaning,
-      up to 4 for heavy. Recommended 1.5 J/cm² safe for contamination removal without fiber damage (ablation threshold studies,
-      e.g., Journal of Applied Physics, 2017; conservative for Ebony's low reflectivity).
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: Nanosecond regime preferred for minimal heat-affected zone on low-conductivity woods like Ebony; picosecond
-      (ps) or femtosecond reduces thermal damage but increases cost. 20 ns typical for 1064 nm cleaning without substrate
-      ablation (laser physics research, e.g., Optics & Lasers in Engineering, 2020).
   scanSpeed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: Effective speeds balance cleaning efficiency and heat input; slower for heavy contamination (500-1000 mm/s),
-      faster for light (2000-3000 mm/s). Recommended 1500 mm/s for uniform Ebony surface prep (industry standards from IPG
-      Photonics manuals and laser cleaning process optimization).
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: Single pass for light contaminants, multi-pass (2-3) for heavy or layered removal on woods. Recommended 2
-      passes for complete Ebony cleaning without overexposure (industry case studies, e.g., laser restoration of wooden artifacts
-      in Heritage Science, 2021).
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 50-70% ensures uniform coverage and avoids gaps/striping on irregular surfaces like Ebony; lower for speed,
-      higher for thoroughness. Recommended 60% for optimal process (process optimization studies, e.g., Lasers in Manufacturing
-      and Materials Processing, 2022).
   laserPower:
     value: 50
     unit: W
-    description: Low power for organic material preservation
     min: 1.0
     max: 120
   laserPowerAlternative:
@@ -196,16 +188,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: Typical range for delicate organic materials like wood to avoid thermal damage; starting at 100W for controlled
-      cleaning of light contaminants on Ebony. Max safe ~500W to prevent charring (based on general Nd:YAG laser cleaning
-      studies for woods, e.g., Journal of Cultural Heritage, 2018).
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 20-50 kHz balances speed and heat accumulation for organic materials; higher rates (>50 kHz) risk overheating
-      Ebony due to poor thermal conductivity. Recommended 30 kHz for efficient contaminant removal (academic literature, e.g.,
-      Applied Surface Science, 2019).
 componentSummary: These settings employ moderate power and short nanosecond pulses at 1064 nm to selectively ablate surface
   contaminants from dense Ebony wood without causing charring or thermal penetration.
+slug: ebony-settings

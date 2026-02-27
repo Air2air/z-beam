@@ -4,7 +4,7 @@ displayName: Polypropylene Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:54.436347+00:00'
+dateModified: '2026-02-27T20:39:27.831485+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/polypropylene-settings
@@ -37,33 +37,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -72,14 +81,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -105,12 +115,6 @@ relationships:
           solutions:
           - Use UV wavelength (355nm) for better photochemical ablation
           - Multiple gentle passes instead of single high-power pass
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 3
   name: Ikmanda Roswati
@@ -156,8 +160,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-infrared wavelength optimized for Polypropylene absorption characteristics and minimal thermal damage
     unit: nm
     value: 1064
     min: 355
@@ -167,58 +177,37 @@ machineSettings:
     max: 500
     value: 300
     unit: μm
-    description: 'Beam diameter range for cleaning; 100-300 μm for fine detail on PP, 300-1000 μm for large areas. 300 μm
-      recommended for uniform coverage without pinpoint damage. Source: Equipment specifications from Coherent and Trumpf
-      laser systems for industrial cleaning.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal on PP; damage threshold ~2-4 J/cm² at 1064 nm due to partial absorption
-      (reflectivity ~0.4-0.6). Recommended 1.5 J/cm² for safe cleaning below threshold. Source: Ablation threshold studies
-      by Bityurin et al. (2007) in Applied Surface Science on polypropylene laser interaction.'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for PP at 1064 nm to minimize heat-affected zone (HAZ); picosecond (ps) or femtosecond
-      (fs) better for ultra-precise but costlier. 20 ns typical for ablation without excessive melting. Source: Laser physics
-      research by Baudin et al. (2014) in Optics Express on polymer ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     value: 1000
     unit: mm/s
-    description: 'Effective cleaning speeds for 1064 nm on PP; slower for heavy contamination (200-1000 mm/s) to ensure removal,
-      faster for light (1000-3000 mm/s). Recommended 1000 mm/s balances efficiency and heat control given PP''s low thermal
-      conductivity (~0.1-0.2 W/mK). Source: Industry standards from Laserax equipment manuals and study by Anisimov et al.
-      (2018) on plastic surface preparation.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete PP surface
-      prep to ensure removal without overexposure. Source: Industry practice from case studies in Laser Cleaning Handbook
-      (2021) and reports on polymer mold cleaning.'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: 'Typical 30-80% for uniform coverage; 60% recommended for PP to avoid gaps or excessive heat in adjacent
-      lines, optimizing for even cleaning. Source: Process optimization studies by Strobl et al. (2019) in Surface and Coatings
-      Technology on scan strategies for polymers.'
   dwellTime:
-    description: Optimal dwell time per spot for effective cleaning without thermal damage
     unit: μs
     value: 100
     min: 0.2
     max: 200
   laserPower:
-    description: Optimal average power range for Polypropylene surface cleaning without thermal degradation
     unit: W
     value: 100
     min: 1.0
@@ -228,16 +217,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for ns pulsed lasers at 1064 nm on polymers like PP to remove contaminants without melting;
-      starting at 100W for light contamination. Max safe below 500W to avoid thermal damage (melting point ~165°C). Source:
-      Adapted from IPG Photonics specs for YLR series and paper by Lorenz et al. (2016) on polymer laser cleaning.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for cleaning applications; 50 kHz recommended for PP to achieve fast processing without heat accumulation
-      (high freq increases overlap heat). Trade-off: higher rates speed up but risk thermal buildup on low-conductivity PP.
-      Source: Academic literature from Kunze et al. (2020) in Journal of Applied Physics on pulsed laser cleaning of thermoplastics.'
 componentSummary: The moderate 100 W power, 1064 nm wavelength, and 10 ns pulse width enable precise contaminant ablation
   on polypropylene while minimizing thermal input to prevent melting or deformation of the heat-sensitive polymer.
+slug: polypropylene-settings

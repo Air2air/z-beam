@@ -4,7 +4,7 @@ displayName: Hickory Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:51.913298+00:00'
+dateModified: '2026-02-27T20:39:23.898638+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/hickory-settings
@@ -36,33 +36,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -71,14 +80,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -89,12 +99,6 @@ relationships:
         contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -138,8 +142,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for Hickory absorption and minimal penetration
     unit: nm
     value: 1064
     min: 355
@@ -149,50 +159,32 @@ machineSettings:
     max: 500
     value: 300
     unit: μm
-    description: '300 μm recommended for Hickory surface preparation, balancing fine detail and large-area coverage. Smaller
-      (100-200 μm) for precision, larger (500-1000 μm) for broad cleaning. Source: Equipment specifications from Coherent
-      and Trumpf laser systems for industrial cleaning.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence below Hickory''s damage threshold (~3-5 J/cm² at 1064 nm) for safe cleaning; 2 J/cm² recommended
-      for contamination removal without ablation of substrate. Conservative for hardwoods to prevent carbonization. Source:
-      Ablation threshold studies in Wood Science and Technology (2017).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for wood cleaning to minimize heat-affected zone (HAZ); 50 ns typical for Hickory
-      to enable precise ablation without thermal damage. Picosecond (ps) or femtosecond for ultra-fine work but less common
-      industrially. Source: Laser physics research in Applied Surface Science (2019) on wood substrates.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective speeds for contamination removal; 1000 mm/s recommended for optimal balance on Hickory to avoid
-      overheating. Slower (100-500 mm/s) for heavy contamination, faster (up to 5000 mm/s) for light. Source: Industry standards
-      from Laserax equipment manuals and process optimization in Optics and Lasers in Engineering (2020).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: '2 passes typical for complete removal on Hickory; single pass for light contamination, multi-pass (up to
-      5) for heavy layers to ensure uniformity without excessive heat. Source: Industry case studies in restoration of wooden
-      artifacts (e.g., Studies in Conservation, 2022).'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '50% overlap recommended for uniform coverage on Hickory, preventing gaps in cleaning while minimizing overexposure.
-      Range 30-80% based on contamination density. Source: Process optimization studies in Laser Cleaning Journal (2020).'
   laserPower:
-    description: Optimal average power for Hickory surface cleaning without charring
     unit: W
     value: 100
     min: 1.0
@@ -202,16 +194,11 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for 1064 nm pulsed lasers on wood; starting at 50W balances cleaning efficiency and heat input
-      to prevent charring on low-conductivity hardwoods like Hickory. Max ~200W risks substrate damage. Source: Manufacturer
-      specs from IPG Photonics YLR series and studies on wood laser ablation (e.g., Journal of Cultural Heritage, 2018).'
   frequency:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: '20 kHz recommended for Hickory to achieve fast cleaning while limiting heat accumulation due to wood''s
-      low thermal conductivity. Higher rates (>50 kHz) speed up process but increase risk of charring; lower for delicate
-      control. Source: Academic literature in Journal of Applied Physics (2021) on pulsed laser cleaning of organics.'
 componentSummary: These settings employ moderate 50 W power and short 10 ns pulses at 1064 nm to gently ablate surface contaminants
   from dense Hickory wood, minimizing thermal damage and charring risk.
+slug: hickory-settings

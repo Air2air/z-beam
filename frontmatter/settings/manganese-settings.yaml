@@ -4,7 +4,7 @@ displayName: Manganese Settings
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:52.972632+00:00'
+dateModified: '2026-02-27T20:39:25.477610+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/non-ferrous/manganese-settings
@@ -41,33 +41,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -76,14 +85,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -96,12 +106,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -145,8 +149,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for optimal absorption in Manganese oxides
     unit: nm
     value: 1064
     min: 355
@@ -156,11 +166,7 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter range for industrial cleaning; smaller (50-200 μm) for fine surface prep on manganese, larger
-      (200-500 μm) for broad area decontamination. 200 μm recommended for uniform energy distribution on Mn''s surface. Source:
-      Equipment specifications from Trumpf and SPI Lasers for 1064 nm cleaning heads.'
   fluenceThreshold:
-    description: Minimum fluence required for Manganese oxide removal
     unit: J/cm²
     value: 2.5
     min: 0.3
@@ -170,45 +176,27 @@ machineSettings:
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime (5-100 ns) preferred for cost-effective cleaning of manganese; picosecond (ps) or femtosecond
-      (fs) for ultra-minimal HAZ but higher cost. 20 ns recommended to reduce heat-affected zone on reflective Mn surfaces
-      while ablating contaminants. Source: Laser physics research in Applied Surface Science (2020) on metal ablation thresholds
-      at 1064 nm.'
   scanSpeed:
     min: 10
     max: 5000
     value: 500
     unit: mm/s
-    description: 'Effective range for removing light to heavy contamination on manganese; slower speeds (100-500 mm/s) for
-      heavy oxides, faster (500-2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal balance of efficiency
-      and minimal thermal accumulation given Mn''s moderate thermal conductivity (~7.8 W/m·K). Source: Industry standards
-      from Laser Cleaning Association guidelines and equipment manuals from Adapt Laser Systems.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: '1-5 passes typical for complete removal of contaminants; single pass for light rust/oxides on manganese,
-      multi-pass for heavy buildup. 2 passes recommended to ensure thorough cleaning without risking Mn substrate damage.
-      Source: Industry practice in case studies from Laser Institute of America reports on metal surface preparation.'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: '30-80% overlap for uniform coverage in scanning; 50% recommended for manganese to avoid gaps in cleaning
-      while minimizing over-processing and heat input. Higher overlap for heavy contamination. Source: Process optimization
-      studies in Lasers in Manufacturing and Materials Processing (2021) on scan strategies for metallic substrates.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 2
     unit: J/cm²
-    description: 'Fluence range for contaminant removal on manganese; damage threshold ~4-5 J/cm² due to high reflectivity
-      (~60% at 1064 nm) and melting point. 2 J/cm² recommended for safe cleaning of oxides without substrate ablation. Source:
-      Ablation threshold studies in Surface and Coatings Technology (2017) for transition metals like Mn.'
   laserPower:
-    description: Optimal average power for Manganese oxide removal without substrate damage
     unit: W
     value: 100
     min: 1.0
@@ -218,19 +206,12 @@ machineSettings:
     max: 1000
     value: 200
     unit: W
-    description: 'Typical range for industrial 1064 nm laser cleaning of reflective metals like manganese; starting at 200
-      W for contamination removal without excessive heat input. Max safe before substrate melting (Mn melting point ~1246°C)
-      is ~1000 W with proper scanning. Source: Manufacturer specs from IPG Photonics and Coherent for metal cleaning systems;
-      academic review in Optics and Lasers in Engineering (2018).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Typical 10-100 kHz for pulsed cleaning applications; 50 kHz recommended for manganese to achieve fast processing
-      without excessive heat buildup (high freq increases accumulation on low-conductivity metals like Mn). Trade-off: higher
-      rates speed up cleaning but risk thermal damage. Source: Academic literature in Journal of Applied Physics (2019) on
-      pulse repetition effects in laser ablation of alloys.'
 componentSummary: The 200 W power, 1064 nm wavelength, and 10 ns pulse width settings are ideal for manganese, leveraging
   its strong absorption at this wavelength for efficient ablation while short pulses minimize thermal distortion on this reactive
   metal.
+slug: manganese-settings

@@ -4,7 +4,7 @@ displayName: Zirconia Settings
 category: ceramic
 subcategory: oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:58.302684+00:00'
+dateModified: '2026-02-27T20:39:34.212320+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/oxide/zirconia-settings
@@ -38,33 +38,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -73,14 +82,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -104,12 +114,6 @@ relationships:
         contaminationChallenges:
         - id: coating-residue-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -153,8 +157,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength with good absorption in Zirconia for efficient cleaning
     unit: nm
     value: 1064
     min: 355
@@ -164,51 +174,32 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for precise industrial cleaning; smaller (100-200 μm) for fine surface prep, larger (300-500
-      μm) for broad areas. 200 μm recommended for Zirconia to ensure uniform energy distribution and avoid localized overheating.
-      Source: Manufacturer specs from Coherent and Trumpf laser systems.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for contaminant removal on Zirconia; damage threshold ~4 J/cm² at 1064 nm due to reflectivity
-      and absorption properties. 1.5 J/cm² recommended for safe cleaning without substrate ablation. Source: Ablation threshold
-      studies in Optics and Lasers in Engineering (2017).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning of Zirconia to balance efficiency and minimal HAZ; picosecond
-      (ps) or femtosecond (fs) for ultra-precise but costlier applications. 50 ns recommended to limit thermal diffusion in
-      low-conductivity Zirconia. Source: Laser physics review in Applied Surface Science (2019).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective speeds for 1064 nm cleaning of Zirconia; slower for heavy contamination (200-800 mm/s), faster
-      for light (1500-3000 mm/s) to minimize heat input. Recommended 1000 mm/s for balanced removal and surface integrity.
-      Source: Industry standards from Laserax equipment manuals and Optics Express (2021).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete Zirconia
-      cleaning while preserving integrity, based on iterative removal without cumulative damage. Source: Industry case studies
-      in Surface and Coatings Technology (2022).'
   overlapRatio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform coverage in scan patterns; 70% recommended for Zirconia to achieve even cleaning without
-      gaps or overexposure, optimizing for its brittle nature. Typical range 50-80% in pulsed laser processes. Source: Process
-      optimization in International Journal of Advanced Manufacturing Technology (2019).'
   laserPower:
-    description: Optimal average power for Zirconia surface cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -218,16 +209,11 @@ machineSettings:
     max: 500
     value: 150
     unit: W
-    description: 'Typical range for industrial Nd:YAG laser cleaning of ceramics like Zirconia to remove contaminants without
-      thermal damage; starting at 150 W for controlled ablation. Max safe ~500 W to avoid cracking due to low thermal conductivity.
-      Source: IPG Photonics YLR series specs and study in Journal of Laser Applications (2018).'
   frequency:
     min: 1
     max: 200
     value: 40
     unit: kHz
-    description: 'Typical for pulsed cleaning; 40 kHz recommended for Zirconia to achieve fast processing without excessive
-      heat accumulation, given its high melting point but low thermal conductivity. Higher rates (>80 kHz) risk overheating.
-      Source: Academic literature in Journal of Applied Physics (2020).'
 componentSummary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings are suitable for zirconia cleaning,
   as short pulses minimize thermal cracking in the brittle ceramic while the wavelength targets contaminants effectively.
+slug: zirconia-settings

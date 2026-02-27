@@ -45,7 +45,7 @@ export function generateWebPageSchema(params: {
   datePublished?: string;
   dateModified?: string;
   breadcrumbId?: string;
-  authorId?: string;
+  author?: string;  // @id URI of the author entity in JSON-LD
 }) {
   return {
     '@type': 'WebPage',
@@ -65,9 +65,9 @@ export function generateWebPageSchema(params: {
         '@id': params.breadcrumbId
       }
     }),
-    ...(params.authorId && {
+    ...(params.author && {
       'author': {
-        '@id': params.authorId
+        '@id': params.author
       }
     })
   };

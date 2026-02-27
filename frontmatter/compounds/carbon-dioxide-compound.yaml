@@ -4,7 +4,7 @@ displayName: Carbon Dioxide Compound
 category: asphyxiant
 subcategory: simple_asphyxiant
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:40.260089+00:00'
+dateModified: '2026-02-27T20:39:13.059669+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/asphyxiant/simple-asphyxiant/carbon-dioxide-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: carbon-dioxide-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: -78.5°C (-109.3°F) sublimes at 1 atm
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: Not applicable (does not burn)
         appearance: Colorless gas, white solid (dry ice)
         odor: Odorless
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -77,14 +86,15 @@ relationships:
           rtecsNumber: FF6400000
           ecNumber: 204-696-9
           pubchemCid: '280'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -108,13 +118,14 @@ relationships:
         effect: Frostbite or irritation if in liquefied form (dry ice)
         severity: moderate
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: SCBA for >5% (50,000 ppm) or oxygen-deficient atmospheres. Not required for normal ambient levels.
@@ -123,13 +134,14 @@ relationships:
         minimumLevel: Level D for normal operations, Level B for confined spaces or high concentrations
         specialNotes: Simple asphyxiant - displaces oxygen. Heavier than air - accumulates in low areas. Dry ice causes frostbite.
           Physiological effects >1% concentration.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Non-flammable. Used as fire suppressant. Cylinders may explode when heated.
@@ -145,13 +157,14 @@ relationships:
         specialHazards: 'SIMPLE ASPHYXIANT - displaces oxygen. Heavier than air - accumulates in pits, tanks, confined spaces.
           Physiological effects: >1% increased respiration, >5% headache/dizziness, >10% unconsciousness, >20-30% death. ODORLESS
           - no warning. Dry ice causes severe frostbite.'
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 5000
@@ -175,13 +188,14 @@ relationships:
             stel15Min: 30000 ppm
             ceiling: null
           biologicalExposureIndices: []
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store cylinders <52°C. Dry ice requires insulated storage <-78°C.
@@ -196,13 +210,14 @@ relationships:
         quantityLimits: Cylinders per fire code. Dry ice quantities limited by storage capacity.
         specialRequirements: Cylinder restraints mandatory. Oxygen monitoring in storage areas. Post "SIMPLE ASPHYXIANT" signs.
           Adequate ventilation critical. Never store in confined spaces without ventilation and O2 monitoring.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1013 (compressed gas), UN1845 (solid/dry ice)
@@ -219,14 +234,15 @@ relationships:
         saraTitleIii: false
         cerclaRq: null
         rcraCode: null
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Low direct toxicity. LC50 (fish): >100 mg/L. Acidifies water (forms carbonic acid). High levels
@@ -241,14 +257,15 @@ relationships:
         reportableReleases:
           water: Not reportable
           air: Not reportable (natural atmospheric component)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -272,14 +289,15 @@ relationships:
           technique: Colorimetric
           detectionLimit: 0.01%
         odorThreshold: Not applicable - odorless at all concentrations. No warning property. MUST use instruments.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: paint-residue-contamination
@@ -1073,13 +1091,14 @@ relationships:
         frequency: unknown
         severity: low
         typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable under normal conditions.
@@ -1097,12 +1116,6 @@ relationships:
         - Reactive metals
         reactivityHazard: Generally non-reactive. Reacts with strong bases. May react with reactive metals. Solid CO2 causes
           embrittlement of some materials.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -1157,32 +1170,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-are-the-safe-exposure-limits
-    title: What are the safe exposure limits for CO₂ during laser cleaning operations, and how can I monitor them?
-    content: Occupational exposure limits for CO₂ as an asphyxiant are set by OSHA at 5,000 ppm (0.5%) as an 8-hour time-weighted
-      average (TWA), with a short-term exposure limit of 30,000 ppm (3%) for no more than 10 minutes, and levels above 4%
-      (40,000 ppm) can cause immediate oxygen displacement and loss of consciousness. To monitor, use portable CO₂ gas detectors
-      or multi-gas monitors calibrated for real-time ppm readings in your workspace, especially in enclosed or poorly ventilated
-      areas during laser cleaning. Always ensure oxygen levels remain above 19.5% and integrate alarms that trigger at or
-      below these limits to prevent asphyxiation risks.
-    metadata:
-      topic: the safe exposure limits for
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: asphyxiant
 chemicalFormula: CO₂
 casNumber: 124-38-9
@@ -1235,4 +1222,30 @@ sourcesInLaserCleaning:
 - complete_organic_combustion
 - universal_organic_decomposition
 - carbon_oxidation
-title: Carbon Dioxide
+faq:
+  presentation: collapsible
+  items:
+  - id: what-are-the-safe-exposure-limits
+    title: What are the safe exposure limits for CO₂ during laser cleaning operations, and how can I monitor them?
+    content: Occupational exposure limits for CO₂ as an asphyxiant are set by OSHA at 5,000 ppm (0.5%) as an 8-hour time-weighted
+      average (TWA), with a short-term exposure limit of 30,000 ppm (3%) for no more than 10 minutes, and levels above 4%
+      (40,000 ppm) can cause immediate oxygen displacement and loss of consciousness. To monitor, use portable CO₂ gas detectors
+      or multi-gas monitors calibrated for real-time ppm readings in your workspace, especially in enclosed or poorly ventilated
+      areas during laser cleaning. Always ensure oxygen levels remain above 19.5% and integrate alarms that trigger at or
+      below these limits to prevent asphyxiation risks.
+    metadata:
+      topic: the safe exposure limits for
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: carbon-dioxide-compound

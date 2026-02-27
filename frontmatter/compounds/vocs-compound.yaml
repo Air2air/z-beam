@@ -4,7 +4,7 @@ displayName: Volatile Organic Compounds Compound
 category: irritant
 subcategory: organic_vapor
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:40.603238+00:00'
+dateModified: '2026-02-27T20:39:13.217189+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/organic-vapor/vocs-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: vocs-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: Variable (<260°C by EPA definition)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: Variable depending on compound
         appearance: Colorless to colored liquids or gases
         odor: Variable - sweet, pungent, solvent-like, or odorless
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -79,14 +88,15 @@ relationships:
           rtecsNumber: Specific to individual VOC
           ecNumber: Specific to individual VOC
           pubchemCid: Specific to individual VOC
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -109,13 +119,14 @@ relationships:
         effect: Gastrointestinal upset and systemic toxicity
         severity: high
         onset: short-term
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: Organic vapor respirator with appropriate cartridge for known VOC concentrations. SCBA for unknown mixtures
@@ -125,13 +136,14 @@ relationships:
         minimumLevel: Level C for known low concentrations, Level B for unknown mixtures or high vapor concentrations
         specialNotes: VOCs vary widely in toxicity. Mixture effects unpredictable. Some VOCs carcinogenic (benzene, formaldehyde).
           Others neurotoxic (toluene, xylene). Identify specific VOCs when possible.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Many VOCs flammable or combustible. Vapors heavier than air. May travel to ignition sources. Explosive
@@ -147,13 +159,14 @@ relationships:
         specialHazards: Complex mixtures with unpredictable effects. Some carcinogenic (benzene, formaldehyde, 1,3-butadiene).
           Others neurotoxic (toluene, xylene, styrene). Respiratory irritants. Contribute to indoor air quality problems.
           Chronic exposure health effects vary widely.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: null
@@ -181,13 +194,14 @@ relationships:
             specimen: Urine or blood
             timing: End of shift
             beiValue: Specific to individual VOC
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Cool storage below 25°C typical. Refrigerate if highly volatile.
@@ -199,13 +213,14 @@ relationships:
         quantityLimits: Follow NFPA 30 for flammable/combustible liquids. Minimize quantities.
         specialRequirements: Label with specific VOC contents. Post appropriate hazard signs. Secondary containment for liquids.
           Gas detection for enclosed spaces. Emergency procedures.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: Variable by specific VOC
@@ -221,14 +236,15 @@ relationships:
         saraTitleIii: Many VOCs listed
         cerclaRq: Variable by specific VOC
         rcraCode: Many VOCs have codes (U-series, F-series)
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Variable. Many VOCs toxic to aquatic life (LC50: 1-1000 mg/L range).'
@@ -242,14 +258,15 @@ relationships:
         reportableReleases:
           water: Variable by specific VOC (1-5000 lbs typical)
           air: Variable by specific VOC. VOC emissions regulated.
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -278,14 +295,15 @@ relationships:
           detectionLimit: µg/L levels
         odorThreshold: Variable. Some VOCs odorless (benzene), others pungent at low ppm. Olfactory fatigue common. Do not
           rely on odor.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: paint-residue-contamination
@@ -551,13 +569,14 @@ relationships:
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Variable. Many stable under normal conditions. Some polymerize or degrade.
@@ -575,12 +594,6 @@ relationships:
         - Oxidizers
         reactivityHazard: Variable. Many form explosive mixtures with air. Some react violently with oxidizers. Peroxide formation
           possible in ethers.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -636,32 +649,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-how
-    title: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
-    content: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs
-      at the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment,
-      such as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face
-      masks), along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors
-      to ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take
-      breaks in fresh air if concentrations rise.
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: irritant
 chemicalFormula: Various
 casNumber: N/A
@@ -738,4 +725,30 @@ sourcesInLaserCleaning:
 - organic_material_vaporization
 - polymer_decomposition
 - solvent_evaporation
-title: Volatile Organic Compounds
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-how
+    title: As a laser cleaning operator, how can I protect myself from inhaling VOCs released during the process?
+    content: Always use a well-ventilated workspace or local exhaust ventilation system to capture and remove airborne VOCs
+      at the source, reducing exposure risks from their easy evaporation. Wear appropriate personal protective equipment,
+      such as a respirator with organic vapor cartridges rated for irritants (e.g., NIOSH-approved half-face or full-face
+      masks), along with chemical-resistant gloves and safety goggles. Monitor air quality regularly with portable VOC detectors
+      to ensure levels stay below occupational exposure limits like the OSHA PEL of 100 ppm for many common VOCs, and take
+      breaks in fresh air if concentrations rise.
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: vocs-compound

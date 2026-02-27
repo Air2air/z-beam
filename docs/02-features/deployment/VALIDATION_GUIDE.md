@@ -169,6 +169,45 @@ Runs after deployment completes:
 - Comprehensive validation (35+ checks)
 - Results logged to console
 
+### Advanced SEO Hardening (Postdeploy Category 7)
+
+The postdeploy orchestrator now includes an **Advanced SEO Hardening** category for deeper indexing and graph-quality checks:
+
+- Delta sitemap generation
+- Crawl-budget / noindex policy audit
+- Canonical graph audit
+- Entity graph consistency
+- Soft-404 / orphan detection
+- Bot log intelligence (optional)
+- SERP trend monitoring (optional)
+
+Run directly:
+
+```bash
+npm run validate:seo:esoteric
+```
+
+CI-friendly soft mode:
+
+```bash
+npm run validate:seo:esoteric:soft
+```
+
+Soft mode uses advisory behavior (`STRICT_MODE=0`) and a reduced crawl scope (`MAX_URLS=120`) to keep execution stable and non-blocking in automated pipelines.
+
+Entity graph mode behavior:
+
+- Default mode is **advisory** (findings are reported but do not fail deploy)
+- Strict mode is **blocking**:
+
+```bash
+node scripts/seo/advanced/validate-entity-graph-consistency.js --strict
+```
+
+Report output:
+
+- `reports/seo/entity-graph-report.json`
+
 ## CI/CD Integration
 
 ### GitHub Actions

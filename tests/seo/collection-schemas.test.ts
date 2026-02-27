@@ -123,7 +123,7 @@ describe('WebPage Schema (collectionPageSchema module)', () => {
       url: 'https://z-beam.com/about',
       name: 'Test',
       description: 'Test',
-      authorId: '#author-expert'
+      author: '#author-expert'
     });
     
     expect(schema.author['@id']).toBe('#author-expert');

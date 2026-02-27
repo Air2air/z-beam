@@ -4,7 +4,7 @@ displayName: Hydrogen Chloride Compound
 category: corrosive_gas
 subcategory: acid_gas
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:38.345726+00:00'
+dateModified: '2026-02-27T20:39:12.062228+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/corrosive-gas/acid-gas/hydrogen-chloride-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: hydrogen-chloride-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: -85.05°C (-121°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: Not applicable
         appearance: Colorless gas, colorless to light yellow liquid (anhydrous)
         odor: Pungent, irritating odor @ 0.8-5 ppm
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -76,14 +85,15 @@ relationships:
           rtecsNumber: MW4025000
           ecNumber: 231-595-7
           pubchemCid: '313'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -102,13 +112,14 @@ relationships:
         effect: Burns to mouth, esophagus, and stomach with risk of perforation and systemic toxicity
         severity: severe
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: SCBA or supplied-air respirator for >5 ppm or unknown concentrations. Air-purifying with acid gas cartridge
@@ -118,13 +129,14 @@ relationships:
         minimumLevel: Level C for known <5 ppm, Level B for >5 ppm or liquid HCl
         specialNotes: Extremely corrosive. Causes severe burns on contact. Fumes in moist air. Emergency eyewash/shower within
           10 seconds mandatory. Liquid causes frostbite (cryogenic).
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Non-flammable. Cylinders may explode when heated. Corrosive decomposition products.
@@ -138,13 +150,14 @@ relationships:
         environmentalHazards: Toxic to aquatic life. Forms hydrochloric acid in water. Report releases >5000 lbs.
         specialHazards: Extremely corrosive to all tissues. Forms dense white corrosive mist in moist air. Reacts with metals
           producing flammable hydrogen gas. Causes severe burns, permanent eye damage, respiratory tract damage.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: null
@@ -168,13 +181,14 @@ relationships:
             stel15Min: 5 ppm
             ceiling: null
           biologicalExposureIndices: []
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store cylinders <52°C. Keep away from heat.
@@ -193,13 +207,14 @@ relationships:
         quantityLimits: Per fire code. Minimize indoor storage of cylinders.
         specialRequirements: Cylinder restraints mandatory. Leak detection system required. Post "CORROSIVE GAS" signs. Emergency
           eyewash/shower within 25 feet. Store in cool, dry area. Protect from physical damage.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1050 (anhydrous), UN1789 (solution)
@@ -218,14 +233,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 5000 pounds (2270 kg)
         rcraCode: null
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 100-300 mg/L HCl solution. Acidifies water.'
@@ -238,14 +254,15 @@ relationships:
         reportableReleases:
           water: 5000 lbs to navigable waters
           air: 5000 lbs/day (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -269,14 +286,15 @@ relationships:
           technique: Ion chromatography
           detectionLimit: 0.01 ppm
         odorThreshold: 0.8-5 ppm - provides adequate warning but close to toxic levels
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: plastic-residue-contamination
@@ -311,13 +329,14 @@ relationships:
         frequency: occasional
         severity: moderate
         typicalContext: Chlorinated adhesive breakdown
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -326,13 +345,14 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable as dry gas. Forms corrosive hydrochloric acid with moisture.
@@ -355,12 +375,6 @@ relationships:
         - Metals
         reactivityHazard: Reacts violently with metals producing flammable hydrogen gas. Reacts exothermically with bases.
           Forms corrosive mist in humid air.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -417,33 +431,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: how-can-i-detect-and-monitor
-    title: How can I detect and monitor HCl gas exposure during laser cleaning to stay within safe limits?
-    content: Use portable gas detectors equipped with electrochemical sensors specific to HCl, placed in the breathing zone
-      and work area, to monitor concentrations in real-time; the OSHA permissible exposure limit (PEL) is 5 ppm as a ceiling
-      limit, meaning levels should never exceed this to avoid immediate respiratory irritation. Calibrate detectors daily
-      and set alarms for 1-2 ppm to allow early evacuation or ventilation adjustments, especially since HCl from laser ablation
-      can rapidly irritate eyes, skin, and lungs far more aggressively than milder acids like acetic. If levels approach the
-      PEL, immediately don a full-face respirator with acid gas cartridges and enhance local exhaust ventilation to dilute
-      the corrosive gas.
-    metadata:
-      topic: i detect and monitor hcl
-      severity: medium
-      acceptedAnswer: true
-      expertInfo:
-        name: Ikmanda Roswati
-        title: Ph.D.
-        expertise:
-        - Ultrafast Laser Physics and Material Interactions
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: corrosive
 chemicalFormula: HCl
 casNumber: 7647-01-0
@@ -522,4 +509,31 @@ sourcesInLaserCleaning:
 - pvc_decomposition
 - chlorinated_polymer_pyrolysis
 - chlorinated_solvent_breakdown
-title: Hydrogen Chloride
+faq:
+  presentation: collapsible
+  items:
+  - id: how-can-i-detect-and-monitor
+    title: How can I detect and monitor HCl gas exposure during laser cleaning to stay within safe limits?
+    content: Use portable gas detectors equipped with electrochemical sensors specific to HCl, placed in the breathing zone
+      and work area, to monitor concentrations in real-time; the OSHA permissible exposure limit (PEL) is 5 ppm as a ceiling
+      limit, meaning levels should never exceed this to avoid immediate respiratory irritation. Calibrate detectors daily
+      and set alarms for 1-2 ppm to allow early evacuation or ventilation adjustments, especially since HCl from laser ablation
+      can rapidly irritate eyes, skin, and lungs far more aggressively than milder acids like acetic. If levels approach the
+      PEL, immediately don a full-face respirator with acid gas cartridges and enhance local exhaust ventilation to dilute
+      the corrosive gas.
+    metadata:
+      topic: i detect and monitor hcl
+      severity: medium
+      acceptedAnswer: true
+      expertInfo:
+        name: Ikmanda Roswati
+        title: Ph.D.
+        expertise:
+        - Ultrafast Laser Physics and Material Interactions
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: hydrogen-chloride-compound

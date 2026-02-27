@@ -4,7 +4,7 @@ displayName: Indium Phosphide Laser Cleaning
 category: semiconductor
 subcategory: compound
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:47.638716+00:00'
+dateModified: '2026-02-27T20:38:19.373432+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/semiconductor/compound/indium-phosphide-laser-cleaning
@@ -26,7 +26,21 @@ pageDescription: Indium phosphide serves as a key compound semiconductor that dr
   which operators must dial in carefully to avoid overexposure. Overall, the most important considerations for operators involve
   monitoring the surface closely and adjusting parameters to achieve a clean finish without compromising performance.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 4.81
@@ -77,13 +91,14 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -175,13 +190,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:41:25.596681'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-do-i-avoid-damaging-indium
@@ -251,7 +267,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -264,14 +294,22 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -284,22 +322,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 4
   name: Todd Dunning
@@ -356,159 +396,19 @@ contamination:
   conditional: {}
   _needs_review: true
   _note: Category "semiconductor" not recognized - conservative defaults applied
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 4.81
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 0
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 0.2
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 41
-    unit: MPa
-    confidence: 90
-  youngsModulus:
-    value: 61
-    unit: GPa
-    confidence: 95
-  hardness:
-    value: 0.8
-    unit: GPa
-    confidence: 87
-  flexuralStrength:
-    value: 95
-    unit: MPa
-    confidence: 85
-  oxidationResistance:
-    value: 5
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.65
-    unit: mm/year
-    confidence: 85
-  compressiveStrength:
-    value: 41
-    unit: MPa
-    confidence: 90
-  fractureToughness:
-    value: 4.5
-    unit: MPa m^{1/2}
-    confidence: 85
-  electricalResistivity:
-    value: 10000000.0
-    unit: Ω·m
-    confidence: 90
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 1335
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.3
-    unit: dimensionless
-    confidence: 90
-  laserDamageThreshold:
-    value: 1.5
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Optics
-    citation: 'Stolz, C. J. et al., Applied Optics, Vol. 24, Issue 15, pp. 2479-2483, 1985, DOI: 10.1364/AO.24.002479'
-    context: Undoped single-crystal InP (purity >99.99%), room temperature (25°C), measured with 8 ns pulses from Nd:YAG laser
-      at 1064 nm wavelength, 1-on-1 damage testing
-    confidence: 95
-    researchedDate: '2025-11-24T12:40:31.120837'
-    needsValidation: true
-  ablationThreshold:
-    value: 0.72
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Applied Physics A: Materials Science & Processing'
-    citation: 'B. Hopp, T. Smausz, N. Barna, Cs. Vass, Zs. Divós, F. Ignácz, Femtosecond laser ablation of indium phosphide,
-      Applied Physics A, Volume 77, Issue 7, pp 1017-1020, 2003, DOI: 10.1007/s00339-003-2290-3'
-    context: Polycrystalline InP (99.99% purity), room temperature (25°C), femtosecond Ti:sapphire laser at 800 nm wavelength,
-      500 fs pulse duration, measured in air
-    confidence: 95
-    researchedDate: '2025-11-24T12:40:39.006291'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 4.5e-05
-    unit: m²/s
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Thermal Diffusivity of Indium Phosphide Measured by the Laser Flash Method
-    citation: 'V. G. Tyurina et al., Journal of Applied Physics, 1995, Vol. 78, No. 5, pp. 3400-3403, DOI: 10.1063/1.360592'
-    context: Single crystal InP (undoped, 99.999% purity), 300 K, measured under vacuum conditions
-    confidence: 95
-    researchedDate: '2025-11-24T12:41:02.454313'
-    needsValidation: true
-  thermalExpansion:
-    value: 4.56e-06
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: CRC Handbook of Chemistry and Physics, 104th Ed., CRC Press, 2023, ISBN 978-1-138-56163-2
-    context: Single-crystal Indium Phosphide (InP, 99.99% purity), 300 K, measured along <110> direction via X-ray dilatometry
-    confidence: 100
-    researchedDate: '2025-11-24T12:41:07.983289'
-    needsValidation: true
-  specificHeat:
-    value: 310.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2
-    context: Pure single-crystal Indium Phosphide (InP, 99.99% purity), 298 K, measured under standard atmospheric pressure
-    confidence: 98
-    researchedDate: '2025-11-24T12:41:12.490136'
-    needsValidation: true
-  thermalConductivity:
-    value: 68.0
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2
-    context: Undoped single-crystal Indium Phosphide (InP), 300 K, measured via steady-state or laser flash techniques
-    confidence: 100
-    researchedDate: '2025-11-24T12:41:17.748728'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.28
-    unit: dimensionless
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: Handbook of Optical Constants of Solids
-    citation: Edward D. Palik (Editor), Academic Press, 1985, ISBN 0-12-544415-X
-    context: Undoped InP (99.99% purity), 300 K, normal incidence reflectivity at 1.06 μm wavelength (Nd:YAG laser), vacuum
-      conditions
-    confidence: 95
-    researchedDate: '2025-11-24T12:41:25.596681'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - ANSI Z136.1 - Safe Use of Lasers
+  - IEC 60825 - Safety of Laser Products
+  isBasedOn:
+    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: indium-phosphide-laser-cleaning

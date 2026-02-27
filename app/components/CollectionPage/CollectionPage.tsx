@@ -7,12 +7,15 @@ import { Layout } from '@/app/components/Layout/Layout';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { SITE_CONFIG } from '@/app/config';
 import { generateCollectionPageSchema, generateWebPageSchema, generateItemListSchema } from '@/app/utils/schemas/collectionPageSchema';
+import { getContentConfig } from '@/app/config/contentTypes';
 import type { CollectionPageCategory, CollectionPageConfig } from '@/types/centralized';
 
 export type { CollectionPageCategory, CollectionPageConfig };
 
 export async function CollectionPage({ config }: { config: CollectionPageConfig }) {
   const { type, plural, rootPath, pageTitle, pageDescription, categories } = config;
+  const domainConfig = getContentConfig(type);
+  const { imageSingular, collectionSchemaSuffix, collectionCardDescription, collectionImageAlt } = domainConfig;
   
   if (!categories || categories.length === 0) {
     notFound();
@@ -45,7 +48,7 @@ export async function CollectionPage({ config }: { config: CollectionPageConfig 
           'item': {
             '@type': 'CollectionPage',
             '@id': `${SITE_CONFIG.url}/${rootPath}/${category.slug}`,
-            'name': `${category.label} ${type === 'materials' ? 'Laser Cleaning' : type === 'contaminants' ? 'Contamination' : type === 'compounds' ? 'Compounds' : ''}`,
+            'name': `${category.label} ${collectionSchemaSuffix}`.trim(),
             'url': `${SITE_CONFIG.url}/${rootPath}/${category.slug}`
           }
         }))
@@ -72,7 +75,7 @@ export async function CollectionPage({ config }: { config: CollectionPageConfig 
         name: pageTitle,
         description: pageDescription,
         breadcrumbId: `${pageUrl}#breadcrumb`,
-        authorId: `${SITE_CONFIG.url}#author-technical-team`
+        author: `${SITE_CONFIG.url}#author-technical-team`
       })
     ]
   };
@@ -85,20 +88,11 @@ export async function CollectionPage({ config }: { config: CollectionPageConfig 
                      category.contaminants?.[0] ||
                      category.subcategories?.[0]?.items?.[0];
     
-    // Use singular form for image paths (material, contaminant, compound, setting)
-    const imagePath = type === 'materials' ? 'material' : 
-                     type === 'contaminants' ? 'contaminant' : 
-                     type === 'compounds' ? 'compound' : 
-                     type === 'settings' ? 'setting' : type;
+    const imageUrl = config.getImageUrl?.(category) ||
+                     `/images/${imageSingular}/${firstItem?.slug || category.slug}-hero.jpg`;
     
-    const imageUrl = config.getImageUrl?.(category) || 
-                     `/images/${imagePath}/${firstItem?.slug || category.slug}-hero.jpg`;
-    
-    const description = config.getCardDescription?.(category) || 
-                       (type === 'materials' ? `Laser cleaning parameters and machine settings for ${category.label.toLowerCase()}` :
-                        type === 'contaminants' ? `Laser cleaning solutions for ${category.label.toLowerCase()} contamination types` :
-                        type === 'compounds' ? `Safety data for ${category.label.toLowerCase()} compounds produced during laser cleaning` :
-                        `Optimized ${rootPath} for ${category.label.toLowerCase()}`);
+    const description = config.getCardDescription?.(category) ||
+                       collectionCardDescription(category.label.toLowerCase());
     
     return {
       slug: `${rootPath}/${category.slug}`,
@@ -106,7 +100,7 @@ export async function CollectionPage({ config }: { config: CollectionPageConfig 
       description,
       href: `/${rootPath}/${category.slug}`,
       imageUrl,
-      imageAlt: `${category.label} ${type === 'materials' ? 'laser cleaning' : type === 'contaminants' ? 'contamination removal' : type === 'compounds' ? 'compound safety information' : rootPath}`,
+      imageAlt: collectionImageAlt(category.label),
     };
   });
 

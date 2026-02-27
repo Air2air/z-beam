@@ -4,7 +4,7 @@ displayName: Energy and Power Laser Cleaning
 category: applications
 subcategory: energy-power
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.359792+00:00'
+dateModified: '2026-02-27T20:39:37.434329+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/energy-power-laser-cleaning-applications
@@ -21,11 +21,23 @@ pageDescription: Laser cleaning applications in the energy and power sector effe
   environments to manage laser emissions safely, addressing potential hazards through proper shielding and ventilation while
   complying with workplace safety standards. Overall, this approach achieves cleaner results on conductive materials, reduces
   maintenance needs, and enhances system durability in demanding conditions.
-metaDescription: Laser cleaning applications in the energy and power sector effectively remove contaminants from critical
-  components like turbine blades and electrical insula...
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: steel-laser-cleaning
@@ -58,13 +70,22 @@ relationships:
         subcategory: ferrous
         url: /materials/metal/ferrous/stainless-steel-laser-cleaning
         image: /images/material/stainless-steel-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: carbon-soot-contamination
@@ -97,11 +118,6 @@ relationships:
         subcategory: deposit
         url: /contaminants/biological/deposit/biological-stains-contamination
         image: /images/contaminant/biological-stains-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -140,4 +156,3 @@ keywords:
 - Energy Power
 - energy power laser cleaning
 slug: energy-power-laser-cleaning-applications
-authorId: 4

@@ -33,6 +33,7 @@ export function getContentType(slug: string): ContentType | null {
   if (normalizedSlug.startsWith('settings/')) return 'settings';
   if (normalizedSlug.startsWith('contaminants/')) return 'contaminants';
   if (normalizedSlug.startsWith('compounds/')) return 'compounds';
+  if (normalizedSlug.startsWith('applications/')) return 'applications';
   
   return null;
 }
@@ -75,6 +76,16 @@ export function isContaminantPage(slug: string): boolean {
  */
 export function isCompoundPage(slug: string): boolean {
   return getContentType(slug) === 'compounds';
+}
+
+/**
+ * Check if a slug represents an application page
+ * 
+ * @param slug - The URL slug/path
+ * @returns True if the slug is for an application page
+ */
+export function isApplicationPage(slug: string): boolean {
+  return getContentType(slug) === 'applications';
 }
 
 /**

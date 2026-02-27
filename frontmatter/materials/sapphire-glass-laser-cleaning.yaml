@@ -4,7 +4,7 @@ displayName: Sapphire Glass Laser Cleaning
 category: glass
 subcategory: soda-lime
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:42.955899+00:00'
+dateModified: '2026-02-27T20:38:13.007266+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/glass/soda-lime/sapphire-glass-laser-cleaning
@@ -21,7 +21,21 @@ pageTitle: Sapphire Glass Laser Cleaning
 pageDescription: Sapphire glass provides exceptional scratch resistance that protects sensitive surfaces in watches and devices
   much better than regular glass, maintaining clear visibility and durability even with intense daily use
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalResistivity:
@@ -87,13 +101,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:17:15.095591'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -178,13 +193,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: can-fiber-lasers-safely-clean-contaminants
@@ -381,7 +397,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -394,24 +424,40 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -434,12 +480,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -517,167 +557,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-authorId: 3
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalResistivity:
-    value: 1000000000000.0
-    unit: Ω·m
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 2.2
-    unit: MPa√m
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 435.0
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 2317.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  density:
-    value: 3980.0
-    unit: kg/m³
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 21.6
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.995
-    unit: dimensionless
-    confidence: 98
-    source: ai_research
-  compressiveStrength:
-    value: 2100.0
-    unit: MPa
-    confidence: 100
-    source: ai_research
-  flexuralStrength:
-    value: 400.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 275.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 20.5
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser-induced damage thresholds of sapphire and BK7 glass at 1064 nm
-    citation: 'Carr, C. W., Trenholme, J. B., & Spaeth, M. L., Proceedings of SPIE 4679, Laser-Induced Damage in Optical Materials:
-      2001, 2002, DOI: 10.1117/12.467399'
-    context: Single-crystal sapphire (alpha-Al2O3, 99.99% purity), room temperature (25°C), 1 ns pulse duration, 1064 nm wavelength,
-      normal incidence
-    confidence: 95
-    researchedDate: '2025-11-24T12:17:15.095591'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.03
-    unit: dimensionless
-    min: 0.01
-    max: 0.1
-    source: ai_research
-  absorptionCoefficient:
-    value: 5
-    unit: m⁻¹
-    min: 1
-    max: 10
-    source: ai_research
-  laserDamageThreshold:
-    value: 12
-    unit: J/cm²
-    min: 5
-    max: 20
-    source: ai_research
-  thermalShockResistance:
-    value: 2.5
-    unit: MW/m
-    min: 1
-    max: 5
-    source: ai_research
-  reflectivity:
-    value: 0.08
-    unit: dimensionless
-    min: 0.05
-    max: 0.12
-    source: ai_research
-  thermalDestructionPoint:
-    value: 2300
-    unit: K
-    min: 2200
-    max: 2400
-    source: ai_research
-  vaporPressure:
-    value: 0.1
-    unit: Pa
-    min: 0.001
-    max: 10
-    source: ai_research
-  thermalDestruction:
-    value: 2323.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 775.0
-    unit: J/kg·K
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.077
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 30.0
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 5.3e-06
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 5.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.07e-05
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 2.8
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: sapphire-glass-laser-cleaning

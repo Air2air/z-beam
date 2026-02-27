@@ -13,7 +13,6 @@ import { CardGrid, CardGridSSR } from '@/app/components/CardGrid';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
 import { generateCollectionPageSchema, generateItemListSchema, generateWebPageSchema } from '@/app/utils/schemas/collectionPageSchema';
-import { generateBreadcrumbs, breadcrumbsToSchema } from '@/app/utils/breadcrumbs';
 import { toCardGridItems } from '@/app/utils/metadataExtractor';
 import type { ComponentData } from '@/types';
 
@@ -80,7 +79,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
   const frontmatter = article.frontmatter as Record<string, any>;
   const title = frontmatter.pageTitle || frontmatter.displayName || frontmatter.name || slug;
-  const description = frontmatter.metaDescription || frontmatter.pageDescription || '';
+  const description = frontmatter.pageDescription || '';
 
   return createMetadata({
     title,
@@ -91,7 +90,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     canonical: `${SITE_CONFIG.url}/applications/${slug}`,
     author: frontmatter.author,
     datePublished: frontmatter.datePublished,
-    lastModified: frontmatter.dateModified
+    dateModified: frontmatter.dateModified
   });
 }
 
@@ -169,7 +168,7 @@ export default async function ApplicationPage({ params }: { params: { slug: stri
           name: pageTitle,
           description: pageDescription,
           breadcrumbId: `${pageUrl}#breadcrumb`,
-          authorId: `${SITE_CONFIG.url}#author-technical-team`
+          author: `${SITE_CONFIG.url}#author-technical-team`
         })
       ]
     };
@@ -208,30 +207,12 @@ export default async function ApplicationPage({ params }: { params: { slug: stri
   const commonContaminants = frontmatter.relationships?.interactions?.contaminatedBy;
 
   // Build page-specific JSON-LD schemas
-  const pageUrl = `${SITE_CONFIG.url}${frontmatter.fullPath || `/applications/${slug}`}`;
   const pageTitle = frontmatter.pageTitle || frontmatter.displayName || frontmatter.name || slug;
   const pageDescription = frontmatter.pageDescription || '';
-  const breadcrumbItems = generateBreadcrumbs(frontmatter as any, frontmatter.fullPath || '');
-
-  const articleSchemas: object[] = [
-    generateWebPageSchema({
-      url: pageUrl,
-      name: pageTitle,
-      description: pageDescription,
-      datePublished: frontmatter.datePublished,
-      dateModified: frontmatter.dateModified,
-      breadcrumbId: breadcrumbItems ? `${pageUrl}#breadcrumb` : undefined,
-      authorId: `${SITE_CONFIG.url}#author-technical-team`,
-    }),
-  ];
-  if (breadcrumbItems && breadcrumbItems.length > 0) {
-    articleSchemas.push(breadcrumbsToSchema(breadcrumbItems, SITE_CONFIG.url));
-  }
-  const articleJsonLd = { '@context': 'https://schema.org', '@graph': articleSchemas };
 
   return (
     <>
-      <JsonLD data={articleJsonLd} />
+      <JsonLD article={article} slug={`applications/${slug}`} />
       <Layout
         metadata={frontmatter as any}
         slug={`applications/${slug}`}

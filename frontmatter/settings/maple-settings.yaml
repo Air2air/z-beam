@@ -4,7 +4,7 @@ displayName: Maple Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:53.045701+00:00'
+dateModified: '2026-02-27T20:39:25.590035+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/maple-settings
@@ -36,45 +36,55 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: maple-laser-cleaning
         effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -85,12 +95,6 @@ relationships:
         contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -135,8 +139,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for controlled wood ablation with minimal thermal damage
     unit: nm
     value: 1064
     min: 355
@@ -146,51 +156,32 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameters for uniform coverage; smaller for fine details (100-200 μm), larger for broad areas (300-500
-      μm). 200 μm suits maple''s surface texture. Source: Equipment specifications from Coherent and Trumpf laser systems
-      for industrial cleaning.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence range for safe removal of contaminants from wood; maple damage threshold ~2-3 J/cm² due to charring
-      onset. 1.5 J/cm² recommended below threshold. Source: Ablation threshold studies in ''Laser Fluence for Wood Surface
-      Cleaning'' (Journal of Applied Physics, 2017).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 50
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning of organics; picosecond (ps) reduces heat-affected
-      zone but is less common for wood. 50 ns minimizes thermal damage to maple''s low-conductivity structure. Source: Laser
-      physics research in ''Ultrashort Pulse Lasers for Material Processing'' (Applied Physics Reviews, 2020).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contamination removal on wood; slower for heavy soiling (500-1000 mm/s), faster for
-      light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance on maple. Source: Industry standards from Laserax
-      equipment manuals; case studies in industrial surface prep.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy; 2 passes recommended for complete removal
-      on maple without excessive exposure. Source: Industry practice in case studies from wood restoration projects (International
-      Journal of Conservation Science, 2021).'
   overlapRatio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform cleaning without gaps or over-ablation; 70% optimal for even coverage on irregular wood
-      surfaces like maple. Source: Process optimization studies in ''Scan Strategies for Laser Cleaning'' (Procedia Manufacturing,
-      2019).'
   laserPower:
-    description: Optimal average power for surface cleaning without charring
     unit: W
     value: 45
     min: 1.0
@@ -200,16 +191,11 @@ machineSettings:
     max: 200
     value: 100
     unit: W
-    description: 'Typical range for ns fiber lasers cleaning delicate organics like wood to avoid charring; starting at 100W
-      balances efficiency and safety. Source: Manufacturer specs from IPG Photonics for 1064 nm systems; academic review in
-      ''Laser Cleaning of Wood Surfaces'' (Journal of Cultural Heritage, 2018).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Standard for 1064 nm cleaning; higher rates (>50 kHz) speed up process but risk heat accumulation on low-thermal-conductivity
-      maple. 50 kHz recommended for balance. Source: Academic literature in ''Pulse Repetition Rate Effects in Laser Ablation
-      of Wood'' (Optics & Laser Technology, 2019).'
 componentSummary: The 100 W power, 1064 nm wavelength, and 12 ns pulse width settings enable precise ablation of contaminants
   from maple wood, minimizing thermal damage to its sensitive organic fibers.
+slug: maple-settings

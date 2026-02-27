@@ -4,7 +4,7 @@ displayName: Nylon Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:59.389154+00:00'
+dateModified: '2026-02-27T20:39:35.759173+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/nylon-settings
@@ -34,33 +34,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -69,25 +78,20 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -132,10 +136,16 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
     value: 1064
     unit: nm
-    description: Near-IR wavelength for controlled absorption
     min: 355
     max: 10640
   spotSize:
@@ -143,58 +153,34 @@ machineSettings:
     max: 500
     value: 100
     unit: μm
-    description: 'Smaller spots (50-100 μm) for fine detail cleaning on Nylon surfaces, larger (100-300 μm) for broad area
-      preparation; balances resolution and coverage while controlling fluence on reflective polymers. Recommended for industrial
-      contamination removal. Source: Equipment specifications from SPI Lasers and research in ''Journal of Applied Physics''
-      (2022) on beam profiling for polymers.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 0.5
     unit: J/cm²
-    description: 'Fluence below Nylon''s damage threshold (~1.2-1.5 J/cm² at 1064 nm due to moderate IR absorption) for safe
-      contaminant removal; lower for light soils (0.1-0.3 J/cm²), higher for heavy (0.5-1.0 J/cm²). Recommended value ensures
-      photothermal cleaning without ablation. Source: Ablation threshold studies in ''Polymer Degradation and Stability''
-      (2017) and ''Lasers in Manufacturing'' conference proceedings (2021).'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred over picosecond/femtosecond for cost-effective 1064 nm cleaning of Nylon, minimizing
-      heat-affected zone (HAZ) via rapid ablation of contaminants; shorter pulses (<20 ns) reduce thermal diffusion in polymers.
-      Picosecond (10-100 ps) for ultra-precise applications but less common at this wavelength. Source: Laser physics research
-      in ''Applied Surface Science'' (2018) on polymer ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Slower speeds ensure controlled energy delivery on low thermal conductivity Nylon (~0.25 W/mK) to avoid
-      heat accumulation; higher speeds (up to 2000 mm/s) for light contamination, lower (100-500 mm/s) for heavy. Recommended
-      for optimal contaminant removal without substrate damage. Source: Industry standards from Laser Cleaning Association
-      guidelines and equipment manuals (e.g., Adapt Laser Systems).'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Multi-pass approach preferred for Nylon to gradually remove contaminants without exceeding thermal limits;
-      single pass for light cleaning, up to 5 for heavy or uneven surfaces. Recommended minimizes risk of melting. Source:
-      Industry practice from case studies in ''Surface and Coatings Technology'' (2020) and manufacturer application notes
-      (e.g., CleanLaser).'
   overlapRatio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Higher overlap ensures uniform coverage on irregular Nylon surfaces, preventing gaps in cleaning; 30-50%
-      for large areas, 70-80% for precision. Recommended for even energy distribution and minimal HAZ. Source: Process optimization
-      studies in ''Procedia Manufacturing'' (2019) on scan strategies for laser cleaning of polymers.'
   laserPower:
     value: 30
     unit: W
-    description: Low power for thermal-sensitive polymer cleaning
     min: 1.0
     max: 120
   laserPowerAlternative:
@@ -202,18 +188,11 @@ machineSettings:
     max: 100
     value: 30
     unit: W
-    description: 'Low to moderate power range for heat-sensitive polymers like Nylon to prevent melting (melting point ~220°C);
-      typical for 1064 nm fiber lasers in industrial cleaning. Recommended starting value balances efficiency and safety.
-      Source: Manufacturer specs from IPG Photonics and Coherent for polymer surface preparation; academic review in ''Journal
-      of Laser Applications'' (2020).'
   frequency:
     min: 1
     max: 200
     value: 50
     unit: kHz
-    description: 'Moderate rates for Nylon cleaning to achieve fast processing while limiting heat buildup; higher rates (>50
-      kHz) increase speed but risk thermal accumulation on low-conductivity substrates, lower for heavy contamination. Trade-off:
-      efficiency vs. HAZ control. Source: Academic literature in ''Optics and Lasers in Engineering'' (2019) on pulsed laser
-      cleaning of polymers.'
 componentSummary: These settings use moderate power and short nanosecond pulses at 1064 nm to minimize thermal damage to heat-sensitive
   Nylon, enabling precise contaminant removal without melting or degrading the polymer surface.
+slug: nylon-settings

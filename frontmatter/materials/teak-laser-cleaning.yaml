@@ -4,7 +4,7 @@ displayName: Teak Laser Cleaning
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:44.901946+00:00'
+dateModified: '2026-02-27T20:38:15.526625+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/wood/hardwood/teak-laser-cleaning
@@ -23,7 +23,21 @@ pageDescription: Teak, a durable hardwood prized for its natural oils and weathe
   proves highly relevant for teak as it gently removes accumulated grime, old varnishes, or biological growth without abrasive
   chemicals or mechanical scraping that could harm the wood's surface integrity.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     youngsModulus:
       value: 11.17
@@ -88,13 +102,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:27:11.810670'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -186,13 +201,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:27:16.436260'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: is-laser-cleaning-safe-for-teak
@@ -370,7 +386,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -443,24 +473,40 @@ relationships:
           unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: ANSI Z136.1 - Safe Use of Lasers
@@ -478,12 +524,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -557,173 +597,11 @@ eeat:
   isBasedOn:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/en/publication/3587
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  youngsModulus:
-    value: 11.17
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.92
-    unit: dimensionless (normalized resistance index, 0-1)
-    confidence: 95
-    source: ai_research
-  density:
-    value: 660.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 4760.0
-    unit: N
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 0.95
-    unit: dimensionless (durability index)
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 54.0
-    unit: MPa
-    confidence: 98
-    source: ai_research
-  flexuralStrength:
-    value: 110.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 143.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  fractureToughness:
-    value: 0.42
-    unit: MPa·m^{1/2}
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.633
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  percentage: 60.0
-  laserDamageThreshold:
-    value: 0.28
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds of Tropical Hardwoods
-    citation: 'Poon, A.C.H. et al., Optics and Lasers in Engineering, 2007, DOI: 10.1016/j.optlaseng.2006.07.004'
-    context: Teak wood (Tectona grandis, density 650 kg/m³, natural moisture content 12%), 1064 nm Nd:YAG laser, room temperature
-      (25°C), pulse duration 10 ns
-    confidence: 95
-    researchedDate: '2025-11-24T12:27:11.810670'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.85
-    unit: dimensionless
-    min: 0.7
-    max: 0.95
-    source: ai_research
-  absorptionCoefficient:
-    value: 500000
-    unit: m⁻¹
-    min: 100000
-    max: 1000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-    min: 1.0
-    max: 5.0
-    source: ai_research
-  thermalShockResistance:
-    value: 1.5
-    unit: MW/m
-    min: 0.5
-    max: 3.0
-    source: ai_research
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    min: 0.05
-    max: 0.3
-    source: ai_research
-  thermalDestructionPoint:
-    value: 673
-    unit: K
-    min: 500
-    max: 800
-    source: ai_research
-  vaporPressure:
-    value: 10
-    unit: Pa
-    min: 1
-    max: 100
-    source: ai_research
-  thermalDestruction:
-    value: 588.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 1380.0
-    unit: J/kg·K
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.12
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 0.15
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 3.8e-06
-    unit: K^{-1}
-    confidence: 96
-    source: ai_research
-  laserAbsorption:
-    value: 0.87
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.43e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 2.8
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds for Tropical Hardwoods in Conservation Applications
-    citation: 'Hernandez et al., Journal of Cultural Heritage, 2018, DOI: 10.1016/j.culher.2018.03.005'
-    context: Teak wood (Tectona grandis, density 650 kg/m³, natural moisture content 12%), 1064 nm Nd:YAG laser, 10 ns pulse
-      duration, room temperature (25°C), atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T12:27:16.436260'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: teak-laser-cleaning

@@ -4,7 +4,7 @@ displayName: Rail Transport Laser Cleaning
 category: applications
 subcategory: rail-transport
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.398228+00:00'
+dateModified: '2026-02-27T20:39:37.764598+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/rail-transport-laser-cleaning-applications
@@ -22,10 +22,23 @@ pageDescription: In rail transport, laser cleaning applies to surfaces like trac
   gear to prevent eye hazards, and compliance follows industry standards to ensure minimal environmental impact from the process.
   From observations, operational outcomes include extended component lifespan and reduced maintenance downtime, as cleaning
   integrates seamlessly into routine schedules.
-metaDescription: Overview of laser cleaning in rail transport applications and common surface challenges.
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: steel-laser-cleaning
@@ -58,13 +71,22 @@ relationships:
         subcategory: non-ferrous
         url: /materials/metal/non-ferrous/copper-laser-cleaning
         image: /images/material/copper-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: carbon-soot-contamination
@@ -97,11 +119,6 @@ relationships:
         subcategory: paint
         url: /contaminants/inorganic-coating/paint/paint-residue-contamination
         image: /images/contaminant/paint-residue-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -139,4 +156,3 @@ keywords:
 - Rail Transport Laser Cleaning
 - Rail Transport
 slug: rail-transport-laser-cleaning-applications
-authorId: 3

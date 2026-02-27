@@ -6,10 +6,8 @@
 import { 
   inferCriticality,
   getRiskColor,
-  getOptimalRange,
-  getEnrichmentMetadata
+  getOptimalRange
 } from '@/app/utils/layoutHelpers';
-import { ArticleMetadata } from '@/types/centralized';
 
 describe('layoutHelpers', () => {
   describe('inferCriticality', () => {
@@ -117,122 +115,4 @@ describe('layoutHelpers', () => {
     });
   });
 
-  describe('getEnrichmentMetadata', () => {
-    const mockMetadata: ArticleMetadata = {
-      title: 'Test Material',
-      slug: 'test-material',
-      description: 'Test description',
-      enrichments: {
-        material_linkage: {
-          title: 'Custom Material Title',
-          description: 'Custom material description',
-        },
-        contaminant_linkage: {
-          title: 'Custom Contaminant Title',
-          // No description provided
-        },
-      },
-    };
-
-    it('returns enrichment metadata when available', () => {
-      const result = getEnrichmentMetadata(
-        mockMetadata,
-        'material_linkage',
-        'Default Title',
-        'Default description'
-      );
-
-      expect(result).toEqual({
-        title: 'Custom Material Title',
-        description: 'Custom material description',
-      });
-    });
-
-    it('falls back to default title when enrichment title missing', () => {
-      const result = getEnrichmentMetadata(
-        mockMetadata,
-        'contaminant_linkage',
-        'Default Title',
-        'Default description'
-      );
-
-      expect(result).toEqual({
-        title: 'Custom Contaminant Title',
-        description: 'Default description',
-      });
-    });
-
-    it('uses defaults when enrichment key not found', () => {
-      const result = getEnrichmentMetadata(
-        mockMetadata,
-        'settings_linkage',
-        'Default Title',
-        'Default description'
-      );
-
-      expect(result).toEqual({
-        title: 'Default Title',
-        description: 'Default description',
-      });
-    });
-
-    it('uses defaults when enrichments object missing', () => {
-      const metadataWithoutEnrichments: ArticleMetadata = {
-        title: 'Test',
-        slug: 'test',
-        description: 'Test',
-      };
-
-      const result = getEnrichmentMetadata(
-        metadataWithoutEnrichments,
-        'material_linkage',
-        'Default Title',
-        'Default description'
-      );
-
-      expect(result).toEqual({
-        title: 'Default Title',
-        description: 'Default description',
-      });
-    });
-
-    it('handles undefined metadata', () => {
-      const result = getEnrichmentMetadata(
-        undefined as any,
-        'material_linkage',
-        'Default Title',
-        'Default description'
-      );
-
-      expect(result).toEqual({
-        title: 'Default Title',
-        description: 'Default description',
-      });
-    });
-
-    it('handles partial enrichment data', () => {
-      const partialMetadata: ArticleMetadata = {
-        title: 'Test',
-        slug: 'test',
-        description: 'Test',
-        enrichments: {
-          material_linkage: {
-            title: 'Only Title Provided',
-          },
-        },
-      };
-
-      const result = getEnrichmentMetadata(
-        partialMetadata,
-        'material_linkage',
-        'Default Title',
-        'Default description'
-      );
-
-      expect(result).toEqual({
-        title: 'Only Title Provided',
-        description: 'Default description',
-      });
-    });
-  });
 });

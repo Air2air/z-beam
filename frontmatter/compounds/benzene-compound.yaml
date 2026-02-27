@@ -4,7 +4,7 @@ displayName: Benzene Compound
 category: carcinogen
 subcategory: aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:37.643461+00:00'
+dateModified: '2026-02-27T20:39:11.537067+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/carcinogen/aromatic-hydrocarbon/benzene-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: benzene-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: 80.1°C (176°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: 'LEL: 1.2%, UEL: 7.8%'
         appearance: Clear, colorless to pale yellow liquid
         odor: 'Sweet, aromatic odor; Odor threshold: 1.5-4.7 ppm (variable, not reliable)'
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -81,14 +90,15 @@ relationships:
           rtecsNumber: CY1400000
           ecNumber: 200-753-7
           pubchemCid: '241'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -107,13 +117,14 @@ relationships:
         effect: Irritation, redness, and tearing
         severity: low
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: NIOSH-approved organic vapor respirator with full facepiece for >10 ppm, SCBA or supplied-air for >50
@@ -123,13 +134,14 @@ relationships:
         minimumLevel: Level B for spill response, Level C for operations <50 ppm
         specialNotes: Benzene is absorbed through skin - full body protection required. Change contaminated clothing immediately,
           do not reuse without decontamination.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Highly flammable liquid. Vapors heavier than air, may travel to ignition source. Forms explosive mixtures
@@ -144,13 +156,14 @@ relationships:
           to CERCLA.
         specialHazards: Carcinogen - causes leukemia. May cause bone marrow depression with chronic exposure. Decomposes producing
           toxic carbon monoxide and carbon dioxide.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 1
@@ -182,13 +195,14 @@ relationships:
             specimen: Urine
             timing: End of shift
             beiValue: 500 µg/g creatinine
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store below 25°C (77°F) in cool area
@@ -208,13 +222,14 @@ relationships:
           inside safety cabinet'
         specialRequirements: Store in tightly sealed containers in cool, dry, well-ventilated area. Ground and bond containers
           during transfer. Use explosion-proof electrical equipment.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1114
@@ -237,14 +252,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 10 pounds (4.54 kg)
         rcraCode: U019
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Toxic to aquatic organisms. LC50 (fish, 96h): 5.3-5.9 mg/L (rainbow trout). Toxic to algae and invertebrates.'
@@ -257,14 +273,15 @@ relationships:
         reportableReleases:
           water: 10 lbs (4.54 kg) to navigable waters (CWA Section 311)
           air: 10 lbs/day (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -290,14 +307,15 @@ relationships:
           detectionLimit: 0.01 ppm
         odorThreshold: NOT reliable indicator. Odor threshold (1.5-4.7 ppm) is above safe exposure levels and varies greatly.
           Do not rely on odor - use monitoring equipment.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: paint-residue-contamination
@@ -355,13 +373,14 @@ relationships:
         frequency: occasional
         severity: moderate
         typicalContext: Decomposition of aromatic additives
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable under normal conditions. May polymerize with aluminum chloride catalyst.
@@ -388,12 +407,6 @@ relationships:
         - High temperatures
         reactivityHazard: Reacts violently with strong oxidizers causing fire and explosion hazard. Attacks some forms of
           plastics, rubber, and coatings.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -449,33 +462,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-working
-    title: As a laser cleaning operator working on equipment that may release benzene vapors due to its volatility, what protection
-      methods should I use to stay below exposure limits?
-    content: Prioritize engineering controls like local exhaust ventilation to capture volatile benzene emissions at the source,
-      aiming to keep airborne concentrations below the OSHA PEL of 1 ppm (8-hour TWA) or the ACGIH TLV of 0.5 ppm. Wear a
-      NIOSH-approved half-face respirator with organic vapor cartridges (e.g., N95 or better with OV filter) during operations,
-      and use chemical-resistant gloves and protective clothing to prevent skin contact. Regularly monitor air quality with
-      a photoionization detector (PID) calibrated for benzene to ensure levels remain safe and trigger immediate evacuation
-      if thresholds are approached.
-    metadata:
-      topic: as a laser cleaning operator
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Alessandro Moretti
-        title: Ph.D.
-        expertise:
-        - Laser-Based Additive Manufacturing
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: carcinogenic
 chemicalFormula: C₆H₆
 casNumber: 71-43-2
@@ -538,4 +524,31 @@ sourcesInLaserCleaning:
 - aromatic_polymer_decomposition
 - solvent_residue_vaporization
 - plastic_pyrolysis
-title: Benzene
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-working
+    title: As a laser cleaning operator working on equipment that may release benzene vapors due to its volatility, what protection
+      methods should I use to stay below exposure limits?
+    content: Prioritize engineering controls like local exhaust ventilation to capture volatile benzene emissions at the source,
+      aiming to keep airborne concentrations below the OSHA PEL of 1 ppm (8-hour TWA) or the ACGIH TLV of 0.5 ppm. Wear a
+      NIOSH-approved half-face respirator with organic vapor cartridges (e.g., N95 or better with OV filter) during operations,
+      and use chemical-resistant gloves and protective clothing to prevent skin contact. Regularly monitor air quality with
+      a photoionization detector (PID) calibrated for benzene to ensure levels remain safe and trigger immediate evacuation
+      if thresholds are approached.
+    metadata:
+      topic: as a laser cleaning operator
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Alessandro Moretti
+        title: Ph.D.
+        expertise:
+        - Laser-Based Additive Manufacturing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: benzene-compound

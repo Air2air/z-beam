@@ -4,7 +4,7 @@ displayName: Automotive Laser Cleaning
 category: applications
 subcategory: automotive
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.245141+00:00'
+dateModified: '2026-02-27T20:39:36.977720+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/automotive-laser-cleaning-applications
@@ -21,11 +21,23 @@ pageDescription: Automotive laser cleaning, it serves key applications in the in
   engine blocks or frames. After this, results indicate improved adhesion for coatings, with deployment typically constrained
   to controlled environments to ensure operator safety. Contamination is already eliminated from intricate areas, still compliance
   with emission standards remains essential, as vapors are generated at the site.
-metaDescription: In automotive applications, laser cleaning removes contaminants from vehicle surfaces effectively, so it
-  prepares parts for painting or welding without chemi...
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: steel-laser-cleaning
@@ -58,13 +70,22 @@ relationships:
         subcategory: non-ferrous
         url: /materials/metal/non-ferrous/copper-laser-cleaning
         image: /images/material/copper-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -97,11 +118,6 @@ relationships:
         subcategory: scale
         url: /contaminants/thermal-damage/scale/scale-buildup-contamination
         image: /images/contaminant/scale-buildup-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 3
   name: Ikmanda Roswati
@@ -140,4 +156,3 @@ keywords:
 - Automotive Laser Cleaning
 - Automotive
 slug: automotive-laser-cleaning-applications
-authorId: 3

@@ -4,7 +4,7 @@ displayName: Dolomite Laser Cleaning
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:47.290436+00:00'
+dateModified: '2026-02-27T20:38:18.835134+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/stone/sedimentary/dolomite-laser-cleaning
@@ -24,7 +24,21 @@ pageDescription: Dolomite exists as sedimentary stone material, and it finds wid
   deposits, and surface exhibits restored clarity after treatment. Operator considerations focus most on adjusting parameters
   carefully, so damage already avoids in sensitive applications like monument restoration.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 2.85
@@ -75,13 +89,14 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -182,13 +197,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:37:03.315886'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-does-dolomite-compare-to-limestone
@@ -258,7 +274,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -271,14 +301,22 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -291,22 +329,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 1
   name: Yi-Chun Lin
@@ -368,167 +408,19 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-authorId: 1
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 2.85
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 5
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 6
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 90
-    unit: MPa
-    confidence: 90
-  youngsModulus:
-    value: 65
-    unit: GPa
-    confidence: 95
-  hardness:
-    value: 1.5
-    unit: GPa
-    confidence: 87
-  flexuralStrength:
-    value: 140
-    unit: MPa
-    confidence: 85
-  oxidationResistance:
-    value: 6
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.88
-    unit: mm/year
-    confidence: 85
-  compressiveStrength:
-    value: 90
-    unit: MPa
-    confidence: 90
-  fractureToughness:
-    value: 5
-    unit: MPa m^{1/2}
-    confidence: 85
-  electricalResistivity:
-    value: 10000000000000.0
-    unit: Ω·m
-    confidence: 90
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 1073
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.25
-    unit: dimensionless
-    confidence: 90
-  laserDamageThreshold:
-    value: 1.15
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Journal of Cultural Heritage
-    citation: 'Serafini, A., et al., ''Ablation thresholds and morphological changes in dolomitic stones induced by nanosecond
-      Nd:YAG laser irradiation'', Journal of Cultural Heritage, 2016, DOI: 10.1016/j.culher.2016.02.005'
-    context: Natural dolomite (CaMg(CO3)2, 98% purity), room temperature (25°C), 1064 nm Nd:YAG laser, 10 ns pulse duration,
-      measured under atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T12:35:58.497594'
-    needsValidation: true
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Journal of Applied Physics
-    citation: 'P. Pouli et al., Ablation thresholds and cleaning efficacy of natural stones by UV and IR nanosecond laser
-      radiation, Journal of Applied Physics, 2015, DOI: 10.1063/1.4926412'
-    context: Natural dolomite stone (CaMg(CO3)2, 95% purity), room temperature (25°C), 1064 nm Nd:YAG laser, nanosecond pulse
-      duration (10 ns)
-    confidence: 95
-    researchedDate: '2025-11-24T12:36:05.828309'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 1.14e-06
-    unit: m²/s
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: Handbook of Physical Constants
-    citation: Clark, S.P. (ed.), 1966, Handbook of Physical Constants, Geological Society of America Memoir 97, 587 p., ISBN
-      978-0-8137-1097-3
-    context: Pure dolomite (CaMg(CO3)2, stoichiometric composition), 25°C, room temperature and atmospheric pressure, value
-      derived from measured thermal conductivity, density, and specific heat
-    confidence: 95
-    researchedDate: '2025-11-24T12:36:14.750217'
-    needsValidation: true
-  thermalExpansion:
-    value: 8.8e-06
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: Handbook of Physical Constants
-    citation: 'Clark, S.P., Jr. (ed.), Handbook of Physical Constants, Revised Edition, Geological Society of America Memoir
-      97, 1966, ISBN: 978-0-8137-1097-3'
-    context: Polycrystalline dolomite (CaMg(CO3)2, natural mineral sample >95% purity), 25-100°C range, measured perpendicular
-      to cleavage planes
-    confidence: 95
-    researchedDate: '2025-11-24T12:36:32.025866'
-    needsValidation: true
-  specificHeat:
-    value: 880.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb LLC, Dolomite (rock), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a4b8e1b4a4b0e9a4b0e9a4b0e9a4b,
-      accessed October 2023
-    context: Pure dolomite (CaMg(CO3)2, >98% purity), 25°C, measured via differential scanning calorimetry (DSC)
-    confidence: 95
-    researchedDate: '2025-11-24T12:36:41.650176'
-    needsValidation: true
-  thermalConductivity:
-    value: 2.8
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb LLC, Dolomite, Material Property Data, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5e4a5e1b4e4a5e8b0e4a5e1b4e4a5e,
-      accessed October 2023
-    context: Polycrystalline dolomite rock (CaMg(CO3)2, commercial grade), 25°C, measured under standard atmospheric pressure
-      using the guarded hot plate method
-    confidence: 95
-    researchedDate: '2025-11-24T12:36:47.591252'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.067
-    unit: '%'
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics, 104th Edition
-    citation: Rumble, J.R. (ed.), CRC Handbook of Chemistry and Physics, 104th ed., CRC Press, 2023, ISBN 978-1-138-34164-5
-    context: Pure single-crystal dolomite (CaMg(CO3)2, >99% purity), 25°C, normal incidence, approximated for 1064 nm laser
-      wavelength using visible refractive index data (n_o = 1.703, n_e = 1.698) due to minimal dispersion in near-IR for carbonates
-    confidence: 95
-    researchedDate: '2025-11-24T12:37:03.315886'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: dolomite-laser-cleaning

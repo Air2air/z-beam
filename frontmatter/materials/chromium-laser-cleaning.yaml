@@ -4,7 +4,7 @@ displayName: Chromium Laser Cleaning
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:35.487538+00:00'
+dateModified: '2026-02-27T20:38:03.738258+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/metal/specialty/chromium-laser-cleaning
@@ -26,7 +26,21 @@ pageDescription: Chromium serves as a durable, corrosion-resistant metal widely 
   in a clean finish that supports reliable performance. Operators must prioritize proper setup and monitoring to avoid overheating,
   ensuring they dial in the right parameters for safe, effective results.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     electricalConductivity:
@@ -139,13 +153,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptionCoefficient:
@@ -216,13 +231,14 @@ properties:
       unit: J/cm²
       confidence: 95
       source: ai_research
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: can-laser-cleaning-safely-remove-chromiumcontaining
@@ -419,7 +435,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -692,35 +722,51 @@ relationships:
           unique patterns on surfaces. Layers accumulate slowly and adhere tightly to substrates like me...
         frequency: moderate
         severity: moderate
+  operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
+    industryApplications:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Industry Applications
+        sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
+        icon: building
         order: 1
         variant: default
-  operational:
-    industryApplications:
       presentation: card
       items:
       - id: medical-devices-laser-cleaning
         name: Medical Devices
         category: applications
         subcategory: medical-devices
-        url: /applications/medical-devices-laser-cleaning
+        url: /applications/medical-devices-laser-cleaning-applications
         description: Laser cleaning applies to medical devices and removes contaminants from surfaces such as surgical instruments
           or implants. Process ensures sterility, thus maintains device integrity without harsh chemicals. After treatment,
           surface exhibits smoothness and cleanliness, so operational outcomes include enhanced reliability in clinical settings.
           Deployment constraints involve controlled environments to avoid cross-contamination, and safety implications demand
           compliance with medical regulations. This method, it supports precise decontamination, already demonstrates effectiveness
           in preserving material properties.
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Industry Applications
-        sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -743,12 +789,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -829,200 +869,11 @@ eeat:
   isBasedOn:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  electricalConductivity:
-    value: 7750000.0
-    unit: S/m
-    confidence: 100
-    source: ai_research
-  electricalResistivity:
-    value: 1.29e-07
-    unit: Ω·m
-    confidence: 100
-    source: ai_research
-  fractureToughness:
-    value: 0.77
-    unit: MPa m^{1/2}
-    confidence: 95
-    source: ai_research
-  surfaceRoughness:
-    value: 0.1
-    unit: μm
-    confidence: 95
-    source: ai_research
-  density:
-    value: 7190.0
-    unit: kg/m³
-    confidence: 100
-    source: ai_research
-  oxidationResistance:
-    value: 1273.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 279.0
-    unit: GPa
-    confidence: 100
-    source: ai_research
-  hardness:
-    value: 1050.0
-    unit: HV
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 345.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 414.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 380.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 500000.0
-    unit: Ω·cm²
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.0
-    unit: '%'
-    confidence: 100
-    source: ai_research
-  boilingPoint:
-    value: 2945.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  absorptivity:
-    value: 0.42
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  absorptionCoefficient:
-    value: 59100000.0
-    unit: m^{-1}
-    confidence: 95
-    source: ai_research
-  reflectivity:
-    value: 0.65
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  vaporPressure:
-    value: 0.0
-    unit: Pa
-    confidence: 100
-    source: ai_research
-  meltingPoint:
-    value: 2180.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  thermalDestructionPoint:
-    value: 2180.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  thermalShockResistance:
-    value: 239.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 0.9
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptionCoefficient:
-    source: ai_research
-    unit: m⁻¹
-    value: 41200000.0
-  absorptivity:
-    source: ai_research
-    unit: dimensionless
-    value: 0.415
-  laserDamageThreshold:
-    source: ai_research
-    unit: J/cm²
-    value: 0.85
-  reflectivity:
-    source: ai_research
-    unit: dimensionless (ratio)
-    value: 0.64
-  thermalDestructionPoint:
-    source: ai_research
-    unit: °C
-    value: 1863.0
-  thermalShockResistance:
-    source: ai_research
-    unit: MPa·m^0.5
-    value: 0.8
-  vaporPressure:
-    source: ai_research
-    unit: Pa
-    value: 1.33
-  thermalDestruction:
-    value: 2180.0
-    unit: K
-    confidence: 100
-    source: ai_research
-  laserReflectivity:
-    value: 0.7
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 4.9
-    unit: ×10^{-6} K^{-1}
-    confidence: 100
-    source: ai_research
-  thermalConductivity:
-    value: 93.9
-    unit: W/m·K
-    confidence: 100
-    source: ai_research
-  specificHeat:
-    value: 449.0
-    unit: J/(kg·K)
-    confidence: 100
-    source: ai_research
-  laserAbsorption:
-    value: 0.35
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 2.91e-05
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-    confidence: 95
-    source: ai_research
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: chromium-laser-cleaning

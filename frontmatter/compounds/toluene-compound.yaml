@@ -4,7 +4,7 @@ displayName: Toluene Compound
 category: solvent
 subcategory: aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:38.497427+00:00'
+dateModified: '2026-02-27T20:39:12.164697+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/solvent/aromatic-hydrocarbon/toluene-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: toluene-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: 110.6°C (231°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: 'LEL: 1.1%, UEL: 7.1%'
         appearance: Colorless liquid
         odor: Sweet, pungent, benzene-like odor @ 0.16-40 ppm
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -76,14 +85,15 @@ relationships:
           rtecsNumber: XS5250000
           ecNumber: 203-625-9
           pubchemCid: '1140'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -102,13 +112,14 @@ relationships:
         effect: Irritation, redness, and tearing
         severity: moderate
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: Organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
@@ -117,13 +128,14 @@ relationships:
         minimumLevel: Level C for <50 ppm, Level B for >50 ppm
         specialNotes: CNS depressant and neurotoxin. Abuse potential (inhalant). Skin absorption significant. Reproductive
           toxin. Embryo/fetal toxicity concern.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Flammable liquid. Vapors heavier than air. May travel to ignition sources. Flash point very low.
@@ -139,13 +151,14 @@ relationships:
         specialHazards: NEUROTOXIN - causes CNS depression, peripheral neuropathy, cognitive impairment. REPRODUCTIVE TOXIN
           - embryo/fetal toxicity. Abuse potential (intentional inhalation). Chronic exposure causes hearing loss, vision
           problems. Metabolized to benzyl alcohol and benzoic acid.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 200
@@ -181,13 +194,14 @@ relationships:
             specimen: Blood
             timing: End of shift
             beiValue: 0.05 mg/L
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store below 25°C. Keep away from heat.
@@ -203,13 +217,14 @@ relationships:
         quantityLimits: Follow NFPA 30. Minimize quantities in work areas.
         specialRequirements: Post "FLAMMABLE LIQUID" signs. Secondary containment. Bonding and grounding for transfers. Emergency
           eyewash/shower within 25 feet.
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1294
@@ -230,14 +245,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 1000 pounds (454 kg)
         rcraCode: U220
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 5.5-40 mg/L depending on species.'
@@ -251,14 +267,15 @@ relationships:
         reportableReleases:
           water: 1000 lbs to navigable waters
           air: 1000 lbs/day (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -282,14 +299,15 @@ relationships:
           technique: GC-FID
           detectionLimit: 0.005 ppm
         odorThreshold: 0.16-40 ppm - provides early warning but wide range. Olfactory adaptation occurs.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: paint-residue-contamination
@@ -346,13 +364,14 @@ relationships:
         frequency: occasional
         severity: low
         typicalContext: Thermal breakdown of aromatic rubber compounds
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -361,13 +380,14 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: Stable under normal conditions.
@@ -393,12 +413,6 @@ relationships:
         - Strong oxidizers
         reactivityHazard: Reacts violently with strong oxidizers. May react explosively with dinitrogen tetroxide. Attacks
           some plastics, rubber, and coatings.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -453,34 +467,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-using
-    title: As a laser cleaning operator using toluene to degrease surfaces before lasering, what are the key exposure limits
-      I need to monitor to avoid health risks, and how does it compare to milder solvents like acetone?
-    content: The OSHA permissible exposure limit (PEL) for toluene is 200 ppm as an 8-hour time-weighted average (TWA), with
-      a 500 ppm peak limit not exceeding 10 minutes in any 8-hour shift; exceeding these can cause headaches, dizziness, or
-      long-term neurological effects, unlike acetone's higher 1,000 ppm PEL which mainly irritates eyes and skin without such
-      neurotoxicity. Use real-time air monitoring devices like photoionization detectors (PIDs) to measure vapor levels in
-      your workspace, ensuring concentrations stay below 20 ppm (ACGIH TLV) for added safety. Always maintain local exhaust
-      ventilation and wear NIOSH-approved organic vapor respirators if levels approach limits, rotating shifts to minimize
-      cumulative exposure.
-    metadata:
-      topic: as a laser cleaning operator
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: toxic
 chemicalFormula: C₇H₈
 casNumber: 108-88-3
@@ -585,4 +571,32 @@ sourcesInLaserCleaning:
 - paint_solvent_vaporization
 - polymer_decomposition
 - adhesive_breakdown
-title: Toluene
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-using
+    title: As a laser cleaning operator using toluene to degrease surfaces before lasering, what are the key exposure limits
+      I need to monitor to avoid health risks, and how does it compare to milder solvents like acetone?
+    content: The OSHA permissible exposure limit (PEL) for toluene is 200 ppm as an 8-hour time-weighted average (TWA), with
+      a 500 ppm peak limit not exceeding 10 minutes in any 8-hour shift; exceeding these can cause headaches, dizziness, or
+      long-term neurological effects, unlike acetone's higher 1,000 ppm PEL which mainly irritates eyes and skin without such
+      neurotoxicity. Use real-time air monitoring devices like photoionization detectors (PIDs) to measure vapor levels in
+      your workspace, ensuring concentrations stay below 20 ppm (ACGIH TLV) for added safety. Always maintain local exhaust
+      ventilation and wear NIOSH-approved organic vapor respirators if levels approach limits, rotating shifts to minimize
+      cumulative exposure.
+    metadata:
+      topic: as a laser cleaning operator
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: toluene-compound

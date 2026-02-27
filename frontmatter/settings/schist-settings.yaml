@@ -4,7 +4,7 @@ displayName: Schist Settings
 category: stone
 subcategory: sedimentary
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:55.815468+00:00'
+dateModified: '2026-02-27T20:39:30.297630+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/stone/sedimentary/schist-settings
@@ -38,33 +38,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -73,14 +82,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -107,12 +117,6 @@ relationships:
         contaminationChallenges:
         - id: biological-growth
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 4
   name: Todd Dunning
@@ -156,8 +160,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength optimized for Schist mineral absorption characteristics
     unit: nm
     value: 1064
     min: 355
@@ -167,55 +177,32 @@ machineSettings:
     max: 500
     value: 300
     unit: μm
-    description: 'Smaller spots (100-300 μm) for fine surface prep on schist''s foliated texture; larger (up to 1 mm) for
-      broad industrial areas. Recommended 300 μm for uniform coverage without pinpoint damage. Source: Equipment specs from
-      Coherent Armonia series and process studies in Lasers Manuf. Mater. Process. (2019) for stone cleaning applications.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.5
     unit: J/cm²
-    description: 'Fluence below schist''s damage threshold (~3-4 J/cm² at 1064 nm) for safe contaminant removal; 0.5-1 J/cm²
-      for light dirt, up to 3 J/cm² for heavy oxides. Recommended 1.5 J/cm² avoids melting (schist ~1200-1400°C) while effective.
-      Source: Ablation threshold studies in Surf. Coat. Technol. (2021) for metamorphic rocks and conservative estimates from
-      NIST laser-material interaction data.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 10
     unit: ns
-    description: 'Nanosecond regime preferred for schist cleaning to minimize heat-affected zone (HAZ <10 μm); picosecond
-      (ps) or femtosecond (fs) for ultra-delicate work but less common industrially due to cost. 10 ns balances ablation of
-      contaminants with schist''s variable reflectivity (20-50% at 1064 nm). Source: Laser physics research in Appl. Surf.
-      Sci. (2019) on pulse duration effects for siliceous stones.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 500
-    description: 'Slower speeds (50-200 mm/s) for heavy contamination on schist to ensure thorough removal; faster (up to
-      2000 mm/s) for light surface prep. Recommended 500 mm/s for optimal contaminant ejection without substrate etching,
-      considering schist''s heterogeneous structure. Source: Industry standards from Laserax equipment manuals and Opt. Lasers
-      Eng. (2020) on scan optimization for rocks.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination; multi-pass (2-5) for layered buildup on schist to gradually remove
-      without aggressive fluence. Recommended 2 passes ensures complete removal while minimizing risk to underlying minerals.
-      Source: Industry practice from case studies in Restor. Build. Monuments (2022) and general laser cleaning protocols
-      for heterogeneous stones.'
   overlapRatio:
     min: 10
     max: 90
     value: 60
     unit: '%'
-    description: '30-50% for large-area speed; 60-80% for uniform contaminant removal on schist''s uneven surface. Recommended
-      60% prevents gaps and ensures even fluence distribution. Source: Process optimization studies in Opt. Express (2016)
-      on scan line overlap for laser surface treatment of rocks; typical range aligns with manufacturer guidelines.'
   laserPower:
-    description: Optimal average power for Schist surface cleaning without thermal damage
     unit: W
     value: 90
     min: 1.0
@@ -225,18 +212,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial laser cleaning of stones like schist to remove contaminants without excessive
-      heat buildup; starting at 100W balances efficiency and safety. Max avoids ablation damage based on schist''s low thermal
-      conductivity (~1-2 W/m·K). Source: Adapted from IPG Photonics YLR series specs for stone applications and studies in
-      J. Cult. Herit. (2018) on metamorphic rock cleaning.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 30
-    description: 'Typical 10-50 kHz for efficient cleaning; higher rates (>50 kHz) increase speed but risk heat accumulation
-      in low-conductivity schist, potentially causing micro-cracks. Recommended 30 kHz for steady energy delivery without
-      thermal damage. Source: Academic literature in J. Appl. Phys. (2017) on repetition rate trade-offs for stone ablation
-      thresholds.'
 componentSummary: These settings employ moderate 100 W power and 12 ns pulses at 1064 nm to ablate contaminants from Schist's
   layered structure without inducing thermal stress or cracking.
+slug: schist-settings

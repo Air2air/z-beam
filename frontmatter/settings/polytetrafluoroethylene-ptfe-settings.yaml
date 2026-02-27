@@ -4,7 +4,7 @@ displayName: Polytetrafluoroethylene (PTFE) Settings
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:54.579563+00:00'
+dateModified: '2026-02-27T20:39:28.064038+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/plastic/thermoplastic/polytetrafluoroethylene-ptfe-settings
@@ -36,33 +36,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -71,14 +80,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -104,12 +114,6 @@ relationships:
           solutions:
           - Use UV wavelength (355nm) for better photochemical ablation
           - Multiple gentle passes instead of single high-power pass
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 3
   name: Ikmanda Roswati
@@ -155,9 +159,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-infrared wavelength optimized for Polytetrafluoroethylene absorption characteristics and minimal subsurface
-      damage
     unit: nm
     value: 1064
     min: 355
@@ -167,52 +176,32 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Beam diameter for precise control; 100 μm for fine details (e.g., mold prep), 500 μm for large areas; 200
-      μm recommended for uniform PTFE cleaning to maintain fluence. Source: Equipment specifications from Coherent Armonia
-      series and industry reports in Surface and Coatings Technology (2019).'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1.0
     unit: J/cm²
-    description: 'Fluence range for contaminant removal without exceeding PTFE ablation threshold (~1.5-2 J/cm² at 1064 nm);
-      recommended 1.0 J/cm² for safe cleaning of surfaces like rust or oils, considering PTFE''s high reflectivity (~90% at
-      1064 nm). Source: Ablation threshold studies in Journal of Applied Physics (2017) and Optics Express (2022) on fluoropolymers.'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime preferred for cost-effective cleaning of PTFE; picosecond (ps) or femtosecond reduces
-      heat-affected zone (HAZ <10 μm) but increases cost; 20 ns minimizes thermal damage due to PTFE''s poor conductivity.
-      Avoid fs for industrial scale. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation
-      thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective speeds balance energy delivery and heat dissipation; 500 mm/s for heavy contamination (e.g., oils),
-      up to 3000 mm/s for light dust; recommended 1500 mm/s for optimal PTFE cleaning without residue. Source: Industry standards
-      from Laserax equipment manuals and Journal of Cleaner Production (2020) case studies on industrial polymer prep.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for layered residues; 2 passes recommended for complete
-      PTFE surface prep without damage, allowing cooling between passes. Source: Industry practice in case studies from Laser
-      Cleaning International and Materials Science and Engineering: A (2020).'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage without gaps or overexposure; 50% recommended for PTFE to achieve even cleaning
-      while minimizing heat input, adjustable to 30% for speed or 80% for heavy soiling. Source: Process optimization studies
-      in International Journal of Advanced Manufacturing Technology (2018).'
   laserPower:
-    description: Optimal average power range for Polytetrafluoroethylene surface cleaning without thermal degradation
     unit: W
     value: 100
     min: 1.0
@@ -222,19 +211,13 @@ machineSettings:
     max: 200
     value: 50
     unit: W
-    description: 'Typical range for 1064 nm pulsed lasers in polymer cleaning to avoid thermal degradation of PTFE (low thermal
-      conductivity ~0.25 W/m·K, melting point 327°C); starting at 50W for light contamination, max 200W to prevent substrate
-      ablation. Source: Manufacturer specs from IPG Photonics YLR series and studies in Optics and Lasers in Engineering (2018)
-      on polymer surface cleaning.'
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for 1064 nm cleaning to achieve fluence without excessive heat buildup; 30 kHz recommended for PTFE
-      to balance speed and avoid accumulation (high freq risks melting); lower for heavy soiling. Trade-off: higher freq speeds
-      process but increases HAZ. Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021).'
 componentSummary: These settings use moderate 50 W power and 10 ns pulses at 1064 nm to gently ablate contaminants from heat-sensitive
   PTFE without inducing melting or surface degradation.
 abbreviations:
 - PTFE
+slug: polytetrafluoroethylene-ptfe-settings

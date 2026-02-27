@@ -94,8 +94,8 @@ export function ContaminantCard({
         {frontmatter?.datePublished && (
           <meta itemProp="datePublished" content={frontmatter.datePublished} />
         )}
-        {frontmatter?.lastModified && (
-          <meta itemProp="dateModified" content={frontmatter.lastModified} />
+        {frontmatter?.dateModified && (
+          <meta itemProp="dateModified" content={frontmatter.dateModified} />
         )}
         {frontmatter?.images?.hero?.url && (
           <meta 

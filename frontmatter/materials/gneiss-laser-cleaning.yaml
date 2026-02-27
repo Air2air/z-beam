@@ -4,7 +4,7 @@ displayName: Gneiss Laser Cleaning
 category: stone
 subcategory: metamorphic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:47.541826+00:00'
+dateModified: '2026-02-27T20:38:19.237566+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/stone/metamorphic/gneiss-laser-cleaning
@@ -25,7 +25,21 @@ pageDescription: Gneiss, a durable metamorphic stone with its characteristic ban
   works out effectively for applications like flooring and architectural elements, as it clears away buildup gently while
   preserving the stone's natural resilience against weathering.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 2.7
@@ -76,13 +90,14 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -181,13 +196,14 @@ properties:
       confidence: 92
       researchedDate: '2025-11-24T12:40:22.520341'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: what-makes-laser-cleaning-effective-for
@@ -272,7 +288,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: industrial-oil-contamination
@@ -285,14 +315,22 @@ relationships:
           forming irregular films that cling to metal surfaces, influenced from prolonged exposure to l...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -305,22 +343,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 4
   name: Todd Dunning
@@ -382,165 +422,19 @@ contamination:
   - wood_rot
   - uv_chalking
   conditional: {}
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 2.7
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 3
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 8
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 120
-    unit: MPa
-    confidence: 90
-  youngsModulus:
-    value: 50
-    unit: GPa
-    confidence: 95
-  hardness:
-    value: 1.8
-    unit: GPa
-    confidence: 87
-  flexuralStrength:
-    value: 180
-    unit: MPa
-    confidence: 85
-  oxidationResistance:
-    value: 8
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.85
-    unit: mm/year
-    confidence: 85
-  compressiveStrength:
-    value: 120
-    unit: MPa
-    confidence: 90
-  fractureToughness:
-    value: 6
-    unit: MPa m^{1/2}
-    confidence: 85
-  electricalResistivity:
-    value: 1000000000000.0
-    unit: Ω·m
-    confidence: 90
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 1273
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.3
-    unit: dimensionless
-    confidence: 90
-  laserDamageThreshold:
-    value: 1.8
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser Ablation Thresholds for Natural Stones in Cultural Heritage Conservation
-    citation: 'Pořízka, P. et al., Applied Surface Science, 2014, DOI: 10.1016/j.apsusc.2014.05.089'
-    context: Natural gneiss sample from Bohemian Massif (quartz 30-40%, feldspar 40-50%, mica 10-20%), room temperature (25°C),
-      1064 nm Nd:YAG laser, pulse duration 10 ns
-    confidence: 92
-    researchedDate: '2025-11-24T12:39:37.551270'
-    needsValidation: true
-  ablationThreshold:
-    value: 2.3
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser Ablation of Geological Materials: Threshold Fluences for Nanosecond Pulses'
-    citation: 'Krivtsun, I. V., et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.05.123'
-    context: Natural gneiss sample (quartz-feldspar-mica composition, 95% purity equivalent), 20°C, 1064 nm Nd:YAG laser,
-      nanosecond pulse duration (10 ns), atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T12:39:46.478401'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 1.3e-06
-    unit: m²/s
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Schatz, J. F., & Simmons, G. Thermal conductivity and thermal diffusivity of rocks
-    citation: 'Schatz, J. F., & Simmons, G., 1972, Thermal conductivity and diffusivity of some silicate materials at high
-      pressures, Journal of Geophysical Research, 77(23), 4376-4383, DOI: 10.1029/JB077i023p04376'
-    context: Gneiss (quartz-feldspar-mica composition, typical metamorphic rock from Precambrian shield), 25°C, measured under
-      ambient pressure using transient heating method
-    confidence: 95
-    researchedDate: '2025-11-24T12:39:57.024288'
-    needsValidation: true
-  thermalExpansion:
-    value: 9.2e-06
-    unit: K^{-1}
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb LLC, Gneiss (rock), http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5c8e4b0a4a4b0e9f0a4b5c8e4b0a4a,
-      accessed 2023
-    context: Natural gneiss (quartz-feldspar-mica composition, typical metamorphic rock), 20-100°C range, linear coefficient
-      measured under ambient pressure
-    confidence: 95
-    researchedDate: '2025-11-24T12:40:03.391606'
-    needsValidation: true
-  specificHeat:
-    value: 840.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb LLC, 'Gneiss, stone', http://www.matweb.com/search/DataSheet.aspx?MatGUID=examplegneissid, accessed 2023
-    context: Typical gneiss (quartz-feldspar-mica composition, ~70% silicates), 25°C, measured under standard atmospheric
-      pressure
-    confidence: 95
-    researchedDate: '2025-11-24T12:40:08.698298'
-    needsValidation: true
-  thermalConductivity:
-    value: 2.3
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: Handbook of Physical Constants
-    citation: Clark, S. P., Jr. (ed.), Handbook of Physical Constants, Geological Society of America Memoir 97, 1966, ISBN
-      978-0-8137-1097-3
-    context: Granitic gneiss (quartz-feldspar-mica composition, low porosity <2%), 25°C, measured under dry conditions using
-      steady-state plate method
-    confidence: 95
-    researchedDate: '2025-11-24T12:40:15.661199'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.12
-    unit: '%'
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser Cleaning of Geological Samples: Reflectivity Measurements on Metamorphic Rocks'
-    citation: 'Fernandez et al., Journal of Applied Physics, 2018, DOI: 10.1063/1.5021345'
-    context: Natural gneiss sample (quartz-feldspar-mica composition, 70% quartz), 20°C, 1064 nm Nd:YAG laser wavelength,
-      specular and diffuse reflectivity combined, polished surface
-    confidence: 92
-    researchedDate: '2025-11-24T12:40:22.520341'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  - ASTM C503 - Standard Specification for Marble Dimension Stone
+  isBasedOn:
+    name: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+    url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: gneiss-laser-cleaning

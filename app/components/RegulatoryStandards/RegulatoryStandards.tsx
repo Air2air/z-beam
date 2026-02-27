@@ -27,10 +27,10 @@ export function RegulatoryStandards({
 }: RegulatoryStandardsProps & { heroImage?: string; thumbnailLink?: string; sectionMetadata?: any }) {
   if (!standards || standards.length === 0) return null;
   
-  // Read title, icon, description from _section metadata (with fallbacks if missing)
-  const title = sectionMetadata?.sectionTitle || 'Regulatory Standards & Compliance';
+  // Read title, icon, description from _section metadata (frontmatter-sourced)
+  const title = sectionMetadata?.sectionTitle;
   const icon = sectionMetadata?.icon || 'regulatory';
-  const sectionDescription = sectionMetadata?.sectionDescription || "Industry standards and compliance requirements for safe laser cleaning operations";
+  const sectionDescription = sectionMetadata?.sectionDescription;
   
   // Filter to only show object/dict standards, not strings
   const validStandards = standards.filter(std => 

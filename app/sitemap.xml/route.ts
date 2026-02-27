@@ -112,6 +112,53 @@ function buildSitemapXml(entries: SitemapEntry[]): string {
 
 // ─── Data collection ─────────────────────────────────────────────────────────
 
+/**
+ * Shared handler for the 3 standard 4-level domains: materials, contaminants, compounds.
+ * Each YAML file contributes category + subcategory nav pages and one item page.
+ * @param requireSubcategoryForItem - When true, item pages are only added when a subcategory exists (materials behaviour).
+ */
+function generateStandardDomainEntries(
+  domain: string,
+  entries: SitemapEntry[],
+  requireSubcategoryForItem = false,
+): void {
+  try {
+    const dir = path.join(process.cwd(), `frontmatter/${domain}`);
+    const categorySet = new Set<string>();
+    const subcategorySet = new Set<string>();
+
+    for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.yaml'))) {
+      const filePath = path.join(dir, file);
+      const stats = fs.statSync(filePath);
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+
+      const categoryMatch = fileContent.match(/^category:\s*(.+)$/m);
+      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+      if (!categoryMatch) continue;
+
+      const category = toCategorySlug(categoryMatch[1].trim()).replace(/'/g, '');
+      const subcategory = subcategoryMatch ? toCategorySlug(subcategoryMatch[1].trim()).replace(/'/g, '') : '';
+      const slug = file.replace('.yaml', '');
+
+      if (!category) continue;
+
+      if (!categorySet.has(category)) {
+        categorySet.add(category);
+        entries.push({ url: buildCategoryUrl(domain, category, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.CATEGORY_PAGES });
+      }
+      if (subcategory && !subcategorySet.has(`${category}/${subcategory}`)) {
+        subcategorySet.add(`${category}/${subcategory}`);
+        entries.push({ url: buildSubcategoryUrl(domain, category, subcategory, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.SUBCATEGORY_PAGES });
+      }
+      if (!requireSubcategoryForItem || subcategory) {
+        entries.push({ url: buildUrlFromMetadata({ rootPath: domain, category, subcategory, slug }, true), lastModified: stats.mtime, changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.ITEM_PAGES });
+      }
+    }
+  } catch (error) {
+    console.error(`Error generating ${domain} routes:`, error);
+  }
+}
+
 function collectEntries(baseUrl: string): SitemapEntry[] {
   const entries: SitemapEntry[] = [];
 
@@ -132,41 +179,7 @@ function collectEntries(baseUrl: string): SitemapEntry[] {
   );
 
   // ── Materials ──────────────────────────────────────────────────────────────
-  try {
-    const dir = path.join(process.cwd(), 'frontmatter/materials');
-    const categorySet = new Set<string>();
-    const subcategorySet = new Set<string>();
-
-    for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.yaml'))) {
-      const filePath = path.join(dir, file);
-      const stats = fs.statSync(filePath);
-      const content = fs.readFileSync(filePath, 'utf8');
-
-      const cat = content.match(/^category:\s*(.+)$/m);
-      const sub = content.match(/^subcategory:\s*(.+)$/m);
-      if (!cat) continue;
-
-      const category = toCategorySlug(cat[1].trim()).replace(/'/g, '');
-      const subcategory = sub ? toCategorySlug(sub[1].trim()).replace(/'/g, '') : '';
-      const slug = file.replace('.yaml', '');
-
-      if (!category) continue;
-
-      if (!categorySet.has(category)) {
-        categorySet.add(category);
-        entries.push({ url: buildCategoryUrl('materials', category, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.CATEGORY_PAGES });
-      }
-      if (subcategory && !subcategorySet.has(`${category}/${subcategory}`)) {
-        subcategorySet.add(`${category}/${subcategory}`);
-        entries.push({ url: buildSubcategoryUrl('materials', category, subcategory, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.SUBCATEGORY_PAGES });
-      }
-      if (subcategory) {
-        entries.push({ url: buildUrlFromMetadata({ rootPath: 'materials', category, subcategory, slug }, true), lastModified: stats.mtime, changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.ITEM_PAGES });
-      }
-    }
-  } catch (e) {
-    console.error('Error generating material routes:', e);
-  }
+  generateStandardDomainEntries('materials', entries, /* requireSubcategoryForItem */ true);
 
   // ── Settings ───────────────────────────────────────────────────────────────
   try {
@@ -201,94 +214,44 @@ function collectEntries(baseUrl: string): SitemapEntry[] {
         entries.push({ url: `${baseUrl}${fullPath}`, lastModified: stats.mtime, changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.TECHNICAL_REF });
       }
     }
-  } catch (e) {
-    console.error('Error generating settings routes:', e);
+  } catch (error) {
+    console.error('Error generating settings routes:', error);
   }
 
   // ── Contaminants ───────────────────────────────────────────────────────────
-  try {
-    const dir = path.join(process.cwd(), 'frontmatter/contaminants');
-    const categorySet = new Set<string>();
-    const subcategorySet = new Set<string>();
-
-    for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.yaml'))) {
-      const filePath = path.join(dir, file);
-      const stats = fs.statSync(filePath);
-      const content = fs.readFileSync(filePath, 'utf8');
-
-      const cat = content.match(/^category:\s*(.+)$/m);
-      const sub = content.match(/^subcategory:\s*(.+)$/m);
-      if (!cat) continue;
-
-      const category = toCategorySlug(cat[1].trim()).replace(/'/g, '');
-      const subcategory = sub ? toCategorySlug(sub[1].trim()).replace(/'/g, '') : '';
-      const slug = file.replace('.yaml', '');
-
-      if (!category) continue;
-
-      if (!categorySet.has(category)) {
-        categorySet.add(category);
-        entries.push({ url: buildCategoryUrl('contaminants', category, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.ITEM_PAGES });
-      }
-      if (subcategory && !subcategorySet.has(`${category}/${subcategory}`)) {
-        subcategorySet.add(`${category}/${subcategory}`);
-        entries.push({ url: buildSubcategoryUrl('contaminants', category, subcategory, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.INFORMATIONAL });
-      }
-      entries.push({ url: buildUrlFromMetadata({ rootPath: 'contaminants', category, subcategory, slug }, true), lastModified: stats.mtime, changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.TECHNICAL_REF });
-    }
-  } catch (e) {
-    console.error('Error generating contaminant routes:', e);
-  }
+  generateStandardDomainEntries('contaminants', entries);
 
   // ── Compounds ──────────────────────────────────────────────────────────────
-  try {
-    const dir = path.join(process.cwd(), 'frontmatter/compounds');
-    const categorySet = new Set<string>();
-    const subcategorySet = new Set<string>();
-
-    for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.yaml'))) {
-      const filePath = path.join(dir, file);
-      const stats = fs.statSync(filePath);
-      const content = fs.readFileSync(filePath, 'utf8');
-
-      const cat = content.match(/^category:\s*(.+)$/m);
-      const sub = content.match(/^subcategory:\s*(.+)$/m);
-      if (!cat) continue;
-
-      const category = toCategorySlug(cat[1].trim()).replace(/'/g, '');
-      const subcategory = sub ? toCategorySlug(sub[1].trim()).replace(/'/g, '') : '';
-      const slug = file.replace('.yaml', '');
-
-      if (!category) continue;
-
-      if (!categorySet.has(category)) {
-        categorySet.add(category);
-        entries.push({ url: buildCategoryUrl('compounds', category, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.ITEM_PAGES });
-      }
-      if (subcategory && !subcategorySet.has(`${category}/${subcategory}`)) {
-        subcategorySet.add(`${category}/${subcategory}`);
-        entries.push({ url: buildSubcategoryUrl('compounds', category, subcategory, true), lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.INFORMATIONAL });
-      }
-      entries.push({ url: buildUrlFromMetadata({ rootPath: 'compounds', category, subcategory, slug }, true), lastModified: stats.mtime, changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.TECHNICAL_REF });
-    }
-  } catch (e) {
-    console.error('Error generating compound routes:', e);
-  }
+  generateStandardDomainEntries('compounds', entries);
 
   // ── Applications ───────────────────────────────────────────────────────────
   try {
     const dir = path.join(process.cwd(), 'frontmatter/applications');
+    const subcategorySet = new Set<string>();
+
     for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.yaml'))) {
       const filePath = path.join(dir, file);
       const stats = fs.statSync(filePath);
-      const content = fs.readFileSync(filePath, 'utf8');
-      const fullPathMatch = content.match(/^fullPath:\s*(.+)$/m);
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+
+      // Virtual subcategory listing pages (e.g. /applications/aerospace)
+      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+      if (subcategoryMatch) {
+        const subcategory = subcategoryMatch[1].trim().replace(/'/g, '');
+        if (subcategory && !subcategorySet.has(subcategory)) {
+          subcategorySet.add(subcategory);
+          entries.push({ url: `${baseUrl}/applications/${subcategory}`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.CATEGORY_PAGES });
+        }
+      }
+
+      // Individual application item pages
+      const fullPathMatch = fileContent.match(/^fullPath:\s*(.+)$/m);
       if (!fullPathMatch) continue;
       const fullPath = fullPathMatch[1].trim().replace(/'/g, '');
-      entries.push({ url: `${baseUrl}${fullPath}`, lastModified: stats.mtime, changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.ITEM_PAGES });
+      entries.push({ url: `${baseUrl}${fullPath}`, lastModified: stats.mtime, changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.ITEM_PAGES });
     }
-  } catch (e) {
-    console.error('Error generating application routes:', e);
+  } catch (error) {
+    console.error('Error generating application routes:', error);
   }
 
   return entries;
@@ -297,6 +260,12 @@ function collectEntries(baseUrl: string): SitemapEntry[] {
 // ─── Public helper for scripts (replaces old `sitemap()` default export) ─────
 
 export function getSitemapEntries(): SitemapEntry[] {
+  return collectEntries(SITE_CONFIG.url);
+}
+
+// ─── Default export for tests and Next.js sitemap consumers ─────────────────
+
+export default function sitemap(): SitemapEntry[] {
   return collectEntries(SITE_CONFIG.url);
 }
 

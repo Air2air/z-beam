@@ -4,7 +4,7 @@ displayName: Acrylic (PMMA) Laser Cleaning
 category: plastic
 subcategory: thermoplastic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:47.117250+00:00'
+dateModified: '2026-02-27T20:38:18.524287+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/plastic/thermoplastic/acrylic-pmma-laser-cleaning
@@ -26,7 +26,21 @@ pageDescription: Acrylic, known as PMMA, serves as a versatile thermoplastic tha
   cleaning addresses surface preparation needs efficiently, ensuring the material holds up during fabrication and assembly
   tasks where a clean finish proves essential for optimal performance.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     density:
       value: 1.18
@@ -77,13 +91,14 @@ properties:
       unit: Ω·m
       confidence: 90
     percentage: 60.0
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     thermalDestruction:
@@ -180,13 +195,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T12:31:12.656518'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-can-i-prevent-warping-when
@@ -256,7 +272,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -309,14 +339,22 @@ relationships:
           it develops unique powdery patterns, where fine chalk-like residues accumulate unevenly an...
         frequency: moderate
         severity: moderate
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -329,22 +367,24 @@ relationships:
         longName: American National Standards Institute
         name: ANSI
         url: https://webstore.ansi.org/standards/lia/ansiz1362022
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly used
+      sectionMetadata: relationships.operational.industryApplications
+      icon: briefcase
+      order: 41
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly used
+        sectionMetadata: relationships.operational.industryApplications
         icon: briefcase
         order: 41
         variant: default
+      presentation: card
+      items: []
 author:
   id: 4
   name: Todd Dunning
@@ -408,164 +448,19 @@ contamination:
     industrialOil:
       context: machinery_parts_only
       note: Only if plastic is part of machinery (gears, housings)
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  density:
-    value: 1.18
-    unit: g/cm³
-    confidence: 95
-  porosity:
-    value: 0
-    unit: '%'
-    confidence: 90
-  surfaceRoughness:
-    value: 0.5
-    unit: μm
-    confidence: 85
-  tensileStrength:
-    value: 72
-    unit: MPa
-    confidence: 90
-  youngsModulus:
-    value: 3.3
-    unit: GPa
-    confidence: 95
-  hardness:
-    value: 0.095
-    unit: GPa
-    confidence: 87
-  flexuralStrength:
-    value: 90
-    unit: MPa
-    confidence: 85
-  oxidationResistance:
-    value: 2.5
-    unit: μm/year
-    confidence: 80
-  corrosionResistance:
-    value: 0.92
-    unit: mm/year
-    confidence: 85
-  compressiveStrength:
-    value: 72
-    unit: MPa
-    confidence: 90
-  fractureToughness:
-    value: 3.5
-    unit: MPa m^{1/2}
-    confidence: 85
-  electricalResistivity:
-    value: 100000000000000.0
-    unit: Ω·m
-    confidence: 90
-  percentage: 60.0
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  thermalDestruction:
-    value: 433
-    unit: K
-    confidence: 95
-  laserAbsorption:
-    value: 0.15
-    unit: dimensionless
-    confidence: 90
-  laserDamageThreshold:
-    value: 1.8
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Applied Physics A: Materials Science & Processing'
-    citation: 'B. W. Smith et al., Applied Physics A 79, 1023-1026 (2004), DOI: 10.1007/s00339-004-2845-7'
-    context: Commercial-grade clear PMMA (99% purity), 25°C, 532 nm Nd:YAG laser, 10 ns pulse duration, single-shot irradiation
-      in air
-    confidence: 95
-    researchedDate: '2025-11-24T12:30:31.076360'
-    needsValidation: true
-  ablationThreshold:
-    value: 0.7
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Applied Physics A: Materials Science & Processing'
-    citation: Küper, S., Stuke, M. Ablation of polyimide with 193 and 248 nm excimer laser radiation. Appl. Phys. A 44, 199–204
-      (1987). https://doi.org/10.1007/BF00919310
-    context: Pure PMMA (polymethyl methacrylate), room temperature (25°C), 248 nm KrF excimer laser, 20 ns pulse duration,
-      vacuum environment
-    confidence: 95
-    researchedDate: '2025-11-24T12:30:39.539163'
-    needsValidation: true
-  thermalDiffusivity:
-    value: 1.1e-07
-    unit: m²/s
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb, LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5b4a0b0a4a4b0e9b0a0b0e9b0a0b0e,
-      accessed 2023
-    context: Commercial grade PMMA (density 1.18 g/cm³, 99% purity), 25°C, calculated from thermal conductivity (0.19 W/m·K),
-      density, and specific heat (1.46 J/g·K)
-    confidence: 95
-    researchedDate: '2025-11-24T12:30:44.295139'
-    needsValidation: true
-  thermalExpansion:
-    value: 8.0e-05
-    unit: 1/K
-    source: scientific_literature
-    sourceType: materials_database
-    sourceName: MatWeb Materials Database
-    citation: MatWeb LLC, Acrylic, General Purpose, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c07b3d2a1b74c4e9a4b0a4e4b0a4e4b,
-      accessed 2023
-    context: Cast PMMA sheet, commercial grade (99% purity), 25°C, linear expansion measured by dilatometry
-    confidence: 95
-    researchedDate: '2025-11-24T12:30:51.668519'
-    needsValidation: true
-  specificHeat:
-    value: 1460.0
-    unit: J/(kg·K)
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: Lide, D.R. (Ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, Boca Raton,
-      FL, 2023, ISBN 978-1-138-56163-2
-    context: Atactic poly(methyl methacrylate) (PMMA), 99% purity, 25°C, amorphous state, measured under standard atmospheric
-      pressure
-    confidence: 98
-    researchedDate: '2025-11-24T12:30:58.489536'
-    needsValidation: true
-  thermalConductivity:
-    value: 0.19
-    unit: W/m·K
-    source: scientific_literature
-    sourceType: reference_handbook
-    sourceName: CRC Handbook of Chemistry and Physics
-    citation: CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press/Taylor & Francis, 2023, ISBN 978-1-138-56163-2
-    context: Amorphous PMMA (polymethyl methacrylate), 25°C, steady-state heat flow method under standard atmospheric conditions
-    confidence: 95
-    researchedDate: '2025-11-24T12:31:04.956559'
-    needsValidation: true
-  laserReflectivity:
-    value: 0.038
-    unit: '%'
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Optical Properties of Polymethyl Methacrylate (PMMA) in the Near-Infrared Region
-    citation: 'Sultanova, M., et al., Applied Optics, 2009, DOI: 10.1364/AO.48.000223'
-    context: Clear PMMA (99% purity), 1064 nm wavelength (Nd:YAG laser), normal incidence, 25°C, vacuum-deposited thin film
-      measurement
-    confidence: 95
-    researchedDate: '2025-11-24T12:31:12.656518'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+eeat:
+  reviewedBy: Z-Beam Quality Assurance Team
+  citations:
+  - IEC 60825 - Safety of Laser Products
+  - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  isBasedOn:
+    name: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/publication/3587
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: acrylic-pmma-laser-cleaning

@@ -4,7 +4,7 @@ displayName: Styrene Compound
 category: irritant
 subcategory: aromatic_hydrocarbon
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:38.636705+00:00'
+dateModified: '2026-02-27T20:39:12.266980+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/irritant/aromatic-hydrocarbon/styrene-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: styrene-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: 145°C (293°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: 'LEL: 1.1%, UEL: 6.1%'
         appearance: Colorless to yellowish oily liquid
         odor: Sweet, floral odor @ 0.05-0.5 ppm (odor fatigue occurs)
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -77,14 +86,15 @@ relationships:
           rtecsNumber: WL3675000
           ecNumber: 202-851-5
           pubchemCid: '7501'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -103,13 +113,14 @@ relationships:
         effect: Eye irritation, redness, and possible corneal damage
         severity: moderate
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: NIOSH-approved organic vapor respirator for <50 ppm. SCBA for >50 ppm or unknown concentrations.
@@ -118,13 +129,14 @@ relationships:
         minimumLevel: Level C for <50 ppm, Level B for >50 ppm
         specialNotes: Neurotoxin and probable carcinogen (IARC 2B). Skin absorption significant. Extremely irritating. May
           cause CNS depression.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Flammable liquid. May polymerize explosively in fire. Vapors heavier than air. May travel to ignition
@@ -140,13 +152,14 @@ relationships:
         specialHazards: PROBABLE HUMAN CARCINOGEN (IARC 2B). NEUROTOXIN - causes CNS depression, peripheral neuropathy. Irritating
           to eyes, skin, respiratory tract. May polymerize explosively. Olfactory fatigue - cannot rely on odor. Metabolized
           to styrene oxide (more toxic).
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 100
@@ -178,13 +191,14 @@ relationships:
             specimen: Blood
             timing: End of shift
             beiValue: 0.2 mg/L
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store below 32°C. Keep cool. Avoid excessive heat.
@@ -203,13 +217,14 @@ relationships:
         quantityLimits: Minimize quantities. Follow NFPA 30 for flammable liquids.
         specialRequirements: 'CRITICAL: Store with polymerization inhibitor (10-15 ppm tert-butylcatechol). Monitor inhibitor
           level monthly. Avoid light and heat. Post "FLAMMABLE" and "CANCER HAZARD" signs. Date containers.'
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN2055 (monomer, stabilized)
@@ -230,14 +245,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 1000 pounds (454 kg)
         rcraCode: null
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Toxic to aquatic life. LC50 (fish, 96h): 4-10 mg/L.'
@@ -250,14 +266,15 @@ relationships:
         reportableReleases:
           water: 1000 lbs to navigable waters
           air: 1000 lbs/day (CERCLA RQ)
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -280,14 +297,15 @@ relationships:
           technique: GC-FID
           detectionLimit: 0.01 ppm
         odorThreshold: '0.05-0.5 ppm - WARNING: Olfactory fatigue occurs. Cannot rely on odor for protection.'
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: plastic-residue-contamination
@@ -312,13 +330,14 @@ relationships:
         frequency: common
         severity: moderate
         typicalContext: Pyrolysis of styrene-butadiene rubber
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -328,13 +347,14 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: UNSTABLE. Polymerizes when heated or contaminated. Inhibitor required.
@@ -363,12 +383,6 @@ relationships:
         - Flames
         reactivityHazard: May polymerize violently. Reacts with oxidizers. Attacks some plastics, rubber, and coatings. Forms
           peroxides on prolonged storage.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 1
   name: Yi-Chun Lin
@@ -423,33 +437,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-working
-    title: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective
-      gear should I use to avoid skin irritation from exposure, especially since it's a stronger irritant than something like
-      acetone?
-    content: Wear chemical-resistant gloves made of nitrile or PVC (at least 0.7 mm thick) and full-body coveralls to prevent
-      direct skin contact, as styrene penetrates skin more readily and causes greater irritation than milder solvents like
-      acetone. Use safety goggles and a respirator with organic vapor cartridges if ventilation is inadequate, ensuring airborne
-      exposure stays below the OSHA PEL of 100 ppm (8-hour TWA). Always perform a skin check after shifts and wash exposed
-      areas immediately with soap and water if contact occurs.
-    metadata:
-      topic: as a laser cleaning operator
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Yi-Chun Lin
-        title: Ph.D.
-        expertise:
-        - Laser Materials Processing
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: irritant
 chemicalFormula: C₈H₈
 casNumber: 100-42-5
@@ -551,4 +538,31 @@ sourcesInLaserCleaning:
 - polystyrene_decomposition
 - styrene_polymer_pyrolysis
 - plastic_breakdown
-title: Styrene
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-working
+    title: As a laser cleaning operator working on surfaces potentially coated with styrene-based materials, what protective
+      gear should I use to avoid skin irritation from exposure, especially since it's a stronger irritant than something like
+      acetone?
+    content: Wear chemical-resistant gloves made of nitrile or PVC (at least 0.7 mm thick) and full-body coveralls to prevent
+      direct skin contact, as styrene penetrates skin more readily and causes greater irritation than milder solvents like
+      acetone. Use safety goggles and a respirator with organic vapor cartridges if ventilation is inadequate, ensuring airborne
+      exposure stays below the OSHA PEL of 100 ppm (8-hour TWA). Always perform a skin check after shifts and wash exposed
+      areas immediately with soap and water if contact occurs.
+    metadata:
+      topic: as a laser cleaning operator
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Yi-Chun Lin
+        title: Ph.D.
+        expertise:
+        - Laser Materials Processing
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: styrene-compound

@@ -4,7 +4,7 @@ displayName: Willow Settings
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:58.089727+00:00'
+dateModified: '2026-02-27T20:39:33.847065+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/wood/hardwood/willow-settings
@@ -37,33 +37,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -72,14 +81,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -90,12 +100,6 @@ relationships:
         contaminationChallenges:
         - id: varnish-coating-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -140,8 +144,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-infrared wavelength optimized for Willow absorption and minimal penetration
     unit: nm
     value: 1064
     min: 355
@@ -151,56 +161,37 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter for precise cleaning on wood grains; smaller for fine details (100-200 μm), larger for broad
-      areas (300-500 μm). 200 μm recommended for uniform willow surface prep. Source: Equipment specs from Coherent and Trumpf
-      laser systems.'
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 2
-    description: 'Fluence range for contaminant removal without ablating willow substrate; damage threshold ~5-10 J/cm² at
-      1064 nm due to high absorption. Recommended 2 J/cm² for safe cleaning. Conservative estimate for uncertainty in willow-specific
-      data. Source: Ablation threshold studies in Optics Express (2021).'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 50
-    description: 'Nanosecond regime preferred for 1064 nm cleaning of organics like willow to minimize heat-affected zone
-      (HAZ <50 μm); picosecond (ps) or femtosecond (fs) for ultra-precision but costlier. 50 ns recommended for willow''s
-      reflectivity (~5-10% at 1064 nm). Source: Laser physics research in Applied Surface Science (2019).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds for contaminant removal on porous woods like willow; slower for heavy contamination (500-1000
-      mm/s), faster for light (2000-3000 mm/s). Recommended 1500 mm/s for optimal balance. Source: Industry standards from
-      Laserax equipment manuals and wood cleaning case studies (Optics and Lasers in Engineering, 2020).'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes typical for complete removal on willow
-      without overexposure. Source: Industry practice in heritage wood restoration case studies (Studies in Conservation,
-      2016).'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform coverage on irregular wood surfaces like willow; 30-50% for speed, 60-80% for thoroughness.
-      60% recommended to avoid gaps. Source: Process optimization in laser scanning studies (Procedia Manufacturing, 2019).'
   dwellTime:
-    description: Optimal dwell time per spot for effective cleaning action
     unit: μs
     value: 100
     min: 0.2
     max: 200
   laserPower:
-    description: Optimal average power for Willow surface cleaning without thermal damage
     unit: W
     value: 100
     min: 1.0
@@ -210,16 +201,11 @@ machineSettings:
     max: 500
     value: 150
     unit: W
-    description: 'Typical range for 1064 nm fiber lasers in wood cleaning to balance efficiency and avoid charring; starting
-      at 150 W for willow''s low thermal conductivity (~0.15 W/mK) prevents substrate damage. Source: IPG Photonics YLR series
-      specs and studies on laser wood surface treatment (e.g., Journal of Cultural Heritage, 2018).'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning to ensure coverage without excessive heat buildup in low-melting-point woods
-      (willow ~250-300°C char point); higher rates speed up process but risk accumulation. 50 kHz balances speed and safety.
-      Source: Academic literature on wood ablation (Journal of Applied Physics, 2017).'
 componentSummary: The 150 W power, 1064 nm wavelength, and 10 ns pulse width settings enable precise, non-thermal cleaning
   of Willow's delicate organic structure, effectively removing contaminants without causing fiber damage or discoloration.
+slug: willow-settings

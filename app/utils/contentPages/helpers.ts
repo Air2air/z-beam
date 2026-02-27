@@ -13,6 +13,15 @@ import {
   generateDynamicPageMetadata
 } from '@/lib/metadata/dynamic-generators';
 
+function titleFromSlug(slug: string): string {
+  return slug
+    .replace(/-laser-cleaning$/i, '')
+    .split('-')
+    .filter(Boolean)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(' ');
+}
+
 /**
  * Generate metadata for category pages
  */
@@ -127,20 +136,21 @@ export async function generateItemMetadata(
         : undefined;
     }
     
-    if (articleCategory !== categorySlug || articleSubcategory !== subcategorySlug) {
+    const hasResolvedRoute = Boolean(articleCategory && articleSubcategory);
+
+    if (hasResolvedRoute && (articleCategory !== categorySlug || articleSubcategory !== subcategorySlug)) {
       // Wrong URL structure - will redirect in page component
       return {
-        title: articleMeta.title || articleMeta.name || SITE_CONFIG.shortName,
-        description: articleMeta.metaDescription || articleMeta.pageDescription || ''
+        title: articleMeta.displayTitle || articleMeta.displayName || articleMeta.title || articleMeta.name || titleFromSlug(itemSlug),
+        description: articleMeta.pageDescription || ''
       };
     }
     
     // Extract common metadata fields
-    const displayName = articleMeta.displayTitle || articleMeta.displayName || articleMeta.title || articleMeta.name;
+    const displayName = articleMeta.displayTitle || articleMeta.displayName || articleMeta.title || articleMeta.name || titleFromSlug(itemSlug);
     const description =
-      articleMeta.metaDescription ||
-      articleMeta.description ||
       articleMeta.pageDescription ||
+      articleMeta.description ||
       articleMeta.summary ||
       articleMeta.excerpt ||
       '';
@@ -150,11 +160,13 @@ export async function generateItemMetadata(
     const dateModified = articleMeta.dateModified;
     
     // Extract author information
-    const author = articleMeta.author ? {
-      name: articleMeta.author.name,
-      title: articleMeta.author.title,
-      country: articleMeta.author.country
-    } : undefined;
+    const author = articleMeta.author && typeof articleMeta.author === 'object' && typeof articleMeta.author.name === 'string'
+      ? {
+          name: articleMeta.author.name,
+          title: articleMeta.author.title,
+          country: articleMeta.author.country
+        }
+      : undefined;
     
     // Use domain-specific metadata generators
     if (config.type === 'materials') {
@@ -206,10 +218,12 @@ export async function generateItemMetadata(
     }
   } catch (error) {
     console.error(`Error generating metadata for ${itemSlug}:`, error);
-    return {
+    return createMetadata({
       title: SITE_CONFIG.shortName,
-      description: `Technical information about ${config.rootPath}.`
-    };
+      description: `Technical information about ${config.rootPath}.`,
+      slug: `${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`,
+      canonical: `${SITE_CONFIG.url}/${config.rootPath}/${categorySlug}/${subcategorySlug}/${itemSlug}`,
+    });
   }
 }
 

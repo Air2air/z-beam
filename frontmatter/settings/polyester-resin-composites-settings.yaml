@@ -4,7 +4,7 @@ displayName: Polyester Resin Composites Settings
 category: composite
 subcategory: fiber-reinforced
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:54.288248+00:00'
+dateModified: '2026-02-27T20:39:27.597787+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/composite/fiber-reinforced/polyester-resin-composites-settings
@@ -39,34 +39,43 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -77,12 +86,6 @@ relationships:
         contaminationChallenges:
         - id: resin-contaminant-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 3
   name: Ikmanda Roswati
@@ -128,8 +131,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-infrared wavelength optimal for polyester resin composite processing
     unit: nm
     value: 1064
     min: 355
@@ -139,45 +148,27 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Typical beam diameter for industrial cleaning; 100-200 μm for fine surface prep on composites, 300-500 μm
-      for large areas. 200 μm recommended for polyester to ensure uniform energy distribution and avoid localized overheating.
-      Source: Coherent Inc. equipment specifications and industry standards from Laser Institute of America.'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 20
-    description: 'Nanosecond regime (5-100 ns) preferred over ps/fs for cost-effective 1064 nm cleaning of composites; 20
-      ns minimizes heat-affected zone (HAZ <50 μm) by reducing thermal diffusion in polyester. Ps/fs (e.g., <1 ps) for ultra-precise
-      but less common industrially. Source: Laser physics research in Applied Surface Science (2019) on polymer ablation thresholds.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 2000
-    description: 'Effective range for contamination removal; slower (500-1000 mm/s) for heavy contaminants like oils, faster
-      (2000-5000 mm/s) for light dust. Recommended 2000 mm/s for optimal cleaning without overheating polyester''s low thermal
-      conductivity (~0.2 W/m·K). Source: IPG Photonics equipment manuals and Journal of Cleaner Production (2020) case studies
-      on polymer composites.'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy layers; 2 passes recommended for complete
-      removal on polyester composites without excessive heat buildup. Source: Industry practice in case studies from Journal
-      of Materials Processing Technology (2022) on resin composite cleaning.'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 50
-    description: '30-80% ensures uniform coverage; 50% recommended for polyester to balance efficiency and avoid uneven heating
-      or missed spots during scan. Higher overlap (70-80%) for heavy contamination. Source: Process optimization studies in
-      Optics & Laser Technology (2019) on polymer surface treatment.'
   fluence:
-    description: Energy density threshold for effective Polyester Resin Composites cleaning - Energy density threshold for
-      composite material cleaning considering matrix and reinforcement properties
     unit: J/cm²
     value: 3.0
     min: 3.0
@@ -187,12 +178,7 @@ machineSettings:
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence range for safe ablation of contaminants; damage threshold for polyester composites ~3-5 J/cm² due
-      to reflectivity (~5-10% at 1064 nm) and low thermal conductivity. Recommended 1.5 J/cm² for effective cleaning without
-      substrate damage. Source: Ablation threshold studies in Composites Part B: Engineering (2017) and SPIE proceedings on
-      laser cleaning.'
   laserPower:
-    description: Optimal average power for polyester resin composite cleaning without thermal damage
     unit: W
     value: 90
     min: 1.0
@@ -202,17 +188,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for industrial 1064 nm laser cleaning of polymer composites to balance efficiency and heat
-      input; starting at 100 W avoids thermal damage to polyester''s low melting point (~260°C). Max safe ~300 W at high speeds
-      to prevent substrate ablation. Source: Laserax manufacturer specs and studies in Optics and Lasers in Engineering (2018)
-      on composite surface prep.'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 30
-    description: 'Typical 10-100 kHz for pulsed cleaning; 30 kHz recommended for polyester composites to achieve fast coverage
-      while limiting heat accumulation (trade-off: higher rates speed up process but risk melting if >50 kHz without high
-      speed). Source: Academic literature in Lasers in Manufacturing and Materials Processing (2021) on fiber-reinforced polymers.'
 componentSummary: The 100 W power, 1064 nm wavelength, and 15 ns pulse width enable precise ablation of contaminants from
   polyester resin composites, minimizing thermal damage to the heat-sensitive polymer matrix.
+slug: polyester-resin-composites-settings

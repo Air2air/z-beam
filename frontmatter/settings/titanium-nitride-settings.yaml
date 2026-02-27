@@ -4,7 +4,7 @@ displayName: Titanium Nitride Settings
 category: ceramic
 subcategory: coating
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:59.903975+00:00'
+dateModified: '2026-02-27T20:39:36.493888+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/ceramic/coating/titanium-nitride-settings
@@ -34,56 +34,60 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: titanium-laser-cleaning
         effectiveness: high
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - - Requires careful power calibration to prevent material damage
         - Monitor surface temperature during processing
         - Verify cleaning effectiveness through inspection
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 2
   name: Alessandro Moretti
@@ -128,10 +132,16 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
     value: 1064
     unit: nm
-    description: Near-IR wavelength for optimal absorption
     min: 355
     max: 10640
   spotSize:
@@ -139,55 +149,34 @@ machineSettings:
     max: 500
     unit: μm
     value: 200
-    description: 'Beam diameter suited for TiN surface preparation; smaller (50-100 μm) for fine details, larger (200-500
-      μm) for broad areas. 200 μm recommended for uniform coverage on coated surfaces. Source: Equipment specifications from
-      Coherent and Trumpf laser cleaning systems.'
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.0
-    description: 'Fluence range for safe ablation of contaminants on TiN; damage threshold ~2-3 J/cm² due to high melting
-      point and conductivity. Recommended 1.0 J/cm² for effective cleaning without delamination. Conservative estimate for
-      industrial use. Source: Ablation threshold studies in Journal of Applied Physics (2021) for TiN at 1064 nm.'
   pulseWidth:
     min: 0.1
     max: 1000
     unit: ns
     value: 50
-    description: 'Nanosecond regime preferred for industrial cleaning of TiN to achieve photothermal ablation with minimal
-      heat-affected zone (HAZ <10 μm). Picosecond (ps, 1-100 ps) or femtosecond (fs) reduce HAZ further but increase cost;
-      50 ns recommended for balance. Source: Laser physics research in Applied Surface Science (2019) on TiN ablation thresholds
-      at 1064 nm.'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1500
-    description: 'Effective speeds balance ablation efficiency and heat accumulation on TiN''s moderate thermal conductivity
-      (~20 W/m·K). Recommended 1500 mm/s for optimal contaminant removal; slower (100-1000 mm/s) for heavy contamination,
-      faster (2000-5000 mm/s) for light. Source: Industry standards from Laserax equipment manuals; case studies in Journal
-      of Laser Applications (2020).'
   passCount:
     min: 1
     max: 10
     unit: passes
     value: 2
-    description: 'Single pass for light contamination, multi-pass (2-5) for heavy or layered removal on TiN to avoid over-ablation.
-      Recommended 2 passes for complete, damage-free cleaning. Source: Industry practice in case studies from Surface & Coatings
-      Technology (2019).'
   overlapRatio:
     min: 10
     max: 90
     unit: '%'
     value: 60
-    description: 'Ensures uniform fluence distribution on TiN for even cleaning; 60% recommended to prevent gaps or hotspots
-      given beam Gaussian profile. Typical range 30-80% based on scan speed. Source: Process optimization studies in Lasers
-      in Manufacturing and Materials Processing (2022).'
   laserPower:
     value: 80
     unit: W
-    description: Optimal average power for ceramic cleaning
     min: 1.0
     max: 120
   laserPowerAlternative:
@@ -195,18 +184,11 @@ machineSettings:
     max: 300
     value: 100
     unit: W
-    description: 'Typical range for industrial laser cleaning of hard coatings like TiN to ablate contaminants without substrate
-      melting (TiN melting point ~2950°C). Starting at 100W for controlled energy delivery; max limited to avoid thermal damage.
-      Source: IPG Photonics YLR series specs for 1064 nm cleaning systems; academic review in ''Laser Cleaning of Metallic
-      Substrates'' (Optics and Lasers in Engineering, 2018).'
   frequency:
     min: 1
     max: 200
     unit: kHz
     value: 50
-    description: 'Typical for pulsed cleaning to ensure pulse overlap without excessive heat buildup on reflective TiN surfaces
-      (reflectivity ~40% at 1064 nm). 50 kHz recommended for TiN to speed up process while monitoring temperature; higher
-      rates (>100 kHz) risk accumulation, lower for precision. Source: Academic literature in Optics Express (2017) on pulse
-      repetition effects in coating cleaning.'
 componentSummary: These settings leverage the 1064 nm wavelength's affinity for Titanium Nitride's surface, with 10 ns pulses
   at 100 W enabling precise contaminant ablation without inducing thermal cracking in the brittle ceramic-like coating.
+slug: titanium-nitride-settings

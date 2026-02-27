@@ -135,8 +135,8 @@ export function MaterialCard({
         {frontmatter?.datePublished && (
           <meta itemProp="datePublished" content={frontmatter.datePublished} />
         )}
-        {frontmatter?.lastModified && (
-          <meta itemProp="dateModified" content={frontmatter.lastModified} />
+        {frontmatter?.dateModified && (
+          <meta itemProp="dateModified" content={frontmatter.dateModified} />
         )}
         {/* SEO Infrastructure: Image metadata for search results */}
         {frontmatter?.images?.hero?.url && (
@@ -166,7 +166,7 @@ export function MaterialCard({
                 {relationshipData.items.map((item, idx) => (
                   <div key={idx} className="flex justify-between items-center border-b border-primary/10 pb-1">
                     <span className="text-xs text-primary/70 font-medium uppercase tracking-wide">{item.label}</span>
-                    <span className="text-sm text-primary font-semibold">{item.value}</span>
+                    <span className="text-sm text-primary font-semibold">{item.value as string}</span>
                   </div>
                 ))}
               </div>

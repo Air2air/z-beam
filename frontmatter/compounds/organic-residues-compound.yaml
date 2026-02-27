@@ -4,7 +4,7 @@ displayName: Organic Residues Compound
 category: particulate
 subcategory: organic
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:42.169156+00:00'
+dateModified: '2026-02-27T20:39:13.933435+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/organic/organic-residues-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: aviation-sealant-contamination
@@ -212,14 +219,15 @@ relationships:
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Wax Coating Buildup
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Respiratory irritation and potential systemic toxicity (e.g., dizziness, nausea)
@@ -238,12 +246,6 @@ relationships:
         severity: high
         onset: short-term
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -298,33 +300,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: as-a-laser-cleaning-operator-what
-    title: As a laser cleaning operator, what personal protective equipment should I use to protect against exposure to organic
-      residue particulates (CxHyOz) generated during the process?
-    content: Prioritize an airtight respirator, such as an N95 or P100-rated mask with proper fit-testing, right away when
-      handling organic residues, as these fine particulates can linger in the air like dust from burning materials and pose
-      inhalation risks. Combine this with eye protection like sealed goggles and full-body coveralls to prevent skin contact
-      or secondary inhalation. Always ensure the work area has adequate ventilation or local exhaust systems to reduce airborne
-      concentrations below general particulate exposure limits (e.g., 5 mg/m³ for respirable dust per OSHA guidelines, though
-      specific limits vary by composition).
-    metadata:
-      topic: as a laser cleaning operator,
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: irritant
 chemicalFormula: CxHyOz
 casNumber: Mixed - varies by composition
@@ -428,4 +403,31 @@ sourcesInLaserCleaning:
 - organic_contamination_pyrolysis
 - polymer_degradation
 - incomplete_organic_combustion
-title: Organic Residues
+faq:
+  presentation: collapsible
+  items:
+  - id: as-a-laser-cleaning-operator-what
+    title: As a laser cleaning operator, what personal protective equipment should I use to protect against exposure to organic
+      residue particulates (CxHyOz) generated during the process?
+    content: Prioritize an airtight respirator, such as an N95 or P100-rated mask with proper fit-testing, right away when
+      handling organic residues, as these fine particulates can linger in the air like dust from burning materials and pose
+      inhalation risks. Combine this with eye protection like sealed goggles and full-body coveralls to prevent skin contact
+      or secondary inhalation. Always ensure the work area has adequate ventilation or local exhaust systems to reduce airborne
+      concentrations below general particulate exposure limits (e.g., 5 mg/m³ for respirable dust per OSHA guidelines, though
+      specific limits vary by composition).
+    metadata:
+      topic: as a laser cleaning operator,
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: organic-residues-compound

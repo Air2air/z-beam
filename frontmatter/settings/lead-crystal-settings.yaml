@@ -4,7 +4,7 @@ displayName: Lead Crystal Settings
 category: glass
 subcategory: soda-lime
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:52.525429+00:00'
+dateModified: '2026-02-27T20:39:24.898112+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/glass/soda-lime/lead-crystal-settings
@@ -36,33 +36,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -71,14 +80,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -104,12 +114,6 @@ relationships:
         contaminationChallenges:
         - id: adhesive-paint-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 1
   name: Yi-Chun Lin
@@ -153,8 +157,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength for optimal absorption in Lead Crystal with minimal transmission
     unit: nm
     value: 1064
     min: 355
@@ -164,51 +174,32 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller for fine details on intricate lead crystal surfaces, larger for broad areas; 200 μm balances precision
-      and coverage without excessive energy concentration. Source: Equipment specs from Coherent and Trumpf laser systems
-      for precision cleaning.'
   energyDensity:
     min: 0.1
     max: 20.0
     value: 1
     unit: J/cm²
-    description: 'Fluence range for removing contaminants (e.g., 0.5-1 for light, 1-3 for heavy) while below lead crystal
-      damage threshold (~4-5 J/cm² at 1064 nm due to transparency). Conservative for safety. Source: Ablation threshold studies
-      in Applied Surface Science for glass materials.'
   pulseWidth:
     min: 0.1
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for industrial cleaning to minimize heat-affected zone (HAZ) in transparent
-      lead crystal at 1064 nm; picosecond (ps) or femtosecond reduces thermal effects but increases cost. Avoids cracking
-      due to reflectivity (~4% at 1064 nm). Source: Laser physics studies in Optics Express (e.g., ns pulses for glass ablation
-      thresholds).'
   scanSpeed:
     min: 10
     max: 5000
     unit: mm/s
     value: 1000
-    description: 'Effective for contaminant removal without overheating; slower for heavy contamination (e.g., oxides), faster
-      for light dust. Recommended balances speed and safety for lead crystal''s low thermal conductivity. Source: Industry
-      standards from Laserax equipment manuals.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Single pass for light contamination, multi-pass for heavy; 2 passes recommended for complete removal without
-      risking damage to fragile lead crystal. Source: Industry case studies in laser cleaning of cultural heritage glass (e.g.,
-      adaptable to industrial from SPIE proceedings).'
   overlapRatio:
     min: 10
     max: 90
     value: 70
     unit: '%'
-    description: 'Ensures uniform coverage and avoids gaps in cleaning; 70% optimal for even fluence distribution on reflective,
-      delicate surfaces like lead crystal. Source: Process optimization in Journal of Laser Applications.'
   laserPower:
-    description: Optimal average power for Lead Crystal surface cleaning without thermal damage
     unit: W
     value: 25
     min: 1.0
@@ -218,16 +209,11 @@ machineSettings:
     max: 100
     value: 20
     unit: W
-    description: 'Typical range for delicate glass-like materials to avoid thermal damage; starting low prevents cracking
-      in lead crystal (thermal conductivity ~1 W/mK, melting point ~500-600°C). Max safe based on avoiding substrate ablation.
-      Source: IPG Photonics laser cleaning guidelines for optics.'
   frequency:
     min: 1
     max: 200
     value: 20
     unit: kHz
-    description: 'Typical for efficient cleaning; lower rates reduce heat accumulation in low-conductivity lead crystal, higher
-      speeds up process but risks damage. Trade-off: high freq increases throughput but potential thermal buildup. Source:
-      Academic literature in Journal of Applied Physics on pulsed laser cleaning.'
 componentSummary: These settings use moderate 20 W power and 100 ns pulses at 1064 nm to gently ablate contaminants from fragile
   lead crystal, minimizing thermal damage and preserving its delicate, lead-infused structure.
+slug: lead-crystal-settings

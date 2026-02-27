@@ -4,7 +4,7 @@ displayName: Indium Settings
 category: metal
 subcategory: specialty
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:17:52.067960+00:00'
+dateModified: '2026-02-27T20:39:24.141036+00:00'
 contentType: setting
 schemaVersion: 5.0.0
 fullPath: /settings/metal/specialty/indium-settings
@@ -36,33 +36,42 @@ images:
 relationships:
   safety:
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards related to this laser setting
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - type: regulatory_standards
         id: osha-ppe-requirements
       - type: regulatory_standards
         id: ansi-z136-1-laser-safety
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards related to this laser setting
-        icon: shield-check
-        order: 1
-        variant: default
   interactions:
     removesContaminants:
+      _section:
+        sectionTitle: Removes Contaminants
+        sectionDescription: Types of contamination effectively removed by this setting
+        sectionMetadata: relationships.interactions.removesContaminants
+        icon: droplet-off
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: rust-oxidation-contamination
         effectiveness: high
       - id: adhesive-residue-contamination
         effectiveness: medium
-      _section:
-        sectionTitle: Removes Contaminants
-        sectionDescription: Types of contamination effectively removed by this setting
-        icon: droplet-off
-        order: 1
-        variant: default
     worksOnMaterials:
+      _section:
+        sectionTitle: Works On Materials
+        sectionDescription: Materials compatible with this laser setting
+        sectionMetadata: relationships.interactions.worksOnMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: oak-laser-cleaning
@@ -71,14 +80,15 @@ relationships:
         effectiveness: medium
       - id: pine-laser-cleaning
         effectiveness: medium
-      _section:
-        sectionTitle: Works On Materials
-        sectionDescription: Materials compatible with this laser setting
-        icon: box
-        order: 2
-        variant: default
   operational:
     commonChallenges:
+      _section:
+        sectionTitle: Common Challenges
+        sectionDescription: Technical challenges and optimization strategies for these settings
+        sectionMetadata: relationships.operational.commonChallenges
+        icon: triangle-exclamation
+        order: 5
+        variant: warning
       presentation: descriptive
       items:
       - thermalManagement:
@@ -91,12 +101,6 @@ relationships:
           type: challenge
         - id: oil-grease-removal
           type: challenge
-      _section:
-        icon: triangle-exclamation
-        sectionTitle: Common Challenges
-        sectionDescription: Technical challenges and optimization strategies for these settings
-        order: 5
-        variant: warning
 author:
   id: 3
   name: Ikmanda Roswati
@@ -142,8 +146,14 @@ card:
     severity: low
     icon: settings
 machineSettings:
+  _section:
+    sectionTitle: Machine Settings
+    sectionDescription: Optimal laser parameters and equipment specifications
+    sectionMetadata: machineSettings
+    icon: settings
+    order: 75
+    variant: default
   wavelength:
-    description: Near-IR wavelength providing good absorption in Indium oxide layer
     unit: nm
     value: 1064
     min: 355
@@ -153,10 +163,7 @@ machineSettings:
     max: 500
     value: 200
     unit: μm
-    description: 'Smaller for precise surface prep on Indium components (e.g., electronics); larger for broad areas. Balances
-      fluence and coverage. Source: Equipment specs from Coherent Inc. cleaning systems; suitable for fine Indium features.'
   fluenceThreshold:
-    description: Fluence threshold for Indium oxide ablation
     unit: J/cm²
     value: 2.8
     min: 0.3
@@ -166,42 +173,27 @@ machineSettings:
     max: 1000
     value: 20
     unit: ns
-    description: 'Nanosecond regime preferred for cost-effective cleaning with minimal HAZ on soft metals; picosecond (ps)
-      for ultra-precision but overkill for Indium. Avoids excessive heat buildup due to Indium''s conductivity (82 W/m·K).
-      Source: Laser physics in J. Appl. Phys. 2015 on ns ablation thresholds for low-mp metals.'
   scanSpeed:
     min: 10
     max: 5000
     value: 1500
     unit: mm/s
-    description: 'Effective for contamination removal on reflective metals; slower for heavy contamination (e.g., oxides),
-      faster for light. Recommended balances speed and fluence control. Source: Industry standards from Laserax manuals; adapted
-      for Indium''s high reflectivity reducing absorption.'
   passCount:
     min: 1
     max: 10
     value: 2
     unit: passes
-    description: 'Multi-pass for thorough removal of layered contamination without single-pass overload; single pass for light
-      cleaning. Recommended for uniform Indium surface prep. Source: Industry case studies in J. Laser Appl. 2019 on metal
-      oxide removal.'
   overlapRatio:
     min: 10
     max: 90
     value: 50
     unit: '%'
-    description: 'Ensures uniform coverage on irregular Indium surfaces; 50% optimal for efficiency without excessive exposure.
-      Higher for heavy contamination. Source: Process optimization in Opt. Laser Technol. 2017 for scanned laser cleaning.'
   energyDensity:
     min: 0.1
     max: 20.0
     unit: J/cm²
     value: 1.5
-    description: 'Fluence below Indium''s ablation threshold (~2-4 J/cm² at 1064 nm due to reflectivity >90%); safe for contaminant
-      removal without substrate melting. Conservative to account for variability in contamination. Source: Ablation studies
-      in Phys. Procedia 2013 for soft metals; estimated for Indium.'
   laserPower:
-    description: Optimal average power for Indium oxide removal without substrate damage
     unit: W
     value: 45
     min: 1.0
@@ -211,16 +203,11 @@ machineSettings:
     max: 500
     value: 100
     unit: W
-    description: 'Typical range for pulsed Nd:YAG lasers in metal cleaning; lower end for delicate soft metals like Indium
-      to avoid melting (mp 156.6°C). Recommended start conservatively low. Source: IPG Photonics specs for cleaning heads;
-      conservative for Indium''s low thermal resistance (similar to Al studies in Opt. Lasers Eng. 2018).'
   frequency:
     min: 1
     max: 200
     value: 30
     unit: kHz
-    description: 'Typical for industrial cleaning; moderate rate prevents heat accumulation on heat-sensitive Indium while
-      enabling efficient coverage. Higher rates increase speed but risk thermal damage. Source: Academic lit. in Appl. Surf.
-      Sci. 2020 on pulse train effects for metals.'
 componentSummary: These settings use moderate 100 W power and 12 ns pulses at 1064 nm to gently ablate contaminants from soft,
   low-melting Indium, minimizing thermal damage and preserving surface integrity.
+slug: indium-settings

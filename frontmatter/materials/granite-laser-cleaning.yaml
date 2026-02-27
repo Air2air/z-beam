@@ -4,7 +4,7 @@ displayName: Granite Laser Cleaning
 category: stone
 subcategory: igneous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:37.361409+00:00'
+dateModified: '2026-02-27T20:38:05.993548+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/stone/igneous/granite-laser-cleaning
@@ -26,7 +26,21 @@ pageDescription: Granite, as a tough igneous stone, holds up well under laser cl
   cutting down on traditional abrasive risks, making it a go-to choice for sectors like aerospace and energy that demand reliable
   surface preparation.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     fractureToughness:
@@ -92,13 +106,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:59:40.460373'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -190,13 +205,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:59:48.985546'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: how-does-laser-cleaning-remove-biological
@@ -327,7 +343,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: algae-growth-contamination
@@ -490,30 +520,46 @@ relationships:
           On porous stones, these residues form intricate ring patterns from evaporated minerals, which ad...
         frequency: moderate
         severity: moderate
+  operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
+    industryApplications:
       _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
+        sectionTitle: Industry Applications
+        sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
+        icon: building
         order: 1
         variant: default
-  operational:
-    industryApplications:
       presentation: card
       items:
       - id: construction-equipment-laser-cleaning
         name: Construction Equipment
         category: applications
         subcategory: construction-equipment
-        url: /applications/construction-equipment-laser-cleaning
+        url: /applications/construction-equipment-laser-cleaning-applications
         description: Overview of laser cleaning in construction equipment applications and common surface challenges.
+  safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
+    regulatoryStandards:
       _section:
-        sectionTitle: Industry Applications
-        sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
-        icon: building
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
         order: 1
         variant: default
-  safety:
-    regulatoryStandards:
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -546,12 +592,6 @@ relationships:
         longName: Unknown Organization
         name: Unknown
         url: ''
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -626,174 +666,11 @@ eeat:
   isBasedOn:
     name: OSHA 29 CFR 1926.95 - Personal Protective Equipment
     url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  fractureToughness:
-    value: 1.2
-    unit: MPa√m
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 50000000000.0
-    unit: Pa
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.98
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  density:
-    value: 2700.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 6.5
-    unit: Mohs
-    confidence: 95
-    source: ai_research
-  corrosionResistance:
-    value: 9.7
-    unit: dimensionless (corrosion resistance index, scale 0-10)
-    confidence: 95
-    source: ai_research
-  compressiveStrength:
-    value: 211.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 15.0
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  tensileStrength:
-    value: 10.5
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.6
-    unit: '%'
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Applied Surface Science
-    citation: 'P. Pou et al., ''Comparative study of the influence of laser wavelength on the cleaning of granite'', Applied
-      Surface Science, 2005, DOI: 10.1016/j.apsusc.2005.01.045'
-    context: Commercial granite (quartz-feldspar-mica composition, ~70% SiO2), room temperature (25°C), Nd:YAG laser at 1064
-      nm, 10 ns pulse duration, measured in air at 1 atm
-    confidence: 95
-    researchedDate: '2025-11-24T11:59:40.460373'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.1
-    unit: dimensionless
-    min: 0.05
-    max: 0.2
-    source: ai_research
-  absorptionCoefficient:
-    value: 100000
-    unit: m⁻¹
-    min: 50000
-    max: 200000
-    source: ai_research
-  laserDamageThreshold:
-    value: 8
-    unit: J/cm²
-    min: 5
-    max: 15
-    source: ai_research
-  thermalShockResistance:
-    value: 1.5
-    unit: MW/m
-    min: 1
-    max: 3
-    source: ai_research
-  reflectivity:
-    value: 0.9
-    unit: dimensionless
-    min: 0.8
-    max: 0.95
-    source: ai_research
-  thermalDestructionPoint:
-    value: 1500
-    unit: K
-    min: 1400
-    max: 1600
-    source: ai_research
-  vaporPressure:
-    value: 1
-    unit: Pa
-    min: 0.1
-    max: 10
-    source: ai_research
-  thermalDestruction:
-    value: 773.0
-    unit: K
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 790.0
-    unit: J/kg·K
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.35
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 2.79
-    unit: W/m·K
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 8.0e-06
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 0.42
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.32e-06
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser cleaning of granite surfaces: Ablation thresholds and morphology changes'
-    citation: 'J. Marczak et al., Applied Surface Science, 2008, DOI: 10.1016/j.apsusc.2008.06.045'
-    context: Commercial granite (quartz-feldspar-mica composition, ~70% SiO2), room temperature (25°C), 1064 nm Nd:YAG laser,
-      10 ns pulse duration, atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T11:59:48.985546'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: granite-laser-cleaning

@@ -62,8 +62,8 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
     const category = metadata.category || 'material';
     const subcategory = metadata.subcategory || '';
     
-    const publishDate = metadata.datePublished || metadata.lastModified;
-    const modifiedDate = metadata.dateModified || metadata.lastModified;
+    const publishDate = metadata.datePublished;
+    const modifiedDate = metadata.dateModified || metadata.datePublished;
     
     // Create context
     const context = createContext(slug);

@@ -4,7 +4,7 @@ displayName: Hydrogen Cyanide Compound
 category: toxic_gas
 subcategory: cyanide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:37.919661+00:00'
+dateModified: '2026-02-27T20:39:11.747774+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/toxic-gas/cyanide/hydrogen-cyanide-compound
@@ -34,17 +34,25 @@ images:
 relationships:
   identity:
     chemicalProperties:
+      _section:
+        sectionTitle: Chemical Properties
+        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
+        sectionMetadata: relationships.identity.chemicalProperties
+        icon: atom
+        order: 1
+        variant: default
       presentation: descriptive
       items:
       - type: chemical_properties
         id: hydrogen-cyanide-physical-data
-      _section:
-        sectionTitle: Chemical Properties
-        sectionDescription: Molecular formula, CAS number, molecular weight, and chemical structure
-        icon: atom
-        order: 1
-        variant: default
     physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: flask
+        order: 5
+        variant: default
       presentation: descriptive
       items:
       - boilingPoint: 25.6°C (78°F)
@@ -57,13 +65,14 @@ relationships:
         explosiveLimits: 'LEL: 5.6%, UEL: 40%'
         appearance: Colorless or pale blue liquid, colorless gas
         odor: 'Faint bitter almond odor; WARNING: 20-40% of population cannot detect odor (genetic variation)'
-      _section:
-        icon: flask
-        sectionTitle: Physical Properties
-        sectionDescription: Chemical and physical characteristics
-        order: 5
-        variant: default
     synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
       presentation: descriptive
       items:
       - synonyms:
@@ -80,14 +89,15 @@ relationships:
           rtecsNumber: MW6825000
           ecNumber: 200-821-6
           pubchemCid: '768'
-      _section:
-        icon: tag
-        sectionTitle: Alternative Names
-        sectionDescription: Synonyms and chemical identifiers
-        order: 10
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 15
+        variant: default
       presentation: card
       items:
       - route: inhalation
@@ -109,13 +119,14 @@ relationships:
           convulsions and death
         severity: severe
         onset: immediate
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 15
-        variant: default
     ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: shield-check
+        order: 20
+        variant: default
       presentation: descriptive
       items:
       - respiratory: 'MANDATORY: Full-face pressure-demand SCBA or positive-pressure supplied-air respirator with escape SCBA.
@@ -126,13 +137,14 @@ relationships:
         minimumLevel: Level A for unknown concentrations or >10 ppm, Level B minimum for known concentrations <10 ppm
         specialNotes: HCN penetrates ordinary clothing. Rapidly absorbed through skin causing systemic poisoning. Use butyl
           rubber - NOT neoprene or natural rubber. Emergency cyanide antidote kit must be immediately available.
-      _section:
-        icon: shield-check
-        sectionTitle: Personal Protective Equipment
-        sectionDescription: Required safety equipment for handling this compound
-        order: 20
-        variant: default
     emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: exclamation-triangle
+        order: 25
+        variant: default
       presentation: descriptive
       items:
       - fireHazard: Extremely flammable liquid and vapor. Wide explosive range. May polymerize explosively if contaminated.
@@ -150,13 +162,14 @@ relationships:
         specialHazards: ONE OF THE MOST TOXIC INDUSTRIAL CHEMICALS. Inhibits cellular respiration by binding to cytochrome
           oxidase. Death can occur within minutes. Polymerizes violently with alkaline contamination. Decomposes producing
           nitrogen oxides and hydrogen cyanide gas.
-      _section:
-        icon: exclamation-triangle
-        sectionTitle: Emergency Response
-        sectionDescription: Procedures for spills, exposure, and incidents
-        order: 25
-        variant: default
     exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 30
+        variant: default
       presentation: descriptive
       items:
       - oshaPelPpm: 10
@@ -188,13 +201,14 @@ relationships:
             specimen: Blood
             timing: Immediately post-exposure
             beiValue: <0.5 µg/mL (toxic >1 µg/mL, lethal >3 µg/mL)
-      _section:
-        icon: gauge
-        sectionTitle: Exposure Limits
-        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
-        order: 30
-        variant: default
     storageRequirements:
+      _section:
+        sectionTitle: Storage Requirements
+        sectionDescription: Safe storage conditions and compatibility
+        sectionMetadata: relationships.safety.storageRequirements
+        icon: warehouse
+        order: 35
+        variant: default
       presentation: descriptive
       items:
       - temperatureRange: Store below 25°C (77°F), ideally <15°C. Avoid heating above boiling point.
@@ -218,13 +232,14 @@ relationships:
         specialRequirements: 'CRITICAL: Store with stabilizer (acid). Check stabilizer level regularly. Refrigerated storage
           recommended. Gas detection system MANDATORY. Emergency shower/eyewash within 10 seconds travel. Cyanide antidote
           kits at storage location. Written emergency procedures posted.'
-      _section:
-        icon: warehouse
-        sectionTitle: Storage Requirements
-        sectionDescription: Safe storage conditions and compatibility
-        order: 35
-        variant: default
     regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: book-law
+        order: 40
+        variant: default
       presentation: descriptive
       items:
       - unNumber: UN1051 (anhydrous, stabilized), UN1613 (solution)
@@ -244,14 +259,15 @@ relationships:
         saraTitleIii: true
         cerclaRq: 10 pounds (4.54 kg)
         rcraCode: P063
-      _section:
-        icon: book-law
-        sectionTitle: Regulatory Classification
-        sectionDescription: DOT, UN, and NFPA hazard classifications
-        order: 40
-        variant: default
   environmental:
     environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: leaf
+        order: 45
+        variant: default
       presentation: descriptive
       items:
       - aquaticToxicity: 'Extremely toxic to aquatic life. LC50 (fish, 96h): 0.05-0.3 mg/L. Toxic at parts-per-billion levels.'
@@ -265,14 +281,15 @@ relationships:
         reportableReleases:
           water: 10 lbs (4.54 kg) to navigable waters - IMMEDIATELY reportable
           air: 10 lbs/day (CERCLA RQ) - ANY release must be reported immediately due to extreme toxicity
-      _section:
-        icon: leaf
-        sectionTitle: Environmental Impact
-        sectionDescription: Toxicity, biodegradability, and environmental fate
-        order: 45
-        variant: default
   detectionMonitoring:
     detectionMonitoring:
+      _section:
+        sectionTitle: Detection & Monitoring
+        sectionDescription: Methods for detecting and measuring this compound
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: radar
+        order: 50
+        variant: default
       presentation: descriptive
       items:
       - sensorTypes:
@@ -298,14 +315,15 @@ relationships:
           detectionLimit: 0.03 ppm
         odorThreshold: UNRELIABLE - 20-40% of population cannot smell HCN (genetic). Odor threshold (0.58-5 ppm) overlaps
           toxic range. NEVER rely on odor - MANDATORY continuous monitoring with alarms.
-      _section:
-        icon: radar
-        sectionTitle: Detection & Monitoring
-        sectionDescription: Methods for detecting and measuring this compound
-        order: 50
-        variant: default
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: plastic-residue-contamination
@@ -351,13 +369,14 @@ relationships:
         frequency: occasional
         severity: moderate
         typicalContext: Breakdown of cyanoacrylate adhesives
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
     producedFromMaterials:
+      _section:
+        sectionTitle: Source Materials
+        sectionDescription: Materials that may release this compound when laser cleaned
+        sectionMetadata: relationships.interactions.producedFromMaterials
+        icon: box
+        order: 2
+        variant: default
       presentation: card
       items:
       - id: ceramic-matrix-composites-cmcs-laser-cleaning
@@ -366,13 +385,14 @@ relationships:
       - id: phenolic-resin-composites-laser-cleaning
       - id: polyester-resin-composites-laser-cleaning
       - id: urethane-composites-laser-cleaning
-      _section:
-        sectionTitle: Source Materials
-        sectionDescription: Materials that may release this compound when laser cleaned
-        icon: box
-        order: 2
-        variant: default
     reactivity:
+      _section:
+        sectionTitle: Reactivity
+        sectionDescription: Chemical reactivity and incompatibilities
+        sectionMetadata: relationships.interactions.reactivity
+        icon: atom
+        order: 55
+        variant: default
       presentation: descriptive
       items:
       - stability: UNSTABLE. Polymerizes violently when contaminated with water, bases, or ammonia. Must be stabilized with
@@ -405,12 +425,6 @@ relationships:
         - Contamination of any kind
         reactivityHazard: EXTREMELY REACTIVE. Violent polymerization with alkaline materials. Reacts with oxidizers causing
           fire and explosion. Attacks some metals (copper, zinc) forming explosive metal cyanides.
-      _section:
-        icon: atom
-        sectionTitle: Reactivity
-        sectionDescription: Chemical reactivity and incompatibilities
-        order: 55
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -465,33 +479,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-personal-protective-equipment-ppe-should
-    title: What personal protective equipment (PPE) should I wear to minimize hydrogen cyanide (HCN) exposure risks during
-      laser cleaning of metal surfaces?
-    content: Use a full-facepiece respirator with cartridges specifically rated for HCN or acid gases, combined with chemical-resistant
-      gloves, boots, and a full-body suit made from materials like butyl rubber to block rapid skin absorption. Ensure the
-      workspace has adequate ventilation or local exhaust systems to reduce inhalation hazards, and always perform air monitoring
-      with HCN-specific detectors to keep exposures below the OSHA ceiling limit of 10 ppm. If HCN levels approach the limit,
-      immediately evacuate and decontaminate any exposed skin with a dilute sodium hypochlorite solution followed by thorough
-      rinsing.
-    metadata:
-      topic: personal protective equipment (ppe) should
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: toxic
 chemicalFormula: HCN
 casNumber: 74-90-8
@@ -571,4 +558,31 @@ sourcesInLaserCleaning:
 - nitrogen_containing_polymers
 - polyurethane_decomposition
 - nylon_pyrolysis
-title: Hydrogen Cyanide
+faq:
+  presentation: collapsible
+  items:
+  - id: what-personal-protective-equipment-ppe-should
+    title: What personal protective equipment (PPE) should I wear to minimize hydrogen cyanide (HCN) exposure risks during
+      laser cleaning of metal surfaces?
+    content: Use a full-facepiece respirator with cartridges specifically rated for HCN or acid gases, combined with chemical-resistant
+      gloves, boots, and a full-body suit made from materials like butyl rubber to block rapid skin absorption. Ensure the
+      workspace has adequate ventilation or local exhaust systems to reduce inhalation hazards, and always perform air monitoring
+      with HCN-specific detectors to keep exposures below the OSHA ceiling limit of 10 ppm. If HCN levels approach the limit,
+      immediately evacuate and decontaminate any exposed skin with a dilute sodium hypochlorite solution followed by thorough
+      rinsing.
+    metadata:
+      topic: personal protective equipment (ppe) should
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: hydrogen-cyanide-compound

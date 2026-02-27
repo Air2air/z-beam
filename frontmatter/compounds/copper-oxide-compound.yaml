@@ -4,7 +4,7 @@ displayName: Copper Oxide Compound
 category: particulate
 subcategory: metal-oxide
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-19T04:16:42.513487+00:00'
+dateModified: '2026-02-27T20:39:14.095726+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/particulate/metal-oxide/copper-oxide-compound
@@ -34,6 +34,13 @@ images:
 relationships:
   interactions:
     producedFromContaminants:
+      _section:
+        sectionTitle: Source Contaminants
+        sectionDescription: Contaminants that generate this compound during laser cleaning
+        sectionMetadata: relationships.interactions.producedFromContaminants
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: brake-dust-contamination
@@ -135,14 +142,15 @@ relationships:
         frequency: unknown
         severity: moderate
         typicalContext: Laser removal of Copper Electroplating
-      _section:
-        sectionTitle: Source Contaminants
-        sectionDescription: Contaminants that generate this compound during laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   safety:
     healthEffects:
+      _section:
+        sectionTitle: Health Effects
+        sectionDescription: Adverse health impacts from exposure to this compound
+        sectionMetadata: relationships.safety.healthEffects
+        icon: heart-pulse
+        order: 5
+        variant: default
       items:
       - route: inhalation
         effect: Respiratory tract irritation and possible metal fume fever with high exposure
@@ -161,12 +169,6 @@ relationships:
         severity: moderate
         onset: short-term
       presentation: card
-      _section:
-        icon: heart-pulse
-        sectionTitle: Health Effects
-        sectionDescription: Adverse health impacts from exposure to this compound
-        order: 5
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -221,32 +223,6 @@ card:
       legend: Exposure Limit
     severity: low
     icon: alert-triangle
-faq:
-  presentation: collapsible
-  items:
-  - id: what-personal-protective-equipment-ppe-should
-    title: What personal protective equipment (PPE) should I wear to minimize inhalation risks from CuO particulates generated
-      during laser cleaning of copper surfaces?
-    content: Always use a NIOSH-approved respirator with an N95 or higher rating (e.g., P100 filters for particulates) fitted
-      properly to prevent inhaling CuO dust, which can cause respiratory irritation or metal fume fever. Wear safety goggles
-      and gloves to avoid skin or eye contact, and ensure the workspace has local exhaust ventilation to capture airborne
-      particles. Conduct fit-testing for the respirator annually and replace filters when breathing becomes difficult or after
-      each shift involving heavy dust generation.
-    metadata:
-      topic: personal protective equipment (ppe) should
-      severity: critical
-      acceptedAnswer: true
-      expertInfo:
-        name: Todd Dunning
-        title: MA
-        expertise:
-        - Optical Materials for Laser Systems
-    _display:
-      _open: true
-      order: 1
-  options:
-    autoOpenFirst: true
-    sortBy: severity
 hazardClass: irritant
 chemicalFormula: CuO
 casNumber: 1317-38-0
@@ -311,4 +287,30 @@ sourcesInLaserCleaning:
 - copper_oxidation
 - copper_coating_ablation
 - brass_bronze_patina_removal
-title: Copper Oxide
+faq:
+  presentation: collapsible
+  items:
+  - id: what-personal-protective-equipment-ppe-should
+    title: What personal protective equipment (PPE) should I wear to minimize inhalation risks from CuO particulates generated
+      during laser cleaning of copper surfaces?
+    content: Always use a NIOSH-approved respirator with an N95 or higher rating (e.g., P100 filters for particulates) fitted
+      properly to prevent inhaling CuO dust, which can cause respiratory irritation or metal fume fever. Wear safety goggles
+      and gloves to avoid skin or eye contact, and ensure the workspace has local exhaust ventilation to capture airborne
+      particles. Conduct fit-testing for the respirator annually and replace filters when breathing becomes difficult or after
+      each shift involving heavy dust generation.
+    metadata:
+      topic: personal protective equipment (ppe) should
+      severity: critical
+      acceptedAnswer: true
+      expertInfo:
+        name: Todd Dunning
+        title: MA
+        expertise:
+        - Optical Materials for Laser Systems
+    _display:
+      _open: true
+      order: 1
+  options:
+    autoOpenFirst: true
+    sortBy: severity
+slug: copper-oxide-compound

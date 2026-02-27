@@ -64,6 +64,7 @@ const CRITICAL_ROUTES = [
 ];
 
 const SITEMAP_URL = '/sitemap.xml';
+const EXPECTED_NOINDEX_PATHS = new Set(['/search']);
 
 const RICH_RESULT_REQUIRED_FIELDS = {
   Dataset: ['name', 'description', 'url'],
@@ -171,8 +172,10 @@ function normalizeSiteUrl(rawUrl) {
 }
 
 function extractCanonical(html) {
-  const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
-  return canonicalMatch ? normalizeSiteUrl(canonicalMatch[1]) : null;
+  const canonicalTagMatch = html.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i);
+  if (!canonicalTagMatch) return null;
+  const hrefMatch = canonicalTagMatch[0].match(/\bhref=["']([^"']+)["']/i);
+  return hrefMatch ? normalizeSiteUrl(hrefMatch[1]) : null;
 }
 
 function extractMetaContent(html, attr, key) {
@@ -423,10 +426,10 @@ async function checkSEOMetadata() {
     }
     
     // Canonical URL
-    const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
+    const canonical = extractCanonical(html);
     addResult('seo-metadata', 'Canonical URL', 
-      !!canonicalMatch,
-      canonicalMatch ? canonicalMatch[1] : 'Missing'
+      !!canonical,
+      canonical || 'Missing'
     );
     
     // Open Graph tags
@@ -475,12 +478,12 @@ async function checkCriticalRouteHealth() {
       );
 
       if (status >= 200 && status < 300) {
-        const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i);
+        const canonical = extractCanonical(html);
         addResult(
           'route-health',
           `Canonical Present ${routePath}`,
-          !!canonicalMatch,
-          canonicalMatch ? canonicalMatch[1] : 'Missing canonical'
+          !!canonical,
+          canonical || 'Missing canonical'
         );
       } else if (status >= 300 && status < 400) {
         addResult(
@@ -553,11 +556,16 @@ async function checkFullSiteIndexability() {
           canonical ? `canonical=${canonical}` : 'No canonical to compare'
         );
 
+        const pathname = new URL(url).pathname;
+        const isExpectedNoindex = EXPECTED_NOINDEX_PATHS.has(pathname);
+        const noindexPresent = hasNoindex(html);
         addResult(
           'indexability',
           `Indexable ${url}`,
-          !hasNoindex(html),
-          hasNoindex(html) ? 'robots=noindex present' : 'indexable'
+          noindexPresent ? isExpectedNoindex : true,
+          noindexPresent
+            ? (isExpectedNoindex ? 'robots=noindex present (expected for allowlisted path)' : 'robots=noindex present')
+            : 'indexable'
         );
       }
     }

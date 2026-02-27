@@ -9,6 +9,9 @@ import { SITE_CONFIG } from "@/app/config/site";
 export const metadata = {
   title: "Thank You for Your Inquiry | Z-Beam",
   description: "Your request has been received. We'll contact you shortly.",
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/confirmation`,
+  },
   robots: {
     index: false,
     follow: false,

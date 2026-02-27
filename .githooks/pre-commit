@@ -6,12 +6,12 @@
 echo "🛡️  Pre-commit: Checking component reusability rules..."
 
 # Run the component enforcement check
-if ! node enforce-component-rules.js; then
+if ! npm run enforce-components; then
     echo ""
     echo "💥 COMMIT BLOCKED: Component reusability violations found!"
     echo ""
     echo "🔧 To fix:"
-    echo "1. Run './quick-audit.sh' to see violations"
+    echo "1. Run 'npm run component-audit' to see violations"
     echo "2. Replace hardcoded implementations with shared components"
     echo "3. Review PROJECT_GUIDE.md section 2 for guidance"
     echo ""

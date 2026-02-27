@@ -31,7 +31,6 @@ export async function generateMetadata() {
     title: `${config.plural} | ${SITE_CONFIG.shortName} Laser Cleaning`,
     description: `Comprehensive laser cleaning machine settings database for industrial applications. Optimized parameters for wavelength, power, fluence, and more.`,
     keywords: ['machine settings', 'laser parameters', 'wavelength', 'power', 'fluence', 'industrial laser settings'],
-    image: '/images/settings-og.jpg',
     slug: config.rootPath,
     canonical: `${SITE_CONFIG.url}/${config.rootPath}`,
   });
@@ -151,7 +150,7 @@ export default async function SettingsPage() {
         name: pageTitle,
         description: pageDescription,
         breadcrumbId: `${pageUrl}#breadcrumb`,
-        authorId: `${SITE_CONFIG.url}#author-technical-team`
+        author: `${SITE_CONFIG.url}#author-technical-team`
       })
     ]
   };

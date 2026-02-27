@@ -4,7 +4,7 @@ displayName: Cherry Laser Cleaning
 category: wood
 subcategory: hardwood
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-02-23T02:54:35.382656+00:00'
+dateModified: '2026-02-27T20:38:03.624170+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/wood/hardwood/cherry-laser-cleaning
@@ -24,7 +24,21 @@ pageDescription: Cherry wood serves as a premium hardwood material in applicatio
   by vaporizing surface layers gently while preserving the underlying structure. Operators must dial in precise control to
   avoid overheating, and the key point is monitoring for any charring to achieve a clean finish.
 properties:
+  _section:
+    sectionTitle: Laser-Material Interaction
+    sectionDescription: How laser energy interacts with this material during cleaning
+    sectionMetadata: properties.laserMaterialInteraction
+    icon: zap
+    order: 76
+    variant: default
   materialCharacteristics:
+    _section:
+      sectionTitle: Material Characteristics
+      sectionDescription: Physical and mechanical properties defining this material
+      sectionMetadata: properties.materialCharacteristics
+      icon: wrench
+      order: 70
+      variant: default
     label: Material Characteristics
     percentage: 60.0
     fractureToughness:
@@ -89,13 +103,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:55:01.840641'
       needsValidation: true
-    _section:
-      sectionTitle: Material Characteristics
-      sectionDescription: Physical and mechanical properties defining this material
-      icon: wrench
-      order: 70
-      variant: default
   laserMaterialInteraction:
+    _section:
+      sectionTitle: Laser-Material Interaction
+      sectionDescription: How laser energy interacts with this material during cleaning
+      sectionMetadata: properties.laserMaterialInteraction
+      icon: zap
+      order: 76
+      variant: default
     label: Laser-Material Interaction
     percentage: 40.0
     absorptivity:
@@ -187,13 +202,14 @@ properties:
       confidence: 95
       researchedDate: '2025-11-24T11:55:09.787392'
       needsValidation: true
-    _section:
-      sectionTitle: Laser-Material Interaction
-      sectionDescription: How laser energy interacts with this material during cleaning
-      icon: zap
-      order: 76
-      variant: default
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: can-laser-cleaning-effectively-remove-oxidation
@@ -386,7 +402,21 @@ images:
     height: 600
 relationships:
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Types of contamination typically found on this material that require laser cleaning
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 1
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Types of contamination typically found on this material that require laser cleaning
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 1
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -469,24 +499,40 @@ relationships:
           fibers, so laser cleaning faces unique challenges in biological removal. Formation occurs thr...
         frequency: moderate
         severity: moderate
-      _section:
-        sectionTitle: Common Contaminants
-        sectionDescription: Types of contamination typically found on this material that require laser cleaning
-        icon: droplet
-        order: 1
-        variant: default
   operational:
+    _section:
+      sectionTitle: Industry Applications
+      sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+      sectionMetadata: relationships.operational.industryApplications
+      icon: building
+      order: 1
+      variant: default
     industryApplications:
-      presentation: card
-      items: []
       _section:
         sectionTitle: Industry Applications
         sectionDescription: Industries and sectors where this material is commonly processed with laser cleaning
+        sectionMetadata: relationships.operational.industryApplications
         icon: building
         order: 1
         variant: default
+      presentation: card
+      items: []
   safety:
+    _section:
+      sectionTitle: Regulatory Standards
+      sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+      sectionMetadata: relationships.safety.regulatoryStandards
+      icon: shield-check
+      order: 1
+      variant: default
     regulatoryStandards:
+      _section:
+        sectionTitle: Regulatory Standards
+        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
+        sectionMetadata: relationships.safety.regulatoryStandards
+        icon: shield-check
+        order: 1
+        variant: default
       presentation: card
       items:
       - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -514,12 +560,6 @@ relationships:
         longName: Unknown Organization
         name: Unknown
         url: ''
-      _section:
-        sectionTitle: Regulatory Standards
-        sectionDescription: Safety and compliance standards applicable to laser cleaning of this material
-        icon: shield-check
-        order: 1
-        variant: default
 author:
   id: 4
   name: Todd Dunning
@@ -593,173 +633,11 @@ eeat:
   isBasedOn:
     name: IEC 60825 - Safety of Laser Products
     url: https://webstore.iec.ch/publication/3587
-authorId: 4
-materialCharacteristics:
-  label: Material Characteristics
-  percentage: 60.0
-  fractureToughness:
-    value: 0.38
-    unit: MPa m^{1/2}
-    confidence: 95
-    source: ai_research
-  density:
-    value: 580.0
-    unit: kg/m³
-    confidence: 95
-    source: ai_research
-  oxidationResistance:
-    value: 0.72
-    unit: dimensionless (relative scale 0-1, 1=excellent resistance)
-    confidence: 95
-    source: ai_research
-  youngsModulus:
-    value: 10.27
-    unit: GPa
-    confidence: 95
-    source: ai_research
-  hardness:
-    value: 4226.0
-    unit: N
-    confidence: 100
-    source: ai_research
-  compressiveStrength:
-    value: 40.3
-    unit: MPa
-    confidence: 98
-    source: ai_research
-  tensileStrength:
-    value: 70.3
-    unit: MPa
-    confidence: 95
-    source: ai_research
-  flexuralStrength:
-    value: 67.8
-    unit: MPa
-    confidence: 100
-    source: ai_research
-  corrosionResistance:
-    value: 0.35
-    unit: dimensionless (relative durability index)
-    confidence: 95
-    source: ai_research
-  porosity:
-    value: 0.667
-    unit: fraction
-    confidence: 95
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.8
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: 'Laser Cleaning of Cherry Wood: Ablation Thresholds and Surface Morphology'
-    citation: 'Bolin, G. et al., Optics and Lasers in Engineering, 2019, DOI: 10.1016/j.optlaseng.2019.03.012'
-    context: Cherry wood (Prunus serotina, density 0.65 g/cm³, 8-12% moisture content), room temperature (20°C), 1064 nm Nd:YAG
-      laser, 10 ns pulse duration, measured at damage onset via thermal imaging
-    confidence: 95
-    researchedDate: '2025-11-24T11:55:01.840641'
-    needsValidation: true
-  _section:
-    sectionTitle: Material Characteristics
-    sectionDescription: Physical and mechanical properties
-    icon: wrench
-    order: 70
-    variant: default
-laserMaterialInteraction:
-  label: Laser-Material Interaction
-  percentage: 40.0
-  absorptivity:
-    value: 0.85
-    unit: dimensionless
-    min: 0.7
-    max: 0.95
-    source: ai_research
-  absorptionCoefficient:
-    value: 500000
-    unit: m⁻¹
-    min: 10000
-    max: 1000000
-    source: ai_research
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-    min: 0.5
-    max: 10
-    source: ai_research
-  thermalShockResistance:
-    value: 1.2
-    unit: MW/m
-    min: 0.5
-    max: 3
-    source: ai_research
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    min: 0.05
-    max: 0.3
-    source: ai_research
-  thermalDestructionPoint:
-    value: 500
-    unit: K
-    min: 450
-    max: 600
-    source: ai_research
-  vaporPressure:
-    value: 50
-    unit: Pa
-    min: 1
-    max: 1000
-    source: ai_research
-  thermalDestruction:
-    value: 275.0
-    unit: °C
-    confidence: 95
-    source: ai_research
-  laserReflectivity:
-    value: 0.23
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalExpansion:
-    value: 3.2e-05
-    unit: K^{-1}
-    confidence: 95
-    source: ai_research
-  thermalConductivity:
-    value: 0.163
-    unit: W/(m·K)
-    confidence: 95
-    source: ai_research
-  specificHeat:
-    value: 1380.0
-    unit: J/(kg·K)
-    confidence: 95
-    source: ai_research
-  laserAbsorption:
-    value: 0.93
-    unit: dimensionless
-    confidence: 95
-    source: ai_research
-  thermalDiffusivity:
-    value: 1.28e-07
-    unit: m²/s
-    confidence: 95
-    source: ai_research
-  ablationThreshold:
-    value: 0.82
-    unit: J/cm²
-    source: scientific_literature
-    sourceType: journal_article
-    sourceName: Laser cleaning of cherry wood surfaces using a Nd:YAG laser
-    citation: 'J. Lawrence, D. W. Bradley, Journal of Materials Processing Technology, 2002, DOI: 10.1016/S0924-0136(01)01145-7'
-    context: Cherry wood (Prunus serotina, density 0.65 g/cm³, natural finish), room temperature (25°C), 1064 nm Nd:YAG laser,
-      pulse duration 10 ns, atmospheric pressure
-    confidence: 95
-    researchedDate: '2025-11-24T11:55:09.787392'
-    needsValidation: true
-  _section:
-    sectionTitle: Laser Material Interaction
-    sectionDescription: Material-specific laser energy interaction properties and cleaning behavior
-    icon: zap
-    order: 71
-    variant: default
+_section:
+  sectionTitle: FAQ
+  sectionDescription: Common Questions and Answers
+  sectionMetadata: faq
+  icon: help-circle
+  order: 46
+  variant: default
+slug: cherry-laser-cleaning

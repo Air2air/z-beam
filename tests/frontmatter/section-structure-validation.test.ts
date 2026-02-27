@@ -8,7 +8,8 @@
  * - sectionTitle (string)
  * - sectionDescription (string)
  * 
- * NOTE: sectionMetadata is DEPRECATED as of Jan 2026 and is no longer required.
+ * NOTE: sectionMetadata may exist in frontmatter for developer/context metadata,
+ * but it is not rendered in the active section container UI.
  * 
  * Test Coverage:
  * 1. Validate all material frontmatter sections have required fields
@@ -25,7 +26,7 @@ import yaml from 'js-yaml';
 interface SectionStructure {
   sectionTitle?: string;
   sectionDescription?: string;
-  /** @deprecated sectionMetadata is no longer required as of Jan 2026 */
+  /** Optional: retained in data, not rendered in active section container UI */
   sectionMetadata?: Record<string, unknown>;
 }
 
@@ -71,7 +72,7 @@ function validateSection(section: SectionStructure): {
   const missingFields: string[] = [];
   const emptyFields: string[] = [];
 
-  // Check for required fields (sectionMetadata deprecated as of Jan 2026)
+  // Check for required display fields in active section containers
   if (!('sectionTitle' in section)) {
     missingFields.push('sectionTitle');
   } else if (typeof section.sectionTitle === 'string' && section.sectionTitle.trim() === '') {
@@ -181,7 +182,7 @@ describe('Mandatory Section Structure Validation', () => {
       }
     });
 
-    // sectionMetadata validation removed - deprecated as of Jan 2026
+    // sectionMetadata is intentionally not validated for UI display requirements
   });
 
   describe('Contaminant Frontmatter Sections', () => {
@@ -265,7 +266,7 @@ describe('Mandatory Section Structure Validation', () => {
     });
   });
 
-  // Section Metadata Requirements tests removed - sectionMetadata deprecated as of Jan 2026
+  // SectionMetadata display requirements are intentionally omitted (not rendered in UI)
   // Previously tested: relationshipType, group, and domain fields within sectionMetadata
 
   describe('Required Section Coverage Validation', () => {

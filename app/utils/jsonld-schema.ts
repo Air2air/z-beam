@@ -8,6 +8,9 @@ interface MaterialData extends Partial<MaterialDatasetData> {
   description?: string;
   keywords?: string[];
   author?: string;
+  dateModified?: string;
+  datePublished?: string;
+  /** @deprecated Use dateModified instead */
   lastModified?: string;
   properties?: {
     density?: number;
@@ -62,8 +65,8 @@ export function createMaterialJsonLd(data: MaterialData, slug: string) {
     keywords: data.keywords?.join(', ') || data.title,
     
     // Dates
-    dateModified: data.lastModified || new Date().toISOString(),
-    datePublished: data.lastModified || new Date().toISOString(),
+    dateModified: data.dateModified || data.lastModified || new Date().toISOString(),
+    datePublished: data.datePublished || data.lastModified || new Date().toISOString(),
     
     // Applications (Experience)
     applicationCategory: data.applications || ['Industrial Cleaning', 'Surface Treatment'],

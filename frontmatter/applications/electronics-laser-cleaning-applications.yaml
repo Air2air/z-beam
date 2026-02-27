@@ -4,7 +4,7 @@ displayName: Electronics Laser Cleaning
 category: applications
 subcategory: electronics
 datePublished: '2026-02-21'
-dateModified: '2026-02-23T22:40:27.286092+00:00'
+dateModified: '2026-02-27T20:39:37.319263+00:00'
 contentType: application
 schemaVersion: 5.0.0
 fullPath: /applications/electronics-laser-cleaning-applications
@@ -21,11 +21,23 @@ pageDescription: Laser cleaning in electronics, it manifests as a precise method
   to industry standards that ensure no residue persists. These applications, they exhibit versatility in manufacturing and
   maintenance, dependent from material compatibility. It appears that effectiveness varies with surface types, showing operational
   benefits in high-precision tasks.
-metaDescription: Laser cleaning in electronics, it manifests as a precise method for removing contaminants from circuit boards
-  and components, which leads to enhanced reliabi...
 relationships:
   discovery:
+    _section:
+      sectionTitle: Common Materials
+      sectionDescription: Similar materials and alloy variants
+      sectionMetadata: relationships.discovery.relatedMaterials
+      icon: layers
+      order: 30
+      variant: default
     relatedMaterials:
+      _section:
+        sectionTitle: Common Materials
+        sectionDescription: Similar materials and alloy variants
+        sectionMetadata: relationships.discovery.relatedMaterials
+        icon: layers
+        order: 30
+        variant: default
       presentation: card
       items:
       - id: copper-laser-cleaning
@@ -58,13 +70,22 @@ relationships:
         subcategory: alloy
         url: /materials/metal/alloy/tin-laser-cleaning
         image: /images/material/tin-laser-cleaning-hero.jpg
-      _section:
-        sectionTitle: Common Materials
-        icon: layers
-        order: 30
-        variant: default
   interactions:
+    _section:
+      sectionTitle: Common Contaminants
+      sectionDescription: Common contaminants affecting this material
+      sectionMetadata: relationships.interactions.contaminatedBy
+      icon: droplet
+      order: 31
+      variant: default
     contaminatedBy:
+      _section:
+        sectionTitle: Common Contaminants
+        sectionDescription: Common contaminants affecting this material
+        sectionMetadata: relationships.interactions.contaminatedBy
+        icon: droplet
+        order: 31
+        variant: default
       presentation: card
       items:
       - id: adhesive-residue-contamination
@@ -97,11 +118,6 @@ relationships:
         subcategory: adhesive
         url: /contaminants/organic-residue/adhesive/silicone-buildup-contamination
         image: /images/contaminant/silicone-buildup-contamination-hero.jpg
-      _section:
-        sectionTitle: Common Contaminants
-        icon: droplet
-        order: 31
-        variant: default
 author:
   id: 2
   name: Alessandro Moretti
@@ -139,4 +155,3 @@ keywords:
 - Electronics Laser Cleaning
 - Electronics
 slug: electronics-laser-cleaning-applications
-authorId: 2
