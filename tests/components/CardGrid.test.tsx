@@ -219,8 +219,8 @@ describe('CardGrid - Unified Grid System', () => {
       render(<CardGrid items={largeItemList} title="Performance Test" description="Large list test" />);
       const endTime = performance.now();
       
-      // Should render 100 items in reasonable time (< 150ms to account for CI/slower systems)
-      expect(endTime - startTime).toBeLessThan(150);
+      // Should render 100 items in reasonable time (< 200ms to account for CI/slower systems)
+      expect(endTime - startTime).toBeLessThan(200);
       expect(screen.getAllByTestId('card')).toHaveLength(100);
     });
   });

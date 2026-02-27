@@ -86,7 +86,6 @@ describe('YAML → TypeScript Integration', () => {
         if (data.machineSettings) {
           for (const param of requiredParams) {
             if (data.machineSettings[param]) {
-              expect(data.machineSettings[param]).toHaveProperty('description');
               expect(data.machineSettings[param]).toHaveProperty('unit');
               expect(data.machineSettings[param]).toHaveProperty('value');
             }

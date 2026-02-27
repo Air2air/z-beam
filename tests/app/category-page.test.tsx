@@ -249,7 +249,7 @@ describe('CategoryPage Component', () => {
       
       const collectionPage = schemaData['@graph'].find((item: any) => item['@type'] === 'CollectionPage');
       expect(collectionPage).toBeDefined();
-      expect(collectionPage.name).toBe('Metal Laser Cleaning Solutions | Z-Beam');
+      expect(collectionPage.name).toBe('Metal Laser Cleaning Solutions');
       expect(collectionPage['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#collection`);
     });
 
@@ -266,7 +266,7 @@ describe('CategoryPage Component', () => {
       expect(breadcrumbList.itemListElement).toHaveLength(3); // Home → Materials → Metal (3 items)
       expect(breadcrumbList.itemListElement[0].name).toBe('Home');
       expect(breadcrumbList.itemListElement[1].name).toBe('Materials');
-      expect(breadcrumbList.itemListElement[2].name).toBe('Metal Laser Cleaning Solutions | Z-Beam');
+      expect(breadcrumbList.itemListElement[2].name).toBe('Metal Laser Cleaning Solutions');
     });
 
     it('should include ItemList schema with all materials', async () => {
@@ -315,7 +315,7 @@ describe('CategoryPage Component', () => {
       const webPage = schemaData['@graph'].find((item: any) => item['@type'] === 'WebPage');
       expect(webPage).toBeDefined();
       expect(webPage['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#webpage`); // WebPage includes #webpage fragment
-      expect(webPage.name).toBe('Metal Laser Cleaning Solutions | Z-Beam');
+      expect(webPage.name).toBe('Metal Laser Cleaning Solutions');
     });
 
     it('should use @id references between schemas', async () => {

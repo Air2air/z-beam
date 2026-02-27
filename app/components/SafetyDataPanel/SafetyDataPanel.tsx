@@ -67,7 +67,7 @@ export function SafetyDataPanel({
   className = '',
   collapsible = false,  // Default to false for backward compatibility
   entityName: _entityName,  // Name of contaminant/compound for title (not currently used)
-  sectionTitle,
+  sectionTitle = 'Safety Information',
   sectionDescription
 }: SafetyDataPanelProps) {
   if (!safetyData) return null;
