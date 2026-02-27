@@ -63,6 +63,10 @@ export function middleware(request: NextRequest) {
     return unauthorizedResponse();
   }
 
+  const isThankYouPath = request.nextUrl.pathname === '/thank-you' || request.nextUrl.pathname.startsWith('/thank-you/');
+  const frameAncestorsPolicy = isThankYouPath ? "'self'" : "'none'";
+  const frameOptionsPolicy = isThankYouPath ? 'SAMEORIGIN' : 'DENY';
+
   // Generate a unique nonce for this request
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
   
@@ -80,7 +84,7 @@ export function middleware(request: NextRequest) {
     "media-src 'self' data: blob: https: http:",
     "connect-src 'self' https: http: ws: wss:",
     "frame-src 'self' https: http:",
-    "frame-ancestors 'none'",
+    `frame-ancestors ${frameAncestorsPolicy}`,
     "form-action 'self' https: http:",
     "base-uri 'self'",
     "object-src 'none'",
@@ -95,7 +99,7 @@ export function middleware(request: NextRequest) {
     "media-src 'self' data: blob: https://st.sendajob.com https://*.sendajob.com",
     "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://online-booking.workiz.com https://app.workiz.com https://st.sendajob.com https://*.sendajob.com",
     "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
-    "frame-ancestors 'none'",
+    `frame-ancestors ${frameAncestorsPolicy}`,
     "form-action 'self' https://st.sendajob.com https://*.sendajob.com",
     "base-uri 'self'",
     "object-src 'none'",
@@ -116,7 +120,7 @@ export function middleware(request: NextRequest) {
 
   // Set security headers
   response.headers.set('Content-Security-Policy', cspHeader);
-  response.headers.set('X-Frame-Options', 'DENY');
+  response.headers.set('X-Frame-Options', frameOptionsPolicy);
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   response.headers.set('X-XSS-Protection', '1; mode=block');

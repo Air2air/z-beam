@@ -13,6 +13,7 @@
 import fs from 'fs';
 import path from 'path';
 import { glob } from 'glob';
+import { parse } from 'yaml';
 import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
 
 describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
@@ -144,12 +145,11 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
       
       frontmatterFiles.slice(0, 30).forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
+        const parsed = parse(content) as { faq?: { items?: unknown[] } };
+        const faqItems = Array.isArray(parsed?.faq?.items) ? parsed.faq.items : [];
+        const faqCount = faqItems.length;
         
-        // Count FAQ items
-        const faqMatches = content.match(/question:|name:.*\?/gi);
-        const faqCount = faqMatches ? faqMatches.length : 0;
-        
-        if (content.includes('FAQ') && faqCount < 3) {
+        if (parsed?.faq && faqCount < 3) {
           pagesWithInsufficientFAQs.push(`${path.basename(file)}: ${faqCount} FAQs`);
         }
       });
