@@ -66,6 +66,7 @@ type StaticPageType =
   | 'rental' 
   | 'about' 
   | 'contact' 
+  | 'thank-you'
   | 'partners' 
   | 'equipment' 
   | 'operations' 
@@ -119,6 +120,10 @@ const PAGE_CONFIGS = {
   contact: {
     pageType: 'content-cards' as PageArchitecture,
     hasContactInfo: true,
+    robotsIndex: true
+  },
+  'thank-you': {
+    pageType: 'content-cards' as PageArchitecture,
     robotsIndex: true
   },
   about: {
