@@ -37,7 +37,7 @@ export default function ContactPage() {
       description:
         "Precision laser cleaning services for industrial and heritage applications",
       url: SITE_CONFIG.url,
-      telephone: "+1-415-555-0123",
+      telephone: "+1-650-590-5040",
       email: "info@z-beam.com",
       address: {
         "@type": "PostalAddress",
