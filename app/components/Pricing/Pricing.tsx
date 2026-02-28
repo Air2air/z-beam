@@ -1,4 +1,4 @@
-import { SITE_CONFIG, GRID_GAP_RESPONSIVE } from '@/app/config/site';
+import { SITE_CONFIG } from '@/app/config/site';
 
 type PricingVariant = 'simple' | 'detailed';
 
@@ -19,6 +19,7 @@ export function Pricing({
   variant = 'simple' 
 }: PricingProps) {
   const { equipmentRental } = SITE_CONFIG.pricing;
+  const rentalPackages = Object.values(equipmentRental.packages);
   const isDetailed = variant === 'detailed';
   
   const features = [
@@ -112,16 +113,21 @@ export function Pricing({
           {materialName} Laser Cleaning Equipment Rental
         </h2>
       )}
-      
-      <PricingCard
-        title="Equipment Rental"
-        description={`Delivered to your location • ${equipmentRental.minimumHours || 2}-hour minimum`}
-        price={equipmentRental.hourlyRate}
-        unit={equipmentRental.unit}
-        href="/rental"
-        ctaText="Request Equipment Rental"
-        color="text-green-600"
-      />
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {rentalPackages.map((pkg, index) => (
+          <PricingCard
+            key={pkg.sku}
+            title={`${pkg.name} Package`}
+            description={`Delivered to your location • ${equipmentRental.minimumHours || 2}-hour minimum`}
+            price={pkg.hourlyRate}
+            unit={equipmentRental.unit}
+            href="/rental"
+            ctaText={`Request ${pkg.name} Rental`}
+            color={index === 0 ? 'text-green-600' : 'text-blue-600'}
+          />
+        ))}
+      </div>
       
       {isDetailed && (
         <div className="mt-6 text-center w-full">

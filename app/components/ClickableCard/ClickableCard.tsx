@@ -12,7 +12,7 @@
  *   href="/services/rental"
  *   heading="Equipment Rental"
  *   text="Professional laser cleaning equipment for rent"
- *   details={["Starting at $390/hr", "Delivery included", "24/7 support"]}
+ *   details={["Residential $190/hr", "Industrial $270/hr", "24/7 support"]}
  * />
  */
 import React from 'react';

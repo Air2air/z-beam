@@ -16,7 +16,18 @@ const SITE_NAME = 'Z-Beam';
 // Service pricing configuration (matches app/config/site.ts)
 const SERVICE_PRICING = {
   equipmentRental: {
-    hourlyRate: 390,
+    packages: {
+      residential: {
+        name: 'Residential',
+        hourlyRate: 190,
+        sku: 'ZB-EQUIP-RES'
+      },
+      industrial: {
+        name: 'Industrial',
+        hourlyRate: 270,
+        sku: 'ZB-EQUIP-IND'
+      }
+    },
     currency: 'USD',
     label: 'Equipment Rental',
     sku: 'ZB-EQUIP-RENT',
@@ -42,7 +53,7 @@ function escapeXml(text) {
  * Generate product ID from material slug and service type
  */
 function generateProductId(slug, serviceType) {
-  return slug;
+  return `${slug}-${serviceType}`;
 }
 
 /**
@@ -79,28 +90,30 @@ function collectMaterials() {
             // Calculate price range
             const hoursMin = materialSpecific.estimatedHoursMin || 1;
             const hoursTypical = materialSpecific.estimatedHoursTypical || 3;
-            const minPrice = hoursMin * pricing.hourlyRate;
-            const maxPrice = hoursTypical * pricing.hourlyRate;
-            
-            materials.push({
-              id: generateProductId(slug, serviceType),
-              title: data.title || slug,
-              description: data.description || data.micro || `Professional laser cleaning service for ${data.title || slug}`,
-              link: productUrl,
-              imageLink: `${SITE_URL}/images/material/${slug}-hero.jpg`,
-              price: `${pricing.hourlyRate} ${pricing.currency}`,
-              priceUnit: 'per hour',
-              minPrice: minPrice,
-              maxPrice: maxPrice,
-              availability: 'in stock',
-              condition: 'new',
-              brand: SITE_NAME,
-              sku: `${pricing.sku}-${slug.toUpperCase()}`,
-              serviceType: pricing.label,
-              category: data.category,
-              subcategory: data.subcategory,
-              gtin: '', // Optional: Add if you have GTINs
-              mpn: `${pricing.sku}-${slug}` // Manufacturer Part Number
+            Object.entries(pricing.packages).forEach(([packageKey, packageData]) => {
+              const minPrice = hoursMin * packageData.hourlyRate;
+              const maxPrice = hoursTypical * packageData.hourlyRate;
+
+              materials.push({
+                id: generateProductId(slug, `${serviceType}-${packageKey}`),
+                title: `${data.title || slug} - ${packageData.name} Package`,
+                description: data.description || data.micro || `Professional laser cleaning service for ${data.title || slug}`,
+                link: productUrl,
+                imageLink: `${SITE_URL}/images/material/${slug}-hero.jpg`,
+                price: `${packageData.hourlyRate} ${pricing.currency}`,
+                priceUnit: 'per hour',
+                minPrice: minPrice,
+                maxPrice: maxPrice,
+                availability: 'in stock',
+                condition: 'new',
+                brand: SITE_NAME,
+                sku: `${packageData.sku}-${slug.toUpperCase()}`,
+                serviceType: `${pricing.label} - ${packageData.name}`,
+                category: data.category,
+                subcategory: data.subcategory,
+                gtin: '', // Optional: Add if you have GTINs
+                mpn: `${packageData.sku}-${slug}` // Manufacturer Part Number
+              });
             });
           }
         } catch (error) {

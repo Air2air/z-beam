@@ -296,29 +296,28 @@ describe('SEO Schema Generators', () => {
       const schema = generateProductSchema(productOptions);
       
       expect(schema).toHaveProperty('offers');
-      expect(schema.offers).toHaveProperty('@type', 'Offer');
+      expect(schema.offers).toHaveProperty('@type', 'AggregateOffer');
     });
 
     it('includes required pricing for rich snippets', () => {
       const schema = generateProductSchema(productOptions);
       
       // Google requires these fields for Product rich snippets
-      expect(schema.offers).toHaveProperty('price');
+      expect(schema.offers).toHaveProperty('lowPrice');
+      expect(schema.offers).toHaveProperty('highPrice');
       expect(schema.offers).toHaveProperty('priceCurrency', 'USD');
       expect(schema.offers).toHaveProperty('availability');
-      // Price can be either number (old format) or object with standard rate (new format)
-      const price = typeof schema.offers.price === 'object' ? schema.offers.price.standard : schema.offers.price;
-      expect(typeof price).toBe('number');
-      expect(price).toBeGreaterThan(0);
+      expect(typeof schema.offers.lowPrice).toBe('number');
+      expect(typeof schema.offers.highPrice).toBe('number');
+      expect(schema.offers.lowPrice).toBeGreaterThan(0);
+      expect(schema.offers.highPrice).toBeGreaterThan(schema.offers.lowPrice);
     });
 
     it('uses SITE_CONFIG pricing for service offers', () => {
       const schema = generateProductSchema(productOptions);
       
-      // Should use equipment rental rate from SITE_CONFIG
-      // Pricing can be either single value (old) or range object (new)
-      const price = typeof schema.offers.price === 'object' ? schema.offers.price.standard : schema.offers.price;
-      expect(price).toBe(390); // SITE_CONFIG.pricing.equipmentRental.hourlyRate.standard
+      expect(schema.offers.lowPrice).toBe(190);
+      expect(schema.offers.highPrice).toBe(270);
       expect(schema.offers.priceSpecification).toBeDefined();
       expect(schema.offers.priceSpecification.unitText).toBe('hour');
     });

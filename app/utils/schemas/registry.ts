@@ -97,8 +97,9 @@ export function generateServiceSchema(options?: {
   const pricing = options?.pricing || SITE_CONFIG.pricing.equipmentRental;
   const serviceName = options?.serviceName || 'Laser Cleaning Equipment Rental';
   const description = options?.description || pricing.description;
-
-  const hourlyRate = pricing.hourlyRate;
+  const packageRates = Object.values(pricing.packages).map((pkg) => pkg.hourlyRate);
+  const lowPrice = Math.min(...packageRates);
+  const highPrice = Math.max(...packageRates);
 
   return {
     '@type': 'Service',
@@ -140,12 +141,22 @@ export function generateServiceSchema(options?: {
       }
     },
     'offers': {
-      '@type': 'Offer',
-      'price': pricing.hourlyRate,
+      '@type': 'AggregateOffer',
+      'lowPrice': lowPrice,
+      'highPrice': highPrice,
+      'offerCount': packageRates.length,
       'priceCurrency': pricing.currency,
+      'offers': Object.values(pricing.packages).map((pkg) => ({
+        '@type': 'Offer',
+        'name': pkg.name,
+        'price': pkg.hourlyRate,
+        'priceCurrency': pricing.currency,
+        'url': `${SITE_CONFIG.url}/services`
+      })),
       'priceSpecification': {
         '@type': 'UnitPriceSpecification',
-        'price': pricing.hourlyRate,
+        'minPrice': lowPrice,
+        'maxPrice': highPrice,
         'priceCurrency': pricing.currency,
         'unitText': pricing.unit
       },

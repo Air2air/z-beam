@@ -10,6 +10,7 @@ import { Layout } from '@/app/components/Layout/Layout';
 import { ContentSection } from '@/app/components/ContentCard/ContentSection';
 import { BaseSection } from '@/app/components/BaseSection/BaseSection';
 import { CardGrid, CardGridSSR } from '@/app/components/CardGrid';
+import { FAQPanel } from '@/app/components/FAQPanel/FAQPanel';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
 import { generateCollectionPageSchema, generateItemListSchema, generateWebPageSchema } from '@/app/utils/schemas/collectionPageSchema';
@@ -205,6 +206,12 @@ export default async function ApplicationPage({ params }: { params: { slug: stri
   const contentCardsTitle = frontmatter.contentCardsTitle;
   const relatedMaterials = frontmatter.relationships?.discovery?.relatedMaterials;
   const commonContaminants = frontmatter.relationships?.interactions?.contaminatedBy;
+  const rawFaq = frontmatter.faq;
+  const faq = Array.isArray(rawFaq)
+    ? rawFaq
+    : (typeof rawFaq === 'string' ? rawFaq : rawFaq?.items);
+  const faqSectionTitle = rawFaq?._section?.sectionTitle;
+  const faqSectionDescription = rawFaq?._section?.sectionDescription;
 
   // Build page-specific JSON-LD schemas
   const pageTitle = frontmatter.pageTitle || frontmatter.displayName || frontmatter.name || slug;
@@ -242,6 +249,16 @@ export default async function ApplicationPage({ params }: { params: { slug: stri
             variant="relationship"
           />
         </BaseSection>
+      )}
+      {!!faq && (
+        <FAQPanel
+          faq={faq}
+          entityName={frontmatter.displayName || frontmatter.name || slug}
+          variant="faq"
+          className="mt-10"
+          sectionTitle={faqSectionTitle}
+          sectionDescription={faqSectionDescription}
+        />
       )}
     </Layout>
     </>

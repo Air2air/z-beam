@@ -93,6 +93,10 @@ export function generateProductSchema(options: ProductSchemaOptions) {
   });
   
   const productSku = sku || `LASER-CLEAN-${name.toUpperCase().replace(/[^A-Z0-9]/g, '-')}`;
+  const rentalPackages = Object.values(SITE_CONFIG.pricing.equipmentRental.packages);
+  const packageRates = rentalPackages.map((pkg) => pkg.hourlyRate);
+  const lowPrice = Math.min(...packageRates);
+  const highPrice = Math.max(...packageRates);
   
   return {
     '@type': 'Product',
@@ -147,14 +151,24 @@ export function generateProductSchema(options: ProductSchemaOptions) {
     
     // Offers (required by Google for rich snippets)
     offers: {
-      '@type': 'Offer',
+      '@type': 'AggregateOffer',
       url: pageUrl,
-      price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+      lowPrice,
+      highPrice,
+      offerCount: rentalPackages.length,
       priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+      offers: rentalPackages.map((pkg) => ({
+        '@type': 'Offer',
+        name: pkg.name,
+        price: pkg.hourlyRate,
+        priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+        url: pageUrl
+      })),
       availability: 'https://schema.org/InStock',
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
-        price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+        minPrice: lowPrice,
+        maxPrice: highPrice,
         priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
         unitText: SITE_CONFIG.pricing.equipmentRental.unit,
         referenceQuantity: {
@@ -168,7 +182,7 @@ export function generateProductSchema(options: ProductSchemaOptions) {
         name: SITE_CONFIG.name,
         url: SITE_CONFIG.url
       },
-      description: `${SITE_CONFIG.pricing.equipmentRental.description} for ${name}. $${SITE_CONFIG.pricing.equipmentRental.hourlyRate}/${SITE_CONFIG.pricing.equipmentRental.unit}, ${SITE_CONFIG.pricing.equipmentRental.minimumHours || 2}-hour minimum. Delivered to your location.`
+      description: `${SITE_CONFIG.pricing.equipmentRental.description} for ${name}. Residential $${SITE_CONFIG.pricing.equipmentRental.packages.residential.hourlyRate}/${SITE_CONFIG.pricing.equipmentRental.unit}, Industrial $${SITE_CONFIG.pricing.equipmentRental.packages.industrial.hourlyRate}/${SITE_CONFIG.pricing.equipmentRental.unit}, ${SITE_CONFIG.pricing.equipmentRental.minimumHours || 2}-hour minimum. Delivered to your location.`
     }
   };
 }

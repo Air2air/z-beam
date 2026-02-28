@@ -44,11 +44,23 @@ export const SITE_CONFIG = {
   // Service Pricing (hourly rates in USD)
   pricing: {
     equipmentRental: {
-      hourlyRate: 390,
+      packages: {
+        residential: {
+          name: 'Residential',
+          hourlyRate: 190,
+          sku: 'ZB-EQUIP-RES'
+        },
+        industrial: {
+          name: 'Industrial',
+          hourlyRate: 270,
+          sku: 'ZB-EQUIP-IND'
+        }
+      },
+      hourlyRate: 190,
       currency: 'USD',
       unit: 'hour',
       minimumHours: 2,
-      description: 'Professional laser cleaning equipment delivered throughout the San Francisco Bay Area and California with training and support included. Based in Belmont, CA serving Silicon Valley, Peninsula, East Bay, and North Bay. Starting at $390/hour with 2-hour minimum.',
+      description: 'Professional laser cleaning equipment delivered throughout the San Francisco Bay Area and California with training and support included. Residential package $190/hour and Industrial package $270/hour with 2-hour minimum.',
       sku: 'ZB-EQUIP-RENT'
     }
   },
@@ -826,21 +838,31 @@ export function generateOrganizationSchema() {
       "@type": "OfferCatalog",
       "name": "Laser Cleaning Equipment Rental",
       "itemListElement": BUSINESS_CONFIG.services.map(service => ({
-        "@type": "Offer",
+        ...(() => {
+          const packageRates = Object.values(SITE_CONFIG.pricing.equipmentRental.packages).map(pkg => pkg.hourlyRate);
+          const lowPrice = Math.min(...packageRates);
+          const highPrice = Math.max(...packageRates);
+
+          return {
+            "@type": "AggregateOffer",
+            "lowPrice": String(lowPrice),
+            "highPrice": String(highPrice),
+            "offerCount": packageRates.length,
+            "offers": Object.values(SITE_CONFIG.pricing.equipmentRental.packages).map(pkg => ({
+              "@type": "Offer",
+              "name": pkg.name,
+              "price": String(pkg.hourlyRate),
+              "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
+              "url": `${SITE_CONFIG.url}/rental`
+            }))
+          };
+        })(),
         "itemOffered": {
           "@type": "Service",
           "name": service.name,
           "description": service.description
         },
-        "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
-        "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
         "image": `${SITE_CONFIG.url}/images/services/${service.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "price": String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
-          "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
-          "unitCode": "HUR"
-        },
         "availability": "https://schema.org/InStock",
         "url": `${SITE_CONFIG.url}/rental`,
         "category": "Equipment Rental Service"

@@ -109,23 +109,23 @@ describe('Google Merchant Feed Generation', () => {
 
   describe('Price Calculation', () => {
     it('should calculate price range from hours and hourly rate', () => {
-      const hourlyRate = 390;
+      const hourlyRate = 190;
       const hoursMin = 2;
       const hoursTypical = 6;
       
       const minPrice = hoursMin * hourlyRate;
       const maxPrice = hoursTypical * hourlyRate;
       
-      expect(minPrice).toBe(780);
-      expect(maxPrice).toBe(2340);
+      expect(minPrice).toBe(380);
+      expect(maxPrice).toBe(1140);
     });
 
     it('should format price with currency', () => {
-      const hourlyRate = 390;
+      const hourlyRate = 190;
       const currency = 'USD';
       const priceString = `${hourlyRate} ${currency}`;
       
-      expect(priceString).toBe('390 USD');
+      expect(priceString).toBe('190 USD');
     });
   });
 
@@ -182,7 +182,7 @@ describe('Google Merchant Feed Generation', () => {
         'g:description': 'Industrial laser cleaning service',
         'g:link': 'https://www.z-beam.com/materials/metal/non-ferrous/aluminum-laser-cleaning',
         'g:image_link': 'https://www.z-beam.com/images/material/aluminum-laser-cleaning-hero.jpg',
-        'g:price': '390 USD',
+        'g:price': '190 USD',
         'g:availability': 'in stock',
         'g:condition': 'new',
         'g:brand': 'Z-Beam',
@@ -199,23 +199,25 @@ describe('Google Merchant Feed Generation', () => {
   describe('Service Type Configuration', () => {
     it('should have consistent service pricing configuration', () => {
       const servicePricing = {
-        professionalCleaning: {
-          hourlyRate: 390,
-          currency: 'USD',
-          label: 'Professional Laser Cleaning',
-          sku: 'Z-BEAM-CLEAN'
-        },
         equipmentRental: {
-          hourlyRate: 320,
+          packages: {
+            residential: {
+              hourlyRate: 190,
+              sku: 'ZB-EQUIP-RES'
+            },
+            industrial: {
+              hourlyRate: 270,
+              sku: 'ZB-EQUIP-IND'
+            }
+          },
           currency: 'USD',
           label: 'Equipment Rental',
           sku: 'ZB-EQUIP-RENT'
         }
       };
 
-      expect(servicePricing.professionalCleaning.hourlyRate).toBe(390);
-      expect(servicePricing.equipmentRental.hourlyRate).toBe(320);
-      expect(servicePricing.professionalCleaning.sku).toBe('Z-BEAM-CLEAN');
+      expect(servicePricing.equipmentRental.packages.residential.hourlyRate).toBe(190);
+      expect(servicePricing.equipmentRental.packages.industrial.hourlyRate).toBe(270);
       expect(servicePricing.equipmentRental.sku).toBe('ZB-EQUIP-RENT');
     });
   });
@@ -236,7 +238,7 @@ describe('Google Merchant Feed Generation', () => {
         'Industrial laser cleaning',
         'https://www.z-beam.com/materials/aluminum',
         'https://www.z-beam.com/images/aluminum-hero.jpg',
-        '390 USD',
+        '190 USD',
         'in stock',
         'new',
         'Z-Beam',

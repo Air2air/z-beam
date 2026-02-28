@@ -378,6 +378,54 @@ function hasOrganizations(data: any): boolean {
   );
 }
 
+function getEquipmentPricingPackages() {
+  const pricing = SITE_CONFIG.pricing.equipmentRental;
+  return Object.values(pricing.packages).map((pkg) => ({
+    ...pkg,
+    currency: pricing.currency,
+    unit: pricing.unit
+  }));
+}
+
+function getEquipmentPricingBounds() {
+  const packageRates = getEquipmentPricingPackages().map((pkg) => pkg.hourlyRate);
+  return {
+    lowPrice: Math.min(...packageRates),
+    highPrice: Math.max(...packageRates),
+    offerCount: packageRates.length
+  };
+}
+
+function createEquipmentAggregateOffer(url: string, includePriceSpecification = true) {
+  const pricing = SITE_CONFIG.pricing.equipmentRental;
+  const packages = getEquipmentPricingPackages();
+  const { lowPrice, highPrice, offerCount } = getEquipmentPricingBounds();
+
+  return {
+    '@type': 'AggregateOffer',
+    'lowPrice': String(lowPrice),
+    'highPrice': String(highPrice),
+    'offerCount': offerCount,
+    'priceCurrency': pricing.currency,
+    'offers': packages.map((pkg) => ({
+      '@type': 'Offer',
+      'name': pkg.name,
+      'price': String(pkg.hourlyRate),
+      'priceCurrency': pricing.currency,
+      'url': url
+    })),
+    ...(includePriceSpecification && {
+      'priceSpecification': {
+        '@type': 'UnitPriceSpecification',
+        'minPrice': lowPrice,
+        'maxPrice': highPrice,
+        'priceCurrency': pricing.currency,
+        'unitText': pricing.unit
+      }
+    })
+  };
+}
+
 // ============================================================================
 // Schema Generators
 // ============================================================================
@@ -821,16 +869,8 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         'name': 'Netalux'
       },
       'offers': {
-        '@type': 'Offer',
-        'price': String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
-        'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
+        ...createEquipmentAggregateOffer(pageUrl),
         'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-        'priceSpecification': {
-          '@type': 'UnitPriceSpecification',
-          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
-          'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
-          'unitText': SITE_CONFIG.pricing.equipmentRental.unit
-        },
         'availability': 'https://schema.org/InStock',
         'seller': {
           '@type': 'Organization',
@@ -1082,20 +1122,8 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         }
       },
       'offers': {
-        '@type': 'Offer',
-        'price': String(SITE_CONFIG.pricing.equipmentRental.hourlyRate),
-        'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
+        ...createEquipmentAggregateOffer(pageUrl),
         'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-        'priceSpecification': {
-          '@type': 'UnitPriceSpecification',
-          'referenceQuantity': {
-            '@type': 'QuantitativeValue',
-            'value': 1,
-            'unitText': SITE_CONFIG.pricing.equipmentRental.unit
-          },
-          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
-          'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency
-        },
         'availability': 'https://schema.org/InStock',
         'url': pageUrl,
         'seller': {
@@ -1207,12 +1235,12 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       },
       'offers': {
         '@type': 'Offer',
-        'price': String(SITE_CONFIG.pricing.equipmentRental.hourlyRate * 0.5),
+        'price': String(getEquipmentPricingBounds().lowPrice * 0.5),
         'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
         'priceValidUntil': new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
         'priceSpecification': {
           '@type': 'UnitPriceSpecification',
-          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate * 0.5,
+          'price': getEquipmentPricingBounds().lowPrice * 0.5,
           'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
           'unitText': 'per configuration session'
         },
@@ -1357,20 +1385,7 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
         'url': baseUrl
       },
       'offers': {
-        '@type': 'Offer',
-        'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
-        'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
-        'priceSpecification': {
-          '@type': 'UnitPriceSpecification',
-          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
-          'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
-          'unitText': SITE_CONFIG.pricing.equipmentRental.unit,
-          'referenceQuantity': {
-            '@type': 'QuantitativeValue',
-            'value': SITE_CONFIG.pricing.equipmentRental.minimumHours || 2,
-            'unitText': 'hour'
-          }
-        },
+        ...createEquipmentAggregateOffer(pageUrl),
         'availability': 'https://schema.org/InStock',
         'availableDeliveryMethod': 'https://schema.org/DeliveryModeDirectDownload',
         'businessFunction': 'https://schema.org/LeaseOut',
@@ -1466,7 +1481,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
     // Calculate price range from hours estimates
     const minHours = materialSpecific.estimatedHoursMin || 1;
     const typicalHours = materialSpecific.estimatedHoursTypical || 3;
-    const hourlyRate = pricing.hourlyRate;
+    const hourlyRate = pricing.hourlyRate || Math.min(...Object.values((pricing as any).packages || {}).map((pkg: any) => pkg.hourlyRate));
     const minPrice = minHours * hourlyRate;
     const maxPrice = typicalHours * hourlyRate;
     
@@ -1477,12 +1492,46 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
     const contaminantText = contaminants.length > 0 
       ? ` Removes: ${contaminants.slice(0, 3).join(', ')}.`
       : '';
+    const pricingDescription = (pricing as any).packages
+      ? `Residential $${(pricing as any).packages.residential.hourlyRate}/hour and Industrial $${(pricing as any).packages.industrial.hourlyRate}/hour with ${pricing.minimumHours}-hour minimum.`
+      : `starting at $${pricing.hourlyRate}/hour with ${pricing.minimumHours}-hour minimum.`;
+    const serviceOffer = (pricing as any).packages
+      ? {
+          '@type': 'AggregateOffer',
+          'lowPrice': Math.min(...Object.values((pricing as any).packages).map((pkg: any) => pkg.hourlyRate)),
+          'highPrice': Math.max(...Object.values((pricing as any).packages).map((pkg: any) => pkg.hourlyRate)),
+          'offerCount': Object.keys((pricing as any).packages).length,
+          'priceCurrency': pricing.currency,
+          'offers': Object.values((pricing as any).packages).map((pkg: any) => ({
+            '@type': 'Offer',
+            'name': pkg.name,
+            'price': pkg.hourlyRate,
+            'priceCurrency': pricing.currency,
+            'sku': pkg.sku,
+            'url': `${baseUrl}/contact`
+          }))
+        }
+      : {
+          '@type': 'Offer',
+          'sku': pricing.sku,
+          'priceSpecification': {
+            '@type': 'UnitPriceSpecification',
+            'price': pricing.hourlyRate,
+            'priceCurrency': pricing.currency,
+            'unitCode': 'HUR',
+            'unitText': 'per hour'
+          },
+          'eligibleRegion': {
+            '@type': 'Place',
+            'name': 'United States'
+          }
+        };
     
     return {
       '@type': 'Service',
       '@id': `${pageUrl}#service`,
       'name': `Laser Cleaning Equipment Rental for ${materialName}`,
-      'description': `Professional laser cleaning equipment rental starting at $${pricing.hourlyRate}/hour with ${pricing.minimumHours}-hour minimum.${contaminantText}`,
+      'description': `Professional laser cleaning equipment rental ${pricingDescription}${contaminantText}`,
       'provider': {
         '@type': 'Organization',
         '@id': `${baseUrl}#organization`,
@@ -1494,21 +1543,7 @@ function generateServiceSchema(data: SchemaData, context: SchemaContext): Schema
         name: data.serviceArea
       },
       'serviceType': 'Laser Cleaning',
-      'offers': {
-        '@type': 'Offer',
-        'sku': pricing.sku,
-        'priceSpecification': {
-          '@type': 'UnitPriceSpecification',
-          'price': pricing.hourlyRate,
-          'priceCurrency': pricing.currency,
-          'unitCode': 'HUR',
-          'unitText': 'per hour'
-        },
-        'eligibleRegion': {
-          '@type': 'Place',
-          'name': 'United States'
-        }
-      },
+      'offers': serviceOffer,
       ...(minPrice !== maxPrice && {
         'potentialAction': {
           '@type': 'OrderAction',

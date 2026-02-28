@@ -84,6 +84,10 @@ export default async function HomePage() {
 
     // Generate JSON-LD schemas for homepage
     const breadcrumbs = homeConfig.breadcrumb;
+    const rentalPackages = Object.values(SITE_CONFIG.pricing.equipmentRental.packages);
+    const packageRates = rentalPackages.map((pkg) => pkg.hourlyRate);
+    const lowRate = Math.min(...packageRates);
+    const highRate = Math.max(...packageRates);
     
     const jsonLdSchema = {
       '@context': 'https://schema.org',
@@ -126,9 +130,18 @@ export default async function HomePage() {
             name: SITE_CONFIG.name
           },
           offers: {
-            '@type': 'Offer',
-            price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+            '@type': 'AggregateOffer',
+            lowPrice: lowRate,
+            highPrice: highRate,
+            offerCount: rentalPackages.length,
             priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+            offers: rentalPackages.map((pkg) => ({
+              '@type': 'Offer',
+              name: pkg.name,
+              price: pkg.hourlyRate,
+              priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+              url: `${SITE_CONFIG.url}/rental`
+            })),
             priceValidUntil: '2026-12-31',
             availability: 'https://schema.org/InStock',
             url: `${SITE_CONFIG.url}/rental`,
@@ -138,7 +151,8 @@ export default async function HomePage() {
             },
             priceSpecification: {
               '@type': 'UnitPriceSpecification',
-              price: SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+              minPrice: lowRate,
+              maxPrice: highRate,
               priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
               unitText: SITE_CONFIG.pricing.equipmentRental.unit,
               referenceQuantity: {

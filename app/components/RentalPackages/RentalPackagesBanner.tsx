@@ -13,7 +13,9 @@ export interface RentalPackagesBannerProps {
  * Can be placed at top of static pages for quick rental info access.
  */
 export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBannerProps) {
-  const { hourlyRate, minimumHours } = SITE_CONFIG.pricing.equipmentRental;
+  const { packages, minimumHours } = SITE_CONFIG.pricing.equipmentRental;
+  const residentialRate = packages.residential.hourlyRate;
+  const industrialRate = packages.industrial.hourlyRate;
   
   return (
     <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg mb-8">
@@ -43,7 +45,7 @@ export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBann
             
             <div className="flex items-center">
               <div className="text-center">
-                <div className="text-3xl font-bold">Starting at ${hourlyRate}/hr</div>
+                <div className="text-2xl sm:text-3xl font-bold">Residential ${residentialRate}/hr • Industrial ${industrialRate}/hr</div>
                 <div className="text-sm text-blue-100">Professional laser cleaning equipment</div>
               </div>
             </div>
