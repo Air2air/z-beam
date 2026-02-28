@@ -108,6 +108,15 @@ describe('Postdeploy Validation - Analytics Coverage', () => {
       expect(match).not.toBeNull();
       expect(match[1]).toBe('G-TZF55CB5XC');
     });
+
+    test('should detect GA measurement ID from streamed Next flight gaId prop', () => {
+      const html = '"$L1a",null,{"gaId":"G-TZF55CB5XC","adsId":"AW-1007895174"}';
+      const pattern = /["']gaId["']\s*:\s*["'](G-[A-Z0-9]+)["']/i;
+      const match = html.match(pattern);
+
+      expect(match).not.toBeNull();
+      expect(match[1]).toBe('G-TZF55CB5XC');
+    });
   });
 
   describe('Consent Mode Detection', () => {

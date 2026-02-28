@@ -169,6 +169,42 @@ function parseCspDirectives(cspHeader = '') {
   return directives;
 }
 
+function extractGaMeasurementEvidence(html) {
+  const gtagLoaderMatch = html.match(/<script[^>]+src=["'][^"']*googletagmanager\.com\/gtag\/js\?id=(G-[A-Z0-9]+)[^"']*["']/i);
+  const flightGaIdMatch = html.match(/["']gaId["']\s*:\s*["'](G-[A-Z0-9]+)["']/i);
+  const inlineGaIdMatch = html.match(/\bG-[A-Z0-9]{6,}\b/);
+
+  if (gtagLoaderMatch) {
+    return {
+      gaMeasurementId: gtagLoaderMatch[1],
+      hasLoaderScript: true,
+      evidenceSource: 'gtag-loader-script'
+    };
+  }
+
+  if (flightGaIdMatch) {
+    return {
+      gaMeasurementId: flightGaIdMatch[1],
+      hasLoaderScript: false,
+      evidenceSource: 'next-flight-gaId-prop'
+    };
+  }
+
+  if (inlineGaIdMatch) {
+    return {
+      gaMeasurementId: inlineGaIdMatch[0],
+      hasLoaderScript: false,
+      evidenceSource: 'inline-ga-id-token'
+    };
+  }
+
+  return {
+    gaMeasurementId: null,
+    hasLoaderScript: false,
+    evidenceSource: null
+  };
+}
+
 // ============================================================================
 // CATEGORY: Performance
 // ============================================================================
@@ -389,14 +425,22 @@ async function validateAnalytics() {
     const html = response.body;
     const headers = response.headers;
 
-    const gtagLoaderMatch = html.match(/<script[^>]+src=["'][^"']*googletagmanager\.com\/gtag\/js\?id=(G-[A-Z0-9]+)[^"']*["']/i);
-    const gaMeasurementId = gtagLoaderMatch ? gtagLoaderMatch[1] : null;
+    const gaEvidence = extractGaMeasurementEvidence(html);
+    const gaMeasurementId = gaEvidence.gaMeasurementId;
     addResult(
       'analytics',
       'GA gtag Loader Presence',
       !!gaMeasurementId,
-      gaMeasurementId ? `Detected ${gaMeasurementId}` : 'Missing gtag loader with GA measurement ID',
-      { gaMeasurementId }
+      gaMeasurementId
+        ? gaEvidence.hasLoaderScript
+          ? `Detected loader script with ${gaMeasurementId}`
+          : `Detected ${gaMeasurementId} via ${gaEvidence.evidenceSource}; loader may be client-injected`
+        : 'Missing GA measurement ID evidence in initial HTML',
+      {
+        gaMeasurementId,
+        evidenceSource: gaEvidence.evidenceSource,
+        hasLoaderScript: gaEvidence.hasLoaderScript
+      }
     );
 
     addResult(
