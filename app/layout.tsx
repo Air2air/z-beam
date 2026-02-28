@@ -37,6 +37,7 @@ const CookieConsent = dynamic(() => import("./components/CookieConsent").then(mo
   loading: () => null,
 });
 import { SITE_CONFIG } from "./config/site";
+import { ENV } from "./config/env";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { schemaRegistry } from "./utils/schemas/registry";
 import { Suspense } from 'react';
@@ -135,6 +136,8 @@ export const metadata = {
 
 // Website schema using centralized registry
 const websiteSchema = schemaRegistry.website();
+const gaMeasurementId = ENV.GA_MEASUREMENT_ID;
+const googleAdsId = ENV.GOOGLE_ADS_ID;
 
 export default async function RootLayout({
   children,
@@ -233,9 +236,11 @@ export default async function RootLayout({
           <Footer />
         </ErrorBoundary>
         <CookieConsent />
-        <Suspense fallback={null}>
-          <GoogleAnalyticsWrapper gaId="G-TZF55CB5XC" />
-        </Suspense>
+        {gaMeasurementId && (
+          <Suspense fallback={null}>
+            <GoogleAnalyticsWrapper gaId={gaMeasurementId} adsId={googleAdsId} />
+          </Suspense>
+        )}
         <WebVitalsReporter />
         {/* Defer Vercel analytics until after page interactive */}
         <Suspense fallback={null}>

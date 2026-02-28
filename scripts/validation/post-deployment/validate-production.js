@@ -10,7 +10,7 @@
  *   --url=<url>           Target URL (default: https://www.z-beam.com)
  *   --report=<format>     Report format: json|html|console (default: console)
  *   --output=<file>       Output file path for report
- *   --category=<cat>      Run specific category: all|performance|seo|a11y|security|jsonld
+ *   --category=<cat>      Run specific category: all|performance|seo|a11y|security|jsonld|analytics
  *   --verbose             Detailed output
  */
 
@@ -152,6 +152,21 @@ function addResult(category, test, passed, message, details = {}) {
     results.categories[category].warnings++;
     results.summary.warnings++;
   }
+}
+
+function parseCspDirectives(cspHeader = '') {
+  const directives = {};
+  if (!cspHeader) return directives;
+
+  cspHeader.split(';').forEach((rawDirective) => {
+    const directive = rawDirective.trim();
+    if (!directive) return;
+
+    const [name, ...values] = directive.split(/\s+/);
+    directives[name] = values;
+  });
+
+  return directives;
 }
 
 // ============================================================================
@@ -360,6 +375,102 @@ async function validateSEO() {
   } catch (error) {
     console.error(`  ✗ SEO validation failed: ${error.message}`);
     addResult('seo', 'SEO Check', false, error.message);
+  }
+}
+
+// ============================================================================
+// CATEGORY: Analytics (GA/AW)
+// ============================================================================
+async function validateAnalytics() {
+  console.log('\n📈 Validating Analytics (GA/AW)...');
+
+  try {
+    const response = await fetchUrl(TARGET_URL);
+    const html = response.body;
+    const headers = response.headers;
+
+    const gtagLoaderMatch = html.match(/<script[^>]+src=["'][^"']*googletagmanager\.com\/gtag\/js\?id=(G-[A-Z0-9]+)[^"']*["']/i);
+    const gaMeasurementId = gtagLoaderMatch ? gtagLoaderMatch[1] : null;
+    addResult(
+      'analytics',
+      'GA gtag Loader Presence',
+      !!gaMeasurementId,
+      gaMeasurementId ? `Detected ${gaMeasurementId}` : 'Missing gtag loader with GA measurement ID',
+      { gaMeasurementId }
+    );
+
+    addResult(
+      'analytics',
+      'GA Measurement ID Format',
+      !!gaMeasurementId && /^G-[A-Z0-9]+$/.test(gaMeasurementId),
+      gaMeasurementId ? `Valid format: ${gaMeasurementId}` : 'No GA measurement ID to validate',
+      { gaMeasurementId, expected: 'G-XXXXXXXXXX' }
+    );
+
+    const hasConsentDefault = /gtag\(['"]consent['"],\s*['"]default['"]/.test(html);
+    const hasConsentAnalyticsStorage = /['"]analytics_storage['"]\s*:\s*['"]denied['"]/.test(html);
+    const hasConsentAdStorage = /['"]ad_storage['"]\s*:\s*['"]denied['"]/.test(html);
+    addResult(
+      'analytics',
+      'Consent Mode Default Guard',
+      hasConsentDefault && hasConsentAnalyticsStorage && hasConsentAdStorage,
+      hasConsentDefault && hasConsentAnalyticsStorage && hasConsentAdStorage
+        ? 'Consent defaults detected (analytics_storage and ad_storage denied)'
+        : 'Missing consent default guardrails for analytics/ad storage'
+    );
+
+    const csp = parseCspDirectives(headers['content-security-policy']);
+    const scriptSrc = csp['script-src'] || [];
+    const connectSrc = csp['connect-src'] || [];
+
+    const scriptAllowsGTM = scriptSrc.some((entry) => entry.includes('googletagmanager.com'));
+    addResult(
+      'analytics',
+      'CSP script-src allows GTM',
+      scriptAllowsGTM,
+      scriptAllowsGTM ? 'script-src includes googletagmanager.com' : 'script-src missing googletagmanager.com'
+    );
+
+    const connectAllowsGA = connectSrc.some((entry) => entry.includes('google-analytics.com'));
+    const connectAllowsGTM = connectSrc.some((entry) => entry.includes('googletagmanager.com'));
+    addResult(
+      'analytics',
+      'CSP connect-src GA Coverage',
+      connectAllowsGA && connectAllowsGTM,
+      connectAllowsGA && connectAllowsGTM
+        ? 'connect-src includes google-analytics.com and googletagmanager.com'
+        : 'connect-src missing GA collection endpoints'
+    );
+
+    const adsConnectEndpoints = ['googleadservices.com', 'doubleclick.net'];
+    const missingAdsEndpoints = adsConnectEndpoints.filter(
+      (endpoint) => !connectSrc.some((entry) => entry.includes(endpoint))
+    );
+
+    addResult(
+      'analytics',
+      'CSP connect-src Ads Endpoint Coverage',
+      missingAdsEndpoints.length === 0,
+      missingAdsEndpoints.length === 0
+        ? 'connect-src includes googleadservices.com and doubleclick.net'
+        : `connect-src missing required Ads endpoints: ${missingAdsEndpoints.join(', ')}`,
+      { missingAdsEndpoints }
+    );
+
+    const inlineAdsIdMatch = html.match(/AW-\d{6,}/);
+    addResult(
+      'analytics',
+      'Ads ID Detectability',
+      inlineAdsIdMatch ? true : 'warning',
+      inlineAdsIdMatch
+        ? `Detected Ads ID in HTML: ${inlineAdsIdMatch[0]}`
+        : 'Ads ID not present in initial HTML (may be runtime-initialized)'
+    );
+
+    console.log('  ✓ Analytics checks completed');
+  } catch (error) {
+    console.error(`  ✗ Analytics validation failed: ${error.message}`);
+    addResult('analytics', 'Analytics Check', false, error.message);
   }
 }
 
@@ -1040,7 +1151,7 @@ async function validateBrokenLinks() {
         const html = response.body;
         
         // Find all internal links (href starting with /)
-        const linkMatches = html.match(/href=["\\']\\/[^"\\'\\ \\?#]+/gi) || [];
+        const linkMatches = html.match(/href=["']\/[^"' ?#]+/gi) || [];
         const uniqueLinks = [...new Set(linkMatches.map(m => m.replace(/href=["\\']/, '')))];
         
         // Test each link
@@ -1157,6 +1268,9 @@ async function main() {
     }
     if (CATEGORY === 'all' || CATEGORY === 'seo') {
       await validateSEO();
+    }
+    if (CATEGORY === 'all' || CATEGORY === 'analytics') {
+      await validateAnalytics();
     }
     if (CATEGORY === 'all' || CATEGORY === 'a11y' || CATEGORY === 'accessibility') {
       await validateAccessibility();

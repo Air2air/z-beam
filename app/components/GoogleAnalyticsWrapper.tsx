@@ -5,6 +5,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 
 interface GoogleAnalyticsWrapperProps {
   gaId: string;
+  adsId?: string;
 }
 
 /**
@@ -18,7 +19,7 @@ interface GoogleAnalyticsWrapperProps {
  * - Reduces initial JavaScript bundle by ~400KB
  * - Improves Time to Interactive (TTI)
  */
-export default function GoogleAnalyticsWrapper({ gaId }: GoogleAnalyticsWrapperProps) {
+export default function GoogleAnalyticsWrapper({ gaId, adsId }: GoogleAnalyticsWrapperProps) {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
@@ -57,6 +58,36 @@ export default function GoogleAnalyticsWrapper({ gaId }: GoogleAnalyticsWrapperP
       window.removeEventListener('click', triggerLoad);
     };
   }, []);
+
+  useEffect(() => {
+    if (!shouldLoad || !adsId || typeof window === 'undefined') {
+      return;
+    }
+
+    let attempts = 0;
+    const maxAttempts = 20;
+
+    const configureAdsTag = () => {
+      if ((window as any).gtag) {
+        (window as any).gtag('config', adsId);
+        return true;
+      }
+      return false;
+    };
+
+    if (configureAdsTag()) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      attempts += 1;
+      if (configureAdsTag() || attempts >= maxAttempts) {
+        clearInterval(interval);
+      }
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, [shouldLoad, adsId]);
 
   // Only render Google Analytics when shouldLoad is true
   if (!shouldLoad) {

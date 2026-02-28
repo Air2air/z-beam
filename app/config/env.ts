@@ -18,7 +18,10 @@ export const ENV = {
   BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || 'https://www.z-beam.com',
   
   // Google Analytics
-  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-TZF55CB5XC',
+  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '',
+  GOOGLE_ADS_ID: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || '',
+  GOOGLE_ADS_THANK_YOU_CONVERSION_LABEL:
+    process.env.NEXT_PUBLIC_GOOGLE_ADS_THANK_YOU_CONVERSION_LABEL || '',
   
   // Email configuration (server-side only)
   GMAIL_USER: process.env.GMAIL_USER,

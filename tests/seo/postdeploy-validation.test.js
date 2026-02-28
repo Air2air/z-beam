@@ -98,6 +98,51 @@ describe('Postdeploy Validation - Core Web Vitals', () => {
   });
 });
 
+describe('Postdeploy Validation - Analytics Coverage', () => {
+  describe('GA Loader Detection', () => {
+    test('should detect GA gtag loader and extract measurement ID', () => {
+      const html = '<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZF55CB5XC"></script>';
+      const pattern = /<script[^>]+src=["'][^"']*googletagmanager\.com\/gtag\/js\?id=(G-[A-Z0-9]+)[^"']*["']/i;
+      const match = html.match(pattern);
+
+      expect(match).not.toBeNull();
+      expect(match[1]).toBe('G-TZF55CB5XC');
+    });
+  });
+
+  describe('Consent Mode Detection', () => {
+    test('should detect consent default with denied analytics/ad storage', () => {
+      const consentScript = `
+        gtag('consent', 'default', {
+          'analytics_storage': 'denied',
+          'ad_storage': 'denied'
+        });
+      `;
+
+      expect(consentScript).toMatch(/gtag\(['"]consent['"],\s*['"]default['"]/);
+      expect(consentScript).toMatch(/['"]analytics_storage['"]\s*:\s*['"]denied['"]/);
+      expect(consentScript).toMatch(/['"]ad_storage['"]\s*:\s*['"]denied['"]/);
+    });
+  });
+
+  describe('CSP Endpoint Coverage', () => {
+    test('should include GA/GTM collection endpoints in connect-src', () => {
+      const csp = "default-src 'self'; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com";
+
+      expect(csp).toContain('connect-src');
+      expect(csp).toContain('google-analytics.com');
+      expect(csp).toContain('googletagmanager.com');
+    });
+
+    test('should include ads endpoints for comprehensive AW coverage', () => {
+      const csp = "default-src 'self'; connect-src 'self' https://www.googleadservices.com https://stats.g.doubleclick.net";
+
+      expect(csp).toContain('googleadservices.com');
+      expect(csp).toContain('doubleclick.net');
+    });
+  });
+});
+
 describe('Postdeploy Validation - Contextual Linking', () => {
   describe('Link Pattern Detection', () => {
     test('should detect material links', () => {

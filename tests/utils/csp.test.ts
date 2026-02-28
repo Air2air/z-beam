@@ -104,6 +104,12 @@ describe('CSP Utilities', () => {
       expect(csp).toContain('https://vitals.vercel-insights.com');
     });
 
+    it('should include required Ads collection endpoints', () => {
+      const csp = buildCSP();
+      expect(csp).toContain('https://www.googleadservices.com');
+      expect(csp).toContain('https://stats.g.doubleclick.net');
+    });
+
     it('should allow blob URLs for media', () => {
       const csp = buildCSP();
       expect(csp).toContain("media-src 'self' data: blob:");

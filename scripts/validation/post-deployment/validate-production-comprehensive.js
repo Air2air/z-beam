@@ -158,6 +158,21 @@ function calculateCategoryScore(category) {
   return cat.score;
 }
 
+function parseCspDirectives(cspHeader = '') {
+  const directives = {};
+  if (!cspHeader) return directives;
+
+  cspHeader.split(';').forEach((rawDirective) => {
+    const directive = rawDirective.trim();
+    if (!directive) return;
+
+    const [name, ...values] = directive.split(/\s+/);
+    directives[name] = values;
+  });
+
+  return directives;
+}
+
 function normalizeSiteUrl(rawUrl) {
   try {
     const parsed = new URL(rawUrl, TARGET_URL);
@@ -378,6 +393,103 @@ async function checkCoreWebVitalsOptimizations() {
     
   } catch (error) {
     addResult('core-web-vitals', 'Optimization Check', false, error.message);
+    console.error(`   ❌ Error: ${error.message}`);
+  }
+}
+
+// ============================================================================
+// 1.6 ANALYTICS COVERAGE (GA/AW)
+// ============================================================================
+async function checkAnalyticsCoverage() {
+  console.log('\n📈 1.6 ANALYTICS COVERAGE (GA/AW)');
+  console.log('─'.repeat(60));
+
+  try {
+    const response = await fetch(TARGET_URL);
+    const { data: html, headers } = response;
+
+    const gtagLoaderMatch = html.match(/<script[^>]+src=["'][^"']*googletagmanager\.com\/gtag\/js\?id=(G-[A-Z0-9]+)[^"']*["']/i);
+    const gaMeasurementId = gtagLoaderMatch ? gtagLoaderMatch[1] : null;
+
+    addResult(
+      'analytics',
+      'GA gtag Loader Presence',
+      !!gaMeasurementId,
+      gaMeasurementId ? `Detected ${gaMeasurementId}` : 'Missing gtag loader with GA measurement ID',
+      { gaMeasurementId }
+    );
+
+    addResult(
+      'analytics',
+      'GA Measurement ID Format',
+      !!gaMeasurementId && /^G-[A-Z0-9]+$/.test(gaMeasurementId),
+      gaMeasurementId ? `Valid format: ${gaMeasurementId}` : 'No GA measurement ID to validate'
+    );
+
+    const hasConsentDefault = /gtag\(['"]consent['"],\s*['"]default['"]/.test(html);
+    const hasAnalyticsStorageDenied = /['"]analytics_storage['"]\s*:\s*['"]denied['"]/.test(html);
+    const hasAdStorageDenied = /['"]ad_storage['"]\s*:\s*['"]denied['"]/.test(html);
+
+    addResult(
+      'analytics',
+      'Consent Mode Default Guard',
+      hasConsentDefault && hasAnalyticsStorageDenied && hasAdStorageDenied,
+      hasConsentDefault && hasAnalyticsStorageDenied && hasAdStorageDenied
+        ? 'Consent defaults detected (analytics_storage and ad_storage denied)'
+        : 'Missing consent default guardrails for analytics/ad storage'
+    );
+
+    const csp = parseCspDirectives(headers['content-security-policy']);
+    const scriptSrc = csp['script-src'] || [];
+    const connectSrc = csp['connect-src'] || [];
+
+    const hasScriptGTM = scriptSrc.some((entry) => entry.includes('googletagmanager.com'));
+    addResult(
+      'analytics',
+      'CSP script-src allows GTM',
+      hasScriptGTM,
+      hasScriptGTM ? 'script-src includes googletagmanager.com' : 'script-src missing googletagmanager.com'
+    );
+
+    const hasConnectGA = connectSrc.some((entry) => entry.includes('google-analytics.com'));
+    const hasConnectGTM = connectSrc.some((entry) => entry.includes('googletagmanager.com'));
+    addResult(
+      'analytics',
+      'CSP connect-src GA Coverage',
+      hasConnectGA && hasConnectGTM,
+      hasConnectGA && hasConnectGTM
+        ? 'connect-src includes google-analytics.com and googletagmanager.com'
+        : 'connect-src missing GA collection endpoints'
+    );
+
+    const adsConnectEndpoints = ['googleadservices.com', 'doubleclick.net'];
+    const missingAdsEndpoints = adsConnectEndpoints.filter(
+      (endpoint) => !connectSrc.some((entry) => entry.includes(endpoint))
+    );
+    addResult(
+      'analytics',
+      'CSP connect-src Ads Endpoint Coverage',
+      missingAdsEndpoints.length === 0,
+      missingAdsEndpoints.length === 0
+        ? 'connect-src includes googleadservices.com and doubleclick.net'
+        : `connect-src missing required Ads endpoints: ${missingAdsEndpoints.join(', ')}`,
+      { missingAdsEndpoints }
+    );
+
+    const inlineAdsIdMatch = html.match(/AW-\d{6,}/);
+    addResult(
+      'analytics',
+      'Ads ID Detectability',
+      inlineAdsIdMatch ? true : 'warning',
+      inlineAdsIdMatch
+        ? `Detected Ads ID in HTML: ${inlineAdsIdMatch[0]}`
+        : 'Ads ID not present in initial HTML (may be runtime-initialized)'
+    );
+
+    calculateCategoryScore('analytics');
+    console.log(`   Score: ${results.categories.analytics.score}%`);
+  } catch (error) {
+    addResult('analytics', 'Analytics Coverage Check', false, error.message);
     console.error(`   ❌ Error: ${error.message}`);
   }
 }
@@ -1681,6 +1793,7 @@ function generateSummary() {
   
   await checkBasicInfrastructure();
   await checkCoreWebVitalsOptimizations();
+  await checkAnalyticsCoverage();
   await checkSEOMetadata();
   await checkCriticalRouteHealth();
   await checkFullSiteIndexability();
@@ -1726,6 +1839,7 @@ function generateSummary() {
 
   if (STRICT_SEO) {
     const strictCategories = [
+      'analytics',
       'seo-metadata',
       'metadata-consistency',
       'indexability',

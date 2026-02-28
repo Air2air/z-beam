@@ -44,6 +44,20 @@ jest.mock('@/app/utils/business-config', () => ({
   })),
 }));
 
+jest.mock('@/app/config/env', () => ({
+  ENV: {
+    GA_MEASUREMENT_ID: 'G-TESTMEASURE',
+    GOOGLE_ADS_ID: 'AW-1007895174',
+  },
+}));
+
+jest.mock('@/app/components/GoogleAnalyticsWrapper', () => ({
+  __esModule: true,
+  default: ({ gaId, adsId }: { gaId: string; adsId?: string }) => (
+    <div data-testid="google-analytics-wrapper" data-ga-id={gaId} data-ads-id={adsId || ''} />
+  ),
+}));
+
 describe('RootLayout', () => {
   describe('Metadata Configuration', () => {
     it('should export viewport configuration', () => {
@@ -251,27 +265,24 @@ describe('RootLayout', () => {
   });
 
   describe('Third-party Scripts', () => {
-    // GA scripts are rendered by @next/third-parties/google GoogleAnalytics component
-    // which may not render in test environment - skip these integration tests
-    it.skip('should include Google Analytics script', async () => {
+    it('should render Google analytics wrapper with configured IDs', async () => {
       const { container } = render(
         await RootLayout({ children: <div>Test Content</div> })
       );
 
-      const gaScript = container.querySelector('script[src*="googletagmanager.com"]');
-      expect(gaScript).toBeInTheDocument();
-      expect(gaScript).toHaveAttribute('async');
+      const wrapper = screen.getByTestId('google-analytics-wrapper');
+      expect(wrapper).toBeInTheDocument();
+      expect(wrapper).toHaveAttribute('data-ga-id', 'G-TESTMEASURE');
+      expect(wrapper).toHaveAttribute('data-ads-id', 'AW-1007895174');
     });
 
-    it.skip('should include GA initialization script', async () => {
+    it('should include Google Tag Manager preconnect hint', async () => {
       const { container } = render(
         await RootLayout({ children: <div>Test Content</div> })
       );
 
-      const gaInitScript = container.querySelector('script#google-analytics');
-      expect(gaInitScript).toBeInTheDocument();
-      expect(gaInitScript?.textContent).toContain('gtag');
-      expect(gaInitScript?.textContent).toContain('G-TZF55CB5XC');
+      const gtmPreconnect = container.querySelector('link[rel="preconnect"][href="https://www.googletagmanager.com"]');
+      expect(gtmPreconnect).toBeInTheDocument();
     });
   });
 

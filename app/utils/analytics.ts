@@ -8,9 +8,9 @@
 declare global {
   interface Window {
     gtag?: (
-      command: 'event',
-      eventName: string,
-      eventParams?: Record<string, any>
+      command: 'event' | 'config' | 'consent',
+      target: string,
+      params?: Record<string, any>
     ) => void;
   }
 }
@@ -87,4 +87,44 @@ export const trackFAQClick = ({
     action: isExpanding ? 'expand' : 'collapse',
     value: isExpanding ? 1 : 0, // Track expansions for engagement
   });
+};
+
+/**
+ * Track Google Ads conversion event
+ */
+export const trackGoogleAdsConversion = (
+  conversionLabel: string,
+  value?: number,
+  currency = 'USD'
+) => {
+  const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+
+  if (!adsId || !conversionLabel) {
+    return;
+  }
+
+  if (typeof window !== 'undefined' && window.gtag) {
+    const params: Record<string, any> = {
+      send_to: `${adsId}/${conversionLabel}`,
+    };
+
+    if (typeof value === 'number') {
+      params.value = value;
+      params.currency = currency;
+    }
+
+    window.gtag('event', 'conversion', params);
+  }
+};
+
+/**
+ * Track thank-you page conversion using env-configured Google Ads conversion label
+ */
+export const trackThankYouPageConversion = () => {
+  const conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_THANK_YOU_CONVERSION_LABEL;
+  if (!conversionLabel) {
+    return;
+  }
+
+  trackGoogleAdsConversion(conversionLabel);
 };

@@ -97,7 +97,7 @@ export function middleware(request: NextRequest) {
     "font-src 'self' data: https://st.sendajob.com https://*.sendajob.com",
     "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
     "media-src 'self' data: blob: https://st.sendajob.com https://*.sendajob.com",
-    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://online-booking.workiz.com https://app.workiz.com https://st.sendajob.com https://*.sendajob.com",
+    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net https://online-booking.workiz.com https://app.workiz.com https://st.sendajob.com https://*.sendajob.com",
     "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
     `frame-ancestors ${frameAncestorsPolicy}`,
     "form-action 'self' https://st.sendajob.com https://*.sendajob.com",
