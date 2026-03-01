@@ -107,12 +107,12 @@ else
 fi
 echo ""
 
-# Build sitemap and check output
-echo "7️⃣  Building sitemap..."
-if npm run build:sitemap 2>/dev/null; then
-    echo -e "${GREEN}✓ Sitemap built successfully${NC}"
+# Analyze sitemap and verify links
+echo "7️⃣  Running sitemap analysis + link verification..."
+if npm run analyze:sitemap >/dev/null 2>&1 && npm run verify:sitemap:links >/dev/null 2>&1; then
+    echo -e "${GREEN}✓ Sitemap analysis and link verification passed${NC}"
 else
-    echo -e "${YELLOW}⚠️  Could not build sitemap (this may be expected in CI)${NC}"
+    echo -e "${YELLOW}⚠️  Sitemap analysis or link verification reported issues${NC}"
 fi
 echo ""
 

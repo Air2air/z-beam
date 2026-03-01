@@ -21,9 +21,9 @@ seo/
 │   ├── SEO_FINAL_REPORT_DEC28_2025.md
 │   ├── SEO_IMPROVEMENTS_CHECKLIST_DEC28_2025.md
 │   └── SEO_TEST_COVERAGE_SUMMARY_DEC28_2025.md
-├── config/                      # SEO configuration files
+├── config/                      # SEO legacy/reference config files
 │   ├── robots.txt               # Robot directives template
-│   └── sitemap-config.json      # Sitemap generation config
+│   └── sitemap-config.json      # Legacy documentation-only config (not runtime)
 ├── analysis/                    # SEO reports and audits
 │   └── performance-reports/     # PageSpeed and Core Web Vitals
 ├── schemas/                     # JSON-LD schema examples
@@ -149,7 +149,7 @@ node seo/scripts/generate-image-sitemap.js
 # Output: public/image-sitemap.xml (178KB, 684 images)
 ```
 
-**Configuration**: See `config/sitemap-config.json`
+**Runtime sources**: `app/sitemap.xml/route.ts`, `seo/scripts/generate-image-sitemap.js`, `seo/scripts/generate-sitemap-index.js`, `app/robots.ts`
 
 ---
 
@@ -233,13 +233,15 @@ Sitemap: https://www.z-beam.com/image-sitemap.xml
 ---
 
 ### Sitemap Configuration
-**Location**: `config/sitemap-config.json`
+**Legacy Reference Location**: `config/sitemap-config.json`
 
-**Settings**:
-- Image paths to scan
-- Excluded directories
-- Title generation rules
-- Caption templates
+**Important**: `config/sitemap-config.json` is deprecated for runtime and retained for historical documentation only.
+
+**Canonical runtime sitemap sources**:
+- `app/sitemap.xml/route.ts`
+- `seo/scripts/generate-image-sitemap.js`
+- `seo/scripts/generate-sitemap-index.js`
+- `app/robots.ts`
 
 ---
 

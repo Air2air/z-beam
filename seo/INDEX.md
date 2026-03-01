@@ -66,7 +66,7 @@ node seo/scripts/generate-image-sitemap.js
 npm run generate:image-sitemap
 ```
 
-**Configuration**: Uses `config/sitemap-config.json`
+**Runtime Source of Truth**: `seo/scripts/generate-image-sitemap.js` (this script does not consume `config/sitemap-config.json`)
 
 ---
 
@@ -202,7 +202,8 @@ npm run generate:sitemap-index
 ### ⚙️ Configuration Directory (2 files)
 
 #### 1. sitemap-config.json ⭐
-**Purpose**: Master configuration for all SEO features  
+**Status**: ⚠️ Legacy documentation-only (not runtime source of truth)
+**Purpose**: Historical reference for prior SEO configuration patterns  
 **Sections**:
 - Sitemap generation settings (paths, exclusions, templates)
 - robots.txt directives
@@ -212,7 +213,13 @@ npm run generate:sitemap-index
 - Monitoring alerts and frequency
 - Deployment checklists
 
-**When to Use**: Configuring SEO features, adjusting thresholds, adding new paths
+**When to Use**: Historical reference and documentation alignment only
+
+**Canonical runtime sitemap sources**:
+- `app/sitemap.xml/route.ts`
+- `seo/scripts/generate-image-sitemap.js`
+- `seo/scripts/generate-sitemap-index.js`
+- `app/robots.ts`
 
 **Example Usage**:
 ```javascript

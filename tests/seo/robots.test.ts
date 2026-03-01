@@ -123,8 +123,8 @@ describe('robots.ts', () => {
         : (result.sitemap as string);
     });
 
-    it('sitemap URL points to /sitemap.xml', () => {
-      expect(sitemapUrl).toMatch(/\/sitemap\.xml$/);
+    it('sitemap URL points to /sitemap-index.xml', () => {
+      expect(sitemapUrl).toMatch(/\/sitemap-index\.xml$/);
     });
 
     it('sitemap URL uses the production base URL from SITE_CONFIG', () => {

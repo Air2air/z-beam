@@ -5,7 +5,15 @@ This directory contains all SEO-related configuration files for the Z-Beam websi
 ## Files
 
 ### sitemap-config.json
-**Purpose**: Complete configuration for sitemap generation, robots.txt, PageSpeed monitoring, schema.org, and alt text generation.
+**Status**: ⚠️ Legacy documentation-only (deprecated for runtime)
+
+**Purpose**: Historical reference for prior SEO configuration patterns.
+
+**Canonical runtime sitemap sources**:
+- `app/sitemap.xml/route.ts` (main sitemap runtime generator)
+- `seo/scripts/generate-image-sitemap.js` (image sitemap generator)
+- `seo/scripts/generate-sitemap-index.js` (sitemap index generator)
+- `app/robots.ts` (canonical robots sitemap directive)
 
 **Key Sections**:
 - `sitemaps`: Image sitemap configuration (scan paths, exclusions, templates)
@@ -16,11 +24,13 @@ This directory contains all SEO-related configuration files for the Z-Beam websi
 - `monitoring`: Alert thresholds and monitoring frequency
 - `deployment`: Pre/post-deployment checklists
 
-**Usage**:
+**Legacy reference usage**:
 ```javascript
 const config = require('./sitemap-config.json');
 const scanDirs = config.sitemaps.images.scanDirectories;
 ```
+
+Do not treat this file as runtime source of truth for sitemap behavior.
 
 ### robots.txt (template)
 **Purpose**: Template for robots.txt generation
@@ -67,15 +77,15 @@ Validate configuration before deployment:
 # Validate JSON structure
 node -e "console.log(JSON.parse(require('fs').readFileSync('seo/config/sitemap-config.json')))"
 
-# Test sitemap generation with config
+# Test active sitemap generation pipeline
 npm run generate:sitemaps
 ```
 
 ## Updates
 
 When updating configuration:
-1. Update `sitemap-config.json`
-2. Update relevant scripts if needed
+1. Update runtime sitemap sources first (`app/sitemap.xml/route.ts`, `app/robots.ts`, `seo/scripts/*`)
+2. Update `sitemap-config.json` only if you want to keep historical/reference docs aligned
 3. Run validation
 4. Test sitemap generation
 5. Document changes in this README

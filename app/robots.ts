@@ -33,7 +33,7 @@ export default function robots(): Robots {
       ],
       crawlDelay: 1
     }],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap-index.xml`,
     host: baseUrl
   };
 }
