@@ -94,11 +94,9 @@ describe('Build-Time Requirements Enforcement', () => {
       expect(packageJson.scripts['vercel-build']).toBeDefined();
       
       const vercelBuild = packageJson.scripts['vercel-build'];
-      
-      // Vercel build must validate before building
-      expect(vercelBuild).toContain('validate:content');
-      // Note: generate:datasets now handled in backend project
-      expect(vercelBuild).toContain('next build');
+
+      // Vercel build must use one canonical build entrypoint
+      expect(vercelBuild.trim()).toBe('npm run build');
     });
 
     it('should NOT allow vercel-build to skip validations', () => {
@@ -283,13 +281,15 @@ describe('Build-Time Requirements Enforcement', () => {
         if (packageJson.scripts[script]) {
           const scriptContent = packageJson.scripts[script];
           
-          // CI builds must include validations
+          // CI vercel build must use canonical build entrypoint
           if (script === 'vercel-build') {
-            expect(scriptContent).toContain('validate:content');
+            expect(scriptContent.trim()).toBe('npm run build');
           }
           
-          // Must build
-          expect(scriptContent).toContain('next build');
+          // Must build directly or via canonical build script
+          const buildsDirectly = scriptContent.includes('next build');
+          const buildsViaCanonicalBuild = scriptContent.includes('npm run build');
+          expect(buildsDirectly || buildsViaCanonicalBuild).toBe(true);
         }
       });
     });

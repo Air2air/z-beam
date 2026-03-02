@@ -857,6 +857,7 @@ export function generateOrganizationSchema() {
             }))
           };
         })(),
+        "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
           "name": service.name,
