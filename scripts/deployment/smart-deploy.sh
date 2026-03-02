@@ -4,6 +4,7 @@
 # Combined deployment and monitoring tool for Vercel
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MONITOR_SCRIPT="${SCRIPT_DIR}/deploy-triggered-monitor.sh"
 
 # Colors for output
 RED='\033[0;31m'
@@ -50,7 +51,7 @@ deploy_production() {
     
     # Schema validation checkpoint
     log "🔍 Validating JSON-LD schemas..."
-    if ! ./validate-jsonld-quality.sh; then
+    if ! "${SCRIPT_DIR}/validate-jsonld-quality.sh"; then
         error "Schema validation failed - aborting deployment"
         return 1
     fi
@@ -117,13 +118,23 @@ monitor_deployment_url() {
     fi
     
     log "👀 Starting deployment monitoring for: $url"
-    ./deploy-triggered-monitor.sh monitor "$url"
+    if [ ! -x "$MONITOR_SCRIPT" ]; then
+        warning "Monitoring helper not found: $MONITOR_SCRIPT"
+        warning "Deployment completed, but monitor command is unavailable in this repo state"
+        return 0
+    fi
+    "$MONITOR_SCRIPT" monitor "$url"
 }
 
 # Monitor latest deployment
 monitor_latest() {
     log "� Auto-detecting and monitoring latest deployment..."
-    ./deploy-triggered-monitor.sh start
+    if [ ! -x "$MONITOR_SCRIPT" ]; then
+        warning "Monitoring helper not found: $MONITOR_SCRIPT"
+        warning "Deployment completed, but monitor command is unavailable in this repo state"
+        return 0
+    fi
+    "$MONITOR_SCRIPT" start
 }
 
 # Start monitoring for active deployments
@@ -137,10 +148,16 @@ start_monitoring() {
     
     # Stop any existing monitoring first
     log "🧹 Stopping any existing monitoring..."
-    ./deploy-triggered-monitor.sh stop >/dev/null 2>&1
+    if [ -x "$MONITOR_SCRIPT" ]; then
+        "$MONITOR_SCRIPT" stop >/dev/null 2>&1
+    fi
     
     # Start fresh monitoring with auto-stop when deployment completes
-    ./deploy-triggered-monitor.sh start
+    if [ ! -x "$MONITOR_SCRIPT" ]; then
+        warning "Monitoring helper not found: $MONITOR_SCRIPT"
+        return 0
+    fi
+    "$MONITOR_SCRIPT" start
     
     success "Deployment monitoring started!"
 }
@@ -155,23 +172,30 @@ start_deployment_monitoring() {
     fi
     
     # Stop any existing monitoring first
-    ./deploy-triggered-monitor.sh stop >/dev/null 2>&1
+    if [ -x "$MONITOR_SCRIPT" ]; then
+        "$MONITOR_SCRIPT" stop >/dev/null 2>&1
+    fi
     
     # Start monitoring that will auto-stop when no active deployments
     nohup bash -c "
-        ./deploy-triggered-monitor.sh start
+        if [ ! -x "$MONITOR_SCRIPT" ]; then
+            echo "Monitoring helper not found: $MONITOR_SCRIPT"
+            exit 0
+        fi
+
+        "$MONITOR_SCRIPT" start
         
         # Monitor until no active deployments
         while true; do
             sleep 30
-            if ! ./deploy-triggered-monitor.sh status | grep -q 'Monitoring'; then
+            if ! "$MONITOR_SCRIPT" status | grep -q 'Monitoring'; then
                 break
             fi
             
             # Check if there are any active deployments
             if ! vercel ls 2>/dev/null | grep -q 'Building\|Queued'; then
                 sleep 60  # Wait a bit more to ensure deployment is complete
-                ./deploy-triggered-monitor.sh stop
+                "$MONITOR_SCRIPT" stop
                 break
             fi
         done
@@ -191,13 +215,21 @@ show_logs() {
 # Show deployment status
 show_status() {
     log "� Checking deployment status..."
-    ./deploy-triggered-monitor.sh status
+    if [ ! -x "$MONITOR_SCRIPT" ]; then
+        warning "Monitoring helper not found: $MONITOR_SCRIPT"
+        return 0
+    fi
+    "$MONITOR_SCRIPT" status
 }
 
 # Stop monitoring
 stop_monitoring() {
     log "� Stopping deployment monitoring..."
-    ./deploy-triggered-monitor.sh stop
+    if [ ! -x "$MONITOR_SCRIPT" ]; then
+        warning "Monitoring helper not found: $MONITOR_SCRIPT"
+        return 0
+    fi
+    "$MONITOR_SCRIPT" stop
 }
 
 # Show recent deployments
