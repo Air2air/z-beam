@@ -66,6 +66,7 @@
     "validate:production:parity": "node scripts/validation/post-deployment/validate-production-comprehensive.js --strict-seo --require-rich-results --compare-url=$COMPARE_URL",
     "validate:production:full": "node scripts/validation/post-deployment/validate-production-comprehensive.js --skip-external",
     "validate:production:complete": "node scripts/validation/post-deployment/run-all-validations.js",
+    "validate:paths:all": "npm run verify:sitemap:links && npm run build && npm run validate:urls && npm run validate:seo-infrastructure",
     "validate:all": "npm run validate:content && npm run validate:seo-infrastructure && npm run validate:a11y && npm run validate:performance",
     "validate:seo:advanced": "npm run seo:entity-map && npm run seo:featured-snippets && npm run seo:core-web-vitals",
     "validate:seo:esoteric": "npm run seo:delta-sitemap && npm run seo:crawl-budget && npm run seo:canonical-graph && npm run seo:entity-graph && npm run seo:soft404-orphans",
