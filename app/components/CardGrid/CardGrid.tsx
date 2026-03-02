@@ -453,8 +453,8 @@ export function CardGrid({
       </>
     );
 
-    // Always wrap in BaseSection with defensive title fallback
-    const safeTitle = displayTitle?.trim() || 'Related Items';
+    // Wrap in BaseSection without injecting a fallback title
+    const safeTitle = displayTitle?.trim() || undefined;
     return (
       <BaseSection 
         title={safeTitle}
@@ -503,8 +503,8 @@ export function CardGrid({
     </>
   );
 
-  // Always wrap in BaseSection with defensive title fallback
-  const safeTitle = (title || heading)?.trim() || 'Related Items';
+  // Wrap in BaseSection without injecting a fallback title
+  const safeTitle = (title || heading)?.trim() || undefined;
   return (
     <BaseSection 
       title={safeTitle}
