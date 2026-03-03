@@ -66,8 +66,8 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   const safetyData = relationships?.safety || {};
   
   // Relationship data - extracted via accessors (no longer needed individually)
-  const visualCharacteristics = relationships?.descriptive?.visualCharacteristics || {};
-  const laserProperties = relationships?.technical?.laserProperties || {};
+  const visualCharacteristics = relationships?.visual?.appearanceOnCategories || {};
+  const laserProperties = relationships?.operational?.laserProperties || {};
 
   // Build sections using consolidated builder pattern
   const sections = new SectionConfigBuilder()
@@ -161,13 +161,13 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
         slug,
         category,
         subcategory,
-        laserProperties: relationships?.laser_properties,
-        visualCharacteristics: relationships?.visual_characteristics,
-        removalByMaterial: relationships?.removal_by_material,
+        laserProperties: relationships?.operational?.laserProperties,
+        visualCharacteristics: relationships?.visual?.appearanceOnCategories,
+        removalByMaterial: relationships?.interactions?.affectsMaterials,
         composition: (metadata as any)?.composition,
-        safetyData: relationships?.safety_data || (metadata as any)?.safety_data,
+        safetyData: relationships?.safety,
         faq: metadata?.faq,
-        regulatoryStandards: (metadata as any)?.regulatoryStandards || relationships?.regulatory_standards,
+        regulatoryStandards: relationships?.safety?.regulatoryStandards?.items,
         showFullDataset: true,
       }
     })

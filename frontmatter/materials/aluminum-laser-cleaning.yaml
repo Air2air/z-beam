@@ -4,7 +4,7 @@ displayName: Aluminum Laser Cleaning
 category: metal
 subcategory: non-ferrous
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-03-01T04:57:56.750888+00:00'
+dateModified: '2026-03-02T19:29:25.102905+00:00'
 contentType: material
 schemaVersion: 5.0.0
 fullPath: /materials/metal/non-ferrous/aluminum-laser-cleaning
@@ -25,13 +25,6 @@ pageDescription: Aluminum, it serves as non-ferrous metal with lightweight natur
   like shipbuilding or energy systems improves. Method demonstrates effectiveness in industrial settings, as removal already
   achieves clean results without mechanical damage, and adjustment of parameters leads to optimal outcomes.
 properties:
-  _section:
-    sectionTitle: Laser-Material Interaction
-    sectionDescription: How laser energy interacts with this material during cleaning
-    sectionMetadata: properties.laserMaterialInteraction
-    icon: zap
-    order: 76
-    variant: default
   materialCharacteristics:
     _section:
       sectionTitle: Material Characteristics
@@ -42,6 +35,35 @@ properties:
       variant: default
     label: Material Characteristics
     title: Aluminum's Distinctive Traits
+    density:
+      value: 2700.0
+      unit: kg/m³
+      source: ai_research
+    youngsModulus:
+      value: 69.0
+      unit: GPa
+      source: ai_research
+    tensileStrength:
+      value: 310.0
+      unit: MPa
+      source: ai_research
+    hardness:
+      value: 95.0
+      unit: HB
+      source: ai_research
+    meltingPoint:
+      value: 933.0
+      unit: K
+      source: ai_research
+    electricalConductivity:
+      value: 37700000.0
+      unit: S/m
+      source: ai_research
+    porosity:
+      value: 0.0
+      unit: fraction
+      source: ai_research
+    percentage: 60.0
     _metadata:
       icon: wrench
       order: 70
@@ -57,6 +79,55 @@ properties:
       variant: default
     label: Laser-Material Interaction
     title: Aluminum Laser Dynamics
+    absorptivity:
+      value: 0.06
+      unit: dimensionless
+      source: ai_research
+    laserReflectivity:
+      value: 0.94
+      unit: dimensionless
+      source: ai_research
+    thermalConductivity:
+      value: 237.0
+      unit: W/m·K
+      source: ai_research
+    thermalDiffusivity:
+      value: 9.7e-05
+      unit: m²/s
+      source: ai_research
+    ablationThreshold:
+      value: 1.8
+      unit: J/cm²
+      source: ai_research
+    energyDensity:
+      value: 5.1
+      unit: J/cm²
+      source: ai_research
+    pulseWidth:
+      value: 10.0
+      unit: ns
+      source: ai_research
+    scanSpeed:
+      value: 500.0
+      unit: mm/s
+      source: ai_research
+    spotSize:
+      value: 50.0
+      unit: μm
+      source: ai_research
+    frequency:
+      value: 50.0
+      unit: kHz
+      source: ai_research
+    passCount:
+      value: 3
+      unit: passes
+      source: ai_research
+    overlapRatio:
+      value: 50.0
+      unit: '%'
+      source: ai_research
+    percentage: 40.0
     _metadata:
       icon: zap
       order: 71
@@ -714,17 +785,6 @@ relationships:
         longName: Occupational Safety and Health Administration
         name: OSHA
         url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
-  contaminatedBy:
-    title: Aluminum's Corrosive Vulnerabilities
-    description: Aluminum draws in corrosive salts more readily than denser metals like steel due to its reactive surface
-      chemistry that fosters electrochemical bonding, and these contaminants accumulate by embedding within the material's
-      porous oxide layer during exposure to humid environments; care must be taken in industrial settings where such buildup
-      can hinder effective laser cleaning and compromise structural integrity.
-    _metadata:
-      icon: droplet
-      order: 61
-      variant: default
-      generatedAt: '2026-02-05T06:50:31.000Z'
 author:
   id: 1
   name: Yi-Chun Lin
@@ -838,12 +898,5 @@ eeat:
   isBasedOn:
     name: ANSI Z136.1 - Safe Use of Lasers
     url: https://webstore.ansi.org/standards/lia/ansiz1362022
-_section:
-  sectionTitle: FAQ
-  sectionDescription: Common Questions and Answers
-  sectionMetadata: faq
-  icon: help-circle
-  order: 46
-  variant: default
 slug: aluminum-laser-cleaning
 authorId: 1

@@ -134,6 +134,25 @@ describe('BaseSection', () => {
 
       expect(getByText('Content')).toBeInTheDocument();
     });
+
+    it('renders object sectionDescription by using nested description text', () => {
+      const section = {
+        sectionTitle: 'Title',
+        sectionDescription: {
+          title: 'Nested Title',
+          description: 'Nested Description',
+        },
+      };
+
+      render(
+        <BaseSection section={section as any}>
+          <div>Content</div>
+        </BaseSection>
+      );
+
+      expect(screen.getByRole('heading')).toHaveTextContent('Title');
+      expect(screen.getByText('Nested Description')).toBeInTheDocument();
+    });
   });
 
   describe('Direct Props vs Section Object', () => {

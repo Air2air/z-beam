@@ -121,44 +121,31 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
     .map(item => (item ? toRelationship(item) : null))
     .filter((item): item is Relationship => Boolean(item));
 
-  // Prepare safety data from relationships (structured data) and metadata (legacy)
-  /**
-   * Safety data location (normalized structure):
-   * - PREFERRED: relationships.safety.* (normalized location with presentation wrappers)
-   * - FALLBACK: relationships.* (legacy direct fields)
-   * - FALLBACK: metadata.* (legacy top-level fields)
-   * 
-   * Normalized structure: {presentation: 'card'|'descriptive', items: [...]}
-   * Legacy structure: direct objects or strings
-   * 
-   * SafetyDataPanel component handles both formats automatically.
-   */
+  // Prepare safety data from canonical relationships structure
   const safetyRelationships = relationships?.safety || {};
   const safetyData = {
-    ppe_requirements: safetyRelationships?.ppe_requirements || relationships?.ppe_requirements || (metadata as any)?.ppe_requirements,
-    regulatory_classification: safetyRelationships?.regulatory_classification || relationships?.regulatory_classification || (metadata as any)?.regulatory_classification,
-    workplace_exposure: safetyRelationships?.workplace_exposure || relationships?.workplace_exposure || (metadata as any)?.workplace_exposure,
-    reactivity: safetyRelationships?.reactivity || relationships?.reactivity || (metadata as any)?.reactivity,
-    environmental_impact: safetyRelationships?.environmental_impact || relationships?.environmental_impact || (metadata as any)?.environmental_impact,
-    detection_monitoring: safetyRelationships?.detection_monitoring || relationships?.detection_monitoring || (metadata as any)?.detection_monitoring,
+    ppe_requirements: safetyRelationships?.ppeRequirements,
+    regulatory_classification: safetyRelationships?.regulatoryClassification,
+    workplace_exposure: safetyRelationships?.workplaceExposure,
+    reactivity: relationships?.interactions?.reactivity,
+    environmental_impact: relationships?.environmental?.environmentalImpact,
+    detection_monitoring: relationships?.detectionMonitoring?.detectionMonitoring,
   };
 
   // Check if any safety data actually exists
   const hasSafetyData = Object.values(safetyData).some(value => value !== undefined && value !== null);
 
   // Extract additional compound data for new InfoCard sections
-  const physicalProperties = (metadata as any)?.physical_properties || (metadata as any)?.physicalProperties;
+  const physicalProperties = (metadata as any)?.physicalProperties;
   
-  // Read exposure_limits from new hierarchical location: relationships.safety.exposure_limits.items[0]
-  // Filter out null items and get the first valid exposure limit object
-  const exposureLimitsItems = (safetyRelationships?.exposure_limits?.items || []).filter((item: any) => item != null);
-  const exposureLimits = exposureLimitsItems[0] || (metadata as any)?.exposure_limits || (metadata as any)?.exposureLimits; // Fallback to legacy location
+  const exposureLimitsItems = (safetyRelationships?.exposureLimits?.items || []).filter((item: any) => item != null);
+  const exposureLimits = exposureLimitsItems[0] || (metadata as any)?.exposureLimits;
   
-  const healthEffects = (metadata as any)?.health_effects_keywords || (metadata as any)?.healthEffectsKeywords;
-  const synonyms = (metadata as any)?.synonyms_identifiers || (metadata as any)?.synonymsIdentifiers;
-  const casNumber = (metadata as any)?.cas_number || (metadata as any)?.casNumber;
-  const molecularWeight = (metadata as any)?.molecular_weight || (metadata as any)?.molecularWeight;
-  const chemicalFormula = (metadata as any)?.chemical_formula || (metadata as any)?.chemicalFormula;
+  const healthEffects = (metadata as any)?.healthEffectsKeywords;
+  const synonyms = (metadata as any)?.synonymsIdentifiers;
+  const casNumber = (metadata as any)?.casNumber;
+  const molecularWeight = (metadata as any)?.molecularWeight;
+  const chemicalFormula = (metadata as any)?.chemicalFormula;
 
   // Configure sections for BaseContentLayout
   const sections: SectionConfig[] = [
@@ -277,16 +264,16 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
       }
     },
     // Descriptive data sections - using helper for type-safe access
-    ...[  
-      'safety.exposure_limits',
-      'safety.ppe_requirements',
-      'safety.detection_monitoring',
-      'safety.emergency_response',
-      'safety.environmental_impact',
-      'safety.regulatory_classification',
-      'physical_properties',
-      'reactivity',
-      'synonyms_identifiers'
+    ...[
+      'safety.exposureLimits',
+      'safety.ppeRequirements',
+      'detectionMonitoring.detectionMonitoring',
+      'safety.emergencyResponse',
+      'environmental.environmentalImpact',
+      'safety.regulatoryClassification',
+      'identity.physicalProperties',
+      'interactions.reactivity',
+      'identity.synonymsIdentifiers'
     ].map(path => {
       const section = getRelationshipSection(relationships, path);
       return {

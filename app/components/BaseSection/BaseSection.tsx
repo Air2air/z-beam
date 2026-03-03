@@ -64,10 +64,28 @@ export function BaseSection({
   section, // 🔥 NEW: Accept entire _section object for ultimate simplicity
   ...rest
 }: BaseSectionProps) {
+  const normalizeTextValue = (value: unknown): string | undefined => {
+    if (typeof value === 'string') {
+      const trimmed = value.trim();
+      return trimmed || undefined;
+    }
+
+    if (value && typeof value === 'object') {
+      const objectValue = value as Record<string, unknown>;
+      const nestedText = objectValue.description ?? objectValue.sectionDescription ?? objectValue.content;
+      if (typeof nestedText === 'string') {
+        const trimmed = nestedText.trim();
+        return trimmed || undefined;
+      }
+    }
+
+    return undefined;
+  };
+
   // Support both direct props AND section object (direct props take precedence)
   // Normalize immediately: treat empty strings and whitespace-only as undefined
-  const normalizedTitle = (title?.trim() || section?.sectionTitle?.trim()) || undefined;
-  const normalizedDescription = (description?.trim() || section?.sectionDescription?.trim()) || undefined;
+  const normalizedTitle = normalizeTextValue(title) || normalizeTextValue(section?.sectionTitle);
+  const normalizedDescription = normalizeTextValue(description) || normalizeTextValue((section as Record<string, unknown> | undefined)?.sectionDescription);
   const rawIcon = icon || section?.icon;
   
   // Convert string icons to React components using getSectionIcon

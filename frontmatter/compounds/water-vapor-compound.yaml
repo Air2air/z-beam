@@ -4,7 +4,7 @@ displayName: Water Vapor Compound
 category: vapor
 subcategory: inert
 datePublished: '2026-01-06T00:00:00.000Z'
-dateModified: '2026-03-01T05:12:28.380023+00:00'
+dateModified: '2026-03-02T21:58:17.720905+00:00'
 contentType: compound
 schemaVersion: 5.0.0
 fullPath: /compounds/vapor/inert/water-vapor-compound
@@ -713,6 +713,16 @@ relationships:
         frequency: unknown
         severity: low
         typicalContext: Laser removal of Wood Rot / Fungal Biodegradation
+    reactivity:
+      _section:
+        sectionTitle: Chemical Reactivity
+        sectionDescription: Chemical reactions and reactivity patterns
+        sectionMetadata: relationships.interactions.reactivity
+        icon: zap
+        order: 60
+        variant: default
+      presentation: descriptive
+      items: []
   safety:
     healthEffects:
       _section:
@@ -740,6 +750,129 @@ relationships:
         severity: low
         onset: long-term
       presentation: card
+    exposureLimits:
+      _section:
+        sectionTitle: Exposure Limits
+        sectionDescription: OSHA, NIOSH, and ACGIH exposure thresholds
+        sectionMetadata: relationships.safety.exposureLimits
+        icon: gauge
+        order: 31
+        variant: warning
+      presentation: descriptive
+      items:
+      - guidelines: 'Handling water vapor in compound forms demands caution right from the start, especially in steamy industrial
+          setups where it builds up unexpectedly. Workers often face misty environments during processing, leading to potential
+          irritation if not managed well—simple ventilation tweaks and protective gear turn that risk around quickly. Inhale
+          too much without safeguards, and you''ll notice a foggy discomfort in the airways, nothing severe but enough to
+          slow you down on the job.
+
+
+          Short bursts of exposure feel harmless, yet prolonged contact with skin can leave it damp and chilled, prompting
+          the need for quick drying and barrier creams to keep things comfortable. Eye contact? Blink it away fast, but rinse
+          thoroughly if it lingers, as the vapor''s subtle moisture might cause temporary blurring in high-humidity zones.
+
+
+          For industrial applications like steam generation or material synthesis, always prioritize enclosed systems to contain
+          the vapor''s spread—leaks mean broader exposure, so regular checks prevent hazy surprises. Laser cleaning tasks
+          amplify the issue, with heated vapors rising sharply; position shields and exhaust fans nearby to direct the flow
+          away from breathing spaces, ensuring operators stay clear-headed amid the action. Overall, treat it like any pervasive
+          mist: respect its reach, layer up with breathable masks, and monitor air quality to dodge the subtle buildup that
+          sneaks up over shifts.'
+    ppeRequirements:
+      _section:
+        sectionTitle: Personal Protective Equipment
+        sectionDescription: Required safety equipment for handling this compound
+        sectionMetadata: relationships.safety.ppeRequirements
+        icon: hard-hat
+        order: 32
+        variant: default
+      presentation: descriptive
+      items:
+      - requirements: "Handling water vapor in its compound form demands careful gear choices, especially where heat buildup\
+          \ poses risks during industrial processes like steam generation or surface treatments. Workers often face sudden\
+          \ bursts of scalding mist, so full-body suits made from flame-retardant fabrics shield skin from direct contact\
+          \ burns without restricting movement. \n\nEye and face protection turns essential too—goggles or shields with anti-fog\
+          \ coatings guard against vapor splashes that could irritate or harm vision, particularly in humid environments where\
+          \ droplets linger. For tasks involving laser cleaning, where vapor might interact with beam energy to create intense\
+          \ localized heat, add reflective aprons to deflect stray thermal exposure while maintaining visibility.\n\nBreathing\
+          \ apparatus comes into play if the vapor carries contaminants from applications like chemical processing; respirators\
+          \ with filters capture fine particles, ensuring clear airways amid foggy conditions. Gloves crafted from insulated,\
+          \ flexible materials protect hands during handling, preventing blisters from prolonged warmth without compromising\
+          \ grip on tools. Overall, this setup prioritizes comfort and durability, allowing safe navigation of vapor-heavy\
+          \ operations from power systems to precision cleaning setups."
+    emergencyResponse:
+      _section:
+        sectionTitle: Emergency Response
+        sectionDescription: Procedures for spills, exposure, and incidents
+        sectionMetadata: relationships.safety.emergencyResponse
+        icon: ambulance
+        order: 33
+        variant: danger
+      presentation: descriptive
+      items:
+      - firstAid: Spot steam rising from a hot pipe. Quick move away. Feel the heat sting your skin? Cool it fast with running
+          water. Hold for comfort. Eyes watering from the mist? Rinse gently, no rubbing. Blink clear. Breathe heavy in humid
+          air? Step to fresh space. Deep breaths ease it. Skin red from contact? Pat dry softly. Watch for swelling. No big
+          alarm for plain vapor. Just calm handling works. Industrial spots use it clean lasers. Safe if cool. Heat changes
+          that quick. Always gear up first.
+    regulatoryClassification:
+      _section:
+        sectionTitle: Regulatory Classification
+        sectionDescription: DOT, UN, and NFPA hazard classifications
+        sectionMetadata: relationships.safety.regulatoryClassification
+        icon: file-check-2
+        order: 36
+        variant: default
+      presentation: descriptive
+      items: []
+  identity:
+    physicalProperties:
+      _section:
+        sectionTitle: Physical Properties
+        sectionDescription: Chemical and physical characteristics
+        sectionMetadata: relationships.identity.physicalProperties
+        icon: thermometer
+        order: 12
+        variant: default
+      presentation: descriptive
+      items: []
+    synonymsIdentifiers:
+      _section:
+        sectionTitle: Alternative Names
+        sectionDescription: Synonyms and chemical identifiers
+        sectionMetadata: relationships.identity.synonymsIdentifiers
+        icon: tag
+        order: 10
+        variant: default
+      presentation: descriptive
+      items: []
+  environmental:
+    environmentalImpact:
+      _section:
+        sectionTitle: Environmental Impact
+        sectionDescription: Toxicity, biodegradability, and environmental fate
+        sectionMetadata: relationships.environmental.environmentalImpact
+        icon: globe
+        order: 45
+        variant: default
+      presentation: descriptive
+      items: []
+  detectionMonitoring:
+    detectionMonitoring:
+      _section:
+        sectionTitle: Detection and Monitoring
+        sectionDescription: Detection methods and monitoring requirements
+        sectionMetadata: relationships.detectionMonitoring.detectionMonitoring
+        icon: activity
+        order: 50
+        variant: default
+      presentation: descriptive
+      items:
+      - methods: Consider spotting water vapor traces in material setups first—start by exposing samples to controlled humidity
+          flows, watching for subtle shifts in surface sheen or weight gain that hint at absorption. In industrial setups,
+          infrared sensors pick up those faint heat signatures from condensing droplets without invasive probes. For laser
+          cleaning, pulse beams vaporize contaminants while revealing hidden moisture through sudden steam bursts, ensuring
+          cleaner, drier results in precision manufacturing.
 author:
   id: 4
   name: Todd Dunning
@@ -849,6 +982,13 @@ sourcesInLaserCleaning:
 - organic_compound_decomposition
 - combustion_byproduct
 faq:
+  _section:
+    sectionTitle: FAQ
+    sectionDescription: Common Questions and Answers
+    sectionMetadata: faq
+    icon: help-circle
+    order: 46
+    variant: default
   presentation: collapsible
   items:
   - id: as-a-laser-cleaning-operator-how

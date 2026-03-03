@@ -3,13 +3,8 @@
 // Handles common patterns and delegates domain-specific rendering to section configs
 
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { Layout } from '../Layout/Layout';
 import type { SectionConfig, BaseContentLayoutProps } from '@/types';
-
-const Micro = dynamic(() => import('../Micro/Micro').then(mod => ({ default: mod.Micro })), {
-  ssr: true
-});
 
 // Re-export types for convenience
 export type { SectionConfig, BaseContentLayoutProps };
@@ -31,7 +26,7 @@ export function BaseContentLayout({
   subcategory: _subcategory = '',
   contentType: _contentType,
   sections = [],
-  showMicro = true,
+  showMicro: _showMicro = true,
   enrichedMetadata,
   title,
   ...layoutProps
@@ -48,14 +43,6 @@ export function BaseContentLayout({
     >
       {/* Page-specific content passed from route page */}
       {children}
-      
-      {/* Micro - Common across all content types - BEFORE sections so ScheduleCards can be last */}
-      {showMicro && metadata?.images?.micro?.url && (
-        <Micro 
-          frontmatter={metadata as any}
-          config={{}}
-        />
-      )}
       
       {/* Render configured sections */}
       {sections.map((section, index) => {

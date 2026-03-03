@@ -52,6 +52,15 @@ const PATH_FALLBACK_MAP: Record<string, string[]> = {
   'detection_monitoring.alarm_setpoints': ['detection_monitoring.alarm_setpoints', 'alarm_setpoints'],
   
   // Safety category (mostly unchanged)
+  'safety.exposureLimits': ['safety.exposureLimits'],
+  'safety.ppeRequirements': ['safety.ppeRequirements'],
+  'safety.emergencyResponse': ['safety.emergencyResponse'],
+  'safety.regulatoryClassification': ['safety.regulatoryClassification'],
+  'environmental.environmentalImpact': ['environmental.environmentalImpact'],
+  'identity.physicalProperties': ['identity.physicalProperties'],
+  'identity.synonymsIdentifiers': ['identity.synonymsIdentifiers'],
+  'interactions.reactivity': ['interactions.reactivity'],
+  'detectionMonitoring.detectionMonitoring': ['detectionMonitoring.detectionMonitoring'],
   'safety.health_effects_keywords': ['safety.health_effects_keywords', 'health_effects_keywords'],
   'safety.health_effects': ['safety.health_effects', 'health_effects'],
   'safety.exposure_guidelines': ['safety.exposure_guidelines', 'exposure_guidelines'],

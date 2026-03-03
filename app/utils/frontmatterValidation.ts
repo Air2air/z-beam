@@ -34,6 +34,7 @@ const VALID_CATEGORIES = new Set([
   'interactions',
   'environmental',
   'visual',
+  'detectionMonitoring',
   // Both old and new
   'physical_properties',
   'laser_properties',

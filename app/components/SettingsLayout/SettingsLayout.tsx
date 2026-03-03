@@ -43,11 +43,9 @@ function prepareSettingsData(
   const relationships = (settings as any)?.relationships || {};
   
   // Extract parameters from hybrid or legacy format
-  // New structure: operational.machine_settings, fallback: technical.machine_settings
+  // Canonical: machineSettings (top-level), with legacy relationship fallbacks
   const parametersRaw = settings.components?.parameter_relationships?.parameters 
-    || relationships?.operational?.machine_settings?.essential_parameters
-    || relationships?.technical?.machine_settings?.essential_parameters
-    || relationships?.machine_settings?.essential_parameters;
+    || settings.machineSettings?.essentialParameters;
   
   // Use materialRef-loaded properties or passed properties
   const materialProps = (settings as any)?._materialProperties || materialProperties;
@@ -216,8 +214,8 @@ export function SettingsLayout({
     pass_count: findParam('passCount')?.value || 4
   };
 
-  // Extract diagnostic data from relationships.operational.prevention
-  const preventionItems = relationships?.operational?.prevention?.items || [];
+  // Extract diagnostic/challenge data from canonical relationships.operational.commonChallenges
+  const preventionItems = relationships?.operational?.commonChallenges?.items || [];
   
   console.log('SettingsLayout DiagnosticCenter data:', {
     materialName: settings.name,
@@ -225,8 +223,8 @@ export function SettingsLayout({
     relationshipKeys: relationships ? Object.keys(relationships) : [],
     hasOperational: !!relationships?.operational,
     operationalKeys: relationships?.operational ? Object.keys(relationships.operational) : [],
-    hasPrevention: !!relationships?.operational?.prevention,
-    preventionStructure: relationships?.operational?.prevention,
+    hasPrevention: !!relationships?.operational?.commonChallenges,
+    preventionStructure: relationships?.operational?.commonChallenges,
     preventionItemsCount: preventionItems.length,
     preventionItems: preventionItems.slice(0, 2) // Log first 2 items for debugging
   });
@@ -283,7 +281,10 @@ export function SettingsLayout({
         materialName={settings.name}
         heroImage={heroImage}
         materialLink={materialLink}
-        sectionDescription={relationships?.operational?.machineSettings?._section?.sectionDescription}
+        sectionDescription={
+          settings.machineSettings?._section?.sectionDescription ||
+          relationships?.operational?.machineSettings?._section?.sectionDescription
+        }
       />
 
       {/* Material Safety Heatmap */}
@@ -565,7 +566,7 @@ export function SettingsLayout({
         slug={slug}
         category={category}
         subcategory={subcategory}
-        machineSettings={(settings as any).machine_settings ?? settings.machineSettings}
+        machineSettings={settings.machineSettings}
         materialProperties={materialProps}
         faq={(settings as any).faq}
         regulatoryStandards={(settings as any).regulatoryStandards}
@@ -607,11 +608,11 @@ export function SettingsLayout({
         )
       ))}
 
-      {/* Descriptive data sections (operational.common_challenges or technical.common_challenges) */}
-      {(relationships?.operational?.common_challenges?.items?.length > 0 || relationships?.technical?.common_challenges?.items?.length > 0) && (
+      {/* Descriptive data sections (canonical operational.commonChallenges) */}
+      {relationships?.operational?.commonChallenges?.items?.length > 0 && (
         <DescriptiveDataPanel
-          items={relationships?.operational?.common_challenges?.items ?? relationships?.technical?.common_challenges?.items}
-          sectionMetadata={relationships?.operational?.common_challenges?._section ?? relationships?.technical?.common_challenges?._section}
+          items={relationships?.operational?.commonChallenges?.items}
+          sectionMetadata={relationships?.operational?.commonChallenges?._section}
         />
       )}
 
