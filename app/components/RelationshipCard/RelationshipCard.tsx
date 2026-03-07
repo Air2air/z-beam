@@ -44,7 +44,12 @@ export function RelationshipCard({
   }
   
   // Get severity-based styling
-  const severityStyle = SEVERITY_COLORS[cardData.severity];
+  const severityStyle = SEVERITY_COLORS[cardData.severity] || SEVERITY_COLORS.moderate;
+  const badgeVariant = cardData.badge?.variant || 'info';
+  const badgeText = cardData.badge?.text || 'Info';
+  const metricValue = cardData.metric?.value || 'N/A';
+  const metricUnit = cardData.metric?.unit || '';
+  const metricLegend = cardData.metric?.legend || '';
 
   return (
     <Link
@@ -63,10 +68,10 @@ export function RelationshipCard({
           <span
             className={`
               inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
-              ${getBadgeColors(cardData.badge.variant)}
+              ${getBadgeColors(badgeVariant)}
             `}
           >
-            {cardData.badge.text}
+            {badgeText}
           </span>
         </div>
         
@@ -74,17 +79,15 @@ export function RelationshipCard({
         <div className="mb-6">
           <div className="flex items-baseline gap-1">
             <span className="text-4xl font-bold text-white">
-              {cardData.metric.value}
+              {metricValue}
             </span>
-            {cardData.metric.unit && (
+            {metricUnit && (
               <span className="text-2xl font-medium text-white/80">
-                {cardData.metric.unit}
+                {metricUnit}
               </span>
             )}
           </div>
-          <div className="mt-1 text-sm text-white/70">
-            {cardData.metric.legend}
-          </div>
+          {metricLegend && <div className="mt-1 text-sm text-white/70">{metricLegend}</div>}
         </div>
         
         {/* Icon (optional) */}

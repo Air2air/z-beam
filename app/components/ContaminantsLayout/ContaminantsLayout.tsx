@@ -68,6 +68,14 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
   // Relationship data - extracted via accessors (no longer needed individually)
   const visualCharacteristics = relationships?.visual?.appearanceOnCategories || {};
   const laserProperties = relationships?.operational?.laserProperties || {};
+  const visualSectionMetadata = visualCharacteristics?._section || {
+    sectionTitle: `Visual characteristics of ${contaminantName}`,
+    sectionDescription: '',
+  };
+  const laserSectionMetadata = laserProperties?._section || {
+    sectionTitle: `Laser properties for ${contaminantName}`,
+    sectionDescription: '',
+  };
 
   // Build sections using consolidated builder pattern
   const sections = new SectionConfigBuilder()
@@ -122,25 +130,22 @@ export async function ContaminantsLayout(props: ContaminantsLayoutProps) {
       }
     )
     .addConditional(
-      !!visualCharacteristics,
+      Array.isArray(visualCharacteristics?.items) && visualCharacteristics.items.length > 0,
       {
         component: visualCharacteristics?.presentation === 'descriptive' ? Collapsible : DescriptiveDataPanel,
         props: {
           items: visualCharacteristics?.items || [],
-          sectionMetadata: {
-            ...visualCharacteristics?.frontmatter,
-            title: `Visual characteristics of ${contaminantName}`,
-          },
+          sectionMetadata: visualSectionMetadata,
         }
       }
     )
     .addConditional(
-      !!laserProperties,
+      Array.isArray(laserProperties?.items) && laserProperties.items.length > 0,
       {
         component: DescriptiveDataPanel,
         props: {
           items: laserProperties?.items || [],
-          sectionMetadata: laserProperties?.frontmatter,
+          sectionMetadata: laserSectionMetadata,
         }
       }
     )

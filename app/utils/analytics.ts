@@ -103,28 +103,64 @@ export const trackGoogleAdsConversion = (
     return;
   }
 
-  if (typeof window !== 'undefined' && window.gtag) {
-    const params: Record<string, any> = {
-      send_to: `${adsId}/${conversionLabel}`,
-    };
+  trackEventWhenReady('conversion', {
+    send_to: `${adsId}/${conversionLabel}`,
+    ...(typeof value === 'number' ? { value, currency } : {}),
+  });
+};
 
-    if (typeof value === 'number') {
-      params.value = value;
-      params.currency = currency;
+const trackEventWhenReady = (
+  eventName: string,
+  eventParams?: Record<string, any>,
+  maxAttempts = 20,
+  intervalMs = 250
+) => {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  if (window.gtag) {
+    window.gtag('event', eventName, eventParams);
+    return;
+  }
+
+  let attempts = 0;
+  const interval = setInterval(() => {
+    attempts += 1;
+
+    if (window.gtag) {
+      window.gtag('event', eventName, eventParams);
+      clearInterval(interval);
+      return;
     }
 
-    window.gtag('event', 'conversion', params);
-  }
+    if (attempts >= maxAttempts) {
+      clearInterval(interval);
+    }
+  }, intervalMs);
+};
+
+export const trackThankYouLeadEvent = () => {
+  trackEventWhenReady('generate_lead', {
+    event_category: 'Contact',
+    event_label: 'Thank You Page',
+    conversion_location: 'thank_you_page',
+    method: 'contact_form',
+    value: 1,
+    currency: 'USD',
+  });
 };
 
 /**
  * Track thank-you page conversion using env-configured Google Ads conversion label
  */
 export const trackThankYouPageConversion = () => {
+  trackThankYouLeadEvent();
+
   const conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_THANK_YOU_CONVERSION_LABEL;
   if (!conversionLabel) {
     return;
   }
 
-  trackGoogleAdsConversion(conversionLabel);
+  trackGoogleAdsConversion(conversionLabel, 1, 'USD');
 };
