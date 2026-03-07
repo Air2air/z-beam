@@ -13,6 +13,7 @@ import { Button } from "../Button";
 const navItems = MAIN_NAV_ITEMS;
 
 export function Navbar() {
+  const [isEmbedded, setIsEmbedded] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
@@ -57,6 +58,14 @@ export function Navbar() {
 
   // Handle click outside to close menu
   useEffect(() => {
+    try {
+      setIsEmbedded(window.self !== window.top);
+    } catch {
+      setIsEmbedded(true);
+    }
+  }, []);
+
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
       
@@ -85,6 +94,10 @@ export function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isOpen]);
+
+  if (isEmbedded) {
+    return null;
+  }
 
   return (
     <>

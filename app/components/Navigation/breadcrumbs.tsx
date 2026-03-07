@@ -1,6 +1,7 @@
 // app/components/breadcrumbs.tsx
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import type { BreadcrumbItem, BreadcrumbsProps } from "@/types";
@@ -20,7 +21,20 @@ import { SITE_CONFIG } from "@/app/config/site";
  * @see https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/
  */
 export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
+  const [isEmbedded, setIsEmbedded] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    try {
+      setIsEmbedded(window.self !== window.top);
+    } catch {
+      setIsEmbedded(true);
+    }
+  }, []);
+
+  if (isEmbedded) {
+    return null;
+  }
   
   // Priority 1: Use frontmatter-provided breadcrumb data
   let allBreadcrumbs: BreadcrumbItem[];

@@ -1,6 +1,7 @@
 // app/components/footer.tsx
 'use client';
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FooterNavItem, SocialLink } from "@/types";
@@ -63,6 +64,20 @@ const socialLinks: SocialLink[] = [
 ];
 
 export default function Footer() {
+  const [isEmbedded, setIsEmbedded] = useState(false);
+
+  useEffect(() => {
+    try {
+      setIsEmbedded(window.self !== window.top);
+    } catch {
+      setIsEmbedded(true);
+    }
+  }, []);
+
+  if (isEmbedded) {
+    return null;
+  }
+
   return (
     <footer 
       className="bg-secondary mt-0"
