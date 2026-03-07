@@ -12,6 +12,8 @@
     "dev:stop": "[ -f /tmp/z-beam-dev.pid ] && kill $(cat /tmp/z-beam-dev.pid) && rm /tmp/z-beam-dev.pid && echo 'Dev server stopped' || echo 'No dev server PID file found'",
     "dev:status": "lsof -ti:3000 > /dev/null && echo '✅ Dev server is running on port 3000' || echo '❌ Dev server is not running'",
     "dev:health": "npm run dev:status && curl -fsS http://localhost:3000 >/dev/null && echo '✅ Dev server HTTP health check passed' || (echo '❌ Dev server HTTP health check failed' && exit 1)",
+    "dev:detect": "bash scripts/dev/detect-runaway-processes.sh",
+    "dev:watch": "bash scripts/dev/watch-processes.sh",
     "dev:restart": "npm run dev:stop && sleep 1 && npm run dev:persistent",
     "dev:stop-all": "pkill -f 'next dev' 2>/dev/null || true; lsof -ti:3000 | xargs kill -9 2>/dev/null || true; rm -f /tmp/z-beam-dev.pid .dev-server.pid; echo '✅ Stopped all dev server processes'",
     "prebuild": "npm run type-check && npm run lint:all && npm run validate:content && npm run validate:naming:semantic && npm run validate:types && npm run verify:sitemap:links && npm run test:seo:comprehensive && npm run test:ci",

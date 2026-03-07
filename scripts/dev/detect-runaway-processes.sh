@@ -6,8 +6,9 @@ set -e
 
 # Configuration
 CPU_THRESHOLD=80         # CPU usage threshold (%)
-MEMORY_THRESHOLD=1000000 # Memory threshold in KB (roughly 1GB)
+MEMORY_THRESHOLD=2000000 # Memory threshold in KB (roughly 2GB)
 MAX_RUNTIME_HOURS=2      # Maximum runtime before flagging as potentially stuck
+PROCESS_PATTERN="(next dev|next build|next-server|jest|tsx scripts/dev|npm run dev)"
 
 # Colors for output
 RED='\033[0;31m'
@@ -25,7 +26,7 @@ ISSUES_FOUND=0
 check_cpu_intensive() {
     echo "━━━ High CPU Usage Processes ━━━"
     # Find processes using more than CPU_THRESHOLD% CPU
-    HIGH_CPU=$(ps aux | awk -v threshold="$CPU_THRESHOLD" '$3 > threshold {print}' | grep -E "(node|npm|jest|next|tsx)" | grep -v grep || true)
+    HIGH_CPU=$(ps aux | awk -v threshold="$CPU_THRESHOLD" '$3 > threshold {print}' | grep -E "$PROCESS_PATTERN" | grep -v grep || true)
     
     if [ -n "$HIGH_CPU" ]; then
         echo -e "${RED}⚠️  Found high CPU processes:${NC}"
@@ -46,7 +47,7 @@ check_cpu_intensive() {
 check_memory_intensive() {
     echo "━━━ High Memory Usage Processes ━━━"
     # Find processes using more than MEMORY_THRESHOLD KB of memory
-    HIGH_MEM=$(ps aux | awk -v threshold="$MEMORY_THRESHOLD" '$6 > threshold {print}' | grep -E "(node|npm|jest|next|tsx)" | grep -v grep || true)
+    HIGH_MEM=$(ps aux | awk -v threshold="$MEMORY_THRESHOLD" '$6 > threshold {print}' | grep -E "$PROCESS_PATTERN" | grep -v grep || true)
     
     if [ -n "$HIGH_MEM" ]; then
         echo -e "${RED}⚠️  Found high memory processes:${NC}"
@@ -71,7 +72,7 @@ check_long_running() {
     MAX_SECONDS=$((MAX_RUNTIME_HOURS * 3600))
     
     # Use ps with etime (elapsed time) and filter by our patterns
-    LONG_RUNNING=$(ps -eo pid,etime,command | grep -E "(node|npm|jest|next|tsx)" | grep -v grep || true)
+    LONG_RUNNING=$(ps -eo pid,etime,command | grep -E "$PROCESS_PATTERN" | grep -v grep || true)
     
     if [ -n "$LONG_RUNNING" ]; then
         echo "$LONG_RUNNING" | while IFS= read -r line; do
@@ -83,13 +84,13 @@ check_long_running() {
             SECONDS=0
             if [[ $ETIME =~ ^([0-9]+)-([0-9]+):([0-9]+):([0-9]+)$ ]]; then
                 # Days format
-                SECONDS=$(( ${BASH_REMATCH[1]} * 86400 + ${BASH_REMATCH[2]} * 3600 + ${BASH_REMATCH[3]} * 60 + ${BASH_REMATCH[4]} ))
+                SECONDS=$(( 10#${BASH_REMATCH[1]} * 86400 + 10#${BASH_REMATCH[2]} * 3600 + 10#${BASH_REMATCH[3]} * 60 + 10#${BASH_REMATCH[4]} ))
             elif [[ $ETIME =~ ^([0-9]+):([0-9]+):([0-9]+)$ ]]; then
                 # Hours format
-                SECONDS=$(( ${BASH_REMATCH[1]} * 3600 + ${BASH_REMATCH[2]} * 60 + ${BASH_REMATCH[3]} ))
+                SECONDS=$(( 10#${BASH_REMATCH[1]} * 3600 + 10#${BASH_REMATCH[2]} * 60 + 10#${BASH_REMATCH[3]} ))
             elif [[ $ETIME =~ ^([0-9]+):([0-9]+)$ ]]; then
                 # Minutes format
-                SECONDS=$(( ${BASH_REMATCH[1]} * 60 + ${BASH_REMATCH[2]} ))
+                SECONDS=$(( 10#${BASH_REMATCH[1]} * 60 + 10#${BASH_REMATCH[2]} ))
             fi
             
             if [ $SECONDS -gt $MAX_SECONDS ]; then
@@ -111,13 +112,13 @@ check_long_running() {
 # Function to check for zombie/orphaned processes
 check_zombie_processes() {
     echo "━━━ Zombie/Orphaned Processes ━━━"
-    ZOMBIES=$(ps aux | grep -E "(node|npm|jest|next|tsx)" | grep -E "Z|<defunct>" | grep -v grep || true)
+    ZOMBIES=$(ps -eo pid,stat,command | awk -v pattern="$PROCESS_PATTERN" '$2 ~ /Z/ && $0 ~ pattern {print}' || true)
     
     if [ -n "$ZOMBIES" ]; then
         echo -e "${RED}⚠️  Found zombie processes:${NC}"
         echo "$ZOMBIES" | while IFS= read -r line; do
-            PID=$(echo "$line" | awk '{print $2}')
-            CMD=$(echo "$line" | awk '{for(i=11;i<=NF;i++) printf $i" "; print ""}')
+            PID=$(echo "$line" | awk '{print $1}')
+            CMD=$(echo "$line" | awk '{for(i=3;i<=NF;i++) printf $i" "; print ""}')
             echo -e "  ${YELLOW}PID $PID${NC} - $CMD"
         done
         ISSUES_FOUND=1
@@ -140,7 +141,7 @@ check_duplicate_processes() {
     fi
     
     # Check for multiple dev server processes
-    DEV_COUNT=$(ps aux | grep -E "next dev" | grep -v grep | wc -l | xargs)
+    DEV_COUNT=$(ps aux | grep -E "next dev" | grep -v -E "grep|sh -c" | wc -l | xargs)
     if [ "$DEV_COUNT" -gt 1 ]; then
         echo -e "${YELLOW}⚠️  Multiple dev servers detected: $DEV_COUNT${NC}"
         ps aux | grep -E "next dev" | grep -v grep | awk '{print "  PID " $2 " - " substr($0, index($0,$11))}'
