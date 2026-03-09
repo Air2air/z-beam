@@ -12,7 +12,7 @@ import { InfoCard } from '../InfoCard/InfoCard';
 import { BaseSection } from '../BaseSection/BaseSection';
 import { RelationshipsDump } from '../RelationshipsDump/RelationshipsDump';
 import { IndustryApplicationsPanel } from '../IndustryApplicationsPanel';
-import { SectionConfigBuilder } from '@/app/utils/sectionConfigBuilder';
+import { FAQPanel } from '../FAQPanel';
 import { contaminantLinkageToGridItem, materialLinkageToGridItem } from '@/app/utils/gridMappers';
 import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { sortByFrequency } from '@/app/utils/gridSorters';
@@ -146,6 +146,8 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
   const casNumber = (metadata as any)?.casNumber;
   const molecularWeight = (metadata as any)?.molecularWeight;
   const chemicalFormula = (metadata as any)?.chemicalFormula;
+  const rawFaq = (metadata as any)?.faq;
+  const faq = Array.isArray(rawFaq) ? rawFaq : (typeof rawFaq === 'string' ? rawFaq : rawFaq?.items);
 
   // Configure sections for BaseContentLayout
   const sections: SectionConfig[] = [
@@ -265,15 +267,16 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
     },
     // Descriptive data sections - using helper for type-safe access
     ...[
-      'safety.exposureLimits',
-      'safety.ppeRequirements',
-      'detectionMonitoring.detectionMonitoring',
-      'safety.emergencyResponse',
-      'environmental.environmentalImpact',
-      'safety.regulatoryClassification',
+      'identity.chemicalProperties',
       'identity.physicalProperties',
-      'interactions.reactivity',
-      'identity.synonymsIdentifiers'
+      'identity.synonymsIdentifiers',
+      'safety.healthEffects',
+      'safety.ppeRequirements',
+      'safety.exposureLimits',
+      'safety.storageRequirements',
+      'safety.emergencyResponse',
+      'safety.regulatoryClassification',
+      'environmental.environmentalImpact'
     ].map(path => {
       const section = getRelationshipSection(relationships, path);
       return {
@@ -281,7 +284,32 @@ export async function CompoundsLayout(props: CompoundsLayoutProps) {
         condition: !!section,
         props: {
           items: section?.items || [],
-          sectionMetadata: section?.frontmatter,
+          sectionMetadata: section?.metadata,
+        }
+      };
+    }),
+    {
+      component: FAQPanel,
+      condition: !!faq && (typeof faq === 'string' ? faq.length > 0 : faq.length > 0),
+      props: {
+        faq,
+        entityName: compoundName,
+        variant: 'faq' as const,
+        sectionTitle: (metadata as any)?.faq?._section?.sectionTitle,
+        sectionDescription: (metadata as any)?.faq?._section?.sectionDescription,
+      }
+    },
+    ...[
+      'detectionMonitoring.detectionMonitoring',
+      'interactions.reactivity',
+    ].map(path => {
+      const section = getRelationshipSection(relationships, path);
+      return {
+        component: DescriptiveDataPanel,
+        condition: !!section,
+        props: {
+          items: section?.items || [],
+          sectionMetadata: section?.metadata,
         }
       };
     }),
