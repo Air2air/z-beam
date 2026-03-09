@@ -22,7 +22,11 @@ export function getRelativeTime(dateString?: string): string {
   if (!dateString) return '';
   const date = new Date(dateString);
   const now = new Date();
-  const diffInDays = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24));
+
+  const toUtcDayNumber = (value: Date): number =>
+    Math.floor(Date.UTC(value.getUTCFullYear(), value.getUTCMonth(), value.getUTCDate()) / 86400000);
+
+  const diffInDays = toUtcDayNumber(now) - toUtcDayNumber(date);
   
   if (diffInDays === 0) return 'Today';
   if (diffInDays === 1) return 'Yesterday';

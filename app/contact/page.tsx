@@ -7,6 +7,7 @@ import { JsonLD } from '../components/JsonLD/JsonLD';
 import Link from 'next/link';
 import type { ArticleMetadata } from '@/types';
 import { ContactInfo } from '../components/Contact/ContactInfo';
+import WorkizConversionBridge from './WorkizConversionBridge';
 
 // Load frontmatter data
 const frontmatter = loadStaticPageFrontmatter('contact') as StaticPageFrontmatter;
@@ -65,6 +66,7 @@ export default function ContactPage() {
 
   return (
     <>
+      <WorkizConversionBridge />
       <JsonLD data={contactSchema} />
       <Layout
         title={frontmatter.pageTitle}

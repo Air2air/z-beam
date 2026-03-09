@@ -38,6 +38,20 @@ describe('dateFormatting utilities', () => {
   });
 
   describe('getRelativeTime', () => {
+    const fixedNow = new Date('2026-03-09T12:00:00.000Z');
+
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+
+    beforeEach(() => {
+      jest.setSystemTime(fixedNow);
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+
     it('should return "Today" for current date', () => {
       const today = new Date().toISOString();
       const relative = getRelativeTime(today);
