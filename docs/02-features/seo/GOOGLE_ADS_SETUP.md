@@ -290,6 +290,7 @@ Set up these conversion actions in Google Ads:
 4. **Contact Form Submission** (Micro)
    - Goal: Engagement
    - Value: $50
+  - Implementation note: Fire `generate_lead` only on the `/thank-you` route after successful form submission. Do not fire on `/contact` page load.
 
 5. **Service Page Views** (Micro)
    - Goal: Engagement

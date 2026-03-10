@@ -1,11 +1,8 @@
 // app/confirmation/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { JsonLD } from "../components/JsonLD/JsonLD";
-import { loadStaticPage } from '@/app/utils/staticPageLoader';
 import { ArticleMetadata } from "@/types";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/app/config/site";
-import ThankYouConversionTracker from '../thank-you/ThankYouConversionTracker';
 
 export const metadata = {
   title: "Thank You for Your Inquiry | Z-Beam",
@@ -37,7 +34,6 @@ export default function ConfirmationPage() {
       metadata={pageMetadata}
       slug="confirmation"
     >
-      <ThankYouConversionTracker />
       <div className="bg-gray-800 rounded-md shadow-md p-8 max-w-2xl mx-auto mt-8">
         <div className="text-center space-y-6">
           {/* Success Icon */}
