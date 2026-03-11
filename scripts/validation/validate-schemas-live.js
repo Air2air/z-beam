@@ -29,7 +29,7 @@ const TEST_URLS = [
   '/',
   '/materials/metal/non-ferrous/aluminum-laser-cleaning',
   '/materials/metal/ferrous/stainless-steel-laser-cleaning',
-  '/materials/composite/carbon-fiber-reinforced-polymer-laser-cleaning',
+  '/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning',
   '/contaminants/oxidation/battery/battery-corrosion-contamination',
 ];
 
