@@ -20,18 +20,25 @@ const REQUEST_TIMEOUT_MS = 15000;
 const MAX_RETRIES = Number.parseInt(process.env.SCHEMA_FETCH_RETRIES || '2', 10);
 const RETRY_DELAY_MS = Number.parseInt(process.env.SCHEMA_FETCH_RETRY_DELAY_MS || '750', 10);
 const RECOMMENDED_MISSING_MAX = Number.parseInt(
-  process.env.SCHEMA_RECOMMENDED_MISSING_MAX || '-1',
+  process.env.SCHEMA_RECOMMENDED_MISSING_MAX || '0',
   10,
 );
+const MAX_TEST_URLS = Number.parseInt(process.env.SCHEMA_MAX_URLS || '25', 10);
 const REPORT_PATH = process.env.SCHEMA_REPORT_PATH || '.validation-cache/schema-live-report.json';
 
-const TEST_URLS = [
+const DEFAULT_SEED_URLS = [
   '/',
   '/materials/metal/non-ferrous/aluminum-laser-cleaning',
   '/materials/metal/ferrous/stainless-steel-laser-cleaning',
   '/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning',
   '/contaminants/oxidation/battery/battery-corrosion-contamination',
 ];
+
+const EXTRA_TEST_URLS = (process.env.SCHEMA_TEST_URLS || '')
+  .split(',')
+  .map((value) => value.trim())
+  .filter(Boolean)
+  .map((value) => (value.startsWith('/') ? value : `/${value}`));
 
 const EXPECTED_SCHEMA_RULES = [
   {
@@ -158,6 +165,36 @@ function extractSchemas(html) {
   return Array.from(schemas);
 }
 
+function extractSitemapPaths(xml) {
+  return [...xml.matchAll(/<loc>([\s\S]*?)<\/loc>/gi)]
+    .map((match) => match[1].trim())
+    .map((loc) => {
+      try {
+        return new URL(loc).pathname;
+      } catch {
+        return null;
+      }
+    })
+    .filter((pathname) => typeof pathname === 'string')
+    .map((pathname) => pathname === '/' ? '/' : pathname.replace(/\/+$/, ''))
+    .filter((pathname) => pathname === '/' || pathname.startsWith('/materials/') || pathname.startsWith('/contaminants/'))
+    .filter((pathname) => pathname === '/' || pathname.endsWith('-laser-cleaning') || pathname.endsWith('-contamination'));
+}
+
+async function collectTestPaths() {
+  const prioritized = [...DEFAULT_SEED_URLS, ...EXTRA_TEST_URLS];
+
+  try {
+    const sitemapUrl = new URL('/sitemap.xml', SITE_URL).toString();
+    const sitemapXml = await fetchPageWithRetry(sitemapUrl);
+    prioritized.push(...extractSitemapPaths(sitemapXml));
+  } catch (error) {
+    console.log(`\n⚠️  Unable to expand schema checks from sitemap: ${error.message}`);
+  }
+
+  return Array.from(new Set(prioritized)).slice(0, MAX_TEST_URLS);
+}
+
 async function validateSchemas() {
   if (!SITE_URL) {
     console.log('❌ Missing SITE_URL configuration (SCHEMA_VALIDATION_URL or BASE_URL)');
@@ -172,12 +209,15 @@ async function validateSchemas() {
 
   console.log('🔍 Validating JSON-LD Schemas on Live Site\n');
   console.log(`🌐 Target: ${SITE_URL}\n`);
+
+  const testPaths = await collectTestPaths();
+  console.log(`🧪 Testing ${testPaths.length} URLs (max ${MAX_TEST_URLS})\n`);
   
   let allPassed = true;
   const results = [];
   let totalRecommendedMissing = 0;
   
-  for (const routePath of TEST_URLS) {
+  for (const routePath of testPaths) {
     const url = new URL(routePath, SITE_URL).toString();
     console.log(`\n📄 Testing: ${routePath}`);
     
@@ -276,7 +316,7 @@ async function validateSchemas() {
     generatedAt: new Date().toISOString(),
     target: SITE_URL,
     summary: {
-      totalPages: TEST_URLS.length,
+      totalPages: testPaths.length,
       failedPages,
       warningPages,
       totalRecommendedMissing,
@@ -284,6 +324,7 @@ async function validateSchemas() {
       recommendedMissingMax: RECOMMENDED_MISSING_MAX,
       recommendedThresholdFailed,
       passed: allPassed,
+      maxTestUrls: MAX_TEST_URLS,
     },
     results,
   };
