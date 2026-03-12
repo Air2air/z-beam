@@ -32,7 +32,7 @@ Successfully consolidated deployment scripts from 4 redundant systems down to 1 
 
 ### Simplified Single-Script System 
 - `simple-predeploy.js` (102 lines) - **PRIMARY DEPLOYMENT SOLUTION** ✅
-- Archived complex scripts to `/archive/deployment-scripts/`
+- Historical complex scripts remain recoverable from git history if needed
 
 ### Streamlined Package.json Scripts (4 scripts)
 ```json
@@ -85,8 +85,8 @@ Successfully consolidated deployment scripts from 4 redundant systems down to 1 
   - `npm run deploy:preview` (preview deployments)
 
 ### Rollback Plan
-- All archived scripts remain accessible in `/archive/deployment-scripts/`
-- Can be restored if needed by reversing the file moves
+- Prior script variants remain accessible in git history
+- Restore only if a documented regression requires them
 - Package.json can be reverted from version control
 
 ## TESTING VERIFICATION

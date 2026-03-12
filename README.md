@@ -590,7 +590,7 @@ Utilities are organized in `/app/utils/`:
 
 ## 9. Previous Documentation
 
-All legacy documentation is archived in `docs/archived/` for reference only. This README, REQUIREMENTS.md, and PROJECT_GUIDE.md are the only authoritative sources.
+Legacy context is preserved in topic-specific docs and git history. This README, REQUIREMENTS.md, and PROJECT_GUIDE.md are the authoritative starting points.
 
 ## 11. Author Integration Status
 
@@ -800,7 +800,7 @@ npm run start
 - **[Systems](docs/systems/)** - Core systems (fonts, semantic HTML, etc.)
 - **[Guides](docs/guides/)** - How-to guides and best practices
 - **[Testing](docs/testing/)** - Test documentation and strategies
-- **[Archives](docs/archived/)** - Historical documentation and completion reports
+- **[Changelog](docs/05-changelog/)** - Historical implementation notes and completion reports
 
 ### Quick Access
 - [MetricsCard Documentation](docs/components/MetricsCard/docs/)

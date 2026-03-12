@@ -186,13 +186,13 @@ npm run generate:sitemap-index
 
 ---
 
-#### Archive Documentation (docs/archive/ - 5 files)
+#### Archive Documentation (seo/docs/archive/ - 5 files)
 
-##### Migrations (docs/archive/migrations/ - 2 files)
+##### Migrations (seo/docs/archive/migrations/ - 2 files)
 - **SEO_ENHANCEMENTS_NOV_2025.md** - November 2025 enhancements
 - **CATEGORY_PAGE_SEO_AUDIT.md** - Category page audit results
 
-##### November 2025 Archives (docs/archive/2025-11/ - 3 files)
+##### November 2025 Archives (seo/docs/archive/2025-11/ - 3 files)
 - **SEO_IMPLEMENTATION_EVALUATION_NOV29_2025.md** - November 29 evaluation
 - **SEO_INFRASTRUCTURE_E2E_AUDIT_DEC6_2025.md** - December 6 audit
 - **DATASET_SEO_INTEGRATION_NOV29_2025.md** - Dataset integration docs
@@ -404,7 +404,7 @@ const altTextMin = config.altText.minLength; // 30 characters
 - **Understand infrastructure?** → See `docs/infrastructure/SEO_INFRASTRUCTURE_OVERVIEW.md`
 - **Partners page SEO?** → Check `docs/features/PARTNERS_SEO_IMPLEMENTATION.md`
 - **Deployment guide?** → Read `docs/deployment/SEO_SAFETY_DATA_DEPLOYMENT.md`
-- **Historical context?** → Browse `docs/archive/`
+- **Historical context?** → Browse `seo/docs/archive/`
 - **public/robots.txt** - Robot directives with sitemap references
 
 ---

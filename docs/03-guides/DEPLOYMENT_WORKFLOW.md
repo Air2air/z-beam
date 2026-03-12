@@ -158,10 +158,10 @@ vercel --prod --from-deployment=<previous-deployment-id>
 - **Backup files** - Scattered `*.backup` files
 
 ### Location
-All archived materials are in `/archive/` with comprehensive documentation.
+Historical deployment context lives in this guide, `DEPLOYMENT_CONSOLIDATION.md`, and git history.
 
 ### Rollback Capability
-If the simple approach proves insufficient, archived scripts can be restored from `/archive/deployment-scripts/`.
+If the simple approach proves insufficient, restore the older script set from git history before reintroducing it.
 
 ## MAINTENANCE
 
@@ -172,7 +172,7 @@ npm run cleanup
 ```
 
 ### Monthly Review
-- Check `/archive/` directory size
+- Review deployment docs for drift against the active npm scripts
 - Review and delete old deployment logs (>6 months)
 - Verify deployment pipeline still working optimally
 
@@ -211,6 +211,6 @@ The new system uses the proven `simple-predeploy.js` approach:
 - **Complete documentation**: `DEPLOYMENT_CONSOLIDATION.md`
 - **System evaluation**: `SYSTEM_BLOAT_EVALUATION.md`
 - **Troubleshooting**: Main `README.md` section 8
-- **Archive reference**: `/archive/README.md`
+- **Historical reference**: `git log -- docs/03-guides/DEPLOYMENT_WORKFLOW.md scripts/deployment/`
 
 This workflow emphasizes reliability, simplicity, and adherence to GROK architectural principles while maintaining full production deployment capability.
