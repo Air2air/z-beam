@@ -316,8 +316,8 @@ describe('SEO Schema Generators', () => {
     it('uses SITE_CONFIG pricing for service offers', () => {
       const schema = generateProductSchema(productOptions);
       
-      expect(schema.offers.lowPrice).toBe(190);
-      expect(schema.offers.highPrice).toBe(270);
+      expect(schema.offers.lowPrice).toBe(200);
+      expect(schema.offers.highPrice).toBe(300);
       expect(schema.offers.priceSpecification).toBeDefined();
       expect(schema.offers.priceSpecification.unitText).toBe('hour');
     });

@@ -12,7 +12,9 @@ import { ComparisonTable } from '@/app/components/ComparisonTable';
 import { ClickableCard } from '@/app/components/ClickableCard';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { ScheduleContent } from '@/app/components/Schedule/ScheduleContent';
+import Link from 'next/link';
 import { SITE_CONFIG } from '@/app/config/site';
+import { getEquipmentRentalPriceTable } from '@/app/utils/pricing/getEquipmentRentalPriceTable';
 import { loadStaticPageFrontmatter, type StaticPageFrontmatter } from '@/app/utils/staticPageLoader';
 import { generateStaticPageMetadata } from '@/lib/metadata/generators';
 import type { ContentCardItem } from '@/types';
@@ -50,6 +52,16 @@ interface ComparisonMethod {
   [key: string]: string;
 }
 
+interface PricingTableSection {
+  id?: string;
+  type: 'pricing-table';
+  pricingSource?: 'equipment-rental';
+  _section?: {
+    title?: string;
+    description?: string;
+  };
+}
+
 /**
  * Shared static-page factory.
  */
@@ -84,7 +96,13 @@ export function createStaticPage(pageType: StaticPageType | string) {
       title: frontmatter.pageTitle,
       description: frontmatter.pageDescription,
       path: pageEntry.routePath,
-      image: frontmatter.images?.social?.url || frontmatter.images?.hero?.url,
+      image:
+        frontmatter.images?.og?.url ||
+        frontmatter.openGraph?.image?.url ||
+        frontmatter.images?.twitter?.url ||
+        frontmatter.twitter?.image?.url ||
+        frontmatter.images?.social?.url ||
+        frontmatter.images?.hero?.url,
       keywords: frontmatter.keywords || [],
       noIndex: frontmatter.seo?.robots?.index === false
     });
@@ -134,6 +152,85 @@ function hasDynamicFeature(
 
     return feature.placement === placement;
   });
+}
+
+function renderPricingTableSection(section: PricingTableSection, index: number) {
+  if (section.pricingSource !== 'equipment-rental') {
+    return null;
+  }
+
+  const pricingTable = getEquipmentRentalPriceTable();
+
+  return (
+    <BaseSection
+      key={section.id || index}
+      variant="default"
+    >
+        <div className="overflow-x-auto">
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-gray-800">
+                  {pricingTable.table.columns.map((column) => (
+                    <th
+                      key={column}
+                      className={`px-4 py-2 text-base font-medium text-gray-300 border-b border-gray-700 uppercase ${
+                        column === 'Rental Period' ? 'text-left' : 'text-center'
+                      }`}
+                      scope="col"
+                    >
+                      {column}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {pricingTable.table.rows.map((row, index) => (
+                  <tr
+                    key={row.rentalPeriod}
+                    className={`hover:bg-gray-800/40 border-b-2 border-gray-700 ${index % 2 === 0 ? 'bg-gray-800/50' : 'bg-gray-900/50'}`}
+                  >
+                    <td className="px-4 py-3 text-base text-white">
+                      <div className="flex flex-col md:flex-row md:items-baseline md:gap-2">
+                        <div className="font-medium text-white">{row.rentalPeriod}</div>
+                        <div className="mt-1 text-sm text-gray-300 md:mt-0">{row.description}</div>
+                      </div>
+                    </td>
+                    <td className="px-4 py-3 text-base text-center text-white">
+                      {row.callToActionHref && row.savings === 'Call' ? (
+                        <Link href={row.callToActionHref} className="text-orange-400 underline underline-offset-2 hover:text-orange-300">
+                          {row.savings}
+                        </Link>
+                      ) : (
+                        row.savings
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-base font-medium text-center text-white">
+                      {row.callToActionHref && row.residentialRate === 'Call' ? (
+                        <Link href={row.callToActionHref} className="text-orange-400 underline underline-offset-2 hover:text-orange-300">
+                          {row.residentialRate}
+                        </Link>
+                      ) : (
+                        row.residentialRate
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-base font-medium text-center text-white">
+                      {row.callToActionHref && row.commercialRate === 'Call' ? (
+                        <Link href={row.callToActionHref} className="text-orange-400 underline underline-offset-2 hover:text-orange-300">
+                          {row.commercialRate}
+                        </Link>
+                      ) : (
+                        row.commercialRate
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </BaseSection>
+  );
 }
 
 /**
@@ -279,6 +376,9 @@ async function renderContentCardsPage(
                 items={section.items as ContentCardItem[]}
               />
             );
+
+          case 'pricing-table':
+            return renderPricingTableSection(section as PricingTableSection, index);
             
           default:
             return null;

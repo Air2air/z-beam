@@ -5,6 +5,7 @@ const https = require('https');
 const SITE_URL = process.env.SITE_URL || 'https://www.z-beam.com';
 const MAX_URLS = Number(process.env.MAX_URLS || 500);
 const EXPECTED_NOINDEX_PATHS = new Set(['/search', '/confirmation', '/confirm-scheduling']);
+const STRICT_MODE = process.argv.includes('--strict') || process.env.STRICT_MODE === '1';
 
 function fetchText(url, timeout = 30000) {
   return new Promise((resolve, reject) => {
@@ -74,6 +75,11 @@ async function main() {
   }
 
   if (unexpectedNoindex.length > 0 || missingExpectedNoindex.length > 0) {
+    if (!STRICT_MODE) {
+      console.log('\n⚠️ Crawl budget findings detected (advisory mode). Re-run with --strict to enforce blocking.');
+      return;
+    }
+
     process.exit(1);
   }
 

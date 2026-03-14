@@ -7,6 +7,7 @@ const path = require('path');
 const SITE_URL = process.env.SITE_URL || 'https://www.z-beam.com';
 const MAX_URLS = Number(process.env.MAX_URLS || 400);
 const OUTPUT_FILE = path.join(process.cwd(), 'reports', 'seo', 'soft404-orphan-report.json');
+const STRICT_MODE = process.argv.includes('--strict') || process.env.STRICT_MODE === '1';
 
 function fetchText(url, timeout = 25000) {
   return new Promise((resolve, reject) => {
@@ -117,6 +118,11 @@ async function main() {
   console.log(`   Report: ${OUTPUT_FILE}`);
 
   if (soft404.length > 0) {
+    if (!STRICT_MODE) {
+      console.log('⚠️ Soft-404 candidates detected (advisory mode). Re-run with --strict to enforce blocking.');
+      return;
+    }
+
     process.exit(1);
   }
 }

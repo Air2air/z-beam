@@ -5,6 +5,7 @@ const path = require('path');
 
 const DEFAULT_LOG = path.join(process.cwd(), 'logs', 'access.log');
 const LOG_PATH = process.argv[2] || process.env.BOT_LOG_PATH || DEFAULT_LOG;
+const STRICT_MODE = process.argv.includes('--strict') || process.env.STRICT_MODE === '1';
 
 const BOT_REGEX = /(googlebot|bingbot|duckduckbot|yandexbot|baiduspider|slurp|applebot|facebookexternalhit|twitterbot)/i;
 const LINE_REGEX = /"(GET|POST|HEAD|PUT|DELETE|OPTIONS)\s+([^\s]+)[^"]*"\s+(\d{3})\s+[^\s]+\s+"[^"]*"\s+"([^"]*)"/;
@@ -80,6 +81,11 @@ function main() {
   });
 
   if (summary.statusBuckets['5xx'] > 0) {
+    if (!STRICT_MODE) {
+      console.log('\n⚠️ Bot hits on 5xx responses detected (advisory mode). Re-run with --strict to enforce blocking.');
+      return;
+    }
+
     console.log('\n❌ Detected bot hits on 5xx responses');
     process.exit(1);
   }

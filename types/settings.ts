@@ -62,6 +62,14 @@ export interface SettingsYAML {
       url: string;
       alt?: string;
     };
+    og?: {
+      url: string;
+      alt?: string;
+    };
+    twitter?: {
+      url: string;
+      alt?: string;
+    };
   };
   
   // SEO fields (camelCase - ADR-006)

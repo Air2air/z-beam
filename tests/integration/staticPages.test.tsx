@@ -58,15 +58,27 @@ describe('YAML Static Pages Integration', () => {
 
   describe('Hero Image Configuration', () => {
     staticPages.forEach(pageName => {
-      it(`should have hero image configuration for ${pageName}`, () => {
+      it(`should have optional hero image configuration for ${pageName}`, () => {
         const yamlPath = path.join(process.cwd(), 'app', pageName, 'page.yaml');
         const content = fs.readFileSync(yamlPath, 'utf-8');
         const data = yaml.load(content) as any;
 
-        if (data.hero?.images?.hero) {
-          expect(data.hero.images.hero.url).toBeTruthy();
-          expect(data.hero.images.hero.alt).toBeTruthy();
+        if (data.images?.hero) {
+          expect(data.images.hero.url).toBeTruthy();
+          expect(data.images.hero.alt).toBeTruthy();
         }
+      });
+    });
+
+    it('should keep social image metadata on static pages without visible heroes', () => {
+      ['contact', 'services', 'equipment'].forEach(pageName => {
+        const yamlPath = path.join(process.cwd(), 'app', pageName, 'page.yaml');
+        const content = fs.readFileSync(yamlPath, 'utf-8');
+        const data = yaml.load(content) as any;
+
+        expect(data.images?.hero).toBeUndefined();
+        expect(data.images?.og?.url).toBeTruthy();
+        expect(data.images?.twitter?.url).toBeTruthy();
       });
     });
   });
@@ -196,11 +208,12 @@ describe('YAML Static Pages Integration', () => {
       it(`should have valid image paths for ${pageName}`, async () => {
         const frontmatter = await loadStaticPageFrontmatter(pageName);
         
-        if (frontmatter.hero?.images?.hero?.url) {
+        const imageUrl = frontmatter.images?.hero?.url || frontmatter.images?.og?.url;
+
+        if (imageUrl) {
           // Should start with / or http
-          const url = frontmatter.hero.images.hero.url;
           expect(
-            url.startsWith('/') || url.startsWith('http')
+            imageUrl.startsWith('/') || imageUrl.startsWith('http')
           ).toBe(true);
         }
       });

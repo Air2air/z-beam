@@ -37,6 +37,7 @@ describe('createStaticPage Integration Tests', () => {
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
       expect(metadata.description).toBeDefined();
+      expect(metadata.openGraph?.images?.[0]?.url).toContain('/images/og-contact.jpg');
     });
 
     it('should generate metadata for comparison page', async () => {
@@ -64,6 +65,7 @@ describe('createStaticPage Integration Tests', () => {
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
       expect(metadata.description).toBeDefined();
+      expect(metadata.openGraph?.images?.[0]?.url).toContain('/images/pages/rental.png');
     });
 
     it('should generate metadata for compliance page', async () => {
@@ -100,6 +102,7 @@ describe('createStaticPage Integration Tests', () => {
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
       expect(metadata.description).toBeDefined();
+      expect(metadata.openGraph?.images?.[0]?.url).toContain('/images/pages/rental.png');
     });
 
     it('should generate metadata for netalux page (dynamic)', async () => {

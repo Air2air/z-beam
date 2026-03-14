@@ -459,6 +459,14 @@ export interface FrontmatterData {
       url: string;
       alt: string;
     };
+    og?: {
+      url: string;
+      alt: string;
+    };
+    twitter?: {
+      url: string;
+      alt: string;
+    };
     micro?: {
       url: string;
       alt: string;

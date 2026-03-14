@@ -63,6 +63,7 @@ describe('staticPageLoader', () => {
     it('should enrich services pricing copy from site config', () => {
       const result = loadStaticPageFrontmatter('services') as {
         pageDescription: string;
+        images?: { hero?: { url?: string }; og?: { url?: string }; twitter?: { url?: string } };
         schema?: { offers?: { price?: string } };
         openGraph?: { description?: string };
         twitter?: { description?: string };
@@ -72,6 +73,18 @@ describe('staticPageLoader', () => {
       expect(result.schema?.offers?.price).toBe(String(EQUIPMENT_RENTAL_PRICING.packages.residential.hourlyRate));
       expect(result.openGraph?.description).toContain(`$${EQUIPMENT_RENTAL_PRICING.packages.residential.hourlyRate}/hr`);
       expect(result.twitter?.description).toContain(`$${EQUIPMENT_RENTAL_PRICING.packages.industrial.hourlyRate}/hr`);
+    });
+
+    it('should allow contact, services, and equipment to omit visible hero images while keeping social images', () => {
+      const pages = ['contact', 'services', 'equipment'] as const;
+
+      pages.forEach(pageKey => {
+        const result = loadStaticPageFrontmatter(pageKey);
+
+        expect(result.images?.hero).toBeUndefined();
+        expect(result.images?.og?.url).toBeTruthy();
+        expect(result.images?.twitter?.url).toBeTruthy();
+      });
     });
 
     it('should keep pricing literals out of services yaml source', () => {

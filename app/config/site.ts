@@ -7,12 +7,12 @@ import type { StandardGridProps, NavItem } from '@/types';
 const EQUIPMENT_RENTAL_PACKAGES = {
   residential: {
     name: 'Residential',
-    hourlyRate: 190,
+    hourlyRate: 200,
     sku: 'ZB-EQUIP-RES'
   },
   industrial: {
     name: 'Industrial',
-    hourlyRate: 270,
+    hourlyRate: 300,
     sku: 'ZB-EQUIP-IND'
   }
 } as const;
@@ -21,6 +21,13 @@ const EQUIPMENT_RENTAL_CURRENCY = 'USD' as const;
 const EQUIPMENT_RENTAL_UNIT = 'hour' as const;
 const EQUIPMENT_RENTAL_MINIMUM_HOURS = 2 as const;
 const EQUIPMENT_RENTAL_SKU = 'ZB-EQUIP-RENT' as const;
+
+export const EQUIPMENT_RENTAL_DISCOUNTS = {
+  discount_base: 0,
+  discount_full_day: 7,
+  discount_multi_day: 15,
+  discount_weekend: 12,
+} as const;
 
 type EquipmentRentalPackage = (typeof EQUIPMENT_RENTAL_PACKAGES)[keyof typeof EQUIPMENT_RENTAL_PACKAGES];
 

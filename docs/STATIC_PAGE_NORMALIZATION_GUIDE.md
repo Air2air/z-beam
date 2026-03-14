@@ -46,7 +46,7 @@ At minimum, static-page frontmatter should include:
 
 ```yaml
 pageTitle: Example Page Title
-pageDescription: Concise summary for hero and SEO
+pageDescription: Concise summary for page copy and SEO
 slug: example-page
 breadcrumb:
   - name: Home
@@ -63,6 +63,8 @@ sections:
       description: Short section summary
     items: []
 ```
+
+Visible page hero images are optional. Use `images.hero` only when the route should render the shared hero section. If a page should keep social previews but drop the visible hero, remove `images.hero` and leave `images.og` and `images.twitter` intact.
 
 ## Rendering Rules
 - Pass the full frontmatter object into `Layout` so breadcrumbs, hero content, page description, and metadata stay in parity with article pages.

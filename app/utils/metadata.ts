@@ -100,6 +100,10 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   let heroImageWidth: number | undefined;
   let heroImageHeight: number | undefined;
   
+  const socialImage = images && typeof images === 'object' && 'og' in images
+    ? (images as any).og
+    : undefined;
+
   if (images && typeof images === 'object' && 'hero' in images) {
     const hero = (images as any).hero;
     if (hero && hero.url) {
@@ -109,6 +113,13 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       heroImageWidth = hero.width;
       heroImageHeight = hero.height;
     }
+  }
+  if (!heroImageUrl && socialImage?.url) {
+    heroImageUrl = socialImage.url.startsWith('http')
+      ? socialImage.url
+      : `${SITE_CONFIG.url}${socialImage.url}`;
+    heroImageWidth = socialImage.width;
+    heroImageHeight = socialImage.height;
   }
   // Fall back to legacy image field
   if (!heroImageUrl && ogImage) {
@@ -124,8 +135,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   
   // Get hero image alt text for accessibility (use rawTitle since title is derived later)
   const heroImageAlt = images && typeof images === 'object' && 'hero' in images
-    ? (images as any).hero?.alt || `${rawTitle} - Laser cleaning process`
-    : `${rawTitle} hero image`;
+    ? (images as any).hero?.alt || socialImage?.alt || `${rawTitle} - Laser cleaning process`
+    : socialImage?.alt || `${rawTitle} hero image`;
   
   // Safely extract strings from potentially nested objects
   const title = extractSafeValue(rawTitle);

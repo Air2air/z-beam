@@ -453,6 +453,18 @@ export interface ArticleMetadata {
       width?: number;
       height?: number;
     };
+    og?: {
+      url?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+    };
+    twitter?: {
+      url?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+    };
     micro?: {
       url?: string;
       alt?: string;
