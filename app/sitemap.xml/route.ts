@@ -167,6 +167,7 @@ function collectEntries(baseUrl: string): SitemapEntry[] {
     { url: baseUrl, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.REAL_TIME, priority: SITEMAP_PRIORITIES.HOMEPAGE },
     { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.INFORMATIONAL },
     { url: `${baseUrl}/rental`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.MONEY_PAGES },
+    { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.MONEY_PAGES },
     { url: `${baseUrl}/partners`, lastModified: new Date('2025-10-17'), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.PARTNER_PAGES },
     { url: `${baseUrl}/netalux`, lastModified: new Date('2025-10-25'), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.PARTNER_PAGES },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.INFORMATIONAL },

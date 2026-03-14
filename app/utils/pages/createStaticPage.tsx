@@ -31,6 +31,7 @@ import { BaseSection } from '@/app/components/BaseSection';
 import { ComparisonTable } from '@/app/components/ComparisonTable';
 import { ContactInfo } from '@/app/components/Contact/ContactInfo';
 import { ClickableCard } from '@/app/components/ClickableCard';
+import { Pricing } from '@/app/components/Pricing/Pricing';
 import { ScheduleContent } from '@/app/components/Schedule/ScheduleContent';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { loadStaticPageFrontmatter, type StaticPageFrontmatter } from '@/app/utils/staticPageLoader';
@@ -73,6 +74,7 @@ type StaticPageType =
   | 'safety'
   | 'schedule'  // NEW: Dynamic pages
   | 'services'
+  | 'pricing'
   | 'netalux'
   | 'comparison';
 
@@ -163,6 +165,12 @@ const PAGE_CONFIGS = {
   },
   services: {
     pageType: 'dynamic-content' as PageArchitecture,
+    hasClickableCards: true,
+    robotsIndex: true
+  },
+  pricing: {
+    pageType: 'dynamic-content' as PageArchitecture,
+    hasPricingWidget: true,
     hasClickableCards: true,
     robotsIndex: true
   },
@@ -270,6 +278,56 @@ function generatePageSpecificSchema(
           }
         ]
       };
+
+    case 'pricing': {
+      const rentalPackages = Object.values(SITE_CONFIG.pricing.equipmentRental.packages);
+      const packageRates = rentalPackages.map((pkg) => pkg.hourlyRate);
+
+      return {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Service',
+            name: frontmatter.pageTitle,
+            description: frontmatter.pageDescription,
+            provider: {
+              '@type': 'Organization',
+              name: SITE_CONFIG.name,
+              url: SITE_CONFIG.url
+            },
+            areaServed: 'United States'
+          },
+          {
+            '@type': 'Product',
+            name: 'Laser Cleaning Equipment Rental Pricing',
+            description: frontmatter.pageDescription,
+            brand: {
+              '@type': 'Brand',
+              name: SITE_CONFIG.name
+            },
+            offers: {
+              '@type': 'AggregateOffer',
+              lowPrice: Math.min(...packageRates),
+              highPrice: Math.max(...packageRates),
+              offerCount: rentalPackages.length,
+              priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+              offers: rentalPackages.map((pkg) => ({
+                '@type': 'Offer',
+                name: `${pkg.name} Package`,
+                price: pkg.hourlyRate,
+                priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
+                url: `${SITE_CONFIG.url}/pricing`,
+                availability: 'https://schema.org/InStock'
+              }))
+            }
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: breadcrumbItems
+          }
+        ]
+      };
+    }
       
     case 'schedule':
       return {
@@ -403,12 +461,22 @@ function renderDynamicContentPage(
           <ScheduleContent />
         </BaseSection>
       )}
-      
-      {/* Services-specific: Clickable cards from YAML */}
-      {pageType === 'services' && frontmatter.clickableCards && (
+
+      {pageType === 'pricing' && config?.hasPricingWidget && (
         <BaseSection
-          title="Our Services"
-          description="Comprehensive laser cleaning solutions"
+          title="Current Equipment Rental Pricing"
+          description="Live rental rates are pulled from the shared site pricing configuration so this page stays aligned with the rest of the site."
+          variant="default"
+        >
+          <Pricing variant="simple" />
+        </BaseSection>
+      )}
+      
+      {/* Dynamic card grids from YAML */}
+      {config?.hasClickableCards && frontmatter.clickableCards && (
+        <BaseSection
+          title={pageType === 'pricing' ? 'Next Steps' : 'Our Services'}
+          description={pageType === 'pricing' ? 'Choose the rental or quote path that matches your job scope.' : 'Comprehensive laser cleaning solutions'}
           variant="default"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
