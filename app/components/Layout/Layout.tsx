@@ -93,6 +93,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
 export function Layout(props: LayoutProps) {
   const { title, components, metadata, slug, customHeroOverlay } = props;
   const containerClass = props.className || CONTAINER_STYLES.main;
+  const showAuthor = !props.hideAuthor;
   
   // Common page setup
   const pathname = slug ? `/${slug}` : '/';
@@ -129,11 +130,13 @@ export function Layout(props: LayoutProps) {
       {/* Article Header - only for pages with components */}
       {components ? (
         <header className="header-section mb-6">
-          <Author 
-            frontmatter={metadata}
-            showAvatar showCredentials showCountry showSpecialties
-            className="mb-4"
-          />
+          {showAuthor && (
+            <Author 
+              frontmatter={metadata}
+              showAvatar showCredentials showCountry showSpecialties
+              className="mb-4"
+            />
+          )}
           <PageTitle 
             level="page" 
             title={title || metadata?.title || 'Article'} 
@@ -193,7 +196,7 @@ export function Layout(props: LayoutProps) {
         /* Regular page title */
         title && (
           <>
-            {metadata?.author && (
+            {showAuthor && metadata?.author && (
               <Author
                 frontmatter={metadata}
                 showAvatar
@@ -206,7 +209,7 @@ export function Layout(props: LayoutProps) {
             <PageTitle 
               level="page" 
               title={title} 
-              pageDescription={props.pageDescription} 
+              pageDescription={props.pageDescription || metadata?.pageDescription || metadata?.description} 
               rightContent={props.rightContent}
             />
           </>

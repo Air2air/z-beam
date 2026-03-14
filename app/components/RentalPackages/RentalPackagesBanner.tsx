@@ -1,6 +1,7 @@
 // app/components/RentalPackages/RentalPackagesBanner.tsx
 import Link from 'next/link';
-import { SITE_CONFIG } from '@/app/config/site';
+import { EQUIPMENT_RENTAL_PRICING } from '@/app/config/site';
+import { SERVICES_HUB_PATH } from '@/app/utils/pages/staticPagePolicy';
 
 export interface RentalPackagesBannerProps {
   variant?: 'compact' | 'full';
@@ -9,11 +10,11 @@ export interface RentalPackagesBannerProps {
 /**
  * Rental Pricing Banner Component
  * 
- * Displays rental package information with link to rental page.
+ * Displays rental package information with link to the services offer page.
  * Can be placed at top of static pages for quick rental info access.
  */
 export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBannerProps) {
-  const { packages, minimumHours } = SITE_CONFIG.pricing.equipmentRental;
+  const { packages, minimumHours } = EQUIPMENT_RENTAL_PRICING;
   const residentialRate = packages.residential.hourlyRate;
   const industrialRate = packages.industrial.hourlyRate;
   
@@ -52,7 +53,7 @@ export function RentalPackagesBanner({ variant = 'compact' }: RentalPackagesBann
           </div>
           
           <Link
-            href="/rental"
+            href={SERVICES_HUB_PATH}
             className="inline-flex items-center gap-2 bg-white text-blue-700 px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-50 transition-colors shadow-md"
           >
             Rental Info

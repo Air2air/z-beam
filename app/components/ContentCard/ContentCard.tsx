@@ -69,6 +69,7 @@ export function ContentCard({
   const canNavigateCard = !!normalizedHref;
   const destinationUrl = normalizedHref || websiteUrl || undefined;
   const isInternalDestination = !!destinationUrl && destinationUrl.startsWith('/');
+  const isLogoImage = !!image?.url && image.url.includes('/images/logo/');
   const interactiveCardClasses = hasHref ? 'card-enhanced-hover transition-smooth cursor-pointer' : '';
   
   // Determine card type for semantic context
@@ -89,7 +90,9 @@ export function ContentCard({
       text: 'text-base',
       details: 'space-y-2',
       imageFrame: 'aspect-video',
-      imageWrapper: 'w-full',
+      logoFrame: 'aspect-[5/2]',
+      imageWrapper: 'w-[88%] md:w-[84%] mx-auto',
+      logoWrapper: 'w-[56%] md:w-[52%] mx-auto',
     },
     inline: {
       container: '',
@@ -99,7 +102,9 @@ export function ContentCard({
       text: 'text-base',
       details: 'space-y-2',
       imageFrame: 'aspect-video',
-      imageWrapper: 'w-full',
+      logoFrame: 'aspect-[5/2]',
+      imageWrapper: 'w-[88%] md:w-[84%] mx-auto',
+      logoWrapper: 'w-[56%] md:w-[52%] mx-auto',
     },
     compact: {
       container: 'card-background',
@@ -109,9 +114,14 @@ export function ContentCard({
       text: 'text-base',
       details: 'space-y-1',
       imageFrame: 'aspect-video',
+      logoFrame: 'aspect-[5/2]',
       imageWrapper: 'w-[88%] md:w-[84%] mx-auto',
+      logoWrapper: 'w-[48%] md:w-[44%] mx-auto',
     },
   };
+  const imageObjectClass = isLogoImage ? 'object-contain object-center p-3' : 'object-cover';
+  const activeImageFrameClass = isLogoImage ? variantClasses[variant].logoFrame : variantClasses[variant].imageFrame;
+  const imageFigureClass = `${isLogoImage ? variantClasses[variant].logoWrapper : variantClasses[variant].imageWrapper} flex items-center self-center order-1 md:order-none md:col-span-2`;
 
   return (
     <article
@@ -192,8 +202,8 @@ export function ContentCard({
       {/* Content Grid - Text and Image side by side */}
       <div
         className={`flex flex-col ${
-          image ? 'md:grid md:grid-cols-3' : ''
-        } ${variantClasses[variant].gridGap} items-start`}
+          image ? 'md:grid md:grid-cols-5' : ''
+        } ${variantClasses[variant].gridGap} ${isLogoImage ? 'items-center' : 'items-start'}`}
       >
       {/* Image - Left Side (but always first on mobile) */}
       {image && isImageLeft && (
@@ -203,20 +213,20 @@ export function ContentCard({
           aria-describedby={imageId}
           itemScope
           itemType="https://schema.org/ImageObject"
-          className={`${variantClasses[variant].imageWrapper} flex items-center order-1 md:order-none`}
+          className={imageFigureClass}
         >
           {destinationUrl && !canNavigateCard ? (
             isInternalDestination ? (
               <Link
                 href={destinationUrl}
-                className={`block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                className={`block relative w-full ${activeImageFrameClass} rounded-md overflow-hidden`}
                 aria-label={`View ${heading}`}
               >
                 <Image
                   src={image.url}
                   alt={image.alt || `Visual illustration for ${heading}`}
                   fill
-                  className="object-cover"
+                  className={imageObjectClass}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   itemProp="contentUrl"
                 />
@@ -225,26 +235,26 @@ export function ContentCard({
               <a
                 href={destinationUrl.startsWith('http') ? destinationUrl : `https://${destinationUrl}`}
                 target="_blank"
-                className={`${hasHref ? '' : 'card-enhanced-hover '}block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                className={`${hasHref ? '' : 'card-enhanced-hover '}block relative w-full ${activeImageFrameClass} rounded-md overflow-hidden`}
                 aria-label={`Visit website (opens in new tab)`}
               >
                 <Image
                   src={image.url}
                   alt={image.alt || `Visual illustration for ${heading}`}
                   fill
-                  className="object-cover"
+                  className={imageObjectClass}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   itemProp="contentUrl"
                 />
               </a>
             )
           ) : (
-            <div className={`relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}>
+            <div className={`relative w-full ${activeImageFrameClass} rounded-md overflow-hidden`}>
               <Image
                 src={image.url}
                 alt={image.alt || `Visual illustration for ${heading}`}
                 fill
-                className="object-cover"
+                className={imageObjectClass}
                 sizes="(max-width: 768px) 100vw, 33vw"
                 itemProp="contentUrl"
               />
@@ -258,7 +268,7 @@ export function ContentCard({
 
         {/* Content Area */}
         <div 
-          className={`${image ? 'md:col-span-2 order-2 md:order-none' : !hasOrder ? 'text-center max-w-4xl mx-auto' : ''}`}
+          className={`${image ? 'md:col-span-3 order-2 md:order-none' : !hasOrder ? 'text-center max-w-4xl mx-auto' : ''}`}
           aria-labelledby={titleId}
         >
           {/* Heading - Only show here if no order number */}
@@ -372,20 +382,20 @@ export function ContentCard({
             aria-describedby={imageId}
             itemScope
             itemType="https://schema.org/ImageObject"
-            className={`${variantClasses[variant].imageWrapper} flex items-center order-1 md:order-none`}
+            className={imageFigureClass}
           >
             {destinationUrl && !canNavigateCard ? (
               isInternalDestination ? (
                 <Link
                   href={destinationUrl}
-                  className={`block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                  className={`block relative w-full ${activeImageFrameClass} rounded-md overflow-hidden`}
                   aria-label={`View ${heading}`}
                 >
                   <Image
                     src={image.url}
                     alt={image.alt || `Visual illustration for ${heading}`}
                     fill
-                    className="object-cover"
+                    className={imageObjectClass}
                     sizes="(max-width: 768px) 100vw, 33vw"
                     itemProp="contentUrl"
                   />
@@ -394,26 +404,26 @@ export function ContentCard({
                 <a 
                   href={destinationUrl.startsWith('http') ? destinationUrl : `https://${destinationUrl}`}
                   target="_blank"
-                  className={`${hasHref ? '' : 'card-enhanced-hover '}block relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}
+                  className={`${hasHref ? '' : 'card-enhanced-hover '}block relative w-full ${activeImageFrameClass} rounded-md overflow-hidden`}
                   aria-label={`Visit website (opens in new tab)`}
                 >
                   <Image
                     src={image.url}
                     alt={image.alt || `Visual illustration for ${heading}`}
                     fill
-                    className="object-cover"
+                    className={imageObjectClass}
                     sizes="(max-width: 768px) 100vw, 33vw"
                     itemProp="contentUrl"
                   />
                 </a>
               )
             ) : (
-              <div className={`relative w-full ${variantClasses[variant].imageFrame} rounded-md overflow-hidden`}>
+              <div className={`relative w-full ${activeImageFrameClass} rounded-md overflow-hidden`}>
                 <Image
                   src={image.url}
                   alt={image.alt || `Visual illustration for ${heading}`}
                   fill
-                  className="object-cover"
+                  className={imageObjectClass}
                   sizes="(max-width: 768px) 100vw, 33vw"
                   itemProp="contentUrl"
                 />

@@ -109,6 +109,10 @@ export const trackGoogleAdsConversion = (
   });
 };
 
+const getConfiguredGoogleAdsConversionLabel = () =>
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CONTACT_PAGE_CONVERSION_LABEL ||
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_THANK_YOU_CONVERSION_LABEL;
+
 const trackEventWhenReady = (
   eventName: string,
   eventParams?: Record<string, any>,
@@ -140,24 +144,8 @@ const trackEventWhenReady = (
   }, intervalMs);
 };
 
-export const trackThankYouLeadEvent = () => {
-  trackEventWhenReady('generate_lead', {
-    event_category: 'Contact',
-    event_label: 'Thank You Page',
-    conversion_location: 'thank_you_page',
-    method: 'contact_form',
-    value: 1,
-    currency: 'USD',
-  });
-};
-
-/**
- * Track thank-you page conversion using env-configured Google Ads conversion label
- */
-export const trackThankYouPageConversion = () => {
-  trackThankYouLeadEvent();
-
-  const conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_THANK_YOU_CONVERSION_LABEL;
+export const trackContactPageGoogleAdsConversion = () => {
+  const conversionLabel = getConfiguredGoogleAdsConversionLabel();
   if (!conversionLabel) {
     return;
   }

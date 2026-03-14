@@ -98,8 +98,8 @@ describe('createStaticPage Error Handling', () => {
       await expect(Page()).resolves.toBeDefined();
     });
 
-    it('should handle rental page with missing comparison data', async () => {
-      const { default: Page } = createStaticPage('rental');
+    it('should handle services page render with content-card sections', async () => {
+      const { default: Page } = createStaticPage('services');
       
       // Should render even if comparison data fails to load
       await expect(Page()).resolves.toBeDefined();
@@ -176,8 +176,8 @@ describe('createStaticPage Error Handling', () => {
       expect(result.type).toBeDefined();
     });
 
-    it('should handle operations page rendering', async () => {
-      const { default: Page } = createStaticPage('operations');
+    it('should handle compliance page rendering', async () => {
+      const { default: Page } = createStaticPage('compliance');
       const result = await Page();
       
       expect(result).toBeDefined();
@@ -199,7 +199,7 @@ describe('createStaticPage Error Handling', () => {
   
   describe('Content Architecture', () => {
     it('should handle content-cards architecture', async () => {
-      const contentCardPages = ['rental', 'about', 'contact', 'partners', 'equipment', 'operations', 'safety', 'comparison'];
+      const contentCardPages = ['services', 'about', 'contact', 'partners', 'equipment', 'compliance', 'safety', 'comparison'];
       
       for (const pageType of contentCardPages) {
         const { default: Page } = createStaticPage(pageType as any);
@@ -211,7 +211,7 @@ describe('createStaticPage Error Handling', () => {
     });
 
     it('should handle dynamic-content architecture', async () => {
-      const dynamicPages = ['schedule', 'services', 'netalux'];
+      const dynamicPages = ['schedule', 'netalux'];
       
       for (const pageType of dynamicPages) {
         const { default: Page } = createStaticPage(pageType as any);
@@ -245,7 +245,7 @@ describe('createStaticPage Error Handling', () => {
     });
 
     it('should generate unique metadata for each page type', async () => {
-      const pageTypes = ['rental', 'about', 'contact', 'comparison'];
+      const pageTypes = ['services', 'about', 'contact', 'comparison'];
       const metadataResults = [];
       
       for (const pageType of pageTypes) {
@@ -401,7 +401,7 @@ describe('createStaticPage Error Handling', () => {
     
     it('should handle sections with undefined items', async () => {
       // Tests line 510: if (!section.items || !Array.isArray(section.items))
-      const { default: Page } = createStaticPage('rental');
+      const { default: Page } = createStaticPage('services');
       const result = await Page();
       
       expect(result).toBeDefined();
@@ -446,7 +446,7 @@ describe('createStaticPage Error Handling', () => {
     });
     
     it('should handle sections without type property', async () => {
-      const { default: Page } = createStaticPage('rental');
+      const { default: Page } = createStaticPage('services');
       const result = await Page();
       
       expect(result).toBeDefined();

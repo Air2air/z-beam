@@ -254,7 +254,6 @@ function appendBlock(content: string, block: string): string {
 
 function loadMaterialOfferSeed(): OfferSeed | null {
   const candidateFiles = [
-    path.join(process.cwd(), 'app/rental/page.yaml'),
     path.join(process.cwd(), 'app/services/page.yaml')
   ];
 

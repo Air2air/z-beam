@@ -6,11 +6,11 @@
  * Ensures that all static pages using createStaticPage have complete configuration
  * across all required locations:
  * 
- * 1. PAGE_CONFIGS in createStaticPage.tsx
+ * 1. Shared static-page registry entries
  * 2. generatePageSpecificSchema switch cases
- * 3. staticPageLoader.test.ts pageDirectories array
- * 4. Actual page directory exists in app/
- * 5. page.yaml exists with required frontmatter
+ * 3. staticPageLoader.test.ts uses the shared registry keys
+ * 4. Actual page route exists in app/
+ * 5. page.yaml exists at the registry-defined path
  * 
  * This prevents gaps like:
  * - Missing test coverage
@@ -47,7 +47,8 @@ const VERBOSE = process.argv.includes('--verbose');
 
 // File paths
 const ROOT_DIR = path.resolve(__dirname, '../../..');
-const CREATE_STATIC_PAGE_PATH = path.join(ROOT_DIR, 'app/utils/pages/createStaticPage.tsx');
+const STATIC_PAGE_POLICY_PATH = path.join(ROOT_DIR, 'app/utils/pages/staticPagePolicy.tsx');
+const STATIC_PAGE_REGISTRY_PATH = path.join(ROOT_DIR, 'app/utils/pages/staticPageRegistry.json');
 const TEST_PATH = path.join(ROOT_DIR, 'tests/utils/staticPageLoader.test.ts');
 const APP_DIR = path.join(ROOT_DIR, 'app');
 
@@ -61,31 +62,22 @@ function log(message, color = 'reset', forceShow = true) {
 }
 
 /**
- * Extract PAGE_CONFIGS keys from createStaticPage.tsx
+ * Load shared static-page registry entries
  */
-function extractPageConfigsKeys() {
+function loadStaticPageRegistry() {
   try {
-    const content = fs.readFileSync(CREATE_STATIC_PAGE_PATH, 'utf8');
-    
-    // Find PAGE_CONFIGS object and extract keys
-    const pageConfigsMatch = content.match(/const PAGE_CONFIGS = \{([\s\S]*?)\n\};/);
-    if (!pageConfigsMatch) {
-      throw new Error('Could not find PAGE_CONFIGS object');
-    }
-    
-    const configContent = pageConfigsMatch[1];
-    const keyMatches = configContent.matchAll(/^\s*(\w+):\s*\{/gm);
-    const keys = Array.from(keyMatches, match => match[1]);
-    
-    log(`Found ${keys.length} pages in PAGE_CONFIGS`, 'cyan');
+    const registry = JSON.parse(fs.readFileSync(STATIC_PAGE_REGISTRY_PATH, 'utf8'));
+    const keys = Object.keys(registry);
+
+    log(`Found ${keys.length} pages in the shared static-page registry`, 'cyan');
     if (VERBOSE) {
       keys.forEach(key => log(`  - ${key}`, 'reset'));
     }
-    
-    return keys;
+
+    return registry;
   } catch (error) {
-    log(`❌ Error extracting PAGE_CONFIGS: ${error.message}`, 'red', true);
-    return [];
+    log(`❌ Error loading static-page registry: ${error.message}`, 'red', true);
+    return {};
   }
 }
 
@@ -94,16 +86,9 @@ function extractPageConfigsKeys() {
  */
 function extractSchemaCases() {
   try {
-    const content = fs.readFileSync(CREATE_STATIC_PAGE_PATH, 'utf8');
-    
-    // Find generatePageSpecificSchema function and extract switch cases
-    const schemaFunctionMatch = content.match(/function generatePageSpecificSchema[\s\S]*?switch \(pageType\) \{([\s\S]*?)\n\s*\}/);
-    if (!schemaFunctionMatch) {
-      throw new Error('Could not find generatePageSpecificSchema switch statement');
-    }
-    
-    const switchContent = schemaFunctionMatch[1];
-    const caseMatches = switchContent.matchAll(/case '(\w+)':/g);
+    const content = fs.readFileSync(STATIC_PAGE_POLICY_PATH, 'utf8');
+
+    const caseMatches = content.matchAll(/case '([\w-]+)':/g);
     const cases = Array.from(caseMatches, match => match[1]);
     
     log(`Found ${cases.length} schema cases in generatePageSpecificSchema`, 'cyan');
@@ -119,31 +104,16 @@ function extractSchemaCases() {
 }
 
 /**
- * Extract page directories from staticPageLoader.test.ts
+ * Confirm the loader test derives its inventory from the shared registry
  */
-function extractTestPageDirectories() {
+function loaderTestUsesSharedRegistry() {
   try {
     const content = fs.readFileSync(TEST_PATH, 'utf8');
-    
-    // Find pageDirectories array
-    const arrayMatch = content.match(/const pageDirectories(?::\s*string\[\])?\s*=\s*\[([\s\S]*?)\];/);
-    if (!arrayMatch) {
-      throw new Error('Could not find pageDirectories array');
-    }
-    
-    const arrayContent = arrayMatch[1];
-    const dirMatches = arrayContent.matchAll(/'(\w+)'/g);
-    const directories = Array.from(dirMatches, match => match[1]);
-    
-    log(`Found ${directories.length} pages in test pageDirectories`, 'cyan');
-    if (VERBOSE) {
-      directories.forEach(dir => log(`  - ${dir}`, 'reset'));
-    }
-    
-    return directories;
+
+    return content.includes('STATIC_PAGE_KEYS');
   } catch (error) {
-    log(`❌ Error extracting test directories: ${error.message}`, 'red', true);
-    return [];
+    log(`❌ Error checking loader test registry usage: ${error.message}`, 'red', true);
+    return false;
   }
 }
 
@@ -202,15 +172,17 @@ function validateStaticPageCompleteness() {
   // Step 1: Extract all page identifiers from different sources
   log('📋 Step 1: Extracting page configurations...\n', 'blue', true);
   
-  const configKeys = extractPageConfigsKeys();
+  const registry = loadStaticPageRegistry();
+  const registryKeys = Object.keys(registry);
+  const sharedFactoryKeys = registryKeys.filter(page => registry[page]?.usesSharedFactory);
   const schemaCases = extractSchemaCases();
-  const testDirectories = extractTestPageDirectories();
+  const testUsesRegistry = loaderTestUsesSharedRegistry();
   const actualDirectories = findActualPageDirectories();
   
   // Step 2: Build unified page list (union of all sources)
   const allPages = new Set([
-    ...configKeys,
-    ...actualDirectories
+    ...registryKeys,
+    ...actualDirectories,
   ]);
   
   log(`\n📊 Summary: Found ${allPages.size} unique pages\n`, 'cyan', true);
@@ -224,29 +196,36 @@ function validateStaticPageCompleteness() {
   allPages.forEach(page => {
     const pageIssues = [];
     
-    // Check 1: PAGE_CONFIGS entry
-    if (!configKeys.includes(page)) {
-      pageIssues.push(`❌ Missing PAGE_CONFIGS entry in createStaticPage.tsx`);
+    const registryEntry = registry[page];
+
+    // Check 1: Registry entry
+    if (!registryEntry) {
+      pageIssues.push(`❌ Missing shared static-page registry entry`);
     }
     
     // Check 2: Schema case
-    if (!schemaCases.includes(page)) {
+    if (sharedFactoryKeys.includes(page) && !schemaCases.includes(page)) {
       pageIssues.push(`⚠️  Missing schema case in generatePageSpecificSchema`);
       warnings.push(`${page}: No structured data schema defined`);
     }
     
     // Check 3: Test coverage
-    if (!testDirectories.includes(page)) {
-      pageIssues.push(`❌ Missing from staticPageLoader.test.ts pageDirectories`);
+    if (!testUsesRegistry) {
+      pageIssues.push(`❌ staticPageLoader.test.ts is not deriving page coverage from STATIC_PAGE_KEYS`);
     }
     
-    // Check 4: Directory exists
-    if (!actualDirectories.includes(page)) {
+    // Check 4: Route exists
+    if (page === 'home') {
+      const homePagePath = path.join(APP_DIR, 'page.tsx');
+      if (!fs.existsSync(homePagePath)) {
+        pageIssues.push(`❌ Root app/page.tsx does not exist`);
+      }
+    } else if (sharedFactoryKeys.includes(page) && !actualDirectories.includes(page)) {
       pageIssues.push(`❌ Directory app/${page}/ does not exist`);
     }
     
     // Check 5: page.yaml exists
-    if (actualDirectories.includes(page) && !checkPageYamlExists(page)) {
+    if (registryEntry?.yamlPath && !fs.existsSync(path.join(ROOT_DIR, registryEntry.yamlPath))) {
       pageIssues.push(`❌ Missing page.yaml configuration file`);
     }
     
@@ -285,9 +264,9 @@ function validateStaticPageCompleteness() {
   
   if (issues.length === 0 && warnings.length === 0) {
     log('\n✅ All static pages have complete configuration!', 'green', true);
-    log('   - PAGE_CONFIGS entries', 'green', true);
+    log('   - Shared registry entries', 'green', true);
     log('   - Schema cases (where applicable)', 'green', true);
-    log('   - Test coverage', 'green', true);
+    log('   - Loader test coverage from shared registry', 'green', true);
     log('   - Directory structure', 'green', true);
     log('   - YAML configuration', 'green', true);
   }
@@ -304,12 +283,15 @@ function validateStaticPageCompleteness() {
 function printFixingGuidance() {
   log('\n📖 HOW TO FIX ISSUES:\n', 'cyan', true);
   
-  log('1. Missing PAGE_CONFIGS entry:', 'yellow', true);
-  log('   → Add configuration to PAGE_CONFIGS in app/utils/pages/createStaticPage.tsx', 'reset', true);
+  log('1. Missing shared registry entry:', 'yellow', true);
+  log('   → Add configuration to app/utils/pages/staticPageRegistry.json', 'reset', true);
   log('   → Example:', 'reset', true);
-  log('     mypage: {', 'reset', true);
-  log('       pageType: \'content-cards\' as PageArchitecture,', 'reset', true);
-  log('       robotsIndex: true', 'reset', true);
+  log('     "mypage": {', 'reset', true);
+  log('       "routePath": "/mypage",', 'reset', true);
+  log('       "yamlPath": "app/mypage/page.yaml",', 'reset', true);
+  log('       "includeInSitemap": true,', 'reset', true);
+  log('       "usesSharedFactory": true,', 'reset', true);
+  log('       "pageType": "content-cards"', 'reset', true);
   log('     }', 'reset', true);
   
   log('\n2. Missing schema case:', 'yellow', true);

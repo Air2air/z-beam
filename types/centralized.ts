@@ -978,6 +978,7 @@ export interface LayoutProps {
   rightContent?: ReactNode;
   className?: string;
   customHeroOverlay?: boolean; // Enable custom overlay on Hero (homepage only)
+  hideAuthor?: boolean;
 }
 
 /**

@@ -13,6 +13,14 @@
 export {
   // Site Configuration
   SITE_CONFIG,
+  EQUIPMENT_RENTAL_PRICING,
+  getEquipmentRentalPackages,
+  getEquipmentRentalPricingBounds,
+  getEquipmentRentalPriceSummary,
+  getEquipmentRentalDescription,
+  getEquipmentRentalMetaDescription,
+  getEquipmentRentalSocialDescription,
+  createEquipmentRentalAggregateOffer,
   
   // Business Configuration
   BUSINESS_CONFIG,

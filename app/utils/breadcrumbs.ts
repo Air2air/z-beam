@@ -35,9 +35,28 @@ export function generateBreadcrumbs(
   const breadcrumbArray = metadata?.breadcrumb;
   
   if (breadcrumbArray && Array.isArray(breadcrumbArray)) {
-    const validBreadcrumbs = breadcrumbArray.filter(
-      (item: any) => item && typeof item.label === 'string' && typeof item.href === 'string'
-    );
+    const validBreadcrumbs = breadcrumbArray
+      .map((item: any) => {
+        if (!item || typeof item.href !== 'string') {
+          return null;
+        }
+
+        const label = typeof item.label === 'string'
+          ? item.label
+          : typeof item.name === 'string'
+            ? item.name
+            : null;
+
+        if (!label) {
+          return null;
+        }
+
+        return {
+          label,
+          href: item.href,
+        } satisfies BreadcrumbItem;
+      })
+      .filter((item): item is BreadcrumbItem => item !== null);
     
     if (validBreadcrumbs.length > 0) {
       // Ensure pageTitle is the last breadcrumb if pageTitle and fullPath exist

@@ -325,14 +325,17 @@ needle100_150:
 ### Partners Page
 
 ```yaml
-# static-pages/partners.yaml
-title: "Our Partners"
-contentCards:
-  - heading: "Laserverse - Canada"
-    details:
-      - "Location: Canada"
-      - "Region: North America"
-      - "Website: laserverse.ca"
+# app/partners/page.yaml
+pageTitle: "Laser Cleaning Partners | North America & Europe"
+sections:
+  - id: partner-cards
+    type: content-section
+    items:
+      - heading: "Laserverse - Canada"
+        details:
+          - "Location: Canada"
+          - "Region: North America"
+          - "Website: laserverse.ca"
 ```
 
 **Generated Schemas:**

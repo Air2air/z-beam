@@ -20,7 +20,7 @@ The `StaticPage` component is a reusable page template for simple static content
 - Page has simple YAML config + markdown content
 - No custom React components needed
 - Standard layout with optional hero image
-- Examples: `/services`, `/rental`
+- Examples: `/services`, `/partners`
 
 ❌ **Don't use StaticPage when:**
 - Page has custom React components (forms, interactive widgets)
@@ -107,7 +107,7 @@ export default async function YourPage() {
 ```typescript
 interface StaticPageProps {
   /** 
-   * Slug for the page (e.g., 'services', 'rental')
+  * Slug for the page (e.g., 'services', 'partners')
    * Used to load both YAML config and markdown content 
    */
   slug: string;
@@ -124,15 +124,18 @@ interface StaticPageProps {
 
 ### Services Page
 - **Route**: `/services`
-- **Config**: `static-pages/services.yaml`
+- **Config**: `app/services/page.yaml`
 - **Content**: `[REMOVED] content/components/text/services.md`
-- **Features**: Hero image, markdown content
+- **Features**: Hero image, clickable service cards, frontmatter-driven hub page
 
-### Rental Page
-- **Route**: `/rental`
-- **Config**: `static-pages/rental.yaml`
-- **Content**: `[REMOVED] content/components/text/rental.md`
-- **Features**: Hero image, markdown content
+### Services Page
+- **Route**: `/services`
+- **Config**: `app/services/page.yaml`
+- **Content**: `[REMOVED] content/components/text/services.md`
+- **Features**: Hero image, rental offer content, pricing/support flow, and frontmatter-driven resource cards
+
+### Route Rule
+- Use `/services` for generic section navigation, breadcrumbs, sitemap hub entries, and the live rental offer content.
 
 ## Hero Image Configuration
 

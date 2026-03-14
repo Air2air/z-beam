@@ -62,21 +62,24 @@ export default async function PartnersPage() {
 **Frontmatter drives everything:**
 
 ```yaml
-# static-pages/partners.yaml
-title: "Z-Beam Partners"
-description: "Trusted partners providing laser cleaning equipment..."
+# app/partners/page.yaml
+pageTitle: "Laser Cleaning Partners | North America & Europe"
+pageDescription: "Authorized laser cleaning partners across North America and Europe."
 keywords:
   - "laser cleaning partners"
   - "authorized distributors"
 
-contentCards:
-  - heading: "Laserverse - Canada"
-    text: "Laserverse is North America's premier provider..."
-    details:
-      - "Location: Canada"
-      - "Region: North America"
-      - "Specialization: Equipment Distribution & Training"
-      - "Website: laserverse.ca"
+sections:
+  - id: partner-cards
+    type: content-section
+    items:
+      - heading: "Laserverse - Canada"
+        text: "Laserverse is North America's premier provider..."
+        details:
+          - "Location: Canada"
+          - "Region: North America"
+          - "Specialization: Equipment Distribution & Training"
+          - "Website: laserverse.ca"
 ```
 
 **StaticPage automatically generates:**

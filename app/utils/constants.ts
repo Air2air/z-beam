@@ -7,6 +7,14 @@
 
 export {
   SITE_CONFIG,
+  EQUIPMENT_RENTAL_PRICING,
+  getEquipmentRentalPackages,
+  getEquipmentRentalPricingBounds,
+  getEquipmentRentalPriceSummary,
+  getEquipmentRentalDescription,
+  getEquipmentRentalMetaDescription,
+  getEquipmentRentalSocialDescription,
+  createEquipmentRentalAggregateOffer,
   ANIMATION_CONFIG,
   COMPONENT_DEFAULTS,
   BREAKPOINTS

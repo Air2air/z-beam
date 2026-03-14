@@ -181,7 +181,7 @@ callouts:
     variant: "inline"
 ```
 
-**Examples:** `/services`, `/rental`
+**Examples:** `/services`, `/partners`
 
 **See:** [Static Page Pattern Guide](./guides/static-page-pattern.md)
 

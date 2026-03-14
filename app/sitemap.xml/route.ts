@@ -7,6 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import { buildCategoryUrl, buildSubcategoryUrl, buildUrlFromMetadata } from '../utils/urlBuilder';
 import { toCategorySlug } from '../utils/formatting';
+import { getStaticPageEntry, SITEMAP_STATIC_PAGE_KEYS } from '../utils/pages/staticPageRegistry';
 
 export const dynamic = 'force-static';
 
@@ -29,6 +30,25 @@ const CHANGE_FREQUENCY = {
   REAL_TIME: 'daily',
   HIGH_VALUE: 'weekly',
   MODERATE: 'monthly',
+} as const;
+
+const STATIC_PAGE_SITEMAP_RULES = {
+  homepage: {
+    changeFrequency: CHANGE_FREQUENCY.REAL_TIME,
+    priority: SITEMAP_PRIORITIES.HOMEPAGE,
+  },
+  'content-hub': {
+    changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE,
+    priority: SITEMAP_PRIORITIES.CONTENT_HUBS,
+  },
+  informational: {
+    changeFrequency: CHANGE_FREQUENCY.MODERATE,
+    priority: SITEMAP_PRIORITIES.INFORMATIONAL,
+  },
+  'partner-page': {
+    changeFrequency: CHANGE_FREQUENCY.MODERATE,
+    priority: SITEMAP_PRIORITIES.PARTNER_PAGES,
+  },
 } as const;
 
 // 16 locales for international SEO coverage
@@ -159,17 +179,32 @@ function generateStandardDomainEntries(
   }
 }
 
+function buildStaticPageEntries(baseUrl: string): SitemapEntry[] {
+  return SITEMAP_STATIC_PAGE_KEYS.map(pageKey => {
+    const pageEntry = getStaticPageEntry(pageKey);
+    const sitemapRule = pageEntry.sitemapBucket
+      ? STATIC_PAGE_SITEMAP_RULES[pageEntry.sitemapBucket]
+      : {
+          changeFrequency: CHANGE_FREQUENCY.MODERATE,
+          priority: SITEMAP_PRIORITIES.INFORMATIONAL,
+        };
+    const url = pageEntry.routePath === '/' ? baseUrl : `${baseUrl}${pageEntry.routePath}`;
+
+    return {
+      url,
+      lastModified: new Date(),
+      changeFrequency: sitemapRule.changeFrequency,
+      priority: sitemapRule.priority,
+    };
+  });
+}
+
 function collectEntries(baseUrl: string): SitemapEntry[] {
   const entries: SitemapEntry[] = [];
 
   // ── Static routes ──────────────────────────────────────────────────────────
   entries.push(
-    { url: baseUrl, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.REAL_TIME, priority: SITEMAP_PRIORITIES.HOMEPAGE },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.INFORMATIONAL },
-    { url: `${baseUrl}/rental`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.MONEY_PAGES },
-    { url: `${baseUrl}/partners`, lastModified: new Date('2025-10-17'), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.PARTNER_PAGES },
-    { url: `${baseUrl}/netalux`, lastModified: new Date('2025-10-25'), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.PARTNER_PAGES },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.MODERATE, priority: SITEMAP_PRIORITIES.INFORMATIONAL },
+    ...buildStaticPageEntries(baseUrl),
     { url: `${baseUrl}/search`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.REAL_TIME, priority: SITEMAP_PRIORITIES.SEARCH },
     { url: `${baseUrl}/materials`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.CONTENT_HUBS },
     { url: `${baseUrl}/contaminants`, lastModified: new Date(), changeFrequency: CHANGE_FREQUENCY.HIGH_VALUE, priority: SITEMAP_PRIORITIES.CONTENT_HUBS },

@@ -6,14 +6,13 @@ function readAppFile(relativePath: string): string {
 }
 
 describe('Conversion Tracking Route Scope', () => {
-  it('mounts ThankYouConversionTracker on /thank-you page', () => {
+  it('does not mount a route-specific conversion tracker on /thank-you page', () => {
     const thankYouPage = readAppFile('app/thank-you/page.tsx');
 
-    expect(thankYouPage).toContain("import ThankYouConversionTracker from './ThankYouConversionTracker';");
-    expect(thankYouPage).toContain('<ThankYouConversionTracker />');
+    expect(thankYouPage).not.toContain('ThankYouConversionTracker');
   });
 
-  it('does not mount conversion tracker on /contact page load', () => {
+  it('does not mount a dedicated tracker component on /contact page load', () => {
     const contactPage = readAppFile('app/contact/page.tsx');
 
     expect(contactPage).not.toContain('WorkizConversionBridge');

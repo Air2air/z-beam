@@ -160,7 +160,7 @@ describe('Breadcrumbs', () => {
     });
 
     it('should return null for static routes without frontmatter', () => {
-      const staticRoutes = ['about', 'contact', 'services', 'rental', 'partners', 'search'];
+      const staticRoutes = ['about', 'contact', 'services', 'partners', 'search'];
       
       staticRoutes.forEach(route => {
         const result = generateBreadcrumbs(null, `/${route}`);

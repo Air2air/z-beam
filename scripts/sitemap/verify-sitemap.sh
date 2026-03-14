@@ -56,11 +56,13 @@ echo ""
 
 # Check static routes
 echo "4️⃣  Validating static routes..."
-REQUIRED_ROUTES=("about" "rental" "partners" "contact" "search")
+REQUIRED_ROUTES=("about" "services" "partners" "contact" "search")
 MISSING_ROUTES=()
 
+SITEMAP_PATHS=$(npx tsx -e "import { getSitemapEntries } from './app/sitemap.xml/route'; console.log(getSitemapEntries().map(entry => new URL(entry.url).pathname).join('\n'));" 2>/dev/null)
+
 for route in "${REQUIRED_ROUTES[@]}"; do
-    if ! grep -q "/${route}" app/sitemap.xml/route.ts; then
+    if ! printf '%s\n' "$SITEMAP_PATHS" | grep -qx "/${route}"; then
         MISSING_ROUTES+=("$route")
     fi
 done

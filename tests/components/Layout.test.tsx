@@ -115,6 +115,26 @@ describe('Layout Component', () => {
       expect(screen.getByTestId('page-content')).toBeInTheDocument();
     });
 
+    it('should suppress author rendering when hideAuthor is true', () => {
+      render(
+        <Layout
+          title="Static Page"
+          hideAuthor
+          metadata={{
+            slug: 'static-page',
+            title: 'Static Page',
+            author: { name: 'Test Author' },
+          } as any}
+        >
+          <div data-testid="page-content">Page content</div>
+        </Layout>
+      );
+
+      expect(screen.queryByTestId('author')).not.toBeInTheDocument();
+      expect(screen.getByText('Static Page')).toBeInTheDocument();
+      expect(screen.getByTestId('page-content')).toBeInTheDocument();
+    });
+
     it.skip('should render without header when fullWidth is true', () => {
       // SKIPPED: Layout component structure may have changed. Needs investigation.
       render(
@@ -207,6 +227,24 @@ describe('Layout Component', () => {
       expect(screen.getAllByText('Test Article').length).toBeGreaterThan(0); // Text appears in breadcrumb and title
       expect(screen.getByTestId('author')).toBeInTheDocument();
       // Note: Tags component was deprecated and removed
+    });
+
+    it('should suppress article-header author when hideAuthor is true', () => {
+      render(
+        <Layout
+          title="Static Article Shell"
+          metadata={{
+            ...mockMetadata,
+            author: { name: 'Test Author' },
+          } as any}
+          components={mockComponents}
+          slug="static-article-shell"
+          hideAuthor
+        />
+      );
+
+      expect(screen.queryByTestId('author')).not.toBeInTheDocument();
+      expect(screen.getByRole('article')).toBeInTheDocument();
     });
 
     it('should render empty state when no components provided', () => {

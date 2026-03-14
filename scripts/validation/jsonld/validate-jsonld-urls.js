@@ -118,7 +118,7 @@ async function validateJsonLdUrls() {
     const urlPath = url.replace('https://www.z-beam.com/', '').replace('https://z-beam.com/', '');
     
     // Check if it's a flat URL (old structure)
-    if (urlPath.match(/^[^/]+$/) && !urlPath.match(/^(materials|services|about|contact|search|rental)/)) {
+    if (urlPath.match(/^[^/]+$/) && !urlPath.match(/^(materials|services|about|contact|search|partners|netalux|compliance|equipment|safety|schedule|thank-you|comparison)/)) {
       errors.push({
         file: filePath,
         location,
@@ -147,7 +147,7 @@ async function validateJsonLdUrls() {
     const urlPath = url.replace('https://www.z-beam.com/', '').replace('https://z-beam.com/', '');
     
     // Check if it's a flat URL (old structure)
-    if (urlPath.match(/^[^/]+$/) && !urlPath.match(/^(materials|services|about|contact|search|rental)/)) {
+    if (urlPath.match(/^[^/]+$/) && !urlPath.match(/^(materials|services|about|contact|search|partners|netalux|compliance|equipment|safety|schedule|thank-you|comparison)/)) {
       errors.push({
         file: filePath,
         location,

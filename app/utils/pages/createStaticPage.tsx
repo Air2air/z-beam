@@ -1,44 +1,32 @@
 /**
- * Enhanced Static Page Factory (v2.0)
- * 
- * Now supports THREE page architectures:
- * 1. Content-Cards Pages (rental, about, contact, etc.) - YAML-based content sections
- * 2. Dynamic-Content Pages (schedule, services, netalux) - Custom widgets + YAML content
- * 3. Collection Pages - Handled by separate CollectionPage component
- * 
- * NEW: Dynamic Features Support
- * - schedule-widget: Real-time scheduling component
- * - clickable-cards: YAML-defined card grids
- * - header-cta: Custom call-to-action buttons
- * - custom-sections: Page-specific components
- * 
- * Usage:
- *   export const { generateMetadata, default: Page } = createStaticPage('schedule');
- *   
- * YAML Config Example:
- *   pageType: 'dynamic-content'  # NEW: Determines rendering strategy
- *   dynamicFeatures:              # NEW: Enables custom components
- *     - type: 'schedule-widget'
- *       placement: 'right-sidebar'
- *     - type: 'header-cta'
- *       text: 'Schedule Now'
- *       href: '#schedule'
+ * Shared static-page factory.
+ *
+ * Static pages are frontmatter-driven and render through one of two live
+ * architectures: content-card pages or dynamic-content pages.
  */
 
 import { Layout } from '@/app/components/Layout/Layout';
 import { ContentSection } from '@/app/components/ContentCard';
 import { BaseSection } from '@/app/components/BaseSection';
 import { ComparisonTable } from '@/app/components/ComparisonTable';
-import { ContactInfo } from '@/app/components/Contact/ContactInfo';
 import { ClickableCard } from '@/app/components/ClickableCard';
-import { ScheduleContent } from '@/app/components/Schedule/ScheduleContent';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
+import { ScheduleContent } from '@/app/components/Schedule/ScheduleContent';
+import { SITE_CONFIG } from '@/app/config/site';
 import { loadStaticPageFrontmatter, type StaticPageFrontmatter } from '@/app/utils/staticPageLoader';
 import { generateStaticPageMetadata } from '@/lib/metadata/generators';
-import { generatePageSchema } from '@/lib/schema/generators';
-import { SITE_CONFIG } from '@/app/config/site';
-import type { ContentCardItem, ArticleMetadata } from '@/types';
+import type { ContentCardItem } from '@/types';
 import type { ClickableCardProps } from '@/app/components/ClickableCard';
+import {
+  buildPageHeaderAction,
+  buildDynamicSidebar,
+  type EnhancedStaticPageFrontmatter,
+  generatePageSpecificSchema,
+  PAGE_CONFIGS,
+  type StaticPageConfig,
+  type StaticPageType,
+} from '@/app/utils/pages/staticPagePolicy';
+import { getSharedStaticPageEntry, isSharedStaticPageKey } from '@/app/utils/pages/staticPageRegistry';
 
 // Local ComparisonMethod interface (not exported from @/types)
 interface ComparisonMethod {
@@ -62,276 +50,29 @@ interface ComparisonMethod {
   [key: string]: string;
 }
 
-type StaticPageType = 
-  | 'rental' 
-  | 'about' 
-  | 'contact' 
-  | 'thank-you'
-  | 'partners' 
-  | 'equipment' 
-  | 'operations' 
-  | 'safety'
-  | 'schedule'  // NEW: Dynamic pages
-  | 'services'
-  | 'netalux'
-  | 'comparison';
-
 /**
- * NEW: Page type classification for rendering strategy
+ * Shared static-page factory.
  */
-type PageArchitecture = 'content-cards' | 'dynamic-content';
+export function createStaticPage(pageType: StaticPageType | string) {
+  if (!isSharedStaticPageKey(pageType)) {
+    const fallbackPath = pageType === 'home' ? '/' : `/${pageType}`;
 
-/**
- * NEW: Dynamic feature configuration
- */
-interface DynamicFeature {
-  type: 'schedule-widget' | 'clickable-cards' | 'header-cta' | 'custom-section';
-  placement?: 'right-sidebar' | 'left-sidebar' | 'inline';
-  config?: Record<string, any>;
-}
-
-/**
- * NEW: Extended frontmatter with dynamic features
- */
-interface EnhancedStaticPageFrontmatter extends StaticPageFrontmatter {
-  pageType?: PageArchitecture;  // Determines rendering strategy
-  dynamicFeatures?: DynamicFeature[];  // Custom components/widgets
-  clickableCards?: ClickableCardProps[];  // YAML-defined cards (for services)
-  headerCTA?: {  // Custom header CTA (for schedule)
-    text: string;
-    href: string;
-    variant?: 'primary' | 'secondary';
-  };
-  sections?: any[];  // Dynamic sections
-}
-
-/**
- * Page-specific configurations for special features
- * ENHANCED: Now includes dynamic page configs
- */
-const PAGE_CONFIGS = {
-  // Existing content-cards pages
-  rental: {
-    pageType: 'content-cards' as PageArchitecture,
-    hasComparison: true,
-    comparisonData: () => import('@/data/comparison-methods.json'),
-    comparisonHighlight: 'Laser Cleaning'
-  },
-  contact: {
-    pageType: 'content-cards' as PageArchitecture,
-    hasContactInfo: true,
-    robotsIndex: true
-  },
-  'thank-you': {
-    pageType: 'content-cards' as PageArchitecture,
-    robotsIndex: true
-  },
-  about: {
-    pageType: 'content-cards' as PageArchitecture,
-    robotsIndex: true
-  },
-  partners: {
-    pageType: 'content-cards' as PageArchitecture,
-    robotsIndex: true
-  },
-  equipment: {
-    pageType: 'content-cards' as PageArchitecture,
-    robotsIndex: true
-  },
-  operations: {
-    pageType: 'content-cards' as PageArchitecture,
-    robotsIndex: true
-  },
-  comparison: {
-    pageType: 'content-cards' as PageArchitecture,
-    hasComparison: true,
-    comparisonData: () => import('@/data/comparison-methods.json'),
-    comparisonHighlight: 'Laser Cleaning',
-    robotsIndex: true
-  },
-  safety: {
-    pageType: 'content-cards' as PageArchitecture,
-    robotsIndex: true
-  },
-  
-  // NEW: Dynamic content pages
-  schedule: {
-    pageType: 'dynamic-content' as PageArchitecture,
-    hasScheduleWidget: true,
-    hasHeaderCTA: true,
-    robotsIndex: true
-  },
-  services: {
-    pageType: 'dynamic-content' as PageArchitecture,
-    hasClickableCards: true,
-    robotsIndex: true
-  },
-  netalux: {
-    pageType: 'dynamic-content' as PageArchitecture,
-    hasCustomCards: true,
-    robotsIndex: true
+    return {
+      generateMetadata: async () => generateStaticPageMetadata({
+        title: SITE_CONFIG.name,
+        description: SITE_CONFIG.description,
+        path: fallbackPath,
+      }),
+      default: async () => (
+        <Layout title={SITE_CONFIG.name} description={SITE_CONFIG.description}>
+          <p>Content unavailable.</p>
+        </Layout>
+      ),
+    };
   }
-};
 
-/**
- * Generate page-specific JSON-LD schema
- * ENHANCED: Now supports dynamic page schemas
- */
-function generatePageSpecificSchema(
-  pageType: StaticPageType, 
-  frontmatter: EnhancedStaticPageFrontmatter
-): object | null {
-  const breadcrumbItems = (frontmatter.breadcrumb || [
-    { name: 'Home', href: '/' },
-    { name: pageType.charAt(0).toUpperCase() + pageType.slice(1), href: `/${pageType}` }
-  ]).map((item: any, index: number) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    name: item.name || item.label,
-    item: `${SITE_CONFIG.url}${item.href || `/${pageType}`}`
-  }));
-
-  switch (pageType) {
-    case 'about':
-      return {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'AboutPage',
-            name: frontmatter.pageTitle,
-            description: frontmatter.pageDescription,
-            url: `${SITE_CONFIG.url}/about`,
-            mainEntity: {
-              '@type': 'Organization',
-              name: SITE_CONFIG.name,
-              url: SITE_CONFIG.url
-            }
-          },
-          {
-            '@type': 'BreadcrumbList',
-            itemListElement: breadcrumbItems
-          }
-        ]
-      };
-      
-    case 'contact':
-      return {
-        '@context': 'https://schema.org',
-        '@type': 'ContactPage',
-        name: frontmatter.pageTitle,
-        description: frontmatter.pageDescription,
-        url: `${SITE_CONFIG.url}/contact`
-      };
-      
-    case 'rental':
-    case 'services':
-      return {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'Service',
-            name: frontmatter.pageTitle,
-            description: frontmatter.pageDescription,
-            provider: {
-              '@type': 'Organization',
-              name: SITE_CONFIG.name,
-              url: SITE_CONFIG.url
-            },
-            areaServed: 'United States'
-          },
-          {
-            '@type': 'Product',
-            name: `${frontmatter.pageTitle} Package`,
-            description: frontmatter.pageDescription,
-            brand: {
-              '@type': 'Brand',
-              name: SITE_CONFIG.name
-            },
-            offers: {
-              '@type': 'Offer',
-              priceCurrency: 'USD',
-              availability: 'https://schema.org/InStock',
-              url: `${SITE_CONFIG.url}/${pageType}`
-            }
-          },
-          {
-            '@type': 'BreadcrumbList',
-            itemListElement: breadcrumbItems
-          },
-          {
-            '@type': 'VideoObject',
-            name: `${frontmatter.pageTitle} Overview`,
-            description: frontmatter.pageDescription,
-            thumbnailUrl: frontmatter.images?.hero?.url
-              ? `${SITE_CONFIG.url}${frontmatter.images.hero.url}`
-              : `${SITE_CONFIG.url}/images/og-default.png`,
-            contentUrl: `${SITE_CONFIG.url}/${pageType}`,
-            embedUrl: `${SITE_CONFIG.url}/${pageType}`
-          }
-        ]
-      };
-
-    case 'schedule':
-      return {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: frontmatter.pageTitle,
-        description: frontmatter.pageDescription,
-        url: `${SITE_CONFIG.url}/schedule`,
-        potentialAction: {
-          '@type': 'ReserveAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${SITE_CONFIG.url}/schedule`,
-            actionPlatform: [
-              'http://schema.org/DesktopWebPlatform',
-              'http://schema.org/MobileWebPlatform'
-            ]
-          }
-        }
-      };
-      
-    case 'netalux':
-      return {
-        '@context': 'https://schema.org',
-        '@type': 'Product',
-        name: 'Netalux Laser Cleaning Equipment',
-        description: frontmatter.pageDescription,
-        url: `${SITE_CONFIG.url}/netalux`,
-        brand: {
-          '@type': 'Brand',
-          name: 'Netalux'
-        }
-      };
-      
-    case 'comparison':
-      return {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: frontmatter.pageTitle,
-        description: frontmatter.pageDescription,
-        url: `${SITE_CONFIG.url}/comparison`,
-        about: {
-          '@type': 'Thing',
-          name: 'Surface Cleaning Methods Comparison'
-        },
-        mainEntity: {
-          '@type': 'Table',
-          about: 'Comparison of laser cleaning vs traditional surface cleaning methods'
-        }
-      };
-      
-    default:
-      return null;
-  }
-}
-
-/**
- * Enhanced Static Page Factory
- * NOW SUPPORTS: Content-cards AND Dynamic-content pages
- */
-export function createStaticPage(pageType: StaticPageType) {
   const config = PAGE_CONFIGS[pageType];
+  const pageEntry = getSharedStaticPageEntry(pageType);
   
   /**
    * Generate metadata
@@ -342,21 +83,22 @@ export function createStaticPage(pageType: StaticPageType) {
     return generateStaticPageMetadata({
       title: frontmatter.pageTitle,
       description: frontmatter.pageDescription,
-      path: `/${pageType}`,
-      keywords: frontmatter.keywords || []
+      path: pageEntry.routePath,
+      image: frontmatter.images?.social?.url || frontmatter.images?.hero?.url,
+      keywords: frontmatter.keywords || [],
+      noIndex: frontmatter.seo?.robots?.index === false
     });
   };
   
   /**
-   * Render page component
-   * ENHANCED: Routes to appropriate renderer based on pageType
+   * Render page component.
    */
   const Page = async () => {
     const frontmatter = await loadStaticPageFrontmatter(pageType) as EnhancedStaticPageFrontmatter;
     const pageSchema = generatePageSpecificSchema(pageType, frontmatter);
     
-    // Determine page architecture (from YAML or config)
-    const architecture = frontmatter.pageType || config?.pageType || 'content-cards';
+    // Determine page architecture from frontmatter override or registry default.
+    const architecture = frontmatter.pageType || pageEntry.pageType || 'content-cards';
     
     // Route to appropriate renderer  
     if (architecture === 'dynamic-content') {
@@ -372,29 +114,55 @@ export function createStaticPage(pageType: StaticPageType) {
   };
 }
 
+function hasDynamicFeature(
+  frontmatter: EnhancedStaticPageFrontmatter,
+  type: string,
+  placement?: 'right-sidebar' | 'left-sidebar' | 'inline' | 'main-content'
+): boolean {
+  if (!Array.isArray(frontmatter.dynamicFeatures)) {
+    return false;
+  }
+
+  return frontmatter.dynamicFeatures.some(feature => {
+    if (feature.type !== type) {
+      return false;
+    }
+
+    if (!placement) {
+      return true;
+    }
+
+    return feature.placement === placement;
+  });
+}
+
 /**
- * NEW: Render dynamic-content pages (schedule, services, netalux)
+ * Render dynamic-content pages.
  */
 function renderDynamicContentPage(
   pageType: StaticPageType,
   frontmatter: EnhancedStaticPageFrontmatter,
   pageSchema: object | null,
-  config: any
+  config: StaticPageConfig
 ) {
-  // Build right sidebar content (schedule widget, CTA buttons, etc.)
-  const rightContent = buildDynamicSidebar(pageType, frontmatter, config);
-  const shouldRenderJsonLd = pageType !== 'netalux';
+  const rightContent = buildPageHeaderAction(frontmatter) || buildDynamicSidebar(pageType, frontmatter);
+  const jsonLdData = frontmatter.jsonLd || pageSchema;
+  const hasInlineScheduleWidget = hasDynamicFeature(frontmatter, 'schedule-widget', 'main-content');
+  const hasClickableCards = Array.isArray(frontmatter.clickableCards) && frontmatter.clickableCards.length > 0;
+  const clickableCards = frontmatter.clickableCards || [];
   
   return (
     <Layout
       title={frontmatter.pageTitle}
+      metadata={frontmatter}
       slug={pageType}
       rightContent={rightContent}
+      hideAuthor
     >
-      {shouldRenderJsonLd && pageSchema && <JsonLD data={pageSchema as Record<string, unknown>} />}
+      {jsonLdData && <JsonLD data={jsonLdData as Record<string, unknown>} />}
       
-      {/* Schedule-specific: Widget in main content area */}
-      {pageType === 'schedule' && config?.hasScheduleWidget && (
+      {/* Inline schedule widget driven by frontmatter features. */}
+      {hasInlineScheduleWidget && (
         <BaseSection
           title="Schedule Your Laser Cleaning"
           description="Choose a date and time that works for you"
@@ -404,67 +172,28 @@ function renderDynamicContentPage(
         </BaseSection>
       )}
       
-      {/* Dynamic card grids from YAML */}
-      {config?.hasClickableCards && frontmatter.clickableCards && (
+      {/* Dynamic card grids from frontmatter. */}
+      {hasClickableCards && (
         <BaseSection
           title="Our Services"
           description="Comprehensive laser cleaning solutions"
           variant="default"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {frontmatter.clickableCards.map((card, index) => (
+            {clickableCards.map((card, index) => (
               <ClickableCard key={index} {...card} />
             ))}
           </div>
         </BaseSection>
       )}
       
-      {/* Netalux-specific: Custom card filtering logic */}
-      {pageType === 'netalux' && frontmatter.sections && (
-        <>
-          {frontmatter.sections.map((section, index) => {
-            if (section.type !== 'content-section') {
-              return null;
-            }
-
-            const sectionItems = Array.isArray(section.items)
-              ? (section.items as ContentCardItem[])
-              : [];
-
-            return (
-              <BaseSection
-                key={section.id || index}
-                title={section._section?.title || ''}
-                description={section._section?.description || ''}
-                variant="minimal"
-              >
-                <div className="space-y-6">
-                  {sectionItems.map((item, itemIndex) => (
-                    <article key={`${section.id || index}-${itemIndex}`} className="space-y-2">
-                      {item.heading && (
-                        <h3 className="text-xl font-semibold">{item.heading}</h3>
-                      )}
-                      {item.text && (
-                        <p
-                          className="text-base"
-                          dangerouslySetInnerHTML={{ __html: item.text }}
-                        />
-                      )}
-                    </article>
-                  ))}
-                </div>
-              </BaseSection>
-            );
-          })}
-        </>
-      )}
-      
-      {/* Standard content sections for all dynamic pages */}
+      {/* Shared content sections for all dynamic pages. */}
       {frontmatter.sections && frontmatter.sections.map((section, index) => {
-        if (section.type === 'content-section' && pageType !== 'netalux') {
+        if (section.type === 'content-section') {
           return (
             <ContentSection
               key={section.id || index}
+              title={section._section?.title}
               items={section.items as ContentCardItem[]}
             />
           );
@@ -476,51 +205,17 @@ function renderDynamicContentPage(
 }
 
 /**
- * Build dynamic sidebar content (schedule widget, CTAs, etc.)
- * NEW: Supports custom sidebar components
- */
-function buildDynamicSidebar(
-  pageType: StaticPageType,
-  frontmatter: EnhancedStaticPageFrontmatter,
-  config: any
-): React.ReactNode | undefined {
-  // Schedule page: CTA button
-  if (pageType === 'schedule' && config?.hasHeaderCTA && frontmatter.headerCTA) {
-    return (
-      <a
-        href={frontmatter.headerCTA.href}
-        className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-      >
-        {frontmatter.headerCTA.text}
-      </a>
-    );
-  }
-  
-  // Future: Other sidebar widgets
-  if (frontmatter.dynamicFeatures) {
-    const sidebarFeature = frontmatter.dynamicFeatures.find(
-      f => f.placement === 'right-sidebar'
-    );
-    
-    if (sidebarFeature?.type === 'schedule-widget') {
-      return <ScheduleContent />;
-    }
-  }
-  
-  return undefined;
-}
-
-/**
- * Render content-cards pages (existing static pages)
- * BACKWARD COMPATIBLE: No changes to existing functionality
+ * Render content-card pages.
  */
 async function renderContentCardsPage(
   pageType: StaticPageType,
   frontmatter: StaticPageFrontmatter,
   pageSchema: object | null,
-  config: any
+  config: StaticPageConfig
 ) {
+  const enhancedFrontmatter = frontmatter as EnhancedStaticPageFrontmatter;
   let comparisonMethods: ComparisonMethod[] | undefined;
+  const jsonLdData = enhancedFrontmatter.jsonLd || pageSchema;
   
   if (config?.hasComparison && config.comparisonData) {
     const data = await config.comparisonData();
@@ -532,9 +227,12 @@ async function renderContentCardsPage(
   return (
     <Layout
       title={frontmatter.pageTitle}
+      metadata={frontmatter}
       slug={pageType}
+      rightContent={buildPageHeaderAction(enhancedFrontmatter)}
+      hideAuthor
     >
-      {pageSchema && <JsonLD data={pageSchema as Record<string, unknown>} />}
+      {jsonLdData && <JsonLD data={jsonLdData as Record<string, unknown>} />}
       
       {/* Content sections from YAML */}
       {frontmatter.sections && frontmatter.sections.map((section, index) => {
@@ -571,26 +269,8 @@ async function renderContentCardsPage(
               </BaseSection>
             );
             
-          case 'contact-info':
-            return (
-              <BaseSection
-                key={section.id || index}
-                title={section._section?.title || 'Contact Information'}
-                description={section._section?.description}
-                variant="default"
-              >
-                <ContactInfo />
-              </BaseSection>
-            );
-            
           case 'content-section':
-            // Debug: Log section structure
-            console.log('Section:', section);
-            console.log('Items:', section.items);
-            console.log('Is Array:', Array.isArray(section.items));
-            
             if (!section.items || !Array.isArray(section.items)) {
-              console.error('Items is not an array or is undefined:', section.items);
               return null;
             }
             return (
@@ -604,11 +284,8 @@ async function renderContentCardsPage(
             return null;
         }
       })}
-      
-      {/* Contact info for contact page */}
-      {config?.hasContactInfo && (
-        <ContactInfo />
-      )}
+
+      {config?.renderSupplementalContent?.(enhancedFrontmatter)}
     </Layout>
   );
 }

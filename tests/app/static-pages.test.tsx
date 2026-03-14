@@ -1,8 +1,8 @@
 /**
  * Static Pages Content Loading Tests
  * 
- * Ensures that static pages (rental, partners, about, contact)
- * load their content properly from YAML/markdown sources
+ * Ensures that static pages load their content properly from current
+ * frontmatter-driven sources.
  */
 
 import { loadPageData } from '@/app/utils/contentAPI';
@@ -10,23 +10,23 @@ import fs from 'fs';
 import path from 'path';
 
 describe('Static Pages Content Loading', () => {
-  describe('Rental Page', () => {
-    it('should load rental content component', async () => {
-      const { components } = await loadPageData('rental');
+  describe('Services Page', () => {
+    it('should load services content component', async () => {
+      const { components } = await loadPageData('services');
       
       expect(components).toBeDefined();
       // Components may be empty for static pages that use YAML-only content
     });
 
-    it('should have rental YAML file', () => {
-      const yamlPath = path.join(process.cwd(), 'static-pages/rental.yaml');
+    it('should have services page frontmatter', () => {
+      const yamlPath = path.join(process.cwd(), 'app/services/page.yaml');
       expect(fs.existsSync(yamlPath)).toBe(true);
     });
   });
 
   describe('Partners Page', () => {
-    it('should have partners YAML file', () => {
-      const yamlPath = path.join(process.cwd(), 'static-pages/partners.yaml');
+    it('should have partners page frontmatter', () => {
+      const yamlPath = path.join(process.cwd(), 'app/partners/page.yaml');
       expect(fs.existsSync(yamlPath)).toBe(true);
     });
 
@@ -63,7 +63,7 @@ describe('Static Pages Content Loading', () => {
 
   describe('Content API Integration', () => {
     it('should load page data without errors', async () => {
-      const pages = ['services', 'rental', 'partners', 'about'];
+      const pages = ['services', 'partners', 'about'];
       
       for (const page of pages) {
         await expect(loadPageData(page)).resolves.toBeDefined();
@@ -89,22 +89,20 @@ describe('Static Pages Content Loading', () => {
   });
 
   describe('YAML Files Validation', () => {
-    it('should have all required YAML files', () => {
-      const yamlFiles = ['rental.yaml', 'partners.yaml'];
-      const pagesDir = path.join(process.cwd(), 'static-pages');
+    it('should have all required page frontmatter files', () => {
+      const yamlFiles = ['app/services/page.yaml', 'app/partners/page.yaml'];
       
       yamlFiles.forEach(file => {
-        const filePath = path.join(pagesDir, file);
+        const filePath = path.join(process.cwd(), file);
         expect(fs.existsSync(filePath)).toBe(true);
       });
     });
 
     it('should have valid YAML structure', () => {
-      const yamlFiles = ['rental.yaml', 'partners.yaml'];
-      const pagesDir = path.join(process.cwd(), 'static-pages');
+      const yamlFiles = ['app/services/page.yaml', 'app/partners/page.yaml'];
       
       yamlFiles.forEach(file => {
-        const filePath = path.join(pagesDir, file);
+        const filePath = path.join(process.cwd(), file);
         const content = fs.readFileSync(filePath, 'utf8');
         
         // Should not be empty

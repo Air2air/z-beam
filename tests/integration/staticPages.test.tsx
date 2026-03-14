@@ -17,12 +17,12 @@ import { loadStaticPageFrontmatter } from '@/app/utils/staticPageLoader';
 describe('YAML Static Pages Integration', () => {
   const staticPages = [
     'about',
-    'rental',
+    'services',
     'comparison',
     'netalux',
     'partners',
     'equipment',
-    'operations',
+    'compliance',
     'safety',
   ];
 
@@ -72,7 +72,7 @@ describe('YAML Static Pages Integration', () => {
   });
 
   describe('Section Metadata', () => {
-    const pagesWithSections = ['about', 'rental', 'partners', 'equipment'];
+    const pagesWithSections = ['about', 'services', 'partners', 'equipment'];
 
     pagesWithSections.forEach(pageName => {
       it(`should have section metadata for ${pageName}`, () => {
@@ -113,8 +113,7 @@ describe('YAML Static Pages Integration', () => {
         const content = fs.readFileSync(yamlPath, 'utf-8');
         const data = yaml.load(content) as any;
 
-        // Services page should have clickable cards
-        expect(data.clickableCards || data.dynamicFeatures).toBeTruthy();
+        expect(data.sections).toBeTruthy();
       }
     });
   });
@@ -223,7 +222,7 @@ describe('YAML Static Pages Integration', () => {
   });
 
   describe('Section Items', () => {
-    const pagesWithSections = ['rental', 'about', 'partners'];
+    const pagesWithSections = ['services', 'about', 'partners'];
 
     pagesWithSections.forEach(pageName => {
       it(`should have valid section items for ${pageName}`, async () => {

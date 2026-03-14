@@ -1,3 +1,5 @@
+import { SERVICES_HUB_PATH } from '@/app/utils/pages/staticPagePolicy';
+
 // app/page.tsx - Static optimized home page
 
 import { Layout } from "./components/Layout/Layout";
@@ -5,10 +7,15 @@ import { HomePageGrid } from "./components/HomePageGrid";
 import { ScheduleCards } from "./components/Schedule/ScheduleCards";
 import { JsonLD } from "./components/JsonLD/JsonLD";
 import { createMetadata } from "./utils/metadata";
-import { SITE_CONFIG } from "@/app/config/site";
-import fs from 'fs/promises';
-import path from 'path';
-import yaml from 'js-yaml';
+import {
+  SITE_CONFIG,
+  createEquipmentRentalAggregateOffer,
+  getEquipmentRentalDescription,
+} from "@/app/config/site";
+import {
+  loadStaticPageFrontmatter,
+  type HomePageFrontmatter,
+} from '@/app/utils/staticPageLoader';
 
 // Force static generation for home page
 export const dynamic = 'force-static';
@@ -22,12 +29,14 @@ export const viewport = {
   userScalable: true,
 };
 
-// Generate metadata from home.yaml
+function loadHomeFrontmatter(): HomePageFrontmatter {
+  return loadStaticPageFrontmatter<HomePageFrontmatter>('home');
+}
+
+// Generate metadata from shared homepage frontmatter
 export async function generateMetadata() {
   try {
-    const yamlPath = path.join(process.cwd(), 'static-pages', 'home.yaml');
-    const yamlContent = await fs.readFile(yamlPath, 'utf8');
-    const homeConfig = yaml.load(yamlContent) as any;
+    const homeConfig = loadHomeFrontmatter();
 
     const resolvedTitle =
       homeConfig?.pageTitle ||
@@ -37,7 +46,6 @@ export async function generateMetadata() {
     const resolvedDescription =
       homeConfig?.pageDescription ||
       homeConfig?.metaDescription ||
-      homeConfig?.meta_description ||
       homeConfig?.description ||
       SITE_CONFIG.description;
 
@@ -60,34 +68,19 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
-  // Read the YAML configuration for the home page
   try {
-    const yamlPath = path.join(process.cwd(), 'static-pages', 'home.yaml');
-    const yamlContent = await fs.readFile(yamlPath, 'utf8');
-    const homeConfig = yaml.load(yamlContent) as any;
+    const homeConfig = loadHomeFrontmatter();
 
-    // Create frontmatter object for Hero component (loaded from Layout)
-    const heroFrontmatter = {
-    title: homeConfig.title,
-    description: homeConfig.description,
-    slug: homeConfig.slug,
-    video: homeConfig.video, // YouTube ID from YAML - Hero will render if video exists
-    images: homeConfig.images, // Include hero images from YAML
-  };
-
-    // Extract featured sections from YAML
     const featuredSections = homeConfig.featuredSections || [];
     
-    // Page title and subtitle for consistent Title component display
-    const pageTitle = homeConfig.title;
-    const pageDescription = homeConfig.description;
+    const pageTitle = homeConfig.title || homeConfig.pageTitle || SITE_CONFIG.name;
+    const pageDescription = homeConfig.description || homeConfig.pageDescription || SITE_CONFIG.description;
 
-    // Generate JSON-LD schemas for homepage
-    const breadcrumbs = homeConfig.breadcrumb;
-    const rentalPackages = Object.values(SITE_CONFIG.pricing.equipmentRental.packages);
-    const packageRates = rentalPackages.map((pkg) => pkg.hourlyRate);
-    const lowRate = Math.min(...packageRates);
-    const highRate = Math.max(...packageRates);
+    const breadcrumbs = homeConfig.breadcrumb || [];
+    const rentalOffer = createEquipmentRentalAggregateOffer(
+      `${SITE_CONFIG.url}${SERVICES_HUB_PATH}`,
+      `${SITE_CONFIG.url}/#organization`
+    );
     
     const jsonLdSchema = {
       '@context': 'https://schema.org',
@@ -124,43 +117,14 @@ export default async function HomePage() {
           '@type': 'Product',
           '@id': `${SITE_CONFIG.url}/#product-equipment-rental`,
           name: 'Laser Cleaning Equipment Rental',
-          description: SITE_CONFIG.pricing.equipmentRental.description,
+          description: getEquipmentRentalDescription(),
           brand: {
             '@type': 'Brand',
             name: SITE_CONFIG.name
           },
           offers: {
-            '@type': 'AggregateOffer',
-            lowPrice: lowRate,
-            highPrice: highRate,
-            offerCount: rentalPackages.length,
-            priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
-            offers: rentalPackages.map((pkg) => ({
-              '@type': 'Offer',
-              name: pkg.name,
-              price: pkg.hourlyRate,
-              priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
-              url: `${SITE_CONFIG.url}/rental`
-            })),
+            ...rentalOffer,
             priceValidUntil: '2026-12-31',
-            availability: 'https://schema.org/InStock',
-            url: `${SITE_CONFIG.url}/rental`,
-            seller: {
-              '@type': 'Organization',
-              '@id': `${SITE_CONFIG.url}/#organization`
-            },
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              minPrice: lowRate,
-              maxPrice: highRate,
-              priceCurrency: SITE_CONFIG.pricing.equipmentRental.currency,
-              unitText: SITE_CONFIG.pricing.equipmentRental.unit,
-              referenceQuantity: {
-                '@type': 'QuantitativeValue',
-                value: SITE_CONFIG.pricing.equipmentRental.minimumHours,
-                unitCode: 'HUR'
-              }
-            }
           },
           category: 'Equipment Rental Service'
         },
@@ -216,7 +180,7 @@ export default async function HomePage() {
         <JsonLD data={jsonLdSchema} />
         <Layout 
           title={pageTitle}
-          metadata={heroFrontmatter}
+          metadata={homeConfig}
           customHeroOverlay={true}
         >
           {/* Schedule Cards Section */}

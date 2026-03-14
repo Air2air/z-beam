@@ -7,7 +7,7 @@ import {
 } from '@/schemas/static-page-content';
 
 describe('Homepage Featured Sections', () => {
-  const homeYamlPath = path.join(process.cwd(), 'static-pages', 'home.yaml');
+  const homeYamlPath = path.join(process.cwd(), 'app', 'page.yaml');
 
   it('validates featured section schema requirements are explicit', () => {
     expect(HomeFeaturedSectionSchema.required).toEqual([

@@ -31,10 +31,15 @@ export interface MarkdownContentProps {
  * 
  * Example usage:
  * ```tsx
- * const pageData = loadStaticPageContent('surface-cleaning', true);
  * <MarkdownContent
- *   title={pageData.additionalContent['comparison-details']?.title}
- *   sections={pageData.additionalContent['comparison-details']?.sections || []}
+ *   title="Comparison Details"
+ *   sections={[
+ *     {
+ *       heading: 'Surface prep',
+ *       content: 'Use the same section structure passed from page frontmatter.',
+ *       list: ['Keep bullets short', 'Keep headings specific']
+ *     }
+ *   ]}
  * />
  * ```
  */

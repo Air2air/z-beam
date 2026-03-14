@@ -20,7 +20,7 @@ async function analyzeSitemap() {
     const url = new URL(entry.url);
     domains.add(url.origin);
     
-    if (url.pathname === '/' || url.pathname.match(/^\/(about|services|rental|partners|netalux|contact|datasets|search)$/)) {
+    if (url.pathname === '/' || url.pathname.match(/^\/(about|services|partners|netalux|contact|datasets|search)$/)) {
       contentTypes.static.push(url.pathname);
     } else if (url.pathname.startsWith('/materials')) {
       contentTypes.materials.push(url.pathname);

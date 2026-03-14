@@ -19,7 +19,7 @@ describe('Enhanced Schema Generators', () => {
         },
         areaServed: ['California', 'Nevada', 'Oregon'],
         availableChannel: {
-          url: 'https://www.z-beam.com/rental',
+          url: 'https://www.z-beam.com/services',
           name: 'Equipment Rental Portal'
         },
         offers: {

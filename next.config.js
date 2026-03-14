@@ -168,11 +168,16 @@ const nextConfig = {
           destination: 'https://www.z-beam.com/:path*',
           permanent: true,
         },
-        // Redirect /services to /rental (rental is primary service)
+        // Legacy plural alias
         {
-          source: '/services',
-          destination: '/rental',
-          permanent: false, // 302 redirect (temporary) in case we want to change later
+          source: '/rentals',
+          destination: '/services',
+          permanent: false,
+        },
+        {
+          source: '/rental',
+          destination: '/services',
+          permanent: true,
         },
       ];
       

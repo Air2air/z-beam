@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { usePathname } from 'next/navigation';
 
 interface GoogleAnalyticsWrapperProps {
   gaId: string;
   adsId?: string;
 }
+
+const IMMEDIATE_LOAD_PATHS = new Set(['/contact']);
 
 /**
  * Deferred Google Analytics Loader
@@ -20,9 +23,18 @@ interface GoogleAnalyticsWrapperProps {
  * - Improves Time to Interactive (TTI)
  */
 export default function GoogleAnalyticsWrapper({ gaId, adsId }: GoogleAnalyticsWrapperProps) {
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const pathname = usePathname();
+  const shouldPrioritizeLoad = pathname ? IMMEDIATE_LOAD_PATHS.has(pathname) : false;
+  const [shouldLoad, setShouldLoad] = useState(shouldPrioritizeLoad);
 
   useEffect(() => {
+    if (shouldPrioritizeLoad || shouldLoad) {
+      if (shouldPrioritizeLoad && !shouldLoad) {
+        setShouldLoad(true);
+      }
+      return;
+    }
+
     let timer: NodeJS.Timeout;  // Must be let - assigned later (line ~44)
     let loaded = false;
 
@@ -57,7 +69,7 @@ export default function GoogleAnalyticsWrapper({ gaId, adsId }: GoogleAnalyticsW
       window.removeEventListener('touchstart', triggerLoad);
       window.removeEventListener('click', triggerLoad);
     };
-  }, []);
+  }, [shouldLoad, shouldPrioritizeLoad]);
 
   useEffect(() => {
     if (!shouldLoad || !adsId || typeof window === 'undefined') {

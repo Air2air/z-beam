@@ -59,7 +59,7 @@ const CRITICAL_ROUTES = [
   '/settings/metal/non-ferrous/aluminum-settings',
   '/contaminants/oxidation/ferrous/rust-oxidation-contamination',
   '/materials',
-  '/rental',
+  '/services',
   '/about',
 ];
 

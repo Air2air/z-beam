@@ -2,6 +2,8 @@
 import { describe, it, expect } from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
+import { getSitemapEntries } from '@/app/sitemap.xml/route';
+import { SITE_CONFIG } from '@/app/config/site';
 
 describe('Sitemap Validation', () => {
   const frontmatterDir = path.join(process.cwd(), 'frontmatter/materials');
@@ -32,18 +34,19 @@ describe('Sitemap Validation', () => {
     });
 
     it('should include all static routes', () => {
-      const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
+      const urls = getSitemapEntries().map(entry => entry.url);
       
       const requiredRoutes = [
+        '/',
         '/about',
-        '/rental',
+        '/services',
         '/partners',
         '/contact',
         '/search'
       ];
 
       requiredRoutes.forEach(route => {
-        expect(sitemapContent).toContain(`\`\${baseUrl}${route}\``);
+        expect(urls).toContain(`${SITE_CONFIG.url}${route === '/' ? '' : route}`);
       });
     });
 

@@ -4,6 +4,110 @@
 
 import type { StandardGridProps, NavItem } from '@/types';
 
+const EQUIPMENT_RENTAL_PACKAGES = {
+  residential: {
+    name: 'Residential',
+    hourlyRate: 190,
+    sku: 'ZB-EQUIP-RES'
+  },
+  industrial: {
+    name: 'Industrial',
+    hourlyRate: 270,
+    sku: 'ZB-EQUIP-IND'
+  }
+} as const;
+
+const EQUIPMENT_RENTAL_CURRENCY = 'USD' as const;
+const EQUIPMENT_RENTAL_UNIT = 'hour' as const;
+const EQUIPMENT_RENTAL_MINIMUM_HOURS = 2 as const;
+const EQUIPMENT_RENTAL_SKU = 'ZB-EQUIP-RENT' as const;
+
+type EquipmentRentalPackage = (typeof EQUIPMENT_RENTAL_PACKAGES)[keyof typeof EQUIPMENT_RENTAL_PACKAGES];
+
+export function getEquipmentRentalPackages(): EquipmentRentalPackage[] {
+  return Object.values(EQUIPMENT_RENTAL_PACKAGES);
+}
+
+export function getEquipmentRentalPricingBounds() {
+  const packageRates = getEquipmentRentalPackages().map((pkg) => pkg.hourlyRate);
+
+  return {
+    lowPrice: Math.min(...packageRates),
+    highPrice: Math.max(...packageRates),
+    offerCount: packageRates.length,
+  };
+}
+
+export function getEquipmentRentalPriceSummary(unitFormat: 'short' | 'long' = 'short') {
+  const residentialRate = EQUIPMENT_RENTAL_PACKAGES.residential.hourlyRate;
+  const industrialRate = EQUIPMENT_RENTAL_PACKAGES.industrial.hourlyRate;
+  const unitSuffix = unitFormat === 'short' ? '/hr' : '/hour';
+
+  return `Residential package $${residentialRate}${unitSuffix} and Industrial package $${industrialRate}${unitSuffix} with a ${EQUIPMENT_RENTAL_MINIMUM_HOURS}-hour minimum`;
+}
+
+export function getEquipmentRentalDescription() {
+  return `Professional laser cleaning equipment delivered throughout the San Francisco Bay Area and California with training and support included. ${getEquipmentRentalPriceSummary('long')}.`;
+}
+
+export function getEquipmentRentalMetaDescription() {
+  return `Professional laser cleaning equipment rental in California. ${getEquipmentRentalPriceSummary('short')}, including training and support.`;
+}
+
+export function getEquipmentRentalSocialDescription() {
+  return `Professional laser cleaning services including equipment rental delivered to your location in California. ${getEquipmentRentalPriceSummary('short')}, including training and support.`;
+}
+
+export function createEquipmentRentalAggregateOffer(url: string, sellerId?: string) {
+  const packages = getEquipmentRentalPackages();
+  const { lowPrice, highPrice, offerCount } = getEquipmentRentalPricingBounds();
+
+  return {
+    '@type': 'AggregateOffer',
+    lowPrice,
+    highPrice,
+    offerCount,
+    priceCurrency: EQUIPMENT_RENTAL_CURRENCY,
+    offers: packages.map((pkg) => ({
+      '@type': 'Offer',
+      name: pkg.name,
+      price: pkg.hourlyRate,
+      priceCurrency: EQUIPMENT_RENTAL_CURRENCY,
+      url,
+    })),
+    availability: 'https://schema.org/InStock',
+    url,
+    ...(sellerId ? {
+      seller: {
+        '@type': 'Organization',
+        '@id': sellerId,
+      },
+    } : {}),
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      minPrice: lowPrice,
+      maxPrice: highPrice,
+      priceCurrency: EQUIPMENT_RENTAL_CURRENCY,
+      unitText: EQUIPMENT_RENTAL_UNIT,
+      referenceQuantity: {
+        '@type': 'QuantitativeValue',
+        value: EQUIPMENT_RENTAL_MINIMUM_HOURS,
+        unitCode: 'HUR',
+      },
+    },
+  };
+}
+
+export const EQUIPMENT_RENTAL_PRICING = {
+  packages: EQUIPMENT_RENTAL_PACKAGES,
+  hourlyRate: EQUIPMENT_RENTAL_PACKAGES.residential.hourlyRate,
+  currency: EQUIPMENT_RENTAL_CURRENCY,
+  unit: EQUIPMENT_RENTAL_UNIT,
+  minimumHours: EQUIPMENT_RENTAL_MINIMUM_HOURS,
+  description: getEquipmentRentalDescription(),
+  sku: EQUIPMENT_RENTAL_SKU,
+} as const;
+
 /**
  * SITE CONFIGURATION
  * Core website information and settings
@@ -43,26 +147,7 @@ export const SITE_CONFIG = {
   
   // Service Pricing (hourly rates in USD)
   pricing: {
-    equipmentRental: {
-      packages: {
-        residential: {
-          name: 'Residential',
-          hourlyRate: 190,
-          sku: 'ZB-EQUIP-RES'
-        },
-        industrial: {
-          name: 'Industrial',
-          hourlyRate: 270,
-          sku: 'ZB-EQUIP-IND'
-        }
-      },
-      hourlyRate: 190,
-      currency: 'USD',
-      unit: 'hour',
-      minimumHours: 2,
-      description: 'Professional laser cleaning equipment delivered throughout the San Francisco Bay Area and California with training and support included. Residential package $190/hour and Industrial package $270/hour with 2-hour minimum.',
-      sku: 'ZB-EQUIP-RENT'
-    }
+    equipmentRental: EQUIPMENT_RENTAL_PRICING
   },
   
   address: {
@@ -686,13 +771,13 @@ export function createCategoryHeader(title: string, itemCount: number) {
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
     name: "Services",
-    href: "/rental",
+    href: "/services",
     description: "Our laser cleaning services",
     dropdown: [
       {
-        name: "Rentals",
-        href: "/rental",
-        description: "Rent professional laser cleaning equipment"
+        name: "Services",
+        href: "/services",
+        description: "Explore laser cleaning services, equipment, and compliance guidance"
       },
       {
         name: "Equipment",
@@ -700,9 +785,9 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
         description: "Laser cleaning equipment information"
       },
       {
-        name: "Operations",
-        href: "/operations",
-        description: "Training, filtration, and compliance"
+        name: "Compliance",
+        href: "/compliance",
+        description: "Agency oversight, field controls, and compliance requirements"
       },
       {
         name: "Comparison",
@@ -838,25 +923,7 @@ export function generateOrganizationSchema() {
       "@type": "OfferCatalog",
       "name": "Laser Cleaning Equipment Rental",
       "itemListElement": BUSINESS_CONFIG.services.map(service => ({
-        ...(() => {
-          const packageRates = Object.values(SITE_CONFIG.pricing.equipmentRental.packages).map(pkg => pkg.hourlyRate);
-          const lowPrice = Math.min(...packageRates);
-          const highPrice = Math.max(...packageRates);
-
-          return {
-            "@type": "AggregateOffer",
-            "lowPrice": String(lowPrice),
-            "highPrice": String(highPrice),
-            "offerCount": packageRates.length,
-            "offers": Object.values(SITE_CONFIG.pricing.equipmentRental.packages).map(pkg => ({
-              "@type": "Offer",
-              "name": pkg.name,
-              "price": String(pkg.hourlyRate),
-              "priceCurrency": SITE_CONFIG.pricing.equipmentRental.currency,
-              "url": `${SITE_CONFIG.url}/rental`
-            }))
-          };
-        })(),
+        ...createEquipmentRentalAggregateOffer(`${SITE_CONFIG.url}/services`),
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
@@ -865,7 +932,7 @@ export function generateOrganizationSchema() {
         },
         "image": `${SITE_CONFIG.url}/images/services/${service.name.toLowerCase().replace(/\s+/g, '-')}.jpg`,
         "availability": "https://schema.org/InStock",
-        "url": `${SITE_CONFIG.url}/rental`,
+        "url": `${SITE_CONFIG.url}/services`,
         "category": "Equipment Rental Service"
       }))
     },

@@ -5,7 +5,7 @@
 
 ## Changes Made
 
-Updated `static-pages/partners.yaml` to include logo and URL fields for each partner entry.
+Updated `app/partners/page.yaml` to include logo and URL fields for each partner entry.
 
 ## New Schema Structure
 
@@ -99,7 +99,7 @@ The partner data structure now supports:
 
 ## Backup Files
 
-- Original file backed up to: `static-pages/partners.yaml.backup-20251006`
+- Original legacy file backed up to: `static-pages/partners.yaml.backup-20251006`
 
 ## Validation
 
@@ -127,7 +127,7 @@ The partner data structure now supports:
 
 ## Related Files
 
-- `static-pages/partners.yaml` - Partner data configuration
+- `app/partners/page.yaml` - Partner page frontmatter configuration
 - `public/images/partners/` - Partner logo directory
 - `public/images/partners/README.md` - Logo specifications
 - `static-pages/partners.yaml.backup-20251006` - Original backup

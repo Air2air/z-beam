@@ -7,7 +7,6 @@
 
 import { describe, it, expect, beforeAll } from '@jest/globals';
 import { createStaticPage } from '@/app/utils/pages/createStaticPage';
-import type { Metadata } from 'next';
 
 describe('createStaticPage Integration Tests', () => {
   describe('Factory Function Return Value', () => {
@@ -24,16 +23,7 @@ describe('createStaticPage Integration Tests', () => {
   describe('generateMetadata Function', () => {
     it('should generate metadata for about page', async () => {
       const { generateMetadata } = createStaticPage('about');
-      const metadata = await generateMetadata() as Metadata;
-      
-      expect(metadata).toBeDefined();
-      expect(metadata.title).toBeDefined();
-      expect(metadata.description).toBeDefined();
-    });
-
-    it('should generate metadata for rental page', async () => {
-      const { generateMetadata } = createStaticPage('rental');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -42,7 +32,7 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate metadata for contact page', async () => {
       const { generateMetadata } = createStaticPage('contact');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -51,7 +41,7 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate metadata for comparison page', async () => {
       const { generateMetadata } = createStaticPage('comparison');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -60,7 +50,7 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate metadata for partners page', async () => {
       const { generateMetadata } = createStaticPage('partners');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -69,16 +59,16 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate metadata for equipment page', async () => {
       const { generateMetadata } = createStaticPage('equipment');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
       expect(metadata.description).toBeDefined();
     });
 
-    it('should generate metadata for operations page', async () => {
-      const { generateMetadata } = createStaticPage('operations');
-      const metadata = await generateMetadata() as Metadata;
+    it('should generate metadata for compliance page', async () => {
+      const { generateMetadata } = createStaticPage('compliance');
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -87,7 +77,7 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate metadata for safety page', async () => {
       const { generateMetadata } = createStaticPage('safety');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -96,16 +86,16 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate metadata for schedule page (dynamic)', async () => {
       const { generateMetadata } = createStaticPage('schedule');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
       expect(metadata.description).toBeDefined();
     });
 
-    it('should generate metadata for services page (dynamic)', async () => {
+    it('should generate metadata for services page', async () => {
       const { generateMetadata } = createStaticPage('services');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -114,7 +104,7 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate metadata for netalux page (dynamic)', async () => {
       const { generateMetadata } = createStaticPage('netalux');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -129,14 +119,7 @@ describe('createStaticPage Integration Tests', () => {
       
       expect(result).toBeDefined();
       expect(result.type).toBeDefined();
-    });
-
-    it('should render rental page component', async () => {
-      const { default: Page } = createStaticPage('rental');
-      const result = await Page();
-      
-      expect(result).toBeDefined();
-      expect(result.type).toBeDefined();
+      expect(result.props.hideAuthor).toBe(true);
     });
 
     it('should render contact page component', async () => {
@@ -171,8 +154,8 @@ describe('createStaticPage Integration Tests', () => {
       expect(result.type).toBeDefined();
     });
 
-    it('should render operations page component', async () => {
-      const { default: Page } = createStaticPage('operations');
+    it('should render compliance page component', async () => {
+      const { default: Page } = createStaticPage('compliance');
       const result = await Page();
       
       expect(result).toBeDefined();
@@ -193,14 +176,16 @@ describe('createStaticPage Integration Tests', () => {
       
       expect(result).toBeDefined();
       expect(result.type).toBeDefined();
+      expect(result.props.hideAuthor).toBe(true);
     });
 
-    it('should render services page component (dynamic)', async () => {
+    it('should render services page component', async () => {
       const { default: Page } = createStaticPage('services');
       const result = await Page();
       
       expect(result).toBeDefined();
       expect(result.type).toBeDefined();
+      expect(result.props.hideAuthor).toBe(true);
     });
 
     it('should render netalux page component (dynamic)', async () => {
@@ -213,8 +198,8 @@ describe('createStaticPage Integration Tests', () => {
   });
 
   describe('Page Type Support', () => {
-    const contentCardPages = ['rental', 'about', 'contact', 'partners', 'equipment', 'operations', 'safety', 'comparison'];
-    const dynamicPages = ['schedule', 'services', 'netalux'];
+    const contentCardPages = ['about', 'contact', 'partners', 'equipment', 'compliance', 'safety', 'comparison', 'services'];
+    const dynamicPages = ['schedule', 'netalux'];
 
     contentCardPages.forEach(pageType => {
       it(`should support content-cards page: ${pageType}`, () => {
@@ -238,7 +223,7 @@ describe('createStaticPage Integration Tests', () => {
   describe('Page Configuration', () => {
     it('should generate valid metadata for about page', async () => {
       const { generateMetadata } = createStaticPage('about');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -246,7 +231,7 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate valid metadata for contact page', async () => {
       const { generateMetadata } = createStaticPage('contact');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();
@@ -254,7 +239,7 @@ describe('createStaticPage Integration Tests', () => {
 
     it('should generate valid metadata for comparison page', async () => {
       const { generateMetadata } = createStaticPage('comparison');
-      const metadata = await generateMetadata() as Metadata;
+      const metadata = await generateMetadata();
       
       expect(metadata).toBeDefined();
       expect(metadata.title).toBeDefined();

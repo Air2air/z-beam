@@ -32,7 +32,7 @@ This directory contains logo images for Z-Beam partners.
 
 ## Usage
 
-These logos are referenced in `static-pages/partners.yaml`:
+These logos are referenced in `app/partners/page.yaml`:
 
 ```yaml
 partners:

@@ -510,7 +510,7 @@ Contributions welcome! Areas of interest:
 
 **Files Updated:**
 
-1. **`static-pages/partners.yaml`** - Updated partner descriptions
+1. **`app/partners/page.yaml`** - Updated partner descriptions
    - **Laserverse:** Enhanced description to highlight Needle portability/plug-and-play (20-43 kg, standard power) and Jango industrial scale (7500W, 50m reach)
    - **Netalux:** Rewrote to emphasize ease of use, patented safety features, and practical applications for each system
    
@@ -563,7 +563,7 @@ Contributions welcome! Areas of interest:
 
 ### Files Modified
 - `docs/META_TAG_VERIFICATION_REPORT.md` (NEW - comprehensive verification)
-- `static-pages/partners.yaml` (enhanced Needle/Jango descriptions)
+- `app/partners/page.yaml` (enhanced Needle/Jango descriptions)
 - `content/components/table-yaml/netalux-needle-comparison.yaml` (ease-of-use emphasis)
 - `content/components/table-yaml/netalux-jango-specs.yaml` (expanded comparison)
 - `DEPLOYMENT_CHANGELOG.md` (this entry)

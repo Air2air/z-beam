@@ -2,8 +2,8 @@
  * Tests for createStaticPage.tsx
  * 
  * Tests the enhanced static page factory that supports multiple page architectures:
- * - Content-cards pages (rental, about, contact, etc.)
- * - Dynamic-content pages (schedule, services, netalux)
+ * - Content-cards pages (services, about, contact, etc.)
+ * - Dynamic-content pages (schedule, netalux)
  * - Error handling and fallbacks
  */
 
@@ -46,15 +46,14 @@ describe('createStaticPage Factory', () => {
 
     it('should accept valid page types', () => {
       const validTypes = [
-        'rental',
+        'services',
         'about',
         'contact',
         'partners',
         'equipment',
-        'operations',
+        'compliance',
         'safety',
         'schedule',
-        'services',
         'netalux',
         'comparison',
       ];
@@ -83,7 +82,7 @@ describe('createStaticPage Factory', () => {
       (loadStaticPageFrontmatter as jest.MockedFunction<typeof loadStaticPageFrontmatter>)
         .mockResolvedValue(mockFrontmatter as any);
 
-      const result = await loadStaticPageFrontmatter('rental');
+      const result = await loadStaticPageFrontmatter('services');
       expect(result).toEqual(mockFrontmatter);
     });
 
@@ -128,14 +127,14 @@ describe('createStaticPage Factory', () => {
         } as any));
 
       const result = generateStaticPageMetadata({
-        title: 'Rental Page',
-        description: 'Rental description',
-        path: '/rental',
-        keywords: ['laser', 'rental'],
+        title: 'Services Page',
+        description: 'Services description',
+        path: '/services',
+        keywords: ['laser', 'services'],
       });
 
-      expect(result.title).toBe('Rental Page');
-      expect(result.description).toBe('Rental description');
+      expect(result.title).toBe('Services Page');
+      expect(result.description).toBe('Services description');
     });
   });
 
@@ -197,7 +196,7 @@ describe('createStaticPage Factory', () => {
 
   describe('Page Type Classification', () => {
     it('should classify content-cards pages', () => {
-      const contentCardPages = ['rental', 'about', 'contact', 'partners'];
+      const contentCardPages = ['services', 'about', 'contact', 'partners'];
       
       contentCardPages.forEach(pageType => {
         // Content-cards pages should have sections
@@ -206,7 +205,7 @@ describe('createStaticPage Factory', () => {
     });
 
     it('should classify dynamic-content pages', () => {
-      const dynamicPages = ['schedule', 'services', 'netalux'];
+      const dynamicPages = ['schedule', 'netalux'];
       
       dynamicPages.forEach(pageType => {
         // Dynamic pages should support dynamic features
@@ -301,10 +300,10 @@ describe('createStaticPage Factory', () => {
 
   describe('Breadcrumb Generation', () => {
     it('should generate breadcrumbs from path', () => {
-      const path = '/rental';
+      const path = '/services';
       const breadcrumbs = [
         { label: 'Home', href: '/' },
-        { label: 'Rental', href: '/rental' },
+        { label: 'Services', href: '/services' },
       ];
 
       expect(breadcrumbs.length).toBe(2);

@@ -13,20 +13,39 @@ describe('Workiz Integration', () => {
       expect(fs.existsSync(contactPagePath)).toBe(true);
     });
 
-    it('should contain Workiz iframe URL in contact page', () => {
+    it('should keep the contact route on the shared static-page factory', () => {
       const fs = require('fs');
       const path = require('path');
       const contactPagePath = path.join(process.cwd(), 'app', 'contact', 'page.tsx');
       const content = fs.readFileSync(contactPagePath, 'utf-8');
+      expect(content).toContain("createStaticPage('contact')");
+    });
+
+    it('should contain Workiz iframe URL in the shared contact lead section', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const contactLeadSectionPath = path.join(process.cwd(), 'app', 'components', 'Contact', 'ContactLeadSection.tsx');
+      const content = fs.readFileSync(contactLeadSectionPath, 'utf-8');
       expect(content).toContain('st.sendajob.com');
       expect(content).toContain('bc0bbe1e44d7eda5aed87bb3ababd7c52a171de4_f.html');
     });
 
-    it('should have proper iframe styling', () => {
+    it('should emit explicit Contact analytics from the shared contact lead section', () => {
       const fs = require('fs');
       const path = require('path');
-      const contactPagePath = path.join(process.cwd(), 'app', 'contact', 'page.tsx');
-      const content = fs.readFileSync(contactPagePath, 'utf-8');
+      const contactLeadSectionPath = path.join(process.cwd(), 'app', 'components', 'Contact', 'ContactLeadSection.tsx');
+      const content = fs.readFileSync(contactLeadSectionPath, 'utf-8');
+      expect(content).toContain('contact_page_viewed');
+      expect(content).toContain('contact_form_embed_loaded');
+      expect(content).toContain('trackContactPageGoogleAdsConversion');
+      expect(content).toContain('trackEvent');
+    });
+
+    it('should have proper iframe styling in the shared contact lead section', () => {
+      const fs = require('fs');
+      const path = require('path');
+      const contactLeadSectionPath = path.join(process.cwd(), 'app', 'components', 'Contact', 'ContactLeadSection.tsx');
+      const content = fs.readFileSync(contactLeadSectionPath, 'utf-8');
       expect(content).toContain('bg-gray-800');
       expect(content).toContain('rounded-md');
       expect(content).toContain('shadow-md');
@@ -56,7 +75,7 @@ describe('Workiz Integration', () => {
       const confirmationPagePath = path.join(process.cwd(), 'app', 'confirmation', 'page.tsx');
       const content = fs.readFileSync(confirmationPagePath, 'utf-8');
       expect(content).toContain('Return to Home');
-      expect(content).toContain('Learn More About Equipment Rental');
+      expect(content).toContain('Explore Services');
     });
   });
 

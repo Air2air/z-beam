@@ -80,7 +80,7 @@ This README is the single source of truth for building, maintaining, and extendi
 - `/app/materials/[category]/` - Material category pages
 - `/app/materials/[category]/[subcategory]/` - Material subcategory pages
 - `/app/materials/[category]/[subcategory]/[slug]/` - Individual material pages
-- Static pages: `/rental`, `/about`, `/contact`, etc.
+- Static pages: `/services`, `/about`, `/contact`, etc.
 
 ### Material Frontmatter Structure
 Each YAML file in `/frontmatter/materials/` contains structured metadata:

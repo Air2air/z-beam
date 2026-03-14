@@ -9,10 +9,10 @@
  * 
  * @usage
  * <ClickableCard
- *   href="/services/rental"
+ *   href="/services"
  *   heading="Equipment Rental"
  *   text="Professional laser cleaning equipment for rent"
- *   details={["Residential $190/hr", "Industrial $270/hr", "24/7 support"]}
+ *   details={["Hourly packages available", "Training included", "24/7 support"]}
  * />
  */
 import React from 'react';
