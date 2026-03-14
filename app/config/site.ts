@@ -695,11 +695,6 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
         description: "Rent professional laser cleaning equipment"
       },
       {
-        name: "Pricing",
-        href: "/pricing",
-        description: "View current equipment rental rates and package options"
-      },
-      {
         name: "Equipment",
         href: "/equipment",
         description: "Laser cleaning equipment information"
