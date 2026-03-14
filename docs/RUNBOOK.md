@@ -131,8 +131,8 @@ grep -r "new_component" generation/config/
 
 ## Updating Schema
 
-### 1. Update JSON Schema
-Edit `schemas/frontmatter-v5.0.0.json`:
+### 1. Update Canonical Schema
+Edit `/Users/todddunning/Desktop/Z-Beam/z-beam-generator/schemas/all_domains_schema.yaml`:
 ```json
 {
   "properties": {
@@ -377,7 +377,7 @@ grep "429" .next/server.log
 - **Components**: `app/components/[ComponentName]/`
 - **Tests**: `tests/[category]/[name].test.{ts,tsx}`
 - **Config**: `app/config/site.ts`
-- **Schema**: `schemas/frontmatter-v5.0.0.json`
+- **Canonical Schema**: `/Users/todddunning/Desktop/Z-Beam/z-beam-generator/schemas/all_domains_schema.yaml`
 
 ### Important Commands
 ```bash

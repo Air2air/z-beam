@@ -15,7 +15,7 @@ The Z-Beam codebase has 500+ YAML frontmatter files that define materials, conta
 
 ## Decision
 Implement comprehensive YAML schema validation system using JSON Schema:
-1. Created `schemas/frontmatter-v5.0.0.json` - JSON Schema definition
+1. Use `z-beam-generator/schemas/all_domains_schema.yaml` as the shared schema definition
 2. Created `scripts/validate-yaml-schemas.js` - Automated validation script
 3. Created `tests/integration/yaml-typescript-integration.test.ts` - 17 integration tests
 4. Added validation to pre-commit hooks via `.husky/pre-commit`
@@ -31,7 +31,7 @@ Implement comprehensive YAML schema validation system using JSON Schema:
 
 ### Negative
 - **Build Time**: Adds ~2-3 seconds to pre-commit hooks
-- **Maintenance**: JSON Schema must be updated when data structure changes
+- **Maintenance**: Keep the canonical consolidated schema in `z-beam-generator/schemas/all_domains_schema.yaml` aligned with any schema-driven frontend validation or component assumptions
 - **Learning Curve**: Developers need to understand JSON Schema syntax
 
 ### Neutral
@@ -64,6 +64,6 @@ Implement comprehensive YAML schema validation system using JSON Schema:
 
 ## References
 - `docs/ARCHITECTURAL_IMPROVEMENTS_SUMMARY.md`
-- `schemas/frontmatter-v5.0.0.json`
+- `z-beam-generator/schemas/all_domains_schema.yaml`
 - `scripts/validate-yaml-schemas.js`
 - `tests/integration/yaml-typescript-integration.test.ts`
