@@ -10,11 +10,11 @@
  * @see /docs/testing/SEO_TESTING_REQUIREMENTS.md
  */
 
-import fs from 'fs';
-import path from 'path';
-import { glob } from 'glob';
-import { parse } from 'yaml';
-import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
+const fs = require('fs');
+const path = require('path');
+const { glob } = require('glob');
+const { parse } = require('yaml');
+const { SchemaFactory } = require('../../app/utils/schemas/SchemaFactory');
 
 function getGraphEntries(schemas) {
   return Array.isArray(schemas?.['@graph']) ? schemas['@graph'] : [];
