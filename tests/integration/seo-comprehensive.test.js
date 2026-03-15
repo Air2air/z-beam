@@ -24,9 +24,9 @@ describe('SEO Comprehensive Integration', () => {
       const sitemap = fs.readFileSync(sitemapPath, 'utf-8');
       const imageCount = (sitemap.match(/<image:image>/g) || []).length;
       
-      // Should have ~352 images indexed (updated threshold for content growth)
-      expect(imageCount).toBeGreaterThanOrEqual(340);
-      expect(imageCount).toBeLessThanOrEqual(360);
+      // Keep a realistic band as content expands without silently regressing coverage.
+      expect(imageCount).toBeGreaterThanOrEqual(360);
+      expect(imageCount).toBeLessThanOrEqual(400);
     });
 
     test('should have valid XML structure', () => {

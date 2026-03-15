@@ -16,8 +16,22 @@ import { glob } from 'glob';
 import { parse } from 'yaml';
 import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
 
+function getGraphEntries(schemas) {
+  return Array.isArray(schemas?.['@graph']) ? schemas['@graph'] : [];
+}
+
+function findSchemaByTypes(schemas, validTypes) {
+  return getGraphEntries(schemas).find((entry) => {
+    if (!entry || typeof entry !== 'object') {
+      return false;
+    }
+
+    return validTypes.includes(entry['@type']);
+  });
+}
+
 describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
-  let frontmatterFiles: string[] = [];
+  let frontmatterFiles = [];
   
   beforeAll(async () => {
     // Collect all frontmatter YAML files
@@ -40,7 +54,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
 
   describe('Article Pages - JSON-LD Schema Requirements', () => {
     test('MANDATORY: All article pages must have JSON-LD schema', () => {
-      const articlesWithoutSchema: string[] = [];
+      const articlesWithoutSchema = [];
       const totalArticles = frontmatterFiles.filter(f => f.includes('frontmatter/')).length;
       
       frontmatterFiles.forEach(file => {
@@ -66,7 +80,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Article schema must include required properties', () => {
-      const invalidArticles: string[] = [];
+      const invalidArticles = [];
       
       frontmatterFiles.slice(0, 50).forEach(file => {
         if (file.includes('frontmatter/materials/') || file.includes('frontmatter/contaminants/')) {
@@ -91,7 +105,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Product schema must include aggregateRating', () => {
-      const materialsWithoutRating: string[] = [];
+      const materialsWithoutRating = [];
       
       frontmatterFiles.forEach(file => {
         if (file.includes('frontmatter/materials/')) {
@@ -116,7 +130,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: HowTo schema must include steps', () => {
-      const settingsWithoutSteps: string[] = [];
+      const settingsWithoutSteps = [];
       
       frontmatterFiles.forEach(file => {
         if (file.includes('frontmatter/settings/')) {
@@ -141,11 +155,11 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: FAQ schema must have minimum 3 questions', () => {
-      const pagesWithInsufficientFAQs: string[] = [];
+      const pagesWithInsufficientFAQs = [];
       
       frontmatterFiles.slice(0, 30).forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
-        const parsed = parse(content) as { faq?: { items?: unknown[] } };
+        const parsed = parse(content) || {};
         const faqItems = Array.isArray(parsed?.faq?.items) ? parsed.faq.items : [];
         const faqCount = faqItems.length;
         
@@ -162,7 +176,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Breadcrumb schema must have valid hierarchy', () => {
-      const pagesWithInvalidBreadcrumbs: string[] = [];
+      const pagesWithInvalidBreadcrumbs = [];
       
       frontmatterFiles.slice(0, 30).forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -188,7 +202,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
 
   describe('SEO Metadata Requirements', () => {
     test('MANDATORY: All pages must have pageTitle', () => {
-      const pagesWithoutTitle: string[] = [];
+      const pagesWithoutTitle = [];
       
       frontmatterFiles.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -207,7 +221,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: All pages must have pageDescription', () => {
-      const pagesWithoutDescription: string[] = [];
+      const pagesWithoutDescription = [];
       
       frontmatterFiles.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -225,7 +239,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Description length must be 50-160 characters', () => {
-      const invalidDescriptions: string[] = [];
+      const invalidDescriptions = [];
       
       frontmatterFiles.slice(0, 50).forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -249,7 +263,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: All pages must have keywords', () => {
-      const pagesWithoutKeywords: string[] = [];
+      const pagesWithoutKeywords = [];
       
       frontmatterFiles.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -269,7 +283,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
       // Canonical URLs are dynamically generated from `fullPath` at render time —
       // no explicit `canonical:` field is stored in YAML frontmatter by design.
       // This test verifies the canonical SOURCE (fullPath) is present in every file.
-      const pagesWithoutFullPath: string[] = [];
+      const pagesWithoutFullPath = [];
 
       frontmatterFiles.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -291,7 +305,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
 
   describe('Open Graph & Twitter Card Requirements', () => {
     test('MANDATORY: All pages must have Open Graph data', () => {
-      const pagesWithoutOG: string[] = [];
+      const pagesWithoutOG = [];
       
       frontmatterFiles.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -308,7 +322,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Open Graph images must have dimensions', () => {
-      const imagesWithoutDimensions: string[] = [];
+      const imagesWithoutDimensions = [];
       
       frontmatterFiles.slice(0, 30).forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -331,7 +345,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: All pages must have Twitter Card data', () => {
-      const pagesWithoutTwitter: string[] = [];
+      const pagesWithoutTwitter = [];
       
       frontmatterFiles.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -350,7 +364,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
 
   describe('Image SEO Requirements', () => {
     test('MANDATORY: Hero images must have alt text', () => {
-      const imagesWithoutAlt: string[] = [];
+      const imagesWithoutAlt = [];
       
       frontmatterFiles.forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -371,7 +385,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Images must have proper dimensions', () => {
-      const imagesWithoutDimensions: string[] = [];
+      const imagesWithoutDimensions = [];
       
       frontmatterFiles.slice(0, 50).forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -395,7 +409,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: ImageObject schema must be present for hero images', () => {
-      const pagesWithoutImageSchema: string[] = [];
+      const pagesWithoutImageSchema = [];
       
       frontmatterFiles.slice(0, 30).forEach(file => {
         const content = fs.readFileSync(file, 'utf8');
@@ -418,7 +432,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
 
   describe('Rich Results Eligibility', () => {
     test('MANDATORY: Article pages must be eligible for rich results', () => {
-      const ineligibleArticles: string[] = [];
+      const ineligibleArticles = [];
       
       frontmatterFiles.slice(0, 30).forEach(file => {
         if (file.includes('frontmatter/materials/') || file.includes('frontmatter/contaminants/')) {
@@ -444,7 +458,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Product pages must include offers data', () => {
-      const productsWithoutOffers: string[] = [];
+      const productsWithoutOffers = [];
       
       frontmatterFiles.forEach(file => {
         if (file.includes('frontmatter/materials/')) {
@@ -474,7 +488,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
       // This is a placeholder for actual schema.org validation
       // In production, this would use a real schema.org validator
       
-      const criticalErrors: string[] = [];
+      const criticalErrors = [];
       
       // Simulate validation checks
       frontmatterFiles.slice(0, 20).forEach(file => {
@@ -495,7 +509,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
     });
 
     test('MANDATORY: Required schema types must be valid', () => {
-      const invalidTypes: string[] = [];
+      const invalidTypes = [];
       const validTypes = [
         'Article', 'BlogPosting', 'NewsArticle', 'TechArticle',
         'Product', 'Service', 'Offer',
@@ -605,12 +619,16 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
 
       const factory = new SchemaFactory(mockFrontmatter, 'materials/test-material', 'https://z-beam.com');
       const schemas = factory.generate();
-      const articleSchema = schemas['@graph'].find((s: any) => s['@type'] === 'Article' || s['@type'] === 'TechnicalArticle');
+      const articleSchema = findSchemaByTypes(schemas, ['Article', 'TechnicalArticle']);
+      const speakable = articleSchema && typeof articleSchema.speakable === 'object' && articleSchema.speakable !== null
+        ? articleSchema.speakable
+        : null;
+      const cssSelector = Array.isArray(speakable?.cssSelector) ? speakable.cssSelector : [];
       
       expect(articleSchema).toBeDefined();
-      expect(articleSchema.speakable).toBeDefined();
-      expect(articleSchema.speakable['@type']).toBe('SpeakableSpecification');
-      expect(articleSchema.speakable.cssSelector).toEqual(['.page-title', '.page-description']);
+      expect(speakable).toBeDefined();
+      expect(speakable?.['@type']).toBe('SpeakableSpecification');
+      expect(cssSelector).toEqual(['.page-title', '.page-description']);
     });
 
     test('Speakable markup: Should NOT include when selectors missing', () => {
@@ -627,7 +645,7 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
 
       const factory = new SchemaFactory(frontmatterNoSpeakable, 'materials/test-material', 'https://z-beam.com');
       const schemas = factory.generate();
-      const articleSchema = schemas['@graph'].find((s: any) => s['@type'] === 'Article' || s['@type'] === 'TechnicalArticle');
+  const articleSchema = findSchemaByTypes(schemas, ['Article', 'TechnicalArticle']);
       
       expect(articleSchema?.speakable).toBeUndefined();
     });
@@ -640,31 +658,33 @@ describe('🔥 MANDATORY: Comprehensive SEO Infrastructure Tests', () => {
       const mockData = { id: 'test', title: 'Test Page' };
       const factory = new SchemaFactory(mockData, 'home', 'https://z-beam.com');
       const schemas = factory.generate();
-      const orgSchema = schemas['@graph'].find((s: any) => s['@type'] === 'Organization');
+      const orgSchema = findSchemaByTypes(schemas, ['Organization']);
+      const sameAs = Array.isArray(orgSchema?.sameAs) ? orgSchema.sameAs : [];
       
       expect(orgSchema).toBeDefined();
-      expect(orgSchema.sameAs).toBeDefined();
-      expect(Array.isArray(orgSchema.sameAs)).toBe(true);
-      expect(orgSchema.sameAs.length).toBeGreaterThan(0);
-      expect(orgSchema.sameAs).toContain('https://www.linkedin.com/company/z-beam/');
-      expect(orgSchema.sameAs).toContain('https://www.facebook.com/profile.php?id=61573280533272');
-      expect(orgSchema.sameAs).toContain('https://x.com/ZBeamLaser');
+      expect(sameAs).toBeDefined();
+      expect(Array.isArray(sameAs)).toBe(true);
+      expect(sameAs.length).toBeGreaterThan(0);
+      expect(sameAs).toContain('https://www.linkedin.com/company/z-beam/');
+      expect(sameAs).toContain('https://www.facebook.com/profile.php?id=61573280533272');
+      expect(sameAs).toContain('https://x.com/ZBeamLaser');
     });
 
     test('Organization schema: SameAs URLs should be absolute', () => {
       const mockData = { id: 'test', title: 'Test Page' };
       const factory = new SchemaFactory(mockData, 'home', 'https://z-beam.com');
       const schemas = factory.generate();
-      const orgSchema = schemas['@graph'].find((s: any) => s['@type'] === 'Organization');
+      const orgSchema = findSchemaByTypes(schemas, ['Organization']);
+      const sameAs = Array.isArray(orgSchema?.sameAs) ? orgSchema.sameAs : [];
       
-      orgSchema.sameAs.forEach((url: string) => {
+      sameAs.forEach((url) => {
         expect(url).toMatch(/^https?:\/\//);
       });
     });
   });
 
   // Helper function to calculate presence percentage
-  function calculatePresence(pattern: string, total: number): number {
+  function calculatePresence(pattern, total) {
     let count = 0;
     frontmatterFiles.forEach(file => {
       const content = fs.readFileSync(file, 'utf8');
