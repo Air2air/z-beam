@@ -27,7 +27,7 @@ See: [Rich Data Normalization Summary](../RICH_DATA_NORMALIZATION_SUMMARY.md)
 
 ## 📊 Overview
 
-The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverages **ALL** frontmatter fields to create comprehensive, Google E-E-A-T optimized structured data.
+The current JSON-LD pipeline (`app/components/JsonLD/JsonLD.tsx` + `app/utils/schemas/SchemaFactory.ts`) now leverages frontmatter fields to create comprehensive, Google E-E-A-T optimized structured data.
 
 ### E-E-A-T Principles Implemented
 

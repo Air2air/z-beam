@@ -6,21 +6,13 @@
  */
 
 import type { ValidationResult } from './types';
+import datasetPolicy from './policy.json';
 
 /**
  * Tier 1 REQUIRED parameters (machine settings)
  * ALL must have min/max values for dataset visibility
  */
-export const TIER1_REQUIRED_PARAMETERS = [
-  'powerRange',
-  'wavelength',
-  'spotSize',
-  'repetitionRate',
-  'pulseWidth',
-  'scanSpeed',
-  'passCount',
-  'overlapRatio'
-] as const;
+export const TIER1_REQUIRED_PARAMETERS = datasetPolicy.tier1RequiredParameters;
 
 /**
  * Tier 2 IMPORTANT parameters (material properties)
@@ -29,13 +21,7 @@ export const TIER1_REQUIRED_PARAMETERS = [
  * Note: Frontmatter uses 'material_characteristics' as the category name
  * containing all thermal, optical, mechanical, and chemical properties
  */
-export const TIER2_IMPORTANT_PROPERTIES = {
-  material_characteristics: [
-    'density', 'hardness', 'tensileStrength', 'youngsModulus',
-    'thermalConductivity', 'meltingPoint', 'thermalExpansion',
-    'absorptivity', 'reflectivity', 'emissivity'
-  ]
-} as const;
+export const TIER2_IMPORTANT_PROPERTIES = datasetPolicy.tier2ImportantProperties;
 
 /**
  * Tier 3 OPTIONAL parameters (safety, regulatory, vendor)
@@ -76,7 +62,8 @@ export function calculateTier2Completeness(materialProperties: any): number {
   
   // Check each category
   Object.entries(TIER2_IMPORTANT_PROPERTIES).forEach(([category, properties]) => {
-    const categoryData = materialProperties[category];
+    const snakeCaseCategory = category.replace(/[A-Z]/g, (match) => `_${match.toLowerCase()}`);
+    const categoryData = materialProperties[category] || materialProperties[snakeCaseCategory];
     if (!categoryData) return;
     
     properties.forEach(prop => {
@@ -247,7 +234,7 @@ export function validateDatasetForSchema(data: any): ValidationResult {
     };
   }
   
-  const machineSettings = data.machineSettings || data.frontmatter?.machineSettings;
+  const machineSettings = data.machineSettings || data.frontmatter?.machineSettings || data.parameters;
   const materialProperties = data.materialProperties || data.frontmatter?.materialProperties;
   const materialName = data.materialName || data.name || 'unknown';
   

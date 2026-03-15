@@ -179,7 +179,6 @@ export default async function HomePage() {
       <>
         <JsonLD data={jsonLdSchema} />
         <Layout 
-          title={pageTitle}
           metadata={homeConfig}
           customHeroOverlay={true}
         >

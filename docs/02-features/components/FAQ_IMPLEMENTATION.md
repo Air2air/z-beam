@@ -125,32 +125,11 @@ The FAQ data is automatically converted to JSON-LD FAQPage schema for enhanced S
 
 ### Schema Generation
 
-**File:** `app/utils/jsonld-helper.ts`  
-**Function:** `createFAQPageSchema()`
+**Live path:** `app/utils/schemas/SchemaFactory.ts`  
+**Behavior:** FAQ structured data is emitted through the current schema factory, not a standalone helper builder
 
 ```typescript
-function createFAQPageSchema(data: any) {
-  const { materialName, faq, pageUrl } = data;
-  
-  if (!faq || !Array.isArray(faq) || faq.length === 0) {
-    return null;
-  }
-  
-  const faqEntities = faq.map((item) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer
-    }
-  }));
-  
-  return {
-    '@type': 'FAQPage',
-    '@id': `${pageUrl}#faq`,
-    mainEntity: faqEntities
-  };
-}
+const schema = new SchemaFactory(article, slug).generate();
 ```
 
 ---
@@ -185,10 +164,10 @@ Now FAQs are authored content in frontmatter:
    - Now only passes `materialName` and `faq`
    - Added conditional check for `faq` existence
 
-3. **jsonld-helper.ts:**
-   - Updated `createFAQPageSchema()` to use frontmatter FAQ data
-   - Removed property-based FAQ generation
-   - Simplified schema creation logic
+3. **SchemaFactory path:**
+  - Uses frontmatter FAQ data in the live JSON-LD path
+  - Keeps property-based FAQ generation out of the component layer
+  - Centralizes schema creation logic in the current authority
 
 ---
 

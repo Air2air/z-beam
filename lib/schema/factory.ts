@@ -2,6 +2,10 @@
  * Schema Factory for JSON-LD Generation
  * Unified approach to creating structured data schemas
  * Implements factory pattern to reduce code duplication and improve maintainability
+ *
+ * @deprecated Compatibility/testing surface only. The live website runtime
+ * generates JSON-LD through `app/utils/schemas/SchemaFactory.ts` and
+ * `app/components/JsonLD/JsonLD.tsx`.
  */
 
 // Internal constants to avoid external dependencies

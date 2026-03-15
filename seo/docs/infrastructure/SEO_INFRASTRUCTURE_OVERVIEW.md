@@ -34,7 +34,7 @@ app/
 ├── sitemap.ts                          # Dynamic sitemap generation
 ├── utils/
 │   ├── seoMetadataFormatter.ts         # Title/description optimization
-│   ├── jsonld-helper.ts                # Schema.org structured data
+│   ├── jsonld-helper.ts                # Deprecated compatibility wrapper only
 │   ├── jsonld-schema.ts                # Schema type definitions
 │   ├── breadcrumbs.ts                  # Navigation hierarchy
 │   └── schemas/                        # Specialized schema generators
@@ -104,14 +104,13 @@ tests/
 - Professional voice compliance (no sales language)
 - Mobile-first optimization
 
-### jsonld-helper.ts
-**Purpose**: Generate Schema.org structured data
+### JsonLD.tsx + SchemaFactory
+**Purpose**: Generate live Schema.org structured data for rendered pages
 **Features**:
-- Article schema for material/settings pages
-- Dataset schema for machine settings
-- FAQ schema for Q&A sections
-- HowTo schema for process guides
-- Organization schema for brand identity
+- `app/components/JsonLD/JsonLD.tsx` renders page JSON-LD in the live app
+- `app/utils/schemas/SchemaFactory.ts` is the current schema authority
+- `lib/metadata/jsonld.ts` normalizes and serializes output consistently
+- `app/utils/jsonld-helper.ts` remains only as a deprecated compatibility wrapper for legacy callers
 
 ### breadcrumbs.ts
 **Purpose**: Generate navigation hierarchy

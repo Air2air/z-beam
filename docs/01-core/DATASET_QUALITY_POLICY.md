@@ -178,29 +178,14 @@ if (validation.tier2Completeness < 80) {
 }
 ```
 
-### 2. JSON-LD Schema Generation (`app/utils/jsonld-helper.ts`)
+### 2. JSON-LD Schema Generation (`app/utils/schemas/SchemaFactory.ts`)
 
 **Conditional Dataset schema inclusion**:
 ```typescript
-function generateDatasetSchema(data: any): any | null {
-  // Validate dataset completeness before generating schema
-  const validation = validateDatasetForSchema(data);
-  
-  if (!validation.valid) {
-    console.warn(`Dataset schema excluded for ${data.materialName}: ${validation.reason}`);
-    return null; // Don't include Dataset schema
-  }
-  
-  return createDatasetSchema(data);
-}
+const schema = new SchemaFactory(data, slug).generate();
 
-// In main schema generation, conditionally add Dataset:
-const schemas = [
-  createArticleSchema(data),
-  createBreadcrumbSchema(data),
-  // Only add Dataset if validation passes
-  ...(hasCompleteDataset(data) ? [createDatasetSchema(data)] : [])
-];
+// SchemaFactory conditionally includes Dataset markup only when
+// the shared dataset validation rules pass for the current page data.
 ```
 
 ### 3. Datasets Page (`app/datasets/page.tsx`)
@@ -321,7 +306,7 @@ test('should only list materials with complete datasets', () => {
 - [ ] Add build-time reporting
 
 ### Phase 2: Update Schema Generation (Week 1)
-- [ ] Add conditional Dataset schema in `jsonld-helper.ts`
+- [ ] Add conditional Dataset schema handling in `SchemaFactory.ts`
 - [ ] Update material page generation to check completeness
 - [ ] Add settings page validation
 
@@ -363,7 +348,7 @@ test('should only list materials with complete datasets', () => {
 
 - **Test Suite**: `tests/dataset-generation.test.js` (18 test cases, 605 lines)
 - **Generation Script**: `scripts/generate-datasets.ts` (670 lines)
-- **Schema Helper**: `app/utils/jsonld-helper.ts` (Dataset schema functions)
+- **Schema Authority**: `app/utils/schemas/SchemaFactory.ts` (conditional Dataset schema generation)
 - **Architecture**: `docs/02-features/DATASETS_PAGE_IMPLEMENTATION.md`
 - **Consolidation**: Root `DATASET_CONSOLIDATION_NOV24_2025.md`
 

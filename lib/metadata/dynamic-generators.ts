@@ -2,6 +2,7 @@
 type NextMetadata = any;
 
 import { SITE_CONFIG } from '@/app/config/site';
+import { buildJsonLdMetadata } from '@/lib/metadata/jsonld';
 import { 
   generateBreadcrumbSchema, 
   generateProductSchema,
@@ -252,57 +253,52 @@ export function generateMaterialMetadata(options: {
   });
 
   // Enhance with structured data
-  metadata.other = {
-    'application-ld+json': (() => {
-      const schemaData = {
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'WebPage',
-            '@id': `${fullUrl}#webpage`,
-            url: fullUrl,
-            name: `${materialName} Laser Cleaning`,
-            description,
-            ...(dateModified && { dateModified })
-          },
-          productSchema,
-          generateBreadcrumbSchema(breadcrumbs)
-        ]
-      };
+  const schemaGraph: Record<string, unknown>[] = [
+    {
+      '@type': 'WebPage',
+      '@id': `${fullUrl}#webpage`,
+      url: fullUrl,
+      name: `${materialName} Laser Cleaning`,
+      description,
+      ...(dateModified && { dateModified })
+    },
+    productSchema as Record<string, unknown>,
+    generateBreadcrumbSchema(breadcrumbs) as Record<string, unknown>
+  ];
 
-      // Add Material schema if properties are provided
-      if (properties) {
-        schemaData['@graph'].push({
-          '@type': 'Material',
-          '@id': `${fullUrl}#material`,
-          name: materialName,
-          description,
-          ...(properties.meltingPoint && { meltingPoint: properties.meltingPoint }),
-          ...(properties.density && { density: properties.density }),
-          ...(properties.hardness && { hardness: properties.hardness })
-        });
+  if (properties) {
+    schemaGraph.push({
+      '@type': 'Material',
+      '@id': `${fullUrl}#material`,
+      name: materialName,
+      description,
+      ...(properties.meltingPoint && { meltingPoint: properties.meltingPoint }),
+      ...(properties.density && { density: properties.density }),
+      ...(properties.hardness && { hardness: properties.hardness })
+    });
+  }
+
+  if (videoUrl) {
+    schemaGraph.push({
+      '@type': 'VideoObject',
+      '@id': `${fullUrl}#video`,
+      name: `${normalizedMaterialName} Laser Cleaning Overview`,
+      description,
+      contentUrl: videoUrl,
+      embedUrl: videoUrl,
+      thumbnailUrl: image || `${SITE_CONFIG.url}/images/og-default.png`,
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_CONFIG.name,
+        url: SITE_CONFIG.url
       }
+    });
+  }
 
-      if (videoUrl) {
-        schemaData['@graph'].push({
-          '@type': 'VideoObject',
-          '@id': `${fullUrl}#video`,
-          name: `${normalizedMaterialName} Laser Cleaning Overview`,
-          description,
-          contentUrl: videoUrl,
-          embedUrl: videoUrl,
-          thumbnailUrl: image || `${SITE_CONFIG.url}/images/og-default.png`,
-          publisher: {
-            '@type': 'Organization',
-            name: SITE_CONFIG.name,
-            url: SITE_CONFIG.url
-          }
-        });
-      }
-
-      return JSON.stringify(schemaData);
-    })()
-  };
+  metadata.other = buildJsonLdMetadata({
+    '@context': 'https://schema.org',
+    '@graph': schemaGraph,
+  });
 
   // Use optimized images
   if (socialImages) {
@@ -396,36 +392,34 @@ export function generateSettingsMetadata(options: {
   });
 
   const fullUrl = `${SITE_CONFIG.url}${pathname}`;
-  metadata.other = {
-    'application-ld+json': JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
+  metadata.other = buildJsonLdMetadata({
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': `${fullUrl}#webpage`,
+        url: fullUrl,
+        name: `${normalizedSettingName} Laser Settings`,
+        description: seoDescription
+      },
+      {
+        '@type': 'Article',
+        '@id': `${fullUrl}#article`,
+        headline: `${normalizedSettingName} Laser Settings Guide`,
+        description: seoDescription,
+        mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': `${fullUrl}#webpage`,
-          url: fullUrl,
-          name: `${normalizedSettingName} Laser Settings`,
-          description: seoDescription
+          '@id': `${fullUrl}#webpage`
         },
-        {
-          '@type': 'Article',
-          '@id': `${fullUrl}#article`,
-          headline: `${normalizedSettingName} Laser Settings Guide`,
-          description: seoDescription,
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': `${fullUrl}#webpage`
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: SITE_CONFIG.name,
-            url: SITE_CONFIG.url
-          },
-          ...(dateModified && { dateModified })
-        }
-      ]
-    })
-  };
+        publisher: {
+          '@type': 'Organization',
+          name: SITE_CONFIG.name,
+          url: SITE_CONFIG.url
+        },
+        ...(dateModified && { dateModified })
+      }
+    ]
+  });
 
   return metadata;
 }

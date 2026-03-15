@@ -4,6 +4,11 @@
  */
 
 module.exports = {
+  site: {
+    productionUrl: 'https://www.z-beam.com',
+    requestTimeoutMs: 30000,
+  },
+
   // Content validation settings
   content: {
     maxFrontmatterWarnings: 150,
@@ -216,5 +221,84 @@ module.exports = {
     enabled: true,
     maxConcurrent: 5,
     timeout: 120000 // 2 minutes per validation
+  },
+
+  postDeployment: {
+    performance: {
+      maxResponseTimeMs: 1000,
+      maxTtfbMs: 600,
+      maxHtmlBytes: 100000,
+    },
+    seo: {
+      title: {
+        minLength: 10,
+        maxLength: 60,
+      },
+      description: {
+        minLength: 120,
+        maxLength: 160,
+      },
+    },
+    samplePages: {
+      materials: [
+        '/materials/metal/non-ferrous/aluminum-laser-cleaning',
+        '/materials/metal/ferrous/stainless-steel-laser-cleaning',
+        '/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning',
+      ],
+      settings: [
+        '/settings/metal/non-ferrous/aluminum-settings',
+        '/settings/metal/ferrous/stainless-steel-settings',
+        '/settings/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-settings',
+      ],
+    },
+    schemas: {
+      materialRequired: ['Article', 'FAQPage', 'Dataset', 'Person', 'ImageObject'],
+      settingsRequired: ['TechArticle', 'HowTo', 'FAQPage', 'Dataset', 'Person', 'SoftwareApplication', 'BreadcrumbList', 'WebPage'],
+      settingsBase: ['LocalBusiness', 'WebSite'],
+    },
+    feeds: {
+      xmlPath: '/feeds/google-merchant-feed.xml',
+      csvPath: '/feeds/google-merchant-feed.csv',
+      minProducts: 100,
+      maxProducts: 200,
+      sampleSize: 5,
+    },
+  },
+
+  seoInfrastructure: {
+    testPages: [
+      { url: '/', type: 'home', name: 'Homepage' },
+      { url: '/materials/metal/non-ferrous/aluminum-laser-cleaning', type: 'material', name: 'Material Page' },
+      { url: '/settings/metal/non-ferrous/aluminum-settings', type: 'settings', name: 'Settings Page' },
+      { url: '/contaminants/oxidation/ferrous/rust-oxidation-contamination', type: 'contaminant', name: 'Contaminant Page' },
+      { url: '/contaminants/oxidation', type: 'contaminant-category', name: 'Contaminant Category' },
+      { url: '/contaminants/oxidation/ferrous', type: 'contaminant-subcategory', name: 'Contaminant Subcategory' },
+      { url: '/services', type: 'service', name: 'Services Page' },
+      { url: '/about', type: 'static', name: 'Static Page' },
+    ],
+    thresholds: {
+      metadata: {
+        minTitleLength: 30,
+        maxTitleLength: 60,
+        minDescriptionLength: 120,
+        maxDescriptionLength: 160,
+      },
+      schema: {
+        minSchemaTypes: 2,
+        requiredProperties: ['@context', '@type', 'name'],
+      },
+      opengraph: {
+        requiredTags: ['og:title', 'og:description', 'og:image', 'og:url', 'og:type'],
+      },
+      sitemap: {
+        maxEntries: 10000,
+        requirePriority: true,
+        requireChangeFreq: true,
+      },
+      dataset: {
+        tier2Threshold: 80,
+        enforceQuality: true,
+      },
+    },
   }
 };

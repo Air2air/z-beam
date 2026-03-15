@@ -35,9 +35,21 @@ describe('SEO Infrastructure - Schema.org Structured Data', () => {
       expect(fs.existsSync(componentPath)).toBe(true);
     });
 
-    test('should have jsonld-helper for schema generation', () => {
+    test('should keep jsonld-helper only as a compatibility surface', () => {
       const helperPath = path.join(process.cwd(), 'app', 'utils', 'jsonld-helper.ts');
       expect(fs.existsSync(helperPath)).toBe(true);
+
+      const helperSource = fs.readFileSync(helperPath, 'utf8');
+      expect(helperSource).toContain('new SchemaFactory(articleData, slug).generate()');
+      expect(helperSource).not.toContain('createTechnicalArticleSchema');
+    });
+
+    test('should keep the live JsonLD component off the deprecated helper path', () => {
+      const componentPath = path.join(process.cwd(), 'app', 'components', 'JsonLD', 'JsonLD.tsx');
+      const componentSource = fs.readFileSync(componentPath, 'utf8');
+
+      expect(componentSource).toContain("@/lib/metadata/jsonld");
+      expect(componentSource).not.toContain('jsonld-helper');
     });
   });
 

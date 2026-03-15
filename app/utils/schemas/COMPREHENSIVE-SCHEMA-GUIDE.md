@@ -55,21 +55,12 @@ applications:
 Simply import and use in your pages:
 
 ```tsx
-import { createJsonLdForArticle } from '../utils/jsonld-helper';
+import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 
 // In your page component
-const jsonLdSchema = createJsonLdForArticle(article, slug);
-
 return (
   <>
-    {jsonLdSchema && (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdSchema, null, 2)
-        }}
-      />
-    )}
+    <JsonLD article={article} slug={slug} />
     <YourPageContent />
   </>
 );

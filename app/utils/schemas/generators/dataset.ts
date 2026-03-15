@@ -4,6 +4,7 @@
  */
 
 import { SITE_CONFIG } from '../../constants';
+import datasetPolicy from '@/app/datasets/core/policy.json';
 import { createAuthorReference } from './person';
 import type { SchemaContext, AuthorData, PropertyValue } from './types';
 
@@ -46,18 +47,7 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
   
   // Handle machine settings (for Settings pages)
   if (machineSettings) {
-    const settingsMap: Record<string, { label: string; description: string }> = {
-      powerRange: { label: 'Power Range', description: 'Laser power output' },
-      wavelength: { label: 'Wavelength', description: 'Laser beam wavelength' },
-      spotSize: { label: 'Spot Size', description: 'Focused laser beam diameter' },
-      repetitionRate: { label: 'Repetition Rate', description: 'Laser pulse frequency' },
-      energyDensity: { label: 'Energy Density', description: 'Energy per unit area (fluence)' },
-      pulseWidth: { label: 'Pulse Width', description: 'Laser pulse duration' },
-      scanSpeed: { label: 'Scan Speed', description: 'Beam travel velocity' },
-      passCount: { label: 'Pass Count', description: 'Number of cleaning passes' },
-      overlapRatio: { label: 'Overlap Ratio', description: 'Beam overlap percentage' },
-      dwellTime: { label: 'Dwell Time', description: 'Time laser spends per location' }
-    };
+    const settingsMap = datasetPolicy.machineSettingMetadata as Record<string, { label: string; description: string }>;
     
     Object.entries(machineSettings).forEach(([key, data]: [string, any]) => {
       if (settingsMap[key] && data?.value !== undefined && data?.unit) {

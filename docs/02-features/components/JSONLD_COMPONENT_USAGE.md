@@ -429,11 +429,11 @@ regulatoryStandards:
 - **Event Schema**: Webinars or training sessions
 
 ### To Add New Schema Type
-1. Edit `app/utils/jsonld-helper.ts`
-2. Create new builder function (e.g., `createFAQSchema`)
-3. Add to `@graph` array in `createJsonLdForArticle()`
-4. Update tests in `MaterialJsonLD.test.tsx`
-5. Document in this guide
+1. Update `app/utils/schemas/SchemaFactory.ts` or the relevant generator under `app/utils/schemas/`
+2. Keep serialization consistent through `lib/metadata/jsonld.ts`
+3. Verify the live path through `app/components/JsonLD/JsonLD.tsx`
+4. Update focused tests in `tests/standards/JSONLDComponent.test.tsx` and the nearest schema suite
+5. Document the current architecture in this guide
 
 ---
 

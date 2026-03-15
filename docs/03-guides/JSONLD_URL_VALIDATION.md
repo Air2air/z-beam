@@ -180,12 +180,14 @@ rg "https://z-beam\.com" app/ --type ts --type tsx
 ```
 
 ### Issue 4: Legacy JSON-LD Helpers
-**Symptom:** Old jsonld-helper.ts generates incorrect URLs  
-**Solution:** Ensure all components use SchemaFactory
+**Symptom:** Compatibility-only helper paths or stale imports can bypass the shared live JSON-LD path  
+**Solution:** Keep the live component path on `SchemaFactory` plus the shared serializer, and leave `jsonld-helper.ts` as compatibility-only
 ```bash
-# Check for legacy imports
-grep -r "jsonld-helper" app/components/
-grep -r "createJsonLd" app/components/
+# Check that the live component does not import the deprecated helper
+rg "jsonld-helper" app/components/JsonLD
+
+# Check the compatibility helper delegates back to the current authority
+rg "new SchemaFactory\(articleData, slug\)\.generate\(\)" app/utils/jsonld-helper.ts
 ```
 
 ## Testing Commands
@@ -250,7 +252,7 @@ All URLs should show: `"url":"https://www.z-beam.com/..."`
 
 - **Schema Generation:** `app/utils/schemas/SchemaFactory.ts`
 - **Configuration:** `app/config/site.ts`
-- **Legacy Helper:** `app/utils/jsonld-helper.ts` (deprecated, use SchemaFactory)
+- **Compatibility Helper:** `app/utils/jsonld-helper.ts` (deprecated compatibility wrapper; live generation should not import it)
 - **Components:** `app/components/JsonLD/JsonLD.tsx`
 
 ## Updates Log

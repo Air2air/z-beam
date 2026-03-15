@@ -1,7 +1,7 @@
 // app/components/JsonLD/JsonLD.tsx
 import React from 'react';
 import { SITE_CONFIG } from '@/app/config/site';
-import { createJsonLdForArticle } from '../../utils/jsonld-helper';
+import { serializeJsonLd } from '@/lib/metadata/jsonld';
 import { SchemaFactory } from '../../utils/schemas/SchemaFactory';
 import { validateAndLogSchema } from '../../utils/validators';
 import type { 
@@ -20,7 +20,6 @@ import type {
  *
  * Mode 2 uses SchemaFactory to generate TechnicalArticle, Product, HowTo, Dataset,
  * BreadcrumbList, WebPage, Person, and Certification schemas from frontmatter.
- * Falls back to the legacy generator if SchemaFactory throws.
  */
 type JsonLDProps =
   | { data: Record<string, unknown> | { '@context': string; '@graph': unknown[] }; article?: never; slug?: never }
@@ -36,8 +35,8 @@ export function JsonLD(props: JsonLDProps) {
       const factory = new SchemaFactory(article, slug);
       jsonLdSchema = factory.generate();
     } catch (error) {
-      console.warn('SchemaFactory failed, using legacy generator:', error);
-      jsonLdSchema = createJsonLdForArticle(article, slug);
+      console.error('SchemaFactory failed to generate JSON-LD:', error);
+      return null;
     }
 
     if (!jsonLdSchema) return null;
@@ -46,7 +45,9 @@ export function JsonLD(props: JsonLDProps) {
       validateAndLogSchema(jsonLdSchema, `JsonLD (${slug})`);
     }
 
-    const jsonString = JSON.stringify(jsonLdSchema).replace(/\\\//g, '/');
+    const jsonString = serializeJsonLd(jsonLdSchema)?.replace(/\\\//g, '/');
+    if (!jsonString) return null;
+
     return (
       <script
         type="application/ld+json"
@@ -56,7 +57,9 @@ export function JsonLD(props: JsonLDProps) {
   }
 
   // --- Data mode: render pre-built schema directly ---
-  const jsonString = JSON.stringify(props.data).replace(/\\\//g, '/');
+  const jsonString = serializeJsonLd(props.data)?.replace(/\\\//g, '/');
+  if (!jsonString) return null;
+
   return (
     <script
       type="application/ld+json"

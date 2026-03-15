@@ -274,7 +274,7 @@ node scripts/validate-metadata-sync.js --file alumina-laser-cleaning.yaml
 **Cause:** JSON-LD generation logic not using all frontmatter fields
 
 **Solution:**
-1. Check `app/utils/jsonld-helper.ts`
+1. Check `app/components/JsonLD/JsonLD.tsx` and `app/utils/schemas/SchemaFactory.ts`
 2. Ensure all critical fields are included
 3. Update `CRITICAL_SYNC_FIELDS` in validation script
 

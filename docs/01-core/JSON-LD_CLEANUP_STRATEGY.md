@@ -1,5 +1,7 @@
 # JSON-LD System Cleanup & Best Practices Analysis
 
+Historical note: this document captures an earlier cleanup analysis. The current live JSON-LD path runs through `app/components/JsonLD/JsonLD.tsx` and `app/utils/schemas/SchemaFactory.ts`; references to `jsonld-helper.ts` below describe the older system being retired.
+
 ## 🎯 **Current System Assessment**
 
 ### **Duplication Issues Identified**

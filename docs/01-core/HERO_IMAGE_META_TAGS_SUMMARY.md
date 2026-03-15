@@ -162,7 +162,7 @@ Three destinations:
 
 | System | Uses Hero Image | Source |
 |--------|----------------|--------|
-| JSON-LD | ✅ Already working | `jsonld-helper.ts` lines 145-146 |
+| JSON-LD | ✅ Already working | `SchemaFactory.ts` image generation |
 | OpenGraph | ✅ Now working | `metadata.ts` enhanced |
 | Twitter Cards | ✅ Now working | `metadata.ts` enhanced |
 | Article Pages | ✅ Automatic | `[slug]/page.tsx` uses createMetadata() |

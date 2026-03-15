@@ -6,17 +6,26 @@
 
 ## 📖 Overview
 
-This guide consolidates all schema implementation documentation into a single, comprehensive resource. Following the completion of our Schema Factory Pattern implementation, all schema generation now uses a unified, type-safe approach with 40% code reduction and enhanced maintainability.
+This guide consolidates schema implementation documentation into one place. The live website runtime generates JSON-LD through `app/utils/schemas/SchemaFactory.ts` and `app/components/JsonLD/JsonLD.tsx`, while `lib/schema/factory.ts` remains as a compatibility/testing surface for legacy static factory usage.
 
 ## 🏗️ Architecture Overview
 
-### Schema Factory Pattern
-The new `SchemaFactory` provides a unified interface for all schema generation:
+### Live Runtime Pattern
+The live runtime `SchemaFactory` provides the primary interface for page JSON-LD generation:
+
+```typescript
+import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
+
+const factory = new SchemaFactory(pageData, slug);
+const schema = factory.generate();
+```
+
+### Compatibility Pattern
+`lib/schema/factory.ts` is still available for compatibility-oriented callers and tests that rely on the older static factory API:
 
 ```typescript
 import { SchemaFactory } from '@/lib/schema/factory';
 
-// Type-safe schema generation
 const serviceSchema = SchemaFactory.create('Service', {
   name: 'Laser Cleaning Service',
   description: 'Professional laser cleaning solutions',
@@ -53,75 +62,45 @@ interface ServiceSchemaOptions extends BaseSchemaOptions {
 
 ### Quick Start
 
-1. **Import the Factory**:
+1. **Import the live factory**:
    ```typescript
-   import { SchemaFactory } from '@/lib/schema/factory';
+  import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
    ```
 
-2. **Create Schemas**:
+2. **Generate page JSON-LD**:
    ```typescript
-   // Service schema
-   const service = SchemaFactory.create('Service', options);
-   
-   // Technical article schema
-   const article = SchemaFactory.create('TechnicalArticle', options);
-   
-   // FAQ page schema
-   const faq = SchemaFactory.create('FAQPage', options);
+  const factory = new SchemaFactory(pageData, slug);
+  const schema = factory.generate();
    ```
 
-3. **Generate Page Schema**:
+3. **Render through the live component when appropriate**:
    ```typescript
-   // Complete page schema with multiple types
-   const pageSchema = SchemaFactory.createPageSchema([
-     { type: 'Service', options: serviceOptions },
-     { type: 'BreadcrumbList', options: breadcrumbOptions }
-   ]);
+  import { JsonLD } from '@/app/components/JsonLD/JsonLD';
+
+  <JsonLD article={article} slug={slug} />
    ```
 
 ### Page Implementation Patterns
 
-#### Service Pages (Priority 1)
+#### Live Page Usage
 ```typescript
-import { SchemaFactory } from '@/lib/schema/factory';
+import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 
 export default function ServicesPage() {
-  const serviceSchema = SchemaFactory.create('Service', {
-    name: 'Industrial Laser Cleaning Services',
-    description: 'Professional laser cleaning for industrial applications',
-    serviceType: 'Industrial Cleaning',
-    provider: {
-      name: 'Z-Beam',
-      url: 'https://www.z-beam.com',
-      contactPoint: {
-        telephone: '+1-XXX-XXX-XXXX',
-        contactType: 'customer service'
-      }
-    },
-    areaServed: ['United States', 'Canada'],
-    offers: [{
-      name: 'Surface Preparation',
-      description: 'Laser cleaning for surface preparation'
-    }]
-  });
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
+      <JsonLD article={article} slug={slug} />
       {/* Page content */}
     </>
   );
 }
 ```
 
-#### Technical Article Pages (Priority 4)
+#### Compatibility Factory Usage
 ```typescript
 import { SchemaFactory } from '@/lib/schema/factory';
 
-export default function SafetyPage() {
+export function createServiceSchema() {
   const articleSchema = SchemaFactory.create('TechnicalArticle', {
     name: 'Laser Safety Guidelines',
     description: 'Comprehensive safety guidelines for laser cleaning operations',
@@ -139,15 +118,7 @@ export default function SafetyPage() {
     mainEntityOfPage: 'https://www.z-beam.com/safety'
   });
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      {/* Page content */}
-    </>
-  );
+  return articleSchema;
 }
 ```
 
@@ -217,31 +188,35 @@ interface Question {
 }
 ```
 
-## 🏃‍♂️ Migration from Legacy Generators
+## 🏃‍♂️ Migration from Compatibility Factory
 
 ### Backward Compatibility
-The factory pattern maintains full backward compatibility with existing generator functions:
+The compatibility factory maintains static-builder parity for older callers and tests, but it is not the live website runtime authority:
 
 ```typescript
 // Legacy approach (still works)
 import { generateServiceSchema } from '@/lib/schema/generators';
 
-// New approach (recommended)
-import { SchemaFactory } from '@/lib/schema/factory';
-const schema = SchemaFactory.create('Service', options);
+// Live runtime approach (recommended)
+import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
+const schema = new SchemaFactory(pageData, slug).generate();
+
+// Compatibility-only static factory
+import { SchemaFactory as CompatibilitySchemaFactory } from '@/lib/schema/factory';
+const compatibilitySchema = CompatibilitySchemaFactory.create('Service', options);
 ```
 
 ### Migration Steps
-1. **Update imports** to use factory pattern
-2. **Replace generator calls** with `SchemaFactory.create()`
-3. **Update tests** to use new factory methods
-4. **Validate** schema output remains unchanged
+1. **Update live page imports** to use `app/utils/schemas/SchemaFactory.ts` or `app/components/JsonLD/JsonLD.tsx`
+2. **Keep `lib/schema/factory.ts` only for compatibility/test callers that still need the static builder API**
+3. **Update tests and docs** to distinguish the live runtime path from the compatibility path
+4. **Validate** schema output remains unchanged where compatibility is still required
 
 ## ✅ Validation and Testing
 
 ### Development Testing
 ```bash
-# Run schema factory tests
+# Run compatibility factory tests
 npm run test -- lib/schema/factory.test.ts
 
 # Validate schema output
@@ -350,7 +325,8 @@ DEBUG=schema:* npm run build
 - **Google Structured Data**: https://developers.google.com/search/docs/guides/intro-structured-data
 
 ### Internal Documentation
-- **Factory Implementation**: `lib/schema/factory.ts`
+- **Live Schema Authority**: `app/utils/schemas/SchemaFactory.ts`
+- **Compatibility Factory**: `lib/schema/factory.ts`
 - **Test Suite**: `tests/lib/schema/factory.test.ts`
 - **Deployment Validation**: `scripts/deployment/validate-jsonld-quality.sh`
 

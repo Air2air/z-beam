@@ -191,7 +191,11 @@ export const SITE_CONFIG = {
     linkedin: 'linkedin.com/company/z-beam/',
     linkedinUrl: 'https://linkedin.com/company/z-beam/',
     youtube: 'youtube.com/@Z-Beam',
-    youtubeUrl: 'https://youtube.com/@Z-Beam'
+    youtubeUrl: 'https://youtube.com/@Z-Beam',
+    tiktok: '@zbeam.laser',
+    tiktokUrl: 'https://www.tiktok.com/@zbeam.laser',
+    threads: '@zbeamlasercleaning',
+    threadsUrl: 'https://www.threads.com/@zbeamlasercleaning'
   },
   
   // Media Configuration

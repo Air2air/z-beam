@@ -28,6 +28,7 @@ import {
 } from '../contentTypeDetection';
 import { normalizeToBaseSlug, getDatasetUrl as _getDatasetUrl } from '../slugHelpers';
 import { toCategorySlug } from '../formatting';
+import datasetPolicy from '@/app/datasets/core/policy.json';
 import {
   getMetadata,
   hasProductData,
@@ -2381,19 +2382,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   // Add machine settings if present
   if (machineSettings) {
-    const settingsMap: Record<string, { label: string; description: string }> = {
-      powerRange: { label: 'Power Range', description: 'Laser power output' },
-      wavelength: { label: 'Wavelength', description: 'Laser beam wavelength' },
-      spotSize: { label: 'Spot Size', description: 'Focused laser beam diameter' },
-      repetitionRate: { label: 'Repetition Rate', description: 'Laser pulse frequency' },
-      energyDensity: { label: 'Energy Density', description: 'Energy per unit area (fluence)' },
-      fluenceThreshold: { label: 'Fluence Threshold', description: 'Minimum energy density for ablation' },
-      pulseWidth: { label: 'Pulse Width', description: 'Laser pulse duration' },
-      scanSpeed: { label: 'Scan Speed', description: 'Beam travel velocity' },
-      passCount: { label: 'Pass Count', description: 'Number of cleaning passes' },
-      overlapRatio: { label: 'Overlap Ratio', description: 'Beam overlap percentage' },
-      dwellTime: { label: 'Dwell Time', description: 'Time laser spends per location' }
-    };
+    const settingsMap = datasetPolicy.machineSettingMetadata as Record<string, { label: string; description: string }>;
     
     Object.entries(machineSettings).forEach(([key, settingData]: [string, any]) => {
       if (settingsMap[key] && settingData?.value !== undefined && settingData?.unit) {

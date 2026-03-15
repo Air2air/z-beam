@@ -4,7 +4,6 @@ import path from 'path';
 
 import {
   EQUIPMENT_RENTAL_PRICING,
-  getEquipmentRentalMetaDescription,
 } from '@/app/config/site';
 import { STATIC_PAGE_KEYS } from '@/app/utils/pages/staticPageRegistry';
 
@@ -69,7 +68,7 @@ describe('staticPageLoader', () => {
         twitter?: { description?: string };
       };
 
-      expect(result.pageDescription).toBe(getEquipmentRentalMetaDescription());
+      expect(result.pageDescription).toBe('');
       expect(result.schema?.offers?.price).toBe(String(EQUIPMENT_RENTAL_PRICING.packages.residential.hourlyRate));
       expect(result.openGraph?.description).toContain(`$${EQUIPMENT_RENTAL_PRICING.packages.residential.hourlyRate}/hr`);
       expect(result.twitter?.description).toContain(`$${EQUIPMENT_RENTAL_PRICING.packages.industrial.hourlyRate}/hr`);

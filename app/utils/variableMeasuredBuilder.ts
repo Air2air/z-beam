@@ -5,6 +5,8 @@
  * Used by: SchemaFactory, dataset generators, API routes
  */
 
+import datasetPolicy from '@/app/datasets/core/policy.json';
+
 /**
  * Schema.org PropertyValue interface for variableMeasured
  * Different from frontmatter PropertyValue - this is for JSON-LD structured data
@@ -40,16 +42,7 @@ export function buildVariableMeasured(
   
   // Add machine settings first (operator convenience)
   if (machineSettings) {
-    const settingsMap: Record<string, { label: string; description: string }> = {
-      powerRange: { label: 'Power Range', description: 'Laser power output' },
-      pulseWidth: { label: 'Pulse Width', description: 'Pulse duration' },
-      frequency: { label: 'Frequency', description: 'Pulse repetition rate' },
-      wavelength: { label: 'Wavelength', description: 'Laser wavelength' },
-      spotSize: { label: 'Spot Size', description: 'Laser beam diameter' },
-      scanSpeed: { label: 'Scan Speed', description: 'Beam movement speed' },
-      fluence: { label: 'Fluence', description: 'Energy per unit area' },
-      scanPattern: { label: 'Scan Pattern', description: 'Beam path pattern' }
-    };
+    const settingsMap = datasetPolicy.machineSettingMetadata as Record<string, { label: string; description: string }>;
     
     Object.entries(machineSettings).forEach(([key, data]: [string, any]) => {
       const setting = settingsMap[key];

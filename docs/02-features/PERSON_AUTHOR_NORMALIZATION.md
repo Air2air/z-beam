@@ -5,8 +5,8 @@ Standardized the use of `Person` schema as the `author` property across all rich
 
 ## Changes Made
 
-### 1. Material Pages (via jsonld-helper.ts)
-**File**: `app/utils/jsonld-helper.ts`
+### 1. Material Pages (via SchemaFactory)
+**File**: `app/utils/schemas/SchemaFactory.ts`
 
 Added `author` references to schemas that previously didn't have them:
 
@@ -168,7 +168,7 @@ Category/subcategory pages (standard):
 This creates a reference to the Person schema defined elsewhere in the @graph, establishing clear semantic relationships.
 
 ## Files Modified
-1. `app/utils/jsonld-helper.ts` (4 schemas enhanced)
+1. `app/utils/schemas/SchemaFactory.ts` (4 schemas enhanced)
 2. `app/materials/[category]/page.tsx` (Person schema added, 3 references added)
 3. `app/materials/[category]/[subcategory]/page.tsx` (Person schema added, 3 references added)
 

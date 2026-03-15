@@ -12,7 +12,6 @@ import {
   SITE_CONFIG,
   createEquipmentRentalAggregateOffer,
   getEquipmentRentalDescription,
-  getEquipmentRentalMetaDescription,
   getEquipmentRentalSocialDescription,
 } from '@/app/config/site';
 import { getStaticPageEntry, type StaticPageKey } from '@/app/utils/pages/staticPageRegistry';
@@ -96,14 +95,12 @@ function enrichStaticPageFrontmatter(
     return frontmatter;
   }
 
-  const pageDescription = getEquipmentRentalMetaDescription();
   const longDescription = getEquipmentRentalDescription();
   const socialDescription = getEquipmentRentalSocialDescription();
   const aggregateOffer = createEquipmentRentalAggregateOffer(`${SITE_CONFIG.url}/services`);
 
   return {
     ...frontmatter,
-    pageDescription,
     description: longDescription,
     schema: frontmatter.schema ? {
       ...frontmatter.schema,

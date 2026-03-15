@@ -17,6 +17,7 @@ import { SITE_CONFIG } from '@/app/config/site';
 import { getEquipmentRentalPriceTable } from '@/app/utils/pricing/getEquipmentRentalPriceTable';
 import { loadStaticPageFrontmatter, type StaticPageFrontmatter } from '@/app/utils/staticPageLoader';
 import { generateStaticPageMetadata } from '@/lib/metadata/generators';
+import { mergeJsonLdSchemas } from '@/lib/metadata/jsonld';
 import type { ContentCardItem } from '@/types';
 import type { ClickableCardProps } from '@/app/components/ClickableCard';
 import {
@@ -68,42 +69,6 @@ function getFrontmatterJsonLd(frontmatter: StaticPageFrontmatter | EnhancedStati
   };
 
   return frontmatter.jsonLd || frontmatterWithLegacyJsonLd.jsonld || null;
-}
-
-function normalizeJsonLdGraphEntries(schema: Record<string, unknown> | null) {
-  if (!schema) {
-    return [];
-  }
-
-  const graph = schema['@graph'];
-  if (Array.isArray(graph)) {
-    return graph;
-  }
-
-  return [schema];
-}
-
-function mergeJsonLdSchemas(
-  primarySchema: Record<string, unknown> | null,
-  secondarySchema: Record<string, unknown> | null
-) {
-  if (!primarySchema) {
-    return secondarySchema;
-  }
-
-  if (!secondarySchema) {
-    return primarySchema;
-  }
-
-  const mergedGraph = [
-    ...normalizeJsonLdGraphEntries(primarySchema),
-    ...normalizeJsonLdGraphEntries(secondarySchema),
-  ];
-
-  return {
-    '@context': primarySchema['@context'] || secondarySchema['@context'] || 'https://schema.org',
-    '@graph': mergedGraph,
-  };
 }
 
 /**
@@ -234,13 +199,13 @@ function renderPricingTableSection(section: PricingTableSection, index: number) 
                     key={row.rentalPeriod}
                     className={`hover:bg-gray-800/40 border-b-2 border-gray-700 ${index % 2 === 0 ? 'bg-gray-800/50' : 'bg-gray-900/50'}`}
                   >
-                    <td className="px-4 py-3 text-base text-white">
+                    <td className="px-3 py-3 text-base text-white">
                       <div className="flex flex-col md:flex-row md:items-baseline md:gap-2">
                         <div className="font-medium text-white">{row.rentalPeriod}</div>
                         <div className="mt-1 text-sm text-gray-300 md:mt-0">{row.description}</div>
                       </div>
                     </td>
-                    <td className="px-4 py-3 text-base text-center text-white">
+                    <td className="px-3 py-3 text-base text-center text-white">
                       {row.callToActionHref && row.savings === 'Call' ? (
                         <Link href={row.callToActionHref} className="text-orange-400 underline underline-offset-2 hover:text-orange-300">
                           {row.savings}
@@ -249,7 +214,7 @@ function renderPricingTableSection(section: PricingTableSection, index: number) 
                         row.savings
                       )}
                     </td>
-                    <td className="px-4 py-3 text-base font-medium text-center text-white">
+                    <td className="px-3 py-3 text-base font-medium text-center text-white">
                       {row.callToActionHref && row.residentialRate === 'Call' ? (
                         <Link href={row.callToActionHref} className="text-orange-400 underline underline-offset-2 hover:text-orange-300">
                           {row.residentialRate}
@@ -258,7 +223,7 @@ function renderPricingTableSection(section: PricingTableSection, index: number) 
                         row.residentialRate
                       )}
                     </td>
-                    <td className="px-4 py-3 text-base font-medium text-center text-white">
+                    <td className="px-3 py-3 text-base font-medium text-center text-white">
                       {row.callToActionHref && row.commercialRate === 'Call' ? (
                         <Link href={row.callToActionHref} className="text-orange-400 underline underline-offset-2 hover:text-orange-300">
                           {row.commercialRate}

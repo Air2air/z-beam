@@ -29,22 +29,7 @@ import { SubcategoryPage } from '@/app/components/ContentPages/SubcategoryPage';
 import { ItemPage } from '@/app/components/ContentPages/ItemPage';
 import { CollectionPage } from '@/app/components/CollectionPage/CollectionPage';
 
-import { CATEGORY_METADATA } from '@/app/metadata';
-import { CONTAMINANT_CATEGORY_METADATA } from '@/app/contaminantMetadata';
-import { COMPOUND_CATEGORY_METADATA } from '@/app/compoundMetadata';
-
-type ContentType = 'materials' | 'contaminants' | 'compounds' | 'settings' | 'applications';
-
-/**
- * Category metadata lookup for different content types
- */
-const CATEGORY_METADATA_MAP = {
-  materials: CATEGORY_METADATA,
-  contaminants: CONTAMINANT_CATEGORY_METADATA,
-  compounds: COMPOUND_CATEGORY_METADATA,
-  settings: {}, // Settings don't have category metadata
-  applications: {} // Applications don't have category metadata
-};
+import { resolveCategoryMetadata, type ContentType } from '@/app/utils/contentPages/categoryMetadataRegistry';
 
 // ============================================================================
 // Category Pages
@@ -52,7 +37,6 @@ const CATEGORY_METADATA_MAP = {
 
 export function createCategoryPage(contentType: ContentType) {
   const config = getContentConfig(contentType);
-  const categoryMetadata = CATEGORY_METADATA_MAP[contentType];
 
   return {
     generateStaticParams: async () => {
@@ -62,10 +46,7 @@ export function createCategoryPage(contentType: ContentType) {
     generateMetadata: async ({ params }: { params: { category: string } }) => {
       const { category } = params;
       const normalizedCategory = normalizeForUrl(category);
-      const metadata =
-        (categoryMetadata as Record<string, any> | undefined)?.[category] ||
-        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory] ||
-        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory.replace(/-/g, '_')];
+      const metadata = resolveCategoryMetadata(contentType, normalizedCategory);
       return generateCategoryMetadata(config, normalizedCategory, metadata);
     },
 
@@ -78,10 +59,7 @@ export function createCategoryPage(contentType: ContentType) {
       }
 
       const categoryData = await findCategoryBySlug(config, normalizedCategory);
-      const metadata =
-        (categoryMetadata as Record<string, any> | undefined)?.[category] ||
-        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory] ||
-        (categoryMetadata as Record<string, any> | undefined)?.[normalizedCategory.replace(/-/g, '_')];
+      const metadata = resolveCategoryMetadata(contentType, normalizedCategory);
       
       return (
         <CategoryPage 

@@ -8,6 +8,7 @@
 type NextMetadata = any;
 
 import { SITE_CONFIG } from '@/app/config/site';
+import { buildJsonLdMetadata } from '@/lib/metadata/jsonld';
 import { 
   generateBreadcrumbSchema, 
   generateFAQSchema, 
@@ -106,12 +107,10 @@ export function generateStaticPageMetadata(options: StaticPageMetadataOptions): 
       canonical: `${SITE_CONFIG.url}${path}`
     },
     ...(schemaGraph.length > 1 && {
-      other: {
-        'application-ld+json': JSON.stringify({
-          '@context': 'https://schema.org',
-          '@graph': schemaGraph
-        })
-      }
+      other: buildJsonLdMetadata({
+        '@context': 'https://schema.org',
+        '@graph': schemaGraph,
+      })
     })
   };
 }
@@ -152,37 +151,35 @@ export function generateHomeMetadata(): NextMetadata {
       creator: SITE_CONFIG.author,
       images: [socialImages.twitter]
     },
-    other: {
-      'application-ld+json': JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'WebSite',
-            '@id': `${SITE_CONFIG.url}/#website`,
-            url: SITE_CONFIG.url,
-            name: SITE_CONFIG.name,
-            description: SITE_CONFIG.description,
-            publisher: {
-              '@id': `${SITE_CONFIG.url}/#organization`
-            }
-          },
-          {
-            '@type': 'Organization',
-            '@id': `${SITE_CONFIG.url}/#organization`,
-            name: SITE_CONFIG.name,
-            url: SITE_CONFIG.url,
-            description: SITE_CONFIG.description,
-            contactPoint: {
-              '@type': 'ContactPoint',
-              telephone: SITE_CONFIG.contact?.general?.phone,
-              email: SITE_CONFIG.contact?.general?.email,
-              contactType: 'customer service'
-            }
-          },
-          generateLocalBusinessSchema()
-        ]
-      })
-    }
+    other: buildJsonLdMetadata({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': `${SITE_CONFIG.url}/#website`,
+          url: SITE_CONFIG.url,
+          name: SITE_CONFIG.name,
+          description: SITE_CONFIG.description,
+          publisher: {
+            '@id': `${SITE_CONFIG.url}/#organization`
+          }
+        },
+        {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}/#organization`,
+          name: SITE_CONFIG.name,
+          url: SITE_CONFIG.url,
+          description: SITE_CONFIG.description,
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: SITE_CONFIG.contact?.general?.phone,
+            email: SITE_CONFIG.contact?.general?.email,
+            contactType: 'customer service'
+          }
+        },
+        generateLocalBusinessSchema()
+      ]
+    })
   };
 }
 
@@ -232,20 +229,18 @@ export function generateAboutMetadata(): NextMetadata {
     alternates: {
       canonical: `${SITE_CONFIG.url}/about`
     },
-    other: {
-      'application-ld+json': JSON.stringify({
-        '@context': 'https://schema.org',
-        '@graph': [
-          {
-            '@type': 'AboutPage',
-            '@id': `${SITE_CONFIG.url}/about#aboutpage`,
-            url: `${SITE_CONFIG.url}/about`,
-            name: title,
-            description
-          },
-          generateFAQSchema(faqs)
-        ]
-      })
-    }
+    other: buildJsonLdMetadata({
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'AboutPage',
+          '@id': `${SITE_CONFIG.url}/about#aboutpage`,
+          url: `${SITE_CONFIG.url}/about`,
+          name: title,
+          description
+        },
+        generateFAQSchema(faqs)
+      ]
+    })
   };
 }

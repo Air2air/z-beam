@@ -20,10 +20,12 @@ const { URL } = require('url');
 const fs = require('fs').promises;
 const path = require('path');
 const zlib = require('zlib');
+const validationConfig = require('../config');
 
 // Configuration
-const DEFAULT_URL = 'https://www.z-beam.com';
-const TIMEOUT = 30000; // 30 seconds
+const DEFAULT_URL = process.env.PRODUCTION_URL || validationConfig.site.productionUrl;
+const TIMEOUT = validationConfig.site.requestTimeoutMs;
+const postDeploymentConfig = validationConfig.postDeployment;
 
 // Parse arguments
 const args = process.argv.slice(2).reduce((acc, arg) => {
@@ -217,16 +219,16 @@ async function validatePerformance() {
     const response = await fetchUrl(TARGET_URL);
     const responseTime = Date.now() - start;
     
-    addResult('performance', 'Response Time', responseTime < 1000,
+    addResult('performance', 'Response Time', responseTime < postDeploymentConfig.performance.maxResponseTimeMs,
       `Response time: ${responseTime}ms`,
-      { value: responseTime, threshold: 1000 }
+      { value: responseTime, threshold: postDeploymentConfig.performance.maxResponseTimeMs }
     );
     
     // TTFB (Time to First Byte)
     const ttfb = response.responseTime || responseTime;
-    addResult('performance', 'Time to First Byte (TTFB)', ttfb < 600,
+    addResult('performance', 'Time to First Byte (TTFB)', ttfb < postDeploymentConfig.performance.maxTtfbMs,
       `TTFB: ${ttfb}ms`,
-      { value: ttfb, threshold: 600 }
+      { value: ttfb, threshold: postDeploymentConfig.performance.maxTtfbMs }
     );
     
     // Check for compression
@@ -246,9 +248,9 @@ async function validatePerformance() {
     
     // Check Content-Length
     const contentLength = parseInt(response.headers['content-length'] || response.body.length);
-    addResult('performance', 'HTML Size', contentLength < 100000,
+    addResult('performance', 'HTML Size', contentLength < postDeploymentConfig.performance.maxHtmlBytes,
       `HTML size: ${(contentLength / 1024).toFixed(2)} KB`,
-      { value: contentLength, threshold: 100000 }
+      { value: contentLength, threshold: postDeploymentConfig.performance.maxHtmlBytes }
     );
     
     console.log(`  ✓ Response time: ${responseTime}ms`);
@@ -335,18 +337,26 @@ async function validateSEO() {
     const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
     const title = titleMatch ? titleMatch[1].trim() : '';
     addResult('seo', 'Title Tag', 
-      title.length > 10 && title.length < 60,
+      title.length > postDeploymentConfig.seo.title.minLength && title.length < postDeploymentConfig.seo.title.maxLength,
       `Title length: ${title.length} characters`,
-      { title, length: title.length, optimal: '10-60 characters' }
+      {
+        title,
+        length: title.length,
+        optimal: `${postDeploymentConfig.seo.title.minLength}-${postDeploymentConfig.seo.title.maxLength} characters`
+      }
     );
     
     // Meta description
     const descMatch = html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i);
     const description = descMatch ? descMatch[1].trim() : '';
     addResult('seo', 'Meta Description',
-      description.length >= 120 && description.length <= 160,
+      description.length >= postDeploymentConfig.seo.description.minLength && description.length <= postDeploymentConfig.seo.description.maxLength,
       `Description length: ${description.length} characters`,
-      { description, length: description.length, optimal: '120-160 characters' }
+      {
+        description,
+        length: description.length,
+        optimal: `${postDeploymentConfig.seo.description.minLength}-${postDeploymentConfig.seo.description.maxLength} characters`
+      }
     );
     
     // Canonical URL
@@ -722,13 +732,9 @@ async function validateMaterialPageSchemas() {
   console.log('\\n🔬 Validating Material Page Schemas...');
   
   // Sample material pages to test
-  const materialPages = [
-    '/materials/metal/non-ferrous/aluminum-laser-cleaning',
-    '/materials/metal/ferrous/stainless-steel-laser-cleaning',
-    '/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning'
-  ];
+  const materialPages = postDeploymentConfig.samplePages.materials;
   
-  const requiredSchemas = ['Article', 'FAQPage', 'Dataset', 'Person', 'ImageObject'];
+  const requiredSchemas = postDeploymentConfig.schemas.materialRequired;
   let testedPages = 0;
   let pagesWithAllSchemas = 0;
   
@@ -804,25 +810,11 @@ async function validateSettingsPageSchemas() {
   console.log('\n⚙️  Validating Settings Page Schemas...');
   
   // Sample settings pages to test
-  const settingsPages = [
-    '/settings/metal/non-ferrous/aluminum-settings',
-    '/settings/metal/ferrous/stainless-steel-settings',
-    '/settings/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-settings'
-  ];
+  const settingsPages = postDeploymentConfig.samplePages.settings;
   
   // Settings pages should have these schemas (comprehensive rich data)
-  const requiredSchemas = [
-    'TechArticle',      // Technical article with proficiencyLevel and dependencies
-    'HowTo',            // Step-by-step parameters
-    'FAQPage',          // Auto-generated from challenges
-    'Dataset',          // Machine settings + material properties
-    'Person',           // Author E-E-A-T
-    'SoftwareApplication', // Thermal simulator tool
-    'BreadcrumbList',   // Navigation
-    'WebPage'           // Base page
-  ];
-  // Base schemas present on all pages
-  const baseSchemas = ['LocalBusiness', 'WebSite'];
+  const requiredSchemas = postDeploymentConfig.schemas.settingsRequired;
+  const baseSchemas = postDeploymentConfig.schemas.settingsBase;
   
   let testedPages = 0;
   let pagesWithAllSchemas = 0;
@@ -912,10 +904,10 @@ async function validateFeeds() {
   const parser = new xml2js.Parser();
   
   // Configuration
-  const XML_FEED_URL = new URL('/feeds/google-merchant-feed.xml', TARGET_URL).toString();
-  const CSV_FEED_URL = new URL('/feeds/google-merchant-feed.csv', TARGET_URL).toString();
-  const MIN_PRODUCTS = 100;
-  const MAX_PRODUCTS = 200;
+  const XML_FEED_URL = new URL(postDeploymentConfig.feeds.xmlPath, TARGET_URL).toString();
+  const CSV_FEED_URL = new URL(postDeploymentConfig.feeds.csvPath, TARGET_URL).toString();
+  const MIN_PRODUCTS = postDeploymentConfig.feeds.minProducts;
+  const MAX_PRODUCTS = postDeploymentConfig.feeds.maxProducts;
   
   const REQUIRED_FIELDS = [
     'g:id', 'g:title', 'g:description', 'g:link', 'g:image_link',
@@ -966,7 +958,7 @@ async function validateFeeds() {
           );
           
           // Sample product validation (check first 5 products)
-          const sampleSize = Math.min(5, productCount);
+          const sampleSize = Math.min(postDeploymentConfig.feeds.sampleSize, productCount);
           let validProducts = 0;
           const skus = new Set();
           const duplicateSKUs = [];

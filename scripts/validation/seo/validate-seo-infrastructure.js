@@ -40,25 +40,11 @@ const puppeteer = require('puppeteer');
 const fs = require('fs').promises;
 const path = require('path');
 const { execSync } = require('child_process');
+const validationConfig = require('../config');
+const datasetPolicy = require('../../../app/datasets/core/policy.json');
 
-// Dataset validation constants (inline to avoid TypeScript module issues)
-const TIER1_REQUIRED_PARAMETERS = [
-  'laserPower',
-  'wavelength',
-  'spotSize',
-  'frequency',
-  'pulseWidth',
-  'scanSpeed',
-  'passCount',
-  'overlapRatio'
-];
-
-const TIER2_IMPORTANT_PROPERTIES = {
-  thermal: ['meltingPoint', 'thermalConductivity', 'heatCapacity'],
-  optical: ['absorptivity', 'reflectivity', 'emissivity'],
-  mechanical: ['density', 'hardness', 'tensileStrength'],
-  chemical: ['composition', 'oxidationResistance']
-};
+const TIER1_REQUIRED_PARAMETERS = datasetPolicy.tier1RequiredParameters;
+const TIER2_IMPORTANT_PROPERTIES = datasetPolicy.tier2ImportantProperties;
 
 // Inline dataset validation functions
 function hasMinMaxValues(paramData) {
@@ -78,7 +64,8 @@ function calculateTier2Completeness(materialProperties) {
   let completeProperties = 0;
   
   Object.entries(TIER2_IMPORTANT_PROPERTIES).forEach(([category, properties]) => {
-    const categoryData = materialProperties[category];
+    const snakeCaseCategory = category.replace(/[A-Z]/g, (match) => `_${match.toLowerCase()}`);
+    const categoryData = materialProperties[category] || materialProperties[snakeCaseCategory];
     if (!categoryData) return;
     
     properties.forEach(prop => {
@@ -262,48 +249,17 @@ function validateDatasetForSchema(machineSettings, materialProperties, materialN
 // Configuration
 // Production URL Policy: Default to production domain (see docs/08-development/PRODUCTION_URL_POLICY.md)
 // For local testing, use: BASE_URL=http://localhost:3000 npm run validate:seo-infrastructure
-const BASE_URL = process.env.BASE_URL || 'https://www.z-beam.com';
+const BASE_URL = process.env.BASE_URL || validationConfig.site.productionUrl;
 const VERBOSE = process.argv.includes('--verbose');
 const JSON_OUTPUT = process.argv.includes('--json');
 
-// Test pages representing different content types
-// URLs updated Dec 2025 to match actual route structure
-const TEST_PAGES = [
-  { url: '/', type: 'home', name: 'Homepage' },
-  { url: '/materials/metal/non-ferrous/aluminum-laser-cleaning', type: 'material', name: 'Material Page' },
-  { url: '/settings/metal/non-ferrous/aluminum-settings', type: 'settings', name: 'Settings Page' },
-  { url: '/contaminants/oxidation/ferrous/rust-oxidation-contamination', type: 'contaminant', name: 'Contaminant Page' },
-  { url: '/contaminants/oxidation', type: 'contaminant-category', name: 'Contaminant Category' },
-  { url: '/contaminants/oxidation/ferrous', type: 'contaminant-subcategory', name: 'Contaminant Subcategory' },
-  { url: '/services', type: 'service', name: 'Services Page' },
-  { url: '/about', type: 'static', name: 'Static Page' }
-];
-
-// Validation thresholds
+const TEST_PAGES = validationConfig.seoInfrastructure.testPages;
 const THRESHOLDS = {
-  metadata: {
-    minTitleLength: 30,
-    maxTitleLength: 60,
-    minDescriptionLength: 120,
-    maxDescriptionLength: 160
-  },
-  schema: {
-    minSchemaTypes: 2,  // Minimum schema types per page
-    requiredProperties: ['@context', '@type', 'name']
-  },
-  opengraph: {
-    requiredTags: ['og:title', 'og:description', 'og:image', 'og:url', 'og:type']
-  },
-  sitemap: {
-    maxEntries: 10000,
-    requirePriority: true,
-    requireChangeFreq: true
-  },
+  ...validationConfig.seoInfrastructure.thresholds,
   dataset: {
-    tier1Required: 8,  // All 8 required parameters must have min/max
-    tier2Threshold: 80,  // 80%+ material properties completeness
-    enforceQuality: true  // Block incomplete datasets from SEO
-  }
+    ...validationConfig.seoInfrastructure.thresholds.dataset,
+    tier1Required: TIER1_REQUIRED_PARAMETERS.length,
+  },
 };
 
 // Results tracking
