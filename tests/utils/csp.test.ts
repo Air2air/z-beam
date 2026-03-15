@@ -61,9 +61,9 @@ describe('CSP Utilities', () => {
       expect(csp).toContain('https://www.google-analytics.com');
     });
 
-    it('should allow YouTube embeds', () => {
+    it('should allow YouTube and contact-form embeds', () => {
       const csp = buildCSP();
-      expect(csp).toContain("frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com");
+      expect(csp).toContain("frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://st.sendajob.com");
     });
 
     it('should allow data URIs for images and fonts', () => {

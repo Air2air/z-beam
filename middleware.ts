@@ -98,7 +98,7 @@ export function middleware(request: NextRequest) {
     "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com",
     "media-src 'self' data: blob:",
     "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net",
-    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
+    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://st.sendajob.com",
     `frame-ancestors ${frameAncestorsPolicy}`,
     "form-action 'self'",
     "base-uri 'self'",

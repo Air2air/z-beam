@@ -103,9 +103,12 @@ Fallback for all other directives.
 
 #### frame-src
 ```typescript
-"frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com"
+"frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://st.sendajob.com"
 ```
 **Critical**: Must include any third-party iframe origins the live site actually embeds.
+
+Current live third-party iframe origin:
+- `https://st.sendajob.com` for the compact contact form embed
 
 #### form-action
 ```typescript
@@ -222,7 +225,7 @@ Refused to load the script 'https://example.com/script.js' because it violates t
 
 **Fix**:
 1. Add iframe domain to `frame-src`
-2. Also add to `script-src`, `style-src`, `connect-src`
+2. Only add other directives if the parent page itself loads resources from that origin
 3. Test in incognito mode to bypass extensions
 
 ### Browser Caching CSP Headers
@@ -333,6 +336,7 @@ When integrating a new external service:
 - **Security updates**: Monitor for new CSP best practices
 
 ### Change Log
+- **2026-03-14**: Restored `https://st.sendajob.com` to production `frame-src` for the live compact contact iframe
 - **2026-01-19**: Added Workiz sendajob.com domains for contact form
 - **2026-01-19**: Separated development/production CSP configurations
 - **2026-01-19**: Made development CSP fully permissive
