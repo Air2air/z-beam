@@ -58,7 +58,7 @@ export function getEquipmentRentalDescription() {
 }
 
 export function getEquipmentRentalMetaDescription() {
-  return `Professional laser cleaning equipment rental in California. ${getEquipmentRentalPriceSummary('short')}, including training and support.`;
+  return 'Laser cleaning equipment rental in California with training and support. Residential $200/hr, industrial $300/hr, 2-hour minimum.';
 }
 
 export function getEquipmentRentalSocialDescription() {

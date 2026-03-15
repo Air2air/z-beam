@@ -19,7 +19,12 @@ npm run validate:production:full
 
 # Run automatically after deployment
 npm run postdeploy
+
+# Run the full orchestrated suite explicitly
+npm run validate:production:complete
 ```
+
+`npm run postdeploy` is the fast/basic post-deploy path. Use `npm run validate:production:complete` when you intentionally want the broader multi-stage suite.
 
 ## 📋 What Gets Validated
 

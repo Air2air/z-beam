@@ -246,7 +246,7 @@ describe('SEO Comprehensive Integration', () => {
       expect(packageJson.scripts).toHaveProperty('validate:production:comprehensive');
       
       // Should run validation on postdeploy
-      expect(packageJson.scripts.postdeploy).toContain('run-all-validations.js');
+      expect(packageJson.scripts.postdeploy).toBe('npm run validate:production');
     });
   });
 

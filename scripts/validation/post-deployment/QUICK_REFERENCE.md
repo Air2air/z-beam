@@ -7,25 +7,23 @@
 npm run postdeploy
 ```
 
-This runs the **complete validation suite** covering:
-- ✅ Core functionality (site loads, pages accessible)
-- ✅ Content integrity (frontmatter, metadata, naming)
-- ✅ SEO & schemas (meta tags, JSON-LD, sitemap)
-- ✅ Performance (Core Web Vitals)
-- ✅ Accessibility (WCAG 2.2)
-- ✅ Production environment checks
+This runs the **fast/basic production validator** covering the live-site essentials.
 
-**Duration**: ~5-10 minutes  
+**Duration**: fast/basic  
 **Exit Code**: 0 if passed, 1 if failed
 
 ---
 
 ## 📋 Available Validation Commands
 
-### Comprehensive (Recommended)
+### Default Path
 ```bash
-npm run postdeploy                          # Complete validation (all checks)
-npm run validate:production:complete        # Alias for postdeploy
+npm run postdeploy                          # Fast/basic post-deploy validation
+```
+
+### Comprehensive
+```bash
+npm run validate:production:complete        # Full orchestrated validation suite
 ```
 
 ### Quick Checks
@@ -33,6 +31,7 @@ npm run validate:production:complete        # Alias for postdeploy
 npm run validate:production:simple          # Core checks only (2-3 min)
 npm run validate:production:enhanced        # Core + SEO (3-5 min)
 npm run validate:production:comprehensive   # Everything (10-15 min)
+npm run validate:production                 # Fast/basic live-site validator
 ```
 
 ### Category-Specific

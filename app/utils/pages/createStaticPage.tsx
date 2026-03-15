@@ -62,6 +62,50 @@ interface PricingTableSection {
   };
 }
 
+function getFrontmatterJsonLd(frontmatter: StaticPageFrontmatter | EnhancedStaticPageFrontmatter) {
+  const frontmatterWithLegacyJsonLd = frontmatter as StaticPageFrontmatter & {
+    jsonld?: Record<string, unknown>;
+  };
+
+  return frontmatter.jsonLd || frontmatterWithLegacyJsonLd.jsonld || null;
+}
+
+function normalizeJsonLdGraphEntries(schema: Record<string, unknown> | null) {
+  if (!schema) {
+    return [];
+  }
+
+  const graph = schema['@graph'];
+  if (Array.isArray(graph)) {
+    return graph;
+  }
+
+  return [schema];
+}
+
+function mergeJsonLdSchemas(
+  primarySchema: Record<string, unknown> | null,
+  secondarySchema: Record<string, unknown> | null
+) {
+  if (!primarySchema) {
+    return secondarySchema;
+  }
+
+  if (!secondarySchema) {
+    return primarySchema;
+  }
+
+  const mergedGraph = [
+    ...normalizeJsonLdGraphEntries(primarySchema),
+    ...normalizeJsonLdGraphEntries(secondarySchema),
+  ];
+
+  return {
+    '@context': primarySchema['@context'] || secondarySchema['@context'] || 'https://schema.org',
+    '@graph': mergedGraph,
+  };
+}
+
 /**
  * Shared static-page factory.
  */
@@ -243,7 +287,10 @@ function renderDynamicContentPage(
   config: StaticPageConfig
 ) {
   const rightContent = buildPageHeaderAction(frontmatter) || buildDynamicSidebar(pageType, frontmatter);
-  const jsonLdData = frontmatter.jsonLd || pageSchema;
+  const jsonLdData = mergeJsonLdSchemas(
+    getFrontmatterJsonLd(frontmatter),
+    (pageSchema as Record<string, unknown> | null)
+  );
   const hasInlineScheduleWidget = hasDynamicFeature(frontmatter, 'schedule-widget', 'main-content');
   const hasClickableCards = Array.isArray(frontmatter.clickableCards) && frontmatter.clickableCards.length > 0;
   const clickableCards = frontmatter.clickableCards || [];
@@ -312,7 +359,10 @@ async function renderContentCardsPage(
 ) {
   const enhancedFrontmatter = frontmatter as EnhancedStaticPageFrontmatter;
   let comparisonMethods: ComparisonMethod[] | undefined;
-  const jsonLdData = enhancedFrontmatter.jsonLd || pageSchema;
+  const jsonLdData = mergeJsonLdSchemas(
+    getFrontmatterJsonLd(enhancedFrontmatter),
+    (pageSchema as Record<string, unknown> | null)
+  );
   
   if (config?.hasComparison && config.comparisonData) {
     const data = await config.comparisonData();
