@@ -18,7 +18,7 @@ export function ScheduleCards() {
       <div className={`grid grid-cols-2 ${GRID_GAP_RESPONSIVE}`}>
       {/* Schedule Service Card */}
       <Link
-        href="/schedule"
+        href="/contact"
         className="group card-base h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem] card-enhanced-hover transition-smooth card-focus"
         aria-label="Schedule a service or consultation"
       >
@@ -42,7 +42,7 @@ export function ScheduleCards() {
               <div className="flex-between">
                 <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                   <h3 className={CARD_HEADER_CLASSES.title}>
-                    Schedule with us
+                    Start your project
                   </h3>
                 </div>
                 

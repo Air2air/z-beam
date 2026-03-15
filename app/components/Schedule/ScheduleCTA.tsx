@@ -12,8 +12,8 @@ interface ScheduleCTAProps {
 
 export function BookingCTA({ variant = 'default', className = '' }: ScheduleCTAProps) {
   const handleClick = () => {
-    trackEvent('booking_cta_clicked', {
-      event_category: 'Booking',
+    trackEvent('contact_cta_clicked', {
+      event_category: 'Contact',
       event_label: 'CTA Click',
       variant,
     });
@@ -22,12 +22,12 @@ export function BookingCTA({ variant = 'default', className = '' }: ScheduleCTAP
   if (variant === 'compact') {
     return (
       <Link
-        href="/schedule"
+        href="/contact"
         onClick={handleClick}
         className={`inline-flex items-center gap-2 bg-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors ${className}`}
       >
         <CalendarIcon className="w-5 h-5 sm:w-3.5 sm:h-3.5" />
-        Schedule Service
+        Contact Us
       </Link>
     );
   }
@@ -39,15 +39,14 @@ export function BookingCTA({ variant = 'default', className = '' }: ScheduleCTAP
         Ready to Get Started?
       </h3>
       <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-        Schedule a consultation or service appointment with our laser cleaning experts. 
-        Get personalized recommendations for your specific application.
+        Contact our laser cleaning team for pricing, availability, and recommendations for your specific application.
       </p>
       <Link
-        href="/schedule"
+        href="/contact"
         onClick={handleClick}
         className="inline-block bg-white text-orange-600 px-8 py-3 rounded-md font-semibold hover:bg-orange-50 transition-colors"
       >
-        Schedule Appointment
+        Contact Us
       </Link>
     </div>
   );

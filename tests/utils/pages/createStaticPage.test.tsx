@@ -3,7 +3,7 @@
  * 
  * Tests the enhanced static page factory that supports multiple page architectures:
  * - Content-cards pages (services, about, contact, etc.)
- * - Dynamic-content pages (schedule, netalux)
+ * - Dynamic-content pages (netalux and frontmatter-driven feature pages)
  * - Error handling and fallbacks
  */
 
@@ -53,7 +53,6 @@ describe('createStaticPage Factory', () => {
         'equipment',
         'compliance',
         'safety',
-        'schedule',
         'netalux',
         'comparison',
       ];
@@ -205,7 +204,7 @@ describe('createStaticPage Factory', () => {
     });
 
     it('should classify dynamic-content pages', () => {
-      const dynamicPages = ['schedule', 'netalux'];
+      const dynamicPages = ['netalux'];
       
       dynamicPages.forEach(pageType => {
         // Dynamic pages should support dynamic features
@@ -251,15 +250,15 @@ describe('createStaticPage Factory', () => {
       expect(mockCards[0].href).toBeTruthy();
     });
 
-    it('should render schedule widget for schedule pages', () => {
+    it('should describe dynamic feature payloads', () => {
       const mockFeatures = [
         {
-          type: 'schedule-widget' as const,
+          type: 'clickable-cards' as const,
           placement: 'right-sidebar' as const,
         },
       ];
 
-      expect(mockFeatures[0].type).toBe('schedule-widget');
+      expect(mockFeatures[0].type).toBe('clickable-cards');
     });
   });
 
@@ -323,13 +322,13 @@ describe('createStaticPage Factory', () => {
   });
 
   describe('Dynamic Features', () => {
-    it('should support schedule-widget feature', () => {
+    it('should support clickable-cards feature with placement', () => {
       const feature = {
-        type: 'schedule-widget' as const,
+        type: 'clickable-cards' as const,
         placement: 'right-sidebar' as const,
       };
 
-      expect(feature.type).toBe('schedule-widget');
+      expect(feature.type).toBe('clickable-cards');
       expect(feature.placement).toBe('right-sidebar');
     });
 
@@ -412,7 +411,7 @@ describe('createStaticPage Factory', () => {
     it('should identify dynamic-content architecture', () => {
       const frontmatter = {
         pageType: 'dynamic-content' as const,
-        dynamicFeatures: [{ type: 'schedule-widget' as const }],
+        dynamicFeatures: [{ type: 'clickable-cards' as const }],
       };
 
       expect(frontmatter.pageType).toBe('dynamic-content');

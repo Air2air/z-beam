@@ -11,7 +11,6 @@ import { BaseSection } from '@/app/components/BaseSection';
 import { ComparisonTable } from '@/app/components/ComparisonTable';
 import { ClickableCard } from '@/app/components/ClickableCard';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
-import { ScheduleContent } from '@/app/components/Schedule/ScheduleContent';
 import Link from 'next/link';
 import { SITE_CONFIG } from '@/app/config/site';
 import { getEquipmentRentalPriceTable } from '@/app/utils/pricing/getEquipmentRentalPriceTable';
@@ -22,7 +21,6 @@ import type { ContentCardItem } from '@/types';
 import type { ClickableCardProps } from '@/app/components/ClickableCard';
 import {
   buildPageHeaderAction,
-  buildDynamicSidebar,
   type EnhancedStaticPageFrontmatter,
   generatePageSpecificSchema,
   PAGE_CONFIGS,
@@ -141,28 +139,6 @@ export function createStaticPage(pageType: StaticPageType | string) {
   };
 }
 
-function hasDynamicFeature(
-  frontmatter: EnhancedStaticPageFrontmatter,
-  type: string,
-  placement?: 'right-sidebar' | 'left-sidebar' | 'inline' | 'main-content'
-): boolean {
-  if (!Array.isArray(frontmatter.dynamicFeatures)) {
-    return false;
-  }
-
-  return frontmatter.dynamicFeatures.some(feature => {
-    if (feature.type !== type) {
-      return false;
-    }
-
-    if (!placement) {
-      return true;
-    }
-
-    return feature.placement === placement;
-  });
-}
-
 function renderPricingTableSection(section: PricingTableSection, index: number) {
   if (section.pricingSource !== 'equipment-rental') {
     return null;
@@ -251,12 +227,11 @@ function renderDynamicContentPage(
   pageSchema: object | null,
   config: StaticPageConfig
 ) {
-  const rightContent = buildPageHeaderAction(frontmatter) || buildDynamicSidebar(pageType, frontmatter);
+  const rightContent = buildPageHeaderAction(frontmatter);
   const jsonLdData = mergeJsonLdSchemas(
     getFrontmatterJsonLd(frontmatter),
     (pageSchema as Record<string, unknown> | null)
   );
-  const hasInlineScheduleWidget = hasDynamicFeature(frontmatter, 'schedule-widget', 'main-content');
   const hasClickableCards = Array.isArray(frontmatter.clickableCards) && frontmatter.clickableCards.length > 0;
   const clickableCards = frontmatter.clickableCards || [];
   
@@ -269,17 +244,6 @@ function renderDynamicContentPage(
       hideAuthor
     >
       {jsonLdData && <JsonLD data={jsonLdData as Record<string, unknown>} />}
-      
-      {/* Inline schedule widget driven by frontmatter features. */}
-      {hasInlineScheduleWidget && (
-        <BaseSection
-          title="Schedule Your Laser Cleaning"
-          description="Choose a date and time that works for you"
-          variant="default"
-        >
-          <ScheduleContent />
-        </BaseSection>
-      )}
       
       {/* Dynamic card grids from frontmatter. */}
       {hasClickableCards && (

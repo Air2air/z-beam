@@ -6,7 +6,6 @@ import { GRID_GAP_RESPONSIVE } from '@/app/config/site';
 import { trackContactPageGoogleAdsConversion, trackEvent } from '@/app/utils/analytics';
 
 import { ContactInfo } from './ContactInfo';
-
 const WORKIZ_CONTACT_FORM_URL = 'https://st.sendajob.com/MY/servicerequest/bc0bbe1e44d7eda5aed87bb3ababd7c52a171de4_f.html';
 const CONTACT_PAGE_CONVERSION_SESSION_KEY = 'z-beam:contact-page-conversion-tracked';
 

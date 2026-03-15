@@ -111,13 +111,6 @@ describe('createStaticPage Error Handling', () => {
   // ============================================================================
   
   describe('Dynamic Features', () => {
-    it('should handle schedule page with missing widget config', async () => {
-      const { default: Page } = createStaticPage('schedule');
-      
-      // Should render even if dynamic features are misconfigured
-      await expect(Page()).resolves.toBeDefined();
-    });
-
     it('should handle services page with empty clickable cards', async () => {
       const { default: Page } = createStaticPage('services');
       
@@ -211,7 +204,7 @@ describe('createStaticPage Error Handling', () => {
     });
 
     it('should handle dynamic-content architecture', async () => {
-      const dynamicPages = ['schedule', 'netalux'];
+      const dynamicPages = ['netalux'];
       
       for (const pageType of dynamicPages) {
         const { default: Page } = createStaticPage(pageType as any);
@@ -299,14 +292,6 @@ describe('createStaticPage Error Handling', () => {
   // ============================================================================
   
   describe('Sidebar Widget Features', () => {
-    it('should handle schedule widget with right-sidebar placement', async () => {
-      // Tests lines 420-425: sidebarFeature?.type === 'schedule-widget'
-      const { default: Page } = createStaticPage('schedule');
-      const result = await Page();
-      
-      expect(result).toBeDefined();
-    });
-    
     it('should handle dynamicFeatures with various placements', async () => {
       const { default: Page } = createStaticPage('services');
       const result = await Page();

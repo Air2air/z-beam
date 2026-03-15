@@ -35,20 +35,20 @@ export function buildCSP(nonce?: string): string {
     "default-src 'self'",
     // Script policy - include unsafe-inline for Next.js error/404 pages
     nonce
-      ? `script-src 'self' 'nonce-${nonce}' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com https://online-booking.workiz.com`
-      : "script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com https://online-booking.workiz.com",
+      ? `script-src 'self' 'nonce-${nonce}' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com`
+      : "script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com",
     // Style policy - Tailwind requires unsafe-inline (no easy workaround)
-    "style-src 'self' 'unsafe-inline' https://online-booking.workiz.com",
+    "style-src 'self' 'unsafe-inline'",
     // Font policy
     "font-src 'self' data:",
     // Image policy - restrict to known domains
-    "img-src 'self' data: blob: https://img.youtube.com https://i.ytimg.com https://online-booking.workiz.com",
+    "img-src 'self' data: blob: https://img.youtube.com https://i.ytimg.com",
     // Media policy
     "media-src 'self' data: blob:",
     // Connect policy - API and analytics endpoints
-    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net https://online-booking.workiz.com https://app.workiz.com",
-    // Frame policy - YouTube and Workiz embeds
-    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://online-booking.workiz.com",
+    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net",
+    // Frame policy - YouTube embeds only
+    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
     // Security policies
     "frame-ancestors 'none'",
     "form-action 'self'",

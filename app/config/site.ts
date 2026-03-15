@@ -188,6 +188,8 @@ export const SITE_CONFIG = {
     twitterUrl: 'https://twitter.com/ZBeamLaser',
     facebook: 'facebook.com/profile.php?id=61573280533272',
     facebookUrl: 'https://facebook.com/profile.php?id=61573280533272',
+    googleBusiness: 'Z-Beam Google Business Profile',
+    googleBusinessUrl: 'https://g.page/r/CYOC3kDdj4IEEAI/review',
     linkedin: 'linkedin.com/company/z-beam/',
     linkedinUrl: 'https://linkedin.com/company/z-beam/',
     youtube: 'youtube.com/@Z-Beam',

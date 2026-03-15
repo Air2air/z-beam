@@ -86,15 +86,6 @@ describe('createStaticPage Integration Tests', () => {
       expect(metadata.description).toBeDefined();
     });
 
-    it('should generate metadata for schedule page (dynamic)', async () => {
-      const { generateMetadata } = createStaticPage('schedule');
-      const metadata = await generateMetadata();
-      
-      expect(metadata).toBeDefined();
-      expect(metadata.title).toBeDefined();
-      expect(metadata.description).toBeDefined();
-    });
-
     it('should generate metadata for services page', async () => {
       const { generateMetadata } = createStaticPage('services');
       const metadata = await generateMetadata();
@@ -173,15 +164,6 @@ describe('createStaticPage Integration Tests', () => {
       expect(result.type).toBeDefined();
     });
 
-    it('should render schedule page component (dynamic)', async () => {
-      const { default: Page } = createStaticPage('schedule');
-      const result = await Page();
-      
-      expect(result).toBeDefined();
-      expect(result.type).toBeDefined();
-      expect(result.props.hideAuthor).toBe(true);
-    });
-
     it('should render services page component', async () => {
       const { default: Page } = createStaticPage('services');
       const result = await Page();
@@ -202,7 +184,7 @@ describe('createStaticPage Integration Tests', () => {
 
   describe('Page Type Support', () => {
     const contentCardPages = ['about', 'contact', 'partners', 'equipment', 'compliance', 'safety', 'comparison', 'services'];
-    const dynamicPages = ['schedule', 'netalux'];
+    const dynamicPages = ['netalux'];
 
     contentCardPages.forEach(pageType => {
       it(`should support content-cards page: ${pageType}`, () => {

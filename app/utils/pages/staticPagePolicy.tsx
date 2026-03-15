@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import Link from 'next/link';
 
 import { ContactLeadSection } from '@/app/components/Contact/ContactLeadSection';
-import { ScheduleContent } from '@/app/components/Schedule/ScheduleContent';
 import { SITE_CONFIG } from '@/app/config/site';
 import type { ClickableCardProps } from '@/app/components/ClickableCard';
 import {
@@ -17,7 +16,7 @@ export const SERVICES_HUB_PATH = '/services';
 export type StaticPageType = SharedStaticPageKey;
 
 export interface DynamicFeature {
-  type: 'schedule-widget' | 'clickable-cards' | 'header-cta' | 'custom-section';
+  type: 'clickable-cards' | 'header-cta' | 'custom-section';
   placement?: 'right-sidebar' | 'left-sidebar' | 'inline';
   config?: Record<string, unknown>;
 }
@@ -66,8 +65,6 @@ export const PAGE_CONFIGS: Record<StaticPageType, StaticPageConfig> = {
     comparisonHighlight: 'Laser Cleaning',
   },
   safety: {
-  },
-  schedule: {
   },
   services: {
   },
@@ -149,25 +146,6 @@ export function generatePageSpecificSchema(
           },
         ],
       };
-    case 'schedule':
-      return {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: frontmatter.pageTitle,
-        description: frontmatter.pageDescription,
-        url: pageUrl,
-        potentialAction: {
-          '@type': 'ReserveAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: pageUrl,
-            actionPlatform: [
-              'http://schema.org/DesktopWebPlatform',
-              'http://schema.org/MobileWebPlatform',
-            ],
-          },
-        },
-      };
     case 'netalux':
       return {
         '@context': 'https://schema.org',
@@ -246,21 +224,4 @@ export function buildPageHeaderAction(
       )}
     </Link>
   );
-}
-
-export function buildDynamicSidebar(
-  _pageType: StaticPageType,
-  frontmatter: EnhancedStaticPageFrontmatter
-): ReactNode | undefined {
-  if (frontmatter.dynamicFeatures) {
-    const sidebarFeature = frontmatter.dynamicFeatures.find(
-      feature => feature.placement === 'right-sidebar'
-    );
-
-    if (sidebarFeature?.type === 'schedule-widget') {
-      return <ScheduleContent />;
-    }
-  }
-
-  return undefined;
 }

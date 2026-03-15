@@ -205,7 +205,6 @@ export const ContactForm = memo(function ContactForm() {
           </div>
         </div>
 
-        {/* Phone Number */}
         <div>
           <label htmlFor="phone" className="block text-sm mb-2">
             Phone Number <span className="text-muted text-xs">(optional)</span>

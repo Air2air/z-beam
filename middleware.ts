@@ -91,16 +91,16 @@ export function middleware(request: NextRequest) {
     "worker-src 'self' blob:",
   ].join('; ') : [
     // Production CSP - more restrictive
-    "default-src 'self' https://st.sendajob.com",
-    `script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com`,
-    "style-src 'self' 'unsafe-inline' https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
-    "font-src 'self' data: https://st.sendajob.com https://*.sendajob.com",
-    "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
-    "media-src 'self' data: blob: https://st.sendajob.com https://*.sendajob.com",
-    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net https://online-booking.workiz.com https://app.workiz.com https://st.sendajob.com https://*.sendajob.com",
-    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://online-booking.workiz.com https://st.sendajob.com https://*.sendajob.com",
+    "default-src 'self'",
+    `script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.googletagmanager.com`,
+    "style-src 'self' 'unsafe-inline'",
+    "font-src 'self' data:",
+    "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com",
+    "media-src 'self' data: blob:",
+    "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net",
+    "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
     `frame-ancestors ${frameAncestorsPolicy}`,
-    "form-action 'self' https://st.sendajob.com https://*.sendajob.com",
+    "form-action 'self'",
     "base-uri 'self'",
     "object-src 'none'",
     "worker-src 'self' blob:",
@@ -130,7 +130,7 @@ export function middleware(request: NextRequest) {
   );
   response.headers.set(
     'Permissions-Policy',
-    'camera=(self "https://online-booking.workiz.com"), microphone=(self "https://online-booking.workiz.com"), geolocation=(self "https://online-booking.workiz.com"), interest-cohort=()'
+    'camera=(self), microphone=(self), geolocation=(self), interest-cohort=()'
   );
   
   // Cross-Origin Policies - relaxed for YouTube embeds

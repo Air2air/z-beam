@@ -116,14 +116,14 @@ describe('YAML Static Pages Integration', () => {
   });
 
   describe('Dynamic Features', () => {
-    it('should have dynamic features for schedule page', () => {
-      const yamlPath = path.join(process.cwd(), 'app', 'schedule', 'page.yaml');
+    it('should have dynamic content configuration for netalux page', () => {
+      const yamlPath = path.join(process.cwd(), 'app', 'netalux', 'page.yaml');
       
       if (fs.existsSync(yamlPath)) {
         const content = fs.readFileSync(yamlPath, 'utf-8');
         const data = yaml.load(content) as any;
 
-        // Schedule page should have schedule-widget or dynamic features
+        // Dynamic-content pages should keep their frontmatter-driven features.
         expect(
           data.dynamicFeatures || data.pageType === 'dynamic-content'
         ).toBeTruthy();

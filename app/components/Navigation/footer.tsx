@@ -40,6 +40,18 @@ const socialLinks: SocialLink[] = [
     ),
   },
   {
+    name: "Google Business",
+    href: SITE_CONFIG.social.googleBusinessUrl,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    icon: (
+      <svg fill="none" viewBox="0 0 24 24" className="w-7 h-7" role="presentation" focusable="false">
+        <path fill="currentColor" d="M4 9.25 12 3l8 6.25V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.25Zm2 1V19h12v-8.75L12 5.75 6 10.25Z"/>
+        <path fill="currentColor" d="M9 11h6v2H9zm0 3.5h6V17H9z"/>
+      </svg>
+    ),
+  },
+  {
     name: "LinkedIn",
     href: SITE_CONFIG.social.linkedinUrl,
     target: "_blank",

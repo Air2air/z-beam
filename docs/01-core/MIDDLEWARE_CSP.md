@@ -64,75 +64,56 @@ const csp = [
 
 #### default-src
 ```typescript
-"default-src 'self' https://st.sendajob.com https://*.vercel-insights.com"
+"default-src 'self'"
 ```
 Fallback for all other directives.
 
 #### script-src
 ```typescript
-"script-src 'self' 'unsafe-inline' 'unsafe-eval' https://st.sendajob.com https://*.sendajob.com https://va.vercel-scripts.com https://*.vercel-insights.com https://vercel.live"
+"script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://vercel.live https://www.googletagmanager.com"
 ```
 - `'unsafe-inline'`: Required for Next.js inline scripts
-- `'unsafe-eval'`: Required for React DevTools and build optimization
 - Vercel domains: Analytics and preview mode
 
 #### style-src
 ```typescript
-"style-src 'self' 'unsafe-inline' https://st.sendajob.com https://*.sendajob.com https://fonts.googleapis.com"
+"style-src 'self' 'unsafe-inline'"
 ```
 - `'unsafe-inline'`: Required for Tailwind CSS and dynamic styles
-- Google Fonts: For typography
 
 #### font-src
 ```typescript
-"font-src 'self' data: https://st.sendajob.com https://*.sendajob.com https://fonts.gstatic.com"
+"font-src 'self' data:"
 ```
 - `data:`: For base64-encoded fonts
-- Google Fonts CDN: For web fonts
 
 #### img-src
 ```typescript
-"img-src 'self' data: blob: https://st.sendajob.com https://*.sendajob.com https://*.vercel-insights.com"
+"img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com"
 ```
 - `data:`: For base64 images
 - `blob:`: For dynamically generated images
 
 #### connect-src
 ```typescript
-"connect-src 'self' https://st.sendajob.com https://*.sendajob.com https://*.vercel-insights.com https://vercel.live wss://ws-us3.pusher.com wss://*.pusher.com"
+"connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com https://www.google-analytics.com https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net"
 ```
-- Workiz API endpoints
-- Vercel analytics
-- Pusher WebSocket (if using real-time features)
+- Vercel analytics and preview mode
+- Google analytics and ad conversion endpoints
 
 #### frame-src
 ```typescript
-"frame-src 'self' https://st.sendajob.com https://*.sendajob.com https://online-booking.workiz.com https://app.workiz.com https://vercel.live"
+"frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com"
 ```
-**Critical**: Must include all domains serving iframes (Workiz contact form)
+**Critical**: Must include any third-party iframe origins the live site actually embeds.
 
 #### form-action
 ```typescript
-"form-action 'self' https://st.sendajob.com https://*.sendajob.com"
+"form-action 'self'"
 ```
-Allows form submissions to Workiz endpoints.
+Limits form submissions to first-party endpoints.
 
 ## Third-Party Integrations
-
-### Workiz Contact Form
-
-**Domains**:
-- `https://st.sendajob.com` - Primary form hosting
-- `https://*.sendajob.com` - Subdomain wildcard
-- `https://online-booking.workiz.com` - Booking widget
-- `https://app.workiz.com` - Dashboard/admin
-
-**Required Directives**:
-- `script-src`: For form JavaScript
-- `style-src`: For form styling
-- `frame-src`: For iframe embedding
-- `connect-src`: For form submissions
-- `form-action`: For POST requests
 
 ### Vercel Analytics
 
@@ -340,7 +321,6 @@ When integrating a new external service:
 
 ## Related Documentation
 
-- [Workiz Contact Form Integration](./WORKIZ_CONTACT_FORM.md)
 - [Next.js Middleware](https://nextjs.org/docs/app/building-your-application/routing/middleware)
 - [MDN CSP Guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
 - [Content Security Policy (CSP) Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html)
